@@ -1,0 +1,28 @@
+{
+  "status": "CPU-source-light-and-projection-audit",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "manifestSha256": "062fb3d493f04b1af0eca6ddf75fed0ac4d78d3a3012822e9c1caf60babb738a",
+  "actualSourceSunDirectionYUp": [
+    -0.3682471896995991,
+    0.20047123637403436,
+    -0.907857527734949
+  ],
+  "actualSourceSunElevationDegrees": 11.56451699869517,
+  "actualSourceSunProjectedUV": [
+    0.1475279106858039,
+    0.395534290271132
+  ],
+  "actualSourceSunProjected1254Pixels": [
+    184.9999999999981,
+    495.99999999999955
+  ],
+  "physicalImporterUsesActualExportedSourceSun": true,
+  "legacyNativeWaterGGXConstant": [
+    -0.37397195177089737,
+    0.11473298520351888,
+    -0.9203158813119302
+  ],
+  "nativeWaterGGXSunSeparationDegrees": 4.976418776907018,
+  "canonicalUnchanged": true,
+  "scope": "Existing native water GLSL uses a legacy hardcoded GGX direction separate from actual source solar light/sky. The physical adapter follows the actual exported light; this is an explicit native-versus-physical shading limitation, not a camera or sun-position change."
+}

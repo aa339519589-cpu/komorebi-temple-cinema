@@ -1,0 +1,41 @@
+{
+  "status": "actual-frame-reviewed-source-lighting-invalid",
+  "writtenAt": "2026-10-23T23:39:09.208Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "currentSourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalFrozen": true,
+  "physicalPng": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r09b/scene01-d2587-physical-r09b.png",
+  "physicalPngSha256": "0fffa7db32b8d31e5f2bc69afbdd52ff360d5ea79889ce119c1449a0f337023b",
+  "actualPNGReadAndViewed": true,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "samples": 96,
+  "adaptiveSampling": false,
+  "renderSeconds": 68.64463090896606,
+  "sourceGeometryAndAssetValidationPassed": true,
+  "PBRtriangles": 70213977,
+  "waterTriangles": 2,
+  "sourceAlignedLightingVerified": false,
+  "reason": "The scalar sky RNA values assigned successfully but used the wrong azimuth convention. Official v5.2.1 forward mapping proves the R09b physical solar direction is128.935degrees from the intended source direction and behind this camera. The reported sourceSunProjectedUV is only the intended input-vector projection.",
+  "skyMappingAudit": "lookdev/scene01-rebuild219/sky-rotation-v521-audit219-r09b.json",
+  "materialPortAudit": "lookdev/scene01-rebuild219/material-port-audit219-r09b.json",
+  "observedImprovements": [
+    "Continuous full-scene water reflection and plausible dark body",
+    "More coherent contact shadows and actual fixture material reflections"
+  ],
+  "remainingFailures": [
+    "Sun disc absent from intended(185,496)source image position",
+    "Clear blue sky rather than reference golden cloudy sunset",
+    "Main hall too dark and near stone lantern pale/smooth",
+    "Tree canopy still artificial, repeated dense leaf structures and generic rocks remain",
+    "Native granite/weathered timber GLSL components absent in independent PBR adapter"
+  ],
+  "photographicAcceptance": false,
+  "nativePixelEquivalence": false,
+  "originalR09bPhysicalReportRetainedUnmodified": true,
+  "newGPUJobSubmitted": false,
+  "fullVerifiedExportRetainedForRootPhysicalIteration": true,
+  "freeBytes": 1439768576
+}

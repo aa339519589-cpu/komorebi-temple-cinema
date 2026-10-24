@@ -1,0 +1,18 @@
+{
+  "revision": "r13",
+  "sourceHash": "f3291ade96e88b5e2f20c12ea2268ad0e8d12130e21a6496d4e5dd2c3097639c",
+  "status": "Four native views and same-source actual-ray diagnostic completed and viewed; photographic failure retained",
+  "validation": "lookdev/scene10-support207/validation210-r13.json",
+  "diagnostic": "lookdev/scene10-support207/pixel-diagnostic-r13.json",
+  "corrected": [
+    "The actual stair is diagonal, clipped against configured lamp courses, with a closed head wedge, short physical guard returns and bed-seated stone supports.",
+    "One measured soil/flag center overlap is eliminated and primary structural/lamp solids pass topology checks."
+  ],
+  "remaining": [
+    "A large smooth front grey face is still present. Actual native ray picks identify the terrain material at [-1.967,.339,-2.162] and [-1.625,.225,-2.129], in front of the bearing stones.",
+    "The inherited requirement to connect the forecourt by a raised ramp is the root cause: high path-bed grid vertices spill into the near forecourt boundary. It is an old implementation choice, not a user requirement or photographed feature.",
+    "Lamp shape/stone weathering, timber/roof rhythms, garden mass palette and atmospheric/material fidelity remain unaccepted."
+  ],
+  "next": "R14 retires the direct front ramp, restores the adjoining front two grid rows to low creek bed, narrows the path bed beneath real flags, and keeps only the physically connected garden-side approach to the tower walk. Same native ray pixels are repeated in R14.",
+  "visualAccepted": false
+}

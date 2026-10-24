@@ -1,0 +1,33 @@
+{
+  "sourceHash": "394c92601e10f190969acf04e373c657c9c29df5a2730cc93051f97be66acba4",
+  "visualAccepted": false,
+  "status": "Retained intermediate. Final linked scene programs use maximum11 active sampler uniforms, but a temporary17-unit allocation warning persists during runtime environment conversion; needs explicit prefiltering verification.",
+  "frames": [
+    {
+      "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r09b-20261024/reference.png",
+      "viewed": true,
+      "valid": true,
+      "glError": 0,
+      "programsLinked": true,
+      "rgbaSha256": "4e8e80758fd06e0cb7af0cdc54639879c562559fe73db344c6751fda1e303c63",
+      "pngSha256": "298ec9b519fbc5553f012915f5a275869579a8135e5365211eb754187ff453c4"
+    },
+    {
+      "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r09b-20261024/detail-native.png",
+      "viewed": true,
+      "valid": true,
+      "glError": 0,
+      "programsLinked": true,
+      "rgbaSha256": "b80be6f21c38a44c0f529275d0cd903cff9d1453a13d99e6b0199d3c59423951",
+      "pngSha256": "3794939a14fbefc48699c828d559849cd35a5ca91f519ff2a2b671c5f7efa4c1"
+    }
+  ],
+  "sourceBase": "3909765933302d74727c41bd15f4648188dde9a2bf43b231ffa8cd526d90f440",
+  "snapshot": "lookdev/scene05-rebuild220/r09b-source",
+  "observed": [
+    "Deep window bones and rebated surround are visible, but still too regular and dark in the rear.",
+    "Broad wood scan tissue remains too contrasty; carved face skins hide the nominal arm arrises.",
+    "Near measured-sky sectors alone give nearly the same visible near-corner result as all4 sectors; two omitted far sectors remain only in restrained environment."
+  ],
+  "next": "R10 actual arm face/edge reconstruction and scan pigment tissue repair, with explicit sky/probe prefiltering outside material draws. Same exposure, key and courtyard proxies."
+}

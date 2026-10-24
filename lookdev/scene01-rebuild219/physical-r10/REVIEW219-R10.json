@@ -1,0 +1,173 @@
+{
+  "status": "actual-direction-corrected-physical-frame-reviewed-not-photographically-accepted",
+  "writtenAt": "2026-10-23T23:48:48.742Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalFrozen": true,
+  "renderFile": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r10/scene01-d2587-physical-r10.png",
+  "renderSha256": "2c9b68ce36c44bf044011926b22c55e171867bb0d52ad3185e11168afe8a02c9",
+  "renderBytes": 2309907,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "fixedSamples": 96,
+  "renderSeconds": 68.42027306556702,
+  "noBlendSaved": true,
+  "actualPNGReadAndViewed": true,
+  "sourcePBRtriangles": 70213977,
+  "originalWaterTriangles": 2,
+  "actualRNAForwardDirectionAudit": {
+    "officialV521ForwardFormula": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+    "officialImplementation": [
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+      "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl"
+    ],
+    "intendedSourceDirectionYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ],
+    "intendedSourceDirectionZUp": [
+      -0.3682471811771393,
+      0.9078575372695923,
+      0.20047114789485931
+    ],
+    "actualRNAForwardMappedSkyDirectionZUp": [
+      -0.3682471811771393,
+      0.9078575372695923,
+      0.20047114789485931
+    ],
+    "actualRNAForwardMappedSkyDirectionSourceYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ],
+    "directionVectorResidual": 0,
+    "intendedSourceProjection": {
+      "inFrontOfCamera": true,
+      "uv": [
+        0.14752793149258597,
+        0.3955343098939469
+      ]
+    },
+    "actualRNAForwardMappedSkyProjection": {
+      "inFrontOfCamera": true,
+      "uv": [
+        0.14752793149258597,
+        0.3955343098939469
+      ]
+    },
+    "projectionResidualPixels": [
+      0,
+      0
+    ],
+    "actualSolarDiscImageVerificationStillRequired": true,
+    "R09bInputProjectionWasNotPhysicalSkyDirectionProof": true
+  },
+  "actualSolarDiscUniqueImageLocalizationVerified": false,
+  "solarDiscImageReason": "Original RGB8 solar neighborhood is near-white/clipped over an area much wider than a solar disc; actual independent disc centroid cannot be measured from this PNG.",
+  "PNGPixelInspection": {
+    "status": "CPU-actual-physical-PNG-pixel-inspection-no-image-edit",
+    "file": "lookdev/scene01-rebuild219/physical-r10/scene01-d2587-physical-r10.png",
+    "resolution": [
+      1254,
+      1254
+    ],
+    "colorType": "RGB8",
+    "sourceSolarPixelRGB": [
+      255,
+      255,
+      255
+    ],
+    "solarNeighborhood": {
+      "bounds": [
+        110,
+        430,
+        255,
+        525
+      ],
+      "pixels": 13775,
+      "minimumRGB": [
+        254,
+        254,
+        251
+      ],
+      "maximumRGB": [
+        255,
+        255,
+        255
+      ],
+      "allChannelsAtLeast250Pixels": 13775,
+      "allChannelsExactly255Pixels": 12060
+    },
+    "samples": {
+      "160,470": [
+        255,
+        255,
+        255
+      ],
+      "185,480": [
+        255,
+        255,
+        255
+      ],
+      "200,480": [
+        254,
+        254,
+        254
+      ],
+      "185,490": [
+        255,
+        255,
+        255
+      ],
+      "185,496": [
+        255,
+        255,
+        255
+      ],
+      "185,505": [
+        255,
+        255,
+        255
+      ],
+      "220,496": [
+        255,
+        255,
+        255
+      ],
+      "240,510": [
+        255,
+        255,
+        255
+      ]
+    },
+    "actualSolarDiscUniquePixelLocalizationClaimed": false
+  },
+  "observations": {
+    "correctionEffect": "Source-correct sun puts foreground column/bridge/stone lantern into backlight rather than the R09b incorrect direct front illumination; stone lantern is gray instead of white.",
+    "remainingFailures": [
+      "Large clipped white horizon and cool blue upper sky",
+      "Dark cool main hall and garden; absent reference golden balance and lifted warm stone bounce",
+      "Smooth granite because original gn mineral/differential bump is not yet ported",
+      "Artificial canopy repetitions and generic bank rocks remain",
+      "Native wood world ageing and other original GLSL adapters remain explicitly omitted"
+    ],
+    "noExposureFillOrMaterialChangeMade": true
+  },
+  "photographicAcceptance": false,
+  "nativePixelEquivalence": false,
+  "allEarlierFailureAndLightingInvalidImagesRetained": true,
+  "verifiedExportAssetsRetainedForRootNextIteration": true,
+  "freshExportSubmitted": false,
+  "emergencyFloorBreached": false,
+  "minimumRecordedFreeBytes": 1318731776,
+  "freeNowBytes": 1261273088,
+  "CPUOnlyPreparedGranitePort": {
+    "path": "lookdev/scene01-rebuild219/granite219-physical-node-port-plan.py",
+    "sha256": "70a7852c77d05b1ebe774420475f453f90430d69ac20659494c9601403860fbe",
+    "invokedInR10": false,
+    "bitOrPixelParityClaimed": false
+  }
+}

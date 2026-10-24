@@ -8,12 +8,16 @@
     "reconstructions/camera-dolly.js",
     "assets/polyhaven/qwantani-sunset-puresky/sky-2k.exr",
     "assets/polyhaven/qwantani-sunset-puresky/provenance.json",
-    "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr"
+    "reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+    "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-sc07.bin",
+    "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-mount-loops.json",
+    "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-manifest.json",
+    "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/LICENSE-ATTRIBUTION.txt"
   ],
   "sourceBuilder": "tools/build-temple-joinery-kit.py",
   "provenance": "lookdev/gilded-kiku-v01/README.md",
   "authorization": "User explicitly permitted image generation, Blender and all tools on 2026-10-18.",
-  "revision": "scene05-volumetric-terminal204-r09",
+  "revision": "scene05-rebuild220-r08-bounded-licensed-carving",
   "bearingBlockCorrection": {
     "scope": "Only the closed bearing blocks emitted by sculpted-joinery cushion(): one large foot block and the small rising blocks per bracket set. Existing curved arms, half laps, receivers, fittings, ceramic tiles, camera, site, lights and all materials retained.",
     "diagnosis": "The previous sin-expanded power7superellipse section and shared cap/side normals made the real close-view bearing blocks look soft and inflated. Reference5照片6 has flatter bearing planes and sharper tapered sides.",
@@ -316,5 +320,24 @@
       "Lower the inner brow wedge ends into the observed sharpV, thin the gilt nose cap on its actual bulb and reduce mouth relief projection",
       "All original mount matrices/geometry,175tier/roof/site/camera/hip and196 physical-light/raw-sky anchors remain unchanged; actualR08 and every earlier failure source/frame is preserved"
     ]
+  },
+  "licensedCarving220": {
+    "source": "Wood Carving of Dragon",
+    "creator": "SCANTECH_3D / stored package SCANOLOGY_3D (@3dscantech)",
+    "url": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+    "license": "CC-BY-4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+    "runtime": "src/licensed-cloud220.js",
+    "use": "Only the main occupied-storey central window cassette: original cloud component surfaces, uniform world scale, isometric reflection and authored exact planar mount closures; no other building imported.",
+    "sourcePositionsAndNormalsRetained": true,
+    "sourceRGBUsed": false,
+    "newRawSourceCopied": false,
+    "NoAIResearchPiecesUsed": false,
+    "cultureEraSite": "Unspecified by source creator. Different artifact, not an exact Japanese reference ornament.",
+    "sourceBufferSHA256": "6b88a3785d280d79b41c518dc1357cd4d6526b69164fc23a32f30f98c19b2fb3",
+    "sourceMountSHA256": "0788e0fdc7bd398ace5e93cd63a8de490ba490c45f0123272f7da90a18d843b0",
+    "primaryEvidence": "Existing creator-primary-metadata and public creator page list CC Attribution and scanning/woodcarving tags. The API endpoint was inaccessible via web; no live API verification claim.",
+    "provenance": "assets/licensed-cloud220/provenance.json",
+    "photographicAcceptance": false
   }
 }

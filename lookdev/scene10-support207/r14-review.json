@@ -1,0 +1,95 @@
+{
+  "revision": "r14",
+  "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+  "status": "All four native views completed, source-matched and personally viewed; explicit technical checks passed, photographic fidelity rejected",
+  "nativeViews": [
+    {
+      "view": "hero",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/report.json",
+      "status": "rendered-review",
+      "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "9e9fc1af473ad9438daf25c1e1b1990b67c469fa16fbbc47c80f900eaa58cafc"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "cb569cefedfb34d8edb7faec5ccf1679b558d25ffa4490c17962dbe267288583"
+        }
+      ]
+    },
+    {
+      "view": "low",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "af64e46f78ffead50522da00c8e0f98d86d529d9738f3d295d0f3f1134288db3"
+        }
+      ]
+    },
+    {
+      "view": "overhead",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "8ce63600c8f547a53b297f6e632efb1e612db76e4ce0979990c1f3433394e0c3"
+        }
+      ]
+    }
+  ],
+  "corrected": [
+    "Actual repeated native rays prove the former front soil occluder is gone: the same stone intersections formerly behind it are now first hits.",
+    "The unsupported implementation-only direct raised front-court ramp/duplicate fork is retired. One real garden-side path links the surviving tower walk around the island to the stair foot.",
+    "Lamp/outer-step depth and height, closed rounder lamp profiles, diagonal clipped treads, a real entry deck opening/head wedge/guard returns and riverbed-seated stone supports are implemented.",
+    "Near fragments are replaced by connected low woody crowns/ferns on actual transformed rocks and lowered terrain. Window emission is restrained amber with spatial variation; wet stone/soil/bridge coat layers are real material changes."
+  ],
+  "remaining": [
+    "The full image remains strongly CG and is not a finished photographic match.",
+    "The west lamp-island/garden-link face and hall-side shore still have bare smooth or block-like exposures. Removal of the two diagnosed front soil intersections does not establish that the whole shore is matched.",
+    "Lamp carving/plinth and the bridge entry rail arrangement remain too geometric; the tall dock/podium and narrow gap to the forecourt do not match the photographed natural moss island.",
+    "Near tree scaling restores canopy height from actual lower roots but creates large foreground trunks/crowns that need further reference composition work. Old forest tables must not become acceptance constraints again.",
+    "Roof/timber/ceramic repetition, overall lighting/fog, secondary-fixture illumination and wet material response remain visibly different from the reference."
+  ],
+  "visualAccepted": false
+}

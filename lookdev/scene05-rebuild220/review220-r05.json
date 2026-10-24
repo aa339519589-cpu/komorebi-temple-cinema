@@ -1,0 +1,60 @@
+{
+  "status": "actual three native frames viewed; metal regressions retained for repair",
+  "sourceHash": "f1c2b9df3b2648c12e9577bc4bae2a4ce6e9cce7218ef440fe541375b60bf98a",
+  "visualAccepted": false,
+  "renders": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r05-20261024",
+      "sourceHash": "f1c2b9df3b2648c12e9577bc4bae2a4ce6e9cce7218ef440fe541375b60bf98a",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "reference",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "41bf1ad22078a6affd76fc59a49a3ce8fea2d8107e6cf8b21f1a69a820a431f1"
+        },
+        {
+          "name": "detail-native",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "0ab80b81f5554bbf5c3b22840bd7d70b88f69a423e0c961be4abd638e8808485"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r05-groundside-20261024",
+      "sourceHash": "f1c2b9df3b2648c12e9577bc4bae2a4ce6e9cce7218ef440fe541375b60bf98a",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "name": "inspection-view",
+          "viewed": true,
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "c1fbc6192afc908935ca86faa4f3795a1e18501c49485220d2bea30af3dce5e1"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Role-specific deep red/brown/gray-red surfaces and real carved cheek recesses visibly improve on R04 orange sameness.",
+    "Free cheek curves are more scooped and the long raked hip has actual double cove sections and a smooth recurve.",
+    "Large boot is too flat: its engraved rosette reads as scratched radial lines instead of the reference shallow repousse flower with fine chasing.",
+    "New pierced collar fails visually as a simple six-hole plate, not fine scroll openwork; preserve this failed field and rebuild the surviving curved strands.",
+    "Generic planar gold leaf friezes and the still-perfect eave/ceramic rows remain synthetic."
+  ],
+  "next": [
+    "Replace the coarse six-pocket strap by narrow chased curled ribbons and open filigree.",
+    "Add low ribbed repousse petals to the principal boot while keeping real incisions, double rims and struck rivets; lower applications need much finer channel rhythm."
+  ],
+  "comparison": "lookdev/scene05-rebuild220/compare220-r05-metal-anatomy.jpg"
+}

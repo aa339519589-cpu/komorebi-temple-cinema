@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-23T22:42:22.320Z",
+  "status": "cpu-prepared-awaiting-reviewed1GiB-storage-threshold",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalChanged": false,
+  "freeBytes": 664731648,
+  "freeGiB": 0.61907958984375,
+  "reviewedExportLimits": {
+    "maxUniqueBytes": 402653184,
+    "minimumFreeBytes": 402653184,
+    "startFreeBytes": 1073741824,
+    "emergencyFloorBytes": 268435456
+  },
+  "storageReview": {
+    "reviewedBy": "Root",
+    "reviewedAt": "2026-10-23T22:35:32.237552+00:00",
+    "previousLimits": {
+      "maxUniqueBytes": 536870912,
+      "minimumFreeBytes": 671088640,
+      "startFreeBytes": 1395864372
+    },
+    "reason": "Earlier actual Scene01 unique export was approximately231MiB. This bounded diagnostic reduces the unique cap to384MiB, retains384MiB export floor and256MiB emergency floor. A1GiB start budget covers384MiB payload +384MiB retained +256MiB browser/JSON overhead. This is a smaller export allowance, not an unbounded relaxation. Export failure will not auto-retry or lift the cap.",
+    "freshExportAttemptsAuthorized": 1,
+    "physicalRenderFramesAuthorized": 1
+  },
+  "exportStarted": false,
+  "physicalRenderStarted": false,
+  "blenderInstalledVersion": "5.2.1",
+  "files": {
+    "lookdev/scene01-rebuild219/physical-r08-settings.json": {
+      "sha256": "5ba18cee5a8ec0e8dad2aa14e52a12d62cf3280a708f6e8c82d732dfc40676cc",
+      "bytes": 3676
+    },
+    "lookdev/scene01-rebuild219/render-physical219-r08.py": {
+      "sha256": "54ff790c144e77c5b76a61875496fd488bb639551c78dcd0179a86d7d246b3d6",
+      "bytes": 36735
+    },
+    "lookdev/scene01-rebuild219/verify-export219-r08.mjs": {
+      "sha256": "ec061e9417c609f6df630b090b6a0fac6cc055cc0df8023887022d8559949e6d",
+      "bytes": 5809
+    },
+    "lookdev/scene01-rebuild219/run-export219-r08.mjs": {
+      "sha256": "8399cd3b93e4a88b66f568e84b224f56ef67c116e735ca27001d9f4a29c0d590",
+      "bytes": 2514
+    },
+    "lookdev/scene01-rebuild219/run-physical219-r08.mjs": {
+      "sha256": "72c7613ba808a0221268cfa2a3214e69e9b32080662409d7b5d7b9d3d528141a",
+      "bytes": 3430
+    },
+    "lookdev/scene01-rebuild219/cleanup-export219-r08.mjs": {
+      "sha256": "be5378bf5eb9ffb9a3e2b67988048c265d038fd619a9f429dcf217c57708c456",
+      "bytes": 5060
+    },
+    "tools/export-reconstructed-scene.mjs": {
+      "sha256": "82b85d7a0b01f07d1ee9292de36c6491aa08eb89bfd59e2673b3aad8dafb41cf",
+      "bytes": 12846
+    },
+    "tools/export-asset-writer.mjs": {
+      "sha256": "1d4376974762153626a4b13d39fc304ba57b273545395abe2ae83fc8ccf95cde",
+      "bytes": 2823
+    },
+    "tools/run-blender-queued.mjs": {
+      "sha256": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+      "bytes": 1042
+    },
+    "tools/encode-webgl-png.mjs": {
+      "sha256": "9c1a92a67d5e0a1ff236cb5f699d6e99a858edf72fe528c4bf824e22da45663c",
+      "bytes": 2146
+    }
+  }
+}

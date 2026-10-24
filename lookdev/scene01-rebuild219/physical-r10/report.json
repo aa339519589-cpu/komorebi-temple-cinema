@@ -1,0 +1,6146 @@
+{
+  "status": "path-traced-review",
+  "startedAt": 1792799027.11214,
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "sourceCommit": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+  "sourceStatistics": {
+    "meshes": 3150,
+    "geometries": 3029,
+    "materials": 109,
+    "textures": 28,
+    "instances": 560393,
+    "triangles": 70213977,
+    "diagnosticSurfaceTriangles": 2
+  },
+  "sourceManifestSha256": "062fb3d493f04b1af0eca6ddf75fed0ac4d78d3a3012822e9c1caf60babb738a",
+  "settings": {
+    "expectedSourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+    "exportDirectory": "lookdev/scene01-rebuild219/export-physical-r09",
+    "outputDirectory": "lookdev/scene01-rebuild219/physical-r10",
+    "exportLimits": {
+      "maxUniqueBytes": 805306368,
+      "minimumFreeBytes": 805306368,
+      "startFreeBytes": 2040109466,
+      "emergencyFloorBytes": 268435456
+    },
+    "render": {
+      "size": 1254,
+      "samples": 96,
+      "timeLimitSeconds": 480,
+      "adaptiveThreshold": 0.025,
+      "adaptiveMinimumSamples": 24,
+      "denoise": true,
+      "device": "METAL",
+      "maxBounces": 10,
+      "diffuseBounces": 6,
+      "glossyBounces": 6,
+      "transmissionBounces": 8,
+      "exposureEV": 0.04264433740849372,
+      "saveBlend": false,
+      "frames": 1,
+      "minimumStartFreeBytes": 1073741824,
+      "adaptiveSampling": false
+    },
+    "lighting": {
+      "boundary": "Same previously selected physical Multiple Scattering atmosphere, single source-aligned solar disc, explicit Blender5.x aerosol field adapter",
+      "worldStrength": "exported environmentIntensity",
+      "sunAngularDiameterRadians": 0.0093,
+      "airDensity": 1.0,
+      "ozoneDensity": 1.0,
+      "nativeFillAreaHemisphereAndPointProxiesImported": false,
+      "surfaceEmission": "Exported emission on actual fixture geometry retained; native leaf ambient emission suppressed as a declared thin-leaf adaptation",
+      "skyType": "MULTIPLE_SCATTERING",
+      "aerosolDensity": 1.2
+    },
+    "geometry": "Exact exported source positions, indices, normals, UV, instance matrices and colors. Orthogonal TRS linked; affine shear and singular transforms baked without changing source triangle count. No new water or substitute garden/architecture mesh.",
+    "materialPorts": {
+      "portablePBR": "Preserve source base color, source and instance color multiplication, metric UV/texture transforms, roughness/metalness maps, normal XY scale, bump, coat and emissive fixtures",
+      "leafAndPetal": "Same blades and original mapped color; energy-conserving Principled/Translucent mixture replaces native view-dependent added radiance. Not GLSL pixel parity.",
+      "water": "Only retained actual Reflector geometry/matrix, if available from the official export. Dielectric IOR1.333, roughness0.07, dark green body, original six world-space wave functions as bump; actual path-traced scene/sky reflection, no photograph or reflected-scene proxy.",
+      "waterfall": "Actual exported ribbon geometry, source color and UV; declared transmissive coverage approximation for nonportable dynamic alpha/foam hook.",
+      "sky": "Native generated-LDR sky shader is not imported. Source-aligned physical atmosphere is an independent boundary approximation.",
+      "otherGLSL": "World-space wood/rock/bark/granite color and micro-normal hooks are not silently claimed portable. Portable original image maps and actual geometric erosion remain; exact omitted hooks enumerated in report."
+    },
+    "acceptance": "One independent physical-lighting diagnostic only; neither native pixel equivalence nor photographic acceptance is claimed.",
+    "storageReview": {
+      "reviewedBy": "Root",
+      "reviewedAt": "2026-10-23T23:21:34.925676+00:00",
+      "previousFailedAttempt": "export-physical-r08",
+      "previousFailedReport": "lookdev/scene01-rebuild219/export-physical-r08/export-report.json",
+      "previousVerifiedPartialStorage": {
+        "uniqueBytes": 395264899,
+        "logicalBytes": 423994377,
+        "files": 18314,
+        "uniqueFiles": 7518,
+        "savedBytes": 28729478,
+        "completeGeometryGroups": 3029,
+        "texturePNGs": 28,
+        "instancePayloads": 6184,
+        "finalManifestReturned": false,
+        "waterBuffersByteVerified": true,
+        "waterFullMatrixReturned": false
+      },
+      "reason": "One new attempt explicitly authorized after actual R08 unique-cap failure. All recorded R08 partial payloads were independently byte/hash verified before only its derived assets were removed. R09 retains exactly the same source geometry, textures and quality with 768MiB unique cap +768MiB per-write free floor and1.9GiB start budget, maintaining256MiB physical emergency monitor. The larger bounded allowance is based on measured partial export volume, not reduced geometry or hidden quality changes. No third automatic attempt.",
+      "freshExportAttemptsAuthorized": 1,
+      "physicalRenderFramesAuthorized": 1
+    },
+    "apiRepair": {
+      "previousFailedPhysicalAttempt": "physical-r09",
+      "originalExportReused": "lookdev/scene01-rebuild219/export-physical-r09",
+      "freshExport": false,
+      "scope": "Only dust_density API name repaired to aerosol_density from official Blender5.x API and current5.2 API index. Same actual source sun, already selected atmosphere model, density1.2, geometry/textures and96sample1254 one-frame recipe.",
+      "officialSources": [
+        {
+          "url": "https://docs.blender.org/api/current/genindex-A.html",
+          "evidence": "Official API search snapshot labeled5.2 indexes aerosol_density under ShaderNodeTexSky; direct specific5.2 API page403/402."
+        },
+        {
+          "url": "https://docs.blender.org/api/5.1/bpy.types.ShaderNodeTexSky.html",
+          "evidence": "Official5.1 API explicitly documents aerosol_density and the same actual-installed sky_type enum set."
+        },
+        {
+          "url": "https://docs.staging.blender.org/manual/en/latest/render/shader_nodes/textures/sky.html",
+          "evidence": "Official5.2 staging manual search snapshot describes Aerosols; direct open403."
+        }
+      ],
+      "actualR09bRNAConfirmed": false,
+      "physicalAttemptAuthorized": true,
+      "authorization": "Root explicitly authorized one R09b physical job reusing verified R09, no fresh export. Same physical model/intensity/direction and aerosol1.2 compatibility value. Actual failure preserved, no third automatic physical job."
+    },
+    "rotationRepair": {
+      "status": "Root-authorized-one-R10-physical-job",
+      "previousWrongDirectionFrame": "physical-r09b/scene01-d2587-physical-r09b.png",
+      "audit": "lookdev/scene01-rebuild219/sky-rotation-v521-audit219-r09b.json",
+      "onlyPhysicalDifference": "Use RNA r=atan2(D.x,D.y) rather than atan2(D.y,D.x); source sun direction/sky model/energy/geometry/materials/camera unchanged. Add actual-RNA forward direction and projection residual guards before importing geometry.",
+      "forwardFormula": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+      "directionResidualLimit": 1e-06,
+      "projectionResidualPixelsLimit": 0.002,
+      "officialVersionSources": [
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl"
+      ],
+      "freshExport": false,
+      "rootAuthorization": "One R10 physical job authorized, reusing complete verified R09 export. Only correct atan2(x,y) and add actual sky forward-map/source-camera projection gate; all original geometry/textures/materials/energy/render parameters remain frozen. Preserve lighting-invalid R09b. No new export."
+    }
+  },
+  "renderScriptSha256": "72d9509c9c261b09b72e34a2c7785944330598ca361f97e36d99e47a62d39c47",
+  "verificationSha256": "db03b3980de5c07a7c2eeb0479b70b59f9afdbb9f05829d60d431d7b8d589baa",
+  "blender": "5.2.1 LTS",
+  "photographicAcceptance": false,
+  "nativePixelEquivalence": false,
+  "warnings": [],
+  "excluded": [
+    {
+      "name": "independently-authored-sky-only-environment",
+      "type": "Mesh",
+      "material": "authored-golden-cloud-radiance",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "real-reflected-garden-pond-ripple-surface",
+      "type": "Reflector",
+      "material": "garden-ripple-planar-reflection",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "skyAPICompatibility": {
+    "status": "actual-RNA-enum-properties-and-values-confirmed",
+    "blender": "5.2.1 LTS",
+    "beforeLargeGeometryOrTextureImport": true,
+    "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+    "selectedSkyType": "MULTIPLE_SCATTERING",
+    "supportedSkyTypeEnum": [
+      {
+        "identifier": "SINGLE_SCATTERING",
+        "name": "Single Scattering",
+        "description": "Single scattering sky model"
+      },
+      {
+        "identifier": "MULTIPLE_SCATTERING",
+        "name": "Multiple Scattering",
+        "description": "Multiple scattering sky model (more accurate)"
+      },
+      {
+        "identifier": "PREETHAM",
+        "name": "Preetham",
+        "description": "Preetham 1999 (Legacy)"
+      },
+      {
+        "identifier": "HOSEK_WILKIE",
+        "name": "Hosek / Wilkie",
+        "description": "Hosek / Wilkie 2012 (Legacy)"
+      }
+    ],
+    "requiredProperties": {
+      "sun_disc": {
+        "exists": true,
+        "type": "BOOLEAN",
+        "readOnly": false,
+        "requested": true,
+        "actual": true,
+        "assignmentResidual": 0.0
+      },
+      "sun_size": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 0.0093,
+        "actual": 0.00930000003427267,
+        "assignmentResidual": 3.427267150635238e-11
+      },
+      "sun_elevation": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 0.20183880771752719,
+        "actual": 0.20183880627155304,
+        "assignmentResidual": 1.4459741459749154e-09
+      },
+      "sun_rotation": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": -0.3853436945093298,
+        "actual": -0.3853437006473541,
+        "assignmentResidual": 6.138024311042045e-09
+      },
+      "air_density": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 1.0,
+        "actual": 1.0,
+        "assignmentResidual": 0.0
+      },
+      "aerosol_density": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 1.2,
+        "actual": 1.2000000476837158,
+        "assignmentResidual": 4.768371586472142e-08
+      },
+      "ozone_density": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 1.0,
+        "actual": 1.0,
+        "assignmentResidual": 0.0
+      },
+      "altitude": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 0.0,
+        "actual": 0.0,
+        "assignmentResidual": 0.0
+      }
+    },
+    "methodChangeAfterFailureAllowed": false,
+    "allRNAProperties": {
+      "rna_type": {
+        "type": "POINTER",
+        "readOnly": true
+      },
+      "type": {
+        "type": "STRING",
+        "readOnly": true
+      },
+      "location": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "location_absolute": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "width": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "height": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "dimensions": {
+        "type": "FLOAT",
+        "readOnly": true
+      },
+      "name": {
+        "type": "STRING",
+        "readOnly": false
+      },
+      "label": {
+        "type": "STRING",
+        "readOnly": false
+      },
+      "inputs": {
+        "type": "COLLECTION",
+        "readOnly": true
+      },
+      "outputs": {
+        "type": "COLLECTION",
+        "readOnly": true
+      },
+      "panel_states": {
+        "type": "COLLECTION",
+        "readOnly": true
+      },
+      "internal_links": {
+        "type": "COLLECTION",
+        "readOnly": true
+      },
+      "parent": {
+        "type": "POINTER",
+        "readOnly": false
+      },
+      "warning_propagation": {
+        "type": "ENUM",
+        "readOnly": false,
+        "enumItems": [
+          {
+            "identifier": "ALL",
+            "name": "All Messages",
+            "description": "Propagate every info, error, and warning message upstream"
+          },
+          {
+            "identifier": "ERRORS_AND_WARNINGS",
+            "name": "Errors and Warnings",
+            "description": "Propagate only error and warning messages upstream"
+          },
+          {
+            "identifier": "ERRORS",
+            "name": "Errors",
+            "description": "Propagate only error messages upstream"
+          },
+          {
+            "identifier": "NONE",
+            "name": "None",
+            "description": "Do not propagate any messages upstream"
+          }
+        ]
+      },
+      "use_custom_color": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "color": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "color_tag": {
+        "type": "ENUM",
+        "readOnly": true,
+        "enumItems": [
+          {
+            "identifier": "NONE",
+            "name": "None",
+            "description": "Default color tag for new nodes and node groups"
+          },
+          {
+            "identifier": "ATTRIBUTE",
+            "name": "Attribute",
+            "description": ""
+          },
+          {
+            "identifier": "COLOR",
+            "name": "Color",
+            "description": ""
+          },
+          {
+            "identifier": "CONVERTER",
+            "name": "Converter",
+            "description": ""
+          },
+          {
+            "identifier": "DISTORT",
+            "name": "Distort",
+            "description": ""
+          },
+          {
+            "identifier": "FILTER",
+            "name": "Filter",
+            "description": ""
+          },
+          {
+            "identifier": "GEOMETRY",
+            "name": "Geometry",
+            "description": ""
+          },
+          {
+            "identifier": "INPUT",
+            "name": "Input",
+            "description": ""
+          },
+          {
+            "identifier": "MATTE",
+            "name": "Matte",
+            "description": ""
+          },
+          {
+            "identifier": "OUTPUT",
+            "name": "Output",
+            "description": ""
+          },
+          {
+            "identifier": "SCRIPT",
+            "name": "Script",
+            "description": ""
+          },
+          {
+            "identifier": "SHADER",
+            "name": "Shader",
+            "description": ""
+          },
+          {
+            "identifier": "TEXTURE",
+            "name": "Texture",
+            "description": ""
+          },
+          {
+            "identifier": "VECTOR",
+            "name": "Vector",
+            "description": ""
+          },
+          {
+            "identifier": "PATTERN",
+            "name": "Pattern",
+            "description": ""
+          },
+          {
+            "identifier": "INTERFACE",
+            "name": "Interface",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP",
+            "name": "Group",
+            "description": ""
+          }
+        ]
+      },
+      "select": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "show_options": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "show_preview": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "hide": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "mute": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "show_texture": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "bl_idname": {
+        "type": "STRING",
+        "readOnly": false
+      },
+      "bl_label": {
+        "type": "STRING",
+        "readOnly": false
+      },
+      "bl_description": {
+        "type": "STRING",
+        "readOnly": false
+      },
+      "bl_icon": {
+        "type": "ENUM",
+        "readOnly": false,
+        "enumItems": [
+          {
+            "identifier": "NONE",
+            "name": "NONE",
+            "description": ""
+          },
+          {
+            "identifier": "CHAR_NOTDEF",
+            "name": "CHAR_NOTDEF",
+            "description": ""
+          },
+          {
+            "identifier": "CHAR_REPLACEMENT",
+            "name": "CHAR_REPLACEMENT",
+            "description": ""
+          },
+          {
+            "identifier": "NOT_FOUND",
+            "name": "NOT_FOUND",
+            "description": ""
+          },
+          {
+            "identifier": "BLANK1",
+            "name": "BLANK1",
+            "description": ""
+          },
+          {
+            "identifier": "AUTOMERGE_OFF",
+            "name": "AUTOMERGE_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "AUTOMERGE_ON",
+            "name": "AUTOMERGE_ON",
+            "description": ""
+          },
+          {
+            "identifier": "CHECKBOX_DEHLT",
+            "name": "CHECKBOX_DEHLT",
+            "description": ""
+          },
+          {
+            "identifier": "CHECKBOX_HLT",
+            "name": "CHECKBOX_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "CLIPUV_DEHLT",
+            "name": "CLIPUV_DEHLT",
+            "description": ""
+          },
+          {
+            "identifier": "CLIPUV_HLT",
+            "name": "CLIPUV_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_UNLOCKED",
+            "name": "DECORATE_UNLOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_LOCKED",
+            "name": "DECORATE_LOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "FAKE_USER_OFF",
+            "name": "FAKE_USER_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "FAKE_USER_ON",
+            "name": "FAKE_USER_ON",
+            "description": ""
+          },
+          {
+            "identifier": "HIDE_ON",
+            "name": "HIDE_ON",
+            "description": ""
+          },
+          {
+            "identifier": "HIDE_OFF",
+            "name": "HIDE_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "INDIRECT_ONLY_OFF",
+            "name": "INDIRECT_ONLY_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "INDIRECT_ONLY_ON",
+            "name": "INDIRECT_ONLY_ON",
+            "description": ""
+          },
+          {
+            "identifier": "ONIONSKIN_OFF",
+            "name": "ONIONSKIN_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "ONIONSKIN_ON",
+            "name": "ONIONSKIN_ON",
+            "description": ""
+          },
+          {
+            "identifier": "UNPINNED",
+            "name": "UNPINNED",
+            "description": ""
+          },
+          {
+            "identifier": "PINNED",
+            "name": "PINNED",
+            "description": ""
+          },
+          {
+            "identifier": "RADIOBUT_OFF",
+            "name": "RADIOBUT_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RADIOBUT_ON",
+            "name": "RADIOBUT_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RECORD_OFF",
+            "name": "RECORD_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RECORD_ON",
+            "name": "RECORD_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_RENDER_ON",
+            "name": "RESTRICT_RENDER_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_RENDER_OFF",
+            "name": "RESTRICT_RENDER_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_SELECT_ON",
+            "name": "RESTRICT_SELECT_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_SELECT_OFF",
+            "name": "RESTRICT_SELECT_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_VIEW_ON",
+            "name": "RESTRICT_VIEW_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_VIEW_OFF",
+            "name": "RESTRICT_VIEW_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RIGHTARROW",
+            "name": "RIGHTARROW",
+            "description": ""
+          },
+          {
+            "identifier": "DOWNARROW_HLT",
+            "name": "DOWNARROW_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "SELECT_INTERSECT",
+            "name": "SELECT_INTERSECT",
+            "description": ""
+          },
+          {
+            "identifier": "SELECT_DIFFERENCE",
+            "name": "SELECT_DIFFERENCE",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_OFF",
+            "name": "SNAP_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_ON",
+            "name": "SNAP_ON",
+            "description": ""
+          },
+          {
+            "identifier": "PLAYHEAD_SNAP_OFF",
+            "name": "PLAYHEAD_SNAP_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "PLAYHEAD_SNAP_ON",
+            "name": "PLAYHEAD_SNAP_ON",
+            "description": ""
+          },
+          {
+            "identifier": "UNLOCKED",
+            "name": "UNLOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "LOCKED",
+            "name": "LOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "VIS_SEL_11",
+            "name": "VIS_SEL_11",
+            "description": ""
+          },
+          {
+            "identifier": "VIS_SEL_10",
+            "name": "VIS_SEL_10",
+            "description": ""
+          },
+          {
+            "identifier": "VIS_SEL_01",
+            "name": "VIS_SEL_01",
+            "description": ""
+          },
+          {
+            "identifier": "VIS_SEL_00",
+            "name": "VIS_SEL_00",
+            "description": ""
+          },
+          {
+            "identifier": "CANCEL",
+            "name": "CANCEL",
+            "description": ""
+          },
+          {
+            "identifier": "ERROR",
+            "name": "ERROR",
+            "description": ""
+          },
+          {
+            "identifier": "QUESTION",
+            "name": "QUESTION",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_ERROR",
+            "name": "STATUS_ERROR",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_ERROR_FILLED",
+            "name": "STATUS_ERROR_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_INFO",
+            "name": "STATUS_INFO",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_INFO_FILLED",
+            "name": "STATUS_INFO_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_WARNING",
+            "name": "STATUS_WARNING",
+            "description": ""
+          },
+          {
+            "identifier": "STATUS_WARNING_FILLED",
+            "name": "STATUS_WARNING_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "ADD",
+            "name": "ADD",
+            "description": ""
+          },
+          {
+            "identifier": "ARROW_LEFTRIGHT",
+            "name": "ARROW_LEFTRIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "AUTO",
+            "name": "AUTO",
+            "description": ""
+          },
+          {
+            "identifier": "BLENDER",
+            "name": "BLENDER",
+            "description": ""
+          },
+          {
+            "identifier": "BORDERMOVE",
+            "name": "BORDERMOVE",
+            "description": ""
+          },
+          {
+            "identifier": "BRUSHES_ALL",
+            "name": "BRUSHES_ALL",
+            "description": ""
+          },
+          {
+            "identifier": "CHECKMARK",
+            "name": "CHECKMARK",
+            "description": ""
+          },
+          {
+            "identifier": "COLLAPSEMENU",
+            "name": "COLLAPSEMENU",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_NEW",
+            "name": "COLLECTION_NEW",
+            "description": ""
+          },
+          {
+            "identifier": "COLOR",
+            "name": "COLOR",
+            "description": ""
+          },
+          {
+            "identifier": "COPY_ID",
+            "name": "COPY_ID",
+            "description": ""
+          },
+          {
+            "identifier": "DISCLOSURE_TRI_DOWN",
+            "name": "DISCLOSURE_TRI_DOWN",
+            "description": ""
+          },
+          {
+            "identifier": "DISCLOSURE_TRI_RIGHT",
+            "name": "DISCLOSURE_TRI_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "DOT",
+            "name": "DOT",
+            "description": ""
+          },
+          {
+            "identifier": "DRIVER_DISTANCE",
+            "name": "DRIVER_DISTANCE",
+            "description": ""
+          },
+          {
+            "identifier": "DRIVER_ROTATIONAL_DIFFERENCE",
+            "name": "DRIVER_ROTATIONAL_DIFFERENCE",
+            "description": ""
+          },
+          {
+            "identifier": "DRIVER_TRANSFORM",
+            "name": "DRIVER_TRANSFORM",
+            "description": ""
+          },
+          {
+            "identifier": "DUPLICATE",
+            "name": "DUPLICATE",
+            "description": ""
+          },
+          {
+            "identifier": "EYEDROPPER",
+            "name": "EYEDROPPER",
+            "description": ""
+          },
+          {
+            "identifier": "FCURVE_SNAPSHOT",
+            "name": "FCURVE_SNAPSHOT",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_NEW",
+            "name": "FILE_NEW",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_TICK",
+            "name": "FILE_TICK",
+            "description": ""
+          },
+          {
+            "identifier": "FREEZE",
+            "name": "FREEZE",
+            "description": ""
+          },
+          {
+            "identifier": "FULLSCREEN_ENTER",
+            "name": "FULLSCREEN_ENTER",
+            "description": ""
+          },
+          {
+            "identifier": "FULLSCREEN_EXIT",
+            "name": "FULLSCREEN_EXIT",
+            "description": ""
+          },
+          {
+            "identifier": "GHOST_DISABLED",
+            "name": "GHOST_DISABLED",
+            "description": ""
+          },
+          {
+            "identifier": "GHOST_ENABLED",
+            "name": "GHOST_ENABLED",
+            "description": ""
+          },
+          {
+            "identifier": "GRIP",
+            "name": "GRIP",
+            "description": ""
+          },
+          {
+            "identifier": "GRIP_V",
+            "name": "GRIP_V",
+            "description": ""
+          },
+          {
+            "identifier": "GRIP_CORNER_BOTTOM_RIGHT",
+            "name": "GRIP_CORNER_BOTTOM_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "HAND",
+            "name": "HAND",
+            "description": ""
+          },
+          {
+            "identifier": "HELP",
+            "name": "HELP",
+            "description": ""
+          },
+          {
+            "identifier": "LINKED",
+            "name": "LINKED",
+            "description": ""
+          },
+          {
+            "identifier": "MENU_PANEL",
+            "name": "MENU_PANEL",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SEL",
+            "name": "NODE_SEL",
+            "description": ""
+          },
+          {
+            "identifier": "NODE",
+            "name": "NODE",
+            "description": ""
+          },
+          {
+            "identifier": "OBJECT_HIDDEN",
+            "name": "OBJECT_HIDDEN",
+            "description": ""
+          },
+          {
+            "identifier": "OPTIONS",
+            "name": "OPTIONS",
+            "description": ""
+          },
+          {
+            "identifier": "PANEL_CLOSE",
+            "name": "PANEL_CLOSE",
+            "description": ""
+          },
+          {
+            "identifier": "PLUGIN",
+            "name": "PLUGIN",
+            "description": ""
+          },
+          {
+            "identifier": "PLUS",
+            "name": "PLUS",
+            "description": ""
+          },
+          {
+            "identifier": "PRESET_NEW",
+            "name": "PRESET_NEW",
+            "description": ""
+          },
+          {
+            "identifier": "PROJECT",
+            "name": "PROJECT",
+            "description": ""
+          },
+          {
+            "identifier": "QUIT",
+            "name": "QUIT",
+            "description": ""
+          },
+          {
+            "identifier": "RECOVER_LAST",
+            "name": "RECOVER_LAST",
+            "description": ""
+          },
+          {
+            "identifier": "REMOVE",
+            "name": "REMOVE",
+            "description": ""
+          },
+          {
+            "identifier": "RIGHTARROW_THIN",
+            "name": "RIGHTARROW_THIN",
+            "description": ""
+          },
+          {
+            "identifier": "SCREEN_BACK",
+            "name": "SCREEN_BACK",
+            "description": ""
+          },
+          {
+            "identifier": "STATUSBAR",
+            "name": "STATUSBAR",
+            "description": ""
+          },
+          {
+            "identifier": "STYLUS_PRESSURE",
+            "name": "STYLUS_PRESSURE",
+            "description": ""
+          },
+          {
+            "identifier": "THREE_DOTS",
+            "name": "THREE_DOTS",
+            "description": ""
+          },
+          {
+            "identifier": "TOPBAR",
+            "name": "TOPBAR",
+            "description": ""
+          },
+          {
+            "identifier": "TRASH",
+            "name": "TRASH",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_DOWN",
+            "name": "TRIA_DOWN",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_LEFT",
+            "name": "TRIA_LEFT",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_RIGHT",
+            "name": "TRIA_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_UP",
+            "name": "TRIA_UP",
+            "description": ""
+          },
+          {
+            "identifier": "UNLINKED",
+            "name": "UNLINKED",
+            "description": ""
+          },
+          {
+            "identifier": "URL",
+            "name": "URL",
+            "description": ""
+          },
+          {
+            "identifier": "VIEWZOOM",
+            "name": "VIEWZOOM",
+            "description": ""
+          },
+          {
+            "identifier": "WINDOW",
+            "name": "WINDOW",
+            "description": ""
+          },
+          {
+            "identifier": "WORKSPACE",
+            "name": "WORKSPACE",
+            "description": ""
+          },
+          {
+            "identifier": "X",
+            "name": "X",
+            "description": ""
+          },
+          {
+            "identifier": "ZOOM_ALL",
+            "name": "ZOOM_ALL",
+            "description": ""
+          },
+          {
+            "identifier": "ZOOM_IN",
+            "name": "ZOOM_IN",
+            "description": ""
+          },
+          {
+            "identifier": "ZOOM_OUT",
+            "name": "ZOOM_OUT",
+            "description": ""
+          },
+          {
+            "identifier": "ZOOM_PREVIOUS",
+            "name": "ZOOM_PREVIOUS",
+            "description": ""
+          },
+          {
+            "identifier": "ZOOM_SELECTED",
+            "name": "ZOOM_SELECTED",
+            "description": ""
+          },
+          {
+            "identifier": "MODIFIER",
+            "name": "MODIFIER",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLES",
+            "name": "PARTICLES",
+            "description": ""
+          },
+          {
+            "identifier": "PHYSICS",
+            "name": "PHYSICS",
+            "description": ""
+          },
+          {
+            "identifier": "SHADERFX",
+            "name": "SHADERFX",
+            "description": ""
+          },
+          {
+            "identifier": "SPEAKER",
+            "name": "SPEAKER",
+            "description": ""
+          },
+          {
+            "identifier": "OUTPUT",
+            "name": "OUTPUT",
+            "description": ""
+          },
+          {
+            "identifier": "SCENE",
+            "name": "SCENE",
+            "description": ""
+          },
+          {
+            "identifier": "TOOL_SETTINGS",
+            "name": "TOOL_SETTINGS",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT",
+            "name": "LIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "MATERIAL",
+            "name": "MATERIAL",
+            "description": ""
+          },
+          {
+            "identifier": "TEXTURE",
+            "name": "TEXTURE",
+            "description": ""
+          },
+          {
+            "identifier": "WORLD",
+            "name": "WORLD",
+            "description": ""
+          },
+          {
+            "identifier": "ANIM",
+            "name": "ANIM",
+            "description": ""
+          },
+          {
+            "identifier": "SCRIPT",
+            "name": "SCRIPT",
+            "description": ""
+          },
+          {
+            "identifier": "GEOMETRY_NODES",
+            "name": "GEOMETRY_NODES",
+            "description": ""
+          },
+          {
+            "identifier": "TEXT",
+            "name": "TEXT",
+            "description": ""
+          },
+          {
+            "identifier": "ACTION",
+            "name": "ACTION",
+            "description": ""
+          },
+          {
+            "identifier": "ASSET_MANAGER",
+            "name": "ASSET_MANAGER",
+            "description": ""
+          },
+          {
+            "identifier": "CONSOLE",
+            "name": "CONSOLE",
+            "description": ""
+          },
+          {
+            "identifier": "FILEBROWSER",
+            "name": "FILEBROWSER",
+            "description": ""
+          },
+          {
+            "identifier": "GEOMETRY_SET",
+            "name": "GEOMETRY_SET",
+            "description": ""
+          },
+          {
+            "identifier": "GRAPH",
+            "name": "GRAPH",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE",
+            "name": "IMAGE",
+            "description": ""
+          },
+          {
+            "identifier": "INFO",
+            "name": "INFO",
+            "description": ""
+          },
+          {
+            "identifier": "NLA",
+            "name": "NLA",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_COMPOSITING",
+            "name": "NODE_COMPOSITING",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_MATERIAL",
+            "name": "NODE_MATERIAL",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_TEXTURE",
+            "name": "NODE_TEXTURE",
+            "description": ""
+          },
+          {
+            "identifier": "NODETREE",
+            "name": "NODETREE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER",
+            "name": "OUTLINER",
+            "description": ""
+          },
+          {
+            "identifier": "PREFERENCES",
+            "name": "PREFERENCES",
+            "description": ""
+          },
+          {
+            "identifier": "PROPERTIES",
+            "name": "PROPERTIES",
+            "description": ""
+          },
+          {
+            "identifier": "SEQUENCE",
+            "name": "SEQUENCE",
+            "description": ""
+          },
+          {
+            "identifier": "SOUND",
+            "name": "SOUND",
+            "description": ""
+          },
+          {
+            "identifier": "SPREADSHEET",
+            "name": "SPREADSHEET",
+            "description": ""
+          },
+          {
+            "identifier": "TIME",
+            "name": "TIME",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKER",
+            "name": "TRACKER",
+            "description": ""
+          },
+          {
+            "identifier": "UV",
+            "name": "UV",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW3D",
+            "name": "VIEW3D",
+            "description": ""
+          },
+          {
+            "identifier": "EDITMODE_HLT",
+            "name": "EDITMODE_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "OBJECT_DATAMODE",
+            "name": "OBJECT_DATAMODE",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLEMODE",
+            "name": "PARTICLEMODE",
+            "description": ""
+          },
+          {
+            "identifier": "POSE_HLT",
+            "name": "POSE_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "SCULPTMODE_HLT",
+            "name": "SCULPTMODE_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "TPAINT_HLT",
+            "name": "TPAINT_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "UV_DATA",
+            "name": "UV_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "VPAINT_HLT",
+            "name": "VPAINT_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "WPAINT_HLT",
+            "name": "WPAINT_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKER_DATA",
+            "name": "TRACKER_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_BACKWARDS_SINGLE",
+            "name": "TRACKING_BACKWARDS_SINGLE",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_BACKWARDS",
+            "name": "TRACKING_BACKWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_CLEAR_BACKWARDS",
+            "name": "TRACKING_CLEAR_BACKWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_CLEAR_FORWARDS",
+            "name": "TRACKING_CLEAR_FORWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_FORWARDS_SINGLE",
+            "name": "TRACKING_FORWARDS_SINGLE",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_FORWARDS",
+            "name": "TRACKING_FORWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_REFINE_BACKWARDS",
+            "name": "TRACKING_REFINE_BACKWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING_REFINE_FORWARDS",
+            "name": "TRACKING_REFINE_FORWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "TRACKING",
+            "name": "TRACKING",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP",
+            "name": "GROUP",
+            "description": ""
+          },
+          {
+            "identifier": "CONSTRAINT_BONE",
+            "name": "CONSTRAINT_BONE",
+            "description": ""
+          },
+          {
+            "identifier": "CONSTRAINT",
+            "name": "CONSTRAINT",
+            "description": ""
+          },
+          {
+            "identifier": "ARMATURE_DATA",
+            "name": "ARMATURE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "BONE_DATA",
+            "name": "BONE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "CAMERA_DATA",
+            "name": "CAMERA_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_DATA",
+            "name": "CURVE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "EMPTY_DATA",
+            "name": "EMPTY_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "FONT_DATA",
+            "name": "FONT_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "LATTICE_DATA",
+            "name": "LATTICE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_DATA",
+            "name": "LIGHT_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_DATA",
+            "name": "MESH_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "META_DATA",
+            "name": "META_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLE_DATA",
+            "name": "PARTICLE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "SHAPEKEY_DATA",
+            "name": "SHAPEKEY_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_DATA",
+            "name": "SURFACE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "OBJECT_DATA",
+            "name": "OBJECT_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "RENDER_RESULT",
+            "name": "RENDER_RESULT",
+            "description": ""
+          },
+          {
+            "identifier": "RENDERLAYERS",
+            "name": "RENDERLAYERS",
+            "description": ""
+          },
+          {
+            "identifier": "SCENE_DATA",
+            "name": "SCENE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "BRUSH_DATA",
+            "name": "BRUSH_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_DATA",
+            "name": "IMAGE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "LINE_DATA",
+            "name": "LINE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "MATERIAL_DATA",
+            "name": "MATERIAL_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "TEXTURE_DATA",
+            "name": "TEXTURE_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "WORLD_DATA",
+            "name": "WORLD_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "ANIM_DATA",
+            "name": "ANIM_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "BOIDS",
+            "name": "BOIDS",
+            "description": ""
+          },
+          {
+            "identifier": "CAMERA_STEREO",
+            "name": "CAMERA_STEREO",
+            "description": ""
+          },
+          {
+            "identifier": "COMMUNITY",
+            "name": "COMMUNITY",
+            "description": ""
+          },
+          {
+            "identifier": "FACE_MAPS",
+            "name": "FACE_MAPS",
+            "description": ""
+          },
+          {
+            "identifier": "FCURVE",
+            "name": "FCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE",
+            "name": "FILE",
+            "description": ""
+          },
+          {
+            "identifier": "GREASEPENCIL",
+            "name": "GREASEPENCIL",
+            "description": ""
+          },
+          {
+            "identifier": "GREASEPENCIL_LAYER_GROUP",
+            "name": "GREASEPENCIL_LAYER_GROUP",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP_BONE",
+            "name": "GROUP_BONE",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP_UVS",
+            "name": "GROUP_UVS",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP_VCOL",
+            "name": "GROUP_VCOL",
+            "description": ""
+          },
+          {
+            "identifier": "GROUP_VERTEX",
+            "name": "GROUP_VERTEX",
+            "description": ""
+          },
+          {
+            "identifier": "LIBRARY_DATA_BROKEN",
+            "name": "LIBRARY_DATA_BROKEN",
+            "description": ""
+          },
+          {
+            "identifier": "LIBRARY_DATA_DIRECT",
+            "name": "LIBRARY_DATA_DIRECT",
+            "description": ""
+          },
+          {
+            "identifier": "LIBRARY_DATA_OVERRIDE",
+            "name": "LIBRARY_DATA_OVERRIDE",
+            "description": ""
+          },
+          {
+            "identifier": "ORPHAN_DATA",
+            "name": "ORPHAN_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "PACKAGE",
+            "name": "PACKAGE",
+            "description": ""
+          },
+          {
+            "identifier": "PRESET",
+            "name": "PRESET",
+            "description": ""
+          },
+          {
+            "identifier": "RENDER_ANIMATION",
+            "name": "RENDER_ANIMATION",
+            "description": ""
+          },
+          {
+            "identifier": "RENDER_STILL",
+            "name": "RENDER_STILL",
+            "description": ""
+          },
+          {
+            "identifier": "RNA",
+            "name": "RNA",
+            "description": ""
+          },
+          {
+            "identifier": "STRANDS",
+            "name": "STRANDS",
+            "description": ""
+          },
+          {
+            "identifier": "UGLYPACKAGE",
+            "name": "UGLYPACKAGE",
+            "description": ""
+          },
+          {
+            "identifier": "GP_DRAW_STROKE",
+            "name": "GP_DRAW_STROKE",
+            "description": ""
+          },
+          {
+            "identifier": "GP_DRAW_FILL",
+            "name": "GP_DRAW_FILL",
+            "description": ""
+          },
+          {
+            "identifier": "GP_DRAW_BOTH",
+            "name": "GP_DRAW_BOTH",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_LMB",
+            "name": "MOUSE_LMB",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_MMB",
+            "name": "MOUSE_MMB",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_RMB",
+            "name": "MOUSE_RMB",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_MMB_SCROLL",
+            "name": "MOUSE_MMB_SCROLL",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_LMB_2X",
+            "name": "MOUSE_LMB_2X",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_MOVE",
+            "name": "MOUSE_MOVE",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_LMB_DRAG",
+            "name": "MOUSE_LMB_DRAG",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_MMB_DRAG",
+            "name": "MOUSE_MMB_DRAG",
+            "description": ""
+          },
+          {
+            "identifier": "MOUSE_RMB_DRAG",
+            "name": "MOUSE_RMB_DRAG",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_ANIMATE",
+            "name": "DECORATE_ANIMATE",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_DRIVER",
+            "name": "DECORATE_DRIVER",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_KEYFRAME",
+            "name": "DECORATE_KEYFRAME",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_LIBRARY_OVERRIDE",
+            "name": "DECORATE_LIBRARY_OVERRIDE",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_LINKED",
+            "name": "DECORATE_LINKED",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE_OVERRIDE",
+            "name": "DECORATE_OVERRIDE",
+            "description": ""
+          },
+          {
+            "identifier": "DECORATE",
+            "name": "DECORATE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_COLLECTION",
+            "name": "OUTLINER_COLLECTION",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_01",
+            "name": "COLLECTION_COLOR_01",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_02",
+            "name": "COLLECTION_COLOR_02",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_03",
+            "name": "COLLECTION_COLOR_03",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_04",
+            "name": "COLLECTION_COLOR_04",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_05",
+            "name": "COLLECTION_COLOR_05",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_06",
+            "name": "COLLECTION_COLOR_06",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_07",
+            "name": "COLLECTION_COLOR_07",
+            "description": ""
+          },
+          {
+            "identifier": "COLLECTION_COLOR_08",
+            "name": "COLLECTION_COLOR_08",
+            "description": ""
+          },
+          {
+            "identifier": "CURVES_DATA",
+            "name": "CURVES_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_ARMATURE",
+            "name": "OUTLINER_DATA_ARMATURE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_CAMERA",
+            "name": "OUTLINER_DATA_CAMERA",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_CURVE",
+            "name": "OUTLINER_DATA_CURVE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_CURVES",
+            "name": "OUTLINER_DATA_CURVES",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_EMPTY",
+            "name": "OUTLINER_DATA_EMPTY",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_FONT",
+            "name": "OUTLINER_DATA_FONT",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_GP_LAYER",
+            "name": "OUTLINER_DATA_GP_LAYER",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_GREASEPENCIL",
+            "name": "OUTLINER_DATA_GREASEPENCIL",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_LATTICE",
+            "name": "OUTLINER_DATA_LATTICE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_LIGHT",
+            "name": "OUTLINER_DATA_LIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_LIGHTPROBE",
+            "name": "OUTLINER_DATA_LIGHTPROBE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_MESH",
+            "name": "OUTLINER_DATA_MESH",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_META",
+            "name": "OUTLINER_DATA_META",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_POINTCLOUD",
+            "name": "OUTLINER_DATA_POINTCLOUD",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_SPEAKER",
+            "name": "OUTLINER_DATA_SPEAKER",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_SURFACE",
+            "name": "OUTLINER_DATA_SURFACE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_DATA_VOLUME",
+            "name": "OUTLINER_DATA_VOLUME",
+            "description": ""
+          },
+          {
+            "identifier": "POINTCLOUD_DATA",
+            "name": "POINTCLOUD_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "POINTCLOUD_POINT",
+            "name": "POINTCLOUD_POINT",
+            "description": ""
+          },
+          {
+            "identifier": "VOLUME_DATA",
+            "name": "VOLUME_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_ARMATURE",
+            "name": "OUTLINER_OB_ARMATURE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_CAMERA",
+            "name": "OUTLINER_OB_CAMERA",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_CURVE",
+            "name": "OUTLINER_OB_CURVE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_CURVES",
+            "name": "OUTLINER_OB_CURVES",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_EMPTY",
+            "name": "OUTLINER_OB_EMPTY",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_FONT",
+            "name": "OUTLINER_OB_FONT",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_FORCE_FIELD",
+            "name": "OUTLINER_OB_FORCE_FIELD",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_GREASEPENCIL",
+            "name": "OUTLINER_OB_GREASEPENCIL",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_GROUP_INSTANCE",
+            "name": "OUTLINER_OB_GROUP_INSTANCE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_IMAGE",
+            "name": "OUTLINER_OB_IMAGE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_LATTICE",
+            "name": "OUTLINER_OB_LATTICE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_LIGHT",
+            "name": "OUTLINER_OB_LIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_LIGHTPROBE",
+            "name": "OUTLINER_OB_LIGHTPROBE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_MESH",
+            "name": "OUTLINER_OB_MESH",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_META",
+            "name": "OUTLINER_OB_META",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_POINTCLOUD",
+            "name": "OUTLINER_OB_POINTCLOUD",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_SPEAKER",
+            "name": "OUTLINER_OB_SPEAKER",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_SURFACE",
+            "name": "OUTLINER_OB_SURFACE",
+            "description": ""
+          },
+          {
+            "identifier": "OUTLINER_OB_VOLUME",
+            "name": "OUTLINER_OB_VOLUME",
+            "description": ""
+          },
+          {
+            "identifier": "GP_MULTIFRAME_EDITING",
+            "name": "GP_MULTIFRAME_EDITING",
+            "description": ""
+          },
+          {
+            "identifier": "GP_ONLY_SELECTED",
+            "name": "GP_ONLY_SELECTED",
+            "description": ""
+          },
+          {
+            "identifier": "GP_SELECT_BETWEEN_STROKES",
+            "name": "GP_SELECT_BETWEEN_STROKES",
+            "description": ""
+          },
+          {
+            "identifier": "GP_SELECT_POINTS",
+            "name": "GP_SELECT_POINTS",
+            "description": ""
+          },
+          {
+            "identifier": "GP_SELECT_STROKES",
+            "name": "GP_SELECT_STROKES",
+            "description": ""
+          },
+          {
+            "identifier": "HOLDOUT_OFF",
+            "name": "HOLDOUT_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "HOLDOUT_ON",
+            "name": "HOLDOUT_ON",
+            "description": ""
+          },
+          {
+            "identifier": "MODIFIER_OFF",
+            "name": "MODIFIER_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "MODIFIER_ON",
+            "name": "MODIFIER_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_COLOR_OFF",
+            "name": "RESTRICT_COLOR_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_COLOR_ON",
+            "name": "RESTRICT_COLOR_ON",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_INSTANCED_OFF",
+            "name": "RESTRICT_INSTANCED_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "RESTRICT_INSTANCED_ON",
+            "name": "RESTRICT_INSTANCED_ON",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_AREA",
+            "name": "LIGHT_AREA",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_HEMI",
+            "name": "LIGHT_HEMI",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_POINT",
+            "name": "LIGHT_POINT",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_SPOT",
+            "name": "LIGHT_SPOT",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHT_SUN",
+            "name": "LIGHT_SUN",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHTPROBE_PLANE",
+            "name": "LIGHTPROBE_PLANE",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHTPROBE_SPHERE",
+            "name": "LIGHTPROBE_SPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "LIGHTPROBE_VOLUME",
+            "name": "LIGHTPROBE_VOLUME",
+            "description": ""
+          },
+          {
+            "identifier": "COLOR_BLUE",
+            "name": "COLOR_BLUE",
+            "description": ""
+          },
+          {
+            "identifier": "COLOR_GREEN",
+            "name": "COLOR_GREEN",
+            "description": ""
+          },
+          {
+            "identifier": "COLOR_RED",
+            "name": "COLOR_RED",
+            "description": ""
+          },
+          {
+            "identifier": "CONE",
+            "name": "CONE",
+            "description": ""
+          },
+          {
+            "identifier": "CUBE",
+            "name": "CUBE",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_BEZCIRCLE",
+            "name": "CURVE_BEZCIRCLE",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_BEZCURVE",
+            "name": "CURVE_BEZCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_NCIRCLE",
+            "name": "CURVE_NCIRCLE",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_NCURVE",
+            "name": "CURVE_NCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "CURVE_PATH",
+            "name": "CURVE_PATH",
+            "description": ""
+          },
+          {
+            "identifier": "CURVES",
+            "name": "CURVES",
+            "description": ""
+          },
+          {
+            "identifier": "EMPTY_ARROWS",
+            "name": "EMPTY_ARROWS",
+            "description": ""
+          },
+          {
+            "identifier": "EMPTY_AXIS",
+            "name": "EMPTY_AXIS",
+            "description": ""
+          },
+          {
+            "identifier": "EMPTY_SINGLE_ARROW",
+            "name": "EMPTY_SINGLE_ARROW",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_CAPSULE",
+            "name": "MESH_CAPSULE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_CIRCLE",
+            "name": "MESH_CIRCLE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_CONE",
+            "name": "MESH_CONE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_CUBE",
+            "name": "MESH_CUBE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_CYLINDER",
+            "name": "MESH_CYLINDER",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_GRID",
+            "name": "MESH_GRID",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_ICOSPHERE",
+            "name": "MESH_ICOSPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_MONKEY",
+            "name": "MESH_MONKEY",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_PLANE",
+            "name": "MESH_PLANE",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_TORUS",
+            "name": "MESH_TORUS",
+            "description": ""
+          },
+          {
+            "identifier": "MESH_UVSPHERE",
+            "name": "MESH_UVSPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "META_BALL",
+            "name": "META_BALL",
+            "description": ""
+          },
+          {
+            "identifier": "META_CAPSULE",
+            "name": "META_CAPSULE",
+            "description": ""
+          },
+          {
+            "identifier": "META_CUBE",
+            "name": "META_CUBE",
+            "description": ""
+          },
+          {
+            "identifier": "META_ELLIPSOID",
+            "name": "META_ELLIPSOID",
+            "description": ""
+          },
+          {
+            "identifier": "META_PLANE",
+            "name": "META_PLANE",
+            "description": ""
+          },
+          {
+            "identifier": "MONKEY",
+            "name": "MONKEY",
+            "description": ""
+          },
+          {
+            "identifier": "SPHERE",
+            "name": "SPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "STROKE",
+            "name": "STROKE",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NCIRCLE",
+            "name": "SURFACE_NCIRCLE",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NCURVE",
+            "name": "SURFACE_NCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NCYLINDER",
+            "name": "SURFACE_NCYLINDER",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NSPHERE",
+            "name": "SURFACE_NSPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NSURFACE",
+            "name": "SURFACE_NSURFACE",
+            "description": ""
+          },
+          {
+            "identifier": "SURFACE_NTORUS",
+            "name": "SURFACE_NTORUS",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_DOWN_BAR",
+            "name": "TRIA_DOWN_BAR",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_LEFT_BAR",
+            "name": "TRIA_LEFT_BAR",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_RIGHT_BAR",
+            "name": "TRIA_RIGHT_BAR",
+            "description": ""
+          },
+          {
+            "identifier": "TRIA_UP_BAR",
+            "name": "TRIA_UP_BAR",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_DOCK",
+            "name": "AREA_DOCK",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_JOIN_DOWN",
+            "name": "AREA_JOIN_DOWN",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_JOIN_LEFT",
+            "name": "AREA_JOIN_LEFT",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_JOIN_UP",
+            "name": "AREA_JOIN_UP",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_JOIN",
+            "name": "AREA_JOIN",
+            "description": ""
+          },
+          {
+            "identifier": "AREA_SWAP",
+            "name": "AREA_SWAP",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_BOID",
+            "name": "FORCE_BOID",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_CHARGE",
+            "name": "FORCE_CHARGE",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_CURVE",
+            "name": "FORCE_CURVE",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_DRAG",
+            "name": "FORCE_DRAG",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_FLUIDFLOW",
+            "name": "FORCE_FLUIDFLOW",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_FORCE",
+            "name": "FORCE_FORCE",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_HARMONIC",
+            "name": "FORCE_HARMONIC",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_LENNARDJONES",
+            "name": "FORCE_LENNARDJONES",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_MAGNETIC",
+            "name": "FORCE_MAGNETIC",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_TEXTURE",
+            "name": "FORCE_TEXTURE",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_TURBULENCE",
+            "name": "FORCE_TURBULENCE",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_VORTEX",
+            "name": "FORCE_VORTEX",
+            "description": ""
+          },
+          {
+            "identifier": "FORCE_WIND",
+            "name": "FORCE_WIND",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_BACKGROUND",
+            "name": "IMAGE_BACKGROUND",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_PLANE",
+            "name": "IMAGE_PLANE",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_REFERENCE",
+            "name": "IMAGE_REFERENCE",
+            "description": ""
+          },
+          {
+            "identifier": "RENDER_SWAP_DIMENSIONS",
+            "name": "RENDER_SWAP_DIMENSIONS",
+            "description": ""
+          },
+          {
+            "identifier": "RIGID_BODY_CONSTRAINT",
+            "name": "RIGID_BODY_CONSTRAINT",
+            "description": ""
+          },
+          {
+            "identifier": "RIGID_BODY",
+            "name": "RIGID_BODY",
+            "description": ""
+          },
+          {
+            "identifier": "SPLIT_HORIZONTAL",
+            "name": "SPLIT_HORIZONTAL",
+            "description": ""
+          },
+          {
+            "identifier": "SPLIT_VERTICAL",
+            "name": "SPLIT_VERTICAL",
+            "description": ""
+          },
+          {
+            "identifier": "ANCHOR_BOTTOM",
+            "name": "ANCHOR_BOTTOM",
+            "description": ""
+          },
+          {
+            "identifier": "ANCHOR_CENTER",
+            "name": "ANCHOR_CENTER",
+            "description": ""
+          },
+          {
+            "identifier": "ANCHOR_LEFT",
+            "name": "ANCHOR_LEFT",
+            "description": ""
+          },
+          {
+            "identifier": "ANCHOR_RIGHT",
+            "name": "ANCHOR_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "ANCHOR_TOP",
+            "name": "ANCHOR_TOP",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_CORNER",
+            "name": "NODE_CORNER",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_INSERT_OFF",
+            "name": "NODE_INSERT_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_INSERT_ON",
+            "name": "NODE_INSERT_ON",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SIDE",
+            "name": "NODE_SIDE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_TOP",
+            "name": "NODE_TOP",
+            "description": ""
+          },
+          {
+            "identifier": "SELECT_EXTEND",
+            "name": "SELECT_EXTEND",
+            "description": ""
+          },
+          {
+            "identifier": "SELECT_SET",
+            "name": "SELECT_SET",
+            "description": ""
+          },
+          {
+            "identifier": "SELECT_SUBTRACT",
+            "name": "SELECT_SUBTRACT",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_BOTTOM",
+            "name": "ALIGN_BOTTOM",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_CENTER",
+            "name": "ALIGN_CENTER",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_FLUSH",
+            "name": "ALIGN_FLUSH",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_JUSTIFY",
+            "name": "ALIGN_JUSTIFY",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_LEFT",
+            "name": "ALIGN_LEFT",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_MIDDLE",
+            "name": "ALIGN_MIDDLE",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_RIGHT",
+            "name": "ALIGN_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "ALIGN_TOP",
+            "name": "ALIGN_TOP",
+            "description": ""
+          },
+          {
+            "identifier": "BOLD",
+            "name": "BOLD",
+            "description": ""
+          },
+          {
+            "identifier": "ITALIC",
+            "name": "ITALIC",
+            "description": ""
+          },
+          {
+            "identifier": "LINENUMBERS_OFF",
+            "name": "LINENUMBERS_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "LINENUMBERS_ON",
+            "name": "LINENUMBERS_ON",
+            "description": ""
+          },
+          {
+            "identifier": "SCRIPTPLUGINS",
+            "name": "SCRIPTPLUGINS",
+            "description": ""
+          },
+          {
+            "identifier": "SMALL_CAPS",
+            "name": "SMALL_CAPS",
+            "description": ""
+          },
+          {
+            "identifier": "SYNTAX_OFF",
+            "name": "SYNTAX_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "SYNTAX_ON",
+            "name": "SYNTAX_ON",
+            "description": ""
+          },
+          {
+            "identifier": "UNDERLINE",
+            "name": "UNDERLINE",
+            "description": ""
+          },
+          {
+            "identifier": "WORDWRAP_OFF",
+            "name": "WORDWRAP_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "WORDWRAP_ON",
+            "name": "WORDWRAP_ON",
+            "description": ""
+          },
+          {
+            "identifier": "CON_ACTION",
+            "name": "CON_ACTION",
+            "description": ""
+          },
+          {
+            "identifier": "CON_ARMATURE",
+            "name": "CON_ARMATURE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_GEOMETRYATTRIBUTE",
+            "name": "CON_GEOMETRYATTRIBUTE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_CAMERASOLVER",
+            "name": "CON_CAMERASOLVER",
+            "description": ""
+          },
+          {
+            "identifier": "CON_CHILDOF",
+            "name": "CON_CHILDOF",
+            "description": ""
+          },
+          {
+            "identifier": "CON_CLAMPTO",
+            "name": "CON_CLAMPTO",
+            "description": ""
+          },
+          {
+            "identifier": "CON_DISTLIMIT",
+            "name": "CON_DISTLIMIT",
+            "description": ""
+          },
+          {
+            "identifier": "CON_FLOOR",
+            "name": "CON_FLOOR",
+            "description": ""
+          },
+          {
+            "identifier": "CON_FOLLOWPATH",
+            "name": "CON_FOLLOWPATH",
+            "description": ""
+          },
+          {
+            "identifier": "CON_FOLLOWTRACK",
+            "name": "CON_FOLLOWTRACK",
+            "description": ""
+          },
+          {
+            "identifier": "CON_KINEMATIC",
+            "name": "CON_KINEMATIC",
+            "description": ""
+          },
+          {
+            "identifier": "CON_LOCKTRACK",
+            "name": "CON_LOCKTRACK",
+            "description": ""
+          },
+          {
+            "identifier": "CON_LOCLIKE",
+            "name": "CON_LOCLIKE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_LOCLIMIT",
+            "name": "CON_LOCLIMIT",
+            "description": ""
+          },
+          {
+            "identifier": "CON_OBJECTSOLVER",
+            "name": "CON_OBJECTSOLVER",
+            "description": ""
+          },
+          {
+            "identifier": "CON_PIVOT",
+            "name": "CON_PIVOT",
+            "description": ""
+          },
+          {
+            "identifier": "CON_ROTLIKE",
+            "name": "CON_ROTLIKE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_ROTLIMIT",
+            "name": "CON_ROTLIMIT",
+            "description": ""
+          },
+          {
+            "identifier": "CON_SAMEVOL",
+            "name": "CON_SAMEVOL",
+            "description": ""
+          },
+          {
+            "identifier": "CON_SHRINKWRAP",
+            "name": "CON_SHRINKWRAP",
+            "description": ""
+          },
+          {
+            "identifier": "CON_SIZELIKE",
+            "name": "CON_SIZELIKE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_SIZELIMIT",
+            "name": "CON_SIZELIMIT",
+            "description": ""
+          },
+          {
+            "identifier": "CON_SPLINEIK",
+            "name": "CON_SPLINEIK",
+            "description": ""
+          },
+          {
+            "identifier": "CON_STRETCHTO",
+            "name": "CON_STRETCHTO",
+            "description": ""
+          },
+          {
+            "identifier": "CON_TRACKTO",
+            "name": "CON_TRACKTO",
+            "description": ""
+          },
+          {
+            "identifier": "CON_TRANSFORM_CACHE",
+            "name": "CON_TRANSFORM_CACHE",
+            "description": ""
+          },
+          {
+            "identifier": "CON_TRANSFORM",
+            "name": "CON_TRANSFORM",
+            "description": ""
+          },
+          {
+            "identifier": "CON_TRANSLIKE",
+            "name": "CON_TRANSLIKE",
+            "description": ""
+          },
+          {
+            "identifier": "HOOK",
+            "name": "HOOK",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_ARMATURE",
+            "name": "MOD_ARMATURE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_ARRAY",
+            "name": "MOD_ARRAY",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_BEVEL",
+            "name": "MOD_BEVEL",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_BOOLEAN",
+            "name": "MOD_BOOLEAN",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_BUILD",
+            "name": "MOD_BUILD",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_CAST",
+            "name": "MOD_CAST",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_CLOTH",
+            "name": "MOD_CLOTH",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_CURVE",
+            "name": "MOD_CURVE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_CURVE_TO_TUBE",
+            "name": "MOD_CURVE_TO_TUBE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_DASH",
+            "name": "MOD_DASH",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_DATA_TRANSFER",
+            "name": "MOD_DATA_TRANSFER",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_DECIM",
+            "name": "MOD_DECIM",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_DISPLACE",
+            "name": "MOD_DISPLACE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_DYNAMICPAINT",
+            "name": "MOD_DYNAMICPAINT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_EDGESPLIT",
+            "name": "MOD_EDGESPLIT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_ENVELOPE",
+            "name": "MOD_ENVELOPE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_EXPLODE",
+            "name": "MOD_EXPLODE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_FLUID",
+            "name": "MOD_FLUID",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_FLUIDSIM",
+            "name": "MOD_FLUIDSIM",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_HUE_SATURATION",
+            "name": "MOD_HUE_SATURATION",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_INSTANCE",
+            "name": "MOD_INSTANCE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_LATTICE",
+            "name": "MOD_LATTICE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_LENGTH",
+            "name": "MOD_LENGTH",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_LINEART",
+            "name": "MOD_LINEART",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_MASK",
+            "name": "MOD_MASK",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_MESHDEFORM",
+            "name": "MOD_MESHDEFORM",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_MIRROR",
+            "name": "MOD_MIRROR",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_MULTIRES",
+            "name": "MOD_MULTIRES",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_NOISE",
+            "name": "MOD_NOISE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_NORMALEDIT",
+            "name": "MOD_NORMALEDIT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_OCEAN",
+            "name": "MOD_OCEAN",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_OFFSET",
+            "name": "MOD_OFFSET",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_OPACITY",
+            "name": "MOD_OPACITY",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_OUTLINE",
+            "name": "MOD_OUTLINE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_PARTICLE_INSTANCE",
+            "name": "MOD_PARTICLE_INSTANCE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_PARTICLES",
+            "name": "MOD_PARTICLES",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_PHYSICS",
+            "name": "MOD_PHYSICS",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_REMESH",
+            "name": "MOD_REMESH",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SCATTER_ON_SURFACE",
+            "name": "MOD_SCATTER_ON_SURFACE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SCREW",
+            "name": "MOD_SCREW",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SHRINKWRAP",
+            "name": "MOD_SHRINKWRAP",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SIMPLEDEFORM",
+            "name": "MOD_SIMPLEDEFORM",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SIMPLIFY",
+            "name": "MOD_SIMPLIFY",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SKIN",
+            "name": "MOD_SKIN",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SMOOTH",
+            "name": "MOD_SMOOTH",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SOFT",
+            "name": "MOD_SOFT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SOLIDIFY",
+            "name": "MOD_SOLIDIFY",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_SUBSURF",
+            "name": "MOD_SUBSURF",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_THICKNESS",
+            "name": "MOD_THICKNESS",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_TIME",
+            "name": "MOD_TIME",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_TINT",
+            "name": "MOD_TINT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_TRIANGULATE",
+            "name": "MOD_TRIANGULATE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_UVPROJECT",
+            "name": "MOD_UVPROJECT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_VERTEX_WEIGHT",
+            "name": "MOD_VERTEX_WEIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_WARP",
+            "name": "MOD_WARP",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_WAVE",
+            "name": "MOD_WAVE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_WIREFRAME",
+            "name": "MOD_WIREFRAME",
+            "description": ""
+          },
+          {
+            "identifier": "MODIFIER_DATA",
+            "name": "MODIFIER_DATA",
+            "description": ""
+          },
+          {
+            "identifier": "ACTION_SLOT",
+            "name": "ACTION_SLOT",
+            "description": ""
+          },
+          {
+            "identifier": "ACTION_TWEAK",
+            "name": "ACTION_TWEAK",
+            "description": ""
+          },
+          {
+            "identifier": "DRIVER",
+            "name": "DRIVER",
+            "description": ""
+          },
+          {
+            "identifier": "FF",
+            "name": "FF",
+            "description": ""
+          },
+          {
+            "identifier": "FRAME_NEXT",
+            "name": "FRAME_NEXT",
+            "description": ""
+          },
+          {
+            "identifier": "FRAME_PREV",
+            "name": "FRAME_PREV",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLE_ALIGNED",
+            "name": "HANDLE_ALIGNED",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLE_AUTO",
+            "name": "HANDLE_AUTO",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLE_AUTOCLAMPED",
+            "name": "HANDLE_AUTOCLAMPED",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLE_FREE",
+            "name": "HANDLE_FREE",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLE_VECTOR",
+            "name": "HANDLE_VECTOR",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_BACK",
+            "name": "IPO_BACK",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_BEZIER",
+            "name": "IPO_BEZIER",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_BOUNCE",
+            "name": "IPO_BOUNCE",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_CIRC",
+            "name": "IPO_CIRC",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_CONSTANT",
+            "name": "IPO_CONSTANT",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_CUBIC",
+            "name": "IPO_CUBIC",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_EASE_IN_OUT",
+            "name": "IPO_EASE_IN_OUT",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_EASE_IN",
+            "name": "IPO_EASE_IN",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_EASE_OUT",
+            "name": "IPO_EASE_OUT",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_ELASTIC",
+            "name": "IPO_ELASTIC",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_EXPO",
+            "name": "IPO_EXPO",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_LINEAR",
+            "name": "IPO_LINEAR",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_QUAD",
+            "name": "IPO_QUAD",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_QUART",
+            "name": "IPO_QUART",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_QUINT",
+            "name": "IPO_QUINT",
+            "description": ""
+          },
+          {
+            "identifier": "IPO_SINE",
+            "name": "IPO_SINE",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_DEHLT",
+            "name": "KEY_DEHLT",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_HLT",
+            "name": "KEY_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "KEYFRAME_HLT",
+            "name": "KEYFRAME_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "KEYFRAME",
+            "name": "KEYFRAME",
+            "description": ""
+          },
+          {
+            "identifier": "KEYINGSET",
+            "name": "KEYINGSET",
+            "description": ""
+          },
+          {
+            "identifier": "MARKER_HLT",
+            "name": "MARKER_HLT",
+            "description": ""
+          },
+          {
+            "identifier": "MARKER",
+            "name": "MARKER",
+            "description": ""
+          },
+          {
+            "identifier": "MUTE_IPO_OFF",
+            "name": "MUTE_IPO_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "MUTE_IPO_ON",
+            "name": "MUTE_IPO_ON",
+            "description": ""
+          },
+          {
+            "identifier": "NEXT_KEYFRAME",
+            "name": "NEXT_KEYFRAME",
+            "description": ""
+          },
+          {
+            "identifier": "NLA_PUSHDOWN",
+            "name": "NLA_PUSHDOWN",
+            "description": ""
+          },
+          {
+            "identifier": "NORMALIZE_FCURVES",
+            "name": "NORMALIZE_FCURVES",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_PARENT",
+            "name": "ORIENTATION_PARENT",
+            "description": ""
+          },
+          {
+            "identifier": "PAUSE",
+            "name": "PAUSE",
+            "description": ""
+          },
+          {
+            "identifier": "PLAY_REVERSE",
+            "name": "PLAY_REVERSE",
+            "description": ""
+          },
+          {
+            "identifier": "PLAY_SOUND",
+            "name": "PLAY_SOUND",
+            "description": ""
+          },
+          {
+            "identifier": "PLAY",
+            "name": "PLAY",
+            "description": ""
+          },
+          {
+            "identifier": "PMARKER_ACT",
+            "name": "PMARKER_ACT",
+            "description": ""
+          },
+          {
+            "identifier": "PMARKER_SEL",
+            "name": "PMARKER_SEL",
+            "description": ""
+          },
+          {
+            "identifier": "PMARKER",
+            "name": "PMARKER",
+            "description": ""
+          },
+          {
+            "identifier": "PREV_KEYFRAME",
+            "name": "PREV_KEYFRAME",
+            "description": ""
+          },
+          {
+            "identifier": "PREVIEW_RANGE",
+            "name": "PREVIEW_RANGE",
+            "description": ""
+          },
+          {
+            "identifier": "REC",
+            "name": "REC",
+            "description": ""
+          },
+          {
+            "identifier": "REW",
+            "name": "REW",
+            "description": ""
+          },
+          {
+            "identifier": "SOLO_OFF",
+            "name": "SOLO_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "SOLO_ON",
+            "name": "SOLO_ON",
+            "description": ""
+          },
+          {
+            "identifier": "CENTER_ONLY",
+            "name": "CENTER_ONLY",
+            "description": ""
+          },
+          {
+            "identifier": "CURSOR",
+            "name": "CURSOR",
+            "description": ""
+          },
+          {
+            "identifier": "EDGESEL",
+            "name": "EDGESEL",
+            "description": ""
+          },
+          {
+            "identifier": "EDGE_BEVEL",
+            "name": "EDGE_BEVEL",
+            "description": ""
+          },
+          {
+            "identifier": "EDGE_CREASE",
+            "name": "EDGE_CREASE",
+            "description": ""
+          },
+          {
+            "identifier": "EDGE_SEAM",
+            "name": "EDGE_SEAM",
+            "description": ""
+          },
+          {
+            "identifier": "EDGE_SHARP",
+            "name": "EDGE_SHARP",
+            "description": ""
+          },
+          {
+            "identifier": "FACE_CORNER",
+            "name": "FACE_CORNER",
+            "description": ""
+          },
+          {
+            "identifier": "FACESEL",
+            "name": "FACESEL",
+            "description": ""
+          },
+          {
+            "identifier": "INVERSESQUARECURVE",
+            "name": "INVERSESQUARECURVE",
+            "description": ""
+          },
+          {
+            "identifier": "LINCURVE",
+            "name": "LINCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "NOCURVE",
+            "name": "NOCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLE_PATH",
+            "name": "PARTICLE_PATH",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLE_POINT",
+            "name": "PARTICLE_POINT",
+            "description": ""
+          },
+          {
+            "identifier": "PARTICLE_TIP",
+            "name": "PARTICLE_TIP",
+            "description": ""
+          },
+          {
+            "identifier": "PIVOT_ACTIVE",
+            "name": "PIVOT_ACTIVE",
+            "description": ""
+          },
+          {
+            "identifier": "PIVOT_BOUNDBOX",
+            "name": "PIVOT_BOUNDBOX",
+            "description": ""
+          },
+          {
+            "identifier": "PIVOT_CURSOR",
+            "name": "PIVOT_CURSOR",
+            "description": ""
+          },
+          {
+            "identifier": "PIVOT_INDIVIDUAL",
+            "name": "PIVOT_INDIVIDUAL",
+            "description": ""
+          },
+          {
+            "identifier": "PIVOT_MEDIAN",
+            "name": "PIVOT_MEDIAN",
+            "description": ""
+          },
+          {
+            "identifier": "PROP_CON",
+            "name": "PROP_CON",
+            "description": ""
+          },
+          {
+            "identifier": "PROP_OFF",
+            "name": "PROP_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "PROP_ON",
+            "name": "PROP_ON",
+            "description": ""
+          },
+          {
+            "identifier": "PROP_PROJECTED",
+            "name": "PROP_PROJECTED",
+            "description": ""
+          },
+          {
+            "identifier": "RNDCURVE",
+            "name": "RNDCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "ROOTCURVE",
+            "name": "ROOTCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "SHARPCURVE",
+            "name": "SHARPCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "SMOOTHCURVE",
+            "name": "SMOOTHCURVE",
+            "description": ""
+          },
+          {
+            "identifier": "SPHERECURVE",
+            "name": "SPHERECURVE",
+            "description": ""
+          },
+          {
+            "identifier": "VERTEXSEL",
+            "name": "VERTEXSEL",
+            "description": ""
+          },
+          {
+            "identifier": "VERTEX_CREASE",
+            "name": "VERTEX_CREASE",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_EDGE",
+            "name": "SNAP_EDGE",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_FACE_CENTER",
+            "name": "SNAP_FACE_CENTER",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_FACE_NEAREST",
+            "name": "SNAP_FACE_NEAREST",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_FACE",
+            "name": "SNAP_FACE",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_GRID",
+            "name": "SNAP_GRID",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_INCREMENT",
+            "name": "SNAP_INCREMENT",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_MIDPOINT",
+            "name": "SNAP_MIDPOINT",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_NORMAL",
+            "name": "SNAP_NORMAL",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_PEEL_OBJECT",
+            "name": "SNAP_PEEL_OBJECT",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_PERPENDICULAR",
+            "name": "SNAP_PERPENDICULAR",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_VERTEX",
+            "name": "SNAP_VERTEX",
+            "description": ""
+          },
+          {
+            "identifier": "SNAP_VOLUME",
+            "name": "SNAP_VOLUME",
+            "description": ""
+          },
+          {
+            "identifier": "STICKY_UVS_DISABLE",
+            "name": "STICKY_UVS_DISABLE",
+            "description": ""
+          },
+          {
+            "identifier": "STICKY_UVS_LOC",
+            "name": "STICKY_UVS_LOC",
+            "description": ""
+          },
+          {
+            "identifier": "STICKY_UVS_VERT",
+            "name": "STICKY_UVS_VERT",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_GIMBAL",
+            "name": "ORIENTATION_GIMBAL",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_GLOBAL",
+            "name": "ORIENTATION_GLOBAL",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_LOCAL",
+            "name": "ORIENTATION_LOCAL",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_NORMAL",
+            "name": "ORIENTATION_NORMAL",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_VIEW",
+            "name": "ORIENTATION_VIEW",
+            "description": ""
+          },
+          {
+            "identifier": "COPYDOWN",
+            "name": "COPYDOWN",
+            "description": ""
+          },
+          {
+            "identifier": "FIXED_SIZE",
+            "name": "FIXED_SIZE",
+            "description": ""
+          },
+          {
+            "identifier": "GIZMO",
+            "name": "GIZMO",
+            "description": ""
+          },
+          {
+            "identifier": "GP_CAPS_FLAT",
+            "name": "GP_CAPS_FLAT",
+            "description": ""
+          },
+          {
+            "identifier": "GP_CAPS_ROUND",
+            "name": "GP_CAPS_ROUND",
+            "description": ""
+          },
+          {
+            "identifier": "NORMALS_FACE",
+            "name": "NORMALS_FACE",
+            "description": ""
+          },
+          {
+            "identifier": "NORMALS_VERTEX_FACE",
+            "name": "NORMALS_VERTEX_FACE",
+            "description": ""
+          },
+          {
+            "identifier": "NORMALS_VERTEX",
+            "name": "NORMALS_VERTEX",
+            "description": ""
+          },
+          {
+            "identifier": "OBJECT_ORIGIN",
+            "name": "OBJECT_ORIGIN",
+            "description": ""
+          },
+          {
+            "identifier": "ORIENTATION_CURSOR",
+            "name": "ORIENTATION_CURSOR",
+            "description": ""
+          },
+          {
+            "identifier": "PASTEDOWN",
+            "name": "PASTEDOWN",
+            "description": ""
+          },
+          {
+            "identifier": "PASTEFLIPDOWN",
+            "name": "PASTEFLIPDOWN",
+            "description": ""
+          },
+          {
+            "identifier": "PASTEFLIPUP",
+            "name": "PASTEFLIPUP",
+            "description": ""
+          },
+          {
+            "identifier": "TRANSFORM_ORIGINS",
+            "name": "TRANSFORM_ORIGINS",
+            "description": ""
+          },
+          {
+            "identifier": "UV_EDGESEL",
+            "name": "UV_EDGESEL",
+            "description": ""
+          },
+          {
+            "identifier": "UV_FACESEL",
+            "name": "UV_FACESEL",
+            "description": ""
+          },
+          {
+            "identifier": "UV_ISLANDSEL",
+            "name": "UV_ISLANDSEL",
+            "description": ""
+          },
+          {
+            "identifier": "UV_SYNC_SELECT",
+            "name": "UV_SYNC_SELECT",
+            "description": ""
+          },
+          {
+            "identifier": "UV_VERTEXSEL",
+            "name": "UV_VERTEXSEL",
+            "description": ""
+          },
+          {
+            "identifier": "AXIS_FRONT",
+            "name": "AXIS_FRONT",
+            "description": ""
+          },
+          {
+            "identifier": "AXIS_SIDE",
+            "name": "AXIS_SIDE",
+            "description": ""
+          },
+          {
+            "identifier": "AXIS_TOP",
+            "name": "AXIS_TOP",
+            "description": ""
+          },
+          {
+            "identifier": "GRID",
+            "name": "GRID",
+            "description": ""
+          },
+          {
+            "identifier": "LAYER_ACTIVE",
+            "name": "LAYER_ACTIVE",
+            "description": ""
+          },
+          {
+            "identifier": "LAYER_USED",
+            "name": "LAYER_USED",
+            "description": ""
+          },
+          {
+            "identifier": "LOCKVIEW_OFF",
+            "name": "LOCKVIEW_OFF",
+            "description": ""
+          },
+          {
+            "identifier": "LOCKVIEW_ON",
+            "name": "LOCKVIEW_ON",
+            "description": ""
+          },
+          {
+            "identifier": "OVERLAY",
+            "name": "OVERLAY",
+            "description": ""
+          },
+          {
+            "identifier": "SHADING_BBOX",
+            "name": "SHADING_BBOX",
+            "description": ""
+          },
+          {
+            "identifier": "SHADING_RENDERED",
+            "name": "SHADING_RENDERED",
+            "description": ""
+          },
+          {
+            "identifier": "SHADING_SOLID",
+            "name": "SHADING_SOLID",
+            "description": ""
+          },
+          {
+            "identifier": "SHADING_TEXTURE",
+            "name": "SHADING_TEXTURE",
+            "description": ""
+          },
+          {
+            "identifier": "SHADING_WIRE",
+            "name": "SHADING_WIRE",
+            "description": ""
+          },
+          {
+            "identifier": "XRAY",
+            "name": "XRAY",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_CAMERA_UNSELECTED",
+            "name": "VIEW_CAMERA_UNSELECTED",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_CAMERA",
+            "name": "VIEW_CAMERA",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_LOCKED",
+            "name": "VIEW_LOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_ORTHO",
+            "name": "VIEW_ORTHO",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_PAN",
+            "name": "VIEW_PAN",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_PERSPECTIVE",
+            "name": "VIEW_PERSPECTIVE",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_UNLOCKED",
+            "name": "VIEW_UNLOCKED",
+            "description": ""
+          },
+          {
+            "identifier": "VIEW_ZOOM",
+            "name": "VIEW_ZOOM",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_ALIAS",
+            "name": "FILE_ALIAS",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_FOLDER",
+            "name": "FILE_FOLDER",
+            "description": ""
+          },
+          {
+            "identifier": "FOLDER_REDIRECT",
+            "name": "FOLDER_REDIRECT",
+            "description": ""
+          },
+          {
+            "identifier": "APPEND_BLEND",
+            "name": "APPEND_BLEND",
+            "description": ""
+          },
+          {
+            "identifier": "BACK",
+            "name": "BACK",
+            "description": ""
+          },
+          {
+            "identifier": "BOOKMARKS",
+            "name": "BOOKMARKS",
+            "description": ""
+          },
+          {
+            "identifier": "CURRENT_FILE",
+            "name": "CURRENT_FILE",
+            "description": ""
+          },
+          {
+            "identifier": "DESKTOP",
+            "name": "DESKTOP",
+            "description": ""
+          },
+          {
+            "identifier": "DISC",
+            "name": "DISC",
+            "description": ""
+          },
+          {
+            "identifier": "DISK_DRIVE",
+            "name": "DISK_DRIVE",
+            "description": ""
+          },
+          {
+            "identifier": "DOCUMENTS",
+            "name": "DOCUMENTS",
+            "description": ""
+          },
+          {
+            "identifier": "DOWNLOAD",
+            "name": "DOWNLOAD",
+            "description": ""
+          },
+          {
+            "identifier": "DOWNLOAD_DONE",
+            "name": "DOWNLOAD_DONE",
+            "description": ""
+          },
+          {
+            "identifier": "EXPORT",
+            "name": "EXPORT",
+            "description": ""
+          },
+          {
+            "identifier": "EXTERNAL_DRIVE",
+            "name": "EXTERNAL_DRIVE",
+            "description": ""
+          },
+          {
+            "identifier": "USB_DRIVE",
+            "name": "USB_DRIVE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_3D",
+            "name": "FILE_3D",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_ARCHIVE",
+            "name": "FILE_ARCHIVE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_BACKUP",
+            "name": "FILE_BACKUP",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_BLANK",
+            "name": "FILE_BLANK",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_BLEND",
+            "name": "FILE_BLEND",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_CACHE",
+            "name": "FILE_CACHE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_FONT",
+            "name": "FILE_FONT",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_HIDDEN",
+            "name": "FILE_HIDDEN",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_IMAGE",
+            "name": "FILE_IMAGE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_MOVIE",
+            "name": "FILE_MOVIE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_PARENT",
+            "name": "FILE_PARENT",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_REFRESH",
+            "name": "FILE_REFRESH",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_SCRIPT",
+            "name": "FILE_SCRIPT",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_SOUND",
+            "name": "FILE_SOUND",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_TEXT",
+            "name": "FILE_TEXT",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_VOLUME",
+            "name": "FILE_VOLUME",
+            "description": ""
+          },
+          {
+            "identifier": "FILTER",
+            "name": "FILTER",
+            "description": ""
+          },
+          {
+            "identifier": "FILTER_FILLED",
+            "name": "FILTER_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "FONTPREVIEW",
+            "name": "FONTPREVIEW",
+            "description": ""
+          },
+          {
+            "identifier": "FORWARD",
+            "name": "FORWARD",
+            "description": ""
+          },
+          {
+            "identifier": "HOME",
+            "name": "HOME",
+            "description": ""
+          },
+          {
+            "identifier": "IMGDISPLAY",
+            "name": "IMGDISPLAY",
+            "description": ""
+          },
+          {
+            "identifier": "IMPORT",
+            "name": "IMPORT",
+            "description": ""
+          },
+          {
+            "identifier": "LINK_BLEND",
+            "name": "LINK_BLEND",
+            "description": ""
+          },
+          {
+            "identifier": "LONGDISPLAY",
+            "name": "LONGDISPLAY",
+            "description": ""
+          },
+          {
+            "identifier": "LOOP_BACK",
+            "name": "LOOP_BACK",
+            "description": ""
+          },
+          {
+            "identifier": "LOOP_FORWARDS",
+            "name": "LOOP_FORWARDS",
+            "description": ""
+          },
+          {
+            "identifier": "NETWORK_DRIVE",
+            "name": "NETWORK_DRIVE",
+            "description": ""
+          },
+          {
+            "identifier": "NEWFOLDER",
+            "name": "NEWFOLDER",
+            "description": ""
+          },
+          {
+            "identifier": "PREVIEW_LOADING",
+            "name": "PREVIEW_LOADING",
+            "description": ""
+          },
+          {
+            "identifier": "SETTINGS",
+            "name": "SETTINGS",
+            "description": ""
+          },
+          {
+            "identifier": "SHORTDISPLAY",
+            "name": "SHORTDISPLAY",
+            "description": ""
+          },
+          {
+            "identifier": "SORT_ASC",
+            "name": "SORT_ASC",
+            "description": ""
+          },
+          {
+            "identifier": "SORT_DESC",
+            "name": "SORT_DESC",
+            "description": ""
+          },
+          {
+            "identifier": "SORTALPHA",
+            "name": "SORTALPHA",
+            "description": ""
+          },
+          {
+            "identifier": "SORTBYEXT",
+            "name": "SORTBYEXT",
+            "description": ""
+          },
+          {
+            "identifier": "SORTSIZE",
+            "name": "SORTSIZE",
+            "description": ""
+          },
+          {
+            "identifier": "SORTTIME",
+            "name": "SORTTIME",
+            "description": ""
+          },
+          {
+            "identifier": "SYSTEM",
+            "name": "SYSTEM",
+            "description": ""
+          },
+          {
+            "identifier": "TAG",
+            "name": "TAG",
+            "description": ""
+          },
+          {
+            "identifier": "TEMP",
+            "name": "TEMP",
+            "description": ""
+          },
+          {
+            "identifier": "ALIASED",
+            "name": "ALIASED",
+            "description": ""
+          },
+          {
+            "identifier": "ANTIALIASED",
+            "name": "ANTIALIASED",
+            "description": ""
+          },
+          {
+            "identifier": "MAT_SPHERE_SKY",
+            "name": "MAT_SPHERE_SKY",
+            "description": ""
+          },
+          {
+            "identifier": "MATCLOTH",
+            "name": "MATCLOTH",
+            "description": ""
+          },
+          {
+            "identifier": "MATCUBE",
+            "name": "MATCUBE",
+            "description": ""
+          },
+          {
+            "identifier": "MATFLUID",
+            "name": "MATFLUID",
+            "description": ""
+          },
+          {
+            "identifier": "MATPLANE",
+            "name": "MATPLANE",
+            "description": ""
+          },
+          {
+            "identifier": "MATSHADERBALL",
+            "name": "MATSHADERBALL",
+            "description": ""
+          },
+          {
+            "identifier": "MATSPHERE",
+            "name": "MATSPHERE",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_CHROMA_SCOPE",
+            "name": "SEQ_CHROMA_SCOPE",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_HISTOGRAM",
+            "name": "SEQ_HISTOGRAM",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_LUMA_WAVEFORM",
+            "name": "SEQ_LUMA_WAVEFORM",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_PREVIEW",
+            "name": "SEQ_PREVIEW",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_SEQUENCER",
+            "name": "SEQ_SEQUENCER",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_SPLITVIEW",
+            "name": "SEQ_SPLITVIEW",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_STRIP_DUPLICATE",
+            "name": "SEQ_STRIP_DUPLICATE",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_STRIP_META",
+            "name": "SEQ_STRIP_META",
+            "description": ""
+          },
+          {
+            "identifier": "SEQ_STRIP_MODIFIER",
+            "name": "SEQ_STRIP_MODIFIER",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_BRIGHTNESS_CONTRAST",
+            "name": "MOD_BRIGHTNESS_CONTRAST",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_COLOR_BALANCE",
+            "name": "MOD_COLOR_BALANCE",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_CURVES",
+            "name": "MOD_CURVES",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_HUE_CORRECT",
+            "name": "MOD_HUE_CORRECT",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_TONEMAP",
+            "name": "MOD_TONEMAP",
+            "description": ""
+          },
+          {
+            "identifier": "MOD_WHITE_BALANCE",
+            "name": "MOD_WHITE_BALANCE",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_ALPHA",
+            "name": "IMAGE_ALPHA",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_RGB_ALPHA",
+            "name": "IMAGE_RGB_ALPHA",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_RGB",
+            "name": "IMAGE_RGB",
+            "description": ""
+          },
+          {
+            "identifier": "IMAGE_ZDEPTH",
+            "name": "IMAGE_ZDEPTH",
+            "description": ""
+          },
+          {
+            "identifier": "BLENDER_LOGO_LARGE",
+            "name": "BLENDER_LOGO_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "CANCEL_LARGE",
+            "name": "CANCEL_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "DISC_LARGE",
+            "name": "DISC_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "DISK_DRIVE_LARGE",
+            "name": "DISK_DRIVE_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "EXTERNAL_DRIVE_LARGE",
+            "name": "EXTERNAL_DRIVE_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "USB_DRIVE_LARGE",
+            "name": "USB_DRIVE_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_FOLDER_LARGE",
+            "name": "FILE_FOLDER_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_LARGE",
+            "name": "FILE_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "FILE_PARENT_LARGE",
+            "name": "FILE_PARENT_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "INFO_LARGE",
+            "name": "INFO_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "NETWORK_DRIVE_LARGE",
+            "name": "NETWORK_DRIVE_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "QUESTION_LARGE",
+            "name": "QUESTION_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "WARNING_LARGE",
+            "name": "WARNING_LARGE",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_BACKSPACE_FILLED",
+            "name": "KEY_BACKSPACE_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_BACKSPACE",
+            "name": "KEY_BACKSPACE",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_COMMAND_FILLED",
+            "name": "KEY_COMMAND_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_COMMAND",
+            "name": "KEY_COMMAND",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_CONTROL_FILLED",
+            "name": "KEY_CONTROL_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_CONTROL",
+            "name": "KEY_CONTROL",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY1_FILLED",
+            "name": "KEY_EMPTY1_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY1",
+            "name": "KEY_EMPTY1",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY2_FILLED",
+            "name": "KEY_EMPTY2_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY2",
+            "name": "KEY_EMPTY2",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY3_FILLED",
+            "name": "KEY_EMPTY3_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_EMPTY3",
+            "name": "KEY_EMPTY3",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_MENU_FILLED",
+            "name": "KEY_MENU_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_MENU",
+            "name": "KEY_MENU",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_OPTION_FILLED",
+            "name": "KEY_OPTION_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_OPTION",
+            "name": "KEY_OPTION",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_RETURN_FILLED",
+            "name": "KEY_RETURN_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_RETURN",
+            "name": "KEY_RETURN",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_RING_FILLED",
+            "name": "KEY_RING_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_RING",
+            "name": "KEY_RING",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_SHIFT_FILLED",
+            "name": "KEY_SHIFT_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_SHIFT",
+            "name": "KEY_SHIFT",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_TAB_FILLED",
+            "name": "KEY_TAB_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_TAB",
+            "name": "KEY_TAB",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_WINDOWS_FILLED",
+            "name": "KEY_WINDOWS_FILLED",
+            "description": ""
+          },
+          {
+            "identifier": "KEY_WINDOWS",
+            "name": "KEY_WINDOWS",
+            "description": ""
+          },
+          {
+            "identifier": "GESTURE_PAN",
+            "name": "GESTURE_PAN",
+            "description": ""
+          },
+          {
+            "identifier": "GESTURE_ROTATE",
+            "name": "GESTURE_ROTATE",
+            "description": ""
+          },
+          {
+            "identifier": "GESTURE_ZOOM",
+            "name": "GESTURE_ZOOM",
+            "description": ""
+          },
+          {
+            "identifier": "FUND",
+            "name": "FUND",
+            "description": ""
+          },
+          {
+            "identifier": "HEART",
+            "name": "HEART",
+            "description": ""
+          },
+          {
+            "identifier": "INTERNET_OFFLINE",
+            "name": "INTERNET_OFFLINE",
+            "description": ""
+          },
+          {
+            "identifier": "INTERNET",
+            "name": "INTERNET",
+            "description": ""
+          },
+          {
+            "identifier": "USER",
+            "name": "USER",
+            "description": ""
+          },
+          {
+            "identifier": "EXPERIMENTAL",
+            "name": "EXPERIMENTAL",
+            "description": ""
+          },
+          {
+            "identifier": "MEMORY",
+            "name": "MEMORY",
+            "description": ""
+          },
+          {
+            "identifier": "RGB_RED",
+            "name": "RGB_RED",
+            "description": ""
+          },
+          {
+            "identifier": "RGB_GREEN",
+            "name": "RGB_GREEN",
+            "description": ""
+          },
+          {
+            "identifier": "RGB_BLUE",
+            "name": "RGB_BLUE",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_KEYFRAME_VEC",
+            "name": "KEYTYPE_KEYFRAME_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_BREAKDOWN_VEC",
+            "name": "KEYTYPE_BREAKDOWN_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_EXTREME_VEC",
+            "name": "KEYTYPE_EXTREME_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_JITTER_VEC",
+            "name": "KEYTYPE_JITTER_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_MOVING_HOLD_VEC",
+            "name": "KEYTYPE_MOVING_HOLD_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "KEYTYPE_GENERATED_VEC",
+            "name": "KEYTYPE_GENERATED_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLETYPE_FREE_VEC",
+            "name": "HANDLETYPE_FREE_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLETYPE_ALIGNED_VEC",
+            "name": "HANDLETYPE_ALIGNED_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLETYPE_VECTOR_VEC",
+            "name": "HANDLETYPE_VECTOR_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLETYPE_AUTO_VEC",
+            "name": "HANDLETYPE_AUTO_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "HANDLETYPE_AUTO_CLAMP_VEC",
+            "name": "HANDLETYPE_AUTO_CLAMP_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_01_VEC",
+            "name": "COLORSET_01_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_02_VEC",
+            "name": "COLORSET_02_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_03_VEC",
+            "name": "COLORSET_03_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_04_VEC",
+            "name": "COLORSET_04_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_05_VEC",
+            "name": "COLORSET_05_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_06_VEC",
+            "name": "COLORSET_06_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_07_VEC",
+            "name": "COLORSET_07_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_08_VEC",
+            "name": "COLORSET_08_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_09_VEC",
+            "name": "COLORSET_09_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_10_VEC",
+            "name": "COLORSET_10_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_11_VEC",
+            "name": "COLORSET_11_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_12_VEC",
+            "name": "COLORSET_12_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_13_VEC",
+            "name": "COLORSET_13_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_14_VEC",
+            "name": "COLORSET_14_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_15_VEC",
+            "name": "COLORSET_15_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_16_VEC",
+            "name": "COLORSET_16_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_17_VEC",
+            "name": "COLORSET_17_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_18_VEC",
+            "name": "COLORSET_18_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_19_VEC",
+            "name": "COLORSET_19_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "COLORSET_20_VEC",
+            "name": "COLORSET_20_VEC",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_01",
+            "name": "STRIP_COLOR_01",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_02",
+            "name": "STRIP_COLOR_02",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_03",
+            "name": "STRIP_COLOR_03",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_04",
+            "name": "STRIP_COLOR_04",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_05",
+            "name": "STRIP_COLOR_05",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_06",
+            "name": "STRIP_COLOR_06",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_07",
+            "name": "STRIP_COLOR_07",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_08",
+            "name": "STRIP_COLOR_08",
+            "description": ""
+          },
+          {
+            "identifier": "STRIP_COLOR_09",
+            "name": "STRIP_COLOR_09",
+            "description": ""
+          },
+          {
+            "identifier": "LIBRARY_DATA_INDIRECT",
+            "name": "LIBRARY_DATA_INDIRECT",
+            "description": ""
+          },
+          {
+            "identifier": "LIBRARY_DATA_OVERRIDE_NONEDITABLE",
+            "name": "LIBRARY_DATA_OVERRIDE_NONEDITABLE",
+            "description": ""
+          },
+          {
+            "identifier": "PACKAGE_INDIRECT",
+            "name": "PACKAGE_INDIRECT",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_01",
+            "name": "LAYERGROUP_COLOR_01",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_02",
+            "name": "LAYERGROUP_COLOR_02",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_03",
+            "name": "LAYERGROUP_COLOR_03",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_04",
+            "name": "LAYERGROUP_COLOR_04",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_05",
+            "name": "LAYERGROUP_COLOR_05",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_06",
+            "name": "LAYERGROUP_COLOR_06",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_07",
+            "name": "LAYERGROUP_COLOR_07",
+            "description": ""
+          },
+          {
+            "identifier": "LAYERGROUP_COLOR_08",
+            "name": "LAYERGROUP_COLOR_08",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_A",
+            "name": "EVENT_A",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_B",
+            "name": "EVENT_B",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_C",
+            "name": "EVENT_C",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_D",
+            "name": "EVENT_D",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_E",
+            "name": "EVENT_E",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F",
+            "name": "EVENT_F",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_G",
+            "name": "EVENT_G",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_H",
+            "name": "EVENT_H",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_I",
+            "name": "EVENT_I",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_J",
+            "name": "EVENT_J",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_K",
+            "name": "EVENT_K",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_L",
+            "name": "EVENT_L",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_M",
+            "name": "EVENT_M",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_N",
+            "name": "EVENT_N",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_O",
+            "name": "EVENT_O",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_P",
+            "name": "EVENT_P",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_Q",
+            "name": "EVENT_Q",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_R",
+            "name": "EVENT_R",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_S",
+            "name": "EVENT_S",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_T",
+            "name": "EVENT_T",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_U",
+            "name": "EVENT_U",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_V",
+            "name": "EVENT_V",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_W",
+            "name": "EVENT_W",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_X",
+            "name": "EVENT_X",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_Y",
+            "name": "EVENT_Y",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_Z",
+            "name": "EVENT_Z",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SHIFT",
+            "name": "EVENT_SHIFT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_CTRL",
+            "name": "EVENT_CTRL",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_ALT",
+            "name": "EVENT_ALT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_OS",
+            "name": "EVENT_OS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_HYPER",
+            "name": "EVENT_HYPER",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F1",
+            "name": "EVENT_F1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F2",
+            "name": "EVENT_F2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F3",
+            "name": "EVENT_F3",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F4",
+            "name": "EVENT_F4",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F5",
+            "name": "EVENT_F5",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F6",
+            "name": "EVENT_F6",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F7",
+            "name": "EVENT_F7",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F8",
+            "name": "EVENT_F8",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F9",
+            "name": "EVENT_F9",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F10",
+            "name": "EVENT_F10",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F11",
+            "name": "EVENT_F11",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F12",
+            "name": "EVENT_F12",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F13",
+            "name": "EVENT_F13",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F14",
+            "name": "EVENT_F14",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F15",
+            "name": "EVENT_F15",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F16",
+            "name": "EVENT_F16",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F17",
+            "name": "EVENT_F17",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F18",
+            "name": "EVENT_F18",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F19",
+            "name": "EVENT_F19",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F20",
+            "name": "EVENT_F20",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F21",
+            "name": "EVENT_F21",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F22",
+            "name": "EVENT_F22",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F23",
+            "name": "EVENT_F23",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_F24",
+            "name": "EVENT_F24",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_ESC",
+            "name": "EVENT_ESC",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_TAB",
+            "name": "EVENT_TAB",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAGEUP",
+            "name": "EVENT_PAGEUP",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAGEDOWN",
+            "name": "EVENT_PAGEDOWN",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_RETURN",
+            "name": "EVENT_RETURN",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SPACEKEY",
+            "name": "EVENT_SPACEKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_ZEROKEY",
+            "name": "EVENT_ZEROKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_ONEKEY",
+            "name": "EVENT_ONEKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_TWOKEY",
+            "name": "EVENT_TWOKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_THREEKEY",
+            "name": "EVENT_THREEKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_FOURKEY",
+            "name": "EVENT_FOURKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_FIVEKEY",
+            "name": "EVENT_FIVEKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SIXKEY",
+            "name": "EVENT_SIXKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SEVENKEY",
+            "name": "EVENT_SEVENKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_EIGHTKEY",
+            "name": "EVENT_EIGHTKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NINEKEY",
+            "name": "EVENT_NINEKEY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD0",
+            "name": "EVENT_PAD0",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD1",
+            "name": "EVENT_PAD1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD2",
+            "name": "EVENT_PAD2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD3",
+            "name": "EVENT_PAD3",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD4",
+            "name": "EVENT_PAD4",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD5",
+            "name": "EVENT_PAD5",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD6",
+            "name": "EVENT_PAD6",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD7",
+            "name": "EVENT_PAD7",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD8",
+            "name": "EVENT_PAD8",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD9",
+            "name": "EVENT_PAD9",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADASTER",
+            "name": "EVENT_PADASTER",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADSLASH",
+            "name": "EVENT_PADSLASH",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADMINUS",
+            "name": "EVENT_PADMINUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADENTER",
+            "name": "EVENT_PADENTER",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADPLUS",
+            "name": "EVENT_PADPLUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PADPERIOD",
+            "name": "EVENT_PADPERIOD",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MOUSE_4",
+            "name": "EVENT_MOUSE_4",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MOUSE_5",
+            "name": "EVENT_MOUSE_5",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MOUSE_6",
+            "name": "EVENT_MOUSE_6",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MOUSE_7",
+            "name": "EVENT_MOUSE_7",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_TABLET_STYLUS",
+            "name": "EVENT_TABLET_STYLUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_TABLET_ERASER",
+            "name": "EVENT_TABLET_ERASER",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_LEFT_ARROW",
+            "name": "EVENT_LEFT_ARROW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_DOWN_ARROW",
+            "name": "EVENT_DOWN_ARROW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_RIGHT_ARROW",
+            "name": "EVENT_RIGHT_ARROW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_UP_ARROW",
+            "name": "EVENT_UP_ARROW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAUSE",
+            "name": "EVENT_PAUSE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_INSERT",
+            "name": "EVENT_INSERT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_HOME",
+            "name": "EVENT_HOME",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_END",
+            "name": "EVENT_END",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_UNKNOWN",
+            "name": "EVENT_UNKNOWN",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_GRLESS",
+            "name": "EVENT_GRLESS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MEDIAPLAY",
+            "name": "EVENT_MEDIAPLAY",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MEDIASTOP",
+            "name": "EVENT_MEDIASTOP",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MEDIAFIRST",
+            "name": "EVENT_MEDIAFIRST",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MEDIALAST",
+            "name": "EVENT_MEDIALAST",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_APP",
+            "name": "EVENT_APP",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_CAPSLOCK",
+            "name": "EVENT_CAPSLOCK",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_BACKSPACE",
+            "name": "EVENT_BACKSPACE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_DEL",
+            "name": "EVENT_DEL",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SEMICOLON",
+            "name": "EVENT_SEMICOLON",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PERIOD",
+            "name": "EVENT_PERIOD",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_COMMA",
+            "name": "EVENT_COMMA",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_QUOTE",
+            "name": "EVENT_QUOTE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_ACCENTGRAVE",
+            "name": "EVENT_ACCENTGRAVE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_MINUS",
+            "name": "EVENT_MINUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PLUS",
+            "name": "EVENT_PLUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_SLASH",
+            "name": "EVENT_SLASH",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_BACKSLASH",
+            "name": "EVENT_BACKSLASH",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_EQUAL",
+            "name": "EVENT_EQUAL",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_LEFTBRACKET",
+            "name": "EVENT_LEFTBRACKET",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_RIGHTBRACKET",
+            "name": "EVENT_RIGHTBRACKET",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD_PAN",
+            "name": "EVENT_PAD_PAN",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD_ROTATE",
+            "name": "EVENT_PAD_ROTATE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_PAD_ZOOM",
+            "name": "EVENT_PAD_ZOOM",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_V1",
+            "name": "EVENT_NDOF_BUTTON_V1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_V2",
+            "name": "EVENT_NDOF_BUTTON_V2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_V3",
+            "name": "EVENT_NDOF_BUTTON_V3",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_SAVE_V1",
+            "name": "EVENT_NDOF_BUTTON_SAVE_V1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_SAVE_V2",
+            "name": "EVENT_NDOF_BUTTON_SAVE_V2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_SAVE_V3",
+            "name": "EVENT_NDOF_BUTTON_SAVE_V3",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_1",
+            "name": "EVENT_NDOF_BUTTON_1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_2",
+            "name": "EVENT_NDOF_BUTTON_2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_3",
+            "name": "EVENT_NDOF_BUTTON_3",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_4",
+            "name": "EVENT_NDOF_BUTTON_4",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_5",
+            "name": "EVENT_NDOF_BUTTON_5",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_6",
+            "name": "EVENT_NDOF_BUTTON_6",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_7",
+            "name": "EVENT_NDOF_BUTTON_7",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_8",
+            "name": "EVENT_NDOF_BUTTON_8",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_9",
+            "name": "EVENT_NDOF_BUTTON_9",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_10",
+            "name": "EVENT_NDOF_BUTTON_10",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_11",
+            "name": "EVENT_NDOF_BUTTON_11",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_12",
+            "name": "EVENT_NDOF_BUTTON_12",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_MENU",
+            "name": "EVENT_NDOF_BUTTON_MENU",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_FIT",
+            "name": "EVENT_NDOF_BUTTON_FIT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_TOP",
+            "name": "EVENT_NDOF_BUTTON_TOP",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_BOTTOM",
+            "name": "EVENT_NDOF_BUTTON_BOTTOM",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_LEFT",
+            "name": "EVENT_NDOF_BUTTON_LEFT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_RIGHT",
+            "name": "EVENT_NDOF_BUTTON_RIGHT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_FRONT",
+            "name": "EVENT_NDOF_BUTTON_FRONT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_BACK",
+            "name": "EVENT_NDOF_BUTTON_BACK",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_ISO1",
+            "name": "EVENT_NDOF_BUTTON_ISO1",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_ISO2",
+            "name": "EVENT_NDOF_BUTTON_ISO2",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_ROLL_CW",
+            "name": "EVENT_NDOF_BUTTON_ROLL_CW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_ROLL_CCW",
+            "name": "EVENT_NDOF_BUTTON_ROLL_CCW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_SPIN_CW",
+            "name": "EVENT_NDOF_BUTTON_SPIN_CW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_SPIN_CCW",
+            "name": "EVENT_NDOF_BUTTON_SPIN_CCW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_TILT_CW",
+            "name": "EVENT_NDOF_BUTTON_TILT_CW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_TILT_CCW",
+            "name": "EVENT_NDOF_BUTTON_TILT_CCW",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_ROTATE",
+            "name": "EVENT_NDOF_BUTTON_ROTATE",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_PANZOOM",
+            "name": "EVENT_NDOF_BUTTON_PANZOOM",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_DOMINANT",
+            "name": "EVENT_NDOF_BUTTON_DOMINANT",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_PLUS",
+            "name": "EVENT_NDOF_BUTTON_PLUS",
+            "description": ""
+          },
+          {
+            "identifier": "EVENT_NDOF_BUTTON_MINUS",
+            "name": "EVENT_NDOF_BUTTON_MINUS",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_FLOAT",
+            "name": "NODE_SOCKET_FLOAT",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_VECTOR",
+            "name": "NODE_SOCKET_VECTOR",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_RGBA",
+            "name": "NODE_SOCKET_RGBA",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_SHADER",
+            "name": "NODE_SOCKET_SHADER",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_BOOLEAN",
+            "name": "NODE_SOCKET_BOOLEAN",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_INT",
+            "name": "NODE_SOCKET_INT",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_STRING",
+            "name": "NODE_SOCKET_STRING",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_OBJECT",
+            "name": "NODE_SOCKET_OBJECT",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_IMAGE",
+            "name": "NODE_SOCKET_IMAGE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_GEOMETRY",
+            "name": "NODE_SOCKET_GEOMETRY",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_COLLECTION",
+            "name": "NODE_SOCKET_COLLECTION",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_TEXTURE",
+            "name": "NODE_SOCKET_TEXTURE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_MATERIAL",
+            "name": "NODE_SOCKET_MATERIAL",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_ROTATION",
+            "name": "NODE_SOCKET_ROTATION",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_MENU",
+            "name": "NODE_SOCKET_MENU",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_MATRIX",
+            "name": "NODE_SOCKET_MATRIX",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_BUNDLE",
+            "name": "NODE_SOCKET_BUNDLE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_CLOSURE",
+            "name": "NODE_SOCKET_CLOSURE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_FONT",
+            "name": "NODE_SOCKET_FONT",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_SCENE",
+            "name": "NODE_SOCKET_SCENE",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_TEXT",
+            "name": "NODE_SOCKET_TEXT",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_MASK",
+            "name": "NODE_SOCKET_MASK",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_SOUND",
+            "name": "NODE_SOCKET_SOUND",
+            "description": ""
+          },
+          {
+            "identifier": "NODE_SOCKET_INT_VECTOR",
+            "name": "NODE_SOCKET_INT_VECTOR",
+            "description": ""
+          }
+        ]
+      },
+      "bl_static_type": {
+        "type": "STRING",
+        "readOnly": true
+      },
+      "bl_width_default": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "bl_width_min": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "bl_width_max": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "bl_height_default": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "bl_height_min": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "bl_height_max": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "texture_mapping": {
+        "type": "POINTER",
+        "readOnly": true
+      },
+      "color_mapping": {
+        "type": "POINTER",
+        "readOnly": true
+      },
+      "sky_type": {
+        "type": "ENUM",
+        "readOnly": false,
+        "enumItems": [
+          {
+            "identifier": "SINGLE_SCATTERING",
+            "name": "Single Scattering",
+            "description": "Single scattering sky model"
+          },
+          {
+            "identifier": "MULTIPLE_SCATTERING",
+            "name": "Multiple Scattering",
+            "description": "Multiple scattering sky model (more accurate)"
+          },
+          {
+            "identifier": "PREETHAM",
+            "name": "Preetham",
+            "description": "Preetham 1999 (Legacy)"
+          },
+          {
+            "identifier": "HOSEK_WILKIE",
+            "name": "Hosek / Wilkie",
+            "description": "Hosek / Wilkie 2012 (Legacy)"
+          }
+        ]
+      },
+      "sun_disc": {
+        "type": "BOOLEAN",
+        "readOnly": false
+      },
+      "sun_size": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "sun_intensity": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "sun_elevation": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "sun_rotation": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "altitude": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "air_density": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "aerosol_density": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "ozone_density": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "sun_direction": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "turbidity": {
+        "type": "FLOAT",
+        "readOnly": false
+      },
+      "ground_albedo": {
+        "type": "FLOAT",
+        "readOnly": false
+      }
+    },
+    "sunIntensityUnmodifiedActual": 1.0,
+    "actualRNAForwardDirectionAudit": {
+      "officialV521ForwardFormula": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+      "officialImplementation": [
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl"
+      ],
+      "intendedSourceDirectionYUp": [
+        -0.3682471811771393,
+        0.20047122240066528,
+        -0.9078575372695923
+      ],
+      "intendedSourceDirectionZUp": [
+        -0.3682471811771393,
+        0.9078575372695923,
+        0.20047114789485931
+      ],
+      "actualRNAForwardMappedSkyDirectionZUp": [
+        -0.3682471811771393,
+        0.9078575372695923,
+        0.20047114789485931
+      ],
+      "actualRNAForwardMappedSkyDirectionSourceYUp": [
+        -0.3682471811771393,
+        0.20047122240066528,
+        -0.9078575372695923
+      ],
+      "directionVectorResidual": 0.0,
+      "intendedSourceProjection": {
+        "inFrontOfCamera": true,
+        "uv": [
+          0.14752793149258597,
+          0.3955343098939469
+        ]
+      },
+      "actualRNAForwardMappedSkyProjection": {
+        "inFrontOfCamera": true,
+        "uv": [
+          0.14752793149258597,
+          0.3955343098939469
+        ]
+      },
+      "projectionResidualPixels": [
+        0.0,
+        0.0
+      ],
+      "actualSolarDiscImageVerificationStillRequired": true,
+      "R09bInputProjectionWasNotPhysicalSkyDirectionProof": true
+    },
+    "worldStrengthActual": 0.3400000035762787,
+    "sunDirectionSourceYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ],
+    "sunDirectionBlenderZUp": [
+      -0.3682471811771393,
+      0.9078575372695923,
+      0.20047114789485931
+    ]
+  },
+  "materialTransfer": {
+    "originalPortablePBRAndTextureColor": true,
+    "UVTransform": "Exact source repeat, offset, center, rotation and flipY sampling convention retained",
+    "normalXYScale": true,
+    "vertexAndInstanceColorDomainsSeparate": true,
+    "leafPhysicalAdapters": [
+      "flowerCream",
+      "leaf",
+      "leafDark",
+      "pinkLight",
+      "pink",
+      "pineLeaf",
+      "lotus",
+      "lotusInside",
+      "leafLight",
+      "mapleLight",
+      "mapleDark",
+      "mapleLeaf",
+      "vineLeaf",
+      "garden219-soft-pink-corolla",
+      "garden219-azalea-magenta-corolla"
+    ],
+    "waterfallMaterialIds": [
+      "443af26c-f32e-4db6-b89e-63e6ca363335"
+    ],
+    "nativeCustomHooksNotPorted": [
+      "wood age/chips",
+      "bark lichen",
+      "scanned stone charcoal/moss coloration",
+      "granite mineral albedo and differential bump",
+      "GLSL leaf/petal view-dependent emission",
+      "GLSL waterfall dynamic foam/alpha",
+      "GLSL water screen/planar sampling",
+      "generated-LDR sky shader and material-local captured env maps"
+    ],
+    "omittedNativePost": "GTAO and native post-CoC are not imported; actual GI and physical thin-lens camera used"
+  },
+  "affinePreservation": {
+    "parentMatrices": "Full actual exported object matrices retained; no parent TRS approximation.",
+    "linkedLocalMatrices": "Geometry Nodes Object Info + Instance on Points with TRS decomposition only for matrices with normalized column shear residual <= 1e-7; retained translations, rotations and scales.",
+    "linkedInstances": 545279,
+    "bakedShearedInstances": 15112,
+    "bakedShearedTriangles": 2279384,
+    "bakedShearedVertices": 1398612,
+    "maxLinkedTRSMatrixResidual": 1.9073486328125e-06,
+    "maxBakedShearResidual": 0.7762951254844666,
+    "flattenedOnlyForShearedTransforms": true,
+    "geometryDecimated": false,
+    "singularInstancesBakedWithoutDroppingTriangles": 0,
+    "bakedUVOrder": "UV loops sampled after negative-determinant face winding, retaining source vertex-to-UV correspondence"
+  },
+  "physicalWater": {
+    "actualExportedGeometryOnly": true,
+    "sourceObject": "real-reflected-garden-pond-ripple-surface",
+    "positionBuffer": {
+      "file": "geometry-3026-position.bin",
+      "type": "Float32Array",
+      "count": 12,
+      "itemSize": 3,
+      "sourceNormalized": false
+    },
+    "indexBuffer": {
+      "file": "geometry-3026-index.bin",
+      "type": "Uint32Array",
+      "count": 6
+    },
+    "sourceMatrixYUp": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      2.220446049250313e-16,
+      -1,
+      0,
+      0,
+      1,
+      2.220446049250313e-16,
+      0,
+      0,
+      0.13,
+      5.2,
+      1
+    ],
+    "vertexCount": 4,
+    "triangles": 2,
+    "material": {
+      "IOR": 1.333,
+      "roughness": 0.07,
+      "baseLinearRGB": [
+        0.006,
+        0.014,
+        0.009
+      ],
+      "metallic": 0,
+      "transmission": 0,
+      "scope": "Opaque shallow-water surface BSDF approximation; no added volume/bottom geometry"
+    },
+    "normalAdapter": "Same six source world-space sine heights at time0 become a physical bump normal; the actual exported surface vertices remain unchanged. Three.js x,z -> Blender x,-y.",
+    "reflection": "Actual full scene and physical atmosphere ray traced; native reflected image and photograph are never imported",
+    "nativeShaderPixelParity": false
+  },
+  "coordinateConversion": {
+    "rigidRotationRadiansX": 1.5707963267948966,
+    "rule": "Source direct meshes, instance parents and camera converted once; hidden Object Info templates remain in original local coordinates at identity",
+    "maxObjectMatrixAssignmentResidual": 0,
+    "cameraSourceYUp": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.9950371902099892,
+      0.09950371902099892,
+      0,
+      0,
+      -0.09950371902099892,
+      0.9950371902099892,
+      0,
+      0,
+      3.2,
+      17,
+      1
+    ],
+    "cameraBlenderZUp": [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.09950349479913712,
+      -0.9950371980667114,
+      -17.0,
+      0.0,
+      0.9950371980667114,
+      -0.09950349479913712,
+      3.2000012397766113,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "sourceFovDegrees": 59,
+    "physicalFilmGateMM": 36,
+    "physicalFocalLengthMM": 31.814891815185547,
+    "thinLensFstop": 1.4,
+    "focusMetres": 30.149627685546875,
+    "nativePostCoCPixelParity": false
+  },
+  "physicalLighting": {
+    "method": "Single physical atmosphere including solar disc; no other scene light objects, painted background, hidden lighting geometry or added reflection capture",
+    "skyType": "MULTIPLE_SCATTERING",
+    "intendedSourceSunProjectedUV": [
+      0.14752793149258597,
+      0.3955343098939469
+    ],
+    "actualRNAForwardDirectionAudit": {
+      "officialV521ForwardFormula": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+      "officialImplementation": [
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+        "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl"
+      ],
+      "intendedSourceDirectionYUp": [
+        -0.3682471811771393,
+        0.20047122240066528,
+        -0.9078575372695923
+      ],
+      "intendedSourceDirectionZUp": [
+        -0.3682471811771393,
+        0.9078575372695923,
+        0.20047114789485931
+      ],
+      "actualRNAForwardMappedSkyDirectionZUp": [
+        -0.3682471811771393,
+        0.9078575372695923,
+        0.20047114789485931
+      ],
+      "actualRNAForwardMappedSkyDirectionSourceYUp": [
+        -0.3682471811771393,
+        0.20047122240066528,
+        -0.9078575372695923
+      ],
+      "directionVectorResidual": 0.0,
+      "intendedSourceProjection": {
+        "inFrontOfCamera": true,
+        "uv": [
+          0.14752793149258597,
+          0.3955343098939469
+        ]
+      },
+      "actualRNAForwardMappedSkyProjection": {
+        "inFrontOfCamera": true,
+        "uv": [
+          0.14752793149258597,
+          0.3955343098939469
+        ]
+      },
+      "projectionResidualPixels": [
+        0.0,
+        0.0
+      ],
+      "actualSolarDiscImageVerificationStillRequired": true,
+      "R09bInputProjectionWasNotPhysicalSkyDirectionProof": true
+    },
+    "intendedSourceSunProjected1254Pixels": [
+      185.0000260917028,
+      496.0000246070094
+    ],
+    "sunDirectionSourceYUp": [
+      -0.3682471811771393,
+      0.20047122240066528,
+      -0.9078575372695923
+    ],
+    "sunDirectionBlenderZUp": [
+      -0.3682471811771393,
+      0.9078575372695923,
+      0.20047114789485931
+    ],
+    "sunElevationDegrees": 11.56451174131864,
+    "sunRotationRadians": -0.3853437006473541,
+    "sunSizeRadians": 0.00930000003427267,
+    "worldStrength": 0.3400000035762787,
+    "sourceDirectionalIntensityRecordedButNotRadiometricallyMatched": 8.2,
+    "sourceDirectionalColorRecordedButAtmosphereSuppliesSpectrum": [
+      1,
+      0.508881320845802,
+      0.16202937562896222
+    ],
+    "nativeLightsNotImported": [
+      {
+        "name": "",
+        "type": "DirectionalLight",
+        "intensity": 8.2
+      },
+      {
+        "name": "",
+        "type": "HemisphereLight",
+        "intensity": 0.42
+      },
+      {
+        "name": "warm-courtyard-reflected-daylight",
+        "type": "DirectionalLight",
+        "intensity": 1.92
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 5
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 11
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 10
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      {
+        "name": "",
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      {
+        "name": "scene01-finite-warm-stone-court-radiance185",
+        "type": "RectAreaLight",
+        "intensity": 2
+      }
+    ],
+    "physicalFixtureSurfaceEmission": "Original exported emissive BSDFs on actual modeled fixture surfaces, no point-light proxies",
+    "nativeGeneratedSkyGLSLNotImported": true,
+    "nativePixelParity": false,
+    "nativeFogNotImported": true
+  },
+  "geometryPreservation": {
+    "sourcePBRImportedTriangles": 70213977,
+    "sourcePBRExpectedTriangles": 70213977,
+    "diagnosticOriginalWaterTriangles": 2,
+    "expectedDiagnosticTriangles": 2,
+    "sourceIndicesPositionsNormalsAndUVRetained": true,
+    "newSceneGeometry": false,
+    "referencePhotographImported": false,
+    "sourceMeshBuffersByteVerified": true
+  },
+  "renderSettings": {
+    "resolution": [
+      1254,
+      1254
+    ],
+    "samplesMaximum": 96,
+    "adaptiveSampling": false,
+    "timeLimitSeconds": 480.0,
+    "adaptiveThreshold": 0.02500000037252903,
+    "denoising": true,
+    "device": "GPU",
+    "devices": [
+      {
+        "name": "Apple M1 Pro",
+        "type": "CPU",
+        "enabled": false
+      },
+      {
+        "name": "Apple M1 Pro (GPU - 16 cores)",
+        "type": "METAL",
+        "enabled": true
+      }
+    ],
+    "maxBounces": 10,
+    "diffuseBounces": 6,
+    "glossyBounces": 6,
+    "viewTransform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposureEV": 0.04264433681964874,
+    "savedBlend": false,
+    "frameCount": 1
+  },
+  "renderSeconds": 68.42027306556702,
+  "renderSha256": "2c9b68ce36c44bf044011926b22c55e171867bb0d52ad3185e11168afe8a02c9",
+  "renderFile": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r10/scene01-d2587-physical-r10.png",
+  "completedAt": 1792799124.721866
+}

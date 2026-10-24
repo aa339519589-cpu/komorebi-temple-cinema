@@ -1,0 +1,25 @@
+{
+  "status": "physical-job-failed",
+  "submittedAt": "2026-10-23T23:27:48.180Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "freeBeforeBytes": 1597890560,
+  "emergencyFloorBytes": 268435456,
+  "renderScript": "lookdev/scene01-rebuild219/render-physical219-r09.py",
+  "renderScriptSha256": "81ce32d99c1f86b7ce23111bf96175bf65feab596156c59be696c485dba8b6a3",
+  "settingsSha256": "1eeb1fd32488f44099a97517f1f8e5d55281750b7915781be2a55ed69ec67025",
+  "verificationSha256": "db03b3980de5c07a7c2eeb0479b70b59f9afdbb9f05829d60d431d7b8d589baa",
+  "driver": "tools/run-blender-queued.mjs",
+  "driverSha256": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+  "storageSamples": [
+    {
+      "at": "2026-10-23T23:27:50.188Z",
+      "freeBytes": 1595408384
+    },
+    {
+      "at": "2026-10-23T23:28:20.216Z",
+      "freeBytes": 1590706176
+    }
+  ],
+  "completedAt": "2026-10-23T23:28:25.969Z",
+  "exitCode": 1
+}

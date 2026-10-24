@@ -1,5 +1,5 @@
 {
-  "revision": "scene10-support207-r06",
+  "revision": "scene10-rain210-r14",
   "status": "Native 3D reconstruction candidate; photographic fidelity unaccepted",
   "reference": "references/hd/9-照片-10.jpg; comparison only, never a runtime texture or replacement frame",
   "baseline193Source": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
@@ -9,7 +9,17 @@
     "src/support-route207.js: closed wedge treads, exact clipped cheek courses, stringers/crossheads, bed-seated pads, supported landings, continuous approach, recessed battered bonded stone terrace, short bearings, nine embedded gallery brackets, finite creek basin and reflection footprint.",
     "src/main.js: widened circulation masks around real curb/paving/column footing/apron; bridge trim seated on its carrying rib; real finite creek reflection with water Fresnel and bounded ripple distortion; reflection layers mutually hidden during capture to prevent recursion.",
     "src/natural193.js: exact rendered terrain extended to z=20, reserved boundary cells held at y=-.22, blended creek bank rise, roots tied to actual geometry and frozen mature/young forest records.",
-    "src/hall-front132.js and src/layout125.js: inherited207 structure integration and measured shared connection datums; main upper hall and pagoda mass remain held."
+    "src/hall-front132.js and src/layout125.js: inherited207 structure integration and measured shared connection datums; main upper hall and pagoda mass remain held.",
+    "R07: bridge endpoint and hero lantern datum retained; actual raised lantern island, narrow sloped stone route, compact .66m foot landing, four .175m/.28m steps, short joined guards and rear branch replacing seven inherited low walk slabs. The hall lower masonry is embedded by a real broken soil shoulder and closed irregular ashlar with per-vertex block weathering.",
+    "R08: retired tower-walk mask synchronized to the surviving slabs (z<-7.65); actual lantern island soil reaches y=.58. Twelve closed individually toned wet path flags replace the narrow pale strips; front/rear widths .96/1.10m. Existing original CC0 mineral pieces are rigidly partially buried as irregular hall-bank outcrops, with actual surfaces exposed for existing plant-root rays; no per-pier rock feet or new plant loops.",
+    "R08 route cap/side/bottom topology is rebuilt using every refined cap boundary vertex. The preliminary reuse of the older coarse rim produced T junctions; its failed CPU receipt and source fragment are preserved under lookdev/scene10-support207. Worn crowns, hollows and spalls remain real geometry, and the shared foreground helper is unchanged.",
+    "R09: actual R08 native hero/low views rejected its large pale high-shoulder outcrops. Smaller original CC0 pieces now sit more deeply (58–64% of transformed height) at lower hall bank toes, with wet-dark porous stone response. The lantern island shoreline is smaller, irregular and eroded, with two low mineral toe candidates filtered against actual circulation/paving. The physical terrace/piers and bridge endpoint remain held.",
+    "R09: exact frozen R06 CPU geometry/RNG replay recovers eleven real rigid garden-tree poses. All R06 native root/rock/forest records reproduce numerically within 1e-12. Those poses join the existing56 forest records in ecology193-held207.json, with separate runtime verification. No image, viewport, GPU, mesh export or new download is used for recovery.",
+    "R10 rebuilds wrong broad slopes into lower eroded benches, narrows the hall-side soil shoulder, replaces near scattered fragments with coherent physically rooted rock/shrub/fern islands, and replaces the lantern green mound/point support with three actual irregular stone plinth courses. Stone lantern closed profiles, shortened/thickened shaft, deeper/wider warm light cage and wet Physical material are rebuilt. Hall paper is amber and spatially nonuniform; bridge lacquer receives a physical rain coat. Existing anchors/forest records are no longer acceptance constraints; any terrain-driven root elevation changes are reported.",
+    "R11 actual R10 native frames rejected upright-stilt flat hedges and black uniform plinths. Both wood and attached leaf coordinates receive the same continuous low-growth reconstruction; each bank crown varies in height. Authored smaller plinth courses use Granite Tile04 PBR and geometric edge/crown wear, not scan-atlas projection. Tower-front slopes are reduced again and near tree positive growth scales are reconstructed from actual lower roots, rather than preserving wrong soil pedestals.",
+    "R12 reconstructs lamp body/outer-step projection as a physical assembly rather than preserving historical anchors. Lamp [-2.96,1.453875885,-4.1], vertical scale .877177981, real outer courses +.683875885m on original mineral bearing pieces. Near bridge [-2.45,1.32,-5.1] with far endpoint fixed, first12% real level entry deck, actual front guard opening and a transverse four-step flight whose head rails meet bridge entry posts exactly. Front/rear route and real terrain reservation are rebuilt around those solids. Damp mineral faces use a true Physical material instead of pale standard mineral.",
+    "R13 actual R12 reference/hero/low/overhead frames reject the frontal red gate and smooth high foot mound. The flight is diagonal; closed trapezoidal tread prisms and their real nosings are cut against the true configured lamp course edges. A compact closed head wedge and actual short guard tubes meet the bridge entry poles; the near corner pole clears the lamp body. The foot landing has eight closed bed-seated bearing stones, with partly submerged original mineral toes. High soil under the actual raised structure is removed; route-specific earth beds take precedence, fixing the observed 24mm side soil lip. Four bridge piers receive actual riverbed-embedded pads.",
+    "R14 actual same-RGBA native ray diagnostic identifies raised soil, not stone or reflection, as the remaining front grey face. The direct front-court raised ramp and duplicate fork are retired. One real garden-side path joins the surviving tower walk around the west of the island to its stair foot. Front adjacent terrain rows at z>=-2.5 stay at y=-.22 and the actual path bed lies inside the flag footprint, preventing the inherited high path from spilling into the foreground. Same official native pixels are picked again for direct mesh/material verification."
   ],
   "beforeAfter": {
     "old183SmoothStairBankWidth": 7.1,
@@ -28,13 +38,57 @@
     "terrainStep": 0.25,
     "rightCurbReservedBuffer": 0.65,
     "otherPavingReservedBuffer": 0.45,
-    "terrainReservedHeight": -0.22
+    "terrainReservedHeight": -0.22,
+    "r07NearStepCount": 4,
+    "r07NearRun": 1.12,
+    "r07NearFootWorldY": 0.62,
+    "r07NearLandingRun": 0.66,
+    "r07ForecourtRouteWidth": 1.1,
+    "r07RearBranchWidth": 1.25,
+    "r07RetiredLowTowerWalkSlabs": 7,
+    "r07LanternIslandTerrainCrest": 0.58,
+    "r08ForecourtRouteWidth": 0.96,
+    "r08RearBranchWidth": 1.1,
+    "r08RouteFlagCount": 12,
+    "r08LanternSoilWorldY": 0.58,
+    "r08LegacyTowerWalkReservationEndsAtZ": -7.65,
+    "r08RouteFlagNominalThickness": 0.14,
+    "r08RearBranchMeetsOldSlabFrontZ": -7.71,
+    "r09BankBurialRatio": [
+      0.58,
+      0.64
+    ],
+    "r09IslandToeBurialRatio": 0.64,
+    "r09AdditionalHeldGardenTreePoses": 11,
+    "r12NearDeck": [
+      -2.45,
+      1.32,
+      -5.1
+    ],
+    "r12HeroLantern": [
+      -2.96,
+      1.4538758854458425,
+      -4.1
+    ],
+    "r12LampVerticalScale": 0.877177980766595,
+    "r12OuterCourseRise": 0.6838758854458423,
+    "r12EntryFlatT": 0.12,
+    "r12NearFootY": 0.78,
+    "r12NearRiser": 0.135,
+    "r13FootBearingBottom": -0.24,
+    "r13FootBearingStones": 8,
+    "r13BridgePierPadBottom": -0.24,
+    "r13BridgePierPadTop": -0.08,
+    "r13StepPlinthClearance": 0.035,
+    "r14FrontRaisedRampRetired": true,
+    "r14GardenRouteCount": 1,
+    "r14ProtectedFrontTerrainMaxZ": -2.5,
+    "r14LowFrontBedY": -0.22
   },
   "held": [
-    "Camera and hall/pagoda world transforms",
-    "Upper hall/pagoda carpentry, carved-source geometry and roof modules",
-    "Wet paving/drain/curb source geometry and rain/water-film seeds",
-    "56 natural193 mature/young tree growth and placement datums"
+    "Camera and actual foreground paving/curb/drain/rain inputs retained in this candidate",
+    "Upper hall/pagoda geometry mass retained; window material/emission intentionally reconstructed",
+    "Background tree poses retained; near tree root height and growth scales reconstructed on the actual lowered banks as explicitly authorized"
   ],
   "licenses": [
     {
@@ -62,15 +116,28 @@
       "use": "Existing architectural carving unchanged; attribution retained."
     }
   ],
-  "validationScope": "Actual CPU-authored structural buffers, shared contact planes and triangle-safe hard-surface reservation, followed by official FIFO native full/reference-bank/low/overhead review. Closure or no WebGL errors are not photographic acceptance.",
+  "validationScope": "Actual CPU-authored structural buffers, shared contact planes and triangle-safe hard-surface reservation, followed by official FIFO native full/reference-bank/low/overhead review. Closure or no WebGL errors are not photographic acceptance. R09 additionally verifies eleven recovered R06 garden poses; lower procedural root/rock acceptance counts may change and are reported honestly.",
   "knownUnaccepted": [
-    "Near approach stair still runs too far left relative to the photographed short flight; a different route requires a coherent landing and lantern relationship.",
-    "Hall terrace/stair stone material, bridge/rail detailing and other garden scale relationships still need direct photographic comparison.",
-    "Hall/tower roof and carpentry rhythms, generic shrine figure, forest species and lighting remain visibly CG."
+    "R14 actual native photographic comparison pending; no photographic fidelity acceptance."
   ],
   "visualAccepted": false,
   "photographPixelsSampled": false,
   "newExternalAssets": false,
   "intermediateR05Source": "4c04ed41426df0ff30c50cfc72d4b6e588cd9272ca2a0132f45a8318924d5ae8",
-  "reflectionCorrectionR06": "The actual R05 reference subfrustum revealed a bright clamped water patch absent in the full frame. Plane reflection reverses image X handedness, so each private reflection source now mirrors projectionMatrix[8] and its view offset. The physical camera remains unchanged. A CPU projection audit over 481 visible water-plane points reduces the crop-mapping error from 2.164285714 NDC to 8.54e-16. Both scene-local horizontal reflection layers use this correction; native R06 views verify the result."
+  "reflectionCorrectionR06": "The actual R05 reference subfrustum revealed a bright clamped water patch absent in the full frame. Plane reflection reverses image X handedness, so each private reflection source now mirrors projectionMatrix[8] and its view offset. The physical camera remains unchanged. A CPU projection audit over 481 visible water-plane points reduces the crop-mapping error from 2.164285714 NDC to 8.54e-16. Both scene-local horizontal reflection layers use this correction; native R06 views verify the result.",
+  "inheritedR06Source": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+  "intermediateR07Source": "2e8a5dbf2b1451615a305d38ef459a82a3b2ef21232e4eabd2b868ea7d179f27",
+  "intermediateR08Source": "049211ad16b597a488dedc3a1e725683e3a7f497914bfa607d2b141292e5682d",
+  "inheritedR09Source": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+  "intermediateR10Source": "d20a01ebc6a50372cbfe8f9cec21dfb7ac28af9fc7e526933705d44facf9d8b6",
+  "historicalHeldR09": [
+    "Camera and hall/pagoda world transforms",
+    "Upper hall/pagoda carpentry, carved-source geometry and roof modules",
+    "Wet paving/drain/curb source geometry and rain/water-film seeds",
+    "56 natural193 mature/young tree growth and placement datums",
+    "Eleven R06 garden broadleaf/blossom geometry, positive growth scale and rigid yaw/position poses"
+  ],
+  "intermediateR11Source": "2a7e603765a955f238d2cfa11a02d9a0e9fdd9ab604b89f34e6b9af1572febc6",
+  "intermediateR12Source": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+  "intermediateR13Source": "f3291ade96e88b5e2f20c12ea2268ad0e8d12130e21a6496d4e5dd2c3097639c"
 }

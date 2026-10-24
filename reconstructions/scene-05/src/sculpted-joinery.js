@@ -16,44 +16,72 @@ export function createSculptedJoinery(){
   const u=Math.abs(x)/(length/2),t=T.MathUtils.smoothstep(u,.43,.87);
   return -.090-.132*t+.010*Math.exp(-Math.pow((u-.94)/.07,2));
  }
- function arrisedProfile(shape,depth,arris=.0035){
-  // Four explicit section rings cut a narrow carpenter's chamfer into the
-  // cheeks. The middle rings retain the measured underside, laps and seats;
-  // unlike an expanding extrusion bevel, no contact datum moves outwards.
-  const raw=shape.getPoints(),poly=[];
-  for(const q of raw)if(!poly.length||q.distanceTo(poly.at(-1))>1e-8)poly.push(q.clone());
+ function profileLoop220(shape){
+  const poly=[];for(const q of shape.getPoints())if(!poly.length||q.distanceTo(poly.at(-1))>1e-8)poly.push(q.clone());
   if(poly[0].distanceTo(poly.at(-1))<1e-8)poly.pop();
   let changed=true;while(changed){changed=false;for(let i=0;i<poly.length;i++){
    const a=poly[(i+poly.length-1)%poly.length],b=poly[i],c=poly[(i+1)%poly.length],ab=b.clone().sub(a),bc=c.clone().sub(b);
    if(Math.abs(ab.x*bc.y-ab.y*bc.x)<1e-10&&ab.dot(bc)>0){poly.splice(i,1);changed=true;break;}
-  }}
+  }}return poly;
+ }
+ function insetLoop220(poly,distance){
   const clockwise=T.ShapeUtils.isClockWise(poly),inward=(a,b)=>{const d=b.clone().sub(a).normalize();return clockwise?new T.Vector2(d.y,-d.x):new T.Vector2(-d.y,d.x);};
-  const inset=poly.map((b,i)=>{const n1=inward(poly[(i+poly.length-1)%poly.length],b),n2=inward(b,poly[(i+1)%poly.length]),m=n1.clone().add(n2).multiplyScalar(arris/Math.max(.15,1+n1.dot(n2)));return b.clone().add(m);});
-  const p=[],uv=[],ix=[],N=poly.length;
-  for(const [points,z]of[[inset,-depth/2],[poly,-depth/2+arris],[poly,depth/2-arris],[inset,depth/2]])for(const q of points){p.push(q.x,q.y,z);uv.push(q.x,q.y);}
-  for(let j=0;j<3;j++)for(let i=0;i<N;i++){
+  return poly.map((b,i)=>{const n1=inward(poly[(i+poly.length-1)%poly.length],b),n2=inward(b,poly[(i+1)%poly.length]),m=n1.clone().add(n2).multiplyScalar(distance/Math.max(.15,1+n1.dot(n2)));return b.clone().add(m);});
+ }
+ function insetShape220(shape,distance){const s=new T.Shape(insetLoop220(profileLoop220(shape),distance));s.closePath();return s;}
+ function arrisedProfile(shape,depth,arris=.009){
+  // Actual quarter-round edge bands run from the full load-bearing outline
+  // toward an inset face. The carved skin uses the SAME inset outline, so
+  // it can no longer cover the geometric easing with a sharp full-size rim.
+  const poly=profileLoop220(shape),clockwise=T.ShapeUtils.isClockWise(poly),inset=insetLoop220(poly,arris),rings=[];
+  for(const sign of[-1,1])for(const i of(sign<0?[4,3,2,1,0]:[0,1,2,3,4])){
+   const angle=i*Math.PI/8,points=insetLoop220(poly,arris*(1-Math.cos(angle))),z=sign*(depth/2-arris+arris*Math.sin(angle));rings.push({points,z});
+  }
+  const p=[],uv=[],ix=[],N=poly.length,last=(rings.length-1)*N;
+  for(const{points,z}of rings)for(const q of points){p.push(q.x,q.y,z);uv.push(q.x,q.y);}
+  for(let j=0;j<rings.length-1;j++)for(let i=0;i<N;i++){
    const a=j*N+i,b=j*N+(i+1)%N,c=a+N,d=b+N;
    if(clockwise)ix.push(a,c,b,b,c,d);else ix.push(a,b,c,b,d,c);
   }
-  for(const t of T.ShapeUtils.triangulateShape(inset,[])){
-   const [a,b,c]=t,positive=(inset[b].x-inset[a].x)*(inset[c].y-inset[a].y)-(inset[b].y-inset[a].y)*(inset[c].x-inset[a].x)>0;
-   ix.push(...(positive?[a,c,b]:[a,b,c]),...(positive?[a+3*N,b+3*N,c+3*N]:[a+3*N,c+3*N,b+3*N]));
+  for(const[a,b,c]of T.ShapeUtils.triangulateShape(inset,[])){
+   const positive=(inset[b].x-inset[a].x)*(inset[c].y-inset[a].y)-(inset[b].y-inset[a].y)*(inset[c].x-inset[a].x)>0;
+   ix.push(...(positive?[a,c,b]:[a,b,c]),...(positive?[a+last,b+last,c+last]:[a+last,c+last,b+last]));
   }
   const indexed=new T.BufferGeometry();indexed.setAttribute('position',new T.Float32BufferAttribute(p,3));indexed.setAttribute('uv',new T.Float32BufferAttribute(uv,2));indexed.setIndex(ix);
-  const g=indexed.toNonIndexed();indexed.dispose();g.computeVertexNormals();g.userData.arrisMetres=arris;return keep(g);
+  const g=indexed.toNonIndexed();indexed.dispose();g.computeVertexNormals();g.userData.arrisMetres=arris;g.userData.arrisBands=4;return keep(g);
  }
- function curvedArm(length=1.30,notch='none',notchCentres=[0],width=.22){
+ function curvedArm(length=1.30,notch='none',notchCentres=[0],width=.22,variant=0){
   const h=length/2,halfSlot=width/2,coords=[-h,h,...Array.from({length:81},(_,i)=>-h+length*i/80),...notchCentres.flatMap(x=>[x-halfSlot,x+halfSlot])].filter(x=>x>=-h&&x<=h).sort((a,b)=>a-b),xs=[...new Set(coords)],s=new T.Shape();
   const bottom=x=>armUnderside(x,length);
   const inSlot=x=>notchCentres.some(c=>Math.abs(x-c)<halfSlot-1e-8);
   for(let i=0;i<xs.length-1;i++){const yy=notch==='top'&&inSlot((xs[i]+xs[i+1])/2)?-.015:.1;i?s.lineTo(xs[i],yy):s.moveTo(xs[i],yy);s.lineTo(xs[i+1],yy);}
   for(let i=xs.length-2;i>=0;i--){const slot=notch==='bottom'&&inSlot((xs[i]+xs[i+1])/2),a=slot?-.015:bottom(xs[i+1]),b=slot?-.015:bottom(xs[i]);s.lineTo(xs[i+1],a);s.lineTo(xs[i],b);}s.closePath();
-  const g=arrisedProfile(s,width),p=g.attributes.position,protectedX=Math.max(0,...notchCentres.map(Math.abs))+width/2+.025;
+  const protectedX=Math.max(0,...notchCentres.map(Math.abs))+width/2+.025,carveDepth=.004,
+    body=arrisedProfile(s,width-carveDepth*2,.009),caps=[];
+  const setColor=(g,rgb)=>{const colors=new Float32Array(g.attributes.position.count*3);for(let k=0;k<g.attributes.position.count;k++)colors.set(rgb,k*3);g.setAttribute('color',new T.Float32BufferAttribute(colors,3));return g;};
+  setColor(body,[.94,.90,.86]);
+  const skin=insetShape220(s,.009);
+  // True shallow pockets in each wide cheek: a finite wooden face layer
+  // surrounds cut channels, with a darker complete wooden core4mm behind.
+  // This produces carved recesses instead of a painted or raised wire motif.
+  for(const sign of[-1,1]){
+   const cut=new T.Shape();cut.moveTo(.12,.32);cut.bezierCurveTo(.29,.25,.40,.57,.61,.58);cut.bezierCurveTo(.87,.60,.91,.30,.71,.29);cut.bezierCurveTo(.55,.28,.55,.48,.70,.46);cut.lineTo(.70,.41);cut.bezierCurveTo(.62,.43,.62,.35,.71,.35);cut.bezierCurveTo(.83,.36,.79,.53,.62,.52);cut.bezierCurveTo(.41,.49,.31,.20,.12,.32);cut.closePath();
+   const lower=new T.Shape();lower.moveTo(.23,.18);lower.bezierCurveTo(.43,.11,.56,.24,.77,.19);lower.quadraticCurveTo(.68,.29,.53,.23);lower.quadraticCurveTo(.36,.17,.23,.18);lower.closePath();
+   const reeded=new T.Shape();reeded.moveTo(.13,.40);reeded.bezierCurveTo(.31,.31,.48,.48,.68,.39);reeded.quadraticCurveTo(.81,.33,.88,.37);reeded.bezierCurveTo(.72,.44,.63,.51,.47,.44);reeded.bezierCurveTo(.30,.37,.24,.47,.13,.40);reeded.closePath();
+   const patterns=variant%3===0?[cut,lower]:[reeded,lower];
+   for(const [index,pattern]of patterns.entries()){
+    const points=pattern.getPoints(16).map(q=>{const x=sign*(protectedX+(h-protectedX-.018)*q.x),b=bottom(x),v=index===0?.44+(q.y-.44)*(variant%3===2?.48:.62):q.y;return new T.Vector2(x,b+v*(.1-b));});skin.holes.push(new T.Path(points));
+   }
+  }
+  for(const sign of[-1,1]){
+   const face=new T.ExtrudeGeometry(skin,{depth:carveDepth,steps:1,curveSegments:8,bevelEnabled:false});face.translate(0,0,sign>0?width/2-carveDepth:-width/2);setColor(face,[1,1,1]);keep(face);caps.push(face);
+  }
+  const g=keep(mergeGeometries([body,...caps].map(q=>q.index?q.toNonIndexed():q),false)),p=g.attributes.position;
   //190: the exposed cheek necks in three dimensions, beyond all lap and
   // bearing footprints. FlatY seats, slot widths and true cut ends stay fixed.
   const protectedVertices196=[];
   for(let i=0;i<p.count;i++){
-   const x=p.getX(i),e=Math.abs(x),u=T.MathUtils.clamp((e-protectedX)/(length/2-protectedX),0,1),neck=1-.32*Math.sin(Math.PI*u)**2,w=T.MathUtils.smoothstep(u,0,1),bottom=armUnderside(x,length),newBottom=bottom+.050*w,ny=(p.getY(i)-bottom)/(.1-bottom);
+   const x=p.getX(i),e=Math.abs(x),u=T.MathUtils.clamp((e-protectedX)/(length/2-protectedX),0,1),neck=1-.10*Math.sin(Math.PI*u)**2,w=T.MathUtils.smoothstep(u,0,1),bottom=armUnderside(x,length),newBottom=bottom+.050*w+.070*Math.sin(Math.PI*u)**2,ny=(p.getY(i)-bottom)/(.1-bottom);
    if(e<=protectedX){protectedVertices196.push(i);continue;}
    // Only the free nose beyond every existing seat/lap changes. Its top
    // plane stays at+.1, its under-tip rises50mm, and its lower cheeks taper
@@ -61,7 +89,7 @@ export function createSculptedJoinery(){
    const y=newBottom+ny*(.1-newBottom),cutY=ny-.5,section=1+w*(bearingWidth196(cutY)-1);
    p.setY(i,y);p.setZ(i,p.getZ(i)*neck*section);
   }
-  g.computeVertexNormals();g.userData.armProfile='reference-led-ogee-with-waisted-narrow-foot-free-nose196';g.userData.protectedSeatHalfSpan=protectedX;g.userData.freeTip196={underTipLift:.050,bottomWidthRatio:.76,protectedContactsUnchanged:true,protectedVertexIndices:protectedVertices196};return g;
+  g.computeVertexNormals();g.userData.armProfile='220-r10-quarter-rounded-carved-ogee-with-inset-skin';g.userData.protectedSeatHalfSpan=protectedX;g.userData.carvedCheek220={depthMetres:carveDepth,construction:'Closed wood core with real9mm quarter-round arrises; closed pierced face layers share its inset outline and reveal real4mm recesses on both wide cheeks',freeUndersideScoopMetres:.070};g.userData.freeTip196={underTipLift:.050,bottomWidthRatio:.76,protectedContactsUnchanged:true,protectedVertexIndices:protectedVertices196};return g;
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -113,20 +141,16 @@ export function createSculptedJoinery(){
    g.userData.architectureJoint='scene05-three-step-'+role;
    if(corner)cornerFan.push({geometry:g,material,position:pos,rotation:rot,role,cornerAxis});else part(g,material,pos,rot,false);
   };
-  add(cushion(.252,.17),[0,-.15,0],0,'kit_cedar','post-head-daito');
+  add(cushion(.252,.17),[0,-.15,0],0,'kit_endwood','post-head-daito');
   for(let stage=0;stage<3;stage++){
    const length=lengths[stage],width=widths[stage],yy=ys[stage],off=spreads[stage],offsets=stage===0?[0]:[-off,off],slots=offsets;
    for(let axis=0;axis<2;axis++)for(const offset of offsets){
-    const g=curvedArm(length,axis===0?'top':'bottom',slots,width),pos=axis===0?[0,yy,offset]:[offset,yy,0],rot=axis*Math.PI/2;g.scale(1,armY,1);g.computeVertexNormals();
+    const g=curvedArm(length,axis===0?'top':'bottom',slots,width,stage),pos=axis===0?[0,yy,offset]:[offset,yy,0],rot=axis*Math.PI/2;g.scale(1,armY,1);g.computeVertexNormals();
     add(g,pos,rot,'kit_cedar','half-lapped-ogee-hijiki');
     const tipBottom=armUnderside(length/2,length)+.050,tipCentre=(.1+tipBottom)/2,tipHeight=.1-tipBottom;
     for(const sign of[-1,1])fit.push({position:axis===0?[sign*(length/2+.004),yy+tipCentre*armY,offset]:[offset,yy+tipCentre*armY,sign*(length/2+.004)],yaw:axis===0?sign*Math.PI/2:(sign<0?Math.PI:0),width:width+.001,height:tipHeight*armY,stage,profile196:true});
-    // Closed broad curled leaves replace the wire-like cheek decoration.
-    // They sit on the true timber sides, with a finite worked copper return.
-    for(const sign of[-1,1])for(const cheek of[-1,1]){
-     const leaf=new T.Shape();leaf.moveTo(-.070,-.025);leaf.bezierCurveTo(-.022,-.031,-.008,.018,.022,.020);leaf.bezierCurveTo(.064,.024,.073,-.024,.033,-.031);leaf.bezierCurveTo(.011,-.033,.009,-.009,.027,-.006);leaf.bezierCurveTo(.030,-.019,.048,-.015,.045,-.003);leaf.bezierCurveTo(.036,.014,.010,.002,-.006,-.006);leaf.bezierCurveTo(-.033,-.020,-.041,-.004,-.070,-.025);leaf.closePath();
-     const scroll=extrude(leaf,.005,.001);scroll.scale(.85,armY*.85,1);if(sign<0)scroll.rotateZ(Math.PI);if(cheek<0)scroll.rotateY(Math.PI);scroll.translate(sign*length*.31,-.055*armY,(width/2+.0025)*cheek);add(scroll,pos,rot,'kit_gilt','closed-cast-cloud-cheek');
-    }
+    // The timber itself now carries the carved cloud channels. The former
+    // repeated applied gold hook/leaf is deliberately absent here.
     // A real short hardwood drawbore dowel passes through the cheeks at
     // each bearing shoulder. Its small cut face breaks the repeated plates.
     for(const sign of[-1,1]){const pin=keep(new T.CylinderGeometry(.007,.007,width+.003,8));pin.rotateX(Math.PI/2);pin.translate(sign*(Math.max(...slots.map(Math.abs))+width*.60),-.012,0);add(pin,pos,rot,'kit_endwood','drawbored-bearing-shoulder');}
@@ -135,12 +159,12 @@ export function createSculptedJoinery(){
    if(stage<2){
     const next=spreads[stage+1],old=spreads[stage],height=ys[stage+1]+armUnderside(old,lengths[stage+1])*armY-base;
     for(const sign of[-1,1])for(const side of(stage?[-1,1]:[0])){
-     add(cushion(.105,height),[sign*next,base,side*old],0,'kit_cedar','measured-curved-underside-receiver');
-     add(cushion(.105,height),[side*old,base,sign*next],0,'kit_cedar','measured-curved-underside-receiver');
+     add(cushion(.105,height),[sign*next,base,side*old],0,'kit_endwood','measured-curved-underside-receiver');
+     add(cushion(.105,height),[side*old,base,sign*next],0,'kit_endwood','measured-curved-underside-receiver');
     }
    }else for(const sign of[-1,1]){
-    add(cushion(.118,.820-base),[sign*off,base,0],0,'kit_cedar','direct-roof-purlin-seat');
-    add(cushion(.118,.820-base),[0,base,sign*off],0,'kit_cedar','direct-roof-purlin-seat');
+    add(cushion(.118,.820-base),[sign*off,base,0],0,'kit_endwood','direct-roof-purlin-seat');
+    add(cushion(.118,.820-base),[0,base,sign*off],0,'kit_endwood','direct-roof-purlin-seat');
    }
   }
   if(corner){
@@ -216,5 +240,5 @@ export function createSculptedJoinery(){
  }
  tube([[-.17,-.086,.185],[-.090,-.116,.210],[0,-.126,.222],[.090,-.116,.210],[.17,-.086,.185]],.011);
  for(const xx of[-.07,-.026,.026,.07]){const tooth=keep(new T.ConeGeometry(.009,.030,6));tooth.rotateZ(Math.PI);tooth.translate(xx,.056,.145);mask.push({geometry:tooth,material:'slate'});}
- return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 carpentered220: newly sectioned three-jump closed timbers with true complementary half laps, smaller concave-neck dou, diagonal corner hip kneeler and matched endpoint copper',cornerFan:{levels:3,orthogonalArms:10,diagonalKneelers:1,receivers:18,footprintM:[.98,1.34,1.76],sectionWidthsM:[.178,.168,.158],armVerticalFactor:.65,construction:'Independent closed small-section bowed arms; restrained shoulders derive from actual lap bounds, not a length heuristic. Corner-specific diagonal and two small seated crossings follow the real hip yaw. Upper flat seats retain the .820 purlin datum.'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Old broad courses are preserved in the baseline receipt. New main capital dimensions and contacts are reconstruction hypotheses, not recovered historic joinery. Copper is remounted on the new free cuts; closed cloud leaves and hardwood drawbore pegs follow the actual cheek planes.',guideRole:'Authored 3D curves and closed solids; no scene photograph, AI frame or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
+ return {bracket:parts,bracketFittings,cornerFan,cornerFanFittings,waistBearing,waistFittings,relief:endRelief,cornerMask:mask,sculpted:true,info:{source:'Scene05 r10: inset closed carved faces reveal real9mm quarter-round edges; true4mm recessed channels and hollowed ogee free lengths retain seated three-jump structure',cornerFan:{levels:3,orthogonalArms:10,diagonalKneelers:1,receivers:18,footprintM:[.98,1.34,1.76],sectionWidthsM:[.178,.168,.158],armVerticalFactor:.65,construction:'Independent closed small-section bowed arms; restrained shoulders derive from actual lap bounds, not a length heuristic. Corner-specific diagonal and two small seated crossings follow the real hip yaw. Upper flat seats retain the .820 purlin datum.'},waistGallery:{courses:1,headToPurlin:.3868,arms:2,receivers:4},bearingCorrection:'Old broad courses are preserved in the baseline receipt. New main capital dimensions and contacts are reconstruction hypotheses, not recovered historic joinery. Actual recessed wood channels replace applied generic gold leaves. New chased boots follow the retained cut planes; hardwood drawbore pegs remain on real shoulders.',guideRole:'Authored 3D curves and closed solids; no scene photograph, AI frame or displacement-guide replacement'},dispose(){for(const g of owned)g.dispose();}};
 }

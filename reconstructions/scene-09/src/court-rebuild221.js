@@ -1,7 +1,7 @@
 import * as T from 'three';
 import {HALL_ENVELOPE143 as H} from './hall-envelope143.js';
 
-export const REBUILD221_REVISION='scene09-hard-cut-masonry-and-warm-sanctuary221-r04';
+export const REBUILD221_REVISION='scene09-layered-cedar-and-tiered-garden221-r10';
 const V=a=>new T.Vector3(...a);
 const world=(p)=>V(p).applyMatrix4(new T.Matrix4().compose(V(H.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),H.yaw),V(H.scale)));
 
@@ -105,7 +105,7 @@ export function buildSanctuaryLamps221(api){
 // Source and surface calibration, executed before finite-emitter shader
 // installation so the native shadow/point ordering remains explicit.
 export function configureCourt221({scene,materials,fixtures,night203}){
- const changes=[],sources=[];
+ const changes=[],sources=[],inverseHall=new T.Matrix4().compose(V(H.position),new T.Quaternion().setFromAxisAngle(V([0,1,0]),H.yaw),V(H.scale)).invert();
  for(const m of materials){
   if(m.name==='scene09-203-hall-wood'){m.color.setRGB(2.05,1.44,.88);m.clearcoat=.065;m.clearcoatRoughness=.87;changes.push(m.name);}
   if(m.name==='scene09-203-hall-red'){m.color.setRGB(3.35,1.86,1.16);m.clearcoat=.12;m.clearcoatRoughness=.75;changes.push(m.name);}
@@ -121,6 +121,9 @@ export function configureCourt221({scene,materials,fixtures,night203}){
  // to paper-face transport, not additional invisible courtyard fill lights.
  for(const l of fixtures){
   const role=l.userData.pool203;
+  const source=l.userData.source203,record=night203.practicals[fixtures.indexOf(l)];
+  if(source?.kind==='lantern'&&record){const local=V(record.chamberAnchor).applyMatrix4(inverseHall),lower=Math.abs(local.z-4.94)<.035&&Math.abs(local.y-5.95)<.035,upper=Math.abs(local.z-5.28)<.035&&Math.abs(local.y-10.19)<.035;if(lower||upper){const offset=lower?.222:.134;l.position.copy(V(record.chamberAnchor)).addScaledVector(V(source.worldFront),offset);l.intensity=source.requestedIntensity*2;l.distance=lower?5.6:4.5;record.sourceApproximation='Finite radiance exiting the forward paper layer behind its metal fret; centre proxy was behind the courtyard-facing beam surface';sources.push({name:lower?'lower-paper-front-exit':'upper-paper-front-exit',chamber:record.chamberAnchor,position:l.position.toArray(),candela:l.intensity,geometryShadow:l.castShadow,frontFaceOffset:offset});}}
+  if(l.userData.source203?.kind==='veranda-low221'){l.intensity=8;l.color.setRGB(1,.46,.105);l.distance=8;l.castShadow=false;sources.push({name:'low-right-veranda-case',position:l.position.toArray(),candela:l.intensity,linearRGB:l.color.toArray(),reach:l.distance,geometryShadow:false,source:'Complete low paper case on a four-legged bronze stand seated on the actual right veranda tread; reflected by the wet stone'});}
   if(l.userData.source203?.kind==='sanctuary-hanging221'){l.intensity=l.userData.source203.requestedIntensity;l.color.setRGB(1,.52,.18);l.distance=5.6;sources.push({name:'central-sanctuary-hanging-case',position:l.position.toArray(),candela:l.intensity,linearRGB:l.color.toArray(),reach:l.distance,geometryShadow:false,source:'Actual chained bronze and four-sided washi case behind Buddha'});}
   if(role==='hero158-stone-chamber'||role==='east158-stone-chamber'){
    const record=night203.practicals.find(p=>p.role===role),centre=V(record.chamberAnchor),front=V(l.userData.source203.worldFront),radius=(role==='hero158-stone-chamber'?.44:.40)*(l.userData.source203.assemblyScale||1),p=centre.clone().addScaledVector(front,radius+.018),target=role==='hero158-stone-chamber'?V([-4.4,.32,11.3]):V([8.6,.38,10.3]);

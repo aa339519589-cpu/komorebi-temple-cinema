@@ -1,0 +1,879 @@
+{
+  "status": "R09/R09b/R10/R11/R12 actual render/repair rounds finished; exact R12 held for root review. Worker yields Scene05 ownership with no live jobs.",
+  "visualAccepted": false,
+  "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+  "roundBaseR08": "3909765933302d74727c41bd15f4648188dde9a2bf43b231ffa8cd526d90f440",
+  "baselineR04": "a8dd4056317480615d07295096a15364833856003ca30548bc86b1394da03d7c",
+  "baselinePublicCommitReportedByRoot": "aad96ec",
+  "identity": "lookdev/scene05-rebuild220/source220-r12-identity.json",
+  "changes": "lookdev/scene05-rebuild220/source220-r12-changes.json",
+  "review": "lookdev/scene05-rebuild220/review220-r12.json",
+  "canonicalWorkingTreeExact": true,
+  "heldOwnedSourceSnapshotExact": true,
+  "ownedChangedFilesThisRoundVsR08": [
+    {
+      "path": "reconstructions/scene-05/src/architecture.js",
+      "before": "8fd17cc9087a72366c55fba0a41da65def2930ad41cd672361f17cb7dc4a572a",
+      "after": "33da9f0d0b052d40f20ae68dda3aec04195c6e42ce36d84869086b69ed500c74"
+    },
+    {
+      "path": "reconstructions/scene-05/src/carpentered-sash220.js",
+      "before": null,
+      "after": "caf6376a20382bc389c2512e9137fe4f65a401c8bee248cd773444700fc87254"
+    },
+    {
+      "path": "reconstructions/scene-05/src/courtyard-reflection220.js",
+      "before": "88726e436a512a02d19ea838052f368dabf81f4a23d4d7b36d41a9690825fbbe",
+      "after": "4432f10f33c6438f162b86a24ecf4333eccd05c9d7b2c5604676749a00417630"
+    },
+    {
+      "path": "reconstructions/scene-05/src/daylight196.js",
+      "before": "00366148bb9a0a1d0e086fb7b8f64fa035e5177af3daa43ccd8ec15400d5c7e4",
+      "after": "e0504b3d154e7bccf55a21842fea1af4401d278ec46e92aa8c670b7532cf6e3d"
+    },
+    {
+      "path": "reconstructions/scene-05/src/foliage.js",
+      "before": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "after": "7a33a299f71525177d59455101416c07176fcdf6d6fadb4477aeeaa60bd95ff0"
+    },
+    {
+      "path": "reconstructions/scene-05/src/main.js",
+      "before": "5b85446cafa6b8aaaac6e89a43ac44fdde664f367df1d2af66b3e1bbad71a448",
+      "after": "6474c4d4fe8cb74bf8ca0642667dbf8aced16a03f1b020caf36e38fb8844a4b8"
+    },
+    {
+      "path": "reconstructions/scene-05/src/measured-sky.js",
+      "before": "7a985411afbe50f988966419e622b7c36b4e4b628cdb95028fcd42acc9b74608",
+      "after": "d6b60209cd336b8f709e2d35a617d73c4bde8923a26c2cac2b171dda8d361a9f"
+    },
+    {
+      "path": "reconstructions/scene-05/src/scanned-timber.js",
+      "before": "c4975eee5d11d0346bafd757c79d21793f8baaf95758247638d76210be42aa31",
+      "after": "ba5849f32197089d7228a25fafeb7423dc84a5240f76fc5c5ce42b986bd32e0d"
+    },
+    {
+      "path": "reconstructions/scene-05/src/scene.js",
+      "before": "7f5522683e8c2b25d5d6a12d7944d28f30b51c78a050846fffd075a5c9ef62d5",
+      "after": "1276fafe2c3ba56c2bf45465f19dd3cbab0701e24c35bcec20dd5982784d095e"
+    },
+    {
+      "path": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "before": "fecf805eadf917963366e21053a7deadb5ccc25bc877dd065089aede4d9677f3",
+      "after": "cc9cfed2982229ab836b7b7c72a1df6080f8836a9b50f0c806a556de192f6389"
+    }
+  ],
+  "cumulativeOwnedChangedFilesVsR04": [
+    {
+      "path": "reconstructions/scene-05/asset-dependencies.json",
+      "before": "648e055e2c9d5a78a5628839b6d014120a91f062f88679b3dbce846bde4e49fc",
+      "after": "3c9452e442d357e7a1e11a854b5f6675b9f2c7c3e73a8327a3ee776f56550858"
+    },
+    {
+      "path": "reconstructions/scene-05/assets/licensed-cloud220/provenance.json",
+      "before": null,
+      "after": "4eb6f8341821d50d4fafb1562d8356ccd97994e57ac3460795d7404a4424b0d3"
+    },
+    {
+      "path": "reconstructions/scene-05/index.html",
+      "before": "b5548cc48dcb2f4db5794261560503a2a55cd2f3ffe894f5539ff38d971d5324",
+      "after": "8a045f5ec6aeba9aa1b20097a0bcb8a8eecaeeed4120db48f7ff23bd0dcb77f8"
+    },
+    {
+      "path": "reconstructions/scene-05/src/architecture.js",
+      "before": "a1832f0a0c8f8c8d8957040f507f5a64fff925e617e2dc95a88ec633b372a433",
+      "after": "33da9f0d0b052d40f20ae68dda3aec04195c6e42ce36d84869086b69ed500c74"
+    },
+    {
+      "path": "reconstructions/scene-05/src/carpentered-sash220.js",
+      "before": null,
+      "after": "caf6376a20382bc389c2512e9137fe4f65a401c8bee248cd773444700fc87254"
+    },
+    {
+      "path": "reconstructions/scene-05/src/chased-copper220.js",
+      "before": null,
+      "after": "7ada38be9fe78a969d16c2e9e35949b0f6dd76a019337167b2ccf2a775c38af0"
+    },
+    {
+      "path": "reconstructions/scene-05/src/courtyard-reflection220.js",
+      "before": null,
+      "after": "4432f10f33c6438f162b86a24ecf4333eccd05c9d7b2c5604676749a00417630"
+    },
+    {
+      "path": "reconstructions/scene-05/src/daylight196.js",
+      "before": "00366148bb9a0a1d0e086fb7b8f64fa035e5177af3daa43ccd8ec15400d5c7e4",
+      "after": "e0504b3d154e7bccf55a21842fea1af4401d278ec46e92aa8c670b7532cf6e3d"
+    },
+    {
+      "path": "reconstructions/scene-05/src/detail190-solids.js",
+      "before": "53e47c1cbb5a0d484428ead315285dab81160b3fa17c33d8d7afeefa0b59cc49",
+      "after": "d0fb549dd0bccd3a6886b565878bb7e32e1609bf3b64bba0cc15ff8f7533fbda"
+    },
+    {
+      "path": "reconstructions/scene-05/src/foliage.js",
+      "before": "d1403ed263b71046ee1f79a0ee750e8be85e9fbe1f4a44ff6ebfa91a2c12f762",
+      "after": "7a33a299f71525177d59455101416c07176fcdf6d6fadb4477aeeaa60bd95ff0"
+    },
+    {
+      "path": "reconstructions/scene-05/src/handlaid-ceramics.js",
+      "before": "4eb14a45c7cfcaf108289d8733c6ce0fd7bbfbe045b7a79549e9c32fa09ad331",
+      "after": "dc4d5cc3e874fc4b5a623b6d2ac708c4b00f2c83ab6011faa75cbd7fb0f7b069"
+    },
+    {
+      "path": "reconstructions/scene-05/src/licensed-cloud220.js",
+      "before": null,
+      "after": "00bdd4c2103fa2259d11d8632b8ae8f91e2fecd36db0407c27a2dda59e37de95"
+    },
+    {
+      "path": "reconstructions/scene-05/src/main.js",
+      "before": "36388e3b12dccef9b3d7c957236d6c185e11fe0dff71f9681d2f74515358b2f5",
+      "after": "6474c4d4fe8cb74bf8ca0642667dbf8aced16a03f1b020caf36e38fb8844a4b8"
+    },
+    {
+      "path": "reconstructions/scene-05/src/measured-sky.js",
+      "before": "7a985411afbe50f988966419e622b7c36b4e4b628cdb95028fcd42acc9b74608",
+      "after": "d6b60209cd336b8f709e2d35a617d73c4bde8923a26c2cac2b171dda8d361a9f"
+    },
+    {
+      "path": "reconstructions/scene-05/src/scanned-timber.js",
+      "before": "fcdb21d7a8e09bc7d2fe35a204ff53df8b31048355c11a90360df83362b68a52",
+      "after": "ba5849f32197089d7228a25fafeb7423dc84a5240f76fc5c5ce42b986bd32e0d"
+    },
+    {
+      "path": "reconstructions/scene-05/src/scene.js",
+      "before": "a4ccc4eb2946a16ad6e8d4f74b4fdd044101cb00d4d203b9dab603781e58fd1a",
+      "after": "1276fafe2c3ba56c2bf45465f19dd3cbab0701e24c35bcec20dd5982784d095e"
+    },
+    {
+      "path": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "before": "bf1665ccd16b4c44b033f3ee4bec2929871b35cf87277d6437be9690c5b4279d",
+      "after": "cc9cfed2982229ab836b7b7c72a1df6080f8836a9b50f0c806a556de192f6389"
+    }
+  ],
+  "newReadOnlyDependencies": [
+    {
+      "path": "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/LICENSE-ATTRIBUTION.txt",
+      "before": null,
+      "after": "3cb60aff88595ed3864ccc74bf48b0a38613b68a0dcddb70f4b77457a47beb62",
+      "scope": "newly declared existing read-only dependency; never edited/copied by this worker"
+    },
+    {
+      "path": "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-manifest.json",
+      "before": null,
+      "after": "59e96e5476f98d4e5b36b34265e51cd6566448d05405e8a27e163f84c672e196",
+      "scope": "newly declared existing read-only dependency; never edited/copied by this worker"
+    },
+    {
+      "path": "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-mount-loops.json",
+      "before": null,
+      "after": "0788e0fdc7bd398ace5e93cd63a8de490ba490c45f0123272f7da90a18d843b0",
+      "scope": "newly declared existing read-only dependency; never edited/copied by this worker"
+    },
+    {
+      "path": "reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-sc07.bin",
+      "before": null,
+      "after": "6b88a3785d280d79b41c518dc1357cd4d6526b69164fc23a32f30f98c19b2fb3",
+      "scope": "newly declared existing read-only dependency; never edited/copied by this worker"
+    }
+  ],
+  "readOnlyDependencyScope": "Four existing Scene06 carving files were declared during R08 and remain byte-identical to R08. They were not edited or copied by this worker. This new round changes only10 owned Scene05 source files.",
+  "snapshot": "lookdev/scene05-rebuild220/r12-source",
+  "snapshotScope": "Complete17 owned changed files relative to R04. Compact446868-byte source/provenance tree, no original mesh/texture copies.",
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024",
+      "status": "rendered-review",
+      "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+      "sourceCommitReported": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+      "completedAt": "2026-10-23T23:46:35.863Z",
+      "inspectionView": null,
+      "detailCrop": {
+        "pixels": [
+          720,
+          650,
+          400,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "56b469fff5a432782fcaf3f644399e74b1e46bb3e6eb9f89fd2dcd941228178e",
+          "pngSha256": "c98d5b15458a96fefba99f949a0e0086e390fab4d3880cdb75df2c3c3cf8588e",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "35390471829073bf2d6a9f7bd154e70a52506e57416bd0aa4560d690ef7d42c6",
+          "pngSha256": "9b700fc8b0f8a1d1726cbef43bbf1c12ebe19720db60fd923a9c8fc85022e973",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        }
+      ],
+      "samplerAllocationWarnings": 0,
+      "lighting": {
+        "localReflection220": {
+          "method": "One actual CubeCamera capture of existing3D temple/foliage and a finite sun/shadow-lit matte stone court",
+          "position": [
+            5.5,
+            6.4,
+            7.2
+          ],
+          "cubeFaceSize": 128,
+          "faces": 6,
+          "scope": "Native local reflection approximation; not measured GI, per-pixel ray tracing or Cycles equivalence",
+          "floor": {
+            "centre": [
+              0,
+              -0.27,
+              6
+            ],
+            "size": [
+              44,
+              0.1,
+              44
+            ],
+            "albedo": "#a49a82",
+            "roughness": 0.91,
+            "emissive": false
+          },
+          "status": "captured actual6-face linear HDR scene radiance inside the official render job",
+          "explicitMaterialEnvironment": true,
+          "assignedMaterials": [
+            "gold",
+            "oldgold",
+            "architecture_gold",
+            "architecture_oldgold",
+            "kit_gilt",
+            "fittingCopper",
+            "fittingEdge",
+            "fittingPatina",
+            "rafterCopper220",
+            "rafterEdge220",
+            "rafterPatina220",
+            "lanternBronze",
+            "terminalInlay204",
+            "scannedGilt220"
+          ],
+          "skyCaptureIntensity": 0.14,
+          "timberDiffuse": {
+            "materials": [
+              "cedar",
+              "red",
+              "endwood",
+              "darkwood",
+              "kit_cedar",
+              "kit_endwood",
+              "architecture_cedar",
+              "architecture_red",
+              "architecture_endwood",
+              "architecture_darkwood",
+              "windowBars",
+              "rafterCut220",
+              "hipwood",
+              "postwood",
+              "transomwood220"
+            ],
+            "intensity": 0.22,
+            "scope": "Same bounded local raster radiance probe; not per-surface traced occlusion or GI"
+          },
+          "prefiltering": "Explicit PMREM of measured sunless sky before scene capture, and actual local cube before material assignment; no lazy nested environment conversion during a material draw"
+        },
+        "sunPosition": [
+          -18,
+          36,
+          30
+        ],
+        "sunIntensity": 8,
+        "sunColor": "#fff0d8",
+        "hierarchy196": {
+          "revision": 220,
+          "sun": {
+            "position": [
+              -18,
+              36,
+              30
+            ],
+            "target": [
+              0,
+              9,
+              0
+            ],
+            "intensity": 8,
+            "color": "#fff0d8"
+          },
+          "sky": {
+            "measuredSunlessEnvironmentIntensity": 0.14,
+            "hemisphereResidual": 0.025,
+            "shadowedLowSky": "Two actual measured sector lights installed by measured-sky.js"
+          },
+          "courtyard": {
+            "type": "SpotLight",
+            "position": [
+              2,
+              0.35,
+              15
+            ],
+            "target": [
+              0,
+              12,
+              0
+            ],
+            "intensity": 440,
+            "color": "f2d5ad",
+            "decay": 2,
+            "cone": 0.92,
+            "penumbra": 0.7,
+            "castsShadows": true,
+            "shadowNear": 4,
+            "shadowFar": 45,
+            "normalBias": 0.006,
+            "shadowBias": -0.00006,
+            "shadowRadius": 0.75,
+            "shadowMap": [
+              4096,
+              4096
+            ]
+          },
+          "adjacentCourtyard": {
+            "type": "SpotLight",
+            "position": [
+              15,
+              0.35,
+              2
+            ],
+            "target": [
+              0,
+              12,
+              0
+            ],
+            "intensity": 180,
+            "color": "d7d8ca",
+            "decay": 2,
+            "cone": 0.92,
+            "penumbra": 0.7,
+            "castsShadows": true,
+            "shadowNear": 4,
+            "shadowFar": 45,
+            "normalBias": 0.006,
+            "shadowBias": -0.00006,
+            "shadowRadius": 0.75,
+            "shadowMap": [
+              2048,
+              2048
+            ]
+          },
+          "limits": "Measured sky with bounded native direct/finite unequal bounce proxies, not recovered scene irradiance or physical GI"
+        },
+        "courtyardBounce": 440,
+        "courtyardBounceType": "unequal finite inverse-square shadow-casting courtyard patches",
+        "courtyardBounceCastsShadows": true,
+        "hemisphere": 0.025,
+        "environmentIntensity": 0.14,
+        "measuredSky": {
+          "provider": "Poly Haven",
+          "asset": "kloofendal_48d_partly_cloudy_puresky",
+          "license": "CC0-1.0",
+          "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+          "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+          "authors": [
+            "Greg Zaal",
+            "Jarod Guest"
+          ],
+          "sourceSunPixel": [
+            1218,
+            784
+          ],
+          "maximumLuma": 72870.25335625,
+          "meanLuma": 0.6762980197300532,
+          "sourceDirectionYUp": [
+            0.5545620062863689,
+            0.741980411720831,
+            0.37673073913104493
+          ],
+          "targetDirectionYUp": [
+            -0.40730653998127836,
+            0.6109598099719176,
+            0.6788442333021306
+          ],
+          "rotationXYZ": [
+            1.1181197707635133,
+            -1.4594669702652538,
+            0.9673187755123099,
+            "XYZ"
+          ],
+          "nativeEnvironmentIntensity": 0.14,
+          "backgroundIntensity": 1.6,
+          "shadowedSky220": {
+            "gain": 0.9,
+            "elevationSineRange": [
+              0.025,
+              0.5
+            ],
+            "method": "Two near measured low-sky solid-angle sectors with actual static geometry shadows; far sectors remain in restrained environment. Not uniform ambient or traced GI",
+            "sectors": [
+              {
+                "sector": 2,
+                "direction": [
+                  0.6079123506245082,
+                  0.28334823553301725,
+                  0.7417252532970079
+                ],
+                "integratedLinearRGB": [
+                  0.2277324265593844,
+                  0.2808339487311499,
+                  0.4291632593818969
+                ],
+                "solidAngle": 0.7460994991415965,
+                "intensity": 0.38624693344370725,
+                "colorLinear": [
+                  0.5306428767629745,
+                  0.654375561262214,
+                  1
+                ],
+                "castsActualShadows": true,
+                "mapSize": 2048
+              },
+              {
+                "sector": 3,
+                "direction": [
+                  -0.619107480386327,
+                  0.27199805005851724,
+                  0.7366973520341025
+                ],
+                "integratedLinearRGB": [
+                  0.33075001058864884,
+                  0.4438562907684234,
+                  0.7406577023887282
+                ],
+                "solidAngle": 0.7457837330940332,
+                "intensity": 0.6665919321498553,
+                "colorLinear": [
+                  0.4465625747520511,
+                  0.5992731721238066,
+                  1
+                ],
+                "castsActualShadows": true,
+                "mapSize": 2048
+              }
+            ]
+          },
+          "solarSeparation": {
+            "coneDegrees": 2.3,
+            "fillRadianceCeiling": 3,
+            "pixels": 803
+          },
+          "scope": "Original measured CC0 sky is the background. Sunless near low-sky quadrature has geometry occlusion; far sky IBL and courtyard-bounce proxy remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+        },
+        "limits": "Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI"
+      },
+      "licensedCarvingScope": {
+        "unchangedFromR08": true,
+        "sourceUnstretched": true,
+        "mounts": 16
+      }
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+      "sourceCommitReported": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+      "completedAt": "2026-10-23T23:46:56.382Z",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-groundside-20261024/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "84ab25272ab4ba13c35664dd634c916c4b6a2829f5cd449e79285d2d1bf55d9b",
+          "pngSha256": "00e3dad8dcde88d1c1cfdcf3ebfe8f48b669ab81581679df05c2762fddffa602",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        }
+      ],
+      "samplerAllocationWarnings": 0,
+      "lighting": {
+        "localReflection220": {
+          "method": "One actual CubeCamera capture of existing3D temple/foliage and a finite sun/shadow-lit matte stone court",
+          "position": [
+            5.5,
+            6.4,
+            7.2
+          ],
+          "cubeFaceSize": 128,
+          "faces": 6,
+          "scope": "Native local reflection approximation; not measured GI, per-pixel ray tracing or Cycles equivalence",
+          "floor": {
+            "centre": [
+              0,
+              -0.27,
+              6
+            ],
+            "size": [
+              44,
+              0.1,
+              44
+            ],
+            "albedo": "#a49a82",
+            "roughness": 0.91,
+            "emissive": false
+          },
+          "status": "captured actual6-face linear HDR scene radiance inside the official render job",
+          "explicitMaterialEnvironment": true,
+          "assignedMaterials": [
+            "gold",
+            "oldgold",
+            "architecture_gold",
+            "architecture_oldgold",
+            "kit_gilt",
+            "fittingCopper",
+            "fittingEdge",
+            "fittingPatina",
+            "rafterCopper220",
+            "rafterEdge220",
+            "rafterPatina220",
+            "lanternBronze",
+            "terminalInlay204",
+            "scannedGilt220"
+          ],
+          "skyCaptureIntensity": 0.14,
+          "timberDiffuse": {
+            "materials": [
+              "cedar",
+              "red",
+              "endwood",
+              "darkwood",
+              "kit_cedar",
+              "kit_endwood",
+              "architecture_cedar",
+              "architecture_red",
+              "architecture_endwood",
+              "architecture_darkwood",
+              "windowBars",
+              "rafterCut220",
+              "hipwood",
+              "postwood",
+              "transomwood220"
+            ],
+            "intensity": 0.22,
+            "scope": "Same bounded local raster radiance probe; not per-surface traced occlusion or GI"
+          },
+          "prefiltering": "Explicit PMREM of measured sunless sky before scene capture, and actual local cube before material assignment; no lazy nested environment conversion during a material draw"
+        },
+        "sunPosition": [
+          -18,
+          36,
+          30
+        ],
+        "sunIntensity": 8,
+        "sunColor": "#fff0d8",
+        "hierarchy196": {
+          "revision": 220,
+          "sun": {
+            "position": [
+              -18,
+              36,
+              30
+            ],
+            "target": [
+              0,
+              9,
+              0
+            ],
+            "intensity": 8,
+            "color": "#fff0d8"
+          },
+          "sky": {
+            "measuredSunlessEnvironmentIntensity": 0.14,
+            "hemisphereResidual": 0.025,
+            "shadowedLowSky": "Two actual measured sector lights installed by measured-sky.js"
+          },
+          "courtyard": {
+            "type": "SpotLight",
+            "position": [
+              2,
+              0.35,
+              15
+            ],
+            "target": [
+              0,
+              12,
+              0
+            ],
+            "intensity": 440,
+            "color": "f2d5ad",
+            "decay": 2,
+            "cone": 0.92,
+            "penumbra": 0.7,
+            "castsShadows": true,
+            "shadowNear": 4,
+            "shadowFar": 45,
+            "normalBias": 0.006,
+            "shadowBias": -0.00006,
+            "shadowRadius": 0.75,
+            "shadowMap": [
+              4096,
+              4096
+            ]
+          },
+          "adjacentCourtyard": {
+            "type": "SpotLight",
+            "position": [
+              15,
+              0.35,
+              2
+            ],
+            "target": [
+              0,
+              12,
+              0
+            ],
+            "intensity": 180,
+            "color": "d7d8ca",
+            "decay": 2,
+            "cone": 0.92,
+            "penumbra": 0.7,
+            "castsShadows": true,
+            "shadowNear": 4,
+            "shadowFar": 45,
+            "normalBias": 0.006,
+            "shadowBias": -0.00006,
+            "shadowRadius": 0.75,
+            "shadowMap": [
+              2048,
+              2048
+            ]
+          },
+          "limits": "Measured sky with bounded native direct/finite unequal bounce proxies, not recovered scene irradiance or physical GI"
+        },
+        "courtyardBounce": 440,
+        "courtyardBounceType": "unequal finite inverse-square shadow-casting courtyard patches",
+        "courtyardBounceCastsShadows": true,
+        "hemisphere": 0.025,
+        "environmentIntensity": 0.14,
+        "measuredSky": {
+          "provider": "Poly Haven",
+          "asset": "kloofendal_48d_partly_cloudy_puresky",
+          "license": "CC0-1.0",
+          "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+          "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+          "authors": [
+            "Greg Zaal",
+            "Jarod Guest"
+          ],
+          "sourceSunPixel": [
+            1218,
+            784
+          ],
+          "maximumLuma": 72870.25335625,
+          "meanLuma": 0.6762980197300532,
+          "sourceDirectionYUp": [
+            0.5545620062863689,
+            0.741980411720831,
+            0.37673073913104493
+          ],
+          "targetDirectionYUp": [
+            -0.40730653998127836,
+            0.6109598099719176,
+            0.6788442333021306
+          ],
+          "rotationXYZ": [
+            1.1181197707635133,
+            -1.4594669702652538,
+            0.9673187755123099,
+            "XYZ"
+          ],
+          "nativeEnvironmentIntensity": 0.14,
+          "backgroundIntensity": 1.6,
+          "shadowedSky220": {
+            "gain": 0.9,
+            "elevationSineRange": [
+              0.025,
+              0.5
+            ],
+            "method": "Two near measured low-sky solid-angle sectors with actual static geometry shadows; far sectors remain in restrained environment. Not uniform ambient or traced GI",
+            "sectors": [
+              {
+                "sector": 2,
+                "direction": [
+                  0.6079123506245082,
+                  0.28334823553301725,
+                  0.7417252532970079
+                ],
+                "integratedLinearRGB": [
+                  0.2277324265593844,
+                  0.2808339487311499,
+                  0.4291632593818969
+                ],
+                "solidAngle": 0.7460994991415965,
+                "intensity": 0.38624693344370725,
+                "colorLinear": [
+                  0.5306428767629745,
+                  0.654375561262214,
+                  1
+                ],
+                "castsActualShadows": true,
+                "mapSize": 2048
+              },
+              {
+                "sector": 3,
+                "direction": [
+                  -0.619107480386327,
+                  0.27199805005851724,
+                  0.7366973520341025
+                ],
+                "integratedLinearRGB": [
+                  0.33075001058864884,
+                  0.4438562907684234,
+                  0.7406577023887282
+                ],
+                "solidAngle": 0.7457837330940332,
+                "intensity": 0.6665919321498553,
+                "colorLinear": [
+                  0.4465625747520511,
+                  0.5992731721238066,
+                  1
+                ],
+                "castsActualShadows": true,
+                "mapSize": 2048
+              }
+            ]
+          },
+          "solarSeparation": {
+            "coneDegrees": 2.3,
+            "fillRadianceCeiling": 3,
+            "pixels": 803
+          },
+          "scope": "Original measured CC0 sky is the background. Sunless near low-sky quadrature has geometry occlusion; far sky IBL and courtyard-bounce proxy remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+        },
+        "limits": "Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI"
+      },
+      "licensedCarvingScope": {
+        "unchangedFromR08": true,
+        "sourceUnstretched": true,
+        "mounts": 16
+      }
+    }
+  ],
+  "comparisons": [
+    "lookdev/scene05-rebuild220/compare220-r12-full.png",
+    "lookdev/scene05-rebuild220/compare220-r12-corner.png",
+    "lookdev/scene05-rebuild220/compare220-r12-groundside.png"
+  ],
+  "actualChanges": {
+    "structure": "New closed rebated annular window frame; shouldered/crowned deep sash bones, real rear half-laps and seated transverse bones; receiver moved from100mm to222mm depth. Real crowned/raised-head eased girts, independently recessed transom boarding and stile depth. Camera/window centres retained.",
+    "arms": "23 real bearing-arm prototypes have9mm quarter-round edge bands and pierced skins inset to the same contour, exposing the actual easing. Real4mm carved recesses retained. Max measured bounding-envelope drift15.095micrometres from float/inset sampling; original top/contact and cut datums retained.",
+    "material": "Distinct rafter/arm/gray-red post/raw cut pigments and satin roles; CC0 scan tissue contrast moderated. Fine wood fibres/checks/endgrain and source normal/roughness retained. Gilt face reflectance separated from old copper and patina.",
+    "light": "Original sun8, courtyard patch powers440/180, their positions, reference/inspection camera and exposure1.35 retained. Two actual solid-angle-integrated near measured low-sky sector lights cast geometry shadows; residual hemisphere.025/environment.14. Same actual128px6-face temple/finite-court probe at[5.5,6.4,7.2] supplies explicit.22 wood response and existing metal roles. Both sky and cube are explicitly PMREM-filtered before material draws. Local raster/sector approximations, not traced GI.",
+    "canopy": "Five-point, length-bowed closed branches with real taper/bark ridges; six primary endpoints/roots retained. Broader overlapping seven-lobed closed laminae. R12 corrects branch-end and leaf-rim winding; all689 branch/leaf prototypes closed, positively oriented."
+  },
+  "cpuChecks": [
+    "lookdev/scene05-rebuild220/geometry220-r09-members.json",
+    "lookdev/scene05-rebuild220/geometry220-r10-arms.json",
+    "lookdev/scene05-rebuild220/geometry220-r12-solid-audit.json"
+  ],
+  "preservedFailures": [
+    {
+      "name": "R09 authored sash shoulder T-junction draft",
+      "source": "lookdev/scene05-rebuild220/r09-authoring-failure/carpentered-sash220.js",
+      "check": "lookdev/scene05-rebuild220/r09-authoring-failure/geometry.json",
+      "repair": "Explicit shoulder-edge splitting; final sash checks show0 unpaired edges."
+    },
+    {
+      "name": "R09",
+      "sourceHash": "edca2d84517d899ea7b3f467560df6e1c73ea9c49dc8a6df521c418a29de09d0",
+      "snapshot": "lookdev/scene05-rebuild220/r09-source",
+      "review": "lookdev/scene05-rebuild220/review220-r09.json",
+      "failure": "4 sky shadows caused transient17..21 sampler-unit warnings; native frames retained and viewed despiteGL0."
+    },
+    {
+      "name": "R09b",
+      "sourceHash": "394c92601e10f190969acf04e373c657c9c29df5a2730cc93051f97be66acba4",
+      "snapshot": "lookdev/scene05-rebuild220/r09b-source",
+      "review": "lookdev/scene05-rebuild220/review220-r09b.json",
+      "failure": "2 near shadows, final programs max11 active samplers, but transient17-unit allocation remained until explicit prefiltering in R10."
+    },
+    {
+      "name": "R10",
+      "sourceHash": "a50b1ba128f8246f7f73676c652d376afd4b50cf65c9e95438f1d7fc1ff09f18",
+      "snapshot": "lookdev/scene05-rebuild220/r10-source",
+      "review": "lookdev/scene05-rebuild220/review220-r10.json",
+      "scope": "Coherent native retreat after deep windows/arm easing; snapshot is a delta against R08, unlike final complete R12 source tree."
+    },
+    {
+      "name": "R11",
+      "sourceHash": "05697bd597b9b512c8a1cc0c5fdc7c956327299fc291a7139511a6327a918652",
+      "snapshot": "lookdev/scene05-rebuild220/r11-source",
+      "review": "lookdev/scene05-rebuild220/review220-r11.json",
+      "failure": "Inherited inward branch end caps and leaf rims found by full solid audit, corrected in R12. All actual R11 frames retained."
+    }
+  ],
+  "retainedR08": {
+    "sourceHash": "3909765933302d74727c41bd15f4648188dde9a2bf43b231ffa8cd526d90f440",
+    "handoff": "lookdev/scene05-rebuild220/handoff220-r08.json",
+    "snapshot": "lookdev/scene05-rebuild220/r08-source",
+    "native": "qa/ten-reference/05/iteration-scene05-rebuild220-r08-20261024/reference.png"
+  },
+  "licensedComponent": {
+    "unchangedFromR08": true,
+    "source": "Wood Carving of Dragon",
+    "creator": "SCANTECH_3D / stored package SCANOLOGY_3D (@3dscantech)",
+    "url": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+    "license": "CC-BY-4.0",
+    "scope": "Declared different-source actual cloud component in main central window cassette only; not photographed reference carving or whole building.",
+    "provenance": "reconstructions/scene-05/assets/licensed-cloud220/provenance.json",
+    "attribution": "Visible source page footer, provenance, original read-only licence, every current native iteration ATTRIBUTION.txt"
+  },
+  "noExternalBuildingScanUsed": true,
+  "BasilSpiderNoAITaggedScanUsed": false,
+  "seiroganResearchVariantUsed": false,
+  "referencePhotographRuntimeUse": false,
+  "wholePhotoOrAIGeneratedFrameUsed": false,
+  "noOwnLiveJobs": true,
+  "noGitMutation": true,
+  "noSharedOrOtherSceneWrites": true,
+  "noDepthFieldFilmAssetsJsonEdit": true,
+  "noLargeExportOrBlendWritten": true,
+  "noNewOriginalRawAssetCopies": true,
+  "comparisonRasterScope": "Only unwarped crops/uniformly scaled QA boards. Native PNGs untouched. All stages remain unaccepted.",
+  "remaining": [
+    "Photographic fidelity remains unaccepted. Roof/rafter/window rhythms, broad header fields and capital massing are still too regular and simplified against HD05.",
+    "Some broad wood faces are still too orange/uniform, the right eave remains too black, and the sun/shadow cut remains flatter/harder than the reference. Per-surface cool sky and warm courtyard variation are not recovered GI.",
+    "Small metal end motifs still resemble paired infinity curls and lack the reference-specific dense chased carving. Several shaded small copper end faces remain too dull; the wider main rosette and post/header ribbons remain authored interpretations.",
+    "Deep sash bones, half-laps and rebated surround add real depth, but window spacing, patina and sculptural panel borders remain more schematic than HD05.",
+    "Curved branches and broader palmate leaves improve the bamboo/arrow silhouette, but canopy placement, leaf colour/translucency and clump density still differ strongly from the reference.",
+    "The inherited onigawara r12c and present sky/cloud arrangement remain unlike HD05. No new motion/Cycles frame was rendered in this round."
+  ],
+  "dimensionScope": "Timber/sash dimensions describe nominal local construction before the existing uniform whole-storey scale. Main level1 uses .90258765; its264mm nominal frame is238.3mm deep in world coordinates."
+}

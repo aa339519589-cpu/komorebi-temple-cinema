@@ -1,0 +1,62 @@
+{
+  "revision": "scene10-natural193-with-support207-r08",
+  "status": "Actual geometry/material reconstruction checkpoint; photographic fidelity unaccepted",
+  "reference": "references/hd/9-照片-10.jpg comparison-only; no image/depth/background sampling",
+  "baselineSource": "b9d90fdcce54c0aead9bb37d9648fdb6c50b2cf3e86180da712e71f0329bdb07",
+  "authored": [
+    "src/natural193.js retains authored mature/young woodland and botanical anatomy, with 56 forest growth/placement records held in ecology193-held207.json. Support207 replaces the old broad mineral stair embankment with a submerged footing, rebuilds the actual stair/landing/foundation, retires the under-landing concealment shrubs and repeated rock-per-pier supports, extends the real terrain to z=20, reserves all adjacent grid cells around paving/curb/footstone/rail apron, and blends the outer creek bank rise. Roots still use actual terrain triangles or transformed rock hits. Other garden placements can change with physical reservations; their original positions are not claimed frozen. R07 reauthors the existing connected terrain around the fixed lantern/stair datums and adds a broken hall-side soil shoulder; narrow route paving is bedded on that real surface. Mature/young tree pose records stay held. No new botanical geometry is added to hide support faces. R08 removes the obsolete low tower-walk terrain reservation from z>=-7.65, embeds the fixed hero lantern support in the actual .58m soil crest, and uses actual transformed irregular hall-bank outcrops for existing root rays. No extra botanical placement loops or camera/lighting changes.",
+    "src/pine-shoot193.js local geometry-only copy of the project-authored pine158 study, preserving its closed paired needles and retained individually ribbed fascicle packets; no scene07 runtime dependency"
+  ],
+  "externalAssets": [
+    {
+      "asset": "Rock Moss Set 01",
+      "creator": "Kless Gyzen",
+      "source": "https://polyhaven.com/a/rock_moss_set_01",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/rock-moss-set-01/provenance.json",
+      "modifications": "Original mesh/normals/UVs retained; uniform per-piece normalization, rotation and positive uniform placement; bounded porous wet PBR response"
+    },
+    {
+      "asset": "Pine Sapling Small",
+      "creators": [
+        "Rico Cilliers",
+        "Rob Tuytel"
+      ],
+      "source": "https://polyhaven.com/a/pine_sapling_small",
+      "license": "CC0-1.0",
+      "provenance": "assets/pine-sapling-cc0-141/provenance.json",
+      "modifications": "Whole sapling root datum/uniform normalization and growth scale; original mesh/normals/UVs. Existing bark PBR on authored mature wood."
+    },
+    {
+      "asset": "Periwinkle Plant",
+      "creator": "Amal Kumar",
+      "source": "https://polyhaven.com/a/periwinkle_plant",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/periwinkle-plant/provenance.json",
+      "modifications": "Whole original plants uniformly placed; green connected blade atlas region and original PBR maps on actual authored cupped leaf surfaces; bounded rain clearcoat. No scene photograph."
+    },
+    {
+      "asset": "Shrub 02",
+      "creator": "Rico Cilliers",
+      "source": "https://polyhaven.com/a/shrub_02",
+      "license": "CC0-1.0",
+      "provenance": "assets/polyhaven/shrub-02/provenance.json",
+      "modifications": "Whole source plants retained as a sparse rear-understory accent; original UVs/normals and positive uniform scale."
+    },
+    {
+      "asset": "Granite Tile 04",
+      "license": "CC0-1.0",
+      "provenance": "reconstructions/scene-04/assets/granite-tile-04/provenance.json",
+      "modifications": "Existing independently declared PBR surface on actual eroded mineral terrain/bank faces; source files unchanged"
+    }
+  ],
+  "limitations": [
+    "Tree species, growth scale and plant locations are inferred; no surveyed reconstruction or exact botanical match is claimed.",
+    "Distant mature tree LOD retains whole branching/closed needle packet geometry at a positive uniform growth scale; no canopy hulls or leaf cards.",
+    "The terrain is a modeled physical reconstruction, not a measured scan of the supplied site.",
+    "No new NC asset is used by this natural193 pass. Existing architectural CC BY source176 stays attributed separately."
+  ],
+  "visualAccepted": false,
+  "baselineNatural193Revision": "scene10-natural193-r08b",
+  "support207": "support207-provenance.json"
+}

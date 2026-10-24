@@ -1,0 +1,606 @@
+{
+  "status": "HELD R09 after actual source repair and native review; worker releases source ownership with no own active jobs. Photographic fidelity remains unaccepted.",
+  "worker": "sol61_scene10_207",
+  "sourceHash": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+  "sourceSnapshot": "lookdev/scene10-support207/r09-source",
+  "reference": "references/hd/9-照片-10.jpg",
+  "inheritedSourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+  "changedOrNewSceneFiles": {
+    "reconstructions/scene-10/ecology193-held207.json": "ba039caef1b6abeff62bb6442a2cad6cdfd0de28eb20b3e828c2b04daf822158",
+    "reconstructions/scene-10/natural193-provenance.json": "5c735a28c15a9f19d2465289d153087a177ad79e20105e4fefae100f5791c462",
+    "reconstructions/scene-10/src/layout125.js": "265a80f6fb50230c213ed3437c03d620ba2065a429d900948473f7af9d31dbfd",
+    "reconstructions/scene-10/src/main.js": "92c9b5f1e3f5a2123a586808e9e886d18e8b328907c0bea2235f355d32a04a34",
+    "reconstructions/scene-10/src/natural193.js": "acf9017266a36a80c20c9447ba904b132922e989afa172b3515e2ff498cbde50",
+    "reconstructions/scene-10/src/support-route207.js": "ca2594bcb705e4bbe8a8565d951c787b3c826afde32ad2ba73e8412db5c948ce",
+    "reconstructions/scene-10/support207-provenance.json": "a7daed12cf8368e26e6d0864289b6a21050bec57bb023f1c79bd626e8d57aa6c",
+    "reconstructions/scene-10/README.md": "b3c39e9147af4da901fbe8529908cf4ec5682214651d7d4191dadf93b55ebca9"
+  },
+  "nativeViews": {
+    "full": "qa/ten-reference/10/iteration-scene10-support207-r09-hero/reference.png",
+    "trueHero": "qa/ten-reference/10/iteration-scene10-support207-r09-hero/detail-native.png",
+    "subfrustum": [
+      340,
+      535,
+      560,
+      1254
+    ],
+    "low": "qa/ten-reference/10/iteration-scene10-support207-r09-low/inspection-view.png",
+    "overhead": "qa/ten-reference/10/iteration-scene10-support207-r09-overhead/inspection-view.png",
+    "allViewed": true,
+    "allSourceMatched": true,
+    "allNativeSize": [
+      1254,
+      1254
+    ],
+    "reports": [
+      {
+        "view": "hero",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r09-hero/report.json",
+        "status": "rendered-review",
+        "sourceHash": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "775a70980bea5bee4fec8cc0a179974ed704d079217530b4156953cbd06b6adc"
+          },
+          {
+            "name": "detail-native",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "8ae077df75a469a2a4d7a8ef182f93772fe3375157a491cbb7e946db81d33fbd"
+          }
+        ]
+      },
+      {
+        "view": "low",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r09-low/report.json",
+        "status": "rendered-review",
+        "sourceHash": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "bba7acd6e92d39083d0c0865689550410a8e368e27b8af10559a9a380410d3fd"
+          }
+        ]
+      },
+      {
+        "view": "overhead",
+        "path": "qa/ten-reference/10/iteration-scene10-support207-r09-overhead/report.json",
+        "status": "rendered-review",
+        "sourceHash": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "5c035c7032cbb73a661cc9220f7b70e8ee234870c59c21d1d95daa54bf09e7e8"
+          }
+        ]
+      }
+    ]
+  },
+  "concreteRepairs": [
+    "The inherited nine-step 2.52m near flight from y=.067, 1.52m foot landing and broad causeway are retired. Four actual closed .175m/.28m steps rise from the lantern island at y=.62 over 1.12m, with a .66m landing and short guards joined to the bridge. The near bridge endpoint and lantern anchor are unchanged.",
+    "A narrow .96m forecourt branch and 1.10m rear branch contain twelve actual closed worn flagstones. Refined top boundary vertices are shared exactly with new sides/bottoms; the older coarse-rim T-junction preflight is preserved. Real crowns, hollows, pits and chipped outlines remain geometry.",
+    "Seven low inherited tower-walk slabs crossing the lantern/stair plan are retired. Their old terrain reservation is limited to surviving slabs at z<-7.65. The rear branch meets the actual front of surviving slab index7 at z=-7.71 with a 10mm lap.",
+    "The actual connected lantern soil field now reaches y=.58 beneath the fixed .70m support and .77m lantern anchor, instead of R06 triangle y=-.025. Its shore has a smaller eroded outline. A real mineral toe and existing support stone are partly embedded, not separate hovering support feet.",
+    "The hall terrace retains its cap, short bearings and nine embedded gallery brackets. Its 129 ruler-straight face stones are replaced by81 closed irregular ashlar with changing joint heights/depth and actual per-vertex block tone. The real hall-side soil/mineral shoulder embeds lower courses.",
+    "R08 oversized pale mineral exposures were rendered and rejected. R09 uses seven lower deep-seated wet-dark hall bank pieces and one filtered lantern mineral toe, from original CC0 scan buffers with positive uniform transforms. They are independent of structural pier support.",
+    "Eleven garden broadleaf/blossom rigid poses were recovered from the actual frozen R06 CPU geometry/RNG recipe and added to the existing56 held forest records, preventing lower-plant acceptance from rotating those good trees. The recovery uses original rock position/index/normal ray buffers and botanical primitive counts, with no browser, image, GPU or mesh export."
+  ],
+  "beforeAfterDatums": {
+    "nearBridgeEndpointHeld": [
+      -2.1176388613423986,
+      1.32,
+      -4.861295067199864
+    ],
+    "lanternAnchorHeld": [
+      -2.8,
+      0.77,
+      -3
+    ],
+    "r06NearFlight": {
+      "start": [
+        -4.6195166236941425,
+        0.067,
+        -4.559620304831787
+      ],
+      "count": 9,
+      "run": 2.52,
+      "riser": 0.13922222222222225,
+      "landingRun": 1.52
+    },
+    "r09NearFlight": {
+      "start": [
+        -3.2295845334987288,
+        0.62,
+        -4.7272173950362735
+      ],
+      "count": 4,
+      "run": 1.12,
+      "riser": 0.175,
+      "tread": 0.28,
+      "landingRun": 0.66
+    },
+    "lanternTriangleHeight": {
+      "position": [
+        -2.8,
+        0.77,
+        -3
+      ],
+      "r06TriangleY": -0.025,
+      "currentTriangleY": 0.5800000000000001,
+      "unchangedStoneSupportTop": 0.7,
+      "unchangedLanternBase": 0.77
+    },
+    "routeFlagCount": 12,
+    "hallAshlarStones": 81,
+    "hallTerraceCapWorldY": 3.05,
+    "hallRetainingFront": {
+      "top": 3.8,
+      "toe": 4.5,
+      "batter": 0.7000000000000002
+    },
+    "hallGalleryBrackets": 9,
+    "actualBankOutcrops": [
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          -8.2,
+          6.1
+        ],
+        "position": [
+          2.5738274870168425,
+          -0.13779394373112286,
+          -13.318339011276008
+        ],
+        "variant": 3,
+        "uniformScale": 1.1,
+        "rotation": [
+          0.12,
+          -0.27999999999999997,
+          -0.1
+        ],
+        "terrainY": 0.11154592744664807,
+        "bottom": -1.3000025713856767,
+        "top": 1.024414683923431,
+        "burial": 1.4115484988323248,
+        "burialRatio": 0.6072698417671198,
+        "worldBounds": [
+          [
+            1.1535131505180964,
+            -1.3000025713856767,
+            -14.708636107120146
+          ],
+          [
+            3.9941418235155886,
+            1.024414683923431,
+            -11.92804191543187
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          -6,
+          6.85
+        ],
+        "position": [
+          4.174531349502689,
+          -0.1876145733760734,
+          -11.265379405092077
+        ],
+        "variant": 0,
+        "uniformScale": 0.8,
+        "rotation": [
+          -0.1,
+          0.62,
+          0.08
+        ],
+        "terrainY": -0.11935745837340433,
+        "bottom": -0.6126313014226424,
+        "top": 0.23740215467049564,
+        "burial": 0.4932738430492381,
+        "burialRatio": 0.5802993276480992,
+        "worldBounds": [
+          [
+            3.255863459858234,
+            -0.6126313014226424,
+            -12.242337522241302
+          ],
+          [
+            5.093199239147144,
+            0.23740215467049564,
+            -10.288421287942851
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          -4.7,
+          5.6
+        ],
+        "position": [
+          6.159654479287824,
+          0.30713178422228804,
+          -11.63850426300437
+        ],
+        "variant": 5,
+        "uniformScale": 0.95,
+        "rotation": [
+          0.16,
+          -1.02,
+          -0.05
+        ],
+        "terrainY": 0.4308300505098748,
+        "bottom": -0.3332563733288997,
+        "top": 0.9475199417734758,
+        "burial": 0.7640864238387745,
+        "burialRatio": 0.596580694715376,
+        "worldBounds": [
+          [
+            4.955901094476689,
+            -0.3332563733288997,
+            -12.826390163642099
+          ],
+          [
+            7.36340786409896,
+            0.9475199417734758,
+            -10.45061836236664
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          1.8,
+          7.1
+        ],
+        "position": [
+          11.328422356860038,
+          -0.2986226052212744,
+          -6.243632751302015
+        ],
+        "variant": 4,
+        "uniformScale": 0.85,
+        "rotation": [
+          0.11,
+          -1.6400000000000001,
+          -0.12
+        ],
+        "terrainY": -0.2195705298343045,
+        "bottom": -0.755089558527698,
+        "top": 0.15784434808514924,
+        "burial": 0.5355190286933935,
+        "burialRatio": 0.5865912360296351,
+        "worldBounds": [
+          [
+            10.442263599246221,
+            -0.755089558527698,
+            -6.88021085345772
+          ],
+          [
+            12.214581114473855,
+            0.15784434808514924,
+            -5.60705464914631
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          4,
+          6.2
+        ],
+        "position": [
+          13.941874454537269,
+          0.0016982066563171472,
+          -5.736456122161347
+        ],
+        "variant": 2,
+        "uniformScale": 1.1,
+        "rotation": [
+          -0.14,
+          0.17000000000000004,
+          0.06
+        ],
+        "terrainY": 0.17098221729581667,
+        "bottom": -0.7547616172750743,
+        "top": 0.7581580305877086,
+        "burial": 0.9257438345708909,
+        "burialRatio": 0.6118922679592651,
+        "worldBounds": [
+          [
+            12.642236118388576,
+            -0.7547616172750743,
+            -7.0625283164569215
+          ],
+          [
+            15.241512790685961,
+            0.7581580305877086,
+            -4.410383927865773
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          6.4,
+          6.8
+        ],
+        "position": [
+          15.822013971985154,
+          -0.33390208457918213,
+          -3.7012648793217853
+        ],
+        "variant": 0,
+        "uniformScale": 0.9,
+        "rotation": [
+          0.08,
+          1.8599999999999999,
+          -0.15
+        ],
+        "terrainY": -0.22,
+        "bottom": -0.7904703583751127,
+        "top": 0.12266618921674843,
+        "burial": 0.5704703583751127,
+        "burialRatio": 0.6247371873128577,
+        "worldBounds": [
+          [
+            14.774050600395412,
+            -0.7904703583751127,
+            -4.554065480465185
+          ],
+          [
+            16.869977343574895,
+            0.12266618921674843,
+            -2.848464278178386
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Deep-seated hall bank outcrop, not structural pier footing",
+        "localPlan": [
+          8.1,
+          6.8
+        ],
+        "position": [
+          17.414638857423668,
+          -0.3097580986155616,
+          -2.6578273036700573
+        ],
+        "variant": 5,
+        "uniformScale": 0.8,
+        "rotation": [
+          -0.12,
+          -1.4,
+          0.1
+        ],
+        "terrainY": -0.22,
+        "bottom": -0.8169288142553564,
+        "top": 0.19741261702423318,
+        "burial": 0.5969288142553564,
+        "burialRatio": 0.5884890391417138,
+        "worldBounds": [
+          [
+            16.51574975648401,
+            -0.8169288142553564,
+            -3.465288058190681
+          ],
+          [
+            18.313527958363327,
+            0.19741261702423318,
+            -1.8503665491494337
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      },
+      {
+        "kind": "Lantern-island mineral toe",
+        "localPlan": null,
+        "position": [
+          -2.25,
+          0.4554075629930201,
+          -2.9
+        ],
+        "variant": 4,
+        "uniformScale": 0.44,
+        "rotation": [
+          -0.1,
+          -0.68,
+          0.09
+        ],
+        "terrainY": 0.5251162007908375,
+        "bottom": 0.2064481422865293,
+        "top": 0.7043669836995109,
+        "burial": 0.31866805850430824,
+        "burialRatio": 0.64,
+        "worldBounds": [
+          [
+            -2.745538351601712,
+            0.2064481422865293,
+            -3.4317239745382695
+          ],
+          [
+            -1.754461648398288,
+            0.7043669836995109,
+            -2.3682760254617303
+          ]
+        ],
+        "originalGeometryUVNormals": true
+      }
+    ],
+    "lowerProceduralGardenCounts": {
+      "r06": {
+        "rootedPlants": 2202,
+        "rocks": 275
+      },
+      "r09": {
+        "rootedPlants": 2261,
+        "rocks": 285
+      },
+      "note": "No new authored plant-placement loops were added. Existing procedural acceptance and root positions respond to actual new terrain/rock surfaces, so lower placements/counts are not claimed immutable."
+    }
+  },
+  "verification": {
+    "passed": true,
+    "path": "lookdev/scene10-support207/validation207-r09.json",
+    "structural": {
+      "path": "lookdev/scene10-support207/geometry-audit-r09.json",
+      "summary": {
+        "meshes": 364,
+        "nonfinite": 0,
+        "exactOrSubNanometreDegenerates": 0,
+        "unclosedEdges": 0,
+        "windingEdges": 0,
+        "nonpositiveVolumeMeshes": 0,
+        "circulationUncoveredBefore": 2999,
+        "circulationUncoveredAfter": 0
+      },
+      "scope": "CPU inspection of actual authored structural buffers and circulation triangle constraints. Excludes botanical mesh closure, rail tube end caps, full-scene collision and engineering certification. Not photographic acceptance."
+    },
+    "ground": {
+      "path": "lookdev/scene10-support207/ground-audit-r09.json",
+      "summary": {
+        "forestRoots": 56,
+        "maxForestTriangleYChange": 0,
+        "routeCenterSamples": 50,
+        "soilCrossingNominalFlagTop": 0,
+        "nonfinite": 0
+      },
+      "scope": "Exact CPU evaluation of the authored height recipes followed by the rendered .25m indexed triangle interpolation; excludes physical rock ray hits, complete collision checking, engineering certification and photographic acceptance."
+    },
+    "heldRuntime": {
+      "fallenLeaves142": true,
+      "nearStoneRecords": true,
+      "pathCurbRecords125": true,
+      "waterRipples135": true,
+      "mapleCanopy136": true,
+      "carvedCloud183": true,
+      "pagodaSources141": true,
+      "towerMass183": true,
+      "camera": true,
+      "forest56": true,
+      "hallWorld": true,
+      "pagodaWorld": true,
+      "gardenTrees11": true,
+      "hallUpper": true
+    },
+    "gardenRecovery": {
+      "path": "lookdev/scene10-support207/recovered-garden-poses-r06.json",
+      "passed": true,
+      "check": {
+        "roots": 2202,
+        "expectedRoots": 2202,
+        "rocks": 275,
+        "expectedRocks": 275,
+        "rootMaxDelta": 6.603606550470431e-13,
+        "rockMaxDelta": 4.340972026284362e-13,
+        "forestMaxDelta": 9.903189379656396e-13,
+        "forestByteEqual": false,
+        "gardenPoses": 11
+      },
+      "scope": "Exact frozen R06 CPU geometry/RNG replay, source primitive counts and real scan ray buffers. Eleven garden tree rigid poses only; no image/renderer/export."
+    },
+    "checkpointIntegrity": "lookdev/scene10-support207/checkpoint-integrity-r09.json",
+    "sourceIdentityMatchesSnapshot": true,
+    "sharedDependenciesHeld": true,
+    "reflection": "R06 off-axis reflector correction is inherited unchanged. No new reflection pixel-equality claim is made after actual geometry changes."
+  },
+  "visualReview": {
+    "corrected": "The nine-step far-left approach no longer protrudes behind the lantern. Native hero/overhead show a compact real flight with joined guards and a continuous earth-bedded route; the old low mask no longer cuts through the island. Native low shows irregular masonry and real lower bank cover, while R08 large pale high boulders are gone. All67 held tree growth/rigid pose records verify.",
+    "firstRemainingFailure": "The lantern island still reads as a fairly simple green/mineral mound, and the left branch is too explicit/pale against HD9. Its soil/shore/moss-stone profile and actual photograph projection remain unaccepted. Rebuild wrong ground/landing geometry as needed; do not protect R09 merely because it is the latest checkpoint.",
+    "nextFailures": [
+      "Hall-side shoulder is still a smooth greenish band and the visible upper ashlar remains plainly CG. Actual foundation/bank exposure needs closer HD9 modeling, not more hiding plants.",
+      "Tower-side mineral/green slope remains bare and geometric. Good tree poses are now available to hold while the wrong terrain is repaired.",
+      "Hero lantern profile, bridge/guard joints and scale, ceramic/timber rhythms, generic shrine figure, forest species/palette and lighting remain unaccepted."
+    ],
+    "limits": "Mesh closure, positive volume, finite pixels, source identity and held poses establish their explicit scopes only. They do not establish photographic fidelity, complete-scene collision freedom or engineering certification."
+  },
+  "preservedEvidence": [
+    "lookdev/scene10-support207/r06-source",
+    "lookdev/scene10-support207/r07-source",
+    "lookdev/scene10-support207/r07-review.json",
+    "lookdev/scene10-support207/r08-source",
+    "lookdev/scene10-support207/r08-review.json",
+    "lookdev/scene10-support207/r08-preflight-support-route.js",
+    "lookdev/scene10-support207/geometry-audit-r08-worn-helper-preflight.json",
+    "lookdev/scene10-support207/recovered-garden-poses-r06-strict-float-preflight.json",
+    "qa/ten-reference/10/iteration-scene10-support207-r07-hero",
+    "qa/ten-reference/10/iteration-scene10-support207-r07-low",
+    "qa/ten-reference/10/iteration-scene10-support207-r07-overhead",
+    "qa/ten-reference/10/iteration-scene10-support207-r08-hero",
+    "qa/ten-reference/10/iteration-scene10-support207-r08-low",
+    "qa/ten-reference/10/iteration-scene10-support207-r08-overhead"
+  ],
+  "jobHandoff": {
+    "allComplete": true,
+    "noOwnActiveJobs": true,
+    "officialFifoOnly": true,
+    "completedR09": [
+      {
+        "view": "full/hero",
+        "pid": 89281,
+        "session": 34504
+      },
+      {
+        "view": "low",
+        "pid": 89332,
+        "session": 55750
+      },
+      {
+        "view": "overhead",
+        "pid": 89343,
+        "session": 28456
+      }
+    ],
+    "noCompletedJobRedoneForModelChange": true
+  },
+  "constraints": {
+    "noGitMutations": true,
+    "noOtherSceneOrSharedSourceEdits": true,
+    "noChildren": true,
+    "noNewDownloads": true,
+    "noBlenderOrHeavyExports": true,
+    "compactSourceAndNativePNGOnly": true,
+    "photographicAccepted": false,
+    "finalDiskAvailable": "833 MiB after own native jobs completed"
+  }
+}

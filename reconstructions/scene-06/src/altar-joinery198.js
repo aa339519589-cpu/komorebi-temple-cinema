@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {loadOrnament224,addDragonPeony224} from './ornament224.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -15,6 +16,7 @@ export async function loadAltarCarvings198(){
   new GLTFLoader().loadAsync(new URL('whole-dragon-frieze.glb',assetBase).href),
   new GLTFLoader().loadAsync(new URL('../assets/floral157-altar198-CC-BY-4.0/component.gltf',import.meta.url).href),
   new T.TextureLoader().loadAsync(new URL('../assets/brocade201/brocade-albedo-r01.png',import.meta.url).href),
+  loadOrnament224(),
  ]);
  if(!response.ok||!mountResponse.ok)throw Error('altar198 source carving failed');
  const buffer=await response.arrayBuffer(),header=new DataView(buffer),n=header.getUint32(4,true),ni=header.getUint32(8,true);
@@ -301,6 +303,8 @@ export function addCornice198(b,y,front,width,depth){
 }
 
 export function sourceLongDragon198(b,x,y,z,w,h){
+ //224R03 single-left proof only. Existing cabinet framing and every other family stay exact.
+ if(x<0){addDragonPeony224(b,x,y,z-.009,w,h,{mirror:-1});return;}
  materials(b);if(!carvings.frieze)throw Error('altar198 whole source not loaded');
  const bounds=carvings.frieze.boundingBox,size=bounds.getSize(new T.Vector3()),s=Math.min(w*.92/size.x,h*.89/size.y),center=bounds.getCenter(new T.Vector3());
  b.add(carvings.frieze,'tableGilt198',x-center.x*s,y-center.y*s,z-bounds.min.z*s,s,s,s);

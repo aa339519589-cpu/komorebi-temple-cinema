@@ -6,21 +6,22 @@ import {createReference4MaterialSet} from './materials.js';
 import {buildMapleCanopy} from './foliage.js';
 import {loadBlenderJoinery} from './blender-joinery.js';
 import {createSculptedJoinery} from './sculpted-joinery.js';
-import {createRafterEndCopper} from './rafter-end-copper.js';
+import {createChasedEndBoot220,createPiercedStrap220} from './chased-copper220.js';
 import {createClayTile05} from './handlaid-ceramics.js';
 import {createAgedPier05} from './aged-pier.js';
 import {assignTimberPathUV05} from './timber-path-uv.js';
 import {createHipTimber190,closedWire190} from './detail190-solids.js';
-import {createSecondaryCopper220} from './secondary-copper220.js';
 import {createLantern190} from './lantern190.js';
 import {createTempleTerminal204} from './terminal204.js';
 import {createFittedBearingCopper196} from './bearing-ends196.js';
 import {installDaylight196} from './daylight196.js';
 import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
 import {installMeasuredSky} from './measured-sky.js';
+import {installCourtyardReflection220} from './courtyard-reflection220.js';
+import {loadLicensedCloud220} from './licensed-cloud220.js';
 import {POSE,TIER_SPEC,tierPlacement,tierWorldPoint} from './tier-layout.js';
 export {POSE};
-export async function buildScene(){
+export async function buildScene(renderer=null){
  const scene=new T.Scene();scene.background=new T.Color('#79b8f2');
  const materialSet=createReference4MaterialSet(T),mats=materialSet.mats;
  mats.red.color.set('#aa5030');mats.cedar.color.set('#985430');mats.endwood.color.set('#c28545');
@@ -34,16 +35,19 @@ export async function buildScene(){
  mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#535b60');mats.cornerCeramic.roughness=.68;mats.cornerCeramic.bumpScale=.00035;mats.cornerCeramic.metalness=.025;mats.cornerCeramic.vertexColors=true;
  mats.terminalInlay204=mats.oldgold.clone();mats.terminalInlay204.name='scene05-thin-weathered-terminal-inlay204';mats.terminalInlay204.color.set('#aa8747');mats.terminalInlay204.roughness=.64;mats.terminalInlay204.metalness=.64;
 
- const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createRafterEndCopper(),endCopperSmall=createRafterEndCopper({detail:'small'}),secondary190=createSecondaryCopper220(),secondary220=createSecondaryCopper220({variant:1}),lantern190=createLantern190(),mask190=await createTempleTerminal204(),primary196=createFittedBearingCopper196(endCopper.parts),secondary196=createFittedBearingCopper196(secondary190.parts),secondaryFitted220=createFittedBearingCopper196(secondary220.parts);
- const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:sculptedJoinery.relief,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,secondaryFittingParts:secondary190.parts,primaryBearingFitting196:primary196.parts,secondaryBearingFitting196:secondary196.parts,secondaryBearingFitting220:[secondary196.parts,secondaryFitted220.parts],cornerMask:mask190.parts,cornerMaskMount190:mask190.mountParts,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info,secondary190:secondary190.info,secondary220:secondary220.info,bearingCut196:primary196.info,lantern190:lantern190.info,mask190:mask190.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();secondary190.dispose();secondary220.dispose();lantern190.dispose();mask190.dispose();primary196.dispose();secondary196.dispose();secondaryFitted220.dispose();}};Object.assign(mats,joineryKit.materials);
+ const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createChasedEndBoot220({type:'hip'}),endCopperSmall=createChasedEndBoot220({type:'small'}),armCopper=createChasedEndBoot220({type:'arm'}),secondary190=createChasedEndBoot220({type:'lower'}),secondary220=createChasedEndBoot220({type:'lower',variant:1}),chasedStrap=createPiercedStrap220(),lantern190=createLantern190(),mask190=await createTempleTerminal204(),primary196=createFittedBearingCopper196(armCopper.parts),secondary196=createFittedBearingCopper196(secondary190.parts),secondaryFitted220=createFittedBearingCopper196(secondary220.parts),licensedCloud=await loadLicensedCloud220();
+ const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:chasedStrap.geometry,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,secondaryFittingParts:secondary190.parts,primaryBearingFitting196:primary196.parts,secondaryBearingFitting196:secondary196.parts,secondaryBearingFitting220:[secondary196.parts,secondaryFitted220.parts],cornerMask:mask190.parts,cornerMaskMount190:mask190.mountParts,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info,armFitting:armCopper.info,piercedStrap:chasedStrap.info,secondary190:secondary190.info,secondary220:secondary220.info,bearingCut196:primary196.info,lantern190:lantern190.info,mask190:mask190.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();armCopper.dispose();secondary190.dispose();secondary220.dispose();chasedStrap.dispose();lantern190.dispose();mask190.dispose();primary196.dispose();secondary196.dispose();secondaryFitted220.dispose();}};Object.assign(mats,joineryKit.materials);
  const copperPixels=new Uint8Array(128*128*4);for(let y=0;y<128;y++)for(let x=0;x<128;x++){
    const hash=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
-   const q=Math.round(255*(.83+.09*Math.sin(x*.20+Math.sin(y*.11))+.06*(hash(x,y)-.5)-.09*(hash(x>>2,y>>2)>.92?1:0))),i=(y*128+x)*4;copperPixels[i]=copperPixels[i+1]=copperPixels[i+2]=q;copperPixels[i+3]=255;
+   const noise=(a,b)=>{const i=Math.floor(a),j=Math.floor(b),u=a-i,v=b-j,s=u*u*(3-2*u),t=v*v*(3-2*v);return(1-t)*((1-s)*hash(i,j)+s*hash(i+1,j))+t*((1-s)*hash(i,j+1)+s*hash(i+1,j+1));};
+   const q=Math.round(255*(.64+.21*noise(x*.045,y*.045)+.10*noise(x*.47,y*.47)+.035*hash(x,y))),i=(y*128+x)*4;copperPixels[i]=copperPixels[i+1]=copperPixels[i+2]=q;copperPixels[i+3]=255;
  }
  const copperFinish=new T.DataTexture(copperPixels,128,128);copperFinish.wrapS=copperFinish.wrapT=T.RepeatWrapping;copperFinish.minFilter=T.LinearMipmapLinearFilter;copperFinish.magFilter=T.LinearFilter;copperFinish.generateMipmaps=true;copperFinish.needsUpdate=true;
- mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-worked-copper-wrapped-end-cup',color:'#c49c51',metalness:.84,roughness:.39,envMapIntensity:1.28,bumpMap:copperFinish,bumpScale:.00025,roughnessMap:copperFinish});
- mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-folded-chrysanthemum-copper',color:'#e2bd6b',metalness:.86,roughness:.32,envMapIntensity:1.32,bumpMap:copperFinish,bumpScale:.00018,roughnessMap:copperFinish});
- mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-lower-patinated-copper-grooves',color:'#5c4325',metalness:.65,roughness:.80,envMapIntensity:.45});
+ const copperAlbedo=copperFinish.clone();copperAlbedo.colorSpace=T.SRGBColorSpace;copperAlbedo.needsUpdate=true;
+ mats.fittingCopper=new T.MeshStandardMaterial({name:'scene05-chased-ancient-brass-folded-floor',color:'#ad8850',metalness:.83,roughness:.47,envMapIntensity:1.18,map:copperAlbedo,bumpMap:copperFinish,bumpScale:.0004,roughnessMap:copperFinish});
+ mats.fittingEdge=new T.MeshStandardMaterial({name:'scene05-chased-worn-gold-incised-mask',color:'#eed196',metalness:.94,roughness:.42,envMapIntensity:1.22,map:copperAlbedo,bumpMap:copperFinish,bumpScale:.00024,roughnessMap:copperFinish});
+ mats.fittingPatina=new T.MeshStandardMaterial({name:'scene05-oxidised-chasing-floor',color:'#57432d',metalness:.67,roughness:.72,envMapIntensity:.65});
+ mats.kit_gilt.color.set('#b89a64');mats.kit_gilt.metalness=.82;mats.kit_gilt.roughness=.49;mats.kit_gilt.map=copperAlbedo;mats.kit_gilt.roughnessMap=copperFinish;
  mats.rafterCopper220=mats.fittingCopper.clone();mats.rafterCopper220.name='scene05-small-rafter-worked-brass';mats.rafterCopper220.color.set('#bd9147');mats.rafterCopper220.roughness=.55;mats.rafterCopper220.envMapIntensity=.90;
  mats.rafterEdge220=mats.fittingEdge.clone();mats.rafterEdge220.name='scene05-small-rafter-cast-edges';mats.rafterEdge220.color.set('#cba052');mats.rafterEdge220.roughness=.48;mats.rafterEdge220.envMapIntensity=.95;
  mats.rafterPatina220=mats.fittingPatina.clone();mats.rafterPatina220.name='scene05-small-rafter-oxidised-recess';
@@ -55,7 +59,12 @@ export async function buildScene(){
    let material=mats[mat];if(!material)throw Error('Unknown material '+mat);
    const quaternion=rot?.isQuaternion?rot:new T.Quaternion().setFromEuler(new T.Euler(...(Array.isArray(rot)?rot:[0,0,0])));
    const matrix=stack.at(-1).clone().multiply(new T.Matrix4().compose(new T.Vector3(x,y,z),quaternion,new T.Vector3(sx,sy,sz)));
-   if(!bucket.has(material))bucket.set(material,[]);bucket.get(material).push({geo,matrix,tint});
+   let woodTint=null;
+   if(material.userData.metricTimberGrain){
+    if(!geo.boundingBox)geo.computeBoundingBox();const centre=geo.boundingBox.getCenter(new T.Vector3()).applyMatrix4(matrix),fract=v=>v-Math.floor(v),a=fract(Math.sin(centre.x*13.71+centre.y*8.31+centre.z*5.17)*43758.5453),b=fract(Math.sin(centre.x*4.33+centre.y*19.21-centre.z*7.37)*27314.13),gain=.93+.12*a;
+    const tone=mat==='windowBars'||mat==='postwood'?[1,1,1]:b<.33?[.80,.83,.88]:b<.70?[.96,.90,.88]:[1.08,1.02,.97];woodTint=tone.map(c=>c*gain);
+   }
+   if(!bucket.has(material))bucket.set(material,[]);bucket.get(material).push({geo,matrix,tint,woodTint});
  }
  function group(x,y,z,angle,fn){stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationY(angle)));try{fn();}finally{stack.pop();}}
  function box(x,y,z,w,h,d,ma='cedar',rot=0,tint=1){
@@ -98,13 +107,17 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  const scannedTimber=await installScannedTimber(mats);
  mats.windowBars.map=mats.architecture_darkwood.map;mats.windowBars.normalMap=mats.architecture_darkwood.normalMap;mats.windowBars.normalScale.copy(mats.architecture_darkwood.normalScale);mats.windowBars.roughness=.80;mats.windowBars.clearcoat=.055;mats.windowBars.specularIntensity=.34;mats.windowBars.onBeforeCompile=mats.architecture_darkwood.onBeforeCompile;mats.windowBars.customProgramCacheKey=()=> 'scene05-gray-window-tissue220';mats.windowBars.userData.metricTimberGrain=true;
  mats.rafterCut220=mats.red.clone();mats.rafterCut220.name='scene05-matte-warm-upper-rafter-cut';mats.rafterCut220.color.set('#a45531');mats.rafterCut220.roughnessMap=null;mats.rafterCut220.roughness=.90;mats.rafterCut220.clearcoat=.010;mats.rafterCut220.specularIntensity=.18;mats.rafterCut220.envMapIntensity=.45;mats.rafterCut220.onBeforeCompile=mats.red.onBeforeCompile;mats.rafterCut220.customProgramCacheKey=()=> 'scene05-matte-rafter-cut220';mats.rafterCut220.userData.metricTimberGrain=true;
- mats.hipwood=mats.red.clone();mats.hipwood.name='scene05-aged-raked-hip-timber';mats.hipwood.color.set('#8a411c');mats.hipwood.roughness=.76;mats.hipwood.clearcoat=.10;mats.hipwood.specularIntensity=.45;mats.hipwood.envMapIntensity=.68;mats.hipwood.onBeforeCompile=mats.red.onBeforeCompile;mats.hipwood.customProgramCacheKey=()=> 'scene05-worked-hip220-thin-varnish';mats.hipwood.userData.metricTimberGrain=true;
- mats.postwood=mats.architecture_red.clone();mats.postwood.name='scene05-square-weathered-structural-pier';mats.postwood.color.set('#926645');mats.postwood.roughness=.93;mats.postwood.clearcoat=.045;mats.postwood.onBeforeCompile=mats.architecture_red.onBeforeCompile;mats.postwood.customProgramCacheKey=mats.architecture_red.customProgramCacheKey;mats.postwood.userData.metricTimberGrain=true;
+ mats.hipwood=mats.red.clone();mats.hipwood.name='scene05-carved-aged-raked-hip-timber';mats.hipwood.color.set('#8c4d34');mats.hipwood.roughness=.80;mats.hipwood.clearcoat=.060;mats.hipwood.specularIntensity=.52;mats.hipwood.envMapIntensity=.64;mats.hipwood.onBeforeCompile=mats.red.onBeforeCompile;mats.hipwood.customProgramCacheKey=()=> 'scene05-r09-recurved-hip-worn-brown';mats.hipwood.userData.metricTimberGrain=true;
+ mats.postwood=mats.architecture_red.clone();mats.postwood.name='scene05-oxidised-gray-red-structural-pier';mats.postwood.color.set('#83675d');mats.postwood.roughness=.89;mats.postwood.clearcoat=.025;mats.postwood.specularIntensity=.40;mats.postwood.onBeforeCompile=mats.architecture_red.onBeforeCompile;mats.postwood.customProgramCacheKey=mats.architecture_red.customProgramCacheKey;mats.postwood.userData.metricTimberGrain=true;
+ mats.windowBars.color.set('#82867b');
+ mats.transomwood220=mats.cedar.clone();mats.transomwood220.name='scene05-recessed-aged-transom-boards220';mats.transomwood220.color.set('#80533d');mats.transomwood220.roughness=.88;mats.transomwood220.clearcoat=.02;mats.transomwood220.onBeforeCompile=mats.cedar.onBeforeCompile;mats.transomwood220.customProgramCacheKey=mats.cedar.customProgramCacheKey;mats.transomwood220.userData.metricTimberGrain=true;
+ mats.scannedWood220=new T.MeshStandardMaterial({name:'scene05-source-cloud-aged-wood',color:'#684431',roughness:.80,metalness:0});
+ mats.scannedGilt220=new T.MeshStandardMaterial({name:'scene05-source-cloud-worn-gilt',color:'#b9985e',roughness:.56,metalness:.86,map:copperAlbedo,roughnessMap:copperFinish});
  // Lower story begins at 0.35 m; the low camera sees an architectural tower continuing beyond the top crop.
  mats.carvingGround=new T.MeshStandardMaterial({name:'scene05-dark-carved-ground',color:'#2b2116',roughness:.9});
  const leafShape=new T.Shape();leafShape.moveTo(-.5,0);leafShape.bezierCurveTo(-.15,.23,.29,.28,.5,0);leafShape.bezierCurveTo(.15,-.19,-.2,-.13,-.5,0);
  const carvedLeaf=new T.ExtrudeGeometry(leafShape,{depth:.025,steps:1,bevelEnabled:true,bevelThickness:.012,bevelSize:.012,bevelSegments:1,curveSegments:5});
- const levels=[],landmarkWorlds={};
+ const levels=[],landmarkWorlds={},licensedMounts220=[];
  for(let level=0;level<5;level++){
    const placement=tierPlacement(level);stack.push(stack.at(-1).clone().multiply(new T.Matrix4().makeTranslation(0,placement.baseY,0)).multiply(new T.Matrix4().makeScale(placement.scale,placement.scale,placement.scale)));
    const scale=1,w=TIER_SPEC.width,y=0,deckWidth=level?w*tierPlacement(level-1).scale/placement.scale:w+.5,roofWidth=w+TIER_SPEC.roofAddition,roofY=placement.roofHeight,roofRise=placement.roofRise,lanternY=placement.lanternHeight;
@@ -114,33 +127,46 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
    // the visible gallery directly on its real purlin; a ghost full roof and
    // a tall solid collar were the wrong construction here (R01/R02 retained).
    const lowerFrame=placement.lowerOccupiedFrame,
-     frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth,roofDepth:roofWidth,roofRise,roofY,bracketVerticalScale:placement.bearingVerticalScale,bracketHorizontalScale:TIER_SPEC.bearingHorizontalScale,windowMaterial:'paper',detail:true,...(lowerFrame?{floorBearingY:storyPitch,windowHeadY:storyPitch-.13-.3868*placement.bearingVerticalScale-.14}:{})});
+     frame=arch.pagodaStoreyFrame({w,d:w,y,level,scale,roofWidth,roofDepth:roofWidth,roofRise,roofY,bracketVerticalScale:placement.bearingVerticalScale,bracketHorizontalScale:TIER_SPEC.bearingHorizontalScale,carvedWindowHalfHeight:level===1?.44:.385,windowMaterial:'paper',detail:true,...(lowerFrame?{floorBearingY:storyPitch,windowHeadY:storyPitch-.13-.3868*placement.bearingVerticalScale-.14}:{})});
    const upperFloor=next?{width:w,depth:w,bottomY:storyPitch,topY:storyPitch+.30*next.scale/placement.scale}:null;
    if(!lowerFrame)arch.pagodaRoof({y:roofY,w:roofWidth,d:roofWidth,rise:roofRise,wallWidth:w,wallDepth:w,frameScale:1,detail:true,soffitMaterial:'darkwood',referenceMode:'scene05-calibrated',upperFloor});
    levels.push({level,y:placement.baseY,scale:placement.scale,width:w*placement.scale,shaftTop:placement.baseY+frame.shaftTop*placement.scale,roofY:placement.baseY+roofY*placement.scale,roofWidth:roofWidth*placement.scale,upperFloor:upperFloor?{width:w*placement.scale,bottomY:next.baseY}:null});
    const R=roofWidth/2;landmarkWorlds[level]={hipNear:tierWorldPoint(level,[R+.125,roofY+.8374,R+.125]),hipLeft:tierWorldPoint(level,[-R-.125,roofY+.8374,R+.125]),postHead:tierWorldPoint(level,[w/2,frame.shaftTop,w/2]),waistNear:tierWorldPoint(level,[deckWidth/2+.04,.58,deckWidth/2+.04]),lanternNear:tierWorldPoint(level,[R*1.025,lanternY,R*1.025]),lanternLeft:tierWorldPoint(level,[-R*1.025,lanternY,R*1.025]),tailSeat:tierWorldPoint(level,tailPath(w,y,scale,1,1,placement).getPoint(0).toArray()),tailCut:tierWorldPoint(level,[w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach,placement.tailCutHeight,w/2+TIER_SPEC.roofAddition/2*TIER_SPEC.tailReach])};
    balcony(w,y+(level===0?.58:0),scale,deckWidth);
    if(!lowerFrame)cornerTails(w,y,scale,placement);
-   pentRoof(w,y+.32,scale,deckWidth);carvedWindowInserts(w,frame.windowCenterY,scale);
+   pentRoof(w,y+.32,scale,deckWidth);carvedWindowInserts(w,frame.windowCenterY,scale,level);
    // Four identical suspended lanterns, each is fixed to the outer hip beam.
    const r=roofWidth/2;
    if(!lowerFrame)for(const sx of [-1,1])for(const sz of [-1,1])lantern(sx*r*1.025,y+lanternY,sz*r*1.025,.62*scale,[tailPath(w,y,scale,sx,sz,placement).getPoint(.20).toArray(),tailPath(w,y,scale,sx,sz,placement).getPoint(.28).toArray()]);
-   // A thin applied carved frieze follows the REAL header front. Its former
-   // hard-coded y=2.65 made a second floating tie after the frame was resized.
+   // Thin worked straps seat on the real crowned header. The obsolete
+   // full-face red strip is removed so its actual eased section is visible.
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>{
      for(let k=-1;k<=1;k++){
-       const x=k*w/3,headerY=frame.windowHeaderY;box(x,headerY,w/2+.132,w/3-.22,.19,.014,'red');
+       const x=k*w/3,headerY=frame.windowHeaderY;
        if(level<4){
-         box(x,headerY,w/2+.142,.72*scale,.15*scale,.006,'carvingGround');
-         const stalk=[];for(let j=0;j<=24;j++){const q=-.32+j*.64/24;stalk.push(new T.Vector3(x+q*scale,headerY+Math.sin(q*11+level)*.025*scale,w/2+.151));}
-         instance(new T.TubeGeometry(new T.CatmullRomCurve3(stalk),24,.007*scale,5,false),'oldgold');
-         for(let j=0;j<7;j++){const q=-.28+j*.09,sgn=j%2?1:-1;instance(carvedLeaf,j%3?'oldgold':'gold',x+q*scale,headerY+sgn*.039*scale,w/2+.153,.13*scale,.18*scale,.13,[0,0,sgn*.65+Math.sin(level+j)*.15]);}
+         instance(chasedStrap.geometry,'fittingEdge',x,headerY,w/2+.131,.10*scale,.46*scale,.10,[0,0,Math.PI/2]);
+         for(const sign of[-1,1])instance('sphere','fittingCopper',x+sign*.25*scale,headerY,w/2+.133,.0035*scale,.0035*scale,.0016*scale);
        }
      }
    });
    stack.pop();
  }
- function carvedWindowInserts(w,centerY,s){
+ function carvedWindowInserts(w,centerY,s,level){
+   if(level===1){
+    // A bounded reuse of actual carved wood, mounted on a separate real
+    // cassette. Four uniformly scaled, isometrically arranged source pieces
+    // replace the former flat leaf/sine icon in this main occupied storey.
+    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>group(0,centerY,w/2,0,()=>{
+     for(const sign of[-1,1]){box(sign*.485,0,.005,.055,.85,.14,'red');box(0,sign*.400,.005,.97,.050,.14,'red');}
+     box(0,0,.005,.028,.78,.14,'darkwood');box(0,0,.005,.94,.024,.14,'darkwood');
+     for(const [mirror,x,y,angle]of[[0,.224,-.375,0],[1,-.224,-.375,0],[0,-.224,.375,Math.PI],[1,.224,.375,Math.PI]]){
+      const uniform=.42,q=new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),angle),matrix=stack.at(-1).clone().multiply(new T.Matrix4().compose(new T.Vector3(x,y,-.055),q,new T.Vector3(uniform,uniform,uniform))),e=matrix.elements,axes=[new T.Vector3(e[0],e[1],e[2]),new T.Vector3(e[4],e[5],e[6]),new T.Vector3(e[8],e[9],e[10])],lengths=axes.map(v=>v.length());
+      if(Math.max(...lengths)-Math.min(...lengths)>1e-9)throw Error('Scene05 actual carving would be stretched');
+      licensedMounts220.push({level,face,sourceVariant:mirror?'isometric X mirror':'retained orientation',localScale:uniform,worldColumnLengths:lengths,orthogonal:axes.every((a,i)=>axes.every((b,j)=>i===j||Math.abs(a.dot(b))<1e-9)),mount:'Source left cut caps seat on the central closed timber stile; source base/top seats meet cassette rails',sourceGeometryUnstretched:true});
+      for(const part of licensedCloud.variants[mirror])instance(part.geometry,part.material,x,y,-.055,uniform,uniform,uniform,q);
+     }
+    }));return;
+   }
    for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,()=>group(0,centerY,w/2+.09,0,()=>{
      for(const side of [-1,1]){box(side*.47*s,0,0,.055*s,.72*s,.055*s,'red');box(0,side*.34*s,0,.94*s,.05*s,.055*s,'red');}
      for(let n=0;n<3;n++){
@@ -170,14 +196,14 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      const shaped=createHipTimber190(path,s),geometry=shaped.geometry;assignTimberPathUV05(geometry,path);instance(geometry,'hipwood');
      // One worked surface fitting belongs on each of the two principal
      // photographed hip ranks. It is seated on the true waisted cheek.
-     if(placement.level===1||placement.level===2){const m=shaped.face(.68,new T.Vector3(sx,0,sz).normalize()),position=new T.Vector3(),q=new T.Quaternion(),v=new T.Vector3();m.decompose(position,q,v);for(const part of endCopper.parts)instance(part.geometry,part.material,...position.toArray(),.19*s,.21*s,.17*s,q);}
+     if(placement.level===1||placement.level===2){const m=shaped.face(.68,new T.Vector3(sx,0,sz).normalize()),position=new T.Vector3(),q=new T.Quaternion(),v=new T.Vector3();m.decompose(position,q,v);instance(chasedStrap.geometry,'fittingEdge',...position.toArray(),.14*s,.19*s,.13*s,q);}
      const normal=path.getTangent(1).normalize(),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
      const goldEnd=end.clone().addScaledVector(normal,.008);
      // The sleeve and its flower follow the real downward cut-plane normal.
      // The old yaw-only plaque left that true underside as a blank gold box.
-     for(const p of endCopper.parts)instance(p.geometry,p.material,...goldEnd.toArray(),.276*s,.365*s,.276*s,q);
-     // Small carved cheek leaves follow the load-bearing timber instead of floating in the bay.
-     for(let j=0;j<4;j++){const p=path.getPoint(.30+j*.14);group(p.x,p.y,p.z,Math.atan2(sx,sz),()=>{instance(carvedLeaf,'oldgold',.165*s,0,0,.18*s,.14*s,.16,[0,Math.PI/2,j%2?.6:-.6]);});}
+     for(const p of endCopper.parts)instance(p.geometry,p.material,...goldEnd.toArray(),.254*s,.344*s,.254*s,q);
+     // The recurved timber carries actual longitudinal carved coves. A
+     // single thin pierced strap replaces the repeated generic cheek leaves.
    }
  }
  function pentRoof(w,y,s,deckWidth=w+1.5*s){
@@ -192,7 +218,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      for(let j=0;j<=cols;j++){
       const x=-outer+2*outer*j/cols,lo=Math.max(0,(Math.abs(x)-inner)/(outer-inner));
       if(lo<.98){for(let row=0;row<2;row++){const a=lo+(1.025-lo)*row/2,b=lo+(1.025-lo)*(row+1.025)/2,ts=Array.from({length:5},(_,k)=>a+(b-a)*k/4);pieces.push(createClayTile05(ts.map(t=>[x,y+profile(t),inner+(outer-inner)*t]),.163,{cover:true,variant:face*7+j*1.71+row}));if(j<cols){const xx=x+outer/cols;pieces.push(createClayTile05(ts.map(t=>[xx,y+profile(t),inner+(outer-inner)*t]),.213,{cover:false,variant:face*3+j*.87+row}));}}}
-      arch.tileEnd(new T.Vector3(x,y+.16*s+.028,outer+.045),0,.102,true);
+      arch.tileEnd(new T.Vector3(x,y+.16*s+.028,outer+.045),0,.102,true,j+face*19);
      }
      if(pieces.length){instance(mergeGeometries(pieces,false),'handformedClay');pieces.forEach(g=>g.dispose());}
      box(0,y+.08*s,outer,outer*2,.13*s,.15*s,'red');
@@ -243,6 +269,12 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
  let triangles=0,parts=0;
  for(const [material,inputRecords]of bucket){
    let records=inputRecords;
+   const actualCarvings=records.filter(r=>r.geo.userData.licensedCarving220Shared);
+   if(actualCarvings.length){
+     const batches=new Map();for(const r of actualCarvings){if(!batches.has(r.geo))batches.set(r.geo,[]);batches.get(r.geo).push(r);}
+     for(const[geometry,placements]of batches){const mesh=new T.InstancedMesh(geometry,material,placements.length);mesh.name='scene05-source-preserving-wood-carving220-'+material.name;for(const[i,r]of placements.entries()){mesh.setMatrixAt(i,r.matrix);mesh.setColorAt(i,new T.Color().setRGB(r.tint,r.tint,r.tint));}mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;mesh.computeBoundingSphere();mesh.castShadow=mesh.receiveShadow=true;scene.add(mesh);triangles+=(geometry.index?.count??geometry.attributes.position.count)/3*placements.length;parts+=placements.length;}
+     records=records.filter(r=>!r.geo.userData.licensedCarving220Shared);if(!records.length)continue;
+   }
    const terminals=records.filter(r=>r.geo.userData.terminal204Shared);
    if(terminals.length){
      const batches=new Map();for(const r of terminals){if(!batches.has(r.geo))batches.set(r.geo,[]);batches.get(r.geo).push(r);}
@@ -263,7 +295,7 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      }
      continue;
    }
-   const pieces=records.map(({geo,matrix,tint})=>{
+   const pieces=records.map(({geo,matrix,tint,woodTint})=>{
      const g=geo.index?geo.toNonIndexed():geo.clone();
      // Indexed expansion does not retain Three userData. Keep the authored
      // centreline UV contract before selecting the generic straight-member UV.
@@ -272,11 +304,12 @@ diffuseColor.rgb*=.94+grain+aged-split*.20;
      g.applyMatrix4(matrix);
      for(const attr of Object.keys(g.attributes))if(!['position','normal','uv','color','woodCut190','woodEndUv190'].includes(attr))g.deleteAttribute(attr);
      const n=g.attributes.position.count;if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(n*2),2));
-     const existing=g.attributes.color,c=new Float32Array(n*3);if(existing){for(let i=0;i<n;i++){c[i*3]=existing.getX(i)*tint;c[i*3+1]=existing.getY(i)*tint;c[i*3+2]=existing.getZ(i)*tint;}}else c.fill(tint);g.setAttribute('color',new T.Float32BufferAttribute(c,3));material.vertexColors=true;material.needsUpdate=true;
+     const existing=g.attributes.color,c=new Float32Array(n*3),tone=woodTint||[1,1,1];for(let i=0;i<n;i++){c[i*3]=(existing?existing.getX(i):1)*tint*tone[0];c[i*3+1]=(existing?existing.getY(i):1)*tint*tone[1];c[i*3+2]=(existing?existing.getZ(i):1)*tint*tone[2];}g.setAttribute('color',new T.Float32BufferAttribute(c,3));material.vertexColors=true;material.needsUpdate=true;
      return g;
    });
    const geo=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());if(!geo)throw Error('Unable to merge '+material.name);
    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
  }
- return {scene,info:()=>({reference:5,revision:'scene05-rebuild220-r04-seated-ring-purlins-aged-window-tissue-and-matte-cuts',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,detail220:{capitalTransform:{previousVertical:1.62954148,currentVertical:TIER_SPEC.bearingVerticalScale,purlinRoofAndTierAnchorsRetained:true,shaftAndWindowHeadRecomputedFromBearing:true},cornerDiagonal:'Independent closed hip kneeler rotated toward each actual corner with two real seats under crossing upper arms',bayGirts:'Two closed small-section lengths between each pair of bearing-block cheek faces',secondaryMetal:[secondary190.info,secondary220.info],eaveSections:'Closed finite-end sweeps, exact section-edge normals, narrow arrises and actual shallow side chases; no rounded-box lighting substitute',roofStack:{mainSection:[.100,.170],upperSection:[.074,.090],upperCentreNormalOffset:.130,boardBottomNormalOffset:.175,boardTopNormalOffset:.202,boardNormalThickness:.027,boardSeamM:.0018,primaryCentresAndPurlinAnchorsRetained:true,actualPurlinBirdsmouth:true,ringPurlins:'All three continuous ring sections derive their upper centre curve from the actual main-rafter lower plane; previous54–130mm buried intersections removed, with submillimetre sampled bed error before native review.',construction:'Closed upper narrow rafters have a long real overlap on the main rafter top and continue beyond its outer cut. Individual closed27mm roof boards sit on their upper plane. Inner hidden construction remains a bounded hypothesis.'},windowSurfaces:'Metric scanned tissue aligned to actual gray-green bars, subtle independent bar staining, brighter recessed receiver and private matte warm narrow-rafter cuts; no new scanned or photograph assets.',windowHeads:'Applied14mm frieze follows frame.windowHeaderY at the actual front face; central carved panel and split bars share frame.windowCenterY. The r02 hard-coded tie regression is retained in its source/render receipt.',limits:'Hypothesised joinery and metal motifs; photographic fidelity remains unaccepted'},terminal204:mask190.info,detail196:{bearing:primary196.info,lighting:daylight196.info,contactDatumsUnchanged:false,changedDatums204:{rafterEndCaps:'Flying cut centre +10mm and main cut centre +20mm now match actual generated timber centreline',postSection:'Square nominal width increased .47 to .56m about retained post axes',windowHead:'Roofed-room head now follows actual shaftTop minus .21m; occupied lower room retains its explicit floor-bearing datum',ceramicMounts:mask190.info.changedMounts}},detail190:{hip:'Closed waisted/faceted loft follows the retained tail centreline and flat cuts; selective fitted surface copper on two primary ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; exposed narrow-foot free noses and fitted copper196; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#fff0d8',hierarchy196:daylight196.info,courtyardBounce:groundBounce.intensity,courtyardBounceType:'unequal finite inverse-square shadow-casting courtyard patches',courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();copperFinish.dispose();}};
+ const courtyardReflection220=installCourtyardReflection220(scene,renderer,mats);
+ return {scene,info:()=>({reference:5,revision:'scene05-rebuild220-r12-solid-curved-canopy-deep-sash-and-visible-timber-edge-structure',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,licensedCarving220:{...licensedCloud.info,mounts:licensedMounts220},detail220:{solidRepairR12:{geometry:'Reverse inherited inward branch end caps and leaf edge-strip triangles. All686 branch and3 leaf prototypes are closed, positive-volume and consistently wound after repair; no primary centreline or lamina position changes from R11.',sourceBoundary:'Only foliage cap/rim indices and this scene revision note differ from R11; no new light/material/camera/exposure change.'},repairR11:{finish:'Bearing cheeks use a distinct browner stain from roof rafters. Member-aligned scan tissue retains moderated47–98% variation; role-specific satin reflectance separates weathered posts, raw cuts, stained timber and94% metallic gilt faces. Probe, direct key, courtyard proxy powers and exposure retained.',canopy:'Primary rooted limb endpoints retained; five-point curves have length-scaled bow and rise with real variable taper/ridged sections. Broader overlapping seven-lobed closed leaf meshes replace the narrow radial arrow-like contour.',limits:'Authored canopy and finish interpretation; no claim of reference-specific botanical or historic surface recovery.'},carpentryR10:{arms:'Carved face skins now share the core9mm inset contour, revealing four actual quarter-round edge bands instead of covering the old chamfer with sharp full-profile skins. Original23 arm prototype bounding envelopes and cut positions retained; real4mm carving recesses retained.',wood:'CC0 scan luminance modulation narrowed from.22–.94 to.62–.98 under role-specific translucent stains. Fine fibres, checks, latewood cuts and scanned normal/roughness remain.',prefiltering:'Both sunless measured sky and actual local6-face cube explicitly PMREM-filtered outside material draws; hardware active samplers are recorded in every native report.'},carpentryR09:{window:'Closed264mm-deep annular rebated surround,152mm-deep eased/crowned vertical bones with26mm shoulder tenons, actual53mm rear half-laps and seated transverse bones; backing front recessed from100mm to222mm. Existing window and carving centres retained.',head:'Real eased and crowned continuous header with24mm raised free heads; obsolete full-face applied red strip removed. Individually recessed vertical transom boarding and eased intermediate stiles.',light:'Actual solid-angle-integrated measured low-sky sectors cast2 near geometry shadow maps; original sun, courtyard spot positions/powers and exposure retained. Same6-face local radiance capture now supplies restrained.22 wood irradiance as well as metal reflections. Screen AO contact radius reduced from.38m to.16m.',limits:'Finite2-sector near sky and one local raster probe are approximations, not measured recovered GI. New timber anatomy is authored from visible reference contours.'},handworkR07:{eaves:'Main/flying widths and eased arrises vary by member; both layers share the same gentle lateral hand bow and endpoint mounts. Primary heights and bearing planes retained.',ceramics:'Cover and rain-pan seams are independently phased, overlapped and staggered. Finite skewed cut ends, pressed radius/width/thickness variations and worn kiln pigment replace coincident uniform checker seams.',reflection:'An actual finite stone courtyard and existing temple/foliage are captured to a128px6-face linear HDR local probe inside the native render. Explicit material envMap is required because this renderer replaces envMapIntensity with scene.environmentIntensity when material.envMap is null.',limits:'One bounded local reflection capture, not physical GI or cross-renderer/Cycles material equivalence.'},sculptingR05:{arms:'Broad-cheek ogee free lengths are hollowed up to70mm locally; actual4mm cut channels in closed timber skins expose a darker solid wood core. Applied generic gold hooks are removed.',longHip:'Recurved free length after t=.34 and actual double-cove cross sections; original endpoints and lantern anchor seats retained.',metal:'R06 repairs R05 flat etching and coarse six-hole collar: low ribbed repousse petals and real chased gaps form the large coffered rosette; fine open curled ribbons form each wider narrow strap, with incised veins, thin border and struck fasteners. Main hip boots now fit the actual timber section and have longer worked returns.',wood:'Independent deep cinnabar/red-brown/raw-end stains, muted weathered red-gray piers, per-member ageing tones and roughness, eccentric latewood endgrain and radial checks.',historicalStatus:'Visible anatomical reconstruction from HD05, not recovered historic carving or a scan attribution.'},capitalTransform:{previousVertical:1.62954148,currentVertical:TIER_SPEC.bearingVerticalScale,purlinRoofAndTierAnchorsRetained:true,shaftAndWindowHeadRecomputedFromBearing:true},cornerDiagonal:'Independent closed hip kneeler rotated toward each actual corner with two real seats under crossing upper arms',bayGirts:'Two closed small-section lengths between each pair of bearing-block cheek faces',secondaryMetal:[secondary190.info,secondary220.info],eaveSections:'Closed finite-end sweeps, exact section-edge normals, narrow arrises and actual shallow side chases; no rounded-box lighting substitute',roofStack:{mainSection:[.100,.170],upperSection:[.074,.090],upperCentreNormalOffset:.130,boardBottomNormalOffset:.175,boardTopNormalOffset:.202,boardNormalThickness:.027,boardSeamM:.0018,primaryCentresAndPurlinAnchorsRetained:true,actualPurlinBirdsmouth:true,ringPurlins:'All three continuous ring sections derive their upper centre curve from the actual main-rafter lower plane; previous54–130mm buried intersections removed, with submillimetre sampled bed error before native review.',construction:'Closed upper narrow rafters have a long real overlap on the main rafter top and continue beyond its outer cut. Individual closed27mm roof boards sit on their upper plane. Inner hidden construction remains a bounded hypothesis.'},windowSurfaces:'Metric scanned tissue aligned to actual gray-green bars, subtle independent bar staining, brighter recessed receiver and private matte warm narrow-rafter cuts; no new scanned or photograph assets.',windowHeads:'Applied14mm frieze follows frame.windowHeaderY at the actual front face; central carved panel and split bars share frame.windowCenterY. The r02 hard-coded tie regression is retained in its source/render receipt.',limits:'Hypothesised joinery and metal motifs; photographic fidelity remains unaccepted'},terminal204:mask190.info,detail196:{bearing:primary196.info,lighting:daylight196.info,contactDatumsUnchanged:false,changedDatums204:{rafterEndCaps:'Flying cut centre +10mm and main cut centre +20mm now match actual generated timber centreline',postSection:'Square nominal width increased .47 to .56m about retained post axes',windowHead:'Roofed-room head now follows actual shaftTop minus .21m; occupied lower room retains its explicit floor-bearing datum',ceramicMounts:mask190.info.changedMounts}},detail190:{hip:'Closed double-cove loft with a free-length recurve after t=.34; original endpoint cut planes and lantern seats retained; thin pierced straps on two actual ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; exposed narrow-foot free noses and fitted copper196; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{localReflection220:courtyardReflection220.info,sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#fff0d8',hierarchy196:daylight196.info,courtyardBounce:groundBounce.intensity,courtyardBounceType:'unequal finite inverse-square shadow-casting courtyard patches',courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();licensedCloud.dispose();courtyardReflection220.dispose();copperFinish.dispose();copperAlbedo.dispose();}};
 }

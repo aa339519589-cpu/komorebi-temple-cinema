@@ -12,14 +12,17 @@ export function closedWire190(points,r=.01,segments=32,sides=8){
  g.dispose();return finishSolid190(p,uv,ids,'scene05-closed-cast-ribbon190');
 }
 export function createHipTimber190(path,scale=1){
- const R=64,N=12,centres=path.getSpacedPoints(R),frames=path.computeFrenetFrames(R,false),p=[],uv=[],ids=[];
- const section=t=>{const wave=Math.sin(t*Math.PI)**2,waist=1-.17*wave,hw=.125*scale*waist,hh=.17*scale*(1-.065*wave),a=(.006+.006*wave)*scale,c=.003*scale*wave;return[[-hw+a,-hh],[0,-hh-c],[hw-a,-hh],[hw,-hh+a],[hw+c,0],[hw,hh-a],[hw-a,hh],[0,hh+c],[-hw+a,hh],[-hw,hh-a],[-hw-c,0],[-hw,-hh+a]];};
+ const R=64,N=24,frames=path.computeFrenetFrames(R,false),p=[],uv=[],ids=[];
+ const centre=t=>{const c=path.getPointAt(t),u=T.MathUtils.clamp((t-.34)/.66,0,1);c.y-=.040*scale*Math.sin(Math.PI*u)**2;return c;},centres=Array.from({length:R+1},(_,j)=>centre(j/R));
+ const section=t=>{const wave=Math.sin(t*Math.PI)**2,waist=1-.10*wave,hw=.125*scale*waist,hh=.17*scale*(1-.065*wave),a=(.006+.008*wave)*scale,c=.010*scale*wave;return[[-hw+a,-hh],[-.52*hw,-hh],[-.30*hw,-hh+c],[.30*hw,-hh+c],[.52*hw,-hh],[hw-a,-hh],[hw,-hh+a],[hw,-.62*hh],[hw-c,-.37*hh],[hw-c,0],[hw,.22*hh],[hw,hh-a],[hw-a,hh],[.52*hw,hh],[.30*hw,hh-c*.5],[-.30*hw,hh-c*.5],[-.52*hw,hh],[-hw+a,hh],[-hw,hh-a],[-hw,.22*hh],[-hw+c,0],[-hw+c,-.37*hh],[-hw,-.62*hh],[-hw,-hh+a]];};
  for(let j=0;j<=R;j++){const t=j/R,c=centres[j];for(const [x,y]of section(t)){const q=c.clone().addScaledVector(frames.normals[j],x).addScaledVector(frames.binormals[j],y);p.push(...q.toArray());uv.push(x,t*path.getLength());}}
  for(let j=0;j<R;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N;ids.push(a,b,a+N,b,b+N,a+N);}
  const ci=p.length/3;p.push(...centres[0].toArray(),...centres[R].toArray());uv.push(.5,0,.5,1);for(let k=0;k<N;k++)ids.push(ci,(k+1)%N,k,ci+1,R*N+k,R*N+(k+1)%N);
  const geometry=finishSolid190(p,uv,ids,'scene05-closed-waisted-arrised-raked-hip190');
- geometry.userData.section190={startAndEnd:[.25*scale,.34*scale],midWaist:[.2075*scale,.3179*scale],centrelineChanged:false,flatCutPlanesRetained:true};
- function face(t,outward){const at=Math.round(t*R),c=path.getPointAt(t),normal=frames.normals[at].clone(),binormal=frames.binormals[at].clone(),options=[normal,normal.clone().negate(),binormal,binormal.clone().negate()].sort((a,b)=>b.dot(outward)-a.dot(outward)),front=options[0],hw=.125*scale*(1-.17*Math.sin(t*Math.PI)**2),hh=.17*scale*(1-.065*Math.sin(t*Math.PI)**2),distance=Math.abs(front.dot(normal))>.5?hw:hh,up=path.getTangentAt(t).normalize().negate(),right=up.clone().cross(front).normalize(),matrix=new T.Matrix4().makeBasis(right,up,front);matrix.setPosition(c.addScaledVector(front,distance+.001*scale));return matrix;}
+ geometry.userData.section190={startAndEnd:[.25*scale,.34*scale],midWaist:[.225*scale,.3179*scale],centrelineChanged:'Free length after t=.34 has a4cm smooth downward recurve; original start/end/tangents and lantern brace seats at.20/.28 remain exact',flatCutPlanesRetained:true,carving220:'Double cove/flute cut into the broad faces, not a round bulging rectangular loft'};
+ function face(t,outward){const at=Math.round(t*R),c=centre(t),normal=frames.normals[at].clone(),binormal=frames.binormals[at].clone(),options=[normal,normal.clone().negate(),binormal,binormal.clone().negate()].sort((a,b)=>b.dot(outward)-a.dot(outward)),front=options[0],rim=section(t),horizontal=Math.abs(front.dot(normal))>.5,sign=front.dot(horizontal?normal:binormal)>0?1:-1;
+  let distance=0;for(let k=0;k<rim.length;k++){const a=rim[k],b=rim[(k+1)%rim.length],cross=horizontal?1:0,along=horizontal?0:1;if(a[cross]*b[cross]>0||Math.abs(a[cross]-b[cross])<1e-8)continue;const u=-a[cross]/(b[cross]-a[cross]),d=(a[along]+u*(b[along]-a[along]))*sign;if(d>distance)distance=d;}
+  const up=centre(Math.min(1,t+.0001)).sub(centre(Math.max(0,t-.0001))).normalize().negate(),right=up.clone().cross(front).normalize(),f=right.clone().cross(up).normalize(),matrix=new T.Matrix4().makeBasis(right,up,f);matrix.setPosition(c.addScaledVector(front,distance+.001*scale));return matrix;}
  return{geometry,face};
 }
 export function shapeSeatedHip190(geometry,path,direction,seatCentre,seatHalf){

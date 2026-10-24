@@ -1,0 +1,54 @@
+{
+  "scope": "Pure CPU authored geometry audit; no render, GPU or image export",
+  "mesh": {
+    "ornament224": true,
+    "inferredAuthoredSculpture": true,
+    "artifactScan": false,
+    "photographicAcceptance": false,
+    "sourceRGBMaterial": false,
+    "sculpture": {
+      "revision": "ornament224-r03-dragon-leaf-depth-separation",
+      "scalarGrid": [
+        1536,
+        256
+      ],
+      "width": 1.1428387946087744,
+      "height": 0.20826,
+      "frontDepth": 0.034,
+      "backThickness": 0.006,
+      "frontVertices": 327444,
+      "frontTriangles": 618112,
+      "clippedTriangles": 56730,
+      "fullTriangles": 561382,
+      "closedBoundarySegments": 37298,
+      "wallSteps": 4,
+      "sideWallTriangles": 298384,
+      "triangles": 1534608,
+      "mirror": -1
+    }
+  },
+  "vertices": 766782,
+  "triangles": 1534608,
+  "nonfinite": 0,
+  "degenerate": 0,
+  "boundaryEdges": 0,
+  "nonmanifoldEdges": 0,
+  "windingConflicts": 0,
+  "signedVolume": 0.003188712935494502,
+  "negativeCornerNormalsBeforeFinalBuilderRepair": 1519,
+  "minNormalDot": -0.9999754714677752,
+  "bounds": [
+    [
+      -0.5705288052558899,
+      -0.10309433192014694,
+      -0.006000000052154064
+    ],
+    [
+      0.5704748034477234,
+      0.10326382517814636,
+      0.03192427009344101
+    ]
+  ],
+  "closedOrientedTopology": true,
+  "photographicAccepted": false
+}

@@ -1,0 +1,4599 @@
+{
+  "batch": 2,
+  "status": "redundant-loose-copies-removed-all-objects-retained-in-verified-packs",
+  "packs": [
+    "69cee1312e27b554f43d2898bfba12340c1fe98c",
+    "786929492f6e43f11d6aa4e4c510a85bf44c030a"
+  ],
+  "objects": [
+    {
+      "oid": "b858252c9dfb5786e926105875e4e5a7609bd060",
+      "type": "blob",
+      "rawBytes": 62844496,
+      "previousLooseBytes": 40293272,
+      "path": "reconstructions/scene-01/assets/carved185/dragon-frieze176.glb"
+    },
+    {
+      "oid": "d52858959761f8f1e7126707a21e9c014df0e62c",
+      "type": "blob",
+      "rawBytes": 39954576,
+      "previousLooseBytes": 7842227,
+      "path": "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-r02/report.json"
+    },
+    {
+      "oid": "533b851f5ac8319bc4ed307a45249ffe6019e4c6",
+      "type": "blob",
+      "rawBytes": 20960010,
+      "previousLooseBytes": 2148520,
+      "path": "lookdev/export-storage209/verified-deduplication.json"
+    },
+    {
+      "oid": "422f3456b805066bbacb42d50c5a183d76aaf7f4",
+      "type": "blob",
+      "rawBytes": 10121816,
+      "previousLooseBytes": 6883930,
+      "path": "reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/paired-source-arms-CC-BY-NC-SA-4.0.glb"
+    },
+    {
+      "oid": "9b87eb1ea9dbeb14ec6d872119a34c766bd68a97",
+      "type": "blob",
+      "rawBytes": 9143692,
+      "previousLooseBytes": 6498871,
+      "path": "lookdev/scene05-terminal204/sources/820e2c93c989449cbd29a0e141fce22d/source-objaverse.glb"
+    },
+    {
+      "oid": "92531cfd457476a86125b73b44f6d1e8d249708a",
+      "type": "blob",
+      "rawBytes": 9073336,
+      "previousLooseBytes": 5692298,
+      "path": "lookdev/scene05-terminal204/sources/56bfb625b3fe409096d50afabc1c042d/source-objaverse.glb"
+    },
+    {
+      "oid": "5f454a5f06c65467212b7daa85bc2eccc7683844",
+      "type": "blob",
+      "rawBytes": 5064768,
+      "previousLooseBytes": 4922777,
+      "path": "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/original-source-CC-BY-NC-SA-4.0.glb"
+    },
+    {
+      "oid": "603d2ed8c31513dfad6da18185b8c19e7d06cd9a",
+      "type": "blob",
+      "rawBytes": 4074605,
+      "previousLooseBytes": 443793,
+      "path": "qa/ten-reference/06/iteration-scene06-combined206-motion-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "549771fe1d1d29a5c797b8ec97bd1ae8349d9546",
+      "type": "blob",
+      "rawBytes": 3658032,
+      "previousLooseBytes": 592595,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r09-hero/report.json"
+    },
+    {
+      "oid": "02602bbb5bf260759aa4af3a31f5fa66131cfa80",
+      "type": "blob",
+      "rawBytes": 3551249,
+      "previousLooseBytes": 563979,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r06-bank/report.json"
+    },
+    {
+      "oid": "ced9b5cbc895875737f9cc46dd4c5c56f630fb1a",
+      "type": "blob",
+      "rawBytes": 3550961,
+      "previousLooseBytes": 563818,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r05-bank/report.json"
+    },
+    {
+      "oid": "c230d22dbfbedada46dbb2ae548a41efbe632ff9",
+      "type": "blob",
+      "rawBytes": 3540975,
+      "previousLooseBytes": 571234,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r03-bank/report.json"
+    },
+    {
+      "oid": "adc02459ca3887b31c4bd89fd85b00d42b3fc257",
+      "type": "blob",
+      "rawBytes": 3506850,
+      "previousLooseBytes": 560019,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r04-bank/report.json"
+    },
+    {
+      "oid": "1516c0a51462ff58bd420c4152babd25b9835f9b",
+      "type": "blob",
+      "rawBytes": 3502857,
+      "previousLooseBytes": 566188,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r02-bank/report.json"
+    },
+    {
+      "oid": "80ef9ba0621f1984bf213ca2bcebbe32b407a919",
+      "type": "blob",
+      "rawBytes": 3496855,
+      "previousLooseBytes": 565485,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r01-bank/report.json"
+    },
+    {
+      "oid": "2fef84ca57f1b7dda57b09f7ad57037fb630523d",
+      "type": "blob",
+      "rawBytes": 3337831,
+      "previousLooseBytes": 538341,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-bank/report.json"
+    },
+    {
+      "oid": "fa1d1a803a2489a88c6a4b2eca6f707b0672f9bf",
+      "type": "blob",
+      "rawBytes": 3337831,
+      "previousLooseBytes": 538342,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-bank/report.json"
+    },
+    {
+      "oid": "acd72a37ca6731be649976e3896fb10de2b7d92b",
+      "type": "blob",
+      "rawBytes": 3337805,
+      "previousLooseBytes": 538326,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08-bank/report.json"
+    },
+    {
+      "oid": "814d2727358e13797a7a388d593e8327f5d2fa24",
+      "type": "blob",
+      "rawBytes": 3337784,
+      "previousLooseBytes": 538572,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r07-bank/report.json"
+    },
+    {
+      "oid": "00e0cdb81b1169644315fe4e74194b645554653b",
+      "type": "blob",
+      "rawBytes": 3336389,
+      "previousLooseBytes": 538090,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r06-bank/report.json"
+    },
+    {
+      "oid": "5bfee55c0f176b2ce662ec5e6930d175900d2aed",
+      "type": "blob",
+      "rawBytes": 3304164,
+      "previousLooseBytes": 532817,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-bank/report.json"
+    },
+    {
+      "oid": "e8926a94deb187a62b2528f20c4e46471c27bf37",
+      "type": "blob",
+      "rawBytes": 2815848,
+      "previousLooseBytes": 301022,
+      "path": "lookdev/export-storage216/three-replayable-exports/verified-pruning-receipt.json"
+    },
+    {
+      "oid": "8e3619f1682bb2b583dc9dc8e1540c3b100ca139",
+      "type": "blob",
+      "rawBytes": 2649554,
+      "previousLooseBytes": 413047,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r04-review/report.json"
+    },
+    {
+      "oid": "44d716c0ae1d3bd9e5ba7a84041fd12d370cf443",
+      "type": "blob",
+      "rawBytes": 2348532,
+      "previousLooseBytes": 1740463,
+      "path": "lookdev/scene05-terminal204/sources/0087302e7b0849209b7e3b11eed94a0e/source-objaverse.glb"
+    },
+    {
+      "oid": "c837807ed9e01870dd3bdddf34d43ac0b12c6471",
+      "type": "blob",
+      "rawBytes": 2287228,
+      "previousLooseBytes": 206245,
+      "path": "qa/ten-reference/06/iteration-scene06-low-statue-motion194-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "707ec23f84cf465e0ab4641e887ba3d64534b3ab",
+      "type": "blob",
+      "rawBytes": 2084474,
+      "previousLooseBytes": 344334,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r04a-bank/report.json"
+    },
+    {
+      "oid": "dfc8114fdf6b9881f84b259d3053a3991839ccf3",
+      "type": "blob",
+      "rawBytes": 2066488,
+      "previousLooseBytes": 334477,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-bank/report.json"
+    },
+    {
+      "oid": "0b8aa6a4f875a38bfc0322319c256a00e4ab83d6",
+      "type": "blob",
+      "rawBytes": 2051554,
+      "previousLooseBytes": 329139,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r01a-bank/report.json"
+    },
+    {
+      "oid": "27e0fdffba2eb2097ae63619762a044a2963fabb",
+      "type": "blob",
+      "rawBytes": 1983282,
+      "previousLooseBytes": 144694,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-export-verified-inventory.json"
+    },
+    {
+      "oid": "df64f04340e229f81c15b6eef2b649101d428522",
+      "type": "blob",
+      "rawBytes": 1904954,
+      "previousLooseBytes": 195545,
+      "path": "lookdev/scene06-physical218/export217-r01/scene.json"
+    },
+    {
+      "oid": "968d8de01f9746dbf36f53375f93bf938e46364f",
+      "type": "blob",
+      "rawBytes": 1903107,
+      "previousLooseBytes": 306353,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r02-bank/report.json"
+    },
+    {
+      "oid": "e68263a481dc0ddcae1610c824599542fe8fe97c",
+      "type": "blob",
+      "rawBytes": 1866405,
+      "previousLooseBytes": 190941,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-export/scene.json"
+    },
+    {
+      "oid": "633fa336ef7da8075cce2d23f548cf0c84be3e9a",
+      "type": "blob",
+      "rawBytes": 1857485,
+      "previousLooseBytes": 189086,
+      "path": "lookdev/scene06-nc-adoption179/cycles-r06-export/scene.json"
+    },
+    {
+      "oid": "f64e7f754026849dd4ffcb7041509eb841e28bfb",
+      "type": "blob",
+      "rawBytes": 1784525,
+      "previousLooseBytes": 285040,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r06-overhead/report.json"
+    },
+    {
+      "oid": "c35d88c95d254d71ef5b86d487208574445ebe5d",
+      "type": "blob",
+      "rawBytes": 1784381,
+      "previousLooseBytes": 284952,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r05-overhead/report.json"
+    },
+    {
+      "oid": "77ad375e877c36375b792b30e2af4e3cf4b378f5",
+      "type": "blob",
+      "rawBytes": 1784298,
+      "previousLooseBytes": 285086,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r06-low/report.json"
+    },
+    {
+      "oid": "bf62ae2794ccc810bc19ba818688417bf1aefb6d",
+      "type": "blob",
+      "rawBytes": 1784154,
+      "previousLooseBytes": 284998,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r05-low/report.json"
+    },
+    {
+      "oid": "7fe7a67020b218323da3a929b96d2c9610e094fc",
+      "type": "blob",
+      "rawBytes": 1779323,
+      "previousLooseBytes": 289021,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r03-overhead/report.json"
+    },
+    {
+      "oid": "6849bbf4e84660adc6d01fedb608c8b779c7e7d9",
+      "type": "blob",
+      "rawBytes": 1779096,
+      "previousLooseBytes": 289059,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r03-low/report.json"
+    },
+    {
+      "oid": "f86bf774ba6b6d2e9e6d9fa95338f8bf94628c91",
+      "type": "blob",
+      "rawBytes": 1762034,
+      "previousLooseBytes": 283189,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r04-low/report.json"
+    },
+    {
+      "oid": "8ba3d87188abddae729c523644239bbb06a05c57",
+      "type": "blob",
+      "rawBytes": 1760264,
+      "previousLooseBytes": 286366,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r02-overhead/report.json"
+    },
+    {
+      "oid": "108de1c918c41e2184e132c3855f28a2f5fb75c0",
+      "type": "blob",
+      "rawBytes": 1760104,
+      "previousLooseBytes": 286400,
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r02-low/report.json"
+    },
+    {
+      "oid": "453a5620161b0671cb592b61792e28177ef8bd82",
+      "type": "blob",
+      "rawBytes": 1680231,
+      "previousLooseBytes": 272457,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-low/report.json"
+    },
+    {
+      "oid": "b3fe153b88a94c4a57c4d81ab8f1d7893a68833b",
+      "type": "blob",
+      "rawBytes": 1677568,
+      "previousLooseBytes": 272209,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-overhead/report.json"
+    },
+    {
+      "oid": "7c06ced6fe450acdeb6187ca64652bce6c9a8abb",
+      "type": "blob",
+      "rawBytes": 1677568,
+      "previousLooseBytes": 272213,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-overhead/report.json"
+    },
+    {
+      "oid": "c11262394fb3add17d281c01fbb3aef05f1c999c",
+      "type": "blob",
+      "rawBytes": 1677408,
+      "previousLooseBytes": 272244,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08a-low/report.json"
+    },
+    {
+      "oid": "5e452b0853c84fc574eb0ecb4e3b1f2f7655cf5a",
+      "type": "blob",
+      "rawBytes": 1677408,
+      "previousLooseBytes": 272261,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r08b-low/report.json"
+    },
+    {
+      "oid": "21d35db7c60efb002a1efd0945b40acdff242646",
+      "type": "blob",
+      "rawBytes": 1660670,
+      "previousLooseBytes": 269419,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r05-overhead/report.json"
+    },
+    {
+      "oid": "162cfcd75f725ab6cd7fcdf2a11d8b484979e065",
+      "type": "blob",
+      "rawBytes": 1611736,
+      "previousLooseBytes": 159314,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r08/report.json"
+    },
+    {
+      "oid": "ca6f673abe569122cda292628a3d71f0f0f24e3a",
+      "type": "blob",
+      "rawBytes": 1594950,
+      "previousLooseBytes": 250381,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r03-poses/report.json"
+    },
+    {
+      "oid": "ff5a33295c90e6db818390beafea877b102a7adb",
+      "type": "blob",
+      "rawBytes": 1554660,
+      "previousLooseBytes": 337094,
+      "path": "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json"
+    },
+    {
+      "oid": "708761171f6ad3df539485928bd53287dd09e234",
+      "type": "blob",
+      "rawBytes": 1544361,
+      "previousLooseBytes": 334792,
+      "path": "qa/ten-reference/07/iteration-scene07-handcut-approach184-r01/report.json"
+    },
+    {
+      "oid": "7af837e47cec7806ffca8b4f56154087bde2ac89",
+      "type": "blob",
+      "rawBytes": 1544361,
+      "previousLooseBytes": 334803,
+      "path": "qa/ten-reference/07/iteration-scene07-handcut-approach184-r02/report.json"
+    },
+    {
+      "oid": "9806a8fce913fa70d1001ec3ee8a49223a5e9a41",
+      "type": "blob",
+      "rawBytes": 1466036,
+      "previousLooseBytes": 220630,
+      "path": "lookdev/export-storage216/scene07-physical155/verified-pruning-receipt.json"
+    },
+    {
+      "oid": "b34d9f79348b6d04aa888b716468a5ae9b632d1e",
+      "type": "blob",
+      "rawBytes": 1407125,
+      "previousLooseBytes": 237936,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-r03-hall/report.json"
+    },
+    {
+      "oid": "9258a856f71875f15fde0ce6864ab928a7538eaa",
+      "type": "blob",
+      "rawBytes": 1380421,
+      "previousLooseBytes": 233627,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-r02-hall/report.json"
+    },
+    {
+      "oid": "da9fb464b8fe33a883d4f95901831cb5efdf4d62",
+      "type": "blob",
+      "rawBytes": 1346940,
+      "previousLooseBytes": 227856,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-r01-hall/report.json"
+    },
+    {
+      "oid": "8fbcd8f59d720e2d1d122c5a4839cdc674ee1568",
+      "type": "blob",
+      "rawBytes": 1296080,
+      "previousLooseBytes": 123329,
+      "path": "lookdev/scene06-physical218/verified-completed-export-pruning.json"
+    },
+    {
+      "oid": "2986b06d8e7ac42067f7e07633480b34bb142c4d",
+      "type": "blob",
+      "rawBytes": 1204688,
+      "previousLooseBytes": 239299,
+      "path": "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-r02-poses/report.json"
+    },
+    {
+      "oid": "47c5145c9187b0f38c84e6c5679786689d34a76a",
+      "type": "blob",
+      "rawBytes": 1204631,
+      "previousLooseBytes": 191359,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06-poses/report.json"
+    },
+    {
+      "oid": "bf55da1778cb7a1dfcb8cff098572ff8d5671306",
+      "type": "blob",
+      "rawBytes": 1153092,
+      "previousLooseBytes": 131780,
+      "path": "lookdev/scene06-physical218/export217-r01/export-report.json"
+    },
+    {
+      "oid": "d83a1a605ea0fc81ef0a3d8dbde2f276321047af",
+      "type": "blob",
+      "rawBytes": 1147775,
+      "previousLooseBytes": 101874,
+      "path": "lookdev/scene06-nc-adoption179/cycles-r06-export/pruned-derived-assets179.json"
+    },
+    {
+      "oid": "5df499626cb663b6ade91e89424fe4a4da659aae",
+      "type": "blob",
+      "rawBytes": 1122042,
+      "previousLooseBytes": 173838,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r10/report.json"
+    },
+    {
+      "oid": "c4c145a06168cdb1e7538cbb4c11952d365ad62a",
+      "type": "blob",
+      "rawBytes": 1112297,
+      "previousLooseBytes": 120189,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-export/export-report.json"
+    },
+    {
+      "oid": "2ad1a7c6696cbfc812585b0f9c137be437d4e576",
+      "type": "blob",
+      "rawBytes": 1105411,
+      "previousLooseBytes": 118708,
+      "path": "lookdev/scene06-nc-adoption179/cycles-r06-export/export-report.json"
+    },
+    {
+      "oid": "75ec37f0f5deff12976ce44a27caf5c843fe70d2",
+      "type": "blob",
+      "rawBytes": 1073254,
+      "previousLooseBytes": 169078,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r02/report.json"
+    },
+    {
+      "oid": "23d373019ee86c02d168286ceeb485c282b1bd8b",
+      "type": "blob",
+      "rawBytes": 1069810,
+      "previousLooseBytes": 169186,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r03/report.json"
+    },
+    {
+      "oid": "2ab94c06b23e6bf6897d784ee630ee85e6bcc5cd",
+      "type": "blob",
+      "rawBytes": 1056154,
+      "previousLooseBytes": 332322,
+      "path": "lookdev/scene06-combined206/before-integration/reconstructions/scene-06/src/restoration-altar.js"
+    },
+    {
+      "oid": "3ff453e0ca1c212cd1ddb8c253d0850f7b159bc7",
+      "type": "blob",
+      "rawBytes": 1055970,
+      "previousLooseBytes": 332274,
+      "path": "lookdev/scene06-nc-adoption179/r04-source/src/restoration-altar.js"
+    },
+    {
+      "oid": "1d9d33e82261a84608e85d2a633083b70a2725a6",
+      "type": "blob",
+      "rawBytes": 1055970,
+      "previousLooseBytes": 332273,
+      "path": "lookdev/scene06-nc-adoption179/r03-source/src/restoration-altar.js"
+    },
+    {
+      "oid": "71b960eaa0f0eeff013dc41f6b2c996785ca76ec",
+      "type": "blob",
+      "rawBytes": 1055900,
+      "previousLooseBytes": 332249,
+      "path": "lookdev/scene06-nc-adoption179/r02-source/src/restoration-altar.js"
+    },
+    {
+      "oid": "71d00dadb613373b15183b4a04b0f4a095baf746",
+      "type": "blob",
+      "rawBytes": 1054742,
+      "previousLooseBytes": 331963,
+      "path": "lookdev/scene06-nc-adoption179/r01-adopted-source/src/restoration-altar.js"
+    },
+    {
+      "oid": "617acd3442555644b3ff8abb05ffe1fec33c2d81",
+      "type": "blob",
+      "rawBytes": 1041832,
+      "previousLooseBytes": 170169,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-overhead/report.json"
+    },
+    {
+      "oid": "096c8fc53cd9877b30057954244312299f7c59db",
+      "type": "blob",
+      "rawBytes": 1041672,
+      "previousLooseBytes": 170197,
+      "path": "qa/ten-reference/10/iteration-scene10-natural193-r03-low/report.json"
+    },
+    {
+      "oid": "aa47a24d3c6c23b0044df7162acee8a675a9a37f",
+      "type": "blob",
+      "rawBytes": 1039970,
+      "previousLooseBytes": 326403,
+      "path": "lookdev/scene06-altar198/r01-source/restoration-altar.js"
+    },
+    {
+      "oid": "bd1048a2287acf35ca12618c46b2cdb28b92e320",
+      "type": "blob",
+      "rawBytes": 1039886,
+      "previousLooseBytes": 326358,
+      "path": "lookdev/scene06-lotus222/r01-source/restoration-altar.js"
+    },
+    {
+      "oid": "981f2beb03a79f194dbe1c04a999f324e09eb891",
+      "type": "blob",
+      "rawBytes": 1039833,
+      "previousLooseBytes": 326352,
+      "path": "lookdev/scene06-physical218/rebuild-source217/reconstructions/scene-06/src/restoration-altar.js"
+    },
+    {
+      "oid": "4a16cda0695412b3c2e54f9bab7b34c31df76a1d",
+      "type": "blob",
+      "rawBytes": 1039789,
+      "previousLooseBytes": 326348,
+      "path": "lookdev/scene06-altar198/r02-source/restoration-altar.js"
+    },
+    {
+      "oid": "07abd6edf768da8ff9d7c976ad912fdf92910425",
+      "type": "blob",
+      "rawBytes": 1020289,
+      "previousLooseBytes": 162195,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r14/report.json"
+    },
+    {
+      "oid": "bdd80725f93c311c8be0db7d06758bece1164734",
+      "type": "blob",
+      "rawBytes": 1019231,
+      "previousLooseBytes": 161900,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r13/report.json"
+    },
+    {
+      "oid": "bb89035a5a6458b4ef43b27b8ab32de5368ed758",
+      "type": "blob",
+      "rawBytes": 1019211,
+      "previousLooseBytes": 161895,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r12/report.json"
+    },
+    {
+      "oid": "bc57c529c55c1a5a72a9bc59850de3a1b7eccbcb",
+      "type": "blob",
+      "rawBytes": 1018983,
+      "previousLooseBytes": 161327,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r11/report.json"
+    },
+    {
+      "oid": "121bfb35471d2dfc1579bd20c98cb490621dfde3",
+      "type": "blob",
+      "rawBytes": 1014749,
+      "previousLooseBytes": 1006387,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r01-full-plan-side/shot--208.png"
+    },
+    {
+      "oid": "a42929ed29e036652d035bdb136aba2cf93334d5",
+      "type": "blob",
+      "rawBytes": 1003467,
+      "previousLooseBytes": 159856,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r09/report.json"
+    },
+    {
+      "oid": "82a5c8cb44036fd56ffedd935b3ba4972adab1c5",
+      "type": "blob",
+      "rawBytes": 1000136,
+      "previousLooseBytes": 158941,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r08b/report.json"
+    },
+    {
+      "oid": "23e97e8bad65648385b63aec6b21657c559b6ea9",
+      "type": "blob",
+      "rawBytes": 927170,
+      "previousLooseBytes": 921439,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r06-plan-side/shot--208.png"
+    },
+    {
+      "oid": "edcaa69977a7964a297eec9704387bb898c50908",
+      "type": "blob",
+      "rawBytes": 903878,
+      "previousLooseBytes": 903332,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06-poses/shot-7.png"
+    },
+    {
+      "oid": "bd21d2f1ceb6f5330353ca24a7aabf3230f903c8",
+      "type": "blob",
+      "rawBytes": 880203,
+      "previousLooseBytes": 129078,
+      "path": ""
+    },
+    {
+      "oid": "465f00874b4944c33131bfeaf2d154f9aa5cb4ce",
+      "type": "blob",
+      "rawBytes": 871392,
+      "previousLooseBytes": 145512,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r07/report.json"
+    },
+    {
+      "oid": "e2624ffe2c8deba558ef5d468e0a5f54055a3424",
+      "type": "blob",
+      "rawBytes": 860589,
+      "previousLooseBytes": 131319,
+      "path": ""
+    },
+    {
+      "oid": "72fba59a217f0e7b7d889ebd1e3168dbc39d6e3d",
+      "type": "blob",
+      "rawBytes": 857026,
+      "previousLooseBytes": 851192,
+      "path": "lookdev/scene03-rebuild211/r09-r15-side-by-side.jpg"
+    },
+    {
+      "oid": "36eefcf33fb7bd9425590242f3d3c5f32e3170fe",
+      "type": "blob",
+      "rawBytes": 836996,
+      "previousLooseBytes": 837166,
+      "path": "lookdev/scene06-nc-adoption179/cycles-r06-export/assets/source-frame.png"
+    },
+    {
+      "oid": "c888102175fc20d8a272aa3cac60ac07f8c756f3",
+      "type": "blob",
+      "rawBytes": 809029,
+      "previousLooseBytes": 129664,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06/report.json"
+    },
+    {
+      "oid": "d182193dbca1f6363500d776af8cc2c9916a42bd",
+      "type": "blob",
+      "rawBytes": 808097,
+      "previousLooseBytes": 808256,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-export/assets/source-frame.png"
+    },
+    {
+      "oid": "4daa477e00406dd12e6d19c7b3f992e528657a8a",
+      "type": "blob",
+      "rawBytes": 807191,
+      "previousLooseBytes": 807310,
+      "path": ""
+    },
+    {
+      "oid": "f20a347d178837b958830fd8066ded5b579d11a2",
+      "type": "blob",
+      "rawBytes": 806973,
+      "previousLooseBytes": 805484,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06-poses/shot-0.png"
+    },
+    {
+      "oid": "a63e1e91ab6844f6f6e41dbb8a7a11b497d006a8",
+      "type": "blob",
+      "rawBytes": 799773,
+      "previousLooseBytes": 128061,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r05/report.json"
+    },
+    {
+      "oid": "89eedc7e7629ca405c1091704bcf6201b13b7a72",
+      "type": "blob",
+      "rawBytes": 788033,
+      "previousLooseBytes": 125514,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r04/report.json"
+    },
+    {
+      "oid": "9cd3b0da2743b7189798ec4b6c9c68548948246e",
+      "type": "blob",
+      "rawBytes": 783977,
+      "previousLooseBytes": 125030,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r03/report.json"
+    },
+    {
+      "oid": "6a2711055e18541d7a976b151f18f13ad2ef3a7e",
+      "type": "blob",
+      "rawBytes": 777231,
+      "previousLooseBytes": 170824,
+      "path": "lookdev/film-f-20261022/snapshot-proof.json"
+    },
+    {
+      "oid": "90a191ed4044b1f1fc0021d87db7b6c5cf7d2907",
+      "type": "blob",
+      "rawBytes": 770439,
+      "previousLooseBytes": 122370,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r02/report.json"
+    },
+    {
+      "oid": "f6f79ca6fc90eb352963a1dc7901e4f9f213ce61",
+      "type": "blob",
+      "rawBytes": 752942,
+      "previousLooseBytes": 752834,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06-poses/shot-3p5.png"
+    },
+    {
+      "oid": "831f7c8f8b1f1217a661a7d55887d7fd8d5f7f4d",
+      "type": "blob",
+      "rawBytes": 737503,
+      "previousLooseBytes": 108993,
+      "path": ""
+    },
+    {
+      "oid": "186495fea7baf7be0a3c88b6221275f8649ae030",
+      "type": "blob",
+      "rawBytes": 729217,
+      "previousLooseBytes": 145701,
+      "path": "qa/ten-reference/09/iteration-scene09-carried-hall-motion187-poses/report.json"
+    },
+    {
+      "oid": "1ee8b38e704e122d448888798faf9c3f1db748b4",
+      "type": "blob",
+      "rawBytes": 728346,
+      "previousLooseBytes": 728589,
+      "path": "lookdev/scene03-rebuild211/r09-wood-1254-detail.png"
+    },
+    {
+      "oid": "65395719530ffb1193b113e6e43bc08f41babaca",
+      "type": "blob",
+      "rawBytes": 711225,
+      "previousLooseBytes": 121507,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-r03-low3q/report.json"
+    },
+    {
+      "oid": "4601601e3c009f61373a4e0e797960c392306ef2",
+      "type": "blob",
+      "rawBytes": 708853,
+      "previousLooseBytes": 709038,
+      "path": "lookdev/scene03-rebuild211/reference3-r09-side-by-side.jpg"
+    },
+    {
+      "oid": "cc5388e7ec521765ba151adda34833a32e64169f",
+      "type": "blob",
+      "rawBytes": 697873,
+      "previousLooseBytes": 119287,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-r02-low3q/report.json"
+    },
+    {
+      "oid": "3424db68c3d614a64eb0f7340b325826c283a2bd",
+      "type": "blob",
+      "rawBytes": 692354,
+      "previousLooseBytes": 692542,
+      "path": "lookdev/scene03-rebuild211/reference3-r15-side-by-side.jpg"
+    },
+    {
+      "oid": "44552ad9e774a9f33019b5f62b954a4053f5c02f",
+      "type": "blob",
+      "rawBytes": 658090,
+      "previousLooseBytes": 115938,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r01/report.json"
+    },
+    {
+      "oid": "ec8706694faf8b206caa3ebab12c85625956e1d4",
+      "type": "blob",
+      "rawBytes": 603369,
+      "previousLooseBytes": 111403,
+      "path": "qa/ten-reference/10/iteration-scene10-mass183-baseline-low3q/report.json"
+    },
+    {
+      "oid": "fc09ec88755d8876318b41a8656b3624523023ba",
+      "type": "blob",
+      "rawBytes": 599969,
+      "previousLooseBytes": 90996,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r11-low3q/report.json"
+    },
+    {
+      "oid": "c9cffd5d36e6393c3b97e12250fd90768e4af54c",
+      "type": "blob",
+      "rawBytes": 589333,
+      "previousLooseBytes": 586473,
+      "path": "lookdev/scene05-terminal204/astra-r10/reference-carpentry-inspection.png"
+    },
+    {
+      "oid": "6aab679df6c294af3fc4c2ee485d49064a3e1f33",
+      "type": "blob",
+      "rawBytes": 585707,
+      "previousLooseBytes": 585322,
+      "path": "lookdev/scene06-combined206/actual-206-movie-nine-frames-CC-BY-NC-SA-4.0.jpg"
+    },
+    {
+      "oid": "aaa4274005e55fd7f59142ee98548d7d88187e2c",
+      "type": "blob",
+      "rawBytes": 584043,
+      "previousLooseBytes": 98892,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-export-dedup-inventory.json"
+    },
+    {
+      "oid": "77b6e58e0f55e8fac14a1807ff7be67d667699ce",
+      "type": "blob",
+      "rawBytes": 557456,
+      "previousLooseBytes": 90371,
+      "path": ""
+    },
+    {
+      "oid": "2f00102526a263a27cea0fc2c3924c66662544ed",
+      "type": "blob",
+      "rawBytes": 551328,
+      "previousLooseBytes": 151319,
+      "path": "lookdev/scene06-physical218/unreachable-export-only-blob-removal.json"
+    },
+    {
+      "oid": "3edb856b2976226f447006d88f1f9601b9808921",
+      "type": "blob",
+      "rawBytes": 545516,
+      "previousLooseBytes": 87852,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r02-low/report.json"
+    },
+    {
+      "oid": "c20888fbdb5f477c5bdb61775dca9114a79f4cf0",
+      "type": "blob",
+      "rawBytes": 542556,
+      "previousLooseBytes": 538854,
+      "path": "lookdev/scene02-spatial186/kloppenheim-independent-sky-preview.png"
+    },
+    {
+      "oid": "5e7670df4a081a3bb0ee2ba9b52d23c579c89c7e",
+      "type": "blob",
+      "rawBytes": 529237,
+      "previousLooseBytes": 85698,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r12-low3q/report.json"
+    },
+    {
+      "oid": "6bbcbb55d52db21d1123d15484f1be9aab10e82b",
+      "type": "blob",
+      "rawBytes": 528671,
+      "previousLooseBytes": 86373,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r01-low/report.json"
+    },
+    {
+      "oid": "940e685247c6b1698bd14389a083c8b5df5ba30d",
+      "type": "blob",
+      "rawBytes": 528585,
+      "previousLooseBytes": 86204,
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r01/report.json"
+    },
+    {
+      "oid": "7f282ebd545832b089db961dc192e8f957698ffa",
+      "type": "blob",
+      "rawBytes": 518881,
+      "previousLooseBytes": 84325,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r14-low3q/report.json"
+    },
+    {
+      "oid": "2cc1babb74e0d3df2730cd7d1f7fba7e07747d5f",
+      "type": "blob",
+      "rawBytes": 518352,
+      "previousLooseBytes": 84201,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r13-low3q/report.json"
+    },
+    {
+      "oid": "94ef8b7a9a8d677e0da75bcce361e3408d6e496c",
+      "type": "blob",
+      "rawBytes": 510375,
+      "previousLooseBytes": 83215,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r09-low3q/report.json"
+    },
+    {
+      "oid": "c5c64c7c93809da1d10ea086ac9c741eeb454d98",
+      "type": "blob",
+      "rawBytes": 494241,
+      "previousLooseBytes": 85087,
+      "path": "lookdev/scene05-monumental-tower-v3/export-r08/generated-cache-pruned-20261023.json"
+    },
+    {
+      "oid": "fa111e0374536a86b708a380e9115deac7b9bd77",
+      "type": "blob",
+      "rawBytes": 491811,
+      "previousLooseBytes": 99198,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04-tower-hero/report.json"
+    },
+    {
+      "oid": "85aa27d4e2e348daa930c9d5f196494395dfb119",
+      "type": "blob",
+      "rawBytes": 491811,
+      "previousLooseBytes": 99251,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04/report.json"
+    },
+    {
+      "oid": "c71cf24e4e4413a522dcf40fad43e1e3058e8418",
+      "type": "blob",
+      "rawBytes": 491719,
+      "previousLooseBytes": 99172,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r03b/report.json"
+    },
+    {
+      "oid": "6760ef3ad3b77a22a29eab5b0cee594a04a57a4e",
+      "type": "blob",
+      "rawBytes": 491718,
+      "previousLooseBytes": 99158,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r03b-tower-hero/report.json"
+    },
+    {
+      "oid": "38e571bd2cdb2c8fe227bd91f37ea3ffdf1aa945",
+      "type": "blob",
+      "rawBytes": 489637,
+      "previousLooseBytes": 485550,
+      "path": "lookdev/scene05-terminal204/astra-r10/native-carpentry-inspection.png"
+    },
+    {
+      "oid": "e5432f31b9e4a7606a8a9565f893cf80d499164b",
+      "type": "blob",
+      "rawBytes": 478208,
+      "previousLooseBytes": 469204,
+      "path": "lookdev/scene06-low-shot189/analysis-focus-face-comparison189-r01-r02.png"
+    },
+    {
+      "oid": "e504ccd6a59f8c5d0db8ef05ba728ce68c13f32c",
+      "type": "blob",
+      "rawBytes": 476830,
+      "previousLooseBytes": 96279,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r02/report.json"
+    },
+    {
+      "oid": "cc902b5943bec8eca310c45437fe641e470550a1",
+      "type": "blob",
+      "rawBytes": 475065,
+      "previousLooseBytes": 475223,
+      "path": "lookdev/scene02-spatial186/comparison-reference-baseline-r04.jpg"
+    },
+    {
+      "oid": "5ec39e250b6fb16f77c4f62d683431fb50180d05",
+      "type": "blob",
+      "rawBytes": 473187,
+      "previousLooseBytes": 473343,
+      "path": "lookdev/scene02-spatial186/comparison-reference-baseline-r05.jpg"
+    },
+    {
+      "oid": "3c722beba4cff2a5edd440f8bf07dc5b86b69c81",
+      "type": "blob",
+      "rawBytes": 458791,
+      "previousLooseBytes": 458771,
+      "path": "lookdev/scene09-mass181/comparison-hall-reference-baseline-r04.jpg"
+    },
+    {
+      "oid": "58efe28e9b3981a115525b5c52bd9d9877b7db0d",
+      "type": "blob",
+      "rawBytes": 450467,
+      "previousLooseBytes": 76367,
+      "path": "qa/ten-reference/04/iteration-scene04-spatial188-r03-portal-personal-CC-BY-NC-SA4/report.json"
+    },
+    {
+      "oid": "c427c9946411eec55b686aabf2d7800c9e2493c8",
+      "type": "blob",
+      "rawBytes": 445619,
+      "previousLooseBytes": 75958,
+      "path": "qa/ten-reference/04/iteration-scene04-spatial188-r02-portal-personal-CC-BY-NC-SA4/report.json"
+    },
+    {
+      "oid": "c65c3d0d8d855b392f0930e6e7999fffc515f910",
+      "type": "blob",
+      "rawBytes": 444691,
+      "previousLooseBytes": 434846,
+      "path": "lookdev/scene06-daylight195/r01-before-after-lighting.jpg"
+    },
+    {
+      "oid": "5c4a7d9cb4bf70ffb0bfef81f4609392ebfc7089",
+      "type": "blob",
+      "rawBytes": 444146,
+      "previousLooseBytes": 75973,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r07-low3q/report.json"
+    },
+    {
+      "oid": "9142486039859ec29b92650c7c7c5970bd962c75",
+      "type": "blob",
+      "rawBytes": 439749,
+      "previousLooseBytes": 439900,
+      "path": "lookdev/scene02-spatial186/comparison-hall-reference-baseline-r05.jpg"
+    },
+    {
+      "oid": "7ff40b327af0511b363c8318c1b0c25c889f8e91",
+      "type": "blob",
+      "rawBytes": 438300,
+      "previousLooseBytes": 438453,
+      "path": "lookdev/scene02-spatial186/comparison-hall-reference-baseline-r04.jpg"
+    },
+    {
+      "oid": "2b5ff86bfcb071c550ccf68a5b92faa6ef5508a1",
+      "type": "blob",
+      "rawBytes": 433513,
+      "previousLooseBytes": 75391,
+      "path": "qa/ten-reference/04/iteration-scene04-rebuild212-r05-toro-hero-personal-CC-BY-NC-SA4/report.json"
+    },
+    {
+      "oid": "78bb8171a4deb79e6d784b2244537090ed604e81",
+      "type": "blob",
+      "rawBytes": 429648,
+      "previousLooseBytes": 72880,
+      "path": "qa/ten-reference/04/iteration-scene04-spatial188-r01-portal/report.json"
+    },
+    {
+      "oid": "d6a2f9e0ab2c38db9471a633ab82193474d96947",
+      "type": "blob",
+      "rawBytes": 426378,
+      "previousLooseBytes": 426328,
+      "path": "lookdev/scene09-mass181/comparison-reference-baseline-r04.jpg"
+    },
+    {
+      "oid": "5067f7a163edec8ce015ab44b5a2a56cb106216d",
+      "type": "blob",
+      "rawBytes": 423818,
+      "previousLooseBytes": 423966,
+      "path": "lookdev/scene01-structure208/actual185-bridge.png"
+    },
+    {
+      "oid": "44554a67f34d767e5186d6e4bebdf53b26cb2f64",
+      "type": "blob",
+      "rawBytes": 413003,
+      "previousLooseBytes": 68005,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r06-low3q/report.json"
+    },
+    {
+      "oid": "a1bf8058446e015712f97a2869b94e39887b91b7",
+      "type": "blob",
+      "rawBytes": 411147,
+      "previousLooseBytes": 411279,
+      "path": "lookdev/scene02-spatial186/comparison-atmosphere-r04-r05.jpg"
+    },
+    {
+      "oid": "b2fdac84b41c49265efbdd0858bd3f2ae2c5bd78",
+      "type": "blob",
+      "rawBytes": 408375,
+      "previousLooseBytes": 67159,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r05-low3q/report.json"
+    },
+    {
+      "oid": "8d8ed9d226b74b8b39e0a1553dcac0cf4b591ab0",
+      "type": "blob",
+      "rawBytes": 402505,
+      "previousLooseBytes": 65898,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r04-low3q/report.json"
+    },
+    {
+      "oid": "bb3821089d89d47194dfed5df4fee9c560ac1d54",
+      "type": "blob",
+      "rawBytes": 400477,
+      "previousLooseBytes": 65712,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r03-low3q/report.json"
+    },
+    {
+      "oid": "9edfcba2a0cc822697c2e274eb102bbfd865d74b",
+      "type": "blob",
+      "rawBytes": 400090,
+      "previousLooseBytes": 400110,
+      "path": "lookdev/scene09-rebuild221/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "ed228e6d3cb73d7a19fb7f76753cb74565f0237e",
+      "type": "blob",
+      "rawBytes": 399834,
+      "previousLooseBytes": 399854,
+      "path": "lookdev/scene09-rebuild221/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "651bf3c9f19b73af22ffde40810c4fbe776b8938",
+      "type": "blob",
+      "rawBytes": 399328,
+      "previousLooseBytes": 399363,
+      "path": "lookdev/scene09-night203/r14-source-scripts.tgz"
+    },
+    {
+      "oid": "39a46f8942283421bd2a2019d660d81d326f9063",
+      "type": "blob",
+      "rawBytes": 399299,
+      "previousLooseBytes": 399319,
+      "path": "lookdev/scene09-rebuild221/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "b575d685a91a806ddb8915db112062014c6b7ecd",
+      "type": "blob",
+      "rawBytes": 398939,
+      "previousLooseBytes": 398969,
+      "path": "lookdev/scene09-night203/r13-source-scripts.tgz"
+    },
+    {
+      "oid": "667cfade774fd17645c5d9d98f500b63e341510c",
+      "type": "blob",
+      "rawBytes": 398628,
+      "previousLooseBytes": 398643,
+      "path": "lookdev/scene09-night203/r12-source-scripts.tgz"
+    },
+    {
+      "oid": "31d9882fa2657e8335dbecab58c04521823b5dd0",
+      "type": "blob",
+      "rawBytes": 398112,
+      "previousLooseBytes": 398159,
+      "path": "lookdev/scene09-night203/r11-source-scripts.tgz"
+    },
+    {
+      "oid": "f24ce0854e7f43e9a4faba21c62c1a9964cd81a0",
+      "type": "blob",
+      "rawBytes": 396772,
+      "previousLooseBytes": 396841,
+      "path": "lookdev/scene09-night203/r10-source-scripts.tgz"
+    },
+    {
+      "oid": "73deda5ee5c2c0e2b48ad60d4a5e5dc4e2adbc2d",
+      "type": "blob",
+      "rawBytes": 396699,
+      "previousLooseBytes": 391055,
+      "path": "lookdev/scene02-spatial186/qwantani-independent-sky-preview.png"
+    },
+    {
+      "oid": "06796e1ad8d6fce1595e0f44d13638269bb0dac1",
+      "type": "blob",
+      "rawBytes": 396624,
+      "previousLooseBytes": 396635,
+      "path": "lookdev/scene09-rebuild221/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "4882eb2504cb83da8705afe20249c3132fa922d2",
+      "type": "blob",
+      "rawBytes": 396318,
+      "previousLooseBytes": 396366,
+      "path": "lookdev/scene09-night203/r09-source-scripts.tgz"
+    },
+    {
+      "oid": "6e6cfd5108ac44a3f1543eea4168d3ce71727ea7",
+      "type": "blob",
+      "rawBytes": 395632,
+      "previousLooseBytes": 395681,
+      "path": "lookdev/scene09-night203/r08b-source-scripts.tgz"
+    },
+    {
+      "oid": "c49e7bb418599f7031b276b69c82d7134647b821",
+      "type": "blob",
+      "rawBytes": 395529,
+      "previousLooseBytes": 395584,
+      "path": "lookdev/scene09-night203/r08-source-scripts.tgz"
+    },
+    {
+      "oid": "cadb8cf58174c5ac16ed4cd10878a43fe41a1ccd",
+      "type": "blob",
+      "rawBytes": 394506,
+      "previousLooseBytes": 394550,
+      "path": "lookdev/scene09-night203/r07-source-scripts.tgz"
+    },
+    {
+      "oid": "30723a984e84ace00848483c8bbf7bc20cdc7659",
+      "type": "blob",
+      "rawBytes": 393709,
+      "previousLooseBytes": 64408,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r02-low3q/report.json"
+    },
+    {
+      "oid": "c05a43cfcc8a3608bfcf43e3c75313a5b5e69fc9",
+      "type": "blob",
+      "rawBytes": 393708,
+      "previousLooseBytes": 393846,
+      "path": "lookdev/scene03-rebuild211/render211-r05-toro-crop.png"
+    },
+    {
+      "oid": "84743ce9cf47f4e1e1b2a0a5ba9e0baf5aedb00e",
+      "type": "blob",
+      "rawBytes": 392880,
+      "previousLooseBytes": 392860,
+      "path": "lookdev/scene09-night203/r06-source-scripts.tgz"
+    },
+    {
+      "oid": "8f792bd5fbe142d833a81821cc2854d4e515e69c",
+      "type": "blob",
+      "rawBytes": 392779,
+      "previousLooseBytes": 392809,
+      "path": "lookdev/scene09-rebuild221/baseline-r14-source-scripts.tgz"
+    },
+    {
+      "oid": "167d0bcb83b9eeb68462aab0a693c43e5ffa17b5",
+      "type": "blob",
+      "rawBytes": 392350,
+      "previousLooseBytes": 392330,
+      "path": "lookdev/scene09-night203/r05-source-scripts.tgz"
+    },
+    {
+      "oid": "db30fa26d90be19d931a19ef19749cd7da69e18f",
+      "type": "blob",
+      "rawBytes": 391049,
+      "previousLooseBytes": 391053,
+      "path": "lookdev/scene09-night203/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "1449eac437252683cd121efee1e0bfeab72853ee",
+      "type": "blob",
+      "rawBytes": 390620,
+      "previousLooseBytes": 390611,
+      "path": "lookdev/scene09-night203/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "206f8325f0adda4e2918c064e9e89541d53d2dd0",
+      "type": "blob",
+      "rawBytes": 389253,
+      "previousLooseBytes": 389244,
+      "path": "lookdev/scene09-night203/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "9c645e2f7f96e338d09583da4c24b4de932fc54c",
+      "type": "blob",
+      "rawBytes": 388414,
+      "previousLooseBytes": 388378,
+      "path": "lookdev/scene09-mass181/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "a64a84d11d88c4f84d8eaf1b542d69b2e66b6acb",
+      "type": "blob",
+      "rawBytes": 388298,
+      "previousLooseBytes": 388272,
+      "path": "lookdev/scene09-mass181/r03b-source-scripts.tgz"
+    },
+    {
+      "oid": "e0cb64db227b538b4903b2a0719f1ef41d5e050c",
+      "type": "blob",
+      "rawBytes": 388198,
+      "previousLooseBytes": 388178,
+      "path": "lookdev/scene09-mass181/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "128b34ecdd6e0bc638039802bba6e09b3e8b4932",
+      "type": "blob",
+      "rawBytes": 388057,
+      "previousLooseBytes": 388015,
+      "path": "lookdev/scene09-night203/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "3d12f92e03976d9976fb9c2d49b1240e7a483775",
+      "type": "blob",
+      "rawBytes": 385015,
+      "previousLooseBytes": 384988,
+      "path": "lookdev/scene09-night203/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "ea995a66c869c142a0510af4978387d177e44167",
+      "type": "blob",
+      "rawBytes": 382565,
+      "previousLooseBytes": 382545,
+      "path": "lookdev/scene09-mass181/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "a2b8bcd49c4372d3671b789b61b55dd1169580f0",
+      "type": "blob",
+      "rawBytes": 382180,
+      "previousLooseBytes": 382157,
+      "path": "lookdev/scene09-mass181/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "d0f1fc270e192e0bd7e5744d78451c5e9df742af",
+      "type": "blob",
+      "rawBytes": 382008,
+      "previousLooseBytes": 381996,
+      "path": "lookdev/scene09-mass181/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "9d170b6211b52d49b3e1af8ea84ac5beb5b1511f",
+      "type": "blob",
+      "rawBytes": 360955,
+      "previousLooseBytes": 360281,
+      "path": "lookdev/scene06-low-shot189/analysis-ending-difference189.png"
+    },
+    {
+      "oid": "793add28025a85d1e1610525ff063f5be36db4b6",
+      "type": "blob",
+      "rawBytes": 355120,
+      "previousLooseBytes": 355248,
+      "path": "lookdev/scene06-altar198/reference-study/actual195-table-platform.png"
+    },
+    {
+      "oid": "a0b47b3c46df07c74bebabe55aee01dcdb1d3691",
+      "type": "blob",
+      "rawBytes": 342062,
+      "previousLooseBytes": 339640,
+      "path": "lookdev/scene05-rebuild220/compare220-r04-corner.jpg"
+    },
+    {
+      "oid": "183bb3bb03f6ccf679a1b0e2e31e41bf6af03916",
+      "type": "blob",
+      "rawBytes": 341616,
+      "previousLooseBytes": 35471,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r03-20261023/report.json"
+    },
+    {
+      "oid": "ce9ca88f1598b4b9f9c501022c323752e135eb97",
+      "type": "blob",
+      "rawBytes": 341565,
+      "previousLooseBytes": 35390,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r04-20261023/report.json"
+    },
+    {
+      "oid": "0668ba0a5bbbb0941f925481d5bef2f0bb53ebf2",
+      "type": "blob",
+      "rawBytes": 341563,
+      "previousLooseBytes": 35502,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r05-20261023/report.json"
+    },
+    {
+      "oid": "23cdb262d3b67d8cff47294165b923428ea052d5",
+      "type": "blob",
+      "rawBytes": 341164,
+      "previousLooseBytes": 35472,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r02-20261023/report.json"
+    },
+    {
+      "oid": "f29d7b73f8e7a1fab598f6372da802a3976799ff",
+      "type": "blob",
+      "rawBytes": 338501,
+      "previousLooseBytes": 36378,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-20261024/report.json"
+    },
+    {
+      "oid": "2f521235ef448d061402c26ed195a30ed19ed549",
+      "type": "blob",
+      "rawBytes": 338061,
+      "previousLooseBytes": 36307,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r09-20261024/report.json"
+    },
+    {
+      "oid": "6382825b618dc0bb40fcd8d818d950c103a7c187",
+      "type": "blob",
+      "rawBytes": 337893,
+      "previousLooseBytes": 35116,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r01-20261023/report.json"
+    },
+    {
+      "oid": "59ab8855d1d810053641dfb160e5c84160494b1c",
+      "type": "blob",
+      "rawBytes": 337643,
+      "previousLooseBytes": 36022,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r08-20261024/report.json"
+    },
+    {
+      "oid": "c59dc062cd77531092ed9219f7577c333f7ffdcb",
+      "type": "blob",
+      "rawBytes": 337535,
+      "previousLooseBytes": 61168,
+      "path": "qa/ten-reference/09/iteration-scene09-night203-r01-low3q/report.json"
+    },
+    {
+      "oid": "0e758f9b6b7d3b4626e24410a0f85f97cc2a7c11",
+      "type": "blob",
+      "rawBytes": 336609,
+      "previousLooseBytes": 35670,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r07-20261024/report.json"
+    },
+    {
+      "oid": "16c57e5a4f62507e9f9a521500990e7ca5a8ef2e",
+      "type": "blob",
+      "rawBytes": 334957,
+      "previousLooseBytes": 34997,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r06-20261024/report.json"
+    },
+    {
+      "oid": "248b9f44e47a59c95d819dd45a5f29044b3fc72c",
+      "type": "blob",
+      "rawBytes": 297322,
+      "previousLooseBytes": 34536,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r14-20261024/report.json"
+    },
+    {
+      "oid": "932067a73d7d5d93e93226569aebbacc75ef8d21",
+      "type": "blob",
+      "rawBytes": 297314,
+      "previousLooseBytes": 34531,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-20261024/report.json"
+    },
+    {
+      "oid": "68fc3312ef902e3909918285365487e5993645a0",
+      "type": "blob",
+      "rawBytes": 297105,
+      "previousLooseBytes": 34410,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r13-20261024/report.json"
+    },
+    {
+      "oid": "7fde276415ac31e6762c606db8e43c52dbee817a",
+      "type": "blob",
+      "rawBytes": 297104,
+      "previousLooseBytes": 34407,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r12-20261024/report.json"
+    },
+    {
+      "oid": "f8ed98a561fe62be3f2e341a2211df68487acd4f",
+      "type": "blob",
+      "rawBytes": 295162,
+      "previousLooseBytes": 295178,
+      "path": "lookdev/scene03-rebuild211/reference3-r09-wood-side-by-side.jpg"
+    },
+    {
+      "oid": "aa98c44ee91f659ad4f1133a0f893c14fb980021",
+      "type": "blob",
+      "rawBytes": 294669,
+      "previousLooseBytes": 33880,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r11-20261024/report.json"
+    },
+    {
+      "oid": "a0c71cf19aae12713682bba7e67fa0fda644786a",
+      "type": "blob",
+      "rawBytes": 284527,
+      "previousLooseBytes": 22633,
+      "path": "lookdev/scene06-solmax-cycles-20261021/export/duplicate-buffers-linked-20261023.json"
+    },
+    {
+      "oid": "9785c2aefeed2fe0030e65f3ee540962d18b4690",
+      "type": "blob",
+      "rawBytes": 278205,
+      "previousLooseBytes": 277358,
+      "path": "lookdev/scene06-motion194/r01-actual-video-nine-frames-CC-BY-NC-SA-4.0.jpg"
+    },
+    {
+      "oid": "ceaca6a85683e7b7df7561bbfcaebb6a9ed24b65",
+      "type": "blob",
+      "rawBytes": 273167,
+      "previousLooseBytes": 100566,
+      "path": "lookdev/scene05-rebuild220/r04-source/architecture.js"
+    },
+    {
+      "oid": "6d71ed62e9fa38be0f4f72367b9c055c63954653",
+      "type": "blob",
+      "rawBytes": 272886,
+      "previousLooseBytes": 100302,
+      "path": "lookdev/scene05-rebuild220/r03-source/architecture.js"
+    },
+    {
+      "oid": "d14c3e82de734166a343aed4637ad8008d645409",
+      "type": "blob",
+      "rawBytes": 270711,
+      "previousLooseBytes": 51988,
+      "path": "qa/ten-reference/06/iteration-scene06-low-shot189-r01-five-poses/report.json"
+    },
+    {
+      "oid": "16ecae6f9ef552cf62c7044f86063dcca9f7914c",
+      "type": "blob",
+      "rawBytes": 270519,
+      "previousLooseBytes": 52137,
+      "path": "qa/ten-reference/06/iteration-scene06-low-shot189-r02-five-poses/report.json"
+    },
+    {
+      "oid": "58ba954886f170bb0636deba526ddd75e1ea8af0",
+      "type": "blob",
+      "rawBytes": 270283,
+      "previousLooseBytes": 99256,
+      "path": "lookdev/scene05-rebuild220/r02-source/architecture.js"
+    },
+    {
+      "oid": "33b5251af4d81c7f655d865aeac21769029a3af9",
+      "type": "blob",
+      "rawBytes": 270020,
+      "previousLooseBytes": 99142,
+      "path": "lookdev/scene05-rebuild220/r01-source/architecture.js"
+    },
+    {
+      "oid": "82dadcc31c1caa9538da36bb86e0edc4e29d9928",
+      "type": "blob",
+      "rawBytes": 268687,
+      "previousLooseBytes": 98566,
+      "path": "lookdev/scene05-terminal204/astra-r12b-source/src/architecture.js"
+    },
+    {
+      "oid": "fa8b582b6f75531f815e34290a3fe927c928465d",
+      "type": "blob",
+      "rawBytes": 268660,
+      "previousLooseBytes": 98553,
+      "path": "lookdev/scene05-terminal204/astra-r10-source/src/architecture.js"
+    },
+    {
+      "oid": "c6a806c2a963238fc8f79380c1a53fbf194cfb0d",
+      "type": "blob",
+      "rawBytes": 268651,
+      "previousLooseBytes": 98555,
+      "path": "lookdev/scene05-terminal204/astra-r11-source/src/architecture.js"
+    },
+    {
+      "oid": "dff82299feeb540e62ec121e058e182e307560ba",
+      "type": "blob",
+      "rawBytes": 268592,
+      "previousLooseBytes": 98562,
+      "path": "lookdev/scene05-rebuild220/baseline-src/architecture.js"
+    },
+    {
+      "oid": "7bf5631f051c4010d66bf728873edc7f61326b41",
+      "type": "blob",
+      "rawBytes": 268589,
+      "previousLooseBytes": 98546,
+      "path": "lookdev/scene05-terminal204/astra-r12c/architecture-petal-caps-failed.js"
+    },
+    {
+      "oid": "9c34b31676df48822f66a517f0f948b560539043",
+      "type": "blob",
+      "rawBytes": 267896,
+      "previousLooseBytes": 98230,
+      "path": "lookdev/scene05-light196/r01-source/src/architecture.js"
+    },
+    {
+      "oid": "d9698146a8f1e216071c12641b9db7c7d70b03dc",
+      "type": "blob",
+      "rawBytes": 267549,
+      "previousLooseBytes": 98155,
+      "path": "lookdev/scene05-detail190/r02-source/architecture.js"
+    },
+    {
+      "oid": "4b2b9897042fb27ac28fc5e7d5efdfdd9207dadb",
+      "type": "blob",
+      "rawBytes": 267141,
+      "previousLooseBytes": 97969,
+      "path": "lookdev/scene05-detail190/r01-source/architecture.js"
+    },
+    {
+      "oid": "22e4d590d2f9ccc90eedfe6b3482f7449e22177a",
+      "type": "blob",
+      "rawBytes": 259739,
+      "previousLooseBytes": 95057,
+      "path": "lookdev/scene10-support207/before-r08b/src/architecture.js"
+    },
+    {
+      "oid": "6edde9e5d15572b2b820f88a85a38143d4530bae",
+      "type": "blob",
+      "rawBytes": 258734,
+      "previousLooseBytes": 33174,
+      "path": "lookdev/scene06-daylight195/physical-study/cycles-195-r03-prune-receipt.json"
+    },
+    {
+      "oid": "3dd6f9d57aa667422ee9988df4e94a2a5ace9a9c",
+      "type": "blob",
+      "rawBytes": 254717,
+      "previousLooseBytes": 51618,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r01/report.json"
+    },
+    {
+      "oid": "608e89a5bc998eeb5b7ffa42fbda8fe6ff57bfee",
+      "type": "blob",
+      "rawBytes": 254004,
+      "previousLooseBytes": 52812,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r04-low3q/report.json"
+    },
+    {
+      "oid": "52d73b839d19e98490bec14709526430c5a70e30",
+      "type": "blob",
+      "rawBytes": 253890,
+      "previousLooseBytes": 52724,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r03b-low3q/report.json"
+    },
+    {
+      "oid": "6b188f48d6c8cac806cfc72b903c6bcbe3ba514c",
+      "type": "blob",
+      "rawBytes": 252945,
+      "previousLooseBytes": 46127,
+      "path": "qa/ten-reference/04/iteration-scene04-spatial188-r03-oblique-personal-CC-BY-NC-SA4/report.json"
+    },
+    {
+      "oid": "4e88356b09496f12e21d8e859e2f437dac92c063",
+      "type": "blob",
+      "rawBytes": 250523,
+      "previousLooseBytes": 45942,
+      "path": "qa/ten-reference/04/iteration-scene04-spatial188-r02-oblique-personal-CC-BY-NC-SA4/report.json"
+    },
+    {
+      "oid": "57708d0e2c9c71734c342fe50647f22cf3ed46df",
+      "type": "blob",
+      "rawBytes": 246129,
+      "previousLooseBytes": 51136,
+      "path": "qa/ten-reference/09/iteration-scene09-mass181-r02-low3q/report.json"
+    },
+    {
+      "oid": "7ebe642500492f9ffce6601b455bcc36ffc04fd1",
+      "type": "blob",
+      "rawBytes": 238392,
+      "previousLooseBytes": 60883,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/report.json"
+    },
+    {
+      "oid": "08a58e135cf007aa55dda4cf5230340b06a4728b",
+      "type": "blob",
+      "rawBytes": 238252,
+      "previousLooseBytes": 60773,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r11-full-wet/report.json"
+    },
+    {
+      "oid": "8bc5051c7111f2ec31172e2cd9ca6291b0c87af4",
+      "type": "blob",
+      "rawBytes": 235464,
+      "previousLooseBytes": 234156,
+      "path": ""
+    },
+    {
+      "oid": "f129fdb7e174a551e0fba772d578428f49090e58",
+      "type": "blob",
+      "rawBytes": 233836,
+      "previousLooseBytes": 59628,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r10-full-wet/report.json"
+    },
+    {
+      "oid": "a028ae9871a44ee1aa2b0429f34c017ef7df2011",
+      "type": "blob",
+      "rawBytes": 233801,
+      "previousLooseBytes": 233894,
+      "path": "lookdev/scene04-spatial188/source-snapshots/spatial188-r03-final-scripts.tgz"
+    },
+    {
+      "oid": "41281554c5299c0cf84a6c266538d78813e22e0e",
+      "type": "blob",
+      "rawBytes": 230982,
+      "previousLooseBytes": 231075,
+      "path": "lookdev/scene04-spatial188/source-snapshots/spatial188-r03-scripts.tgz"
+    },
+    {
+      "oid": "4f584c3151b4bb8f83db1e5a3abf5ba165ceb8b2",
+      "type": "blob",
+      "rawBytes": 229836,
+      "previousLooseBytes": 58497,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r09-full-wet/report.json"
+    },
+    {
+      "oid": "92a5e161638014b7bd03f46b6d1cf5ccf64e5f35",
+      "type": "blob",
+      "rawBytes": 229601,
+      "previousLooseBytes": 58060,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-full-rail/report.json"
+    },
+    {
+      "oid": "73d403cfa2a85cae2f922a7d56cf67b29416ada2",
+      "type": "blob",
+      "rawBytes": 229601,
+      "previousLooseBytes": 58068,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r07-full-rail/report.json"
+    },
+    {
+      "oid": "e1dee24562a4b065c37efbbf92affb64768d80a1",
+      "type": "blob",
+      "rawBytes": 229323,
+      "previousLooseBytes": 228345,
+      "path": "lookdev/scene09-motion187/r02-actual-video-nine-frames.jpg"
+    },
+    {
+      "oid": "97b76c40416b7e79217e411d23cbce0ac6b4c8ae",
+      "type": "blob",
+      "rawBytes": 228872,
+      "previousLooseBytes": 57707,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r05-full-lamp/report.json"
+    },
+    {
+      "oid": "2b07ae945dbe30fc4c8699c9ac5d6dc3b1b83fdf",
+      "type": "blob",
+      "rawBytes": 228436,
+      "previousLooseBytes": 57732,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r06-full-lamp/report.json"
+    },
+    {
+      "oid": "d4c77e6eb3ef6f7f6e22c0aa457eece532d74da2",
+      "type": "blob",
+      "rawBytes": 228075,
+      "previousLooseBytes": 228163,
+      "path": "lookdev/scene04-spatial188/source-snapshots/spatial188-r02-final-scripts.tgz"
+    },
+    {
+      "oid": "4219d1fa6465a15f6adf34900357f9d1c025cf87",
+      "type": "blob",
+      "rawBytes": 227977,
+      "previousLooseBytes": 228065,
+      "path": "lookdev/scene04-spatial188/source-snapshots/spatial188-r02-scripts.tgz"
+    },
+    {
+      "oid": "e61423474142c956e734264e7126f0701ea690bf",
+      "type": "blob",
+      "rawBytes": 222748,
+      "previousLooseBytes": 222836,
+      "path": "lookdev/scene04-spatial188/source-snapshots/spatial188-r01-scripts.tgz"
+    },
+    {
+      "oid": "797a64b08da4891d6536d7ff36c4f6d6a9f333ec",
+      "type": "blob",
+      "rawBytes": 220308,
+      "previousLooseBytes": 56387,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r04-full-bridge/report.json"
+    },
+    {
+      "oid": "ce66c5f6f5a3681faf1ba6e75489916e8917705b",
+      "type": "blob",
+      "rawBytes": 218856,
+      "previousLooseBytes": 56035,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r03-full-bridge/report.json"
+    },
+    {
+      "oid": "c6ebbf1632e5c51b8b5733e3aa478adf5de9d452",
+      "type": "blob",
+      "rawBytes": 218411,
+      "previousLooseBytes": 55954,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r02-full-bridge/report.json"
+    },
+    {
+      "oid": "f57c162bcb17e8c3065042d1db265e98c57ca17d",
+      "type": "blob",
+      "rawBytes": 217563,
+      "previousLooseBytes": 55613,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r01-full-bridge/report.json"
+    },
+    {
+      "oid": "74afa05fce30ccfa2d670022f5aad50188e5b691",
+      "type": "blob",
+      "rawBytes": 215178,
+      "previousLooseBytes": 24155,
+      "path": "lookdev/scene10-support207/geometry-audit-r06.json"
+    },
+    {
+      "oid": "91c941ccd7b3ae8d8f137ae189a833e674d9024c",
+      "type": "blob",
+      "rawBytes": 215174,
+      "previousLooseBytes": 24131,
+      "path": "lookdev/scene10-support207/geometry-audit-r05.json"
+    },
+    {
+      "oid": "a8102dda0e68820762c481c41993c4e84e5e943c",
+      "type": "blob",
+      "rawBytes": 215163,
+      "previousLooseBytes": 215251,
+      "path": "lookdev/scene04-spatial188/source-snapshots/baseline-mass164-r04.tgz"
+    },
+    {
+      "oid": "a4ab44085e6261dbfdf6f4e9b4717ab01a0896d6",
+      "type": "blob",
+      "rawBytes": 211264,
+      "previousLooseBytes": 55358,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04/report.json"
+    },
+    {
+      "oid": "ef739aa496aa7f7c3352742d465c95150e200990",
+      "type": "blob",
+      "rawBytes": 211247,
+      "previousLooseBytes": 55323,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04-tower-bays/report.json"
+    },
+    {
+      "oid": "650378adc3207dcb55890c6da8b974bc9161301e",
+      "type": "blob",
+      "rawBytes": 209058,
+      "previousLooseBytes": 54630,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r03/report.json"
+    },
+    {
+      "oid": "e1c51d3f29612f2772f492e51c540316cf5794a2",
+      "type": "blob",
+      "rawBytes": 209041,
+      "previousLooseBytes": 54608,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r03-tower-bays/report.json"
+    },
+    {
+      "oid": "5ee114ba86ea0fc930fb0bef39bde5703f1bbbe7",
+      "type": "blob",
+      "rawBytes": 208334,
+      "previousLooseBytes": 54268,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r02/report.json"
+    },
+    {
+      "oid": "012968ed68c0224d08845def991537461ddb0ca6",
+      "type": "blob",
+      "rawBytes": 208317,
+      "previousLooseBytes": 54250,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r02-tower-bays/report.json"
+    },
+    {
+      "oid": "84bd83b487ad73a9db08d67e45ec2de87192b5c8",
+      "type": "blob",
+      "rawBytes": 207890,
+      "previousLooseBytes": 53804,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r05/report.json"
+    },
+    {
+      "oid": "7e74e7cf43608c888c31aa26a3468dcca1b60648",
+      "type": "blob",
+      "rawBytes": 207873,
+      "previousLooseBytes": 53798,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r05-tower-bays/report.json"
+    },
+    {
+      "oid": "1132df62d3cb48b9c0af5f430e64bfed5b883a3b",
+      "type": "blob",
+      "rawBytes": 205634,
+      "previousLooseBytes": 14481,
+      "path": "lookdev/scene09-rebuild221/r01-bridge-geometry-proof.json"
+    },
+    {
+      "oid": "0cb6324a1173f1eac8ac4ad0236219a13a34eabd",
+      "type": "blob",
+      "rawBytes": 201666,
+      "previousLooseBytes": 51356,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r01/report.json"
+    },
+    {
+      "oid": "cfdd7202f716535f9efb3f5013cfc335d558c755",
+      "type": "blob",
+      "rawBytes": 201650,
+      "previousLooseBytes": 51336,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r01-tower-bays/report.json"
+    },
+    {
+      "oid": "f05627ef1694b6a92fcf0528a6f84594ed6bfe69",
+      "type": "blob",
+      "rawBytes": 198601,
+      "previousLooseBytes": 198333,
+      "path": "lookdev/scene02-rebuild210/analysis-reference-panel.png"
+    },
+    {
+      "oid": "bf31854c5bd3ed772304e972a09a377ba56397bc",
+      "type": "blob",
+      "rawBytes": 194608,
+      "previousLooseBytes": 24313,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r02-gable-audit-20261023/report.json"
+    },
+    {
+      "oid": "469904ebcb7b83523db73913a19c349528105ff8",
+      "type": "blob",
+      "rawBytes": 192420,
+      "previousLooseBytes": 73334,
+      "path": "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_decoder.wasm"
+    },
+    {
+      "oid": "92a3a6e17efd6a95429b0062d8c71978a706653d",
+      "type": "blob",
+      "rawBytes": 188945,
+      "previousLooseBytes": 189023,
+      "path": "lookdev/scene02-rebuild210/analysis-r06-panel.png"
+    },
+    {
+      "oid": "72579558644285ac1752e7f76e4a7a6b568b1f7c",
+      "type": "blob",
+      "rawBytes": 188583,
+      "previousLooseBytes": 22026,
+      "path": "lookdev/scene10-support207/geometry-audit-r04.json"
+    },
+    {
+      "oid": "d19e01a5a3129f6ed6b1712eb613852574200ed5",
+      "type": "blob",
+      "rawBytes": 187094,
+      "previousLooseBytes": 26313,
+      "path": "lookdev/scene06-low-shot189/handoff189.json"
+    },
+    {
+      "oid": "0f91672482bcba4b76e6337cd9c1aa5104a6a34c",
+      "type": "blob",
+      "rawBytes": 186731,
+      "previousLooseBytes": 26009,
+      "path": "lookdev/scene06-low-shot189/r01-handoff189.json"
+    },
+    {
+      "oid": "725bd9a168d8809f5cba43f2def4597e93afc822",
+      "type": "blob",
+      "rawBytes": 181370,
+      "previousLooseBytes": 21955,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r03-low-3q-20261023/report.json"
+    },
+    {
+      "oid": "4e0a2888c7d4de48ee4e799d3810cfda6f74ed6b",
+      "type": "blob",
+      "rawBytes": 181361,
+      "previousLooseBytes": 21928,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r04-low-3q-20261023/report.json"
+    },
+    {
+      "oid": "89f5036e6ca522f438f549b600951fc370099109",
+      "type": "blob",
+      "rawBytes": 181360,
+      "previousLooseBytes": 21954,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r05-low-3q-20261023/report.json"
+    },
+    {
+      "oid": "3f0b4d242d8eb5944540f64ccc4a4d1d98e72915",
+      "type": "blob",
+      "rawBytes": 181052,
+      "previousLooseBytes": 21861,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r02-low-3q-20261023/report.json"
+    },
+    {
+      "oid": "0705819b4924a7249361931e25bf8dcf8b91855d",
+      "type": "blob",
+      "rawBytes": 180160,
+      "previousLooseBytes": 22326,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r10-toro-low-20261024/report.json"
+    },
+    {
+      "oid": "4de1cf1e3d234c5f384dad91c4d2468f5c4e420e",
+      "type": "blob",
+      "rawBytes": 179940,
+      "previousLooseBytes": 22359,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r09-toro-low-20261024/report.json"
+    },
+    {
+      "oid": "9d6b1c9104b3955ba8ff79bbc8a9c6eae2a830fc",
+      "type": "blob",
+      "rawBytes": 179670,
+      "previousLooseBytes": 22122,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r08-toro-low-20261024/report.json"
+    },
+    {
+      "oid": "46353e4bface0fcea98d5f8165b1901bccd16afb",
+      "type": "blob",
+      "rawBytes": 179592,
+      "previousLooseBytes": 172359,
+      "path": "qa/ten-reference/working-model-review-20261023-e/player-actual-scene06-lighting-reference.png"
+    },
+    {
+      "oid": "c26218715f53d2f82e529ee1f04fe048c69042ee",
+      "type": "blob",
+      "rawBytes": 179323,
+      "previousLooseBytes": 21714,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r01-low-3q-20261023/report.json"
+    },
+    {
+      "oid": "7e0cde00e48c8238106d52f78ce4afb650b5e337",
+      "type": "blob",
+      "rawBytes": 178057,
+      "previousLooseBytes": 21674,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r06-low-3q-20261024/report.json"
+    },
+    {
+      "oid": "44f7d653b3a27366850c70055a26a9ffc1b0ad3f",
+      "type": "blob",
+      "rawBytes": 176126,
+      "previousLooseBytes": 175967,
+      "path": "lookdev/scene03-rebuild211/reference3-wood-1254-detail.jpg"
+    },
+    {
+      "oid": "4459ef377d7f2125a1c2603f61aa2b9d7558df67",
+      "type": "blob",
+      "rawBytes": 175868,
+      "previousLooseBytes": 175941,
+      "path": "lookdev/scene10-mass183/source-snapshots/mass183-r01.tgz"
+    },
+    {
+      "oid": "cc0fb630c31a3f2bbbafc39dfd84c3f95ccd03d8",
+      "type": "blob",
+      "rawBytes": 173735,
+      "previousLooseBytes": 173808,
+      "path": "lookdev/scene10-mass183/source-snapshots/baseline-r142-r07.tgz"
+    },
+    {
+      "oid": "b1e97b11f5b11fd76e0f4e5862074b3a271849a0",
+      "type": "blob",
+      "rawBytes": 159557,
+      "previousLooseBytes": 21661,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r14-low-front-20261024/report.json"
+    },
+    {
+      "oid": "2b2994cc585a915b81a9239ab4ada787ca50e231",
+      "type": "blob",
+      "rawBytes": 159553,
+      "previousLooseBytes": 21562,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-low-front-20261024/report.json"
+    },
+    {
+      "oid": "ec24989c882f69c6ca14e3fc1b5f47f0c3090e32",
+      "type": "blob",
+      "rawBytes": 159458,
+      "previousLooseBytes": 21515,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r13-low-front-20261024/report.json"
+    },
+    {
+      "oid": "9566751d3b566a585410b47b08c664373d492343",
+      "type": "blob",
+      "rawBytes": 159448,
+      "previousLooseBytes": 21523,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r12-low-front-20261024/report.json"
+    },
+    {
+      "oid": "e1938dc8143cb007d0dfb5ba6d0090fc142d0508",
+      "type": "blob",
+      "rawBytes": 158240,
+      "previousLooseBytes": 21307,
+      "path": "qa/ten-reference/03/iteration-scene03-rebuild211-r11-low-front-20261024/report.json"
+    },
+    {
+      "oid": "ad469460f76cc7c50303c9fc3fb05b6faba7743c",
+      "type": "blob",
+      "rawBytes": 145610,
+      "previousLooseBytes": 33412,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r08/report.json"
+    },
+    {
+      "oid": "c16c3f1608ddbed0d3958ba004beb5d778c0bb40",
+      "type": "blob",
+      "rawBytes": 145605,
+      "previousLooseBytes": 33384,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r09/report.json"
+    },
+    {
+      "oid": "6a4326410007263f6f45b626479ed6481afd09d5",
+      "type": "blob",
+      "rawBytes": 145226,
+      "previousLooseBytes": 33206,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r07/report.json"
+    },
+    {
+      "oid": "b3a301df873393530ef8a7b97187b80b81f489ee",
+      "type": "blob",
+      "rawBytes": 144878,
+      "previousLooseBytes": 33070,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r06/report.json"
+    },
+    {
+      "oid": "2c14119a09d21a272f99948223c1d0d296a4bc78",
+      "type": "blob",
+      "rawBytes": 141818,
+      "previousLooseBytes": 32439,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r05/report.json"
+    },
+    {
+      "oid": "f3782fc55f5ce1a8bce67641ca90371835750d89",
+      "type": "blob",
+      "rawBytes": 139288,
+      "previousLooseBytes": 31370,
+      "path": ""
+    },
+    {
+      "oid": "c32abaa8f143319b75ad075ef76affdccdd893f7",
+      "type": "blob",
+      "rawBytes": 137542,
+      "previousLooseBytes": 12098,
+      "path": "lookdev/scene02-rebuild210/geometry210-r01.json"
+    },
+    {
+      "oid": "dc63d3c89148f3836b899ec8a8a2c7d8022f9c53",
+      "type": "blob",
+      "rawBytes": 136286,
+      "previousLooseBytes": 136349,
+      "path": "lookdev/scene06-low-shot189/analysis-r01-face-crop189.png"
+    },
+    {
+      "oid": "711cd3305680c8d729081318bdc41c06e58fbb4a",
+      "type": "blob",
+      "rawBytes": 133076,
+      "previousLooseBytes": 23431,
+      "path": "qa/ten-reference/08/iteration-scene08-spatial191-r06/report.json"
+    },
+    {
+      "oid": "d43ee568b6584c298d1d98b99c1fbb8579f24da1",
+      "type": "blob",
+      "rawBytes": 132934,
+      "previousLooseBytes": 9038,
+      "path": "lookdev/scene05-light196/geometry196-r04-final.json"
+    },
+    {
+      "oid": "3da7ec0b3e4a5822dcfe2c24b8807869c72763fc",
+      "type": "blob",
+      "rawBytes": 130436,
+      "previousLooseBytes": 8747,
+      "path": "lookdev/scene05-light196/geometry196-r01.json"
+    },
+    {
+      "oid": "8b4f2a8053f41501ee849db681972321c2ee7db2",
+      "type": "blob",
+      "rawBytes": 130436,
+      "previousLooseBytes": 8747,
+      "path": "lookdev/scene05-light196/geometry196-r04.json"
+    },
+    {
+      "oid": "222160a4c54755ba3c78c2b214a564e202a07083",
+      "type": "blob",
+      "rawBytes": 130436,
+      "previousLooseBytes": 8747,
+      "path": "lookdev/scene05-light196/geometry196-r01-final.json"
+    },
+    {
+      "oid": "8938c8c1bde95b74913bde1c073171c0d2b4b123",
+      "type": "blob",
+      "rawBytes": 129039,
+      "previousLooseBytes": 29282,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r01-full-plan-side/report.json"
+    },
+    {
+      "oid": "fa37cfc1b1779b74da27a37beb8c24c22dd75867",
+      "type": "blob",
+      "rawBytes": 128722,
+      "previousLooseBytes": 8392,
+      "path": "lookdev/scene05-detail190/geometry190-r04.json"
+    },
+    {
+      "oid": "5cc4b1e885f932563bb076ecbda22629c761d6b0",
+      "type": "blob",
+      "rawBytes": 128445,
+      "previousLooseBytes": 33832,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-low-veranda/report.json"
+    },
+    {
+      "oid": "8add8c2913451e18634ffc50e87bc3b0069937a4",
+      "type": "blob",
+      "rawBytes": 128358,
+      "previousLooseBytes": 33737,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r11-low-veranda/report.json"
+    },
+    {
+      "oid": "39491ece0fbb375f224c37754fe1073c8014dbf1",
+      "type": "blob",
+      "rawBytes": 128353,
+      "previousLooseBytes": 33821,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-bank-waterline/report.json"
+    },
+    {
+      "oid": "5f8d9bd1db82c6c82588b559b14c85692cd5ac67",
+      "type": "blob",
+      "rawBytes": 128304,
+      "previousLooseBytes": 127954,
+      "path": "lookdev/scene03-rebuild211/reference-bearing-crop.jpg"
+    },
+    {
+      "oid": "9f56e9d7cd61de016f0e620c896691b7ec537336",
+      "type": "blob",
+      "rawBytes": 128283,
+      "previousLooseBytes": 33747,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r11-bank-waterline/report.json"
+    },
+    {
+      "oid": "4f7ae00ddbcc6e2e95988c6671fe6a673a83384b",
+      "type": "blob",
+      "rawBytes": 127351,
+      "previousLooseBytes": 30896,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r04/report.json"
+    },
+    {
+      "oid": "32552d06c402eebdc049e40b1a43f74a1e94391d",
+      "type": "blob",
+      "rawBytes": 126470,
+      "previousLooseBytes": 126528,
+      "path": "lookdev/scene02-spatial186/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "0a75ccc5073ce4fe4624612a941fac4f698636eb",
+      "type": "blob",
+      "rawBytes": 126215,
+      "previousLooseBytes": 126273,
+      "path": "lookdev/scene02-spatial186/r05-source-scripts.tgz"
+    },
+    {
+      "oid": "7c8993d203f600bce7e4f043c3043eb70f7fcccf",
+      "type": "blob",
+      "rawBytes": 126074,
+      "previousLooseBytes": 33174,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r10-low-veranda/report.json"
+    },
+    {
+      "oid": "d7aa7f2aedfe099639f371b024de40bd8508e47d",
+      "type": "blob",
+      "rawBytes": 125999,
+      "previousLooseBytes": 33209,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r10-bank-waterline/report.json"
+    },
+    {
+      "oid": "4653a0c10a1d3c630bdfedd6d37fce0d6a676f71",
+      "type": "blob",
+      "rawBytes": 125695,
+      "previousLooseBytes": 125753,
+      "path": "lookdev/scene02-spatial186/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "9ddff99b22b920f9b53d5e89e660f4a2cd1d461a",
+      "type": "blob",
+      "rawBytes": 125314,
+      "previousLooseBytes": 125372,
+      "path": "lookdev/scene02-spatial186/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "c8fcdc1a3320d8ffd90313dd7d48d0d871ffa231",
+      "type": "blob",
+      "rawBytes": 123858,
+      "previousLooseBytes": 32375,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r07-low-side/report.json"
+    },
+    {
+      "oid": "429d1e6503cc1c5b20b6299a9d8d2733309a6744",
+      "type": "blob",
+      "rawBytes": 123858,
+      "previousLooseBytes": 32345,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r08-low-side/report.json"
+    },
+    {
+      "oid": "9ec42ffcac76e4b842cd69d1f3ceb7de51710a77",
+      "type": "blob",
+      "rawBytes": 123285,
+      "previousLooseBytes": 32239,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r06-low-side/report.json"
+    },
+    {
+      "oid": "d523a9189eebce2cdd35aa384cf556c34254a00b",
+      "type": "blob",
+      "rawBytes": 121634,
+      "previousLooseBytes": 29600,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r03/report.json"
+    },
+    {
+      "oid": "86e60e4926260f34d569d672956b4d4ddb888f9c",
+      "type": "blob",
+      "rawBytes": 119132,
+      "previousLooseBytes": 31551,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r04-low3q/report.json"
+    },
+    {
+      "oid": "c55d2f43dd6f54d65f88698facc1efedbd62637b",
+      "type": "blob",
+      "rawBytes": 119115,
+      "previousLooseBytes": 31528,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r04-waterline/report.json"
+    },
+    {
+      "oid": "55825a65201498610d30d55d4598a29df2add8b5",
+      "type": "blob",
+      "rawBytes": 118777,
+      "previousLooseBytes": 118835,
+      "path": "lookdev/scene02-spatial186/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "1f76a6b2043a9bda0b7d0e730cf1c376ed05e458",
+      "type": "blob",
+      "rawBytes": 118406,
+      "previousLooseBytes": 31351,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r03-low3q/report.json"
+    },
+    {
+      "oid": "4b4f60b7beafd690f327caae359550fe75b8f3d4",
+      "type": "blob",
+      "rawBytes": 118389,
+      "previousLooseBytes": 31357,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r03-waterline/report.json"
+    },
+    {
+      "oid": "bb00f916e3044df81200baac324e1eab63381023",
+      "type": "blob",
+      "rawBytes": 118102,
+      "previousLooseBytes": 31299,
+      "path": "qa/ten-reference/02/iteration-scene02-rebuild210-r02-waterline/report.json"
+    },
+    {
+      "oid": "6dba801be4484588c673f119ea23047649167c7a",
+      "type": "blob",
+      "rawBytes": 117860,
+      "previousLooseBytes": 117689,
+      "path": "lookdev/scene06-altar198/reference-study/photo-table-platform.png"
+    },
+    {
+      "oid": "640aa7ed3bae81c19d1acb8604681f4d51732070",
+      "type": "blob",
+      "rawBytes": 115567,
+      "previousLooseBytes": 27915,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r02/report.json"
+    },
+    {
+      "oid": "8144fcdb6380f02214de659f9657f55b1a53d25a",
+      "type": "blob",
+      "rawBytes": 115024,
+      "previousLooseBytes": 115077,
+      "path": "lookdev/scene02-spatial186/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "c4f32cd2476ffe2a9e2265a7c5e1a2d3c921e4a6",
+      "type": "blob",
+      "rawBytes": 114780,
+      "previousLooseBytes": 31094,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r04-low3q/report.json"
+    },
+    {
+      "oid": "9fd2cb5cf43d8c96abe22de7958a1381a032a5c2",
+      "type": "blob",
+      "rawBytes": 113678,
+      "previousLooseBytes": 30739,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r03-low3q/report.json"
+    },
+    {
+      "oid": "e61ee023a692a4c8b7fc2c795ebe0fd75d31097d",
+      "type": "blob",
+      "rawBytes": 113316,
+      "previousLooseBytes": 30572,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r02-low3q/report.json"
+    },
+    {
+      "oid": "d51ef5101a76df2c28cf05c6bb4e8185e7076ebc",
+      "type": "blob",
+      "rawBytes": 113092,
+      "previousLooseBytes": 10706,
+      "path": "lookdev/scene02-rebuild210/geometry210-r04.json"
+    },
+    {
+      "oid": "8f98bf36b8f9301dc8b30faec325310f6706a4e2",
+      "type": "blob",
+      "rawBytes": 112804,
+      "previousLooseBytes": 30265,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r05-low3q/report.json"
+    },
+    {
+      "oid": "449d860b71837fa2bfa781bad4197830b9ad682f",
+      "type": "blob",
+      "rawBytes": 112501,
+      "previousLooseBytes": 108350,
+      "path": "lookdev/scene05-terminal204/astra-r10/reference-terminal-inspection.png"
+    },
+    {
+      "oid": "fc94cbc4d6055b60da46bed593b2e25fd353ca20",
+      "type": "blob",
+      "rawBytes": 112440,
+      "previousLooseBytes": 10373,
+      "path": "lookdev/scene02-rebuild210/geometry210-r02.json"
+    },
+    {
+      "oid": "5329c85b98077c481f05fd3bbade9590033981df",
+      "type": "blob",
+      "rawBytes": 112073,
+      "previousLooseBytes": 10507,
+      "path": "lookdev/scene02-rebuild210/geometry210-r03.json"
+    },
+    {
+      "oid": "7013995bf44921be20de0e8cdf16e87091880da0",
+      "type": "blob",
+      "rawBytes": 111943,
+      "previousLooseBytes": 10314,
+      "path": "lookdev/scene02-rebuild210/geometry210-r01b.json"
+    },
+    {
+      "oid": "e60a4d1cba2471c9888627f89ea8951da554e943",
+      "type": "blob",
+      "rawBytes": 111446,
+      "previousLooseBytes": 14943,
+      "path": "lookdev/export-storage216/historical-input-locations.json"
+    },
+    {
+      "oid": "2be0aca7ea3b0dcd8352b9d15301a22e4ccd448a",
+      "type": "blob",
+      "rawBytes": 109350,
+      "previousLooseBytes": 28867,
+      "path": "qa/ten-reference/02/iteration-scene02-spatial186-r01-low3q/report.json"
+    },
+    {
+      "oid": "6813f1e4d081340f1cdae38d70dc458b64e71ee6",
+      "type": "blob",
+      "rawBytes": 106982,
+      "previousLooseBytes": 26686,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r01/report.json"
+    },
+    {
+      "oid": "009194d9d874c86882a45a562d6374ca03215e92",
+      "type": "blob",
+      "rawBytes": 106793,
+      "previousLooseBytes": 106630,
+      "path": "lookdev/scene01-structure208/reference-bridge.png"
+    },
+    {
+      "oid": "cd019e18a9dd2271038ab025588e68c4e87b1f80",
+      "type": "blob",
+      "rawBytes": 105797,
+      "previousLooseBytes": 10625,
+      "path": "lookdev/scene02-rebuild210/geometry210-r11.json"
+    },
+    {
+      "oid": "cc608bec8b3e28c2d489c188fa27a6f2cecb0c56",
+      "type": "blob",
+      "rawBytes": 105677,
+      "previousLooseBytes": 10568,
+      "path": "lookdev/scene02-rebuild210/geometry210-r09.json"
+    },
+    {
+      "oid": "9a8de64fb52b01ce902074981d5e70c0f4e1b8a5",
+      "type": "blob",
+      "rawBytes": 103098,
+      "previousLooseBytes": 102733,
+      "path": "lookdev/scene05-terminal204/search/56bfb625b3fe409096d50afabc1c042d-creator-preview.jpg"
+    },
+    {
+      "oid": "adb2c02516542c2199a65391a5b44fc693baa0ec",
+      "type": "blob",
+      "rawBytes": 96764,
+      "previousLooseBytes": 21873,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r08-pick/report.json"
+    },
+    {
+      "oid": "d220f067a8645fc75a36862ae603aa577b387d97",
+      "type": "blob",
+      "rawBytes": 96539,
+      "previousLooseBytes": 22290,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r07-pick/report.json"
+    },
+    {
+      "oid": "c1179ec6538f018a00f622b37d998f5dddc77725",
+      "type": "blob",
+      "rawBytes": 95335,
+      "previousLooseBytes": 23237,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/report.json"
+    },
+    {
+      "oid": "07a4076fccce1f5d328929562ef864b7ee6b55ed",
+      "type": "blob",
+      "rawBytes": 95203,
+      "previousLooseBytes": 23156,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-full-hero/report.json"
+    },
+    {
+      "oid": "407516b7899f5bc7cce2aa3aeec27c6c24340a2b",
+      "type": "blob",
+      "rawBytes": 95203,
+      "previousLooseBytes": 23195,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r05-full-hero/report.json"
+    },
+    {
+      "oid": "c1dd6a473e248e37de0aa53ccdbb7d92b12e50d1",
+      "type": "blob",
+      "rawBytes": 94637,
+      "previousLooseBytes": 23005,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r04-full-hero/report.json"
+    },
+    {
+      "oid": "ee9b366910bbd7a9003640bda9df617135ded884",
+      "type": "blob",
+      "rawBytes": 94405,
+      "previousLooseBytes": 22898,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r03-full-hero/report.json"
+    },
+    {
+      "oid": "01b2bbb4c90aa4d64dfa3a1b2c59fafbacf31b28",
+      "type": "blob",
+      "rawBytes": 94327,
+      "previousLooseBytes": 22870,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r02-full-hero/report.json"
+    },
+    {
+      "oid": "c10f3f3569cbb942633fa5b4deb4956a537f309b",
+      "type": "blob",
+      "rawBytes": 93605,
+      "previousLooseBytes": 93430,
+      "path": "lookdev/scene03-rebuild211/reference-toro-crop.jpg"
+    },
+    {
+      "oid": "f45375c5077e14b151bd0658aabbc640c0c4e0a2",
+      "type": "blob",
+      "rawBytes": 91927,
+      "previousLooseBytes": 22042,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r06-plan-side/report.json"
+    },
+    {
+      "oid": "7fa1ccc815f668c2c9d753b978133396d3d9a182",
+      "type": "blob",
+      "rawBytes": 91431,
+      "previousLooseBytes": 21755,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r06-full-hero/report.json"
+    },
+    {
+      "oid": "7eeaa052c36dd644457e51055fb663675a624d25",
+      "type": "blob",
+      "rawBytes": 91361,
+      "previousLooseBytes": 21730,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r05-full-hero/report.json"
+    },
+    {
+      "oid": "3bca3c9c16f052b4d9339ade0d0c3ac656ada478",
+      "type": "blob",
+      "rawBytes": 91359,
+      "previousLooseBytes": 21757,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r03-full-hero/report.json"
+    },
+    {
+      "oid": "b42e32e6c1bd1fa2b81973c301546813e118f2c5",
+      "type": "blob",
+      "rawBytes": 91359,
+      "previousLooseBytes": 21715,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r04-full-hero/report.json"
+    },
+    {
+      "oid": "ea0b58b2ba6966f52e04d320d783d8933cc04cae",
+      "type": "blob",
+      "rawBytes": 90220,
+      "previousLooseBytes": 37079,
+      "path": "reconstructions/scene-08/src/scene.js"
+    },
+    {
+      "oid": "80e223f5b58b33ad0a001f3f9549419c97f70939",
+      "type": "blob",
+      "rawBytes": 90151,
+      "previousLooseBytes": 21231,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r02-full-hero/report.json"
+    },
+    {
+      "oid": "e24d2c94cd84f349ce5b1e6681634ef081f2ba72",
+      "type": "blob",
+      "rawBytes": 89899,
+      "previousLooseBytes": 8701,
+      "path": "lookdev/scene01-structure208/geometry208-r03b.json"
+    },
+    {
+      "oid": "3ef2fe5c1dedf4f51e094895ef365397c2b11158",
+      "type": "blob",
+      "rawBytes": 89898,
+      "previousLooseBytes": 8695,
+      "path": "lookdev/scene01-structure208/geometry208-r05.json"
+    },
+    {
+      "oid": "43647988fe9bbd9520ffb9e87829a772b86951b0",
+      "type": "blob",
+      "rawBytes": 89898,
+      "previousLooseBytes": 8692,
+      "path": "lookdev/scene01-structure208/geometry208-r04.json"
+    },
+    {
+      "oid": "962e5df1cff5924b1d70eed53c9a6952cc4889c1",
+      "type": "blob",
+      "rawBytes": 89898,
+      "previousLooseBytes": 8689,
+      "path": "lookdev/scene01-structure208/geometry208-r06.json"
+    },
+    {
+      "oid": "297548646392236b69830fabd1df5de60619dc21",
+      "type": "blob",
+      "rawBytes": 89585,
+      "previousLooseBytes": 14604,
+      "path": "lookdev/scene05-terminal204/search/primary-onigawara-ja.json"
+    },
+    {
+      "oid": "6c1700a6350d72da57a4eea6d2b255e23498c6ba",
+      "type": "blob",
+      "rawBytes": 88845,
+      "previousLooseBytes": 5722,
+      "path": "lookdev/scene05-detail190/geometry190-r03.json"
+    },
+    {
+      "oid": "3da329b32ffecc4e5c7f466b9f4f1bdf9379f0da",
+      "type": "blob",
+      "rawBytes": 88026,
+      "previousLooseBytes": 36202,
+      "path": "reconstructions/scene-08/src/scene.js"
+    },
+    {
+      "oid": "b6f2089144db2605ee0debaa010fe02587ae6906",
+      "type": "blob",
+      "rawBytes": 87849,
+      "previousLooseBytes": 36155,
+      "path": "reconstructions/scene-08/src/scene.js"
+    },
+    {
+      "oid": "93037a3a1bceb792970fb27816c29ad40cf4402e",
+      "type": "blob",
+      "rawBytes": 87643,
+      "previousLooseBytes": 20456,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r05-personal-nc/report.json"
+    },
+    {
+      "oid": "744b80b568d13ec573f32f74eb20c6ea4aea53f4",
+      "type": "blob",
+      "rawBytes": 87643,
+      "previousLooseBytes": 20445,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r04-personal-nc/report.json"
+    },
+    {
+      "oid": "ba66ecf0dd7dd155976fdba5511f3ef82a738e07",
+      "type": "blob",
+      "rawBytes": 87643,
+      "previousLooseBytes": 20413,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "37df9f386c012de1a522a8313740f2993cb625a5",
+      "type": "blob",
+      "rawBytes": 87642,
+      "previousLooseBytes": 20473,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r02-personal-nc/report.json"
+    },
+    {
+      "oid": "b821942cc30f4e779ca5df8f9998822e0c4f5b6c",
+      "type": "blob",
+      "rawBytes": 87642,
+      "previousLooseBytes": 20461,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r03-personal-nc/report.json"
+    },
+    {
+      "oid": "e0fac4b19b0a66a75f4cd0453b552cac16dee1ca",
+      "type": "blob",
+      "rawBytes": 87462,
+      "previousLooseBytes": 20387,
+      "path": "qa/ten-reference/06/iteration-scene06-j-integration217-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "46de8987e2d3f11bdc90f427a1a7f25e75cb821b",
+      "type": "blob",
+      "rawBytes": 85663,
+      "previousLooseBytes": 5513,
+      "path": "lookdev/scene05-detail190/geometry190-r01c.json"
+    },
+    {
+      "oid": "8fe384c54e516ea9e59847649d7b0513fe8aea9d",
+      "type": "blob",
+      "rawBytes": 85426,
+      "previousLooseBytes": 85473,
+      "path": "lookdev/scene08-rebuild213/r09-source-scripts.tgz"
+    },
+    {
+      "oid": "3b6e94ff0b04172c3b6b4e693cd7709cc517827e",
+      "type": "blob",
+      "rawBytes": 85402,
+      "previousLooseBytes": 5486,
+      "path": "lookdev/scene05-detail190/geometry190-r02.json"
+    },
+    {
+      "oid": "4a6e0f8bfbfe14b1fae749cb8a2df225079a599a",
+      "type": "blob",
+      "rawBytes": 84447,
+      "previousLooseBytes": 84494,
+      "path": "lookdev/scene08-rebuild213/r08-source-scripts.tgz"
+    },
+    {
+      "oid": "165803c3bc61c1ce38f60b2ae81fa88090122722",
+      "type": "blob",
+      "rawBytes": 84272,
+      "previousLooseBytes": 84319,
+      "path": "lookdev/scene08-rebuild213/r06-source-scripts.tgz"
+    },
+    {
+      "oid": "467e7a21ea591cf75fcf4aa0d866dc3d95f9cea2",
+      "type": "blob",
+      "rawBytes": 83885,
+      "previousLooseBytes": 83932,
+      "path": "lookdev/scene08-rebuild213/r07-source-scripts.tgz"
+    },
+    {
+      "oid": "64139b7aa9a4419f6c6a355857832697edbd49fa",
+      "type": "blob",
+      "rawBytes": 83836,
+      "previousLooseBytes": 5465,
+      "path": "lookdev/scene05-detail190/geometry190-r01.json"
+    },
+    {
+      "oid": "dc6525dcf1265411f860364abc10e3c986f8bf68",
+      "type": "blob",
+      "rawBytes": 83814,
+      "previousLooseBytes": 21055,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r04/report.json"
+    },
+    {
+      "oid": "d533f63768538b3a07080375b9179e447fbe2cec",
+      "type": "blob",
+      "rawBytes": 83808,
+      "previousLooseBytes": 5410,
+      "path": "lookdev/scene05-detail190/geometry190-r01b.json"
+    },
+    {
+      "oid": "9bc17d79963bae8d5b227b3e98bdcb9b813e1278",
+      "type": "blob",
+      "rawBytes": 83805,
+      "previousLooseBytes": 83852,
+      "path": "lookdev/scene08-rebuild213/r07a-source-scripts.tgz"
+    },
+    {
+      "oid": "b52a1813f35508a863d27476a83fd1f593d8cc91",
+      "type": "blob",
+      "rawBytes": 83759,
+      "previousLooseBytes": 83806,
+      "path": "lookdev/scene02-rebuild210/analysis-r04-lamp.png"
+    },
+    {
+      "oid": "d767ca43673f0762f4c8ca791c1b0b69cac275f9",
+      "type": "blob",
+      "rawBytes": 83531,
+      "previousLooseBytes": 83578,
+      "path": "lookdev/scene08-rebuild213/r05-source-scripts.tgz"
+    },
+    {
+      "oid": "c1715d90a79a06f68d1b1db5c2666b7087b7dde5",
+      "type": "blob",
+      "rawBytes": 82970,
+      "previousLooseBytes": 20992,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r03/report.json"
+    },
+    {
+      "oid": "2ed12e5972e8f666babef907507fce6c1eff976d",
+      "type": "blob",
+      "rawBytes": 82876,
+      "previousLooseBytes": 82923,
+      "path": "lookdev/scene08-rebuild213/r05a-source-scripts.tgz"
+    },
+    {
+      "oid": "9bc7976df1c5fd654e129aaa519452f45de4d6fe",
+      "type": "blob",
+      "rawBytes": 82848,
+      "previousLooseBytes": 20899,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r01/report.json"
+    },
+    {
+      "oid": "907202cafb595a076ea1cc7217649e43588773b9",
+      "type": "blob",
+      "rawBytes": 82846,
+      "previousLooseBytes": 20891,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r02/report.json"
+    },
+    {
+      "oid": "4c2d95acf923ba24d37bd211135300ca5123ec16",
+      "type": "blob",
+      "rawBytes": 82032,
+      "previousLooseBytes": 18651,
+      "path": "qa/ten-reference/06/iteration-scene06-combined206-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "0cf400c2f31428dff9ed887f4ffe6b5fd63aaf15",
+      "type": "blob",
+      "rawBytes": 80920,
+      "previousLooseBytes": 18195,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r06b-personal-nc/report.json"
+    },
+    {
+      "oid": "18695e43e30ef2b6c51edfe2873beb95829bf06f",
+      "type": "blob",
+      "rawBytes": 80735,
+      "previousLooseBytes": 19714,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r08-low3q/report.json"
+    },
+    {
+      "oid": "aedda97a2915e6e25298ac48ca34beb3291da421",
+      "type": "blob",
+      "rawBytes": 80731,
+      "previousLooseBytes": 19703,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r09-low3q/report.json"
+    },
+    {
+      "oid": "702d1a12891623923e31cb35b40dfb30b73bb3c9",
+      "type": "blob",
+      "rawBytes": 80629,
+      "previousLooseBytes": 11423,
+      "path": "lookdev/scene06-sculpture199/baseline-source-identity.json"
+    },
+    {
+      "oid": "010a1de2ee12f547f8acbd386225e38a12971b1b",
+      "type": "blob",
+      "rawBytes": 80543,
+      "previousLooseBytes": 19616,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r07-low3q/report.json"
+    },
+    {
+      "oid": "46681549cfdfe4d8b51d5522b0375236918d0551",
+      "type": "blob",
+      "rawBytes": 80369,
+      "previousLooseBytes": 19538,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r06-low3q/report.json"
+    },
+    {
+      "oid": "627539e7cd514c8cf803f73f909a66365324fc2d",
+      "type": "blob",
+      "rawBytes": 79155,
+      "previousLooseBytes": 79197,
+      "path": "lookdev/scene08-rebuild213/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "9e717fad947b64cf0a6f426fbe340d59b45fe6dc",
+      "type": "blob",
+      "rawBytes": 78839,
+      "previousLooseBytes": 19200,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r05-low3q/report.json"
+    },
+    {
+      "oid": "e6613a584b13f2c426d36f0177f689290f7d47c3",
+      "type": "blob",
+      "rawBytes": 78620,
+      "previousLooseBytes": 78662,
+      "path": "lookdev/scene08-rebuild213/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "04166ea9c0fb3a143d979cfae82414ca99216b06",
+      "type": "blob",
+      "rawBytes": 78267,
+      "previousLooseBytes": 13615,
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r04-20261023/report.json"
+    },
+    {
+      "oid": "d445b3c8bce358ac6ce4314139417f83fa343804",
+      "type": "blob",
+      "rawBytes": 78039,
+      "previousLooseBytes": 19605,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-20261024/report.json"
+    },
+    {
+      "oid": "339ac50f1b5df5154811f19cf9cb753bbc59889e",
+      "type": "blob",
+      "rawBytes": 76970,
+      "previousLooseBytes": 19231,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-20261024/report.json"
+    },
+    {
+      "oid": "5696206ddfef15220289a573fd6c8d0572eff2ec",
+      "type": "blob",
+      "rawBytes": 76544,
+      "previousLooseBytes": 76586,
+      "path": "lookdev/scene08-rebuild213/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "dbe637a889166fa6c628f5674367b903ff03353d",
+      "type": "blob",
+      "rawBytes": 76280,
+      "previousLooseBytes": 17310,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r05-personal-nc/report.json"
+    },
+    {
+      "oid": "cc45f95f4aa345e2419241740bae60c1a773c51f",
+      "type": "blob",
+      "rawBytes": 74753,
+      "previousLooseBytes": 18059,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r02-20261024/report.json"
+    },
+    {
+      "oid": "f1ba70a9f89a695c9409e54506fbed149deeb223",
+      "type": "blob",
+      "rawBytes": 74722,
+      "previousLooseBytes": 74764,
+      "path": "lookdev/scene08-rebuild213/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "718fe1fc526bea64cf13ca58849602d056df3d51",
+      "type": "blob",
+      "rawBytes": 74404,
+      "previousLooseBytes": 74446,
+      "path": "lookdev/scene08-natural197/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "c19deebc8ce31fe54c1211ec66ee14aa070d383c",
+      "type": "blob",
+      "rawBytes": 73783,
+      "previousLooseBytes": 14490,
+      "path": "qa/ten-reference/08/iteration-scene08-spatial191-r06-low3q/report.json"
+    },
+    {
+      "oid": "5703df6713bdf7540d1edb1e9365556df955dea5",
+      "type": "blob",
+      "rawBytes": 73373,
+      "previousLooseBytes": 13026,
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r03-20261023/report.json"
+    },
+    {
+      "oid": "66b18b71e54fca0c4b2a9ebddc668e94205dc014",
+      "type": "blob",
+      "rawBytes": 73171,
+      "previousLooseBytes": 7979,
+      "path": "lookdev/scene01-structure208/geometry208-r03.json"
+    },
+    {
+      "oid": "d804dcd628cecd29b278d99869649bd7c3c1d523",
+      "type": "blob",
+      "rawBytes": 73087,
+      "previousLooseBytes": 12989,
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r01-20261023/report.json"
+    },
+    {
+      "oid": "deef0ed6c6347c53a232ed49c4cfb5a0d1ec08da",
+      "type": "blob",
+      "rawBytes": 73061,
+      "previousLooseBytes": 73103,
+      "path": "lookdev/scene08-natural197/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "ce5db5289552374f0060ec0f45915955eed3b374",
+      "type": "blob",
+      "rawBytes": 72629,
+      "previousLooseBytes": 72671,
+      "path": "lookdev/scene08-natural197/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "d0e12ad6018e40c8167c2fff7e6f6637d72e1597",
+      "type": "blob",
+      "rawBytes": 72143,
+      "previousLooseBytes": 72185,
+      "path": "lookdev/scene08-natural197/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "a2b7b29b323ae45b2b2543d28e27d337aeeefda1",
+      "type": "blob",
+      "rawBytes": 71518,
+      "previousLooseBytes": 18418,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r04-low3q/report.json"
+    },
+    {
+      "oid": "88df0fea63440282fd9e81d3a730ba7e1c2393d1",
+      "type": "blob",
+      "rawBytes": 70921,
+      "previousLooseBytes": 70963,
+      "path": "lookdev/scene08-rebuild213/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "85e9c15992857e9322b2ebfa3f0ea8bec9036dfd",
+      "type": "blob",
+      "rawBytes": 70347,
+      "previousLooseBytes": 16770,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-material-inspection/report.json"
+    },
+    {
+      "oid": "81f6f482fa10559c2f6f2aaef844b0bb1be742e2",
+      "type": "blob",
+      "rawBytes": 69652,
+      "previousLooseBytes": 12399,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r01-20261024/report.json"
+    },
+    {
+      "oid": "db2309b7769d37cedac6e49faade98f434fd5a74",
+      "type": "blob",
+      "rawBytes": 69548,
+      "previousLooseBytes": 12410,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r12b-20261023/report.json"
+    },
+    {
+      "oid": "cb4a6dda812a276e6b97d5c455864748f71a212d",
+      "type": "blob",
+      "rawBytes": 69548,
+      "previousLooseBytes": 12332,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r12c-20261023/report.json"
+    },
+    {
+      "oid": "2ef14e364e2a731550eb1016b61831754b8bfc1f",
+      "type": "blob",
+      "rawBytes": 69372,
+      "previousLooseBytes": 69061,
+      "path": "lookdev/scene05-detail190/reference-mask-inspection.png"
+    },
+    {
+      "oid": "a693bb8b504fec83a7bbe6626407be7ef58c30a7",
+      "type": "blob",
+      "rawBytes": 68767,
+      "previousLooseBytes": 16093,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-faceplate-inspection/report.json"
+    },
+    {
+      "oid": "0d16d41e9be89c25cd2ef32a0094000903b19977",
+      "type": "blob",
+      "rawBytes": 68660,
+      "previousLooseBytes": 17756,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r03-low3q/report.json"
+    },
+    {
+      "oid": "f0b81f21f1b13f4f6cd39663b8998db0f94b8d3c",
+      "type": "blob",
+      "rawBytes": 68636,
+      "previousLooseBytes": 28210,
+      "path": "lookdev/scene10-support207/r06-source/src/main.js"
+    },
+    {
+      "oid": "166816081c8960d96d84eb7c1edbe9b1134c0962",
+      "type": "blob",
+      "rawBytes": 68233,
+      "previousLooseBytes": 68275,
+      "path": "lookdev/scene08-natural197/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "8ec6d1aff3540beb575d9f10ef43c6a7ae46c701",
+      "type": "blob",
+      "rawBytes": 68233,
+      "previousLooseBytes": 68275,
+      "path": "lookdev/scene08-spatial191/r06-source-scripts.tgz"
+    },
+    {
+      "oid": "e962670b55b702b267df1474b5566b1445e31e91",
+      "type": "blob",
+      "rawBytes": 67737,
+      "previousLooseBytes": 67779,
+      "path": "lookdev/scene08-spatial191/r05-source-scripts.tgz"
+    },
+    {
+      "oid": "5967f90ee08030c2f8efe3478663f05d02f74022",
+      "type": "blob",
+      "rawBytes": 67630,
+      "previousLooseBytes": 27775,
+      "path": "lookdev/scene10-support207/r05-source/src/main.js"
+    },
+    {
+      "oid": "9b93857f42c4569132ad001928d013dc30a544eb",
+      "type": "blob",
+      "rawBytes": 67506,
+      "previousLooseBytes": 12058,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r11-20261023/report.json"
+    },
+    {
+      "oid": "6f528e437611f3b3c2fa99d448986a3bb6130893",
+      "type": "blob",
+      "rawBytes": 67231,
+      "previousLooseBytes": 67273,
+      "path": "lookdev/scene08-spatial191/r04-source-scripts.tgz"
+    },
+    {
+      "oid": "0aa8794a08d2bc8912f4de64fa794ee8e54fe4ef",
+      "type": "blob",
+      "rawBytes": 66826,
+      "previousLooseBytes": 64554,
+      "path": "lookdev/scene05-terminal204/search/0087302e7b0849209b7e3b11eed94a0e-creator-preview.jpg"
+    },
+    {
+      "oid": "e4a1d33d92f39d0031151e2d51a59ba7d35d3f93",
+      "type": "blob",
+      "rawBytes": 66479,
+      "previousLooseBytes": 66521,
+      "path": "lookdev/scene02-rebuild210/analysis-r04-rail.png"
+    },
+    {
+      "oid": "857be22119bc766008fbefbfaf5e7616bad9214d",
+      "type": "blob",
+      "rawBytes": 66410,
+      "previousLooseBytes": 27461,
+      "path": "lookdev/scene10-natural193/r06-source/main.js"
+    },
+    {
+      "oid": "cdfcf52629359216d435b8c465721d22737f5dac",
+      "type": "blob",
+      "rawBytes": 66292,
+      "previousLooseBytes": 27400,
+      "path": "lookdev/scene10-natural193/r05-source/main.js"
+    },
+    {
+      "oid": "04dec9c7fb88e58a5c36ef585b162480590276fb",
+      "type": "blob",
+      "rawBytes": 66268,
+      "previousLooseBytes": 27396,
+      "path": "lookdev/scene10-natural193/r04a-source/main.js"
+    },
+    {
+      "oid": "01cc4a331c0ffa1234b2787b3cddfa81a8ff6476",
+      "type": "blob",
+      "rawBytes": 66027,
+      "previousLooseBytes": 27270,
+      "path": "lookdev/scene10-natural193/r01-failed-source/main.js"
+    },
+    {
+      "oid": "5cf763cc2800826a6991e4d8c07505948148e92e",
+      "type": "blob",
+      "rawBytes": 66004,
+      "previousLooseBytes": 10727,
+      "path": "lookdev/scene06-nc-adoption179/r01-adopted-source/exact-replay-map.json"
+    },
+    {
+      "oid": "ad094c5c3a90ca78c83993abada277702ab4d756",
+      "type": "blob",
+      "rawBytes": 65742,
+      "previousLooseBytes": 10772,
+      "path": "lookdev/scene06-nc-adoption179/r02-source/exact-replay-map.json"
+    },
+    {
+      "oid": "ab735d818611b93980f2fa27ccbbb58d6c414912",
+      "type": "blob",
+      "rawBytes": 65709,
+      "previousLooseBytes": 10694,
+      "path": "lookdev/scene06-nc-adoption179/r06-held-source/exact-replay-map.json"
+    },
+    {
+      "oid": "340b3876891e8431977e2c71e6b6071ec07797ba",
+      "type": "blob",
+      "rawBytes": 65626,
+      "previousLooseBytes": 16918,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r02-low3q/report.json"
+    },
+    {
+      "oid": "ddb3b35476a8117532d9913da405d1a424d1221c",
+      "type": "blob",
+      "rawBytes": 65589,
+      "previousLooseBytes": 10694,
+      "path": "lookdev/scene06-nc-adoption179/r05-source/exact-replay-map.json"
+    },
+    {
+      "oid": "70862218a921924ad2bb4638f157247bc8e648dd",
+      "type": "blob",
+      "rawBytes": 65589,
+      "previousLooseBytes": 10692,
+      "path": "lookdev/scene06-nc-adoption179/r04-source/exact-replay-map.json"
+    },
+    {
+      "oid": "b4e9d09be6e277c2c585b25bc724501f012e4721",
+      "type": "blob",
+      "rawBytes": 65223,
+      "previousLooseBytes": 26968,
+      "path": "lookdev/scene10-natural193/before/main.js"
+    },
+    {
+      "oid": "0f556194024804c2458a5bb0512b8927201bf440",
+      "type": "blob",
+      "rawBytes": 65127,
+      "previousLooseBytes": 65164,
+      "path": "lookdev/scene08-spatial191/r03-source-scripts.tgz"
+    },
+    {
+      "oid": "7ba96d168f3674b29d544d1cb1245d575ec36290",
+      "type": "blob",
+      "rawBytes": 64877,
+      "previousLooseBytes": 26823,
+      "path": "lookdev/scene10-support207/r04-source/src/main.js"
+    },
+    {
+      "oid": "fc33cd4cd0e6461b541c0a3c4af5fc016c8b0457",
+      "type": "blob",
+      "rawBytes": 64476,
+      "previousLooseBytes": 26651,
+      "path": "lookdev/scene10-support207/checkpoint-r03-source/src/main.js"
+    },
+    {
+      "oid": "e459d5a8ea793e95b579cc9f3c7e0cb22e3bb378",
+      "type": "blob",
+      "rawBytes": 64465,
+      "previousLooseBytes": 11426,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r10-20261023/report.json"
+    },
+    {
+      "oid": "eda10b1680a422a8566e09a768d4baaa74dddc54",
+      "type": "blob",
+      "rawBytes": 64464,
+      "previousLooseBytes": 11411,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r10-terminalclose-20261023/report.json"
+    },
+    {
+      "oid": "5eff598bce4138acce0f17422ee4b09041091a38",
+      "type": "blob",
+      "rawBytes": 64322,
+      "previousLooseBytes": 10834,
+      "path": "lookdev/scene06-nc-adoption179/r07-source/exact-replay-map.json"
+    },
+    {
+      "oid": "7fc44d39f11a17d29c030d65c580dce8946c6729",
+      "type": "blob",
+      "rawBytes": 64322,
+      "previousLooseBytes": 10825,
+      "path": "lookdev/scene06-nc-adoption179/r08-source/exact-replay-map.json"
+    },
+    {
+      "oid": "e05792650ddfc48fd36ccfab59c9f1711bdc8927",
+      "type": "blob",
+      "rawBytes": 64222,
+      "previousLooseBytes": 12419,
+      "path": "lookdev/scene06-altar198/r06b-source-identity.json"
+    },
+    {
+      "oid": "156102a0d03f76e43fccf2e44c12a7692a639dfa",
+      "type": "blob",
+      "rawBytes": 64026,
+      "previousLooseBytes": 26504,
+      "path": "lookdev/scene10-support207/r01-source/src/main.js"
+    },
+    {
+      "oid": "6a9157b662010fdfe3cb1c42a86203ead524ec84",
+      "type": "blob",
+      "rawBytes": 63956,
+      "previousLooseBytes": 63993,
+      "path": "lookdev/scene08-spatial191/r02-source-scripts.tgz"
+    },
+    {
+      "oid": "fb94040c2d011d0aba4aac9f1f017d712208554b",
+      "type": "blob",
+      "rawBytes": 63195,
+      "previousLooseBytes": 19520,
+      "path": "qa/ten-reference/06/iteration-scene06-j-integration217-low-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "f9d1b3d661d2736a201529d25cae0d22a9900833",
+      "type": "blob",
+      "rawBytes": 63169,
+      "previousLooseBytes": 19563,
+      "path": "qa/ten-reference/06/iteration-scene06-lotus222-r05-low3q-personal-nc/report.json"
+    },
+    {
+      "oid": "bc3b1ecfe68133e8ca5963a3e3578e0790b976e2",
+      "type": "blob",
+      "rawBytes": 63077,
+      "previousLooseBytes": 11433,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r09-terminalclose-20261023/report.json"
+    },
+    {
+      "oid": "530e6aecb27b62972933fb193f6b43342d8c1c5f",
+      "type": "blob",
+      "rawBytes": 63077,
+      "previousLooseBytes": 11441,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r09-20261023/report.json"
+    },
+    {
+      "oid": "58bf0ea23bb7768956207acb809745e6c6cfceb9",
+      "type": "blob",
+      "rawBytes": 62753,
+      "previousLooseBytes": 11292,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r08-terminalclose-20261023/report.json"
+    },
+    {
+      "oid": "22905fe152e6a01f0071305f444fc2498286bce1",
+      "type": "blob",
+      "rawBytes": 62753,
+      "previousLooseBytes": 11285,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r08-20261023/report.json"
+    },
+    {
+      "oid": "90d967055eb3cf8b041853ec6d91bf6ac0d0c705",
+      "type": "blob",
+      "rawBytes": 62567,
+      "previousLooseBytes": 11294,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r07-terminalclose-20261023/report.json"
+    },
+    {
+      "oid": "b8293e9872c14bbdac033a63b194688fcdd521af",
+      "type": "blob",
+      "rawBytes": 62567,
+      "previousLooseBytes": 11304,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r07-20261023/report.json"
+    },
+    {
+      "oid": "04e42da4b6489bea92cf135050a2c64ca8ea2959",
+      "type": "blob",
+      "rawBytes": 62465,
+      "previousLooseBytes": 11422,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r03-20261023/report.json"
+    },
+    {
+      "oid": "5f39b227c885ad2ba26be4984b0c052cef1bbc93",
+      "type": "blob",
+      "rawBytes": 62465,
+      "previousLooseBytes": 11436,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r05-20261023/report.json"
+    },
+    {
+      "oid": "89d53784372307793dbd60006c8501826ccd7ddc",
+      "type": "blob",
+      "rawBytes": 62465,
+      "previousLooseBytes": 11374,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r02-20261023/report.json"
+    },
+    {
+      "oid": "264ac1bfa337fadfda131241a356463686d1325e",
+      "type": "blob",
+      "rawBytes": 62465,
+      "previousLooseBytes": 11460,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r06-terminalclose-20261023/report.json"
+    },
+    {
+      "oid": "9a7e667ffa34dda1f9bead94fdf7b7abf1d5cd26",
+      "type": "blob",
+      "rawBytes": 62465,
+      "previousLooseBytes": 11464,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r06-20261023/report.json"
+    },
+    {
+      "oid": "60080b16a6f427d79896082f4cdcb859296e9622",
+      "type": "blob",
+      "rawBytes": 62463,
+      "previousLooseBytes": 11393,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r04-20261023/report.json"
+    },
+    {
+      "oid": "5461ce39307d3c300a6970ecedfdd3836bec1b1a",
+      "type": "blob",
+      "rawBytes": 62337,
+      "previousLooseBytes": 62374,
+      "path": "lookdev/scene08-spatial191/r01-source-scripts.tgz"
+    },
+    {
+      "oid": "54dd592228f8aa09133f01626868eb215984e236",
+      "type": "blob",
+      "rawBytes": 62250,
+      "previousLooseBytes": 62287,
+      "path": "lookdev/scene08-spatial191/baseline-source-scripts.tgz"
+    },
+    {
+      "oid": "a18d5a68cc13ce3716c3a1c298955b0e0663c376",
+      "type": "blob",
+      "rawBytes": 62104,
+      "previousLooseBytes": 11142,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r01-20261023/report.json"
+    },
+    {
+      "oid": "0e1f46ad187fb04b85bdc1be2593c947b4b5f1d9",
+      "type": "blob",
+      "rawBytes": 61241,
+      "previousLooseBytes": 16273,
+      "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r01-low3q/report.json"
+    },
+    {
+      "oid": "dc3d78d238fb996e6a0c378e045403e78e5a6449",
+      "type": "blob",
+      "rawBytes": 60856,
+      "previousLooseBytes": 24889,
+      "path": "reconstructions/scene-09/src/main.js"
+    },
+    {
+      "oid": "2b6f571d13486e564bd77e50e562c4f4f0b28d7f",
+      "type": "blob",
+      "rawBytes": 60359,
+      "previousLooseBytes": 24511,
+      "path": "reconstructions/scene-09/src/main.js"
+    },
+    {
+      "oid": "bed5062b569937efba48cabb95d4bc4447ff1db7",
+      "type": "blob",
+      "rawBytes": 60283,
+      "previousLooseBytes": 11833,
+      "path": "lookdev/scene06-altar198/r05-source-identity.json"
+    },
+    {
+      "oid": "f97dd4f99e8b2777bb8da9bdd96fe94f01079c85",
+      "type": "blob",
+      "rawBytes": 59877,
+      "previousLooseBytes": 11939,
+      "path": "lookdev/scene06-daylight195/physical-study/rebuild-source195-r03/exact-replay-map.json"
+    },
+    {
+      "oid": "25fcd196e14210648b9b051c1b6c0d10b199d520",
+      "type": "blob",
+      "rawBytes": 59808,
+      "previousLooseBytes": 4543,
+      "path": "lookdev/scene08-rebuild213/fine-hall-audit-r05.json"
+    },
+    {
+      "oid": "f27b49181441ad53656181b9fccd0d270beebb26",
+      "type": "blob",
+      "rawBytes": 59773,
+      "previousLooseBytes": 4587,
+      "path": "lookdev/scene08-rebuild213/fine-hall-audit-r06.json"
+    },
+    {
+      "oid": "79d98574b478002737fdfbc1f695321869732085",
+      "type": "blob",
+      "rawBytes": 59770,
+      "previousLooseBytes": 4867,
+      "path": "lookdev/scene08-rebuild213/fine-hall-audit-r05a-rejected.json"
+    },
+    {
+      "oid": "bc0489c2aa56b5f28ac75a3baf3eb71e39cc89d1",
+      "type": "blob",
+      "rawBytes": 59696,
+      "previousLooseBytes": 24305,
+      "path": "reconstructions/scene-09/src/main.js"
+    },
+    {
+      "oid": "abf5b6e98f9ec9ccb7fc61ead59e8efd54dddbf4",
+      "type": "blob",
+      "rawBytes": 59451,
+      "previousLooseBytes": 11655,
+      "path": "lookdev/scene06-altar198/r04-source-identity.json"
+    },
+    {
+      "oid": "99d18eb9374b1d1007f9e40d517454c766bd5009",
+      "type": "blob",
+      "rawBytes": 58989,
+      "previousLooseBytes": 15275,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-full/report.json"
+    },
+    {
+      "oid": "f8c6eee63096824dfefd1497dccfc4aef9b04e39",
+      "type": "blob",
+      "rawBytes": 58646,
+      "previousLooseBytes": 10421,
+      "path": "lookdev/scene06-nc-adoption179/r03-source/exact-replay-map.json"
+    },
+    {
+      "oid": "43f15568384c84f9506cd86fc4a8736e1ba2ec1f",
+      "type": "blob",
+      "rawBytes": 58456,
+      "previousLooseBytes": 13220,
+      "path": "reconstructions/scene-04/assets/amida188-CC-BY-NC-SA-4.0/draco/draco_wasm_wrapper.js"
+    },
+    {
+      "oid": "7345da05132999ba2ee1f03992442290ae23ce01",
+      "type": "blob",
+      "rawBytes": 58430,
+      "previousLooseBytes": 10532,
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r04-20261023/report.json"
+    },
+    {
+      "oid": "49b9d3492854b9836aa7f40baa67e31ca1b24478",
+      "type": "blob",
+      "rawBytes": 58430,
+      "previousLooseBytes": 10590,
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r03-20261023/report.json"
+    },
+    {
+      "oid": "72b4a037c89a3ab8cc25e36be5f5938af7b6816f",
+      "type": "blob",
+      "rawBytes": 57832,
+      "previousLooseBytes": 17444,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r06b-low-oblique-personal-nc/report.json"
+    },
+    {
+      "oid": "2e1f1d3b352a1a982c02601373a103f923ad4a9e",
+      "type": "blob",
+      "rawBytes": 57714,
+      "previousLooseBytes": 17444,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r06b-metal-inspection-personal-nc/report.json"
+    },
+    {
+      "oid": "173bc03cd79d15288e9e2f625f1276a746a08bba",
+      "type": "blob",
+      "rawBytes": 56959,
+      "previousLooseBytes": 14378,
+      "path": "qa/ten-reference/06/iteration-scene06-floor200-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "b58f6aa70c7af6c4cdca23e578df307daf113192",
+      "type": "blob",
+      "rawBytes": 56955,
+      "previousLooseBytes": 14392,
+      "path": "qa/ten-reference/06/iteration-scene06-daylight195-r03-personal-nc/report.json"
+    },
+    {
+      "oid": "1daa3634b5bd27590bb23109b9e93d80b7017ed2",
+      "type": "blob",
+      "rawBytes": 56916,
+      "previousLooseBytes": 7364,
+      "path": "lookdev/scene01-structure208/geometry208-r02.json"
+    },
+    {
+      "oid": "c29accb7d2aff385dc7f2d02263d7f2f4210af7b",
+      "type": "blob",
+      "rawBytes": 56836,
+      "previousLooseBytes": 7443,
+      "path": "lookdev/scene01-structure208/geometry208-r01.json"
+    },
+    {
+      "oid": "ee28a3e88af072a09f4101089978dd1b034163d5",
+      "type": "blob",
+      "rawBytes": 56515,
+      "previousLooseBytes": 51764,
+      "path": "lookdev/scene05-terminal204/search/ce6c129f8ae74effafddd8879904952a-creator-preview.jpg"
+    },
+    {
+      "oid": "f15ccb7659eb038f054df302f389e1b4978a0a5a",
+      "type": "blob",
+      "rawBytes": 55991,
+      "previousLooseBytes": 7311,
+      "path": "lookdev/scene01-structure208/geometry208-r01b.json"
+    },
+    {
+      "oid": "ebbf37f46fd1525b01d21a05ef5221e5ac3cb276",
+      "type": "blob",
+      "rawBytes": 55685,
+      "previousLooseBytes": 15119,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-full/report.json"
+    },
+    {
+      "oid": "9b8f63046aabaa5b044e6c3a947b3d311d01237a",
+      "type": "blob",
+      "rawBytes": 55238,
+      "previousLooseBytes": 16596,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r05-low-oblique-personal-nc/report.json"
+    },
+    {
+      "oid": "83af194faddc2fec5e30008b9f12643fd172ff44",
+      "type": "blob",
+      "rawBytes": 55181,
+      "previousLooseBytes": 16592,
+      "path": "qa/ten-reference/06/iteration-scene06-altar198-r05-cap-inspection-personal-nc/report.json"
+    },
+    {
+      "oid": "1dac527c04372b1b4dd58fe6f9d6e4de851e9cac",
+      "type": "blob",
+      "rawBytes": 54692,
+      "previousLooseBytes": 14409,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-lantern-low/report.json"
+    },
+    {
+      "oid": "0dbeb05742e0a2e6f66d00a558fb4c9087c948df",
+      "type": "blob",
+      "rawBytes": 54640,
+      "previousLooseBytes": 14409,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r07-low/report.json"
+    },
+    {
+      "oid": "11d5f0fa67fa4c79e73a899b3f11750bfaaf06a9",
+      "type": "blob",
+      "rawBytes": 54626,
+      "previousLooseBytes": 14395,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-lantern-low/report.json"
+    },
+    {
+      "oid": "50b703a8baadfee93832128b13fcd655e64252f8",
+      "type": "blob",
+      "rawBytes": 54574,
+      "previousLooseBytes": 14394,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r06-low/report.json"
+    },
+    {
+      "oid": "26eebb2317beb5c4b84cf400339f2d1470a1c2cd",
+      "type": "blob",
+      "rawBytes": 54291,
+      "previousLooseBytes": 14323,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r04-low/report.json"
+    },
+    {
+      "oid": "4c93ac2b955450768dd77ae715935b36faed8d2a",
+      "type": "blob",
+      "rawBytes": 54270,
+      "previousLooseBytes": 10225,
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r01-20261023/report.json"
+    },
+    {
+      "oid": "2e481ff0976990422c76996644d7590f56a8b936",
+      "type": "blob",
+      "rawBytes": 54270,
+      "previousLooseBytes": 10219,
+      "path": "qa/ten-reference/05/iteration-scene05-light196-r02-20261023/report.json"
+    },
+    {
+      "oid": "358b508eaf5c30ba18cc719d32bccef33b47d271",
+      "type": "blob",
+      "rawBytes": 54175,
+      "previousLooseBytes": 14257,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r03-low/report.json"
+    },
+    {
+      "oid": "2031e31e249381c3a4ee2f8696a3ae9d974072b9",
+      "type": "blob",
+      "rawBytes": 54136,
+      "previousLooseBytes": 14248,
+      "path": "qa/ten-reference/01/iteration-scene01-rebuild219-r02-low/report.json"
+    },
+    {
+      "oid": "3c7d7569d15104389cb715d1d3d282e3fbd9fe60",
+      "type": "blob",
+      "rawBytes": 53990,
+      "previousLooseBytes": 51365,
+      "path": "qa/ten-reference/working-model-review-20261023-d/player-actual-scene04-reference-comparison.png"
+    },
+    {
+      "oid": "ed9fc3bf5c95670e7f8bbab555696d36c7373c20",
+      "type": "blob",
+      "rawBytes": 53885,
+      "previousLooseBytes": 10208,
+      "path": "lookdev/scene06-altar198/baseline-source198.json"
+    },
+    {
+      "oid": "8fee924237693bfe22b07152d4b3b33eb4fbc7fd",
+      "type": "blob",
+      "rawBytes": 52837,
+      "previousLooseBytes": 52651,
+      "path": "lookdev/scene05-detail190/reference-lantern-inspection.png"
+    },
+    {
+      "oid": "d3fa06d85a51b7ccbc7cb09ea7bec30acf49f8ec",
+      "type": "blob",
+      "rawBytes": 52474,
+      "previousLooseBytes": 13572,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r06-low/report.json"
+    },
+    {
+      "oid": "3c9c72f7164f7a3e3e75af9d04846016ca8075ec",
+      "type": "blob",
+      "rawBytes": 51834,
+      "previousLooseBytes": 13314,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-r02-low/report.json"
+    },
+    {
+      "oid": "6b1bf68b11e30bdbb94c1bef7da8120800a05d2b",
+      "type": "blob",
+      "rawBytes": 51213,
+      "previousLooseBytes": 48186,
+      "path": "qa/ten-reference/working-model-review-20261023-b/player-actual-scene06-nc-comparison.png"
+    },
+    {
+      "oid": "605da444649f42700dfd8c9e320b088ed17d7f7d",
+      "type": "blob",
+      "rawBytes": 50819,
+      "previousLooseBytes": 20605,
+      "path": ""
+    },
+    {
+      "oid": "a43667df92bda25c38d2079f00fd9ad821b6669b",
+      "type": "blob",
+      "rawBytes": 50716,
+      "previousLooseBytes": 45516,
+      "path": "lookdev/scene05-terminal204/search/820e2c93c989449cbd29a0e141fce22d-creator-preview.jpg"
+    },
+    {
+      "oid": "ab1d1ac5a2cef835c8960061e7b7f7ad8e03e1f8",
+      "type": "blob",
+      "rawBytes": 49405,
+      "previousLooseBytes": 13394,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r04-low3q/report.json"
+    },
+    {
+      "oid": "37ec153b0db3eaf253a63f1a9b8948cda0fcc0d2",
+      "type": "blob",
+      "rawBytes": 48983,
+      "previousLooseBytes": 13360,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r03-low3q/report.json"
+    },
+    {
+      "oid": "bb9a395a472318779164a806d542a1dfd11acd09",
+      "type": "blob",
+      "rawBytes": 48922,
+      "previousLooseBytes": 13307,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r01-low3q/report.json"
+    },
+    {
+      "oid": "ce5e7c0e18911a264a98a85ee5c75f1dc2e7deb0",
+      "type": "blob",
+      "rawBytes": 48919,
+      "previousLooseBytes": 13312,
+      "path": "qa/ten-reference/08/iteration-scene08-natural197-r02-low3q/report.json"
+    },
+    {
+      "oid": "649b8d47f71fb0e34c9547647c98932cdd5fdc60",
+      "type": "blob",
+      "rawBytes": 48644,
+      "previousLooseBytes": 9825,
+      "path": "lookdev/scene02-rebuild210/contact210-r04b.json"
+    },
+    {
+      "oid": "d848ff80f2947ee9af165d81f4198857b23242bc",
+      "type": "blob",
+      "rawBytes": 48596,
+      "previousLooseBytes": 9808,
+      "path": "lookdev/scene02-rebuild210/contact210-r04.json"
+    },
+    {
+      "oid": "e83a55f7dc9aef0f51b6244b3becee773d2e899b",
+      "type": "blob",
+      "rawBytes": 48130,
+      "previousLooseBytes": 20195,
+      "path": ""
+    },
+    {
+      "oid": "092e980a2aed5aee15bc153656c624fc49e3f3f3",
+      "type": "blob",
+      "rawBytes": 47992,
+      "previousLooseBytes": 47806,
+      "path": "lookdev/scene05-light196/reference-bearing-inspection.jpg"
+    },
+    {
+      "oid": "a530f0a848b51074daf48ff56f37e4339f8b0620",
+      "type": "blob",
+      "rawBytes": 47944,
+      "previousLooseBytes": 19608,
+      "path": ""
+    },
+    {
+      "oid": "b7cc0f7574c9bdf7b33cf01e36a11cdac496ef31",
+      "type": "blob",
+      "rawBytes": 47890,
+      "previousLooseBytes": 9388,
+      "path": "qa/ten-reference/05/iteration-scene05-detail190-r04-20261023/report.json"
+    },
+    {
+      "oid": "e10bc3434889b934ec677d07dba320e67e074e3f",
+      "type": "blob",
+      "rawBytes": 46994,
+      "previousLooseBytes": 9468,
+      "path": "lookdev/scene02-rebuild210/contact210-r03.json"
+    },
+    {
+      "oid": "551ac1af6048577a263d8ed13aee0b443a160f8f",
+      "type": "blob",
+      "rawBytes": 46845,
+      "previousLooseBytes": 9328,
+      "path": "lookdev/scene02-rebuild210/contact210-r02.json"
+    },
+    {
+      "oid": "6e6bc48667a45d190f8e9a7b314ca42d81cd0ec6",
+      "type": "blob",
+      "rawBytes": 46794,
+      "previousLooseBytes": 9785,
+      "path": "lookdev/scene02-rebuild210/contact210-r11.json"
+    },
+    {
+      "oid": "393a283a8fe5c751c167e67e0731300699d5087e",
+      "type": "blob",
+      "rawBytes": 46675,
+      "previousLooseBytes": 9731,
+      "path": "lookdev/scene02-rebuild210/contact210-r09.json"
+    },
+    {
+      "oid": "f011cf714ceca6b2a70c4d8e00fb6a6bc6bc59a3",
+      "type": "blob",
+      "rawBytes": 45793,
+      "previousLooseBytes": 12279,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-baseline-low/report.json"
+    },
+    {
+      "oid": "f80f078536d9c54efad9e7a4b8af96e5aab9f5ae",
+      "type": "blob",
+      "rawBytes": 45785,
+      "previousLooseBytes": 12270,
+      "path": "qa/ten-reference/01/iteration-scene01-structure208-baseline-overhead/report.json"
+    },
+    {
+      "oid": "e813ab2ad815574ebe361e38df6add81eed8375e",
+      "type": "blob",
+      "rawBytes": 45722,
+      "previousLooseBytes": 12288,
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r04-low3q-20261023/report.json"
+    },
+    {
+      "oid": "31a7c075eadcd3193ce36fc2034c33811b8224ed",
+      "type": "blob",
+      "rawBytes": 45717,
+      "previousLooseBytes": 14415,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-low-opening/report.json"
+    },
+    {
+      "oid": "85171cd2774b15ca48257196336e52ad9c030b57",
+      "type": "blob",
+      "rawBytes": 45717,
+      "previousLooseBytes": 14410,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-low-opening/report.json"
+    },
+    {
+      "oid": "a89e46ed3fa58e56da5328b3ebfd32016fbe2ad3",
+      "type": "blob",
+      "rawBytes": 45670,
+      "previousLooseBytes": 14359,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-low-opening/report.json"
+    },
+    {
+      "oid": "938a335574caecd95d2ea778f6d773b8eec514db",
+      "type": "blob",
+      "rawBytes": 45563,
+      "previousLooseBytes": 14376,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-low-opening/report.json"
+    },
+    {
+      "oid": "a6add6184cbcbbb743ba3fb8664dbbe5305014a4",
+      "type": "blob",
+      "rawBytes": 45530,
+      "previousLooseBytes": 14350,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-low-opening/report.json"
+    },
+    {
+      "oid": "ae9f35fd06e74a210f0179f340b54fc1d74f1788",
+      "type": "blob",
+      "rawBytes": 45285,
+      "previousLooseBytes": 14424,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-body-three-quarter/report.json"
+    },
+    {
+      "oid": "7debab91ba3df63e9bb30a734bc821c4ed96f55f",
+      "type": "blob",
+      "rawBytes": 45285,
+      "previousLooseBytes": 14412,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-body-three-quarter/report.json"
+    },
+    {
+      "oid": "245bedfb9c5398adb9f675dcefd239a2467a315d",
+      "type": "blob",
+      "rawBytes": 45238,
+      "previousLooseBytes": 14360,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-body-three-quarter/report.json"
+    },
+    {
+      "oid": "bf1beb82814f20a633f3227db1108892f64077fa",
+      "type": "blob",
+      "rawBytes": 45218,
+      "previousLooseBytes": 14420,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-three-quarter/report.json"
+    },
+    {
+      "oid": "f8079017ea52cd63275cce3c648bc21cd5aab835",
+      "type": "blob",
+      "rawBytes": 45218,
+      "previousLooseBytes": 14413,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-three-quarter/report.json"
+    },
+    {
+      "oid": "0c039a7abc2e28c56a094335dba8f5308e522baf",
+      "type": "blob",
+      "rawBytes": 45181,
+      "previousLooseBytes": 14357,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-profile/report.json"
+    },
+    {
+      "oid": "1a95d65e72e59fa168c83b325a2da02f2c0d8b26",
+      "type": "blob",
+      "rawBytes": 45180,
+      "previousLooseBytes": 14366,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-profile/report.json"
+    },
+    {
+      "oid": "c59912b49b1ee2b2f3b2729dbe120bfeeb24f87e",
+      "type": "blob",
+      "rawBytes": 45171,
+      "previousLooseBytes": 14363,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-three-quarter/report.json"
+    },
+    {
+      "oid": "603fe7de2b0fc8e37a5c26e1f2d6963e5d36e7cf",
+      "type": "blob",
+      "rawBytes": 45143,
+      "previousLooseBytes": 14355,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-clear-statue/report.json"
+    },
+    {
+      "oid": "f916007955601376866b4a7ddf30f97e0b38fcd5",
+      "type": "blob",
+      "rawBytes": 45143,
+      "previousLooseBytes": 14338,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-clear-statue/report.json"
+    },
+    {
+      "oid": "afced3dccec6aadb183f6c58e8bc7fc7b270dc74",
+      "type": "blob",
+      "rawBytes": 45139,
+      "previousLooseBytes": 14351,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-front/report.json"
+    },
+    {
+      "oid": "2ea1f6041b25038620716b0aa4af3302add60265",
+      "type": "blob",
+      "rawBytes": 45139,
+      "previousLooseBytes": 14360,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-front/report.json"
+    },
+    {
+      "oid": "b1f1790e90e7b714055af18a744275715c6bc9b7",
+      "type": "blob",
+      "rawBytes": 45134,
+      "previousLooseBytes": 14305,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-profile/report.json"
+    },
+    {
+      "oid": "6f3a4c224230f66f8bb8a43897038b592a0b81e8",
+      "type": "blob",
+      "rawBytes": 45131,
+      "previousLooseBytes": 14369,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-body-three-quarter/report.json"
+    },
+    {
+      "oid": "7f9e38c8866e35bd439b547fc1a7654002947b5a",
+      "type": "blob",
+      "rawBytes": 45096,
+      "previousLooseBytes": 14299,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-clear-statue/report.json"
+    },
+    {
+      "oid": "5552759c23e0dc22237d96ec0cf6dd7d344cda7e",
+      "type": "blob",
+      "rawBytes": 45092,
+      "previousLooseBytes": 14301,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-front/report.json"
+    },
+    {
+      "oid": "68a09b960f6ec49051bf583c7997c45127064bb7",
+      "type": "blob",
+      "rawBytes": 45064,
+      "previousLooseBytes": 14368,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-three-quarter/report.json"
+    },
+    {
+      "oid": "e2f903d9ac1a8523bed8ac0efc6f5b9644e3a0a2",
+      "type": "blob",
+      "rawBytes": 45031,
+      "previousLooseBytes": 14343,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-three-quarter/report.json"
+    },
+    {
+      "oid": "e3f0b9f46c231cf0ce09b87adb7c8d3c92e8d4fe",
+      "type": "blob",
+      "rawBytes": 45031,
+      "previousLooseBytes": 14251,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r05-full/report.json"
+    },
+    {
+      "oid": "7cd0811fbf7e7f5954800087249bd94228a8b846",
+      "type": "blob",
+      "rawBytes": 45031,
+      "previousLooseBytes": 14260,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r04-full/report.json"
+    },
+    {
+      "oid": "471664eb5079c6589fcebedbb0b62273f922702a",
+      "type": "blob",
+      "rawBytes": 45027,
+      "previousLooseBytes": 14316,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-profile/report.json"
+    },
+    {
+      "oid": "9b946b760e8712db2782cd03105b76e8fdf7c1d8",
+      "type": "blob",
+      "rawBytes": 44993,
+      "previousLooseBytes": 14288,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-profile/report.json"
+    },
+    {
+      "oid": "2d0779a18266e1860e8cfb30c143bac873cf07c2",
+      "type": "blob",
+      "rawBytes": 44989,
+      "previousLooseBytes": 14300,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-clear-statue/report.json"
+    },
+    {
+      "oid": "28ebd4e6aff1fe8e79c4d33aef802ff3b65ef8d4",
+      "type": "blob",
+      "rawBytes": 44985,
+      "previousLooseBytes": 14305,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-front/report.json"
+    },
+    {
+      "oid": "b8925269da25e9ddae3baa09b7ccf3cc3df7656b",
+      "type": "blob",
+      "rawBytes": 44984,
+      "previousLooseBytes": 14205,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r03-full/report.json"
+    },
+    {
+      "oid": "2329fe55c8ad4a9578d3653b66ee69da17b2ca8b",
+      "type": "blob",
+      "rawBytes": 44956,
+      "previousLooseBytes": 14277,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-clear-statue/report.json"
+    },
+    {
+      "oid": "f65e63c9e98cba043f2cdfec92c552a4c5710948",
+      "type": "blob",
+      "rawBytes": 44952,
+      "previousLooseBytes": 14287,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-front/report.json"
+    },
+    {
+      "oid": "69f1b06ab1195ad9dc4151bf277dd5fed2be9f32",
+      "type": "blob",
+      "rawBytes": 44877,
+      "previousLooseBytes": 14208,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r02-full/report.json"
+    },
+    {
+      "oid": "c7a5c94a529a92a4e1c8691934369188e28160d5",
+      "type": "blob",
+      "rawBytes": 44844,
+      "previousLooseBytes": 14191,
+      "path": "qa/ten-reference/06/iteration-scene06-sculpture199-r01-full/report.json"
+    },
+    {
+      "oid": "d730cd09a5a5584a65923c7f6e9307ec7154a5f1",
+      "type": "blob",
+      "rawBytes": 43978,
+      "previousLooseBytes": 13805,
+      "path": "qa/ten-reference/06/iteration-scene06-daylight195-r02-personal-nc/report.json"
+    },
+    {
+      "oid": "9337e8bc139b0ab1dacd4bb171271cc1cab5cdc8",
+      "type": "blob",
+      "rawBytes": 43977,
+      "previousLooseBytes": 13824,
+      "path": "qa/ten-reference/06/iteration-scene06-daylight195-r01-personal-nc/report.json"
+    },
+    {
+      "oid": "4abefd4f3397d54f70fb1fc8186d44bf23953bc3",
+      "type": "blob",
+      "rawBytes": 43871,
+      "previousLooseBytes": 12105,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r04-groundside-20261024/report.json"
+    },
+    {
+      "oid": "658026157bb64b7401eea1ea8764a2c9e5040447",
+      "type": "blob",
+      "rawBytes": 43336,
+      "previousLooseBytes": 11889,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-groundside-20261024/report.json"
+    },
+    {
+      "oid": "1f8dc330e0a2fe091a5a375fce27b0e9849d9dd7",
+      "type": "blob",
+      "rawBytes": 43332,
+      "previousLooseBytes": 11895,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r03-bearingclose-20261024/report.json"
+    },
+    {
+      "oid": "57f508990e39773bc3de514d3b1958307ac29a7e",
+      "type": "blob",
+      "rawBytes": 43275,
+      "previousLooseBytes": 11942,
+      "path": "qa/ten-reference/01/iteration-scene01-spatial185-r03-low3q-20261023/report.json"
+    },
+    {
+      "oid": "ea1b92ec159f68ee20de564d7e97b3b6f2b51582",
+      "type": "blob",
+      "rawBytes": 43180,
+      "previousLooseBytes": 3157,
+      "path": "lookdev/scene03-rebuild211/geometry211-r04.json"
+    },
+    {
+      "oid": "d972db2a6f9b4588ebeda385b4e94f0fae334f84",
+      "type": "blob",
+      "rawBytes": 43141,
+      "previousLooseBytes": 40268,
+      "path": "lookdev/scene05-terminal204/search/bda711ba510a4dd2abe4fd337e9680f3-creator-preview.jpg"
+    },
+    {
+      "oid": "f50cf75ca6a7e2f9fc928da10ba636accdc836db",
+      "type": "blob",
+      "rawBytes": 43124,
+      "previousLooseBytes": 3190,
+      "path": "lookdev/scene03-rebuild211/geometry211-r03.json"
+    },
+    {
+      "oid": "d21ec6657748147c1d2f29d65c4f9ba38557e92f",
+      "type": "blob",
+      "rawBytes": 43045,
+      "previousLooseBytes": 13559,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-hero-low-front/report.json"
+    },
+    {
+      "oid": "65b06949f5d81992cfe252381d708df80c89b95e",
+      "type": "blob",
+      "rawBytes": 43044,
+      "previousLooseBytes": 13547,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r07-hero-low-front/report.json"
+    },
+    {
+      "oid": "6e26815d7946ceeadf8b46bbc52b18e363920788",
+      "type": "blob",
+      "rawBytes": 42946,
+      "previousLooseBytes": 13583,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-low3q/report.json"
+    },
+    {
+      "oid": "4f73711f0d53bf3358fb61dfdf57790153b7f79b",
+      "type": "blob",
+      "rawBytes": 42825,
+      "previousLooseBytes": 13472,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-hero-low-front/report.json"
+    },
+    {
+      "oid": "8701a9eb5c9c87768b0be65617d5ee4e4852945a",
+      "type": "blob",
+      "rawBytes": 42771,
+      "previousLooseBytes": 13411,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r08-full/report.json"
+    },
+    {
+      "oid": "d514692e90591e30a97bd0d19483f01125c6d992",
+      "type": "blob",
+      "rawBytes": 42771,
+      "previousLooseBytes": 13406,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r07-full/report.json"
+    },
+    {
+      "oid": "5ec380d4326cd97564880ee6c7595e1d7820199c",
+      "type": "blob",
+      "rawBytes": 42759,
+      "previousLooseBytes": 13485,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r05-low-front/report.json"
+    },
+    {
+      "oid": "de7b5ae362945e2fb489c916e4654a3af4255e05",
+      "type": "blob",
+      "rawBytes": 42759,
+      "previousLooseBytes": 13482,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-low-front/report.json"
+    },
+    {
+      "oid": "6ab0817e76d514cfff28c434c0978c11d45e7970",
+      "type": "blob",
+      "rawBytes": 42727,
+      "previousLooseBytes": 13503,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r06-low3q/report.json"
+    },
+    {
+      "oid": "5b8a4efbd8c25d896bda18e8c74446bf350cf2ee",
+      "type": "blob",
+      "rawBytes": 42636,
+      "previousLooseBytes": 16368,
+      "path": "lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-floor-r04.py"
+    },
+    {
+      "oid": "ac9dc9ebdeb42aad9c32fed692fc0c590932e8ca",
+      "type": "blob",
+      "rawBytes": 42596,
+      "previousLooseBytes": 13548,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-low3q/report.json"
+    },
+    {
+      "oid": "38c91c53b3bc2835de81e1b0d76880373eef30c2",
+      "type": "blob",
+      "rawBytes": 42580,
+      "previousLooseBytes": 16336,
+      "path": "lookdev/scene06-physical218/render-integration217-physical218-r01.py"
+    },
+    {
+      "oid": "d0adab6d5bec8f074a57e72a298ff5be6b06ab8b",
+      "type": "blob",
+      "rawBytes": 42552,
+      "previousLooseBytes": 13340,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r04-full/report.json"
+    },
+    {
+      "oid": "582b0305d2e52a61979bade55e83aebb293891d9",
+      "type": "blob",
+      "rawBytes": 42518,
+      "previousLooseBytes": 13461,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-hero/report.json"
+    },
+    {
+      "oid": "d7f195b32d7f9a053edf9c98eb3f8a4bde71c496",
+      "type": "blob",
+      "rawBytes": 42418,
+      "previousLooseBytes": 13368,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r03-full/report.json"
+    },
+    {
+      "oid": "1ff2dbf3088c3390df0e32794ac89b439992cccb",
+      "type": "blob",
+      "rawBytes": 42135,
+      "previousLooseBytes": 11416,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r02-bearingclose-20261024/report.json"
+    },
+    {
+      "oid": "e4fddedbf8e75f8b6bab2d17368bbf8f007abd5b",
+      "type": "blob",
+      "rawBytes": 41894,
+      "previousLooseBytes": 38657,
+      "path": "lookdev/scene05-terminal204/search/8656368334aa4ceb8b37e4ab65e34e51-creator-preview.jpg"
+    },
+    {
+      "oid": "236fc888bb1403a29171bfdc06dbdb39799e263f",
+      "type": "blob",
+      "rawBytes": 41670,
+      "previousLooseBytes": 13008,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r02-hero/report.json"
+    },
+    {
+      "oid": "94031c0d2f7464aaee9af2fc9df063772ea034d9",
+      "type": "blob",
+      "rawBytes": 41616,
+      "previousLooseBytes": 4696,
+      "path": "lookdev/export-storage216/emergency-identical-derived-cache-links.json"
+    },
+    {
+      "oid": "cb71791fb0e48430d19a007b9d00c6e9b1313085",
+      "type": "blob",
+      "rawBytes": 41608,
+      "previousLooseBytes": 3266,
+      "path": "lookdev/scene03-rebuild211/geometry211-r06.json"
+    },
+    {
+      "oid": "b422ba54537085fef390a553d08675fe4b131409",
+      "type": "blob",
+      "rawBytes": 41568,
+      "previousLooseBytes": 13010,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-low3q/report.json"
+    },
+    {
+      "oid": "9db0a33b3f754e9877f381400f69394853cbe18d",
+      "type": "blob",
+      "rawBytes": 41489,
+      "previousLooseBytes": 12931,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-hero/report.json"
+    },
+    {
+      "oid": "838bbee186ca04c8fcb162e21ab93ca6d131231a",
+      "type": "blob",
+      "rawBytes": 41389,
+      "previousLooseBytes": 12844,
+      "path": "qa/ten-reference/06/iteration-scene06-nc-adoption179-r01-full/report.json"
+    },
+    {
+      "oid": "8f165b371c72a93283b17d2388150ec89fc7aa37",
+      "type": "blob",
+      "rawBytes": 41182,
+      "previousLooseBytes": 15646,
+      "path": "lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-r03.py"
+    },
+    {
+      "oid": "c7c97402362e35d17a9a674cdc4c25a8b16815f6",
+      "type": "blob",
+      "rawBytes": 40208,
+      "previousLooseBytes": 15315,
+      "path": "lookdev/scene06-daylight195/physical-study/render-scene06-cycles195-r01.py"
+    },
+    {
+      "oid": "a281908716ff3dbd341c602b83edfa9f5785c2b4",
+      "type": "blob",
+      "rawBytes": 39554,
+      "previousLooseBytes": 10833,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r12c-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "d4bf61065fdf8baeb3c7cfaace328ec2600015ff",
+      "type": "blob",
+      "rawBytes": 39554,
+      "previousLooseBytes": 10835,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r12b-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "1887100a63b7dcf8788304f70c536c50ef3827e6",
+      "type": "blob",
+      "rawBytes": 39519,
+      "previousLooseBytes": 10814,
+      "path": "qa/ten-reference/05/iteration-scene05-rebuild220-r01-bearingclose-20261024/report.json"
+    },
+    {
+      "oid": "8116a34a7af6af0f4faa0a37b88ed7b6c681c0e2",
+      "type": "blob",
+      "rawBytes": 39061,
+      "previousLooseBytes": 6480,
+      "path": "lookdev/film-f-20261022/root-review-rejection.json"
+    },
+    {
+      "oid": "4859f82d5b00c789aa822475c6dc48c3dad73644",
+      "type": "blob",
+      "rawBytes": 38895,
+      "previousLooseBytes": 16900,
+      "path": "reconstructions/scene-09/README.md"
+    },
+    {
+      "oid": "237e66858cf6effd7180c30716d0c40df4c73944",
+      "type": "blob",
+      "rawBytes": 38732,
+      "previousLooseBytes": 15916,
+      "path": "lookdev/scene01-structure208/r04-source/garden.js"
+    },
+    {
+      "oid": "4398de6bb662ccb83443c95eafab0eb766fa8158",
+      "type": "blob",
+      "rawBytes": 38533,
+      "previousLooseBytes": 10552,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r11-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "348b12f07fbc115a1efa961347212c676b86d0b8",
+      "type": "blob",
+      "rawBytes": 38498,
+      "previousLooseBytes": 15794,
+      "path": "lookdev/scene03-rebuild211/r13-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "e27e55fb642e38fc807cf9b4ea4a323c55686f5c",
+      "type": "blob",
+      "rawBytes": 38498,
+      "previousLooseBytes": 15789,
+      "path": "lookdev/scene03-rebuild211/r11-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "b16ec9d35548ec150ee96b6101ad5c701748bc77",
+      "type": "blob",
+      "rawBytes": 38490,
+      "previousLooseBytes": 15778,
+      "path": "lookdev/scene03-rebuild211/r06-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "c1e2eff40b1083c47701036c1d973c3c7c727241",
+      "type": "blob",
+      "rawBytes": 38485,
+      "previousLooseBytes": 15787,
+      "path": "lookdev/scene03-rebuild211/r05-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "aa74e57e5044b78375bfdc03c304353f6a08c0f2",
+      "type": "blob",
+      "rawBytes": 38263,
+      "previousLooseBytes": 11815,
+      "path": "lookdev/scene06-low-shot189/r08-camera-and-scene-preservation-proof189.json"
+    },
+    {
+      "oid": "451601744bc31b30a33750894576bcd97f108557",
+      "type": "blob",
+      "rawBytes": 38093,
+      "previousLooseBytes": 15625,
+      "path": "lookdev/scene03-rebuild211/r02-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "962b9e324a283a8bbc6a51a456e7da860126eb49",
+      "type": "blob",
+      "rawBytes": 38093,
+      "previousLooseBytes": 15629,
+      "path": "lookdev/scene03-rebuild211/r04-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "3f7cca78fcefa82cba063dd8e051dc54d2cb2a66",
+      "type": "blob",
+      "rawBytes": 38093,
+      "previousLooseBytes": 15629,
+      "path": "lookdev/scene03-rebuild211/r03-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "97cf2b116cc29d01aba225c523ef2ade05c39844",
+      "type": "blob",
+      "rawBytes": 38062,
+      "previousLooseBytes": 15640,
+      "path": "lookdev/scene01-rebuild219/r00-source/garden.js"
+    },
+    {
+      "oid": "616e946a360f88fc849e9c66ce4eefaf070c4044",
+      "type": "blob",
+      "rawBytes": 38005,
+      "previousLooseBytes": 16313,
+      "path": "lookdev/scene03-rebuild211/r14-source/src/main.js"
+    },
+    {
+      "oid": "8ae281acf398c913e39edabb3c08f6da137598bd",
+      "type": "blob",
+      "rawBytes": 37999,
+      "previousLooseBytes": 16318,
+      "path": "lookdev/scene03-rebuild211/r15-source/src/main.js"
+    },
+    {
+      "oid": "9bbe6d2b1f8bc4a41d2ad81b3bf26100ec929930",
+      "type": "blob",
+      "rawBytes": 37871,
+      "previousLooseBytes": 15579,
+      "path": "lookdev/scene03-rebuild211/r01-source/src/reference4-architecture.js"
+    },
+    {
+      "oid": "2b980fba397d2fb05063693b28ff56248a72e679",
+      "type": "blob",
+      "rawBytes": 37575,
+      "previousLooseBytes": 14280,
+      "path": "lookdev/scene06-nc-adoption179/render-scene06-cycles179-r06.py"
+    },
+    {
+      "oid": "8232b1289237e1e8376f89a35b264dc3ce7f6e72",
+      "type": "blob",
+      "rawBytes": 37196,
+      "previousLooseBytes": 15926,
+      "path": "lookdev/scene03-rebuild211/r13-source/src/main.js"
+    },
+    {
+      "oid": "c2962acb80b00398d63d76187201efce3c4a4f24",
+      "type": "blob",
+      "rawBytes": 37105,
+      "previousLooseBytes": 15888,
+      "path": "lookdev/scene03-rebuild211/r12-source/src/main.js"
+    },
+    {
+      "oid": "0174fe2aa4fdc88a563dc60d78973566f38a7e66",
+      "type": "blob",
+      "rawBytes": 37037,
+      "previousLooseBytes": 15867,
+      "path": "lookdev/scene03-rebuild211/r11-source/src/main.js"
+    },
+    {
+      "oid": "669210849ed7221abd717c1d0d1349a69bd927b5",
+      "type": "blob",
+      "rawBytes": 37030,
+      "previousLooseBytes": 15862,
+      "path": "lookdev/scene03-rebuild211/r10-source/src/main.js"
+    },
+    {
+      "oid": "6dc7df2fd08a35431873d8bc4829f4b28f02f6a7",
+      "type": "blob",
+      "rawBytes": 37030,
+      "previousLooseBytes": 15864,
+      "path": "lookdev/scene03-rebuild211/r09-source/src/main.js"
+    },
+    {
+      "oid": "4c1fe50a7252da0ff7f7a6085010491278f03f17",
+      "type": "blob",
+      "rawBytes": 37018,
+      "previousLooseBytes": 15855,
+      "path": "lookdev/scene03-rebuild211/r08-source/src/main.js"
+    },
+    {
+      "oid": "749580b4886aac830dc292db925f2a7774cc4dbf",
+      "type": "blob",
+      "rawBytes": 36984,
+      "previousLooseBytes": 15826,
+      "path": "lookdev/scene03-rebuild211/r07-source/src/main.js"
+    },
+    {
+      "oid": "a2f63ab367002a024fa8f864e72618b3fd564382",
+      "type": "blob",
+      "rawBytes": 36983,
+      "previousLooseBytes": 10268,
+      "path": "qa/ten-reference/05/iteration-scene05-astra204-r10-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "da4199820a6df556959d88241c6ffbaae17d7644",
+      "type": "blob",
+      "rawBytes": 36811,
+      "previousLooseBytes": 13334,
+      "path": "lookdev/scene04-spatial188/source188-r03-identity.json"
+    },
+    {
+      "oid": "3f7eb207799c09d1fb28b1fd75b7dbe5efead673",
+      "type": "blob",
+      "rawBytes": 36811,
+      "previousLooseBytes": 13322,
+      "path": "lookdev/scene04-spatial188/source188-r02-final-identity.json"
+    },
+    {
+      "oid": "70c29522ae2acecee4967d856072ddd40b340a8b",
+      "type": "blob",
+      "rawBytes": 36764,
+      "previousLooseBytes": 29165,
+      "path": "lookdev/scene05-terminal204/search/7e29c1a50340427abcf67e89e57a095a-creator-preview.jpg"
+    },
+    {
+      "oid": "7475d31620721041b1850f9eb2396a8eba849306",
+      "type": "blob",
+      "rawBytes": 36755,
+      "previousLooseBytes": 15080,
+      "path": "lookdev/scene01-structure208/r02-source/garden.js"
+    },
+    {
+      "oid": "ccc62fa7a4375f4f8026c7816e94459adaa63a79",
+      "type": "blob",
+      "rawBytes": 36654,
+      "previousLooseBytes": 13283,
+      "path": "lookdev/scene04-spatial188/source188-r02-identity.json"
+    },
+    {
+      "oid": "35102b4252eaeae0d133afbe71c4cfc1d1968bcf",
+      "type": "blob",
+      "rawBytes": 36578,
+      "previousLooseBytes": 10432,
+      "path": "lookdev/scene10-support207/ASTRA-HANDOFF207-R03.json"
+    },
+    {
+      "oid": "0bf7376d9e74af21fed1ba81b61621418c73e00a",
+      "type": "blob",
+      "rawBytes": 36571,
+      "previousLooseBytes": 15738,
+      "path": "lookdev/scene03-rebuild211/r06-source/src/main.js"
+    },
+    {
+      "oid": "61a6a2c947974db43e3c5346f62c42e9522b7907",
+      "type": "blob",
+      "rawBytes": 36564,
+      "previousLooseBytes": 15723,
+      "path": "lookdev/scene03-rebuild211/r04-source/src/main.js"
+    },
+    {
+      "oid": "f9dc9ec231a90c7bab1585595c82dd6128ba7cd5",
+      "type": "blob",
+      "rawBytes": 36564,
+      "previousLooseBytes": 15723,
+      "path": "lookdev/scene03-rebuild211/r03-source/src/main.js"
+    },
+    {
+      "oid": "838d5b2efefeb05aa37f77a30d51c415848b009c",
+      "type": "blob",
+      "rawBytes": 36564,
+      "previousLooseBytes": 15722,
+      "path": "lookdev/scene03-rebuild211/r05-source/src/main.js"
+    },
+    {
+      "oid": "898b08614c67555a3ac00215eaf0eabd5283f561",
+      "type": "blob",
+      "rawBytes": 36455,
+      "previousLooseBytes": 15795,
+      "path": "reconstructions/scene-09/README.md"
+    },
+    {
+      "oid": "fe2393da590b3319c3d156d2ebde389f6145ce64",
+      "type": "blob",
+      "rawBytes": 36338,
+      "previousLooseBytes": 15653,
+      "path": "lookdev/scene03-rebuild211/r01-source/src/main.js"
+    },
+    {
+      "oid": "d72a0e1a2bb00969752af2b74b4c71bf17a65ba8",
+      "type": "blob",
+      "rawBytes": 36336,
+      "previousLooseBytes": 15628,
+      "path": "lookdev/scene03-rebuild211/r02-source/src/main.js"
+    },
+    {
+      "oid": "bdb471bd71450665fd2e4a2822030945cb1d7615",
+      "type": "blob",
+      "rawBytes": 36290,
+      "previousLooseBytes": 10136,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r09-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "6175c2d15f6c165fb927d28294166db598f506f1",
+      "type": "blob",
+      "rawBytes": 36186,
+      "previousLooseBytes": 10094,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r09-low3q-20261023/report.json"
+    },
+    {
+      "oid": "9da54663d0b272a602656ac6aa16931c6a805a6a",
+      "type": "blob",
+      "rawBytes": 36128,
+      "previousLooseBytes": 10097,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r08-sideclose-20261023/report.json"
+    },
+    {
+      "oid": "959398e52bb92d0ba7ee94157f494212031238a2",
+      "type": "blob",
+      "rawBytes": 36024,
+      "previousLooseBytes": 10060,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r08-low3q-20261023/report.json"
+    },
+    {
+      "oid": "c1cd6ff50ed898ee413abcca12da6b0630788832",
+      "type": "blob",
+      "rawBytes": 35931,
+      "previousLooseBytes": 10039,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r07-low3q-20261023/report.json"
+    },
+    {
+      "oid": "23069834ffc663e37a17aa1167ff1193893aa3b9",
+      "type": "blob",
+      "rawBytes": 35923,
+      "previousLooseBytes": 7957,
+      "path": "lookdev/scene06-nc-adoption179/review-findings179-CC-BY-NC-SA-4.0.json"
+    },
+    {
+      "oid": "169423f3dabbda05760336767d3fd7e6b62c47f8",
+      "type": "blob",
+      "rawBytes": 35880,
+      "previousLooseBytes": 10049,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r02-low3q-20261023/report.json"
+    },
+    {
+      "oid": "16ea925aa9b775a33931e0ba2eb4fe8d15c109f3",
+      "type": "blob",
+      "rawBytes": 35880,
+      "previousLooseBytes": 10035,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r05-low3q-20261023/report.json"
+    },
+    {
+      "oid": "8fbfcb680e0017d6c1c8f9a837f960df5d4344ed",
+      "type": "blob",
+      "rawBytes": 35880,
+      "previousLooseBytes": 10046,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r06-low3q-20261023/report.json"
+    },
+    {
+      "oid": "71889fc2c1adfd2556778ed0b7d1313480bd6102",
+      "type": "blob",
+      "rawBytes": 35880,
+      "previousLooseBytes": 10037,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r03-low3q-20261023/report.json"
+    },
+    {
+      "oid": "25386512616648e9aafa91375e89288a81d6aa55",
+      "type": "blob",
+      "rawBytes": 35880,
+      "previousLooseBytes": 10024,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r04-low3q-20261023/report.json"
+    },
+    {
+      "oid": "33ba4f97aee476b5214774fbf8647e99f4175bee",
+      "type": "blob",
+      "rawBytes": 35740,
+      "previousLooseBytes": 12898,
+      "path": "lookdev/scene04-spatial188/source188-r01-identity.json"
+    },
+    {
+      "oid": "5815cd1096305f44f8d93a82685fdf8e3b4fa98d",
+      "type": "blob",
+      "rawBytes": 35700,
+      "previousLooseBytes": 10003,
+      "path": "qa/ten-reference/05/iteration-scene05-terminal204-r01-low3q-20261023/report.json"
+    },
+    {
+      "oid": "916b9357c9bfd598750aeabd2e8cf055ab84dbf8",
+      "type": "blob",
+      "rawBytes": 35572,
+      "previousLooseBytes": 10805,
+      "path": "lookdev/scene06-nc-adoption179/preservation-proof.json"
+    },
+    {
+      "oid": "888afe5a3b465d78321ca2fcee7a765aa015dab8",
+      "type": "blob",
+      "rawBytes": 35396,
+      "previousLooseBytes": 14390,
+      "path": "lookdev/scene10-support207/r04-source/src/natural193.js"
+    },
+    {
+      "oid": "8f1206f2f15f146c6057961793edce2693758fc4",
+      "type": "blob",
+      "rawBytes": 35352,
+      "previousLooseBytes": 14384,
+      "path": "lookdev/scene10-support207/r05-source/src/natural193.js"
+    },
+    {
+      "oid": "6d69bdf41f9c2e44454ecad03c4010ec89217b3b",
+      "type": "blob",
+      "rawBytes": 35267,
+      "previousLooseBytes": 14957,
+      "path": "reconstructions/scene-04/src/reference4-architecture.js"
+    },
+    {
+      "oid": "bb2925524aae3035146cc076950cd275243e9ed1",
+      "type": "blob",
+      "rawBytes": 35223,
+      "previousLooseBytes": 14688,
+      "path": "lookdev/scene01-rebuild219/r07-source/garden.js"
+    },
+    {
+      "oid": "1de0342dee57f229ef4c12008c086b5b4c6148a1",
+      "type": "blob",
+      "rawBytes": 34982,
+      "previousLooseBytes": 14408,
+      "path": "lookdev/scene01-structure208/r01-source/garden.js"
+    },
+    {
+      "oid": "088db8a63dae902627fb4036f6d125f39866948d",
+      "type": "blob",
+      "rawBytes": 34889,
+      "previousLooseBytes": 14111,
+      "path": "lookdev/scene10-support207/checkpoint-r03-source/src/natural193.js"
+    }
+  ],
+  "newPackBytes": 118165909,
+  "freeBefore": 802996224,
+  "freeAfter": 830402560,
+  "elapsedSeconds": 16.47352695465088
+}

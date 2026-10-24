@@ -1,0 +1,104 @@
+{
+  "revision": "scene09-rebuild221-r10",
+  "source": "4757862cf5799582aefaef4e6fe8d88b20945ce0cfcabc7bff38a5b3c8f2590f",
+  "inputs": 89,
+  "baselineSource": "0897885a14832b746ae6de829ccbcc1386f6eaff0269466ed9a4750b524915f8",
+  "baselinePublication": "aad96ec (R04, parent-supplied)",
+  "checks": {
+    "sourcePinned": true,
+    "officialFramesValid": true,
+    "frameCount": true,
+    "originalPayloadFilesHeld": true,
+    "exposureHeld": true,
+    "cameraSourceHeld": true
+  },
+  "frames": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/shot--1330.png",
+      "name": "shot--1330",
+      "time": -1330,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      },
+      "rgbaSha256": "e585a75772a0382c36ebc6b3a79f2ac21ba43e9bfbed2d8f911853b24115bf01",
+      "pngSha256": "98e9a8b89454fcb4c924a0c2f37abebcc19c34164f127e3522de561443a532ff",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/shot-0.png",
+      "name": "shot-0",
+      "time": 0,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          3.8,
+          2.85,
+          1.75
+        ],
+        "fov": 52
+      },
+      "rgbaSha256": "3c1bdeef7f16a3edaeea55dacbf7f7f23568943bf1ab6dd239ce234798727599",
+      "pngSha256": "3a27fae084faefd3412f1150356c6a2fb0f66ae781e77e0ea5c5648d5e20227c",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-wood/inspection-view.png",
+      "name": "inspection-view",
+      "time": null,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          4.2,
+          4.8,
+          -1.5
+        ],
+        "fov": 44
+      },
+      "rgbaSha256": "beeefea5c8e5e47dc3d589d03800d676d0866a1b4ef4cd5df28882c9c687ee31",
+      "pngSha256": "11be3b5ebcb5fd3bf2eef3bdc4a216f6ef576501cec984da34eabb601cb58fd1",
+      "personallyViewed": true
+    }
+  ],
+  "changed": [
+    "reconstructions/scene-09/assets/rebuild221-provenance.json",
+    "reconstructions/scene-09/src/bearing-scan181.js",
+    "reconstructions/scene-09/src/court-rebuild221.js",
+    "reconstructions/scene-09/src/main.js",
+    "reconstructions/scene-09/src/night-main-roofs123.js",
+    "reconstructions/scene-09/src/night-mass181.js",
+    "reconstructions/scene-09/src/night-practicals203.js",
+    "reconstructions/scene-09/src/rooted-garden145.js"
+  ],
+  "added": [
+    "reconstructions/scene-09/src/carpentry-refinement221.js",
+    "reconstructions/scene-09/src/wateredge-refinement221.js"
+  ],
+  "renderers": [
+    {
+      "backend": "metal",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      }
+    },
+    {
+      "backend": "metal",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      }
+    }
+  ],
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "fullMotionAccepted": false
+}

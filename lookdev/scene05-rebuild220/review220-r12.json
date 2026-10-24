@@ -1,0 +1,121 @@
+{
+  "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+  "visualAccepted": false,
+  "status": "Actual1254 full/truecrop/unchanged0.90m native frames reviewed. R12 is a held working candidate for root review, not photographic acceptance.",
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024",
+      "status": "rendered-review",
+      "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+      "sourceCommitReported": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+      "completedAt": "2026-10-23T23:46:35.863Z",
+      "inspectionView": null,
+      "detailCrop": {
+        "pixels": [
+          720,
+          650,
+          400,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024/reference.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "56b469fff5a432782fcaf3f644399e74b1e46bb3e6eb9f89fd2dcd941228178e",
+          "pngSha256": "c98d5b15458a96fefba99f949a0e0086e390fab4d3880cdb75df2c3c3cf8588e",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-20261024/detail-native.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "35390471829073bf2d6a9f7bd154e70a52506e57416bd0aa4560d690ef7d42c6",
+          "pngSha256": "9b700fc8b0f8a1d1726cbef43bbf1c12ebe19720db60fd923a9c8fc85022e973",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        }
+      ],
+      "samplerAllocationWarnings": 0,
+      "licensedCarvingScope": {
+        "unchangedFromR08": true,
+        "sourceUnstretched": true,
+        "mounts": 16
+      }
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+      "sourceCommitReported": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+      "completedAt": "2026-10-23T23:46:56.382Z",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r12-groundside-20261024/inspection-view.png",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "84ab25272ab4ba13c35664dd634c916c4b6a2829f5cd449e79285d2d1bf55d9b",
+          "pngSha256": "00e3dad8dcde88d1c1cfdcf3ebfe8f48b669ab81581679df05c2762fddffa602",
+          "maxActiveSamplers": 11,
+          "hardwareFragmentSamplerLimit": 16
+        }
+      ],
+      "samplerAllocationWarnings": 0,
+      "licensedCarvingScope": {
+        "unchangedFromR08": true,
+        "sourceUnstretched": true,
+        "mounts": 16
+      }
+    }
+  ],
+  "comparisons": [
+    "lookdev/scene05-rebuild220/compare220-r12-full.png",
+    "lookdev/scene05-rebuild220/compare220-r12-corner.png",
+    "lookdev/scene05-rebuild220/compare220-r12-groundside.png"
+  ],
+  "observed": [
+    "Relative to R08 the visible timber cuts, curved arm edge bands and layer spacing are clearer; warm rafter planes and browner/gray structural timber have separate roles.",
+    "Closed264mm-deep rebated surrounds,152mm sash bones and real53mm rear half-laps replace shallow plane-aligned boxes.",
+    "Four-banded9mm actual arm easing is visible because the pierced carving skins now stop at the inset outline.",
+    "Two measured low-sky sectors cast actual shadows; same local6-face radiance probe now supplies restrained wood and metal response. Explicit prefiltering removes the earlier transient17/21-unit warnings.",
+    "Primary tree roots/endpoints retained with real curved tapered sweeps and broader closed palmate leaves. R12 corrects inherited branch-cap/leaf-rim orientation without moving vertices from R11."
+  ],
+  "remaining": [
+    "Photographic fidelity remains unaccepted. Roof/rafter/window rhythms, broad header fields and capital massing are still too regular and simplified against HD05.",
+    "Some broad wood faces are still too orange/uniform, the right eave remains too black, and the sun/shadow cut remains flatter/harder than the reference. Per-surface cool sky and warm courtyard variation are not recovered GI.",
+    "Small metal end motifs still resemble paired infinity curls and lack the reference-specific dense chased carving. Several shaded small copper end faces remain too dull; the wider main rosette and post/header ribbons remain authored interpretations.",
+    "Deep sash bones, half-laps and rebated surround add real depth, but window spacing, patina and sculptural panel borders remain more schematic than HD05.",
+    "Curved branches and broader palmate leaves improve the bamboo/arrow silhouette, but canopy placement, leaf colour/translucency and clump density still differ strongly from the reference.",
+    "The inherited onigawara r12c and present sky/cloud arrangement remain unlike HD05. No new motion/Cycles frame was rendered in this round."
+  ]
+}

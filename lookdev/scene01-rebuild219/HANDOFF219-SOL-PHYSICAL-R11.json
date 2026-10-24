@@ -1,0 +1,104 @@
+{
+  "status": "R11-component-physical-render-and-original-pixel-crops-delivered",
+  "writtenAt": "2026-10-24T00:00:09.986Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalFrozen": true,
+  "writeOwnership": "R11 physical component writes released to Root; no active GPU job or waiter.",
+  "onlyNewWriteBoundary": "lookdev/scene01-rebuild219",
+  "oldR10FullPNGAndReportsUnchanged": true,
+  "newR10FileOnly": "physical-r10/stone-lantern219-r10-native-crop.png",
+  "sourceOriginalGeometryUVTexturesCameraOrRuntimeModified": false,
+  "freshExport": false,
+  "completeVerifiedR09AssetsRetained": true,
+  "sourceOriginalGraniteModuleUnmodifiedSha256": "70a7852c77d05b1ebe774420475f453f90430d69ac20659494c9601403860fbe",
+  "onlyPhysicalComponentChange": "Original three granite materials and their baked/linked variants now use original gh/gn mineral color and metric height formulas through the reviewed adapter. Cycles Bump derivative approximation and float/pixel limits explicitly retained.",
+  "actualGraniteMaterialCount": 6,
+  "actualNodesPerMaterial": 52,
+  "actualLinksPerMaterial": 65,
+  "actualHashGroupNodes": 21,
+  "actualNoiseGroupNodes": 66,
+  "allR10FrozenLightingRenderGeometryCameraSectionsEqual": {
+    "sourceStatistics": true,
+    "geometryPreservation": true,
+    "affinePreservation": true,
+    "coordinateConversion": true,
+    "physicalWater": true,
+    "physicalLighting": true,
+    "renderSettings": true
+  },
+  "actualRender": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/physical-r11/scene01-d2587-physical-r11.png",
+    "sha256": "9d574717e8ccd5488f64e9bb51cb400a58848df184b5de79a536aa1930778c99",
+    "size": [
+      1254,
+      1254
+    ],
+    "fixedSamples": 96,
+    "seconds": 71.36354613304138,
+    "warnings": 0,
+    "noBlend": true
+  },
+  "actualReview": "Full R11, both original-pixel crops and HD reference personally viewed. Fine shaft/sill variation is visible; overall granite remains too regular/cool, and the sky/hall/garden failures persist.",
+  "photographicAcceptance": false,
+  "nativePixelEquivalence": false,
+  "freeBytes": 1153642496,
+  "emergencyAbort": false,
+  "files": {
+    "physical-r11-settings.json": {
+      "sha256": "6c61c309b0917b97dd41fe4cf2cb440635e871405e1b936bdd252a80f58a322c",
+      "bytes": 8148
+    },
+    "render-physical219-r11.py": {
+      "sha256": "ad7793e2bd772177b0eae96183df40cf89c1564248e3e43a5a308ab92286cdd3",
+      "bytes": 45778
+    },
+    "run-physical219-r11.mjs": {
+      "sha256": "458accc5768b16c8073e3e0d47ff00e9dd7c57a8f3021d4d04a224dc5da451ca",
+      "bytes": 3572
+    },
+    "physical-r11-authorized-preflight.json": {
+      "sha256": "3de540549dcd127f6c511b9d392340b9b42e4a704ceda8b56d3d24b74fb15284",
+      "bytes": 1236
+    },
+    "physical-attempt-r11.json": {
+      "sha256": "551b9d5a74f80789ec3da7b3bb76e7103e7a5d55daeb54c670e0a606f0adc509",
+      "bytes": 1474
+    },
+    "physical-r11.log": {
+      "sha256": "423539421cd60d36d16b056f581d541003afe9700197233ec6d9cf558c3a6951",
+      "bytes": 101025
+    },
+    "crop-physical219-r11.mjs": {
+      "sha256": "281ae8cb89223cd23a11493cb59f7a95f732e7d9974dc270f95d00f16aa172d1",
+      "bytes": 4252
+    },
+    "physical-r11-original-crops.json": {
+      "sha256": "4e8ea98c979e1822f5fffc0b333f90b432c654fd17cb18bd80de6202d7b231d0",
+      "bytes": 1916
+    },
+    "physical-r11/report.json": {
+      "sha256": "1b7cf478d1017107101e545035ede8cca4a8dd6bc654e37086e1ed3220683ccf",
+      "bytes": 182943
+    },
+    "physical-r11/REVIEW219-R11.json": {
+      "sha256": "a935f1c34767770653d87e5f59af4c3bae486af8c31e2c6a4d1bf939274d031c",
+      "bytes": 10237
+    },
+    "physical-r11/sky-api-compatibility-r11.json": {
+      "sha256": "8b2348593c148c191feb4ce205fe74b81f6a43ecfb7e6dbd29dc40faae186489",
+      "bytes": 139597
+    },
+    "physical-r11/scene01-d2587-physical-r11.png": {
+      "sha256": "9d574717e8ccd5488f64e9bb51cb400a58848df184b5de79a536aa1930778c99",
+      "bytes": 2312934
+    },
+    "physical-r11/stone-lantern219-r11-native-crop.png": {
+      "sha256": "f4c768393b17d02c60c75761cb1fb1a5359760a5cd96449de40e71d144bdedf6",
+      "bytes": 244831
+    },
+    "physical-r10/stone-lantern219-r10-native-crop.png": {
+      "sha256": "91fdf6d41cebf1f45dcd52d883fc2ed8b01d4745eb7a7fcb693e3a7fcf97c5d8",
+      "bytes": 237965
+    }
+  }
+}

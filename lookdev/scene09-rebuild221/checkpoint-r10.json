@@ -1,0 +1,106 @@
+{
+  "revision": "scene09-rebuild221-r10",
+  "status": "Phase-two actual modelling/material/light/garden iterations reviewed; candidate released to parent, photographic fidelity remains unaccepted",
+  "source": "4757862cf5799582aefaef4e6fe8d88b20945ce0cfcabc7bff38a5b3c8f2590f",
+  "inputs": 89,
+  "sourceIdentity": "r10-source-identity.json",
+  "snapshot": "r10-source-scripts.tgz",
+  "proof": "native-source-proof-r10.json",
+  "review": "review-r10.html",
+  "officialReports": [
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/report.json",
+    "qa/ten-reference/09/iteration-scene09-rebuild221-r10-wood/report.json"
+  ],
+  "actualFrames": [
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/shot--1330.png",
+      "name": "shot--1330",
+      "time": -1330,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          6,
+          2.7,
+          33
+        ],
+        "fov": 52
+      },
+      "rgbaSha256": "e585a75772a0382c36ebc6b3a79f2ac21ba43e9bfbed2d8f911853b24115bf01",
+      "pngSha256": "98e9a8b89454fcb4c924a0c2f37abebcc19c34164f127e3522de561443a532ff",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/shot-0.png",
+      "name": "shot-0",
+      "time": 0,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          3.8,
+          2.85,
+          1.75
+        ],
+        "fov": 52
+      },
+      "rgbaSha256": "3c1bdeef7f16a3edaeea55dacbf7f7f23568943bf1ab6dd239ce234798727599",
+      "pngSha256": "3a27fae084faefd3412f1150356c6a2fb0f66ae781e77e0ea5c5648d5e20227c",
+      "personallyViewed": true
+    },
+    {
+      "path": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-wood/inspection-view.png",
+      "name": "inspection-view",
+      "time": null,
+      "width": 1254,
+      "height": 1254,
+      "camera": {
+        "position": [
+          4.2,
+          4.8,
+          -1.5
+        ],
+        "fov": 44
+      },
+      "rgbaSha256": "beeefea5c8e5e47dc3d589d03800d676d0866a1b4ef4cd5df28882c9c687ee31",
+      "pngSha256": "11be3b5ebcb5fd3bf2eef3bdc4a216f6ef576501cec984da34eabb601cb58fd1",
+      "personallyViewed": true
+    }
+  ],
+  "changes": [
+    "New complete thin-section dou/hijiki, slender paired curved carriers, reduced shaft and span sections; spaced .095x.14m main rafters and .070x.083m flying rafters with small dark ends.",
+    "Deep calibrated cedar PBR bodies and roughness .84-.95 from the existing declared CC0 grain; actual framed wood vines/leaves replace frontal flower grids. Gilt donor fits reduced from .95/.85m to .52/.46m on thin real seats.",
+    "Existing hall sources exit the forward paper layer behind the metal fret, illuminating courtyard-facing carved timber without new hall lamp count or exposure gain.",
+    "Five closed shallow shelves with 120 seated scan stones and rooted folded rush/fern clumps; visible54-leaf/four-bloom lotus margin; existing shrubs have finer twigs and three leaf-height tiers.",
+    "Actual floor-standing low paper case, .78 assembly on four closed bronze legs;8cd warm source and3.8 exitance in the visible stone-reflection footprint. Mineral and water-coat roughness are separate, with unit-sum native rough-reflection filtering.",
+    "Three foreground finials are .88 fitted solids with a dedicated aged-brass/oxide microfinish and actual128 veranda-local radiance capture."
+  ],
+  "remaining": [
+    "Photographic fidelity remains false. The carpentry and roof still read more regular and coarse than HD; original roof/cloud arrangement and the cultural detail of the donor carving differ.",
+    "Some pale lower relief/back furnishings remain too evenly lit; the paper sources, SH field and secondary shadow scope are native approximations.",
+    "The visible lotus margin is cooler and simpler than HD, and garden species/grouping remain inferred. Paving highlights are more coherent and less varied than the reference despite actual local source reflection and material roughness.",
+    "The final source has a full reference still, actual source opening and a genuine independent wood close. Full seven-second motion, all intermediate obstructions, Cycles equivalence and photographic matching are not accepted."
+  ],
+  "priorCandidates": [
+    "R04 public baseline",
+    "R05",
+    "R06 compile failure: no valid PNG",
+    "R06b",
+    "R07",
+    "R08 blue-metal/overbright wet highlight candidate",
+    "R09"
+  ],
+  "remainingScene09Jobs": [],
+  "scope": {
+    "originalPayloadFilesHeld": true,
+    "newExternalAssets": false,
+    "referencePhotoSampled": false,
+    "sharedExporterEdited": false,
+    "gitMutated": false,
+    "otherScenesEdited": false,
+    "userDirtyDepthAssetsEdited": false
+  },
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "fullMotionAccepted": false
+}

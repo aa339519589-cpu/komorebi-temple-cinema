@@ -1,0 +1,62 @@
+{
+  "sourceHash": "05697bd597b9b512c8a1cc0c5fdc7c956327299fc291a7139511a6327a918652",
+  "visualAccepted": false,
+  "status": "1254 full/truecrop/0.90m viewed; retain as geometry-orientation failure boundary, not preferred final source",
+  "outputs": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r11-20261024",
+      "sourceHash": "05697bd597b9b512c8a1cc0c5fdc7c956327299fc291a7139511a6327a918652",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r11-20261024/reference.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "f15e558c9e261d521f069ac72e13b99dbe1e8e2b04f30b99d54b54c24c4819ae",
+          "pngSha256": "89e034fc28699b80051264b272f99bee8fa78ae5623c9e21bd69c3e878d54f2c",
+          "maxActiveSamplers": 11
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r11-20261024/detail-native.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "8127474467ba89c60eb99291d2c25e229bd00ae250c90a9335bdff09567ba3af",
+          "pngSha256": "a0f0f8dc1ea2060b4f6646ea25353fa31d7a27c0a0649ffeb5632a6413b5ab0d",
+          "maxActiveSamplers": 11
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r11-groundside-20261024",
+      "sourceHash": "05697bd597b9b512c8a1cc0c5fdc7c956327299fc291a7139511a6327a918652",
+      "status": "rendered-review",
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r11-groundside-20261024/inspection-view.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "71f637fb094a125d0cb0f095b378446bba2b8edec1d96336344941fa24ba404e",
+          "pngSha256": "ec42e856c73f811fbffa9de66ed3e1de9c599566a3f2dd9b2d683d651fbdffe7",
+          "maxActiveSamplers": 11
+        }
+      ]
+    }
+  ],
+  "observed": [
+    "Broader closed palmate leaf silhouettes remove much of the arrow-star appearance. Long primary branches now have real bends and taper.",
+    "Warm rafter faces and browner capital cheeks separate better than R08; tiny end motifs remain schematic and dark.",
+    "Right eave, rhythmic geometry and hard-lit broad timber faces remain unlike the reference.",
+    "CPU closed-solid audit discovered inherited inward-wound branch end caps and leaf edge strips. Native frames are GL-valid, but that geometric issue requires R12 correction."
+  ],
+  "orientationAudit": "lookdev/scene05-rebuild220/geometry220-r11-canopy-orientation-audit.json",
+  "stagedRepairCheck": "lookdev/scene05-rebuild220/geometry220-r12-draft-canopy-orientation.json",
+  "retainedSnapshot": "lookdev/scene05-rebuild220/r11-source",
+  "snapshotScope": "Complete owned changes vs R04; no original raw assets copied",
+  "next": "Apply already-checked end-cap and leaf-rim winding correction; capture exact finalsource1254 full/truecrop/0.90m with official FIFO."
+}

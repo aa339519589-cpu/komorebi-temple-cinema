@@ -1,6 +1,7 @@
 // Physical stone lantern geometry for reconstruction 10. Geometry remains local to
 // the lantern anchor; the surrounding garden, camera and illumination stay authored
 // by main.js.
+import {installSurfaceDetail} from './surface-detail.js';
 const lanternTemplates = new WeakMap();
 
 function chamferedSquare(r, cut) {
@@ -23,8 +24,9 @@ function profileGeometry(T, levels, sides = 8) {
       const jitter1 = 1 + 0.006 * Math.sin(k * 2.37 + j * 1.81);
       const p0 = [a[i][0] * jitter0, low.y, a[i][1] * jitter0];
       const p1 = [a[k][0] * jitter1, low.y, a[k][1] * jitter1];
-      const p2 = [b[k][0] * jitter1, high.y, b[k][1] * jitter1];
-      const p3 = [b[i][0] * jitter0, high.y, b[i][1] * jitter0];
+      const hi0=1+0.006*Math.sin(i*2.37+(j+1)*1.81),hi1=1+0.006*Math.sin(k*2.37+(j+1)*1.81);
+      const p2 = [b[k][0] * hi1, high.y, b[k][1] * hi1];
+      const p3 = [b[i][0] * hi0, high.y, b[i][1] * hi0];
       for (const [p, u, v] of [[p0, i / sides, low.y], [p3, i / sides, high.y],
                                 [p2, (i + 1) / sides, high.y], [p0, i / sides, low.y],
                                 [p2, (i + 1) / sides, high.y], [p1, (i + 1) / sides, low.y]]) {
@@ -32,10 +34,12 @@ function profileGeometry(T, levels, sides = 8) {
       }
     }
   }
+  for(const [index,top]of[[0,false],[levels.length-1,true]]){const level=levels[index],ring=chamferedSquare(level.r,level.cut??level.r*.22).map(([x,z],i)=>{const j=1+.006*Math.sin(i*2.37+index*1.81);return[x*j,level.y,z*j];});for(let i=0;i<sides;i++){const order=top?[ring[(i+1)%sides],ring[i]]:[ring[i],ring[(i+1)%sides]];for(const p of[[0,level.y,0],...order]){positions.push(...p);uvs.push(p[0]*1.8,p[2]*1.8);}}}
   const g = new T.BufferGeometry();
   g.setAttribute('position', new T.Float32BufferAttribute(positions, 3));
   g.setAttribute('uv', new T.Float32BufferAttribute(uvs, 2));
   g.computeVertexNormals();
+  g.name='210-closed-shared-ring-lantern-profile';
   return g;
 }
 
@@ -161,21 +165,21 @@ function createTemplates(T, m) {
     map: m.granite.map, normalMap: m.granite.normalMap, roughnessMap: m.granite.roughnessMap,
     normalScale: new T.Vector2(0.62, 0.62)
   });
+  const stone=new T.MeshPhysicalMaterial({name:'211-pitted-patch-wet-lantern-granite',map:m.granite.map,normalMap:m.granite.normalMap,normalScale:new T.Vector2(.82,.82),roughnessMap:m.granite.roughnessMap,color:'#87917e',roughness:.74,clearcoat:.24,clearcoatRoughness:.24});installSurfaceDetail(stone,'stone');const detail=stone.onBeforeCompile;stone.onBeforeCompile=shader=>{detail(shader);shader.vertexShader='varying vec3 vWetStone211;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvWetStone211=(modelMatrix*vec4(transformed,1.)).xyz;');shader.fragmentShader='varying vec3 vWetStone211;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb*=.72+.32*sdFbm(vWetStone211*5.1);');shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=clamp(roughnessFactor*(.72+.48*sdFbm(vWetStone211*8.3)),.38,.92);');};stone.customProgramCacheKey=()=> '211-real-granite-patch-wet';
   const shaft = profileGeometry(T, [
     { y: 0.22, r: 0.46, cut: 0.09 }, { y: 0.28, r: 0.48, cut: 0.09 },
     { y: 0.34, r: 0.41, cut: 0.08 }, { y: 0.41, r: 0.35, cut: 0.07 },
     { y: 0.47, r: 0.32, cut: 0.065 }, { y: 0.54, r: 0.29, cut: 0.06 },
-    { y: 0.62, r: 0.285, cut: 0.06 }, { y: 1.22, r: 0.28, cut: 0.06 },
-    { y: 1.29, r: 0.30, cut: 0.06 }, { y: 1.35, r: 0.33, cut: 0.07 },
-    { y: 1.42, r: 0.39, cut: 0.08 }, { y: 1.50, r: 0.44, cut: 0.09 },
-    { y: 1.63, r: 0.44, cut: 0.09 }, { y: 1.70, r: 0.40, cut: 0.08 },
-    { y: 1.78, r: 0.36, cut: 0.07 }, { y: 1.87, r: 0.39, cut: 0.08 },
-    { y: 1.92, r: 0.42, cut: 0.08 }
-  ]);
-  const lowerBand = bandGeometry(T, 0.315, 0.075, 0.018);
-  const upperBand = bandGeometry(T, 0.325, 0.070, 0.017);
-  const lowerGroove = bandGeometry(T, 0.299, 0.014, 0.006);
-  const upperGroove = bandGeometry(T, 0.307, 0.014, 0.006);
+    { y: 0.62, r: 0.335, cut: 0.08 }, { y: 1.04, r: 0.33, cut: 0.08 },
+    { y: 1.12, r: 0.35, cut: 0.08 }, { y: 1.19, r: 0.40, cut: 0.09 },
+    { y: 1.27, r: 0.42, cut: 0.10 }, { y: 1.35, r: 0.435, cut: 0.10 },
+    { y: 1.46, r: 0.43, cut: 0.10 }, { y: 1.55, r: 0.40, cut: 0.09 },
+    { y: 1.64, r: 0.40, cut: 0.08 }, { y: 1.72, r: 0.46, cut: 0.09 }
+  ].map(p=>({...p,cut:p.r*.42})));
+  const lowerBand = bandGeometry(T, 0.345, 0.075, 0.018);
+  const upperBand = bandGeometry(T, 0.415, 0.070, 0.017);
+  const lowerGroove = bandGeometry(T, 0.342, 0.014, 0.006);
+  const upperGroove = bandGeometry(T, 0.420, 0.014, 0.006);
   const roofN = 36, roofDrop = 0.14;
   const finial = facetedTurnedStone(T, [
     { y: 3.22, r: 0.17 }, { y: 3.27, r: 0.23 }, { y: 3.33, r: 0.22 },
@@ -185,7 +189,7 @@ function createTemplates(T, m) {
     { y: 3.93, r: 0.074 }, { y: 3.97, r: 0.025 }
   ], 12);
   const templates = {
-    joint, blackstone, shaft, lowerBand, upperBand, lowerGroove, upperGroove,
+    joint, blackstone, stone, shaft, lowerBand, upperBand, lowerGroove, upperGroove,
     roofTop: roofSurface(T, roofN, 0, true),
     roofBottom: roofSurface(T, roofN, roofDrop, false),
     roofSides: roofSides(T, roofN, roofDrop),
@@ -201,43 +205,43 @@ export function buildStoneLantern({ T, emit, box, group, R, scene, materials: m,
   group(x, baseY, z, R(-0.12, 0.12), () => {
     // The plinth and capital land on the established anchor; the shaft is a chipped,
     // chamfered granite stack with two raised moldings and incised bed joints.
-    box(0, 0.12, 0, 1.08, 0.24, 1.08, 'carvedStone');
-    emit(t.shaft, 'carvedStone');
-    emit(t.lowerBand, 'carvedStone', 0, 0.54, 0, 1, 1, 1, 0, 0.98);
+    box(0, 0.12, 0, 1.08, 0.24, 1.08, t.stone);
+    emit(t.shaft, t.stone);
+    emit(t.lowerBand, t.stone, 0, 0.54, 0, 1, 1, 1, 0, 0.98);
     emit(t.lowerGroove, t.joint, 0, 0.59, 0);
-    emit(t.upperBand, 'carvedStone', 0, 1.29, 0, 1, 1, 1, 0, 0.98);
+    emit(t.upperBand, t.stone, 0, 1.29, 0, 1, 1, 1, 0, 0.98);
     emit(t.upperGroove, t.joint, 0, 1.335, 0);
-    box(0, 1.97, 0, 0.88, 0.18, 0.88, 'carvedStone');
+    box(0, 1.80, 0, 1.02, 0.18, 1.02, t.stone);
 
     // Four substantial corner piers frame real, recessed openings. Paper sits behind
     // the stone reveals, leaving depth around each aperture rather than a surface box.
     for (const a of [-1, 1]) for (const b of [-1, 1]) {
-      box(a * 0.335, 2.38, b * 0.335, 0.20, 0.72, 0.20, 'carvedStone');
-      box(a * 0.335, 2.04, b * 0.335, 0.235, 0.10, 0.235, 'carvedStone');
-      box(a * 0.335, 2.72, b * 0.335, 0.235, 0.10, 0.235, 'carvedStone');
+      box(a * 0.370, 2.28, b * 0.370, 0.17, 0.90, 0.17, t.stone);
+      box(a * 0.370, 1.87, b * 0.370, 0.205, 0.10, 0.205, t.stone);
+      box(a * 0.370, 2.72, b * 0.370, 0.205, 0.10, 0.205, t.stone);
     }
     for (let face = 0; face < 4; face++) group(0, 0, 0, face * Math.PI / 2, () => {
       // A deep stone window well with a warm inner paper plane and restrained lattice.
-      box(0, 2.055, 0.345, 0.56, 0.105, 0.17, 'carvedStone');
-      box(0, 2.705, 0.345, 0.60, 0.115, 0.17, 'carvedStone');
-      for (const side of [-1, 1]) box(side * 0.245, 2.38, 0.255, 0.14, 0.53, 0.18, 'carvedStone', 0, 0.82);
-      box(0, 2.38, 0.175, 0.39, 0.49, 0.018, 'stonePaper');
-      for (const xx of [-0.115, 0.115]) box(xx, 2.38, 0.354, 0.014, 0.50, 0.014, 'darkwood');
-      for (const yy of [2.25, 2.51]) box(0, yy, 0.354, 0.43, 0.014, 0.014, 'darkwood');
+      box(0, 1.875, 0.38, 0.63, 0.105, 0.17, t.stone);
+      box(0, 2.705, 0.38, 0.65, 0.115, 0.17, t.stone);
+      for (const side of [-1, 1]) box(side * 0.285, 2.28, 0.29, 0.11, 0.69, 0.18, t.stone);
+      box(0, 2.28, 0.20, 0.48, 0.65, 0.018, 'stonePaper');
+      for (const xx of [-0.14, 0.14]) box(xx, 2.28, 0.39, 0.014, 0.66, 0.014, 'darkwood');
+      for (const yy of [2.08, 2.48]) box(0, yy, 0.39, 0.51, 0.014, 0.014, 'darkwood');
     });
     // Roof shell: square hip planes, a real thick underside, and curled eave tips.
-    emit(t.roofTop, 'carvedStone',0,0,0,.83,1,.83);
-    emit(t.roofSides, t.joint, 0, 0, 0, .83, 1, .83, 0, 0.86);
-    emit(t.roofBottom, t.joint, 0, 0, 0, .83, 1, .83, 0, 0.90);
-    emit(t.roofMoss, 'moss',0,0,0,.83,1,.83);
+    emit(t.roofTop, t.stone,0,0,0,.78,1,.78);
+    emit(t.roofSides, t.joint, 0, 0, 0, .78, 1, .78, 0, 0.86);
+    emit(t.roofBottom, t.joint, 0, 0, 0, .78, 1, .78, 0, 0.90);
+    emit(t.roofMoss, 'moss',0,0,0,.78,1,.78);
     emit(t.finial, t.blackstone);
 
     // Preserve the prior fixture's random stream so downstream garden placement is stable.
     for (let i = 0; i < 102; i++) R(0, 1);
   }, scale);
-  const light = new T.PointLight('#ffc981', 18 * (isNear ? L.heroStoneLantern.scale[1] ** 2 : s ** 2), 0, 2);
+  const light = new T.PointLight('#ffbd64', 15 * (isNear ? L.heroStoneLantern.scale[1] ** 2 : s ** 2), 0, 2);
   light.name = 'scene10-inverse-square-existing-stone-fixture';
   if (isNear) {light.castShadow = true;light.shadow.mapSize.set(512,512);light.shadow.camera.near=.10;light.shadow.camera.far=50;light.shadow.bias=-.00003;light.shadow.normalBias=.010;}
-  light.position.set(x, 2.35 * (isNear ? L.heroStoneLantern.scale[1] : s) + baseY, z);
+  light.position.set(x, 2.28 * (isNear ? L.heroStoneLantern.scale[1] : s) + baseY, z);
   scene.add(light);
 }

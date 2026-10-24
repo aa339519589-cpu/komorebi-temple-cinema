@@ -1,9 +1,10 @@
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {detailNoise} from './surface-detail.js';
+import {detailNoise,installSurfaceDetail} from './surface-detail.js';
 import {createPineShoot158,buildPineGeometry158,HERO_PINE_ORIGINS} from './pine-shoot193.js';
 import {createBridgeHallStairPlan125} from './layout125.js';
-import {pondContains207,pondShoreDistance207} from './support-route207.js';
+import {pondContains207,pondShoreDistance207,createApproachPlan207,nearIslandHeight207,nearRouteGround207,hallShoreHeight207} from './support-route207.js';
+import {nearEcology210,bankBedHeight210,towerBenchHeight210,buildRainBanks210} from './rain-banks210.js';
 
 // Rain garden193. The field is a physical triangulated landform. All plants
 // use its triangle height or a downward hit on an actually transformed rock.
@@ -130,7 +131,7 @@ export function createMatureBankShrub193(seed){
 }
 
 function groundMaterial193(){
- const ma=new T.MeshStandardMaterial({name:'natural193-eroded-soil-mineral-moss',color:'#67634b',roughness:.98});
+ const ma=new T.MeshPhysicalMaterial({name:'213-damp-eroded-soil-mineral-moss',color:'#67634b',roughness:.92,clearcoat:.14,clearcoatRoughness:.28});
  ma.onBeforeCompile=shader=>{
   shader.vertexShader='varying vec3 vNatural193;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvNatural193=(modelMatrix*vec4(transformed,1.)).xyz;');
   shader.fragmentShader='varying vec3 vNatural193;\n'+detailNoise+shader.fragmentShader;
@@ -140,13 +141,13 @@ function groundMaterial193(){
    float moss=smoothstep(.38,.67,coarse+.18*soilPatch-.38*slope);
    vec3 loam=mix(vec3(.019,.014,.009),vec3(.060,.047,.029),.55*soilPatch+.45*fine);
    vec3 green=mix(vec3(.010,.021,.006),vec3(.044,.064,.015),.6*soilPatch+.4*fine);
-   diffuseColor.rgb=mix(loam,green,moss)*( .83+.30*fine );`);
+   diffuseColor.rgb=mix(loam,green,moss)*( .83+.30*fine );`);shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=clamp(roughnessFactor*(.72+.28*soilPatch),.65,.98);');
  };
- ma.customProgramCacheKey=()=> 'natural193-soil-mineral-moss-r01';return ma;
+ ma.customProgramCacheKey=()=> 'rain213-damp-soil-r13';return ma;
 }
 
 export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pines,hillHeight,forestHeight,reserved,channel,stairEmbankment,layout,mineralMaterial,ecologyAnchors207,bearingSurfaces207=[]}){
- const random=rng(193091),R=(a,b)=>a+(b-a)*random(),info={revision:'scene10-rooted-rain-garden193-with-support207-r05',visualAccepted:false,roots:[],rocks:[],forest:[],counts:{},licenses:[{asset:'Pine Sapling Small',license:'CC0-1.0'},{asset:'Shrub 02',license:'CC0-1.0'},{asset:'Periwinkle Plant',license:'CC0-1.0'},{asset:'Rock Moss Set 01',license:'CC0-1.0'}]};
+ const random=rng(193091),R=(a,b)=>a+(b-a)*random(),approach207=createApproachPlan207(layout),info={revision:'scene10-rain210-open-front-creek-and-garden-island-r14',visualAccepted:false,roots:[],rocks:[],forest:[],gardenTreePoses207:[],counts:{},licenses:[{asset:'Pine Sapling Small',license:'CC0-1.0'},{asset:'Shrub 02',license:'CC0-1.0'},{asset:'Periwinkle Plant',license:'CC0-1.0'},{asset:'Rock Moss Set 01',license:'CC0-1.0'}]};
  const soil=groundMaterial193(),wood=pines.trunkMaterial.clone();wood.name='natural193-rain-dark-connected-bark';wood.vertexColors=true;wood.color.set('#7f8171');wood.roughness=.94;
  const leafSource=groundcover.leaves[0].material,leaf=new T.MeshPhysicalMaterial({name:'natural193-cupped-attached-garden-leaves-with-CC0-veins',map:leafSource.map,normalMap:leafSource.normalMap,normalScale:new T.Vector2(.42,.42),roughnessMap:leafSource.roughnessMap,color:'#bac7a7',vertexColors:true,roughness:.78,clearcoat:.23,clearcoatRoughness:.24,envMapIntensity:.30,side:T.DoubleSide});
  for(const v of groundcover.variants)for(const p of v.parts){p.material.roughness=.75;p.material.clearcoat=.28;p.material.clearcoatRoughness=.20;p.material.envMapIntensity=.30;}
@@ -168,9 +169,15 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
    const shoreDistance=x<-9||x>13?1:pondShoreDistance207(x,z),rise=smooth(shoreDistance,.08,.70);
    y=Math.max(y,T.MathUtils.lerp(-.18,.08+.07*fbm(x*.8+19,z*.8),rise));
   }
+  y=towerBenchHeight210(x,z,y);
+  const coherentBed=bankBedHeight210(x,z);if(coherentBed!==null)y=Math.max(y,coherentBed);
+  const nearIsland=nearIslandHeight207(x,z,approach207),hallShore=hallShoreHeight207(x,z,layout);
+  if(nearIsland!==null)y=Math.max(y,nearIsland);
+  if(hallShore!==null)y=Math.max(y,hallShore);
   if(channel(x,z))y=-.20;
   if(reserved(x,z)){
-   if(z<-2&&z>=-13&&Math.abs(x-(-2.5+.132*(z+3)))<1.18)return hillHeight(x,z)-.025;
+   const bed207=z< -2.5?nearRouteGround207(x,z,approach207):null;if(bed207!==null)return bed207;
+   if(z< -7.65&&z>=-13&&Math.abs(x-(-2.5+.132*(z+3)))<1.18)return towerBenchHeight210(x,z,hillHeight(x,z))-.025;
    return -.22;
   }
   return y;
@@ -182,7 +189,7 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
  const soilIndices=[],mineralIndices=[],a193=new T.Vector3(),b193=new T.Vector3(),c193=new T.Vector3();
  for(let k=0;k<indices.length;k+=3){const ids=indices.slice(k,k+3);a193.fromArray(positions,ids[0]*3);b193.fromArray(positions,ids[1]*3);c193.fromArray(positions,ids[2]*3);const centre=a193.clone().add(b193).add(c193).multiplyScalar(1/3),normal=b193.clone().sub(a193).cross(c193.clone().sub(a193)).normalize(),steep=1-Math.abs(normal.y),exposed=centre.y>.40&&centre.z>-29&&centre.z<-6&&centre.x<-2.5&&steep>.12&&fbm(centre.x*.83+17,centre.z*.83)>.47;(exposed?mineralIndices:soilIndices).push(...ids);}
  terrain.setIndex(soilIndices);emit(terrain,soil);
- const mineral=mineralMaterial.clone();mineral.name='natural193-exposed-connected-mineral-strata';mineral.color.set('#8e9584');mineral.roughness=.9;if(mineral.normalScale)mineral.normalScale.set(.75,.75);const exposed=terrain.clone();exposed.setIndex(mineralIndices);exposed.name='natural193-actual-connected-eroded-mineral-faces';emit(exposed,mineral);
+ const mineral=new T.MeshPhysicalMaterial({name:'212-damp-connected-mineral-strata',map:mineralMaterial.map,normalMap:mineralMaterial.normalMap,normalScale:new T.Vector2(.88,.88),roughnessMap:mineralMaterial.roughnessMap,color:'#59654f',roughness:.85,clearcoat:.10,clearcoatRoughness:.32});installSurfaceDetail(mineral,'stone');const exposed=terrain.clone();exposed.setIndex(mineralIndices);exposed.name='natural193-actual-connected-eroded-mineral-faces';emit(exposed,mineral);
  // A broken mineral bank replaces the smooth exposed clay wedge. The upper
  // bearing strip remains intact under the already solid granite stair.
  const supportPlan=createBridgeHallStairPlan125(),fracturedBank=stairEmbankment.geometry.clone(),bp=fracturedBank.attributes.position;
@@ -202,6 +209,7 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
  const lamps=[[-2.8,-3,1.05],[-6,-2.7,.55],[-7.5,-6,.6],[-9,-10,.55],[-2,-7,.50],[4,-10,.55],[10,-1,.5]];
  function clear(x,z,r=.25){if(reserved(x,z)||channel(x,z))return false;for(const [xx,zz,rr]of lamps)if(Math.hypot(xx-x,zz-z)<rr+r)return false;for(const a of[0,Math.PI/2,Math.PI,Math.PI*1.5])if(reserved(x+Math.cos(a)*r,z+Math.sin(a)*r))return false;return true;}
  const rock=(x,z,size,variant=Math.floor(R(0,6)),root=null)=>{
+  if(nearEcology210(x,z))return null;
   if(!clear(x,z,size*.60))return null;const scan=scannedStones.variants[variant],rotation=[R(-.14,.14),R(0,TAU),R(-.13,.13)],matrix=new T.Matrix4().makeRotationFromEuler(new T.Euler(...rotation)).scale(V([size,size,size])),p=scan.geometry.attributes.position,pt=new T.Vector3();let min=Infinity,max=-Infinity;
   for(let i=0;i<p.count;i++){pt.fromBufferAttribute(p,i).applyMatrix4(matrix);min=Math.min(min,pt.y);max=Math.max(max,pt.y);}
   const ground=root===null?surfaceAt(x,z):root,bottom=ground-size*R(.22,.38),y=bottom-min;emit(scan.geometry,wetStones[variant],x,y,z,size,size,size,rotation,R(.80,1.08));
@@ -214,6 +222,7 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
  for(const [x,z,s,v]of[[4.92,4.12,.70,3],[4.63,3.35,.54,1],[5.51,3.64,.48,4],[-4.25,1.15,.66,2],[-4.65,.52,.52,0],[-.15,-4.35,.52,3],[.7,-5.9,.50,1],[5.1,-3.2,.63,4]])rock(x,z,s,v);
  // Root every whole licensed botanical on the actual highest supporting face.
  const plant=(x,z,h,type='shrub',onRocks=true)=>{
+  if(nearEcology210(x,z))return false;
   if(!clear(x,z,h*(type==='shrub'?.58:.48)))return false;const y=surfaceAt(x,z,onRocks);if(y<-.075)return false;const variant=Math.floor(R(0,4)),yaw=R(0,TAU);
   if(type==='shrub'){
    const g=evergreenBushes[variant];emit(g.wood,wood,x,y-.018,z,h,h,h,yaw,R(.84,1.12));emit(g.foliage,leaf,x,y-.018,z,h,h,h,yaw,R(.88,1.14));
@@ -262,11 +271,13 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
  // Local authored pine158 branch studies supply coherent mature crowns. The
  // full positive-uniform tree growth transform retains their needle packets;
  // no other scene module, backdrop, crown hull or depth card is loaded.
+ const rainBanks210=buildRainBanks210({emit,scannedStones,heightAt,reserved,wood,leaf,groundcover,makeShrub:createMatureBankShrub193,makeFern:createFern193,layout,plinthMaterial:mineralMaterial,approach:approach207});info.rainBanks210=rainBanks210.info;info.roots.push(...rainBanks210.info.roots);info.rocks.push(...rainBanks210.info.rocks);
  const pineShoots=Array.from({length:12},(_,i)=>createPineShoot158(158701+i*73)),conifers=[2,5,6].map((i,k)=>buildPineGeometry158({...HERO_PINE_ORIGINS[i],id:'natural193-mature-pine-'+k,x:0,z:0,h:7.8,seed:193571+k*151}));
  const heldMature207=ecologyAnchors207?.forest.filter(x=>x.growthScale),heldYoung207=ecologyAnchors207?.forest.filter(x=>!x.growthScale);let heldMatureIndex207=0;
  const placeConifer=(x,z,h,variant,yaw)=>{
-  if(heldMature207?.[heldMatureIndex207]){const a=heldMature207[heldMatureIndex207];[x,,z]=a.root;h=a.height;variant=a.variant;yaw=a.yaw;}heldMatureIndex207++;
-  const y=heightAt(x,z),g=conifers[variant%3],s=h/7.8,q=new T.Quaternion().setFromAxisAngle(UP,yaw),root=V([x,y-.07,z]);
+  let previousRoot207=null;if(heldMature207?.[heldMatureIndex207]){const a=heldMature207[heldMatureIndex207];[x,,z]=a.root;previousRoot207=a.root[1];h=a.height;variant=a.variant;yaw=a.yaw;}heldMatureIndex207++;
+  const y=heightAt(x,z);if(z> -18&&previousRoot207!==null)h+=Math.max(0,previousRoot207-y);
+  const g=conifers[variant%3],s=h/7.8,q=new T.Quaternion().setFromAxisAngle(UP,yaw),root=V([x,y-.07,z]);
   emit(g.bark,wood,x,y-.07,z,s,s,s,yaw);emit(g.cuts,wood,x,y-.07,z,s,s,s,yaw);
   for(const item of g.shoots){const shoot=pineShoots[item.variant],p=V(item.p).multiplyScalar(s).applyQuaternion(q).add(root),local=new T.Quaternion().setFromEuler(new T.Euler(...item.rotation)),rotation=q.clone().multiply(local),scale=item.scale*s;
    emit(shoot.twig,wood,...p.toArray(),scale,scale,scale,rotation,item.tint);if(shoot.interior.attributes.position.count)emit(shoot.interior,pineInterior,...p.toArray(),scale,scale,scale,rotation,item.tint);emit(shoot.needle,pineTips,...p.toArray(),scale,scale,scale,rotation,item.tint);
@@ -283,14 +294,15 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
  for(let k=0;k<22;k++){let x=R(-27,25),z=R(-41,-29),h=R(3.4,7.0),variant=k%3,yaw=R(0,TAU);if(heldYoung207?.[k]){const a=heldYoung207[k];[x,,z]=a.root;h=a.height;variant=a.variant;yaw=a.yaw;}const y=heightAt(x,z);for(const part of pines.variants[variant].parts)emit(part.geometry,part.material,x,y-.025,z,h,h,h,yaw,R(.88,1.08));info.forest.push({root:[x,y,z],height:h,variant,yaw,kind:'Whole source CC0 sapling, original geometry/UV/normal',uniformScale:true});}
  const gardenTrees=[[-13,-14,7.1,0],[-17,-23,9.6,1],[-5.7,-28,10.2,2],[19,-16,8.8,3],[19,-2,8.6,0],[-6.1,-8.6,5.1,1],[10.4,-4.8,7.7,2]];
  const broad=Array.from({length:4},(_,i)=>createBroadleaf193(19371+i*97));
- for(const [x,z,h,v]of gardenTrees){const y=heightAt(x,z),s=h/6,yaw=R(0,TAU),g=broad[v];emit(g.wood,wood,x,y-.03,z,s,s,s,yaw);emit(g.foliage,leaf,x,y-.03,z,s,s,s,yaw);info.roots.push({position:[x,y,z],height:h,type:'connected-mature-garden-tree',contact:'Actual rendered triangle'});}
+ const heldGarden207=(geometry,x,z,yaw)=>ecologyAnchors207?.gardenTrees?.poses.find(p=>p.geometry===geometry&&p.position[0]===x&&p.position[2]===z)?.yaw??yaw;
+ for(const [x,z,h,v]of gardenTrees){const y=heightAt(x,z),g=broad[v],old=ecologyAnchors207?.gardenTrees?.poses.find(p=>p.geometry===g.wood.name&&p.position[0]===x&&p.position[2]===z),height=h+Math.max(0,(old?.position[1]??y-.03)+.03-y),s=height/6,candidateYaw=R(0,TAU),yaw=heldGarden207(g.wood.name,x,z,candidateYaw);emit(g.wood,wood,x,y-.03,z,s,s,s,yaw);emit(g.foliage,leaf,x,y-.03,z,s,s,s,yaw);info.gardenTreePoses207.push({geometry:g.wood.name,position:[x,y-.03,z],scale:[s,s,s],yaw});info.roots.push({position:[x,y,z],height,type:'connected-mature-garden-tree',contact:'Actual rendered triangle; growth adjusted to revised rooted bank, not soil pedestal'});}
  const flowers=createBroadleaf193(193932,true);
- for(const [x,z,h]of[[-5.4,-13.9,4.5],[-.8,-13.8,4.0],[-11.2,-6.0,4.7],[1.0,-10.5,4.6]]){const y=heightAt(x,z),s=h/6,yaw=R(0,TAU);emit(flowers.wood,wood,x,y-.025,z,s,s,s,yaw);emit(flowers.foliage,blossom,x,y-.025,z,s,s,s,yaw);info.roots.push({position:[x,y,z],height:h,type:'connected-small-blossom-tree',contact:'Actual rendered triangle'});}
+ for(const [x,z,h]of[[-5.4,-13.9,4.5],[-.8,-13.8,4.0],[-11.2,-6.0,4.7],[1.0,-10.5,4.6]]){const y=heightAt(x,z),old=ecologyAnchors207?.gardenTrees?.poses.find(p=>p.geometry===flowers.wood.name&&p.position[0]===x&&p.position[2]===z),height=h+Math.max(0,(old?.position[1]??y-.025)+.025-y),s=height/6,candidateYaw=R(0,TAU),yaw=heldGarden207(flowers.wood.name,x,z,candidateYaw);emit(flowers.wood,wood,x,y-.025,z,s,s,s,yaw);emit(flowers.foliage,blossom,x,y-.025,z,s,s,s,yaw);info.gardenTreePoses207.push({geometry:flowers.wood.name,position:[x,y-.025,z],scale:[s,s,s],yaw});info.roots.push({position:[x,y,z],height,type:'connected-small-blossom-tree',contact:'Actual rendered triangle; positive growth follows the revised lower bank'});}
  info.counts={terrainVertices:positions.length/3,terrainTriangles:indices.length/3,mineralFaceTriangles:mineralIndices.length/3,stones:info.rocks.length,rootedPlants:info.roots.length,forestTrees:info.forest.length,coniferVariants:conifers.map(g=>g.stats),evergreenBushVariants:evergreenBushes.map(g=>({woodTriangles:g.wood.index.count/3,leafTriangles:g.foliage.index.count/3}))};
- info.heightField={bounds:[x0,z0,x0+nx*step,z0+nz*step],step,contact:'Exact barycentric rendered grid triangle, not the analytic approximation',creekWaterline:-.07,walkReserved:true,clearCirculation207:{insideHeight:-.22,slabSideBuffer:.45,rightCurbBuffer:.65,verandaHalfExtents:[1.22,1.16],apronBounds:[.55,10.95,5.05,20.45],shoreTransition:[.08,.70],purpose:'All triangle vertices adjoining the actual paving, curb, column receiver and returning-rail apron stay below their physical bottoms; outside creek rise blends over .62m.'}};
+ info.heightField={bounds:[x0,z0,x0+nx*step,z0+nz*step],step,contact:'Exact barycentric rendered grid triangle, not the analytic approximation',creekWaterline:-.07,walkReserved:true,clearCirculation207:{insideHeight:-.22,insideHeightScope:'Foreground paving/curb/column/apron cells; raised island routes separately use their actual local top minus .13m',raisedRouteBedOffset:-.13,slabSideBuffer:.45,rightCurbBuffer:.65,verandaHalfExtents:[1.22,1.16],apronBounds:[.55,10.95,5.05,20.45],shoreTransition:[.08,.70],purpose:'All triangle vertices adjoining the actual foreground paving, curb, column receiver and returning-rail apron stay below their physical bottoms; outside creek rise blends over .62m.'}};
  info.underLandingWater193={scope:'207 retires the broad193 mineral cone and wall-hiding shrubs. The current hall flight uses real closed treads, sloping bed, stringers, crossheads and bed-seated pads; only a narrow submerged core remains.',waterBed:-.13,submergedCoreWidth:stairEmbankment.info.width};
- info.preservation=stairEmbankment.ownedBy207?'207 expressly rebuilds wrong landing/stair/retaining supports and foot route. Hall/pagoda upper mass, fixed camera, paving/reflection/rain parameters and193 mature/young forest datums retained; old wide soil bank and concealment shrubs are removed.':'Existing hall/tower183, bridge/closed stair, fixed camera, paving/reflection, rain and their RNG unchanged. Old generic vegetation/independent bank piles retired with deterministic random replay.';
+ info.preservation='R10 explicit reconstruction: wrong near slopes, scattered understory and lantern profile/plinth rebuilt. Old forest anchors are implementation history, not user constraints; tree roots follow the actual revised terrain. Camera, foreground paving/rain inputs and upper hall/tower mass remain unchanged in this candidate.';
  info.retiredNaturalAssemblies193=['Old mature cedar crown stacks141','Old generic broadleaf/pink shrubs and fern strokes','Old smooth terrain141/142','Old isolated island/near-bank/hall-shore/solmax piles141/142'];
  info.materials={soil:'Rain-dark loam/mineral and moss patches respond to actual slope and world scale; no photograph',wetStone:'CC0 scan PBR, porous dielectric roughness .83 / clearcoat .12, no blanket scene grading',needles:'Opaque closed needle solids, roughness .86; branch-aligned actual geometry'};
- return{info,materials:[soil,mineral,wood,leaf,blossom,pineInterior,pineTips,...wetStones,...groundcover.variants.flatMap(v=>v.parts.map(p=>p.material))],heightAt};
+ return{info,materials:[soil,mineral,wood,leaf,blossom,pineInterior,pineTips,...wetStones,...rainBanks210.materials,...groundcover.variants.flatMap(v=>v.parts.map(p=>p.material))],heightAt};
 }

@@ -1,0 +1,34 @@
+{
+  "revision": "scene10-hall132-b-exposed-bracket-relief",
+  "baseCommit": "5333c11d9ec313841a29199c3ae352586c693f8e",
+  "status": "Second physical candidate, correcting first actual hall132-a. Awaiting second actual review; not a finished photographic reconstruction.",
+  "reference": "references/hd/9-\u7167\u7247-10.jpg",
+  "baselineActual": "qa/ten-reference/10/iteration-layout125-d/shot--1250.png",
+  "scope": "Main hall only: closed timber roof bedding, two physical rafter tiers, four connected bearing rows per roof, column-to-beam registration, recessed carved timber friezes, volumetric gilt leaves, and returned metal end sleeves.",
+  "kept": [
+    "layout125 camera and pullback",
+    "final open bridge turn",
+    "stairs and landings",
+    "hall floor and foundation coordinates",
+    "pagoda",
+    "garden and stone scan transforms",
+    "global atmosphere and exposure",
+    "ceramic outer roof profile"
+  ],
+  "constructionSource": "Original project-authored scene-local geometry. The closed timber sweep construction follows the existing scene07 physical-roofs.js technique with the original scene10 roof equation and dimensions.",
+  "assets": "No added external assets, generated bitmap textures, or photo-derived projections. Existing CC0 scan and material licenses are unchanged.",
+  "referenceUse": "The supplied photograph is a comparison input only. It is not sampled by the runtime or used as a replacement render.",
+  "validationScope": "The CPU audit checks finite construction, explicit column/header registration, RNG preservation, and identical camera/bridge/stair/garden source. It does not establish visual acceptance.",
+  "firstSourceCommit": "4db9526f81a115a65a69e182d4a3e19068876616",
+  "firstActual": "qa/ten-reference/10/iteration-hall132-a/shot--1250.png",
+  "observedFirstErrors": [
+    "Continuous new bearing girders obscured the bracket relief in the low reference camera.",
+    "Oversized end sleeves on the widely spaced rafters formed a coarse checker band.",
+    "Repeated central rings remained visibly sparse compared with the reference carved frieze."
+  ],
+  "boundedCorrections": [
+    "Thinner girts and fascia expose the existing finite bracket sets.",
+    "Rafter pitch reduced to 0.205m with narrower closed timber sections and returned metal tips.",
+    "Receiver end plates are open framed with returned sides; frieze rosettes have actual layered petals and leaves."
+  ]
+}

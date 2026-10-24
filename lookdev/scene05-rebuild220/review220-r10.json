@@ -1,0 +1,88 @@
+{
+  "sourceHash": "a50b1ba128f8246f7f73676c652d376afd4b50cf65c9e95438f1d7fc1ff09f18",
+  "visualAccepted": false,
+  "status": "Actual1254 full/subfrustum and original0.90m low-side frames all viewed. No native sampler warnings after explicit environment prefiltering.",
+  "outputs": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-20261024",
+      "sourceHash": "a50b1ba128f8246f7f73676c652d376afd4b50cf65c9e95438f1d7fc1ff09f18",
+      "status": "rendered-review",
+      "inspectionView": null,
+      "detailCrop": {
+        "pixels": [
+          720,
+          650,
+          400,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-20261024/reference.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "2ea8a86825312752713f4fb1b3dcd1a8ac66d9e48dc0f050c3c1e508a1ff2699",
+          "pngSha256": "c75cbb659f69731a5be0fe48c1ab8d5919d0ab4562d692c083000ff1de89a2c6",
+          "maxActiveSamplers": 11
+        },
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-20261024/detail-native.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "2d25e14c9ae1ab442ba8a3920d647d48188a55b85d3c9e845074c69292e7e84a",
+          "pngSha256": "fa0e9fe1f2ea923f880c2eda16741815d36e0f500dd31663b9581e9593f49ebb",
+          "maxActiveSamplers": 11
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-groundside-20261024",
+      "sourceHash": "a50b1ba128f8246f7f73676c652d376afd4b50cf65c9e95438f1d7fc1ff09f18",
+      "status": "rendered-review",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "frames": [
+        {
+          "file": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-groundside-20261024/inspection-view.png",
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "programsLinked": true,
+          "rgbaSha256": "561432572171fb585826fb58d7cd88106030b73ae6e54ecbe3dba4c64b8e9464",
+          "pngSha256": "b8cfe04f361a7175e9fb7b01f759c5cb494ae8c42db083cbfb6f1338d90cf186",
+          "maxActiveSamplers": 11
+        }
+      ]
+    }
+  ],
+  "observed": [
+    "Arms now have visible rounded edge bands and recessed carved face skins instead of a covered sharp rim.",
+    "Deep sash/frame and independently recessed transom boards create visible physical layers.",
+    "Contrast in scan tissue reduced; broad warm cedar/orange and gray-red pillar roles are clearer than R08.",
+    "Right-capital and right soffit remain too dark, small metal ends remain schematic/dull, window/rafter repetition and canopy straight stems/arrow clumps remain clearly unlike HD05."
+  ],
+  "limits": [
+    "Native2-sector low-sky quadrature and one captured local radiance probe remain bounded approximations rather than traced GI.",
+    "The licensed cloud cassette is a declared different source component; no whole-building scan, NoAI research piece or replacement photo/frame."
+  ],
+  "cpu": "lookdev/scene05-rebuild220/geometry220-r10-arms.json",
+  "next": "Investigate remaining material reflection roles and curved twig/leaf silhouette; preserve this coherent R10 retreat source and all native frames."
+}

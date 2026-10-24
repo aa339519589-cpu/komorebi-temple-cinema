@@ -1,0 +1,152 @@
+{
+  "sourceBefore": "f3291ade96e88b5e2f20c12ea2268ad0e8d12130e21a6496d4e5dd2c3097639c",
+  "sourceAfter": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+  "physicalReferenceCameraEqual": true,
+  "beforeImage": "qa/ten-reference/10/iteration-scene10-rain210-r13-pick/reference.png",
+  "afterImage": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/reference.png",
+  "sameRayResults": [
+    {
+      "pixel": [
+        0.39314,
+        0.64912
+      ],
+      "beforeFirst": {
+        "material": [
+          {
+            "name": "213-damp-eroded-soil-mineral-moss",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.967023795303259,
+          0.3387393735766223,
+          -2.1624242390851798
+        ]
+      },
+      "afterFirst": {
+        "material": [
+          {
+            "name": "207-rain-dark-dressed-granite",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.9845373589874789,
+          0.33285178333984655,
+          -2.306327758136895
+        ]
+      },
+      "afterFirstWasPreviouslySecond": true
+    },
+    {
+      "pixel": [
+        0.41148,
+        0.6555
+      ],
+      "beforeFirst": {
+        "material": [
+          {
+            "name": "213-damp-eroded-soil-mineral-moss",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.6245598535167787,
+          0.22460964610964995,
+          -2.1292469921306463
+        ]
+      },
+      "afterFirst": {
+        "material": [
+          {
+            "name": "207-rain-dark-dressed-granite",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.6369523713804266,
+          0.21869478936178366,
+          -2.2522846143176487
+        ]
+      },
+      "afterFirstWasPreviouslySecond": true
+    },
+    {
+      "pixel": [
+        0.42344,
+        0.63078
+      ],
+      "beforeFirst": {
+        "material": [
+          {
+            "name": "207-wet-worn-route-stone",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.4165378354704024,
+          0.6718181487509345,
+          -2.2018323244653644
+        ]
+      },
+      "afterFirst": {
+        "material": [
+          {
+            "name": "207-wet-worn-route-stone",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -1.4165378354704024,
+          0.6718181487509345,
+          -2.2018323244653644
+        ]
+      },
+      "afterFirstWasPreviouslySecond": false
+    },
+    {
+      "pixel": [
+        0.38756,
+        0.62759
+      ],
+      "beforeFirst": {
+        "material": [
+          {
+            "name": "207-dark-earth-bedded-worn-path-flags",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -2.081201948361415,
+          0.7302415840910326,
+          -2.2004362139725195
+        ]
+      },
+      "afterFirst": {
+        "material": [
+          {
+            "name": "207-dark-earth-bedded-worn-path-flags",
+            "type": "MeshPhysicalMaterial",
+            "opacity": 1
+          }
+        ],
+        "point": [
+          -2.0816683378760374,
+          0.7301811322464818,
+          -2.2040666706845435
+        ]
+      },
+      "afterFirstWasPreviouslySecond": false
+    }
+  ],
+  "scope": "Actual same physical-camera rays. The two former grey-face rays now expose the same stone intersections that were second hits behind the removed soil; this establishes removal of that geometry occluder only, not photographic fidelity.",
+  "visualAccepted": false,
+  "formerSoilBlockerRemovedAtTwoRays": true
+}

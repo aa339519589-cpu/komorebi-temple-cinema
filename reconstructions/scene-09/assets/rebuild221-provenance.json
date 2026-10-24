@@ -1,5 +1,5 @@
 {
-  "revision": "scene09-hard-cut-masonry-and-warm-sanctuary221-r04",
+  "revision": "scene09-layered-cedar-and-tiered-garden221-r10",
   "status": "Native review candidate; photographic fidelity remains unaccepted",
   "visualAccepted": false,
   "authoredSource": "reconstructions/scene-09/src/court-rebuild221.js",
@@ -25,5 +25,59 @@
     "Native captures and planar reflections do not establish path-traced or photographic equivalence."
   ],
   "priorCandidates": "R14, R01, R02 and R03 source archives and actual native frames remain in lookdev/scene09-rebuild221 and qa/ten-reference/09.",
-  "layout": "Removed the ungrounded legacy small stone lamp at [-1, 10] from the central water reflection channel; its previous source and images remain archived."
+  "layout": "Removed the ungrounded legacy small stone lamp at [-1, 10] from the central water reflection channel; its previous source and images remain archived.",
+  "r05": {
+    "status": "Unaccepted candidate awaiting official full and genuine carpentry close view",
+    "geometry": "New closed thin-section dou/hijiki assembly; narrower curved paired tails, span beams and shaft sections; rafter pitch .32m, main section .095x.14m, flying section .070x.083m, small dark end-grain caps; actual framed vine/leaf relief replaces foreground flower grids",
+    "materials": "Existing CC0 diffuse grain remapped to authored dark-wood linear body targets; actual PBR roughness .84-.95 with low clearcoat/specular response, original metric normal maps retained",
+    "lightAndExposure": "R04 practical positions/output and exposure .95 held for this comparison",
+    "newExternalAssets": false,
+    "visualAccepted": false
+  },
+  "r06": {
+    "status": "Unaccepted native comparison candidate",
+    "wood": "Prior .95/.85m gilt donor components refit to .52/.46m local accents, on .075m backing and thin connected seats; thick duplicate frieze boards replaced by shallow timber ribs and solid raised leaves",
+    "garden": "Five closed partly submerged mineral shelves with 120 source-scan stones and individually rooted folded rush/fern clumps; central reflection channel retained",
+    "wetStone": "Independent mineral roughness .63-.89, patchy water coat, physical coat roughness .14 and smoother film normals; same stone albedo maps",
+    "water": "Actual captured scene filtered with unit-sum weights and Fresnel; normal-induced ray change projected using the capture Jacobian and an explicitly approximate1.2m reflection stratum",
+    "practical": "A complete low24cd/8-exitance paper case, bronze saddle and two struts carried by the existing right veranda rail; a genuine low source inside the wet-floor grazing reflection footprint",
+    "limits": "Finite native reflection stratum and planar filtering are approximations; secondary low veranda source has no complete geometry shadow",
+    "newExternalAssets": false,
+    "visualAccepted": false
+  },
+  "r06b": {
+    "repair": "Rename GLSL reserved flat variable; remove redundant physical clearcoat normal sampler to fit the native16-unit budget. Actual slab normals and separate planar film normals remain.",
+    "priorFailure": "R06 full and wood reports retain unlinked shader failures and no valid PNG.",
+    "visualAccepted": false
+  },
+  "r07": {
+    "status": "Unaccepted candidate after personally reviewing R06b full/native water-stone crop/wood close",
+    "existingPaperSources": "Existing main-hall lower/upper points now exit the actual forward paper faces by .28/.18m. Their previous centres were behind the courtyard-facing beam surface, leaving the carved beam face dark with edge glints. No new hall light count or exposure gain.",
+    "lowVerandaCase": "The same24cd low case is moved to a four-legged bronze stand on the actual tread at local[2.3,2.8,8.5]; R06b rail position lay outside the comparison/reflection view.",
+    "waterMargin": "Left shallow shelves moved into the actual visible bank;54 cupped lotus leaves and four22-petal blooms with rooted stems occupy the visible left shallow-water margin. No flower emission or added flower light.",
+    "limits": "Finite paper-face proxies and the planar water/stone filtering remain approximations; photographic fidelity remains false.",
+    "visualAccepted": false
+  },
+  "r08": {
+    "status": "Unaccepted candidate after actual R07 full/native water-stone crop/wood review",
+    "paperLayer": "Move the existing hall exit proxies into the actual paper layer behind the metal fret (.222/.134m), retaining the courtyard-facing wood illumination while avoiding front-fret self-bleaching",
+    "lowCase": "Same real stand, case uniformly .78 scale with bottom seated on its tray,14cd and3.8 paper exitance instead of the overbright R07 24cd/8; no source count increase",
+    "stoneFilm": "Physical coat roughness .20; native unit-sum rough-reflection integration follows perturbed normal rays through the actual capture Jacobian, with a stated1.3m finite reflection stratum approximation",
+    "brass": "Only the three foreground finials use a dedicated turned-brass microfinish, .88 geometry scale and actual veranda-local128 radiance capture instead of the bridge field",
+    "plantAndFrameColour": "Warm pink physical petal albedo with higher roughness; front porch timber uses its red cedar material class, with no new plant emission",
+    "visualAccepted": false
+  },
+  "r09": {
+    "status": "Unaccepted candidate after actually reviewing R08 full/native water-stone crop/wood close",
+    "repair": "R08 foreground reflection read blue-chrome under the local cobalt field. Use an authored aged-brass/oxide PBR mixture instead of pure-gold-like high metalness; retain the actual local128 scene capture and microscopic turning grain.",
+    "lowCase": "8cd direct source with the same linear warm paper-exit RGB [1,.46,.105];3.8 exitance and seated .78 case remain.",
+    "wetFilm": "Roughness .32 spreads the point approximation; native ray-normal filter remains unit-sum with slightly larger physical normal variance. No selected-colour or exposure boost.",
+    "visualAccepted": false
+  },
+  "r10": {
+    "status": "Unaccepted final phase-two candidate awaiting same-source full/low opening/actual wood close",
+    "gardenMorphology": "Existing shrub roots and authored positions retained; main twigs reduced from.015 to.008 radius, secondary twigs.006 to.0025; three secondary height tiers with10-13 curved leaf pairs and variable tilt replace the bare fan of uniform upward twigs. Existing real CC0 leaf shapes and rough non-emissive materials remain.",
+    "held": "R09 wood construction, local8cd low case, aged-brass finish, water/stone roughness and exposure.95 retained",
+    "visualAccepted": false
+  }
 }

@@ -1,0 +1,4844 @@
+{
+  "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+  "sourceFile": "reconstructions/scene-05/src/foliage.js",
+  "sourceFileSha256": "7a33a299f71525177d59455101416c07176fcdf6d6fadb4477aeeaa60bd95ff0",
+  "canonicalExactlyMatchesAuditedDraft": true,
+  "summary": {
+    "prototypes": 689,
+    "branchCount": 686,
+    "leafCount": 3,
+    "allPositiveVolume": true,
+    "allEdgesPaired": true,
+    "allWindingConsistent": true,
+    "maximumUnpaired": 0,
+    "maximumBadWinding": 0,
+    "failed": []
+  },
+  "checks": [
+    {
+      "kind": "branch",
+      "triangles": 1170,
+      "signedVolume": 1.7343243011879323,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 486,
+      "signedVolume": 0.036828254789515825,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0014677872708127296,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00024355581215377867,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029646038043714877,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002272776970773723,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003706494693803469,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001911598436685537,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000190672031532477,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000030750019149797134,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003228079652015867,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016231442999861838,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003685900465064307,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015254208536252955,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003371268872745041,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0020241608059290805,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010352308799190599,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000388253527188413,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027433330543929345,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003088815579572714,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00027960621951344904,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016514142557705327,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029194526571212264,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026334267920691596,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014197693467874536,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004093815824090346,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027487130662593554,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003781404160693418,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0014148959052077388,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00019090674038594306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002858536263547023,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002319040518928754,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000040347070333993754,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015400730291057258,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021492050118190394,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003763747186803867,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003085697785008306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016251620906704433,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027119267414981857,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003077126562802903,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000279075999171195,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0019503292668641746,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002007419369924192,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003456382993320225,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020334458606547437,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004349054479732004,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002022191549197306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002737744784196279,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027987317246006197,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001869779324116604,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015046790670759667,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029919897454345918,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000326184471772838,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000035164849221915835,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0017936677130003542,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00018006761877142368,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029265960915274066,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020048631817050974,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029078789721687077,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00019438341303252668,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021499081904119444,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000038193373050562946,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012907744413350862,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00017356977929065004,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027572056373128482,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016339616531452834,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000037228241874956394,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0022223492749512703,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016937600641636093,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029380923747964033,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014912676282618912,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027364828542895226,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016918036106787412,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028674899267320833,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000033445640074862235,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015101107859474488,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001443717907356288,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002704547368756331,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002677105414306283,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003474349198581029,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 756,
+      "signedVolume": 0.03453964149244036,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0011107988061356169,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001114468960668334,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001976640424406102,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016929711318376095,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001674290886436471,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000942451507204679,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015162169924598421,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015837870637816684,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001592622802456196,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001313947148212219,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020887346487932524,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012392261609525054,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019880146243156022,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0014737096742598343,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007037708702753671,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020739523145616476,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001534047856119042,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016545205400483167,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010448519857113657,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015169165312198617,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017416488491345255,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001456124939121507,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007897910391134045,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002321424738670132,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016898455424530604,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018661302289645755,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0009451169292965091,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001141812508876497,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024296908990878206,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015748602077393166,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002259204303248764,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008650652900223778,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001346794457029895,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002001102282155512,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000011880921615991357,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011512725129166055,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014531685352958877,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001777126446921554,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019933945858407098,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0010807888046907251,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011610397772455435,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023195117177281913,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000011222415988189023,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020082087966188226,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014329857451034382,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000009682580822165498,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023072291780727074,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001014410082465588,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008267612489221134,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001900783670849574,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001714831441181217,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001828627029698463,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.001171392350833261,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013463666056393582,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017359278108317738,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012143668361281437,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002319661842215186,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006965028373480383,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013057093257348657,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019228554667859483,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012850070514708072,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010367094617000175,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016456995517665055,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014327957917319556,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017207601908230377,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0014171825647940866,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000822414042671454,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018585099712303815,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012493737176670051,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001533468844883963,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012586665594852505,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001153351959179768,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015642421051863308,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000011398662243869768,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010926182688969916,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015287313606053335,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001284305934510255,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016483309071481635,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 990,
+      "signedVolume": 0.05885367284504021,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0012619947721620299,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000144019831100865,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026695559202310425,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016141416054081073,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003167126795179095,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00017277900695067392,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002096547491076431,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023291095503755706,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013172331376881556,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001323374464266113,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001902327881867596,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001426197801612496,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000025994227295556094,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0018972135737274245,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009119236646761605,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022480579044925918,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019163253283108347,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024677310500096193,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013111624801409493,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018974763686620522,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024960757548501703,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001953676998086076,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001455716546385626,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027146900050466148,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001877658424692101,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021909013018809504,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0015013527877088268,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011634182378262976,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024119162217122046,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019505968849422368,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029572014834508077,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010242570796043192,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020700767320095848,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002901947306404907,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017734673455410884,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000169448547632621,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024624023010804122,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016187641223675394,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002414244004884272,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0018413168933704793,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001120698806495721,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026730774390750712,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002112053741254056,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020230453678253928,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014899431476071722,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019176887875262364,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002521197331597081,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020585432254626258,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011635408034070802,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000214656065935007,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021879036100418185,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026318706757180213,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0010621285822203445,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010564731905281943,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002282190587814763,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012237047176914852,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003056793506813486,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008613921482671795,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018741440435526306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021124906531853758,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022336614321075036,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00018451496997298593,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026746780257512647,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013189027504193135,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000030066274012753073,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0018700001024815336,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001313930136848871,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029852791296635246,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000009071999052072173,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000277325598989091,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00018222884141557062,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014724289555913546,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003021475126433319,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017935166854171064,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007963155180924562,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029322773724293885,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024383676731705616,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002931939633316233,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 378,
+      "signedVolume": 0.018951372547643307,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0008873269852499591,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014822915933718442,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028211829521768344,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015283234639599846,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026643324397283736,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001053969829672523,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000182089794151102,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023490136130761313,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014577583668528973,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012413848166194154,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002047015457579877,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000008302540684792368,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020096125897989295,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0015470238469045983,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011015704369822644,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000025297927952913544,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002155878057218671,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020775468897900915,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011517662505644033,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020784280596591812,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018392057845205242,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017142284695598235,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011579627973707774,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000188307727531258,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000011143225986487644,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002405870475649503,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0009111383119543857,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013083778247093464,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023024421557102375,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013788120728513244,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002167634713618947,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012431471764632248,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018836453318545395,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024956394716760937,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022347435285586606,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012920510056960478,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020286133632903976,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013127722574973706,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020167146483801124,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0014926725006090583,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011687368580877867,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002052632301761724,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000192065648237785,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001799762868639394,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016016386961391026,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013567700135193188,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022081161188947295,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000009968421454023409,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008391324269584459,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021409944191195726,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020632560522688386,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002322940978717453,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0008146291418762056,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001375371330014245,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002207716601388769,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015771228841976173,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017835092857593994,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011322384775835098,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002090041679283189,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028811850488601704,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013327166971595882,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001713038906747858,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023208795059396488,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020530250734451524,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001879873477625818,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.001438618299337584,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013279006127259497,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026569798501878828,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013448034892245244,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022136469757131803,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015516493602777315,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014122554425020244,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002283397625762904,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015647942765133014,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001358026806130084,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001643952688922114,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016008590606764985,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001537895397202773,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 954,
+      "signedVolume": 0.056183034227910586,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0011776376472923534,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011556276532955487,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002556108997628813,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017615559653852524,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028613138801303105,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010857539646224024,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017563258981598446,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023070580686793844,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014602092189134392,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014806964492305704,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024851284308195116,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001645839140741397,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022877789172983047,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0015476420883471114,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014300760783252382,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018826089741699727,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018606290705683434,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022615077706875622,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014958651506658826,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023556945062314823,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002306904008169611,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024356754537726718,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000794333341317519,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002704472825775811,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023882011321444232,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000031515306358371775,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0016583010742684905,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014392863910158693,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021647516915291652,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001818546041927585,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026827139786382857,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000919015107437516,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001831649262264788,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002535268871810924,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023281270467657625,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00020401350698661882,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020757368600626273,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002157516005268758,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002546531335524895,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0017690249912670738,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001271648849921359,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000229711007411014,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000226817419982585,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029713887286264703,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00017253457317306339,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013126318510696724,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029402136708758582,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015202833189394947,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010841696772649424,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023235074827568187,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001791850886013307,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022925137646820355,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0015160827831234536,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014037439713972925,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002765179020907056,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000013230189576141183,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000029410326914226936,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010481772477759002,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000011638115781410798,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024772424247197095,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019910828783948067,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00020542777055661049,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026405465558522223,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016276512583145943,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000031165264911906936,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0011158023008643887,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001243411098578161,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016477367710145073,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018852720132488558,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002165699125450977,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015567813291467788,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014012809238657425,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026435938360044062,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000015672324198649502,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012712548474598273,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002461162922208077,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019900951438726055,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000030107601440872994,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 1008,
+      "signedVolume": 0.053135219510892784,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00062621139026134,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013907802883332356,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020439513078132716,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002081496143831799,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019867969578409576,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009533004569781466,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000012747513726428788,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028641953109170573,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016758670052238796,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015929789564792825,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000223641643106906,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014316015810841343,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000027732340541391806,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0010268689743201912,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008496964803513824,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002428556095085387,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001936662807121582,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021296797117010183,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00018085386494698087,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001362284627097793,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019360754752822758,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014615155519105457,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013047420497108662,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000026357681213177063,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001861013966383043,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001766180859554636,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.001088916657277871,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011482069762516621,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001815593071487027,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002034370621385526,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024154617072035382,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010050304895784194,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016312844054795494,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000016732621593040903,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021312930531871526,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001335695601869072,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000250367146608334,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018626916787082808,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002231684933140933,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.001603839552146447,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009694578259913384,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024572827496499418,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000154642250037124,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000024703319042579343,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014843094316519656,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000010649324289871206,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000022180174970262608,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014911130575118221,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000774889326602306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001840916726252788,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018547797913892023,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001870579122611744,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.001478085040080029,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013439472912865315,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001716173361933459,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000014113196395661915,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023755255505577188,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008768289165106276,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000008944435282520046,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001936745325344826,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020143374756571455,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015943317865716738,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001781064704897166,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001767895464195892,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000019912226245969667,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0013598040119190949,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009470589223938557,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018424078506357395,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001646871227492444,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000025251831915062686,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001745188603447883,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001442968413125938,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000021223921135496905,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000017507097651450562,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009392072817439869,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002021707743815158,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00001540286366053317,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000018887069822125895,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 648,
+      "signedVolume": 0.1958753726388108,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0042360168541036,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00027790464190574653,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006315424154136907,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000036743322760752705,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005564680992639969,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00035439504176713123,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020324971029262905,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005058454607005883,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000020569652225457788,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00022834921007532758,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005831296874502089,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004238479274967505,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006511864428197591,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.004076932648843445,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003931928011572047,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005637071079948444,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003488484874870361,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005690953678162712,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00023772834114474303,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003804648095846583,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006967620970825227,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003274999758602433,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003986468463997684,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000062150721842851,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003895208335185318,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005179535960675978,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.003882492941820363,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00023732658462226913,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005797751021663511,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003432528029921968,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000040500251144052916,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003811516205486386,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000028445412157701177,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006479461670380805,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003436831887027261,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00031947723099497307,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006142212726432162,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000036780075679641194,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000652898189978288,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.003987878504636305,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003084794732277502,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005570814700932562,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000046077928478704293,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000616496080013438,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003186020726835897,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000025351622074205934,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000045002630237150045,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005159643435557837,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003099944814445899,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000058825428287991945,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003296300314657836,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000056222373534398296,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 720,
+      "signedVolume": 0.04253233807368201,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0005363552864201367,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016859778629021763,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011770687913295449,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001565349906784638,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0007615045474726005,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007503823383889375,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012927525236858692,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011759476532635084,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0006946640172812364,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00015469077855947576,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007715079492369687,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00014169438721418185,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 792,
+      "signedVolume": 0.040061177958635015,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0004570962470402047,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012424821045190323,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009121031361374453,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009889687412433994,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0006274881976871916,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000971929895281924,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001047408577223135,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009957088482328159,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0005010466147224353,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00009172342843600375,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007881193527376268,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001103463682716285,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 684,
+      "signedVolume": 0.209311576974433,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.004230081229681666,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00022950213170284215,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000052487129809522744,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004703834109865925,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000051607008330551746,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0004063257896538489,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000036073693366016354,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000050605140571785306,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005715159971217268,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002832348111516849,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000664806865184402,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004926906459220695,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000053731966654858383,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0040314903039937395,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0004131633280231429,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006483570914972193,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003868239077438967,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006848461818202067,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00027944027984365904,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004451673719415327,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006348225249876425,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003908169512831799,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00037232649434608097,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006351185200647921,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003626601696341987,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000047730685836202316,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0038982746189993047,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00039229708952833256,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005544524784069073,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000035530522637189054,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004682287334366194,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0004209534621344267,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004046308548674802,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005552135328779881,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002528981901906647,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003688233334502716,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004987713734854988,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000372809463847413,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006073505982300599,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.004034735172742641,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00030524357287237,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005183722585766397,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004956497774324445,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000045641612472389285,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00040972685294660615,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000047577388194003806,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006028277751251472,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000023616853425486322,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002988820380831783,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000050171015674368614,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000355464974649683,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006292743346209955,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 558,
+      "signedVolume": 0.16907799669601242,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.004218413511527508,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002598011178260901,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000638784685857092,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005025975924874572,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006643056437547936,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002879086591260222,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003922031057522905,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005064150398779399,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000045222830677769376,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002765659432536687,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000576686823913795,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000042557919595653084,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005679181904654597,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.004023458910723738,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0004588772897514325,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006611470277195811,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000038141266898602014,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000645296921574568,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002045654657301486,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000041701330081514184,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004092668334596899,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003548054770562451,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00036127192296201376,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005268346926967034,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000033994450239069504,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000058422786503803814,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.003846239292405683,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00039414599732705936,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007101835681887439,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000035468253674059684,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006012268431667914,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0002840739858186843,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000037657610267471094,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004885468072965531,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00003799308964406901,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00038789473661608964,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000044002836588756755,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00002889549119000164,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006820840098957518,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.003993114996167852,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00034444328525910225,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000050134680448594746,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00004206706249447647,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005508829161862321,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0003443033323125076,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0000370632760611387,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006389900072953891,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00005068547803212011,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00036273480979317677,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006569921418639109,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000047240892960881326,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000052900627317821785,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 702,
+      "signedVolume": 0.04077400897854574,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0005314802147179989,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012572437777266535,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00011772154823321575,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00016839543046491076,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0007114940785477197,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008588862238949974,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012324905049117228,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010069812416875624,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0006557129966555206,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00013892187843612768,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007640609130061548,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010904089180982201,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 720,
+      "signedVolume": 0.036457020672768535,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000643916718675579,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00012488136376603381,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00006957170013564082,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010367705965574676,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0005928935383986985,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00007974853852288585,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010392548616884907,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008230386964329447,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.000664246833656484,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00010145361512127033,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.00008314776168361349,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "branch",
+      "triangles": 342,
+      "signedVolume": 0.0001078070727294942,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "leaf",
+      "triangles": 672,
+      "signedVolume": 0.00023105075397864686,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "leaf",
+      "triangles": 672,
+      "signedVolume": 0.00023105005914616055,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    },
+    {
+      "kind": "leaf",
+      "triangles": 672,
+      "signedVolume": 0.0002310576470327264,
+      "unpaired": 0,
+      "inconsistentWindingEdges": 0
+    }
+  ],
+  "retainedWindowChecks": "lookdev/scene05-rebuild220/geometry220-r09-members.json",
+  "retainedArmChecks": "lookdev/scene05-rebuild220/geometry220-r10-arms.json"
+}

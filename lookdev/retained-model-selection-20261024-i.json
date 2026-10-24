@@ -1,0 +1,44 @@
+{
+  "reports": {
+    "1": "qa/ten-reference/01/iteration-scene01-rebuild219-r07b-full-hero/report.json",
+    "2": "qa/ten-reference/02/iteration-scene02-rebuild210-r12b-full-wet/report.json",
+    "3": "qa/ten-reference/03/iteration-scene03-rebuild211-r15-20261024/report.json",
+    "4": "qa/ten-reference/04/iteration-scene04-rebuild212-r16-facade-native-personal-CC-BY-NC-SA4/report.json",
+    "5": "qa/ten-reference/05/iteration-scene05-rebuild220-r10-20261024/report.json",
+    "6": "qa/ten-reference/06/iteration-scene06-integration225-r02-ornament-personal-nc/report.json",
+    "7": "qa/ten-reference/07/iteration-scene07-rebuild214-r18/report.json",
+    "8": "qa/ten-reference/08/iteration-scene08-rebuild213-r10/report.json",
+    "9": "qa/ten-reference/09/iteration-scene09-rebuild221-r10-review/report.json",
+    "10": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/report.json"
+  },
+  "notes": {
+    "status": "All ten remain photographically unaccepted. Actual parent-viewed reference-camera working stills; independent source identities, not a new film or unified snapshot.",
+    "retained": "01/02/03 retained H views. New reviewed checkpoints:04 isolated212R16;05 220R10;06 225R02 including199R08a/222R07/single224R03 panel;07 214R18;08 213R10;09 221R10;10 207R14. Several lanes are already revising these rejected photographic matches.",
+    "scene04": "212R16 is still an isolated candidate, not silently installed as the canonical04. Forehead framework, lantern cap and light remain visibly different.",
+    "scene06": "Working current integration only. Face, clothing, leaf anatomy, halo/furniture and light still differ from HD. Physical218 and motion206 retain their older pinned sources; no updated film claim.",
+    "scene01Physical": "New physicalR09b retained separately with a diagnosed solar-rotation error; it is not selected as a faithful-lighting replacement.",
+    "referenceCamera09": "Existing renderShot(-1330) calls renderReference at time0. The selected original report frame is shot--1330, camera[6,2.7,33] FOV52; no image alias or relabelled synthetic frame."
+  },
+  "frameLicenses": {
+    "6": {
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "Scan-the-World / Sainsbury Centre Seated Amida, https://doi.org/10.5281/zenodo.21353739 . Prepared paired pose + sculpture199 continuous3D face/scalp/robe derivative; original raw source retained. CC BY-NC-SA4.0. Separate source176 SCANOLOGY and source157 DianaLiu carvings retain CC BY4.0; generated brocade201 is a material asset. peel-3d.com, Buddha Head, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; actual donor173 face/ears/neck continuously fitted with source traces retained. Combined imagery retains NC-SA4 scope; no Japanese period attributed to donor. Lotus222: independently authored closed leaf sheets; continuous bearing derived from the retained NC hem contact. All source-specific terms retained. Integration225 retains continuous R08a source fitting/root relief, Lotus222R07 closed leaf geometry and code-authored scalar gilt masks, plus one independently authored Ornament224R03 closed dragon/peony panel; no reference RGB scene plate.",
+      "personalNoncommercialUseOnly": true
+    },
+    "4": {
+      "license": "CC-BY-NC-SA-4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "attribution": "Scan-the-World, Sainsbury Centre Seated Amida; https://doi.org/10.5281/zenodo.21353739 . Original unpaired sculpture and plinth retained; positive uniform scene fit and separately authored shrine/pedestal. CC BY-NC-SA4.0; no endorsement implied.",
+      "personalNoncommercialUseOnly": true
+    }
+  },
+  "boardLicense": {
+    "license": "CC-BY-NC-SA-4.0",
+    "scope": "Review montage contains actual NC Amida-derived scene04 and scene06. Each individual input keeps its own license; project source is not blanket relicensed.",
+    "attribution": "Scene06 sculpture: Scan-the-World / Sainsbury Centre, https://doi.org/10.5281/zenodo.21353739; source geometry adapted under CC BY-NC-SA4.0. peel-3d.com, Buddha Head, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; actual donor173 face/ears/neck continuously fitted with source traces retained. Combined imagery retains NC-SA4 scope; no Japanese period attributed to donor."
+  },
+  "referenceFrames": {
+    "9": "shot--1330"
+  }
+}

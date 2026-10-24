@@ -1,0 +1,77 @@
+{
+  "status": "failed-installed-sky-compatibility",
+  "blender": "5.2.1 LTS",
+  "beforeLargeGeometryOrTextureImport": true,
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "selectedSkyType": "MULTIPLE_SCATTERING",
+  "supportedSkyTypeEnum": [
+    {
+      "identifier": "SINGLE_SCATTERING",
+      "name": "Single Scattering",
+      "description": "Single scattering sky model"
+    },
+    {
+      "identifier": "MULTIPLE_SCATTERING",
+      "name": "Multiple Scattering",
+      "description": "Multiple scattering sky model (more accurate)"
+    },
+    {
+      "identifier": "PREETHAM",
+      "name": "Preetham",
+      "description": "Preetham 1999 (Legacy)"
+    },
+    {
+      "identifier": "HOSEK_WILKIE",
+      "name": "Hosek / Wilkie",
+      "description": "Hosek / Wilkie 2012 (Legacy)"
+    }
+  ],
+  "requiredProperties": {
+    "sun_disc": {
+      "exists": true,
+      "type": "BOOLEAN",
+      "readOnly": false,
+      "requested": true,
+      "actual": true,
+      "assignmentResidual": 0.0
+    },
+    "sun_size": {
+      "exists": true,
+      "type": "FLOAT",
+      "readOnly": false,
+      "requested": 0.0093,
+      "actual": 0.00930000003427267,
+      "assignmentResidual": 3.427267150635238e-11
+    },
+    "sun_elevation": {
+      "exists": true,
+      "type": "FLOAT",
+      "readOnly": false,
+      "requested": 0.20183880771752719,
+      "actual": 0.20183880627155304,
+      "assignmentResidual": 1.4459741459749154e-09
+    },
+    "sun_rotation": {
+      "exists": true,
+      "type": "FLOAT",
+      "readOnly": false,
+      "requested": 1.9561400213042264,
+      "actual": 1.9561400413513184,
+      "assignmentResidual": 2.0047091986441504e-08
+    },
+    "air_density": {
+      "exists": true,
+      "type": "FLOAT",
+      "readOnly": false,
+      "requested": 1.0,
+      "actual": 1.0,
+      "assignmentResidual": 0.0
+    },
+    "dust_density": {
+      "exists": false,
+      "requested": 1.2
+    }
+  },
+  "methodChangeAfterFailureAllowed": false,
+  "error": "Required physical atmosphere RNA absent: dust_density"
+}

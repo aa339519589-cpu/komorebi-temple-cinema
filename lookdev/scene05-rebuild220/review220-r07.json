@@ -1,0 +1,147 @@
+{
+  "status": "All3 actual native frames viewed; explicit local scene reflection works, still unaccepted",
+  "sourceHash": "904d2106e37bb179f35830b99d17995cca6a5e0299227f0e1fefaeb4240a62ca",
+  "visualAccepted": false,
+  "rendered": [
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r07-20261024",
+      "status": "rendered-review",
+      "sourceHash": "904d2106e37bb179f35830b99d17995cca6a5e0299227f0e1fefaeb4240a62ca",
+      "reflection": {
+        "method": "One actual CubeCamera capture of existing3D temple/foliage and a finite sun/shadow-lit matte stone court",
+        "position": [
+          5.5,
+          6.4,
+          7.2
+        ],
+        "cubeFaceSize": 128,
+        "faces": 6,
+        "scope": "Native local reflection approximation; not measured GI, per-pixel ray tracing or Cycles equivalence",
+        "floor": {
+          "centre": [
+            0,
+            -0.27,
+            6
+          ],
+          "size": [
+            44,
+            0.1,
+            44
+          ],
+          "albedo": "#a49a82",
+          "roughness": 0.91,
+          "emissive": false
+        },
+        "status": "captured actual6-face linear HDR scene radiance inside the official render job",
+        "explicitMaterialEnvironment": true,
+        "assignedMaterials": [
+          "gold",
+          "oldgold",
+          "architecture_gold",
+          "architecture_oldgold",
+          "kit_gilt",
+          "fittingCopper",
+          "fittingEdge",
+          "fittingPatina",
+          "rafterCopper220",
+          "rafterEdge220",
+          "rafterPatina220",
+          "lanternBronze",
+          "terminalInlay204"
+        ],
+        "skyCaptureIntensity": 0.22
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "53fa35b50133640898d0e0e66854cc0102915a202ed06e073978b0382b6b6423"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "1c3a3690c2db16f402e95c79302c32a0134609430f3967af56d9712c6815a122"
+        }
+      ]
+    },
+    {
+      "directory": "qa/ten-reference/05/iteration-scene05-rebuild220-r07-groundside-20261024",
+      "status": "rendered-review",
+      "sourceHash": "904d2106e37bb179f35830b99d17995cca6a5e0299227f0e1fefaeb4240a62ca",
+      "reflection": {
+        "method": "One actual CubeCamera capture of existing3D temple/foliage and a finite sun/shadow-lit matte stone court",
+        "position": [
+          5.5,
+          6.4,
+          7.2
+        ],
+        "cubeFaceSize": 128,
+        "faces": 6,
+        "scope": "Native local reflection approximation; not measured GI, per-pixel ray tracing or Cycles equivalence",
+        "floor": {
+          "centre": [
+            0,
+            -0.27,
+            6
+          ],
+          "size": [
+            44,
+            0.1,
+            44
+          ],
+          "albedo": "#a49a82",
+          "roughness": 0.91,
+          "emissive": false
+        },
+        "status": "captured actual6-face linear HDR scene radiance inside the official render job",
+        "explicitMaterialEnvironment": true,
+        "assignedMaterials": [
+          "gold",
+          "oldgold",
+          "architecture_gold",
+          "architecture_oldgold",
+          "kit_gilt",
+          "fittingCopper",
+          "fittingEdge",
+          "fittingPatina",
+          "rafterCopper220",
+          "rafterEdge220",
+          "rafterPatina220",
+          "lanternBronze",
+          "terminalInlay204"
+        ],
+        "skyCaptureIntensity": 0.22
+      },
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "viewed": true,
+          "valid": true,
+          "glError": 0,
+          "rgbaSha256": "b8c2300ba711a999e178dae34402602463b659d7283578a7a39e328d202b352b"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Explicit material envMap now receives actual finite court and 3D temple radiance; antique gold has warmer structured returns. The six-face capture is reported in both native jobs.",
+    "Staggered overlapping pan/cover joints, pressed-tile variation and handworked rafter widths/arrises/bows reduce exact repeated seams while preserving existing primary seating planes.",
+    "Still wrong: black rectangular leaf icons and sine-wave flowerboard are conspicuously generic/flat, and lower paired curls remain stylised.",
+    "Timber curve/finish and metal detail improved relative to R04, but reference density, sculptural specificity, sky/canopy and terminal still differ strongly."
+  ],
+  "next": [
+    "Use one existing authorized actual carved cloud component only for a bounded central window panel, preserving source positions/normals and uniform world scale.",
+    "Remove flat black leaf icon fields and use actual thin chased horizontal metalwork on the real header faces."
+  ],
+  "limits": "Local raster reflection is not GI or Cycles equivalence. Photographic acceptance remains false."
+}

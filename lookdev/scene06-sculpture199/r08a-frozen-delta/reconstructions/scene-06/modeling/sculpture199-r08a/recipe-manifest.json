@@ -1,0 +1,17 @@
+{
+  "scope": "Exact CPU continuous-source recipes, replay original lane paths. Compact exact old-curl removal seed is included for asset-only reconstruction from preserved J; actual donor component/ray traces and original NC/R05 midpoint ancestry remain in baseline source assets. No donor face cut or discarded raw source.",
+  "sourceAncestors": {
+    "jAsset": "../sculpture199-r06j-ear-root-blend-mixed-licenses/",
+    "donorComponent": "../sculpture199-r06j-ear-root-blend-mixed-licenses/donor173-source-component/",
+    "originalNc": "../nc-sainsbury-amida179-CC-BY-NC-SA-4.0/",
+    "r05Subdivision": "../sculpture199-r05-CC-BY-NC-SA-4.0/"
+  },
+  "replaySeed": {
+    "file": "exact-old-curl-removal-seed-r08a-gzip.bin",
+    "sha256": "968338fb58563d81b65b8e69381ab1dc95c00a9a1193132c0e9416d23490adba",
+    "compression": "gzip",
+    "format": "20-byte CD08 header originalJCount,recordCount,recordBytes28,version1; records uint32 Jvertex,float64 XYZ(H-G). Subtract from J positions before conforming refinement. Exact float64 differences, no image input.",
+    "records": 199593
+  },
+  "visualAccepted": false
+}

@@ -1,20 +1,23 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
-import {bridgePoint125,bridgeToWorld125} from './layout125.js';
+import {bridgePoint125,bridgeToWorld125,hallToWorld125} from './layout125.js';
 import {installSurfaceDetail} from './surface-detail.js';
+import {createWornFlagstone} from './worn-flagstone.js';
+import {towerBenchHeight210} from './rain-banks210.js';
 
 const V=p=>new T.Vector3(...p),U=new T.Vector3(0,1,0),hash=(a,b)=>{const x=Math.sin(a*127.1+b*311.7+207.17)*43758.5453;return x-Math.floor(x);};
-export const SUPPORT207_REVISION='scene10-207-recessed-bearing-terrace-and-creek-r06';
+export const SUPPORT207_REVISION='scene10-rain210-garden-island-entry-and-open-front-creek-r14';
 export function installSupportMaterials207(m){
  m.supportStone207=new T.MeshPhysicalMaterial({name:'207-rain-dark-dressed-granite',map:m.granite.map,normalMap:m.granite.normalMap,normalScale:new T.Vector2(.70,.70),roughnessMap:m.granite.roughnessMap,color:'#7c8780',roughness:.84,metalness:0,clearcoat:.13,clearcoatRoughness:.30,vertexColors:true});installSurfaceDetail(m.supportStone207,'stone');
  m.supportCore207=new T.MeshStandardMaterial({name:'207-recessed-rubble-mortar-core',color:'#333a31',roughness:1});
  m.supportRecess207=m.supportStone207.clone();m.supportRecess207.name='207-shadowed-setback-stone';m.supportRecess207.color.set('#454d46');m.supportRecess207.roughness=.94;installSurfaceDetail(m.supportRecess207,'stone');
  m.routeStone207=m.supportStone207.clone();m.routeStone207.name='207-wet-worn-route-stone';m.routeStone207.color.set('#a4aaa2');m.routeStone207.roughness=.54;m.routeStone207.clearcoat=.34;m.routeStone207.clearcoatRoughness=.16;installSurfaceDetail(m.routeStone207,'stone');
+ m.pathStone207=m.routeStone207.clone();m.pathStone207.name='207-dark-earth-bedded-worn-path-flags';m.pathStone207.color.set('#6c7771');m.pathStone207.roughness=.65;m.pathStone207.clearcoat=.24;m.pathStone207.clearcoatRoughness=.25;installSurfaceDetail(m.pathStone207,'stone');
 }
 
-function coloredStone(w,h,d,seed){
+function coloredStone(w,h,d,seed,toneScale=1){
  const g=new RoundedBoxGeometry(w,h,d,2,Math.min(.018,h*.06,w*.035,d*.035)),p=g.attributes.position,c=[];
- for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i),n=hash(Math.floor(x*31)+seed,Math.floor(z*37)+Math.floor(y*29)),edge=Math.max(Math.abs(x)/(w/2),Math.abs(z)/(d/2));if(edge>.82){p.setX(i,x*(1-.010*n));p.setZ(i,z*(1-.012*n));}const tone=.86+.22*hash(Math.floor(x*19)+seed,Math.floor(y*17)+Math.floor(z*23));c.push(tone,tone,tone);}
+ for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i),n=hash(Math.floor(x*31)+seed,Math.floor(z*37)+Math.floor(y*29)),edge=Math.max(Math.abs(x)/(w/2),Math.abs(z)/(d/2));if(edge>.82){p.setX(i,x*(1-.010*n));p.setZ(i,z*(1-.012*n));}const tone=toneScale*(.86+.22*hash(Math.floor(x*19)+seed,Math.floor(y*17)+Math.floor(z*23)));c.push(tone,tone,tone);}
  g.setAttribute('color',new T.Float32BufferAttribute(c,3));g.computeVertexNormals();g.name='207-closed-worn-bearing-stone-'+seed;return g;
 }
 function monolithicPier207(w0,w1,height,d0,d1,seed){const g=coloredStone(w0,height,d0,seed),p=g.attributes.position;for(let i=0;i<p.count;i++){const t=T.MathUtils.clamp((p.getY(i)+height/2)/height,0,1);p.setX(i,p.getX(i)*T.MathUtils.lerp(1,w1/w0,t));p.setZ(i,p.getZ(i)*T.MathUtils.lerp(1,d1/d0,t));}g.computeVertexNormals();g.name='207-closed-tapered-monolithic-bearing-pier-'+seed;return g;}
@@ -23,33 +26,71 @@ function solidProfile(points,width){
  const shape=new T.Shape();points.forEach(([a,y],i)=>i?shape.lineTo(a,y):shape.moveTo(a,y));shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:width,steps:1,bevelEnabled:false});g.translate(0,0,-width/2);g.computeVertexNormals();return g;
 }
 function footprint(outline,bottom,top){const shape=new T.Shape();outline.forEach(([x,z],i)=>i?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();const g=new T.ExtrudeGeometry(shape,{depth:top-bottom,steps:1,bevelEnabled:false});g.rotateX(-Math.PI/2);g.translate(0,bottom,0);g.computeVertexNormals();return g;}
+function closedWornRouteFlag207(points,seed){
+ // Reuse the authored millimetre wear field while closing every refined
+ // cap-boundary edge. The older helper's coarse rim has T junctions where
+ // its cap refines an edge; that rim is not used for the new route solids.
+ const worn=createWornFlagstone(T,{points,seed}),outer=worn.userData.rainStoneFootprint,bottomFaces=T.ShapeUtils.triangulateShape(outer.map(p=>new T.Vector2(...p)),[]),p=worn.attributes.position,capCount=p.count-outer.length*12-bottomFaces.length*3,vertices=[],ids=[],map=new Map(),edges=new Map(),pos=[],uv=[];
+ for(let i=0;i<capCount;i++){const q=[p.getX(i),p.getY(i),p.getZ(i)],key=q.map(v=>Math.round(v*1e6)).join(':');if(!map.has(key)){map.set(key,vertices.length);vertices.push(q);}ids.push(map.get(key));pos.push(...q);uv.push(q[0],-q[2]);}
+ for(let i=0;i<ids.length;i+=3)for(let j=0;j<3;j++){const a=ids[i+j],b=ids[i+(j+1)%3],key=[Math.min(a,b),Math.max(a,b)].join(':'),e=edges.get(key);if(e)e.count++;else edges.set(key,{a,b,count:1});}
+ const boundary=[...edges.values()].filter(e=>e.count===1),unique=[...new Set(boundary.flatMap(e=>[e.a,e.b]))],center=[unique.reduce((s,i)=>s+vertices[i][0],0)/unique.length,-.09,unique.reduce((s,i)=>s+vertices[i][2],0)/unique.length],tri=(a,b,c)=>{for(const q of[a,b,c]){pos.push(...q);uv.push(q[0],-q[2]);}};
+ for(const {a,b}of boundary){const A=vertices[a],B=vertices[b],lowA=[A[0],-.09,A[2]],lowB=[B[0],-.09,B[2]];tri(A,lowA,lowB);tri(A,lowB,B);tri(lowA,center,lowB);}
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(pos,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.computeVertexNormals();g.userData={surface:'207-closed-worn-route-flagstone',actualRefinedCapBoundaryEdges:boundary.length,source:'Existing authored wear field, new exactly shared boundary/side/bottom topology'};worn.dispose();return g;
+}
 function frameGeometry(g,origin,axis){const z=V([-axis[1],0,axis[0]]),x=V([axis[0],0,axis[1]]),mat=new T.Matrix4().makeBasis(x,U,z);mat.setPosition(...origin);g.applyMatrix4(mat);return g;}
 function point(origin,axis,a,s=0,y=0){return[origin[0]+axis[0]*a-axis[1]*s,y,origin[2]+axis[1]*a+axis[0]*s];}
 function inside(p,poly){let yes=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++)if((poly[i][1]>p[1])!==(poly[j][1]>p[1])&&p[0]<(poly[j][0]-poly[i][0])*(p[1]-poly[i][1])/(poly[j][1]-poly[i][1])+poly[i][0])yes=!yes;return yes;}
 function edgeDistance(x,z,a,b){const dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);return Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz);}
+function ribbonRoute207(points,startTop,endTop,width){const curve=new T.CatmullRomCurve3(points.map(([x,z])=>V([x,0,z])),false,'centripetal'),samples=Array.from({length:25},(_,i)=>{const p=curve.getPointAt(i/24);p.y=T.MathUtils.lerp(startTop,endTop,T.MathUtils.smoothstep(i/24,.03,.94));return p;}),outline=[];for(const side of[-1,1]){const a=[];for(let i=0;i<samples.length;i++){const p=samples[i],d=curve.getTangentAt(i/(samples.length-1)).normalize();a.push([p.x-d.z*width/2*side,p.z+d.x*width/2*side]);}outline.push(...(side===-1?a:a.reverse()));}return{points,outline,samples:samples.map(p=>p.toArray()),width,topRange:[startTop,endTop]};}
 
 export function createApproachPlan207(L){
- const end=bridgeToWorld125(bridgePoint125(0)),axis=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],run=L.bridge.approachCount*L.bridge.approachRun,start=[end[0]-axis[0]*run,L.groundY,end[2]-axis[1]*run],width=1.80,count=L.bridge.approachCount,rise=end[1]-start[1],steps=[];
+ // The current bridge/lamp datums belong to the reconstruction candidate.
+ // Historical front-court ramp and fixed-anchor assumptions are retired.
+ const bridgeNear=bridgeToWorld125(bridgePoint125(0)),bridgeA=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],bridgeB=[-bridgeA[1],bridgeA[0]],entryT=(L.bridge.entryFlatT||0)/2,end=bridgeToWorld125(bridgePoint125(entryT,1.1)),d=V([bridgeA[0]*.25-bridgeB[0]*.968,0,bridgeA[1]*.25-bridgeB[1]*.968]).normalize(),axis=[d.x,d.z],run=L.bridge.approachCount*L.bridge.approachRun,start=[end[0]-axis[0]*run,L.bridge.approachGroundY,end[2]-axis[1]*run],width=1.34,guardHalfWidth=L.bridge.span*(L.bridge.entryFlatT||.12)/2,count=L.bridge.approachCount,rise=end[1]-start[1],steps=[];
  for(let i=0;i<count;i++){const a=run*i/count,b=run*(i+1)/count,top=start[1]+rise*(i+1)/count;steps.push({index:i,along:[a,b],top,undersideFront:start[1]+rise*i/count-.22,undersideBack:top-.22,riser:rise/count,tread:run/count});}
- const landingEnd=[start[0]-axis[0]*.76,start[1],start[2]-axis[1]*.76],route=[[-3.72,-1.78],[-4.18,-2.64],[-4.58,-3.56],[landingEnd[0],landingEnd[2]]];
- const curve=new T.CatmullRomCurve3(route.map(([x,z])=>V([x,L.groundY,z])),false,'centripetal'),samples=Array.from({length:33},(_,i)=>curve.getPointAt(i/32)),halfWidth=.76,outline=[];
- for(let side of[-1,1]){const a=[];for(let i=0;i<samples.length;i++){const t=i/(samples.length-1),q=samples[i],d=curve.getTangentAt(t).normalize();a.push([q.x-d.z*halfWidth*side,q.z+d.x*halfWidth*side]);}outline.push(...(side===-1?a:a.reverse()));}
- return{revision:SUPPORT207_REVISION,start,end,axis,run,width,count,rise,riser:rise/count,tread:run/count,steps,bottomLanding:{center:landingEnd,along:[-1.52,0],width:1.84,top:L.groundY},route:{points:route,outline,samples:samples.map(p=>p.toArray()),width:halfWidth*2,top:L.groundY,source:'Continuous closed low stone causeway from the existing forecourt to the bridge stair foot; no water gap'}};
+ const landingEnd=[start[0]-axis[0]*.33,start[1],start[2]-axis[1]*.33],route=[[-3.165,-7.71],[-4.4,-6.3],[-4.6,-4.7],[-4.2,-3.2],[-3.1,-2.85],[landingEnd[0],landingEnd[2]]];
+ const towerTop=towerBenchHeight210(-3.165,-8.04,.5634)+.086,frontRoute=ribbonRoute207(route,towerTop,start[1],.90),rearRoute={enabled:false,points:[],outline:[],samples:[],width:0,topRange:[],source:'The duplicate fork and direct raised front-court ramp are retired; one actual garden-side route remains'};
+ const lamp=L.heroStoneLantern,cw=lamp.plinthCourseWidths||[1.65,1.44,1.23],clip=cw.map(w=>lamp.position[0]+w/2+.035);
+ return{revision:SUPPORT207_REVISION,start,end,bridgeNear,entryT,guardHalfWidth,axis,run,width,count,rise,riser:rise/count,tread:run/count,stepClipX:[clip[0],clip[1],clip[2],clip[2]],guardClearX:lamp.position[0]+(lamp.bearingPadWidth||1.22)/2+.10,guardBridgeStations:[L.bridge.entryFirstPostT||0,L.bridge.entryFlatT],steps,bottomLanding:{center:landingEnd,along:[-.66,0],width:1.40,top:start[1]},island:{lanternCenter:L.heroStoneLantern.position,terrainCrest:.20,lanternSoilCrest:.20,closedStonePlinthTop:.65+(L.heroStoneLantern.plinthBaseOffset||0),stoneSupportTop:L.heroStoneLantern.supportTop,source:'Projected lamp/outer-step relationship with actual mineral support and diagonal side-entry steps; historical anchors explicitly released'},route:{...frontRoute,source:'Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired'},rearRoute};
+}
+
+function nearestRoute207(x,z,approach){let best=null;for(const route of[approach.route,approach.rearRoute]){const p=route.samples;for(let i=0;i<p.length-1;i++){const a=p[i],b=p[i+1],dx=b[0]-a[0],dz=b[2]-a[2],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[2])*dz)/(dx*dx+dz*dz),0,1),distance=Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz);if(!best||distance<best.distance)best={distance,top:T.MathUtils.lerp(a[1],b[1],t),width:route.width};}}return best;}
+
+export function nearRouteGround207(x,z,a){
+ if(z>=-2.5)return -.22;
+ const dx=x-a.start[0],dz=z-a.start[2],u=dx*a.axis[0]+dz*a.axis[1],v=-dx*a.axis[1]+dz*a.axis[0];
+ const q=nearestRoute207(x,z,a);if(q.distance<Math.max(.12,q.width/2-.08))return q.top-.13;
+ if(u>=-.85&&u<=a.run+.15&&Math.abs(v)<a.width/2+.35)return -.22;
+ return null;
+}
+
+export function nearIslandHeight207(x,z,a){
+ if(x< -5.7||x>-.9||z< -8.8||z>-.9)return null;
+ const h=a.island.lanternCenter,a0=Math.atan2((z-h[2])/1.3,(x-h[0])/1.2),a1=Math.atan2((z-a.start[2])/1.0,(x-a.start[0])/1.1),r0=Math.hypot((x-h[0])/1.2,(z-h[2])/1.3)/(1+.09*Math.sin(a0*5+.4)+.05*Math.sin(a0*9-1)),r1=Math.hypot((x-a.start[0])/1.1,(z-a.start[2])/1.0)/(1+.07*Math.sin(a1*7+.8));
+ const lowLanternSoil=-.22+.42*(1-T.MathUtils.smoothstep(r0,.28,.85));const bed=nearRouteGround207(x,z,a);return Math.max(lowLanternSoil,bed??-.22);
+}
+
+export function hallShoreHeight207(x,z,L){
+ const h=L.hall,c=Math.cos(h.yaw),s=Math.sin(h.yaw),dx=x-h.position[0],dz=z-h.position[2],lx=(c*dx-s*dz)/h.scale[0],lz=(s*dx+c*dz)/h.scale[2];
+ if(Math.abs(lx)>10.5||lz<2.7||lz>7.5)return null;
+ const shoulder=4.05+.18*Math.sin(lx*.71)+.12*Math.sin(lx*1.67),distance=lz-shoulder,t=T.MathUtils.smoothstep(distance,.02,.96),side=1-T.MathUtils.smoothstep(Math.abs(lx),9.15,10.5),height=1.25+.19*Math.sin(lx*.56+.7)+.12*Math.cos(lx*1.31),fracture=(.11*Math.sin(lx*3.1+lz*4.7)+.075*Math.sin(lx*5.9-lz*2.8))*(1-Math.abs(2*t-1));
+ return -.22+((height+.22)*(1-t)+fracture)*side;
 }
 
 export function routeReserved207(x,z,plan,approach){
  const a=approach,dx=x-a.start[0],dz=z-a.start[2],along=dx*a.axis[0]+dz*a.axis[1],side=-dx*a.axis[1]+dz*a.axis[0];
- if(along>=-1.57&&along<=a.run+.08&&Math.abs(side)<a.width/2+.10)return true;
- if(inside([x,z],a.route.outline)||a.route.outline.some((p,i)=>edgeDistance(x,z,p,a.route.outline[(i+1)%a.route.outline.length])<.1))return true;
+ if(along>=-.71&&along<=a.run+.08&&Math.abs(side)<a.width/2+.10)return true;
+ for(const r of[a.route,a.rearRoute])if(inside([x,z],r.outline)||r.outline.some((p,i)=>edgeDistance(x,z,p,r.outline[(i+1)%r.outline.length])<.1))return true;
  if(inside([x,z],plan.turningLanding.outline)||plan.turningLanding.outline.some((p,i)=>edgeDistance(x,z,p,plan.turningLanding.outline[(i+1)%plan.turningLanding.outline.length])<.10))return true;
  const qx=x-plan.start[0],qz=z-plan.start[2],u=qx*plan.unit[0]+qz*plan.unit[1],v=-qx*plan.unit[1]+qz*plan.unit[0];return u>=-.1&&u<=plan.run+.25&&Math.abs(v)<plan.width/2+.12;
 }
 
 function emitFlight(api,spec,key){
  const {emit}=api,origin=spec.start,axis=spec.axis||spec.unit,records=[];
- for(const s of spec.steps){const a=s.along?s.along[0]:spec.run*s.index/spec.count,b=s.along?s.along[1]:spec.run*(s.index+1)/spec.count,top=s.top,bf=s.undersideFront,bb=s.undersideBack,g=solidProfile([[a-.018,bf],[b,bb],[b,top],[a-.018,top]],spec.width);g.name='207-'+key+'-closed-riser-tread-'+s.index;frameGeometry(g,[origin[0],0,origin[2]],axis);emit(g,'routeStone207');
+ for(const s of spec.steps){const a=s.along?s.along[0]:spec.run*s.index/spec.count,b=s.along?s.along[1]:spec.run*(s.index+1)/spec.count,top=s.top,bf=s.undersideFront,bb=s.undersideBack,left=t=>spec.stepClipX?Math.max(-spec.width/2,(spec.stepClipX[s.index]-origin[0]-axis[0]*t)/(-axis[1])):-spec.width/2;let g;
+  if(spec.stepClipX){const af=a-.018,ring=[[af,left(af),bf],[af,spec.width/2,bf],[b,spec.width/2,bb],[b,left(b),bb]],v=[...ring,...ring.map(([x,z])=>[x,z,top])].map(([x,z,y])=>point(origin,axis,x,z,y)),ix=[0,2,1,0,3,2,4,5,6,4,6,7];for(let j=0;j<4;j++){const k=(j+1)%4;ix.push(j,k,k+4,j,k+4,j+4);}g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(v.flat(),3));g.setAttribute('uv',new T.Float32BufferAttribute(v.flatMap(p=>[p[0],-p[2]]),2));g.setIndex(ix);g.computeVertexNormals();}else{g=solidProfile([[a-.018,bf],[b,bb],[b,top],[a-.018,top]],spec.width);frameGeometry(g,[origin[0],0,origin[2]],axis);}g.name='207-'+key+'-closed-riser-tread-'+s.index;emit(g,'routeStone207');
   // Separate closed nosing has real thickness and bears on its whole tread.
-  const n=coloredStone(.10,.075,spec.width+.035,20711+s.index),mid=point(origin,axis,a+.018,0,top-.0375),q=new T.Quaternion().setFromAxisAngle(U,-Math.atan2(axis[1],axis[0]));emit(n,'routeStone207',...mid,1,1,1,q);records.push({...s,worldFront:point(origin,axis,a,0,top),worldBack:point(origin,axis,b,0,top),width:spec.width,closed:true});
+  const visibleWidth=spec.width/2-left(a),side=(spec.width/2+left(a))/2,n=coloredStone(.10,.075,visibleWidth+.035,20711+s.index),mid=point(origin,axis,a+.018,side,top-.0375),q=new T.Quaternion().setFromAxisAngle(U,-Math.atan2(axis[1],axis[0]));emit(n,'routeStone207',...mid,1,1,1,q);records.push({...s,worldFront:point(origin,axis,a,side,top),worldBack:point(origin,axis,b,side,top),width:visibleWidth,closed:true,clippedAgainstLampPlinth:!!spec.stepClipX});
  }
  // Actual sloping carrying bed, not vertical columns extruded to the pond.
  const bed=solidProfile([[0,origin[1]-.36],[spec.run,origin[1]+spec.rise-.36],[spec.run,origin[1]+spec.rise-.22],[0,origin[1]-.22]],spec.width-.12);frameGeometry(bed,[origin[0],0,origin[2]],axis);bed.name='207-'+key+'-closed-sloping-bearing-bed';emit(bed,'supportStone207');
@@ -76,12 +117,13 @@ function pier(api,center,top,seed,along=[1,0]){
  const {emit}=api,bottom=-.18,height=top-bottom,rows=Math.ceil(height/.27),q=new T.Quaternion().setFromAxisAngle(U,-Math.atan2(along[1],along[0]));
  for(let i=0;i<rows;i++){const y0=bottom+height*i/rows,y1=bottom+height*(i+1)/rows,flare=1-(i+.5)/rows,w=.63+.18*flare,d=.60+.16*flare,g=coloredStone(w,y1-y0-.007,d,seed+i);emit(g,'supportStone207',center[0],(y0+y1)/2,center[1],1,1,1,q);}
  const cap=coloredStone(.85,.16,.82,seed+91);emit(cap,'supportStone207',center[0],top-.08,center[1],1,1,1,q);
- return{center,bottom,top,closedCourses:rows,capFootprint:[.85,.82],source:'Individual closed dressed stone courses, flared submerged foot and bearing cap'};
+ const pad=coloredStone(.92,.16,.90,seed+131);emit(pad,'supportStone207',center[0],-.16,center[1],1,1,1,q);
+ return{center,bottom,top,closedCourses:rows,capFootprint:[.85,.82],bedPad:{bottom:-.24,top:-.08,riverbed:-.22},source:'Individual closed dressed stone courses, flared submerged foot/cap and actual bed-embedded bearing pad'};
 }
 
 export function buildSupportRoute207(api,L,plan,approach,supports=[]){
- const {emit,box,between,tube}=api,A=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],B=[-A[1],A[0]],far=plan.bridgeEnd,near=approach.end;
- const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread},why:'Photo-led near-end/span adjustment keeps the far bridge x/z anchor and building datums. A real low stone causeway closes the old forecourt/bridge-foot gap; thinner supported flights and a compact turn replace the broad plateau and cement drape.'};
+ const {emit,box,between,tube}=api,A=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],B=[-A[1],A[0]],far=plan.bridgeEnd,near=approach.bridgeNear||approach.end;
+ const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1,r06NearCount:9,r06NearRun:2.52,r06NearFootY:.067,r06BottomLandingRun:1.52},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread,nearFootY:approach.start[1],nearRun:approach.run,nearStepCount:approach.count,bottomLandingRun:.66},why:'Bridge and lantern datums held. The former long low flight/causeway is replaced by a raised physical island, compact foot landing, short four-step flight and narrow earth-bedded route around the lantern.'};
  // Compact polygon turn, carried on two actual stone piers and a crosshead.
  emit(footprint(plan.turningLanding.outline,far[1]-.18,far[1]),'routeStone207');
  const upper=plan.upperLanding;emit(footprint(upper.outline,upper.top-.24,upper.top),'routeStone207');out.upperLanding={...upper,actualBottom:upper.top-.24,bearing:'Front edge on last actual wedge tread/bed; back corners lap the supported hall gallery floor'};
@@ -90,12 +132,27 @@ export function buildSupportRoute207(api,L,plan,approach,supports=[]){
  // Near bridge bearing is a real capped abutment, attached to the flight head.
  for(const sign of[-1,1])pier(api,[near[0]+B[0]*sign*.76-A[0]*.08,near[2]+B[1]*sign*.76-A[1]*.08],near[1]-.42,207401+(sign+1)*31,A);
  const nc=coloredStone(.30,.24,2.35,207491);emit(nc,'darkwood',near[0]-.08*A[0],near[1]-.30,near[2]-.08*A[1],1,1,1,[0,yaw,0]);
- // A full stone landing joins the lowest tread and continuous curved path.
- const start=approach.start,w=approach.width/2+.03,lower=[point(start,A,-1.52,-w,0),point(start,A,0,-w,0),point(start,A,0,w,0),point(start,A,-1.52,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,-.18,L.groundY),'routeStone207');emit(footprint(approach.route.outline,-.18,L.groundY-.04),'supportCore207');
- const samples=approach.route.samples;
- for(let i=0;i<samples.length-1;i++){
-  const P=V(samples[i]),Q=V(samples[i+1]),d=Q.clone().sub(P).normalize(),n=V([-d.z,0,d.x]),left=P.clone().addScaledVector(n,-.755),right=P.clone().addScaledVector(n,.755),left2=Q.clone().addScaledVector(n,-.755),right2=Q.clone().addScaledVector(n,.755),poly=[left,right,right2,left2].map(p=>[p.x,p.z]);emit(footprint(poly,L.groundY-.07,L.groundY),'routeStone207');
-  for(const sign of[-1,1]){const p=P.clone().addScaledVector(n,sign*.79),q=Q.clone().addScaledVector(n,sign*.79);between([p.x,L.groundY-.11,p.z],[q.x,L.groundY-.11,q.z],.14,'supportStone207',true);}
+ // Thin closed paving sits on the actual raised soil island. It no longer
+ // forms a broad isolated solid platform down to the creek bed.
+ const start=approach.start,w=approach.width/2+.03,lower=[point(start,approach.axis,-.66,-w,0),point(start,approach.axis,0,-w,0),point(start,approach.axis,0,w,0),point(start,approach.axis,-.66,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,start[1]-.13,start[1]),'routeStone207');
+ const courses=4,bottom=-.24,bodyTop=start[1]-.12;for(let row=0;row<courses;row++){const low=T.MathUtils.lerp(bottom,bodyTop,row/courses),high=T.MathUtils.lerp(bottom,bodyTop,(row+1)/courses),sideWidth=w+.04*(1-row/(courses-1));for(const sign of[-1,1]){const g=coloredStone(.64,high-low-.009,sideWidth-.008,213701+row*7+sign,.80+.14*hash(row,sign)),p=point(start,approach.axis,-.33,sign*sideWidth/2,(low+high)/2);g.name='213-closed-compact-stair-foot-bearing-course-'+row+'-'+sign;emit(g,'supportStone207',...p,1,1,1,[0,-Math.atan2(approach.axis[1],approach.axis[0]),0]);}}
+ const headSides=[-1,1].map(sign=>point(approach.end,approach.axis,0,sign*approach.width/2,approach.end[1]));headSides[0][0]=Math.max(headSides[0][0],approach.stepClipX.at(-1));const headOutline=[...headSides,point(near,A,0,1.20,near[1]),point(near,A,L.bridge.span*L.bridge.entryFlatT,1.20,near[1])].map(p=>[p[0],p[2]]),sorted=[...headOutline].sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross2=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]),lo=[],hi=[];for(const p of sorted){while(lo.length>1&&cross2(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}for(const p of [...sorted].reverse()){while(hi.length>1&&cross2(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}const headHull=[...lo.slice(0,-1),...hi.slice(0,-1)];emit(footprint(headHull,near[1]-.15,near[1]),'routeStone207');out.entryHeadLanding213={outline:headHull,top:near[1],bottom:near[1]-.15,scope:'Actual compact wedge between angled last tread and level bridge edge'};
+ out.routePavers207=[];for(const [routeIndex,route]of[approach.route,approach.rearRoute].entries()){
+  const samples=route.samples;
+  for(let i=0;i<samples.length-1;i+=4){
+   const end=Math.min(samples.length-1,i+4),sides=[];
+   for(const side of[-1,1]){const edge=[];for(let j=i;j<=end;j++){const P=V(samples[j]),before=V(samples[Math.max(0,j-1)]),after=V(samples[Math.min(samples.length-1,j+1)]),d=after.sub(before);d.y=0;d.normalize();const n=V([-d.z,0,d.x]),half=route.width/2*(.97+.03*hash(routeIndex+207,j));P.addScaledVector(n,side*half);if(j===i)P.addScaledVector(d,.006);if(j===end)P.addScaledVector(d,-.006);edge.push([P.x,P.z]);}sides.push(side===-1?edge:edge.reverse());}
+   const seed=208701+routeIndex*31+i,g=closedWornRouteFlag207(sides.flat(),seed),p=g.attributes.position,c=[],blockTone=.79+.22*hash(seed,4);
+   for(let k=0;k<p.count;k++){const x=p.getX(k),z=p.getZ(k),top=nearestRoute207(x,z,approach).top;p.setY(k,p.getY(k)-.046+top);const tone=blockTone*(.88+.18*hash(Math.floor(x*31)+seed,Math.floor(z*37)));c.push(tone,tone,tone);}
+   g.setAttribute('color',new T.Float32BufferAttribute(c,3));g.computeVertexNormals();g.name='207-closed-earth-bedded-worn-path-flag-'+routeIndex+'-'+i;emit(g,'pathStone207');out.routePavers207.push({route:routeIndex,sampleSpan:[i,end],width:route.width,nominalThickness:.14,actualWornCrownHollowsAndEdgeSpalls:true,blockTone,physicalJoint:.012});
+  }
+ }
+ // Two short guards share the near bridge post/rail datums. The low route
+ // remains open beside the lantern; no guard is planted in the creek.
+ for(const sign of[-1,1]){
+  const pts=[];for(let i=0;i<=4;i++){const t=i/4,side=sign*approach.guardHalfWidth,p=point(start,approach.axis,approach.run*t,side,start[1]+approach.rise*t);if(sign<0)p[0]=Math.max(p[0],approach.guardClearX,approach.stepClipX[Math.min(3,i)]+.065);pts.push(p);if(i===0){box(p[0],p[1]+.52,p[2],.13,1.04,.13,'red');}}
+  for(const h of[.25,.6,1.0])tube(pts.map(p=>[p[0],p[1]+h,p[2]]),.055,'red');
+  const deck=bridgeToWorld125(bridgePoint125(approach.guardBridgeStations[sign<0?0:1],1.1));for(const h of[.25,.6,1.0])tube([pts.at(-1).map((v,k)=>k===1?v+h:v),[deck[0],deck[1]+h,deck[2]]],.055,'red');
  }
  // Guards belong to the actual stair side lines, with supported foot posts.
  for(const side of[-1,1]){
@@ -121,18 +178,21 @@ export function buildHallFoundation207(api,L){
  // Closed joists and embedded diagonal timber brackets carry that projection.
  const frontAt=y=>T.MathUtils.lerp(frontToe,frontTop,(y-minY)/(bodyTop-minY));
  const core=solidProfile([[back,minY],[frontToe-.20,minY],[frontTop-.20,bodyTop],[back,bodyTop]],halfWidth*2-.18);frameGeometry(core,[0,0,0],[0,1]);core.name='207-closed-battered-hall-retaining-core';emit(core,'supportCore207');
- const courseWeights=[.86,1.08,.91,1.10,.93,1.12],sum=courseWeights.reduce((a,b)=>a+b,0);let low=minY;
- for(let row=0;row<courseWeights.length;row++){
-  const high=low+(bodyTop-minY)*courseWeights[row]/sum,h=high-low-.009,face=frontAt((low+high)/2),weights=Array.from({length:21+(row%2)},(_,k)=>.78+.53*hash(20791+row,k)),total=weights.reduce((a,b)=>a+b,0);let x=-halfWidth;
-  for(let k=0;k<weights.length;k++){
-   const width=weights[k]/total*halfWidth*2,depth=.48+.13*hash(k,row+207),g=coloredStone(width-.012,h,depth,207901+row*23+k),p=g.attributes.position;
-   // A continuous batter is retained across every separate closed block.
-   for(let i=0;i<p.count;i++){const yy=(low+high)/2+p.getY(i);p.setZ(i,p.getZ(i)+frontAt(yy)-face);}
-   g.computeVertexNormals();g.name='207-bonded-battered-terrace-course-'+row+'-'+k;emit(g,'supportStone207',x+width/2,(low+high)/2,face-depth/2,1,1,1,0,.78+.24*hash(row,k+31));records.push({row,x:[x,x+width],y:[low,high],front:[frontAt(low),frontAt(high)],depth,closed:true});x+=width;
+ // Individually closed irregular ashlar. Each horizontal joint changes
+ // height across the wall and stones span different joint vertices. This
+ // retires R06's six uninterrupted ruler-straight brick bands.
+ const cols=40,rows=6,dx=halfWidth*2/cols,joints=Array.from({length:rows+1},(_,r)=>Array.from({length:cols+1},(_,k)=>r===0?minY:r===rows?bodyTop:T.MathUtils.lerp(minY,bodyTop,r/rows)+.14*(hash(r*19,k)-.5)+.045*Math.sin(k*1.7+r)));
+ for(let row=0;row<rows;row++){
+  let k=0,stone=0;while(k<cols){const span=Math.min(cols-k,2+Math.floor(hash(row+207,k)*3)),end=k+span,poly=[];
+   for(let i=k;i<=end;i++)poly.push([-halfWidth+dx*i+(i===k?.006:i===end?-.006:0),joints[row][i]+.006]);
+   for(let i=end;i>=k;i--)poly.push([-halfWidth+dx*i+(i===k?.006:i===end?-.006:0),joints[row+1][i]-.006]);
+   const seed=207901+row*43+stone,depth=.48+.18*hash(k,row+207),g=solidProfile(poly,depth),p=g.attributes.position,color=[],blockTone=.62+.40*hash(seed,8),faceRelief=.055*(hash(seed,4)-.5);
+   for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i),tone=blockTone*(.89+.17*hash(Math.floor(x*23)+seed,Math.floor(y*37)));p.setZ(i,z+frontAt(y)-depth/2+faceRelief);color.push(tone,tone,tone);}
+   g.setAttribute('color',new T.Float32BufferAttribute(color,3));g.computeVertexNormals();g.name='207-closed-irregular-bonded-ashlar-'+row+'-'+stone;emit(g,'supportStone207');records.push({row,x:[-halfWidth+dx*k,-halfWidth+dx*end],bottomProfile:joints[row].slice(k,end+1),topProfile:joints[row+1].slice(k,end+1),depth,faceRelief,blockTone,closed:true});k=end;stone++;
   }
-  // Full-depth corner stones and side returns actually close the terrace.
-  for(const side of[-1,1]){const length=frontAt((low+high)/2)-back,n=Math.ceil(length/1.22);for(let j=0;j<n;j++){const d=length/n-.012,g=coloredStone(.48,h,d,208301+row*41+j+(side+1)*13);emit(g,'supportRecess207',side*(halfWidth-.24),(low+high)/2,back+length*(j+.5)/n,1,1,1,0,.84+.16*hash(j,row));}}
-  low=high;
+  // Deep side returns remain real closed bearing masonry behind the bank.
+  const low=T.MathUtils.lerp(minY,bodyTop,row/rows),high=T.MathUtils.lerp(minY,bodyTop,(row+1)/rows),h=high-low-.009;
+  for(const side of[-1,1]){const length=frontAt((low+high)/2)-back,n=Math.ceil(length/1.22);for(let j=0;j<n;j++){const d=length/n-.012,g=coloredStone(.48,h,d,208301+row*41+j+(side+1)*13,.68+.22*hash(j,row));emit(g,'supportRecess207',side*(halfWidth-.24),(low+high)/2,back+length*(j+.5)/n);}}
  }
  for(let i=0;i<15;i++){const width=halfWidth*2/15,g=coloredStone(width-.008,.18,.90,209001+i);emit(g,'supportStone207',-halfWidth+width*(i+.5),capY-.09,frontTop-.28);}
  // The complete upper bearing surface is continuous under the occupied hall.
@@ -141,7 +201,7 @@ export function buildHallFoundation207(api,L){
   const a=V([x,-.28,3.48]),b=V([x,.84,5.60]),d=b.clone().sub(a),g=new T.BoxGeometry(.20,d.length(),.20),q=new T.Quaternion().setFromUnitVectors(U,d.clone().normalize());g.name='207-closed-embedded-gallery-bracket-'+i;emit(g,'darkwood',...a.clone().add(b).multiplyScalar(.5).toArray(),1,1,1,q);brackets.push({lowerEmbedded:a.toArray(),upperBearing:b.toArray(),section:[.20,.20],beamBottom:.82,upperEmbed:.02});
  }
  box(0,.99,5.35,18.0,.26,.30,'darkwood');box(0,1.21,4.975,19.0,.18,2.35,'darkwood');
- return{revision:SUPPORT207_REVISION,top:1.30,worldBase,worldCap,retainingFront:{top:frontTop,toe:frontToe,batter:frontToe-frontTop},pierRows:[2.10,3.55],beamBottom:.82,beamTop:1.12,galleryFloor:{boundsZ:[3.8,6.15],bottom:1.12,top:1.30,projectionBeyondCap:2.18,bracketBearingZ:5.60,overhangBeyondBracket:.55},frontPiers:piers,brackets,stoneCourses:records,source:'Recessed closed battered terrace, six independently jointed bonded stone courses, continuous cap, short bearings and nine actual embedded gallery brackets. R03 tall repeated piers/rock feet and R04 flush heavy frontage retired.',oldFront20x12mCubeRemoved:true};
+ return{revision:SUPPORT207_REVISION,top:1.30,worldBase,worldCap,retainingFront:{top:frontTop,toe:frontToe,batter:frontToe-frontTop},pierRows:[2.10,3.55],beamBottom:.82,beamTop:1.12,galleryFloor:{boundsZ:[3.8,6.15],bottom:1.12,top:1.30,projectionBeyondCap:2.18,bracketBearingZ:5.60,overhangBeyondBracket:.55},frontPiers:piers,brackets,stoneCourses:records,shore:{kind:'Actual connected terrain rises into the lower masonry; broken shoulder follows the hall transform',crestWorldYRange:[.94,1.56],toeRunLocal:.96,newConcealmentPlants:0},source:'Recessed closed battered terrace with independently weathered irregular ashlar, broken joint heights, continuous cap and unchanged actual short bearings/gallery brackets. A real sloping soil/mineral bank embeds the lower courses.',oldFront20x12mCubeRemoved:true};
 }
 
 const pondControls207=[[-7.3,4.0],[-6.9,1.3],[-6.0,-1.3],[-5.25,-2.7],[-5.3,-5.9],[-4.1,-8.4],[-1.2,-9.4],[2.5,-10.3],[5.4,-12.0],[7.5,-12.7],[10.1,-10.9],[11.2,-7.4],[10.25,-4.3],[8.9,-1.7],[7.4,.8],[6.2,3.5],[4.1,5.6],[-1.0,5.9]],pondCurve207=new T.CatmullRomCurve3(pondControls207.map(([x,z])=>V([x,0,z])),true,'centripetal');
@@ -160,8 +220,20 @@ export function buildPondEdges207(api,plan,approach){
 }
 
 export function buildFoundationRocks207(api,L,plan,scanned){
- // R04 deliberately retires the R03 repeated tall rock-per-pier lattice.
- // Real pad footings now bear the four stair piers; the hall bears on a
- // complete battered stone terrace. Original CC0 garden rocks stay in193.
- return{surfaces:[],materials:[],info:{revision:SUPPORT207_REVISION,records:[],retiredR03RockFeet:22,scope:'Hall retaining terrace and four closed bed-seated stair footing pads replace the repeated source-rock pedestal arrangement; no concealment plants added.'}};
+ // Irregular mineral exposures belong to the physical bank. They do not
+ // replace the terrace or serve as a repeated rock under each pier.
+ const surfaces=[],records=[],approach=createApproachPlan207(L),materials=scanned.variants.map((s,i)=>{const m=s.wet.clone();m.name='207-dark-porous-seated-bank-mineral-'+i;m.color.set('#6f786a');m.roughness=.89;m.clearcoat=.12;m.clearcoatRoughness=.36;m.envMapIntensity=.42;if(m.normalScale)m.normalScale.set(.90,.90);return m;});
+ const place=(kind,x,z,variant,size,rotation,ground,burialRatio,localPlan=null)=>{
+  const scan=scanned.variants[variant],q=new T.Quaternion().setFromEuler(new T.Euler(...rotation)),matrix=new T.Matrix4().compose(V([0,0,0]),q,V([size,size,size])),bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position).applyMatrix4(matrix),burial=(bounds.max.y-bounds.min.y)*burialRatio,y=ground-burial-bounds.min.y;
+  const corners=[[bounds.min.x,bounds.min.z],[bounds.max.x,bounds.min.z],[bounds.max.x,bounds.max.z],[bounds.min.x,bounds.max.z],[0,0]];
+  if(corners.some(([xx,zz])=>routeReserved207(x+xx,z+zz,plan,approach)))return;
+  if(kind==='Lantern-island mineral toe'&&bounds.max.z+z>=-2.12)return;
+  api.emit(scan.geometry,materials[variant],x,y,z,size,size,size,rotation);
+  const mesh=new T.Mesh(scan.geometry,materials[variant]);mesh.position.set(x,y,z);mesh.quaternion.copy(q);mesh.scale.setScalar(size);mesh.updateMatrixWorld(true);surfaces.push(mesh);records.push({kind,localPlan,position:[x,y,z],variant,uniformScale:size,rotation,terrainY:ground,bottom:y+bounds.min.y,top:y+bounds.max.y,burial,burialRatio,worldBounds:[[x+bounds.min.x,y+bounds.min.y,z+bounds.min.z],[x+bounds.max.x,y+bounds.max.y,z+bounds.max.z]],originalGeometryUVNormals:true});
+ };
+ for(const [lx,lz,variant,size,rx,ry,rz]of[[-8.2,6.1,3,1.10,.12,.30,-.10],[-6.0,6.85,0,.80,-.10,1.20,.08],[-4.7,5.6,5,.95,.16,-.44,-.05],[-.7,6.25,1,1.00,-.08,2.02,.14],[1.8,7.1,4,.85,.11,-1.06,-.12],[4.0,6.2,2,1.10,-.14,.75,.06],[6.4,6.8,0,.90,.08,2.44,-.15],[8.1,6.8,5,.80,-.12,-.82,.10]]){
+  const [x,,z]=hallToWorld125([lx,0,lz]);place('Deep-seated hall bank outcrop, not structural pier footing',x,z,variant,size,[rx,ry+L.hall.yaw,rz],hallShoreHeight207(x,z,L)??-.22,.58+.06*hash(lx,lz),[lx,lz]);
+ }
+ for(const [x,z,variant,size,rotation]of[[-3.28,-2.66,0,.38,[.08,.42,-.06]],[-2.25,-2.90,4,.44,[-.10,-.68,.09]]])place('Lantern-island mineral toe',x,z,variant,size,rotation,nearIslandHeight207(x,z,approach)??-.22,.64);
+ return{surfaces,materials,info:{revision:SUPPORT207_REVISION,records,retiredR03RockFeet:22,scope:'Original CC0 rigid mineral pieces deeply buried at the eroded bank toes. Independent of terrace/piers, with actual transformed root-support surfaces. R08 oversized bright high-shoulder poses retired. No new authored plant-placement loops; existing procedural acceptance/rooting may change.'}};
 }

@@ -22,7 +22,7 @@ export async function installScannedTimber(mats){
  let meanLuma=0;for(let i=0;i<pigmentPixels.data.length;i+=4)meanLuma+=.2126*linear[pigmentPixels.data[i]]+.7152*linear[pigmentPixels.data[i+1]]+.0722*linear[pigmentPixels.data[i+2]];
  meanLuma/=pigmentPixels.data.length/4;
  for(let i=0;i<pigmentPixels.data.length;i+=4){
-  const l=.2126*linear[pigmentPixels.data[i]]+.7152*linear[pigmentPixels.data[i+1]]+.0722*linear[pigmentPixels.data[i+2]],v=Math.max(.36,Math.min(.98,.19+.63*Math.sqrt(l/meanLuma)));
+  const l=.2126*linear[pigmentPixels.data[i]]+.7152*linear[pigmentPixels.data[i+1]]+.0722*linear[pigmentPixels.data[i+2]],v=Math.max(.47,Math.min(.98,.50+.37*Math.pow(l/meanLuma,.60)));
   const chroma=[linear[pigmentPixels.data[i]],linear[pigmentPixels.data[i+1]],linear[pigmentPixels.data[i+2]]].map(c=>T.MathUtils.clamp(c/Math.max(l,.001),.65,1.4));
   for(let c=0;c<3;c++){const value=v*(.90+.10*chroma[c]),srgb=value<=.0031308?value*12.92:1.055*value**(1/2.4)-.055;pigmentPixels.data[i+c]=Math.round(T.MathUtils.clamp(srgb,0,1)*255);}
  }
@@ -38,13 +38,13 @@ export async function installScannedTimber(mats){
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
  const colors={red:[6.0,3.8,3.0],cedar:[6.8,4.6,3.5],endwood:[7.6,5.8,4.2],darkwood:[2.2,1.9,1.65]};
- const pigments={red:'#b75e31',cedar:'#b46c39',endwood:'#bd854a',darkwood:'#754529'};
+ const pigments={red:'#9f4d38',cedar:'#a36541',endwood:'#9d6f47',darkwood:'#685344'};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.095:.055,kind==='endwood'?.095:.055);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=kind==='darkwood'?.81:.70;
-  if(painted)mat.color.set(key==='kit_cedar'?'#ad542c':key==='kit_endwood'?'#b47843':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=.12;mat.clearcoatRoughness=.39;mat.specularIntensity=.48;}
+  const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.13:.085,kind==='endwood'?.13:.085);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=kind==='darkwood'?.90:kind==='endwood'?.88:kind==='cedar'?.81:.76;
+  if(painted)mat.color.set(key==='kit_cedar'?'#9b5b3e':key==='kit_endwood'?'#95633f':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=kind==='red'?.080:.050;mat.clearcoatRoughness=.47;mat.specularIntensity=kind==='red'?.62:kind==='cedar'?.50:kind==='endwood'?.34:.38;}
   mat.onBeforeCompile=shader=>{
    shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\n vWoodCut190=woodCut190;vWoodEndUv190=woodEndUv190;');
@@ -61,15 +61,25 @@ export async function installScannedTimber(mats){
      float checkFilter=1.-smoothstep(.55,1.8,fwidth(checkPhase));
      float check=pow(max(0.,sin(checkPhase)),46.)*smoothstep(.12,.80,sin(woodUv.x*8.1+woodUv.y*3.))*checkFilter;
      diffuseColor.rgb*=.97+longitudinal+age-check*.15;
-     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.245,.178,.116)*(.72+.28*texture2D(map,woodUv).r),worn*.12);
-     float phase190=length(vWoodEndUv190*vec2(1.,.94)+vec2(.018,-.024))*1250.+sin(vWoodEndUv190.x*31.)*.7;
-     float filtered190=1.-smoothstep(.7,2.5,fwidth(phase190)),growth190=.5+.5*cos(phase190)*filtered190;
-     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.230,.125,.055)*(.94+.06*growth190),smoothstep(.75,.98,vWoodCut190)*.70);
+     diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.156,.092,.068)*(.62+.38*texture2D(map,woodUv).r),worn*.22);
+     vec2 cut220=vWoodEndUv190*vec2(1.,.91)+vec2(.060,-.040);
+     float radius220=length(cut220),angle220=atan(cut220.y,cut220.x);
+     float phase190=(radius220+.0017*sin(angle220*7.+radius220*43.))*2300.;
+     float filtered190=1.-smoothstep(.7,2.5,fwidth(phase190));
+     float latewood220=pow(.5+.5*cos(phase190),7.)*filtered190;
+     float rays220=pow(max(0.,sin(angle220*31.+sin(radius220*29.))),32.)*smoothstep(.025,.12,radius220);
+     vec3 end220=mix(diffuseColor.rgb*vec3(.94,.85,.78),vec3(.155,.066,.040),.24)*(1.-latewood220*.25-rays220*.16);
+     diffuseColor.rgb=mix(diffuseColor.rgb,end220,smoothstep(.75,.98,vWoodCut190)*.88);
     #endif`);
-  };mat.customProgramCacheKey=()=> 'scene05-carpentered220-warm-thin-varnish-cut-response';
+   shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
+    #ifdef USE_MAP
+     float oldCoat220=.5+.5*sin(vMapUv.x*.83+sin(vMapUv.y*5.7)*.6)*sin(vMapUv.y*2.1+vMapUv.x*.47);
+     roughnessFactor=clamp(roughnessFactor*(.88+.21*oldCoat220)+.025,.36,.96);
+    #endif`);
+  };mat.customProgramCacheKey=()=> 'scene05-r11-role-varied-satin-pigment-and-eccentric-endgrain';
   mat.userData.metricTimberGrain=true;mat.envMapIntensity=painted?.70:.7;mat.needsUpdate=true;
  }
- return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, subdued scanned normals, longitudinal aged tissue and bounded fine checks',pigments,pigmentCoverage:'CC0 scan luminance .36–.98 and10% source chroma under warm red-brown stain; broad rub-through to natural timber; scene photograph unused',sourceMeanLinearLuma:meanLuma},
+ return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV with scanned tissue, role-specific deep red/brown stains, varied worn-coat roughness, eccentric latewood bands and radial end checks',pigments,pigmentCoverage:'CC0 scan luminance .47–.98 and10% source chroma under oxide-red, brown and weathered stains. Independent per-member finish modulation. Scene photograph unused as material data.',sourceMeanLinearLuma:meanLuma},
   dispose(){for(const tex of[albedo,normal,roughness,pigmentMap])tex.dispose();}};
 }
 
@@ -88,7 +98,7 @@ export function assignMetricTimberUV(geometry,matrix){
   const p=[position.getX(i),position.getY(i),position.getZ(i)],n=[Math.abs(normal.getX(i)),Math.abs(normal.getY(i)),Math.abs(normal.getZ(i))];
   const perpendicular=[0,1,2].filter(a=>a!==long);
   const cross=perpendicular[0]===n.indexOf(Math.max(...n))?perpendicular[1]:perpendicular[0];
-  cut[i]=n[long];endUv[i*2]=(p[perpendicular[0]]-centre[perpendicular[0]])*s[perpendicular[0]];endUv[i*2+1]=(p[perpendicular[1]]-centre[perpendicular[1]])*s[perpendicular[1]];
+  cut[i]=n[long];endUv[i*2]=(p[perpendicular[0]]-centre[perpendicular[0]])*s[perpendicular[0]]+(offset-.5)*.13;endUv[i*2+1]=(p[perpendicular[1]]-centre[perpendicular[1]])*s[perpendicular[1]]+((offset*7.17)%1-.5)*.11;
   if(n[long]>.85){uv[i*2]=p[perpendicular[0]]*s[perpendicular[0]]+offset;uv[i*2+1]=p[perpendicular[1]]*s[perpendicular[1]]+offset*.37;}
   else{uv[i*2]=p[long]*s[long]+offset;uv[i*2+1]=p[cross]*s[cross]+offset*.37;}
  }

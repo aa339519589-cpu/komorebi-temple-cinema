@@ -17,3 +17,6 @@ lookdev/**/export-*/assets/
 
 # Numbered integration exports use the same regenerable asset cache.
 lookdev/scene06-physical218/export217-r01/assets/
+
+# Lossless archived diagnostic Blend deltas are distributed as release assets.
+lookdev/export-storage216/diagnostic-blend-deltas/*.delta.zst

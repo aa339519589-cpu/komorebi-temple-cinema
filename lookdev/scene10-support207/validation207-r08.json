@@ -1,0 +1,309 @@
+{
+  "revision": "r08",
+  "sourceHash": "049211ad16b597a488dedc3a1e725683e3a7f497914bfa607d2b141292e5682d",
+  "renderViews": [
+    {
+      "view": "hero",
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r08-hero/report.json",
+      "status": "rendered-review",
+      "sourceHash": "049211ad16b597a488dedc3a1e725683e3a7f497914bfa607d2b141292e5682d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "eb81a63e0739fe59b20e43d1db27547256c9ff0b046711998a8abff278f14785"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "b951a738da2329934cca3dfeb6fcf41527e136ff39c9552ac529dbf594734eda"
+        }
+      ]
+    },
+    {
+      "view": "low",
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r08-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "049211ad16b597a488dedc3a1e725683e3a7f497914bfa607d2b141292e5682d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "0252f3b6d25b6a7a22765872d0678b9ea4098cf38003d8201ec56b961914a7a4"
+        }
+      ]
+    },
+    {
+      "view": "overhead",
+      "path": "qa/ten-reference/10/iteration-scene10-support207-r08-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "049211ad16b597a488dedc3a1e725683e3a7f497914bfa607d2b141292e5682d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "99b35ea6e16b8539ef29517f66fcab1a40e258d86b688e9f881ec9df37886360"
+        }
+      ]
+    }
+  ],
+  "heldRuntime": {
+    "fallenLeaves142": true,
+    "nearStoneRecords": true,
+    "pathCurbRecords125": true,
+    "waterRipples135": true,
+    "mapleCanopy136": true,
+    "carvedCloud183": true,
+    "pagodaSources141": true,
+    "towerMass183": true,
+    "camera": true,
+    "forest56": true,
+    "hallWorld": true,
+    "pagodaWorld": true,
+    "hallUpper": true
+  },
+  "structuralAudit": {
+    "path": "lookdev/scene10-support207/geometry-audit-r08.json",
+    "sourceMatches": true,
+    "summary": {
+      "meshes": 364,
+      "nonfinite": 0,
+      "exactOrSubNanometreDegenerates": 0,
+      "unclosedEdges": 0,
+      "windingEdges": 0,
+      "nonpositiveVolumeMeshes": 0,
+      "circulationUncoveredBefore": 2999,
+      "circulationUncoveredAfter": 0
+    },
+    "scope": "CPU inspection of actual authored structural buffers and circulation triangle constraints. Excludes botanical mesh closure, rail tube end caps, full-scene collision and engineering certification. Not photographic acceptance."
+  },
+  "reflectionProjectionAudit": {
+    "scope": "Pure projection test of the horizontal water plane. Reflection reverses camera handedness, so reflected image X must equal minus original X while Y stays equal. This checks geometry/projection, not rendered fidelity.",
+    "crop": [
+      650,
+      570,
+      560,
+      1254
+    ],
+    "principalOffset": 1.0821428571428573,
+    "samples": 481,
+    "maxOldError": 2.164285714285716,
+    "maxFixedError": 8.534839501805891e-16,
+    "examples": [
+      {
+        "point": [
+          1,
+          -0.066,
+          -10
+        ],
+        "camera": [
+          -0.9182199077083724,
+          0.11461070806245717
+        ],
+        "old": [
+          -1.2460658065773424,
+          0.11461070806245686
+        ],
+        "fixed": [
+          0.9182199077083724,
+          0.11461070806245686
+        ],
+        "oldError": 2.164285714285715,
+        "fixedError": 3.0531133177191805e-16
+      },
+      {
+        "point": [
+          1.5,
+          -0.066,
+          -8.5
+        ],
+        "camera": [
+          -0.8197642695707729,
+          0.10278968084341693
+        ],
+        "old": [
+          -1.3445214447149418,
+          0.10278968084341661
+        ],
+        "fixed": [
+          0.8197642695707729,
+          0.10278968084341661
+        ],
+        "oldError": 2.164285714285715,
+        "fixedError": 3.191891195797325e-16
+      },
+      {
+        "point": [
+          2,
+          -0.066,
+          -7
+        ],
+        "camera": [
+          -0.7071498491037107,
+          0.08926868646687224
+        ],
+        "old": [
+          -1.4571358651820037,
+          0.08926868646687189
+        ],
+        "fixed": [
+          0.7071498491037107,
+          0.08926868646687189
+        ],
+        "oldError": 2.164285714285715,
+        "fixedError": 3.469446951953614e-16
+      },
+      {
+        "point": [
+          2.5,
+          -0.066,
+          -5.5
+        ],
+        "camera": [
+          -0.577085783686521,
+          0.073652609149219
+        ],
+        "old": [
+          -1.5871999305991933,
+          0.07365260914921873
+        ],
+        "fixed": [
+          0.577085783686521,
+          0.07365260914921873
+        ],
+        "oldError": 2.1642857142857146,
+        "fixedError": 2.7755575615628914e-16
+      },
+      {
+        "point": [
+          3.5,
+          -0.066,
+          -4
+        ],
+        "camera": [
+          -0.31568119956440555,
+          0.055413603165234936
+        ],
+        "old": [
+          -1.848604514721309,
+          0.055413603165234734
+        ],
+        "fixed": [
+          0.31568119956440555,
+          0.055413603165234734
+        ],
+        "oldError": 2.1642857142857146,
+        "fixedError": 2.0122792321330962e-16
+      },
+      {
+        "point": [
+          7,
+          -0.066,
+          -2.5
+        ],
+        "camera": [
+          0.5913207337618755,
+          0.033830248634901285
+        ],
+        "old": [
+          -2.75560644804759,
+          0.03383024863490106
+        ],
+        "fixed": [
+          -0.5913207337618755,
+          0.03383024863490106
+        ],
+        "oldError": 2.1642857142857146,
+        "fixedError": 2.220446049250313e-16
+      },
+      {
+        "point": [
+          5.5,
+          -0.066,
+          -0.5
+        ],
+        "camera": [
+          0.4158368657435592,
+          -0.001961139022979699
+        ],
+        "old": [
+          -2.580122580029274,
+          -0.001961139022979949
+        ],
+        "fixed": [
+          -0.4158368657435592,
+          -0.001961139022979949
+        ],
+        "oldError": 2.1642857142857155,
+        "fixedError": 2.498001805406602e-16
+      },
+      {
+        "point": [
+          1.5,
+          -0.066,
+          2
+        ],
+        "camera": [
+          -0.5874932937191842,
+          -0.06367414382961897
+        ],
+        "old": [
+          -1.5767924205665305,
+          -0.06367414382961913
+        ],
+        "fixed": [
+          0.5874932937191842,
+          -0.06367414382961913
+        ],
+        "oldError": 2.1642857142857146,
+        "fixedError": 1.5265566588595902e-16
+      }
+    ]
+  },
+  "sourceScope": {
+    "changedComparedWithR03": [
+      "reconstructions/scene-10/asset-dependencies.json",
+      "reconstructions/scene-10/natural193-provenance.json",
+      "reconstructions/scene-10/src/hall-front132.js",
+      "reconstructions/scene-10/src/layout125.js",
+      "reconstructions/scene-10/src/main.js",
+      "reconstructions/scene-10/src/natural193.js",
+      "reconstructions/scene-10/src/support-route207.js",
+      "reconstructions/scene-10/support207-provenance.json"
+    ],
+    "note": "Runtime/projection/closure checks establish only their explicit scopes. Visual review and remaining photographic failures belong in ASTRA-HANDOFF207.",
+    "onlyScene10": true
+  },
+  "visualAccepted": false,
+  "passed": true
+}

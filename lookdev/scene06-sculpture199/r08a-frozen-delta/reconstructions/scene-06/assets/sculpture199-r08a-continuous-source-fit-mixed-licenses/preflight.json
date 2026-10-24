@@ -1,0 +1,39 @@
+{
+  "geometry": {
+    "file": "continuous-donor-feature-fit199-r08a-e1f84c3e799b376f-gzip.bin",
+    "sha256": "e1f84c3e799b376fd6e9ac7fd90660711e43a97426055bdb56cb61fc37f12469",
+    "compression": "gzip",
+    "uncompressedSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "effectiveGeometrySha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "bytes": 51633081,
+    "uncompressedBytes": 91360932
+  },
+  "topology": {
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "edges": 4894338,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "degenerate": 0,
+    "minArea": 2.985125254554078e-12,
+    "euler": -2,
+    "unCutSourceFace": true,
+    "conformingRefinement": true,
+    "insertedDonorFacePatch": false
+  },
+  "bodyCount": 300363,
+  "bodyMax": 0,
+  "normalError": 5.083801601912796e-8,
+  "actualFeatureFit": {
+    "method": "Real saved donor triangle/barycentric correspondence for original J vertices; new feature midpoint targets are exact closest points on the actual adjacent donor triangles. Bounded C2 feature displacement on the intact NC face; no donor cheek transplant or image projection.",
+    "updatedVertices": 90781,
+    "maximumDelta": 0.00173865151609274,
+    "maximumUnboundedSourceDifference": 0.010062905567439679,
+    "stabilityReducedVertices": 193,
+    "deltaBound": 0.0018
+  },
+  "earBaryError": 0,
+  "visualAccepted": false
+}

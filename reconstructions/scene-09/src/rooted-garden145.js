@@ -18,14 +18,14 @@ export async function createRootedGarden145({emit,between,materials,ownedMateria
  function shrub(x,y,z,r=1,height=1,seed=145){
   const random=rng(seedAt(x,z,seed)),phase=random()*6.28,count=Math.max(15,Math.round(16+r*7));
   for(let j=0;j<count;j++){
-   const a=phase+j*2.39996,rr=r*Math.sqrt(.15+.80*random()),end=[x+Math.cos(a)*rr,y+r*(.18+.38*Math.sqrt(Math.max(0,1-(rr/r)**2)))*height,z+Math.sin(a)*rr*.89],base=[x,y-.16,z];
-   between(base,end,.015,.015,bark,true,.75);
+   const a=phase+j*2.39996,rr=r*Math.sqrt(.15+.80*random()),end=[x+Math.cos(a)*rr,y+r*(.11+.48*Math.sqrt(Math.max(0,1-(rr/r)**2)))*height,z+Math.sin(a)*rr*.89],base=[x,y-.16,z];
+   between(base,end,.008,.008,bark,true,.75);
    for(let b=0;b<3;b++){
-    const az=a+(b-1)*.79,reach=r*(.12+.15*random()),tip=[end[0]+Math.cos(az)*reach,end[1]+r*(.04+random()*.11)*height,end[2]+Math.sin(az)*reach],start=[base[0]+(end[0]-base[0])*.70,base[1]+(end[1]-base[1])*.70,base[2]+(end[2]-base[2])*.70];
-    between(start,tip,.006,.006,bark,true,.72);
-    for(let k=0;k<9;k++){
+    const az=a+(b-1)*.79,reach=r*(.12+.15*random()),tip=[end[0]+Math.cos(az)*reach,end[1]+r*((b-1)*.075+.025+random()*.085)*height,end[2]+Math.sin(az)*reach],start=[base[0]+(end[0]-base[0])*.70,base[1]+(end[1]-base[1])*.70,base[2]+(end[2]-base[2])*.70];
+    between(start,tip,.0025,.0025,bark,true,.72);
+    for(let k=0,n=10+Math.floor(random()*4);k<n;k++){
      const t=.12+.86*random(),p=start.map((v,i)=>v+(tip[i]-v)*t);
-     for(const sign of[-1,1])leaf(p,.074+random()*.071,az+sign*(.45+random()*.9),-.38+random()*1.35,j+b+k,.68+random()*.42);
+     for(const sign of[-1,1])leaf(p,.115+random()*.095,az+sign*(.45+random()*.9),-.65+random()*1.40,j+b+k,.68+random()*.42);
     }
    }
   }
@@ -48,5 +48,5 @@ export async function createRootedGarden145({emit,between,materials,ownedMateria
    }
   }
  }
- return{shrub,tree,revision:'scene09-rooted-CC0-folded-leaf-volume145-r05',provenance:plant.info};
+ return{shrub,tree,revision:'scene09-tiered-fine-twig-and-curved-leaf-crowns221-r10',provenance:plant.info};
 }

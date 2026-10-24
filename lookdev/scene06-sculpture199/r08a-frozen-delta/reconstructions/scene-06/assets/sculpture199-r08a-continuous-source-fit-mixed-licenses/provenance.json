@@ -1,0 +1,204 @@
+{
+  "revision": "scene06-sculpture199-r08a-continuous-source-fit",
+  "status": "native-front-three-quarter-both-profiles-required",
+  "visualAccepted": false,
+  "license": "CC-BY-NC-SA-4.0",
+  "sourceLicenses": [
+    {
+      "source": "Scan-the-World Sainsbury Amida",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "source": "Buddha head by peel-3d.com",
+      "license": "CC-BY-4.0",
+      "culture": "Unspecified by creator; not a verified Japanese artifact"
+    }
+  ],
+  "attribution": "NC source/R05 body and retained skull/ears/neck: Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739 , CC BY-NC-SA4.0. Actual facial surface target: Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79 , CC BY4.0, https://creativecommons.org/licenses/by/4.0/ . Donor culture/period unspecified; not claimed Japanese. Modifications: real3D BVH ray-triangle surface retarget onto NC connected topology, 99% core donor hit plus1% source regularization, broad smooth neck/temple/scalp transition; knownR05 curl relief removed and bounded source cap cage. Originals retained unchanged. No endorsement implied. Combined adaptation/imagery retains NC-SA4.0; original donor remains CC BY4.0. R06f additionally fairs a measured 3D source scalp radial field, with compact anisotropic deformation of existing scalp and restrained Taubin fairing of actual head triangles; no synthetic head replacement. R06g fairs the actual inherited scalp ridge with 300 pinned-boundary Laplacian steps and reduces lower-cheek scan chatter with 60 Taubin pairs. R06h carves fine shallow spiral curl relief directly into the same continuous scalp; sampled original scalp vertex roots and tangent frames retained. R06j, after rejecting I for excessive ear/jaw smoothing, repositions the anterior ear attachment posteriorly and inward, preserves the ear bowl/rim through smooth anchors, and blends side-cheek/jaw curvature with gentler connected-mesh fairing. Actual donor eyelid/nose/lip cores and all body positions below Y2.15 remain exact. Ear attachment is a declared reshaped derivative. R08a rejects the R07 donor-cheek transplant and retains the entire uncut continuous J/NC face. Conforming refinement adds source-supported feature detail; actual saved donor triangle/barycentric targets and exact closest points on neighboring source triangles guide bounded eye/brow/nose/lip geometry, without transplanting the donors worn cheeks. Existing source ears turn coherently, with direct original-NC triangle/barycentric ancestry. Actual irregular coil roots and raised curls are sculpted on the connected scalp; standard aged-gold vertex color keeps the original metalness/roughness/roughnessMap. Original inputs and all rejected candidates remain.",
+  "inputs": {
+    "j": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06j/ear-root-blend-sculpt199-r06j-849e3edbb348fa10.bin",
+      "sha256": "849e3edbb348fa104cccadf94caa00cd19d156e1033ce473a6bc37140178e3dc"
+    },
+    "h": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06h/carved-curls-sculpt199-r06h-d49d00de7d4c0025.bin",
+      "sha256": "d49d00de7d4c0025fdd1d70d610acdf3541706627843ffb550c9fb894a1116e5"
+    },
+    "g": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06g/faired-transition-sculpt199-r06g-2a893e0c9d5397ab.bin",
+      "sha256": "2a893e0c9d5397ab761d9ec675947f8f88900cfa42d4f257da27fa9ffdfdf42d"
+    },
+    "donor": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/calm-buddha-head173/component-r01/actual-face-ears-neck-sc07.bin",
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8"
+    },
+    "originalNc": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+      "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba"
+    }
+  },
+  "registration": {
+    "scale": [
+      0.65,
+      0.7,
+      0.65
+    ],
+    "translation": [
+      0,
+      2.12,
+      -0.325
+    ]
+  },
+  "rejectedAlternative": "R07 direct donor-face patch remained visible despite tangent repair; it is frozen and not used here.",
+  "continuousRefinement": {
+    "scalpFaces": 514383,
+    "featureFaces": 49753,
+    "addedMidpoints": 842428,
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "method": "One shared-edge red/green refinement of the intact NC/J face, true feature regions and source scalp; no cut-out facial patch."
+  },
+  "actualFeatureFit": {
+    "method": "Real saved donor triangle/barycentric correspondence for original J vertices; new feature midpoint targets are exact closest points on the actual adjacent donor triangles. Bounded C2 feature displacement on the intact NC face; no donor cheek transplant or image projection.",
+    "updatedVertices": 90781,
+    "maximumDelta": 0.00173865151609274,
+    "maximumUnboundedSourceDifference": 0.010062905567439679,
+    "stabilityReducedVertices": 193,
+    "deltaBound": 0.0018
+  },
+  "earTurn": {
+    "method": "Small continuous rotation of the actual inherited NC ear volume toward the front, with broad root/lobe blend; no sharpening or relief amplification.",
+    "angleRadians": 0.15,
+    "changedVertices": 95290,
+    "maximumDelta": 0.024830630167163678,
+    "originalNcBarycentricWeightError": 0
+  },
+  "rootedCurls": {
+    "method": "Raised one-turn coil ridges and rounded rooted volumes on the same source scalp. First-row roots use actual source-surface vertices with irregular height/spacing; material coverage follows their 3D footprints. No cut spiral pits or straight analytic cap edge.",
+    "roots": 2026,
+    "firstRowRoots": 131,
+    "nominalRadius": 0.0108,
+    "minimumSeparation": 0.0162,
+    "baseHeight": 0.00095,
+    "ridgeHeight": 0.0025,
+    "ridgeWidth": 0.00165,
+    "maximumRelief": 0.00628932937215742,
+    "minimumRelief": 0,
+    "changedVertices": 893009,
+    "transitionVertices": 31572
+  },
+  "normalTreatment": "One continuous source normal field is interpolated through conforming refinement; only the geometric normal change caused by actual feature/ear/curl sculpt is added. No source-region face normal switch. Body normals belowY2.15 exact from J.",
+  "geometry": {
+    "file": "continuous-donor-feature-fit199-r08a-e1f84c3e799b376f-gzip.bin",
+    "sha256": "e1f84c3e799b376fd6e9ac7fd90660711e43a97426055bdb56cb61fc37f12469",
+    "compression": "gzip",
+    "uncompressedSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "effectiveGeometrySha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "bytes": 51633081,
+    "uncompressedBytes": 91360932
+  },
+  "topology": {
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "edges": 4894338,
+    "openEdges": 0,
+    "nonmanifoldEdges": 0,
+    "degenerate": 0,
+    "minArea": 2.985125254554078e-12,
+    "euler": -2,
+    "unCutSourceFace": true,
+    "conformingRefinement": true,
+    "insertedDonorFacePatch": false
+  },
+  "bodyPreservation": {
+    "vertices": 300363,
+    "maximumPositionDelta": 0,
+    "source": "All original J/R05 vertices belowY2.15 retain IDs and exact positions/normals."
+  },
+  "scalpMaterial": {
+    "baseColorLinear": [
+      0.18,
+      0.103,
+      0.031,
+      1
+    ],
+    "metalness": 0.88,
+    "roughness": 0.47,
+    "coverage": {
+      "file": "actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "sha256": "6131443d8f997b39c7d13c338164ae63eab3e21ae1836ed2c6e412212bddb10f",
+      "vertices": 1631444,
+      "format": "CM07 uint16 normalized actual 3D root footprint coverage."
+    },
+    "implementation": "Standard vertexColors, original metalness/roughness/roughnessMap unchanged; current native exporter and physical importer support sourceColor."
+  },
+  "traces": {
+    "midpoints": {
+      "file": "actual-nc-refinement-parents-r08a-gzip.bin",
+      "sha256": "589ce03d813991594544fc9353877bd3db6b4393585f98934ec91378b6606e12",
+      "compression": "gzip",
+      "format": "20-byte MP08 header originalJVertices,newMidpointCount,recordBytes8; then uint32 parentA,parentB for each appended vertex. Each pair refers to the intact J source vertices."
+    },
+    "triangles": {
+      "file": "actual-nc-triangle-parents-r08a-gzip.bin",
+      "sha256": "068e820708760f694d89ca784497c6d8dd838548b5cae77583d621947c451918",
+      "compression": "gzip",
+      "format": "20-byte TP08 header triangleCount,recordBytes4; uint32 original J triangle per output triangle."
+    },
+    "features": {
+      "file": "actual-donor-feature-triangle-barycentric-r08a-gzip.bin",
+      "sha256": "76fa864358f7a1b7d3fc7796c71959287df4dae0d19712daf16f94c3e4070f20",
+      "compression": "gzip",
+      "format": "20-byte FT08 header vertices,recordCount,bytes28; uint32 outputVertex,donorComponentTriangle; float32 barycentric3,appliedWeight,actualDeltaLength. These are true3D source targets, not inserted donor triangles."
+    },
+    "ears": {
+      "file": "actual-original-nc-ear-triangle-barycentric-r08a-gzip.bin",
+      "sha256": "75f11269491c11e0a84738be6bc19d30d43d090c099fda0f286fe160c7d5ffa0",
+      "compression": "gzip",
+      "format": "20-byte ER07 header count,bytes24; uint32 outputVertex,originalNC triangle; float32 originalNC barycentric3; reserved4."
+    },
+    "roots": {
+      "file": "actual-scalp-root-traces-r08a.bin",
+      "sha256": "2439b9e2e38e81e3a606813464e9daaf72e73ebc081af6535b6e3e21980d0542",
+      "format": "CR07 header and64-byte original-surface root/tangent records."
+    }
+  },
+  "builder": {
+    "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/build-sculpt199-r08a-continuous-source-fit.mjs",
+    "sourceHashes": {
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/build-sculpt199-r08a-continuous-source-fit.mjs": "882c93a0eafed7bba0162c286dbbc07c4e606108dcc6d98c8a768c2677884590",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/continuous-source-fit199.mjs": "c50ea947153554974a3558617fd335d2c00167d20adce54ff1b14fe3ddffdca0",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authoring/scalp-curls199.mjs": "72c3ee144260c80a03210e9b327e6759c44129c2af64a5dbeea34a39af534af3"
+    }
+  },
+  "limits": [
+    "Actual anatomy/likeness and surface transitions need genuine front/3q/both-profile inspection.",
+    "Integrity facts do not establish photographic fidelity or self-intersection freedom.",
+    "Feature mapping is a bounded declared derivative guided by real source triangles; donor cheeks/side hair are not transplanted.",
+    "No physical render, Blender, scene export, canonical/shared/Git mutation or child agent."
+  ],
+  "replaySeed": {
+    "file": "exact-old-curl-removal-seed-r08a-gzip.bin",
+    "sha256": "968338fb58563d81b65b8e69381ab1dc95c00a9a1193132c0e9416d23490adba",
+    "compression": "gzip",
+    "format": "20-byte CD08 header originalJCount,recordCount,recordBytes28,version1; records uint32 Jvertex,float64 XYZ(H-G). Subtract from J positions before conforming refinement. Exact float64 differences, no image input.",
+    "records": 199593
+  },
+  "preflightNormalReferenceCorrection": {
+    "scope": "Superseded before any native frame. Both exact versions remain reconstructible; no failed rendered source is deleted.",
+    "oldCompressedSha256": "f0235e0d432d26294516a08a7607c0ae235773c2b840f2773d417cdc6db9cdf8",
+    "oldRawSha256": "24b9b87e8039f9e893524293e42ee5d7d68b860a4f8e9f3e4dd8e177773f293d",
+    "currentFile": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r08a/continuous-donor-feature-fit199-r08a-e1f84c3e799b376f-gzip.bin",
+    "currentCompressedSha256": "e1f84c3e799b376fd6e9ac7fd90660711e43a97426055bdb56cb61fc37f12469",
+    "currentRawSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "xorFile": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/r08a-preflight-normal-reference/old-normal-reference-xor-r08a-gzip.bin",
+    "xorSha256": "c6c215ba0c578c3edb9d243958028f16b22d041555efa0031a9889bec39b6a92",
+    "compression": "gzip",
+    "normalOffset": 19577348,
+    "normalBytes": 19577328,
+    "recovery": "Gunzip current geometry, XOR this decoded delta into its normal block, then gzip level7 to recover the exact earlier compressed bytes.",
+    "verifiedByteExact": true
+  }
+}

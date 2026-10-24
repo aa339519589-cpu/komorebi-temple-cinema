@@ -1,0 +1,183 @@
+{
+  "status": "failed",
+  "startedAt": 1792798105.772972,
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "sourceCommit": "989f1fe1d43b5fed17e46a53a2c1f95a36292a59",
+  "sourceStatistics": {
+    "meshes": 3150,
+    "geometries": 3029,
+    "materials": 109,
+    "textures": 28,
+    "instances": 560393,
+    "triangles": 70213977,
+    "diagnosticSurfaceTriangles": 2
+  },
+  "sourceManifestSha256": "062fb3d493f04b1af0eca6ddf75fed0ac4d78d3a3012822e9c1caf60babb738a",
+  "settings": {
+    "expectedSourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+    "exportDirectory": "lookdev/scene01-rebuild219/export-physical-r09",
+    "outputDirectory": "lookdev/scene01-rebuild219/physical-r09",
+    "exportLimits": {
+      "maxUniqueBytes": 805306368,
+      "minimumFreeBytes": 805306368,
+      "startFreeBytes": 2040109466,
+      "emergencyFloorBytes": 268435456
+    },
+    "render": {
+      "size": 1254,
+      "samples": 96,
+      "timeLimitSeconds": 480,
+      "adaptiveThreshold": 0.025,
+      "adaptiveMinimumSamples": 24,
+      "denoise": true,
+      "device": "METAL",
+      "maxBounces": 10,
+      "diffuseBounces": 6,
+      "glossyBounces": 6,
+      "transmissionBounces": 8,
+      "exposureEV": 0.04264433740849372,
+      "saveBlend": false,
+      "frames": 1
+    },
+    "lighting": {
+      "boundary": "Physical Nishita / Multiple Scattering sky with a single solar disc at the actual source sun direction, no additional SUN to double its energy",
+      "worldStrength": "exported environmentIntensity",
+      "sunAngularDiameterRadians": 0.0093,
+      "airDensity": 1.0,
+      "dustDensity": 1.2,
+      "ozoneDensity": 1.0,
+      "nativeFillAreaHemisphereAndPointProxiesImported": false,
+      "surfaceEmission": "Exported emission on actual fixture geometry retained; native leaf ambient emission suppressed as a declared thin-leaf adaptation"
+    },
+    "geometry": "Exact exported source positions, indices, normals, UV, instance matrices and colors. Orthogonal TRS linked; affine shear and singular transforms baked without changing source triangle count. No new water or substitute garden/architecture mesh.",
+    "materialPorts": {
+      "portablePBR": "Preserve source base color, source and instance color multiplication, metric UV/texture transforms, roughness/metalness maps, normal XY scale, bump, coat and emissive fixtures",
+      "leafAndPetal": "Same blades and original mapped color; energy-conserving Principled/Translucent mixture replaces native view-dependent added radiance. Not GLSL pixel parity.",
+      "water": "Only retained actual Reflector geometry/matrix, if available from the official export. Dielectric IOR1.333, roughness0.07, dark green body, original six world-space wave functions as bump; actual path-traced scene/sky reflection, no photograph or reflected-scene proxy.",
+      "waterfall": "Actual exported ribbon geometry, source color and UV; declared transmissive coverage approximation for nonportable dynamic alpha/foam hook.",
+      "sky": "Native generated-LDR sky shader is not imported. Source-aligned physical atmosphere is an independent boundary approximation.",
+      "otherGLSL": "World-space wood/rock/bark/granite color and micro-normal hooks are not silently claimed portable. Portable original image maps and actual geometric erosion remain; exact omitted hooks enumerated in report."
+    },
+    "acceptance": "One independent physical-lighting diagnostic only; neither native pixel equivalence nor photographic acceptance is claimed.",
+    "storageReview": {
+      "reviewedBy": "Root",
+      "reviewedAt": "2026-10-23T23:21:34.925676+00:00",
+      "previousFailedAttempt": "export-physical-r08",
+      "previousFailedReport": "lookdev/scene01-rebuild219/export-physical-r08/export-report.json",
+      "previousVerifiedPartialStorage": {
+        "uniqueBytes": 395264899,
+        "logicalBytes": 423994377,
+        "files": 18314,
+        "uniqueFiles": 7518,
+        "savedBytes": 28729478,
+        "completeGeometryGroups": 3029,
+        "texturePNGs": 28,
+        "instancePayloads": 6184,
+        "finalManifestReturned": false,
+        "waterBuffersByteVerified": true,
+        "waterFullMatrixReturned": false
+      },
+      "reason": "One new attempt explicitly authorized after actual R08 unique-cap failure. All recorded R08 partial payloads were independently byte/hash verified before only its derived assets were removed. R09 retains exactly the same source geometry, textures and quality with 768MiB unique cap +768MiB per-write free floor and1.9GiB start budget, maintaining256MiB physical emergency monitor. The larger bounded allowance is based on measured partial export volume, not reduced geometry or hidden quality changes. No third automatic attempt.",
+      "freshExportAttemptsAuthorized": 1,
+      "physicalRenderFramesAuthorized": 1
+    }
+  },
+  "renderScriptSha256": "81ce32d99c1f86b7ce23111bf96175bf65feab596156c59be696c485dba8b6a3",
+  "verificationSha256": "db03b3980de5c07a7c2eeb0479b70b59f9afdbb9f05829d60d431d7b8d589baa",
+  "blender": "5.2.1 LTS",
+  "photographicAcceptance": false,
+  "nativePixelEquivalence": false,
+  "warnings": [],
+  "excluded": [
+    {
+      "name": "independently-authored-sky-only-environment",
+      "type": "Mesh",
+      "material": "authored-golden-cloud-radiance",
+      "reason": "Non-PBR shader has no automatic portable equivalent"
+    },
+    {
+      "name": "real-reflected-garden-pond-ripple-surface",
+      "type": "Reflector",
+      "material": "garden-ripple-planar-reflection",
+      "reason": "Planar approximation replaced by physical surface reflection in path tracer"
+    }
+  ],
+  "skyAPICompatibility": {
+    "status": "failed-installed-sky-compatibility",
+    "blender": "5.2.1 LTS",
+    "beforeLargeGeometryOrTextureImport": true,
+    "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+    "selectedSkyType": "MULTIPLE_SCATTERING",
+    "supportedSkyTypeEnum": [
+      {
+        "identifier": "SINGLE_SCATTERING",
+        "name": "Single Scattering",
+        "description": "Single scattering sky model"
+      },
+      {
+        "identifier": "MULTIPLE_SCATTERING",
+        "name": "Multiple Scattering",
+        "description": "Multiple scattering sky model (more accurate)"
+      },
+      {
+        "identifier": "PREETHAM",
+        "name": "Preetham",
+        "description": "Preetham 1999 (Legacy)"
+      },
+      {
+        "identifier": "HOSEK_WILKIE",
+        "name": "Hosek / Wilkie",
+        "description": "Hosek / Wilkie 2012 (Legacy)"
+      }
+    ],
+    "requiredProperties": {
+      "sun_disc": {
+        "exists": true,
+        "type": "BOOLEAN",
+        "readOnly": false,
+        "requested": true,
+        "actual": true,
+        "assignmentResidual": 0.0
+      },
+      "sun_size": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 0.0093,
+        "actual": 0.00930000003427267,
+        "assignmentResidual": 3.427267150635238e-11
+      },
+      "sun_elevation": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 0.20183880771752719,
+        "actual": 0.20183880627155304,
+        "assignmentResidual": 1.4459741459749154e-09
+      },
+      "sun_rotation": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 1.9561400213042264,
+        "actual": 1.9561400413513184,
+        "assignmentResidual": 2.0047091986441504e-08
+      },
+      "air_density": {
+        "exists": true,
+        "type": "FLOAT",
+        "readOnly": false,
+        "requested": 1.0,
+        "actual": 1.0,
+        "assignmentResidual": 0.0
+      },
+      "dust_density": {
+        "exists": false,
+        "requested": 1.2
+      }
+    },
+    "methodChangeAfterFailureAllowed": false,
+    "error": "Required physical atmosphere RNA absent: dust_density"
+  },
+  "error": "Traceback (most recent call last):\n  File \"/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-rebuild219/render-physical219-r09.py\", line 51, in <module>\n    compatibility['requiredProperties'][name]={'exists':False,'requested':target};save_compatibility();raise RuntimeError('Required physical atmosphere RNA absent: '+name)\n                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Required physical atmosphere RNA absent: dust_density\n"
+}

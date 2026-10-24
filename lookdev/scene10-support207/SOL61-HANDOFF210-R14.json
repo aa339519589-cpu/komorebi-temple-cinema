@@ -1,0 +1,1259 @@
+{
+  "status": "HELD reviewable R14; worker releases Scene10 source ownership with no own active jobs. Photographic fidelity remains rejected; this is a reconstruction checkpoint, not scene completion.",
+  "worker": "sol61_scene10_207",
+  "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+  "sourceSnapshot": "lookdev/scene10-support207/r14-source",
+  "inheritedR09Source": "e2b5bccbe258dbf111d0a8f875b0312bbf356a4a4b0c7b13cacdc8aedb991e72",
+  "reference": "references/hd/9-照片-10.jpg",
+  "instructionsApplied": "Latest root/user steering explicitly releases wrong old layouts, root heights, growth scales and historical anchors when they conflict with the photograph. Old R09 forest preservation tests are historical receipts, not acceptance requirements.",
+  "changedIdentityFilesFromR09": [
+    "reconstructions/scene-10/natural193-provenance.json",
+    "reconstructions/scene-10/src/hall-front132.js",
+    "reconstructions/scene-10/src/layout125.js",
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/natural193.js",
+    "reconstructions/scene-10/src/rain-banks210.js",
+    "reconstructions/scene-10/src/stone-lantern.js",
+    "reconstructions/scene-10/src/support-route207.js",
+    "reconstructions/scene-10/support207-provenance.json"
+  ],
+  "alsoChangedReadme": "reconstructions/scene-10/README.md",
+  "nativeViews": {
+    "full": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/reference.png",
+    "trueHero": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/detail-native.png",
+    "subfrustum": [
+      340,
+      535,
+      560,
+      1254
+    ],
+    "low": "qa/ten-reference/10/iteration-scene10-rain210-r14-low/inspection-view.png",
+    "overhead": "qa/ten-reference/10/iteration-scene10-rain210-r14-overhead/inspection-view.png",
+    "allViewed": true,
+    "allSourceMatched": true,
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "reports": [
+      {
+        "view": "hero",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "9e9fc1af473ad9438daf25c1e1b1990b67c469fa16fbbc47c80f900eaa58cafc"
+          },
+          {
+            "name": "detail-native",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "cb569cefedfb34d8edb7faec5ccf1679b558d25ffa4490c17962dbe267288583"
+          }
+        ]
+      },
+      {
+        "view": "low",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-low/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "af64e46f78ffead50522da00c8e0f98d86d529d9738f3d295d0f3f1134288db3"
+          }
+        ]
+      },
+      {
+        "view": "overhead",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-overhead/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "8ce63600c8f547a53b297f6e632efb1e612db76e4ce0979990c1f3433394e0c3"
+          }
+        ]
+      }
+    ]
+  },
+  "actualChanges": {
+    "landform": "Wrong broad near slopes lowered into eroded benches; hall-side shoulder narrowed. Historical front-court high ramp retired after actual pixel ray diagnosis. Raised route beds are limited within the stone flags and the front two adjoining terrain rows stay at the low creek bed.",
+    "banks": {
+      "module": "reconstructions/scene-10/src/rain-banks210.js",
+      "actualOriginalRockPlacements": 48,
+      "actualRootedAssemblies": 103,
+      "rootTypes": {
+        "low-domed-attached-bank-crown": 23,
+        "actual-curved-fern-fronds": 51,
+        "whole-CC0-shore-groundcover": 29
+      },
+      "scope": "Actual connected low soil beds, partly buried original CC0 rock bodies, attached woody broadleaf masses and curved fern fronds; no image/depth/leaf walls.",
+      "sourceGeometry": "Original CC0 rock/whole plant geometry/UV/normals unmodified under rigid positive uniform placement. Low woody-crown branch and attached leaf coordinates are authored geometry reconstructed together, not canopy hulls or leaf walls."
+    },
+    "lamp": {
+      "position": [
+        -2.96,
+        1.4538758854458425,
+        -4.1
+      ],
+      "scale": [
+        1.15,
+        0.877177980766595,
+        1.15
+      ],
+      "outerCourseOffset": 0.6838758854458423,
+      "courseWidths": [
+        1.65,
+        1.44,
+        1.23
+      ],
+      "physicalGeometry": "Five shared-ring closed profile solids, shorter/thicker/rounder shaft, deeper/wider light cage, three actual irregular granite courses on interlocking original mineral bodies; original pointed support and green mound retired.",
+      "projectionEvidence": "lookdev/scene10-support207/datums210-r12.json: lamp projection datums remain current; R12 zero-distance stair-rail joints are historical and were superseded by actual short connectors in R13.",
+      "material": "True Physical granite with declared CC0 PBR, vertex tone/real edge wear, bounded clearcoat and procedural wet/rough patches."
+    },
+    "bridgeEntry": {
+      "nearBridge": [
+        -2.45,
+        1.32,
+        -5.1
+      ],
+      "farBridge": [
+        7.4629644746474115,
+        2.4000000000000004,
+        -6.016517867537935
+      ],
+      "entryFlatT": 0.12,
+      "stairAxis": [
+        0.15985853648835754,
+        -0.9871399335007174
+      ],
+      "stairStart": [
+        -1.9329934751476603,
+        0.78,
+        -2.954065928612869
+      ],
+      "stairHead": [
+        -1.7539519142806999,
+        1.32,
+        -4.059662654133673
+      ],
+      "count": 4,
+      "riser": 0.135,
+      "tread": 0.28,
+      "actualClippedWidths": [
+        0.839182219444897,
+        0.9908936284704054,
+        1.142605037495913,
+        1.1879485482766037
+      ],
+      "headWedge": {
+        "outline": [
+          [
+            -2.3395233993740487,
+            -3.905096271361523
+          ],
+          [
+            -2.3099999999999996,
+            -4.166767873580873
+          ],
+          [
+            -1.1499676624163595,
+            -4.015078415466075
+          ],
+          [
+            -1.0925681588352192,
+            -3.952557434686473
+          ]
+        ],
+        "top": 1.32,
+        "bottom": 1.1700000000000002,
+        "scope": "Actual compact wedge between angled last tread and level bridge edge"
+      },
+      "physicalSupport": "Four genuinely closed clipped tread prisms and real nosings on a bed/coursed cheeks, eight closed riverbed-seated foot stones, partly submerged mineral toes, bridge bed pads and actual short guard returns. First deck segment has a real front guard opening; no camera/image mask."
+    },
+    "circulation": {
+      "activeRoute": {
+        "points": [
+          [
+            -3.165,
+            -7.71
+          ],
+          [
+            -4.4,
+            -6.3
+          ],
+          [
+            -4.6,
+            -4.7
+          ],
+          [
+            -4.2,
+            -3.2
+          ],
+          [
+            -3.1,
+            -2.85
+          ],
+          [
+            -1.9857467921888183,
+            -2.6283097505576323
+          ]
+        ],
+        "outline": [
+          [
+            -2.826529215116119,
+            -7.413457376115861
+          ],
+          [
+            -3.0574493183407934,
+            -7.168033166442002
+          ],
+          [
+            -3.2851573460513848,
+            -6.945777210391437
+          ],
+          [
+            -3.501486443580126,
+            -6.736043822936958
+          ],
+          [
+            -3.697617695200238,
+            -6.532092540136969
+          ],
+          [
+            -3.861792799444876,
+            -6.331311159596616
+          ],
+          [
+            -3.9797507737568885,
+            -6.136656538635165
+          ],
+          [
+            -4.063529384031384,
+            -5.9145860874240315
+          ],
+          [
+            -4.120860699535977,
+            -5.666497398124517
+          ],
+          [
+            -4.153303895579555,
+            -5.401983923628635
+          ],
+          [
+            -4.164382650809129,
+            -5.126439514201529
+          ],
+          [
+            -4.157737545251638,
+            -4.843412638479724
+          ],
+          [
+            -4.137400240269882,
+            -4.551913579792779
+          ],
+          [
+            -4.106785370693843,
+            -4.265917091324302
+          ],
+          [
+            -4.061572358646514,
+            -3.994261352478488
+          ],
+          [
+            -3.9967743522895685,
+            -3.7491865681293355
+          ],
+          [
+            -3.9133658570064576,
+            -3.562709823347263
+          ],
+          [
+            -3.8427677107514553,
+            -3.48558691027468
+          ],
+          [
+            -3.681785372510882,
+            -3.422032925547928
+          ],
+          [
+            -3.4231527073506767,
+            -3.3692528633739784
+          ],
+          [
+            -3.1019894390316876,
+            -3.3122829347497396
+          ],
+          [
+            -2.797586454303552,
+            -3.2405762038996686
+          ],
+          [
+            -2.5092399433010626,
+            -3.182526527456941
+          ],
+          [
+            -2.2088950791753756,
+            -3.1279759087175147
+          ],
+          [
+            -1.897948859990579,
+            -3.069661677144243
+          ],
+          [
+            -2.0735447243870566,
+            -2.186957823971021
+          ],
+          [
+            -2.3685958770225755,
+            -2.2422583153690656
+          ],
+          [
+            -2.6748869256407244,
+            -2.2979017045846883
+          ],
+          [
+            -2.9909398470359765,
+            -2.3615912975907714
+          ],
+          [
+            -3.2865461580272544,
+            -2.4314090405551214
+          ],
+          [
+            -3.5725453591815484,
+            -2.4817384490803627
+          ],
+          [
+            -3.9175707882228434,
+            -2.5534678803512323
+          ],
+          [
+            -4.324060308536294,
+            -2.7250887608242547
+          ],
+          [
+            -4.677685646493924,
+            -3.087509592499428
+          ],
+          [
+            -4.849361249744,
+            -3.4609235245579706
+          ],
+          [
+            -4.942802007681636,
+            -3.8114108516275618
+          ],
+          [
+            -4.9990056159106,
+            -4.147836466218608
+          ],
+          [
+            -5.034101584385457,
+            -4.474928519804998
+          ],
+          [
+            -5.05660984629914,
+            -4.798372807112721
+          ],
+          [
+            -5.064367542385165,
+            -5.131654390506029
+          ],
+          [
+            -5.050571468245003,
+            -5.472061759233434
+          ],
+          [
+            -5.0077938348872,
+            -5.819303201077319
+          ],
+          [
+            -4.926073087519344,
+            -6.171526468783745
+          ],
+          [
+            -4.791475699646713,
+            -6.525375774960253
+          ],
+          [
+            -4.591546651346206,
+            -6.858055229933598
+          ],
+          [
+            -4.366079948747103,
+            -7.134718639458138
+          ],
+          [
+            -4.1350063231443945,
+            -7.375303208630179
+          ],
+          [
+            -3.908685416196634,
+            -7.594786259435395
+          ],
+          [
+            -3.6951052860562084,
+            -7.803166905773268
+          ],
+          [
+            -3.503470784883881,
+            -8.006542623884139
+          ]
+        ],
+        "samples": [
+          [
+            -3.165,
+            0.23119773732923005,
+            -7.71
+          ],
+          [
+            -3.376277302198501,
+            0.23146603695696236,
+            -7.485600036107635
+          ],
+          [
+            -3.5969213811240093,
+            0.23663202531540498,
+            -7.270281734913416
+          ],
+          [
+            -3.8182463833622604,
+            0.24789220761581673,
+            -7.055673515783568
+          ],
+          [
+            -4.031848821973671,
+            0.2646144060633875,
+            -6.833405589797554
+          ],
+          [
+            -4.226669725395541,
+            0.28616644286330717,
+            -6.594683194765107
+          ],
+          [
+            -4.385613236701801,
+            0.3119161402207658,
+            -6.331016156797709
+          ],
+          [
+            -4.494801235775364,
+            0.3412313203409532,
+            -6.043056278103888
+          ],
+          [
+            -4.564327267211588,
+            0.37347980542905934,
+            -5.742900299600918
+          ],
+          [
+            -4.601937681912279,
+            0.40802941769027407,
+            -5.437022841431035
+          ],
+          [
+            -4.614375096597147,
+            0.44424797932978755,
+            -5.129046952353779
+          ],
+          [
+            -4.607173695775389,
+            0.48150331255278944,
+            -4.820892722796223
+          ],
+          [
+            -4.585750912327669,
+            0.5191632395644699,
+            -4.513421049798889
+          ],
+          [
+            -4.552895493302222,
+            0.5565955825700185,
+            -4.206876778771455
+          ],
+          [
+            -4.502187183164075,
+            0.5931681637746256,
+            -3.902836102053025
+          ],
+          [
+            -4.423067801016784,
+            0.6282488053834808,
+            -3.605055046343653
+          ],
+          [
+            -4.295525751750191,
+            0.6612053296017741,
+            -3.3251097079233456
+          ],
+          [
+            -4.0834140096438745,
+            0.6914055586346958,
+            -3.1053378355494674
+          ],
+          [
+            -3.7996780803668626,
+            0.7182173146874353,
+            -2.98775040294958
+          ],
+          [
+            -3.4978490332661125,
+            0.7410084199651827,
+            -2.9254956562271706
+          ],
+          [
+            -3.194267798529471,
+            0.7591466966731281,
+            -2.8718459876524305
+          ],
+          [
+            -2.8942631506697643,
+            0.771999967016461,
+            -2.80108375074522
+          ],
+          [
+            -2.5920634344708935,
+            0.778936053200372,
+            -2.7402141160208147
+          ],
+          [
+            -2.2887454780989755,
+            0.78,
+            -2.68511711204329
+          ],
+          [
+            -1.9857467921888179,
+            0.78,
+            -2.628309750557632
+          ]
+        ],
+        "width": 0.9,
+        "topRange": [
+          0.23119773732923005,
+          0.78
+        ],
+        "source": "Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired"
+      },
+      "retiredDuplicate": {
+        "enabled": false,
+        "points": [],
+        "outline": [],
+        "samples": [],
+        "width": 0,
+        "topRange": [],
+        "source": "The duplicate fork and direct raised front-court ramp are retired; one actual garden-side route remains"
+      },
+      "actualPathFlags": 6,
+      "scope": "One garden-side connection to the surviving tower walk and actual bridge/hall route. A direct raised forecourt connection is intentionally retired; broader campus access outside the supplied view is not claimed modeled."
+    },
+    "lightingMaterials": "Hall paper now has restrained amber spatially varying emission and finite amber bay lights; bridge lacquer uses physical rain coat. Soil, connected mineral, bank leaves and lamp stone have differentiated roughness/coat/PBR response. Global native foreground paving/rain/camera inputs remain explicitly retained."
+  },
+  "retainedForeground": {
+    "camera": true,
+    "fallenLeaves142": true,
+    "nearStoneRecords": true,
+    "pathCurbRecords125": true,
+    "waterRipples135": true,
+    "mapleCanopy136": true,
+    "carvedCloud183": true,
+    "towerMass183": true,
+    "pagodaSources141": true,
+    "hallTransform": true,
+    "pagodaTransform": true
+  },
+  "intentionallyReleasedTrees": {
+    "forestRootAndGrowthChanges": [
+      {
+        "index": 32,
+        "before": [
+          -10,
+          4.223181224892261,
+          -10.4
+        ],
+        "after": [
+          -10,
+          0.2434003235402815,
+          -10.4
+        ],
+        "heightBefore": 5.8,
+        "heightAfter": 9.779780901351979
+      },
+      {
+        "index": 33,
+        "before": [
+          -5.6,
+          4.798089135747625,
+          -10.8
+        ],
+        "after": [
+          -5.6,
+          0.09070226505351396,
+          -10.8
+        ],
+        "heightBefore": 3.8,
+        "heightAfter": 8.507386870694111
+      }
+    ],
+    "gardenPoseOrGrowthChanges": [
+      {
+        "index": 0,
+        "geometry": "natural193-connected-garden-wood-19371",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-19371",
+          "position": [
+            -13,
+            6.138725083426961,
+            -14
+          ],
+          "scale": [
+            1.1833333333333333,
+            1.1833333333333333,
+            1.1833333333333333
+          ],
+          "yaw": 5.476192230278739
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-19371",
+          "position": [
+            -13,
+            0.35291119392018167,
+            -14
+          ],
+          "scale": [
+            2.14763564825113,
+            2.14763564825113,
+            2.14763564825113
+          ],
+          "yaw": 5.476192230278739
+        }
+      },
+      {
+        "index": 1,
+        "geometry": "natural193-connected-garden-wood-19468",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-19468",
+          "position": [
+            -17,
+            5.656958591068409,
+            -23
+          ],
+          "scale": [
+            1.5999999999999999,
+            1.5999999999999999,
+            1.5999999999999999
+          ],
+          "yaw": 4.669196438201937
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-19468",
+          "position": [
+            -17,
+            5.656958591068409,
+            -23
+          ],
+          "scale": [
+            1.600000000000007,
+            1.600000000000007,
+            1.600000000000007
+          ],
+          "yaw": 4.669196438201937
+        }
+      },
+      {
+        "index": 2,
+        "geometry": "natural193-connected-garden-wood-19565",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-19565",
+          "position": [
+            -5.7,
+            5.593024219851178,
+            -28
+          ],
+          "scale": [
+            1.7,
+            1.7,
+            1.7
+          ],
+          "yaw": 3.3356558012359865
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-19565",
+          "position": [
+            -5.7,
+            5.593024219851178,
+            -28
+          ],
+          "scale": [
+            1.7000000000000153,
+            1.7000000000000153,
+            1.7000000000000153
+          ],
+          "yaw": 3.3356558012359865
+        }
+      },
+      {
+        "index": 5,
+        "geometry": "natural193-connected-garden-wood-19468",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-19468",
+          "position": [
+            -6.1,
+            2.9204215420179267,
+            -8.6
+          ],
+          "scale": [
+            0.85,
+            0.85,
+            0.85
+          ],
+          "yaw": 0.6386995852471198
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-19468",
+          "position": [
+            -6.1,
+            0.14512111035349623,
+            -8.6
+          ],
+          "scale": [
+            1.3125500719440717,
+            1.3125500719440717,
+            1.3125500719440717
+          ],
+          "yaw": 0.6386995852471198
+        }
+      },
+      {
+        "index": 7,
+        "geometry": "natural193-connected-garden-wood-193932",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-193932",
+          "position": [
+            -5.4,
+            5.159493083655909,
+            -13.9
+          ],
+          "scale": [
+            0.75,
+            0.75,
+            0.75
+          ],
+          "yaw": 2.1521694687598365
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-193932",
+          "position": [
+            -5.4,
+            0.4775658217651235,
+            -13.9
+          ],
+          "scale": [
+            1.5303212103151311,
+            1.5303212103151311,
+            1.5303212103151311
+          ],
+          "yaw": 2.1521694687598365
+        }
+      },
+      {
+        "index": 9,
+        "geometry": "natural193-connected-garden-wood-193932",
+        "before": {
+          "geometry": "natural193-connected-garden-wood-193932",
+          "position": [
+            -11.2,
+            0.7915188424570454,
+            -6
+          ],
+          "scale": [
+            0.7833333333333333,
+            0.7833333333333333,
+            0.7833333333333333
+          ],
+          "yaw": 4.104586798435579
+        },
+        "after": {
+          "geometry": "natural193-connected-garden-wood-193932",
+          "position": [
+            -11.2,
+            -0.10488001471980632,
+            -6
+          ],
+          "scale": [
+            0.932733142862817,
+            0.932733142862817,
+            0.932733142862817
+          ],
+          "yaw": 4.104586798435579
+        }
+      }
+    ],
+    "note": "The two near pines follow the actual lowered terrain with reconstructed positive growth scales. Some garden trees/blossoms likewise grow from the lower bank. Old x/z/yaw data is retained where useful but is not a user prohibition on further repair."
+  },
+  "runtimeCounts": {
+    "r09": {
+      "terrainVertices": 197625,
+      "terrainTriangles": 393472,
+      "mineralFaceTriangles": 5015,
+      "stones": 285,
+      "rootedPlants": 2261,
+      "forestTrees": 56,
+      "coniferVariants": [
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.9,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2442,
+          "connectedWoodMembers": 2490,
+          "localWoodBounds": {
+            "min": [
+              -3.751882791519165,
+              -0.12415792047977448,
+              -1.1667454242706299
+            ],
+            "max": [
+              2.6493730545043945,
+              7.232721328735352,
+              1.2967387437820435
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 1,
+          "primaryBoughs": 6,
+          "foliageCushions": 32,
+          "terminalShoots": 3140,
+          "connectedWoodMembers": 3193,
+          "localWoodBounds": {
+            "min": [
+              -2.959914445877075,
+              -0.08315826952457428,
+              -1.538089632987976
+            ],
+            "max": [
+              3.205432653427124,
+              7.350986957550049,
+              1.646730899810791
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.8,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2389,
+          "connectedWoodMembers": 2437,
+          "localWoodBounds": {
+            "min": [
+              -2.3187365531921387,
+              -0.112271249294281,
+              -1.0483534336090088
+            ],
+            "max": [
+              3.3940560817718506,
+              7.276027679443359,
+              1.03927481174469
+            ]
+          }
+        }
+      ],
+      "evergreenBushVariants": [
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        }
+      ]
+    },
+    "r14": {
+      "terrainVertices": 197625,
+      "terrainTriangles": 393472,
+      "mineralFaceTriangles": 3316,
+      "stones": 76,
+      "rootedPlants": 1028,
+      "forestTrees": 56,
+      "coniferVariants": [
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.9,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2442,
+          "connectedWoodMembers": 2490,
+          "localWoodBounds": {
+            "min": [
+              -3.751882791519165,
+              -0.12415792047977448,
+              -1.1667454242706299
+            ],
+            "max": [
+              2.6493730545043945,
+              7.232721328735352,
+              1.2967387437820435
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 1,
+          "primaryBoughs": 6,
+          "foliageCushions": 32,
+          "terminalShoots": 3140,
+          "connectedWoodMembers": 3193,
+          "localWoodBounds": {
+            "min": [
+              -2.959914445877075,
+              -0.08315826952457428,
+              -1.538089632987976
+            ],
+            "max": [
+              3.205432653427124,
+              7.350986957550049,
+              1.646730899810791
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.8,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2389,
+          "connectedWoodMembers": 2437,
+          "localWoodBounds": {
+            "min": [
+              -2.3187365531921387,
+              -0.112271249294281,
+              -1.0483534336090088
+            ],
+            "max": [
+              3.3940560817718506,
+              7.276027679443359,
+              1.03927481174469
+            ]
+          }
+        }
+      ],
+      "evergreenBushVariants": [
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        }
+      ]
+    }
+  },
+  "verification": {
+    "technicalPassed": true,
+    "validation": "lookdev/scene10-support207/validation210-r14.json",
+    "structural": {
+      "path": "lookdev/scene10-support207/geometry-audit-r14.json",
+      "summary": {
+        "meshes": 369,
+        "nonfinite": 0,
+        "exactOrSubNanometreDegenerates": 0,
+        "unclosedEdges": 0,
+        "windingEdges": 0,
+        "nonpositiveVolumeMeshes": 0,
+        "circulationUncoveredBefore": 2999,
+        "circulationUncoveredAfter": 0
+      },
+      "scope": "CPU inspection of actual authored structural buffers and circulation triangle constraints. Excludes botanical mesh closure, rail tube end caps, full-scene collision and engineering certification. Not photographic acceptance."
+    },
+    "lampPlinth": {
+      "path": "lookdev/scene10-support207/rain-geometry-audit-r14.json",
+      "passed": true,
+      "scope": "Exact new lamp shared-ring profiles and three independently authored plinth solids only. No renderer, asset export, original CC0 scan closure, plant contact, full collision or photographic acceptance."
+    },
+    "ground": {
+      "path": "lookdev/scene10-support207/ground-audit-r14.json",
+      "summary": {
+        "forestRoots": 56,
+        "maxForestTriangleYChange": 4.707386870694114,
+        "routeCenterSamples": 25,
+        "soilCrossingNominalFlagTop": 0,
+        "nonfinite": 0
+      },
+      "scope": "Exact CPU evaluation of the authored height recipes followed by the rendered .25m indexed triangle interpolation; excludes physical rock ray hits, complete collision checking, engineering certification and photographic acceptance."
+    },
+    "sourceIntegrity": "lookdev/scene10-support207/checkpoint-integrity-r14.json",
+    "sharedDependencyHashesHeld": true,
+    "pixelDiagnostic": {
+      "before": "lookdev/scene10-support207/pixel-diagnostic-r13.json",
+      "comparison": "lookdev/scene10-support207/pixel-comparison-r13-r14.json",
+      "sameR13ReferenceDiagnosticRgba": true,
+      "samePhysicalCamera": true,
+      "formerFrontSoilBlockerRemovedAtTwoRays": true,
+      "scope": "Actual same physical-camera rays. The two former grey-face rays now expose the same stone intersections that were second hits behind the removed soil; this establishes removal of that geometry occluder only, not photographic fidelity."
+    },
+    "limits": "Explicit validity/topology/contact samples and named native ray intersections only. No full-scene collision freedom, engineering certification, survey accuracy or photographic fidelity is implied."
+  },
+  "visualReview": {
+    "revision": "r14",
+    "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+    "status": "All four native views completed, source-matched and personally viewed; explicit technical checks passed, photographic fidelity rejected",
+    "nativeViews": [
+      {
+        "view": "hero",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-hero/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "reference",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "9e9fc1af473ad9438daf25c1e1b1990b67c469fa16fbbc47c80f900eaa58cafc"
+          },
+          {
+            "name": "detail-native",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "cb569cefedfb34d8edb7faec5ccf1679b558d25ffa4490c17962dbe267288583"
+          }
+        ]
+      },
+      {
+        "view": "low",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-low/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "af64e46f78ffead50522da00c8e0f98d86d529d9738f3d295d0f3f1134288db3"
+          }
+        ]
+      },
+      {
+        "view": "overhead",
+        "path": "qa/ten-reference/10/iteration-scene10-rain210-r14-overhead/report.json",
+        "status": "rendered-review",
+        "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+        "sourceMatches": true,
+        "errors": [],
+        "frames": [
+          {
+            "name": "inspection-view",
+            "size": [
+              1254,
+              1254
+            ],
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "rgbaSha256": "8ce63600c8f547a53b297f6e632efb1e612db76e4ce0979990c1f3433394e0c3"
+          }
+        ]
+      }
+    ],
+    "corrected": [
+      "Actual repeated native rays prove the former front soil occluder is gone: the same stone intersections formerly behind it are now first hits.",
+      "The unsupported implementation-only direct raised front-court ramp/duplicate fork is retired. One real garden-side path links the surviving tower walk around the island to the stair foot.",
+      "Lamp/outer-step depth and height, closed rounder lamp profiles, diagonal clipped treads, a real entry deck opening/head wedge/guard returns and riverbed-seated stone supports are implemented.",
+      "Near fragments are replaced by connected low woody crowns/ferns on actual transformed rocks and lowered terrain. Window emission is restrained amber with spatial variation; wet stone/soil/bridge coat layers are real material changes."
+    ],
+    "remaining": [
+      "The full image remains strongly CG and is not a finished photographic match.",
+      "The west lamp-island/garden-link face and hall-side shore still have bare smooth or block-like exposures. Removal of the two diagnosed front soil intersections does not establish that the whole shore is matched.",
+      "Lamp carving/plinth and the bridge entry rail arrangement remain too geometric; the tall dock/podium and narrow gap to the forecourt do not match the photographed natural moss island.",
+      "Near tree scaling restores canopy height from actual lower roots but creates large foreground trunks/crowns that need further reference composition work. Old forest tables must not become acceptance constraints again.",
+      "Roof/timber/ceramic repetition, overall lighting/fog, secondary-fixture illumination and wet material response remain visibly different from the reference."
+    ],
+    "visualAccepted": false
+  },
+  "materialPortability": "Static declared PBR maps, Physical parameters and actual authored mesh/vertex data are concrete scene assets. Window-emission variation, soil/mineral microdetail and lamp wet-patch hooks are WebGL onBeforeCompile shaders; an exporter/physical renderer must explicitly represent or approximate them. This lane did not edit the shared exporter, run Blender, bake UVs or claim cross-renderer pixel equivalence.",
+  "history": [
+    {
+      "revision": "r10",
+      "sourceHash": "d20a01ebc6a50372cbfe8f9cec21dfb7ac28af9fc7e526933705d44facf9d8b6",
+      "snapshot": "lookdev/scene10-support207/r10-source",
+      "review": "lookdev/scene10-support207/r10-review.json",
+      "nativeFolders": [
+        "qa/ten-reference/10/iteration-scene10-rain210-r10-hero",
+        "qa/ten-reference/10/iteration-scene10-rain210-r10-low",
+        "qa/ten-reference/10/iteration-scene10-rain210-r10-overhead"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "revision": "r11",
+      "sourceHash": "2a7e603765a955f238d2cfa11a02d9a0e9fdd9ab604b89f34e6b9af1572febc6",
+      "snapshot": "lookdev/scene10-support207/r11-source",
+      "review": "lookdev/scene10-support207/r11-review.json",
+      "nativeFolders": [
+        "qa/ten-reference/10/iteration-scene10-rain210-r11-hero",
+        "qa/ten-reference/10/iteration-scene10-rain210-r11-low",
+        "qa/ten-reference/10/iteration-scene10-rain210-r11-overhead"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "revision": "r12",
+      "sourceHash": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+      "snapshot": "lookdev/scene10-support207/r12-source",
+      "review": "lookdev/scene10-support207/r12-review.json",
+      "nativeFolders": [
+        "qa/ten-reference/10/iteration-scene10-rain210-r12-hero",
+        "qa/ten-reference/10/iteration-scene10-rain210-r12-low",
+        "qa/ten-reference/10/iteration-scene10-rain210-r12-overhead"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "revision": "r13",
+      "sourceHash": "f3291ade96e88b5e2f20c12ea2268ad0e8d12130e21a6496d4e5dd2c3097639c",
+      "snapshot": "lookdev/scene10-support207/r13-source",
+      "review": "lookdev/scene10-support207/r13-review.json",
+      "nativeFolders": [
+        "qa/ten-reference/10/iteration-scene10-rain210-r13-hero",
+        "qa/ten-reference/10/iteration-scene10-rain210-r13-low",
+        "qa/ten-reference/10/iteration-scene10-rain210-r13-overhead"
+      ],
+      "visualAccepted": false
+    },
+    {
+      "revision": "r14",
+      "sourceHash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+      "snapshot": "lookdev/scene10-support207/r14-source",
+      "review": "lookdev/scene10-support207/r14-review.json",
+      "nativeFolders": [
+        "qa/ten-reference/10/iteration-scene10-rain210-r14-hero",
+        "qa/ten-reference/10/iteration-scene10-rain210-r14-low",
+        "qa/ten-reference/10/iteration-scene10-rain210-r14-overhead"
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "preservedDiagnostics": [
+    "lookdev/scene10-support207/geometry-audit-r12-tight-turn-preflight.json",
+    "lookdev/scene10-support207/ground-audit-r12-legacy-probe-preflight.json",
+    "lookdev/scene10-support207/write-failure-r13-preflight.json",
+    "qa/ten-reference/10/iteration-scene10-rain210-r13-pick"
+  ],
+  "jobHandoff": {
+    "allOwnJobsComplete": true,
+    "noOwnActiveJobs": true,
+    "officialFifoOnly": true,
+    "r14": [
+      {
+        "view": "full/hero with repeated ray picks",
+        "pid": 8503,
+        "session": 63860
+      },
+      {
+        "view": "low",
+        "pid": 8535,
+        "session": 99862
+      },
+      {
+        "view": "overhead",
+        "pid": 8545,
+        "session": 2490
+      }
+    ],
+    "r13Diagnostic": {
+      "pid": 7263,
+      "session": 78076,
+      "complete": true
+    },
+    "noCompletedJobRedoneForModelChange": true
+  },
+  "constraints": {
+    "noGitMutations": true,
+    "noSharedToolOrExporterEdits": true,
+    "noOtherSceneEdits": true,
+    "noUserDirtyAssetEdits": true,
+    "noChildAgents": true,
+    "noNewDownloads": true,
+    "noBlenderOrHeavyExports": true,
+    "noOriginalAssetCopies": true,
+    "onlyCompactSourceJsonAndNativePng": true,
+    "noEnospcPartialOutputReused": true,
+    "lastObservedFreeSpace": "790 MiB",
+    "photographicAccepted": false
+  }
+}

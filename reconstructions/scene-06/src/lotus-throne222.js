@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {configureLotusGilt222} from './lotus-gilt222.js';
 
 const TAU=2*Math.PI;
 const smooth=(a,b,x)=>{const t=T.MathUtils.clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
@@ -46,13 +47,14 @@ function petalGeometry(field,radius,height,ring,k,row){
   const kind=(k+row)%3,cap=Math.pow(w,.62);
   const outline=kind===0?Math.pow(v,.57)*Math.pow(1-v,.86)*2.63:kind===1?Math.pow(v,.78)*Math.pow(1-v,.94)*3.05:Math.pow(v,.74)*Math.pow(1-v,.65)*2.62;
   const width=[.455,.415,.435][kind]*outline;
-  // Independent upright cast leaves turn outward at the shoulder then back
-  // into their seat. They are not reliefs draped over the same round bowl.
-  const meridian=(1.55+.04*kind)*v-(.90+.025*kind)*v*v*v;
-  const cup=(kind===2?.065:.082)*Math.sin(Math.PI*v*.92)*Math.pow(Math.max(0,1-u*u),.60);
-  const rib=.014*Math.exp(-Math.pow(u/.20,2))*w;
-  const rolled=.026*Math.pow(Math.abs(u),5)*w*(.52+.48*v);
-  const chased=-.013*w*(Math.exp(-Math.pow((u-.79)/.11,2))+Math.exp(-Math.pow((u+.79)/.11,2)));
+  // Outward-pointing apex remains in front of its own shoulder in the low
+  // reference camera. R05 returned its apex into the inflated silhouette,
+  // hiding the point and making the closed leaves read like round balloons.
+  const meridian=(1.61+.018*kind)*v-(.82+.012*kind)*v*v+.02*v*v*v;
+  const cup=-(kind===2?.025:.034)*Math.sin(Math.PI*v*.92)*Math.pow(Math.max(0,1-u*u),.70);
+  const rib=.017*Math.exp(-Math.pow(u/.17,2))*w;
+  const rolled=.016*Math.pow(Math.abs(u),5)*w*(.52+.48*v);
+  const chased=-.004*w*(Math.exp(-Math.pow((u-.79)/.075,2))+Math.exp(-Math.pow((u+.79)/.075,2)));
   const tangent=radius*ring.scale*(u*width*(1+.045*(kind-1)*w*u)+(kind-1)*.032*v*v*w);
   const thickness=radius*(.0028+.0030*w);
   const r=radius*(ring.rr+ring.scale*(meridian+cap*(cup+rib+rolled+chased)))+(skin===0?thickness:-thickness);
@@ -79,14 +81,15 @@ function petalGeometry(field,radius,height,ring,k,row){
  const g=geometry(p,uv,index);g.userData.closedCarvedShell=true;g.userData.lotus222={row,k,physicalThicknessRangeInRadius:[.0056,.0136],pointedTipFans:true,rolledMargins:true,pairedChasedGrooves:true};return g;
 }
 export function buildLayeredLotus222(b,{radius,height,depthAspect,sourceBearing}){
- const contact=measuredContour(sourceBearing,depthAspect),field=coreSurface(radius,height,contact),tag='lotus222-r05-'+sourceBearing.sourceBufferSha256.slice(0,16);
+ configureLotusGilt222(b.materials);
+ const contact=measuredContour(sourceBearing,depthAspect),field=coreSurface(radius,height,contact),tag='lotus222-r07-'+sourceBearing.sourceBufferSha256.slice(0,16);
  b.add(b.geometry(tag+'-hidden-contact-core',()=>coreGeometry(field,height)),'lotusShadow');
- const rings=[{n:15,base:.025,span:.80,rr:.58,scale:.47,phase:.13},{n:14,base:.28,span:.66,rr:.52,scale:.42,phase:.66},{n:15,base:.65,span:.34,rr:.50,scale:.38,phase:.18}];
+ const rings=[{n:15,base:.025,span:.88,rr:.58,scale:.47,phase:.13},{n:14,base:.30,span:.62,rr:.52,scale:.42,phase:.66},{n:15,base:.68,span:.31,rr:.50,scale:.38,phase:.18}];
  for(const [row,ring]of rings.entries()){
   const parts=Array.from({length:ring.n},(_,k)=>petalGeometry(field,radius,height,ring,k,row));
   const g=b.geometry(tag+'-cast-layer-'+row,()=>mergeGeometries(parts,false));b.add(g,row===1?'lotusGiltSoft':'lotusGold');for(const part of parts)part.dispose();
  }
  b.lathe(tag+'-lower-bearing-foot',[[.44,0],[.56,0],[.605,.012],[.605,.038],[.55,.058],[.45,.058],[.44,0]],0,0,0,radius,1,'lotusShadow',96);
  b.torus(0,.034,0,radius*.545,.007,'lotusEdge',Math.PI/2);
- b.root.userData.sourceLotus222??=[];b.root.userData.sourceLotus222.push({revision:'r05',rows:3,petals:44,sourceContactSha256:sourceBearing.sourceBufferSha256,actualHemContourRetained:true,sourceSculptureEdited:false,construction:'Recessed continuous structural seat plus three individually closed overlapping metal-petal layers, rolled margins, double chased grooves and returned tips; inferred reference anatomy, not a scan of the supplied seat.',visualAccepted:false});
+ b.root.userData.sourceLotus222??=[];b.root.userData.sourceLotus222.push({revision:'r07',rows:3,petals:44,sourceContactSha256:sourceBearing.sourceBufferSha256,actualHemContourRetained:true,sourceSculptureEdited:false,construction:'Recessed continuous structural seat plus individually closed overlapping leaves with flared pointed apexes, shallow cupped faces, narrow raised midribs and chased margins; seeded scalar height/roughness masks on ordinary metallic PBR. Inferred reference anatomy and metal finish, not a scan of the supplied seat.',visualAccepted:false});
 }

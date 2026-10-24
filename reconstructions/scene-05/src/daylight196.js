@@ -4,7 +4,7 @@ import * as T from 'three';
 // and reflection radiance; direct sun and the finite courtyard patch cast
 // actual geometry shadows. This is not recovered or path-traced GI.
 export function installDaylight196(scene){
- const hemi=new T.HemisphereLight('#a8c9ef','#8a7762',.055);scene.add(hemi);
+ const hemi=new T.HemisphereLight('#a8c9ef','#8a7762',.025);scene.add(hemi);
  const sun=new T.DirectionalLight('#fff0d8',8.0);sun.name='scene05-direct-sun196';
  sun.position.set(-18,36,30);sun.target.position.set(0,9,0);sun.castShadow=true;
  sun.shadow.mapSize.set(4096,4096);Object.assign(sun.shadow.camera,{left:-17,right:17,top:24,bottom:-12,near:1,far:85});sun.shadow.bias=-.000012;sun.shadow.normalBias=.002;sun.shadow.radius=1.2;sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=true;scene.add(sun,sun.target);
@@ -19,5 +19,5 @@ export function installDaylight196(scene){
  }
  const groundBounce=patch('scene05-finite-front-courtyard220','#f2d5ad',440,[2,.35,15],4096),sideBounce=patch('scene05-finite-side-courtyard220','#d7d8ca',180,[15,.35,2],2048);
  const describe=light=>({type:'SpotLight',position:light.position.toArray(),target:light.target.position.toArray(),intensity:light.intensity,color:light.color.getHexString(),decay:2,cone:.92,penumbra:.70,castsShadows:true,shadowNear:4,shadowFar:45,normalBias:.006,shadowBias:-.00006,shadowRadius:.75,shadowMap:light.shadow.mapSize.toArray()});
- return{sun,hemi,groundBounce,sideBounce,info:{revision:220,sun:{position:sun.position.toArray(),target:sun.target.position.toArray(),intensity:sun.intensity,color:'#fff0d8'},sky:{measuredSunlessEnvironmentIntensity:.22,hemisphereResidual:.055},courtyard:describe(groundBounce),adjacentCourtyard:describe(sideBounce),limits:'Measured sky with bounded native direct/finite unequal bounce proxies, not recovered scene irradiance or physical GI'}};
+ return{sun,hemi,groundBounce,sideBounce,info:{revision:220,sun:{position:sun.position.toArray(),target:sun.target.position.toArray(),intensity:sun.intensity,color:'#fff0d8'},sky:{measuredSunlessEnvironmentIntensity:.14,hemisphereResidual:.025,shadowedLowSky:'Two actual measured sector lights installed by measured-sky.js'},courtyard:describe(groundBounce),adjacentCourtyard:describe(sideBounce),limits:'Measured sky with bounded native direct/finite unequal bounce proxies, not recovered scene irradiance or physical GI'}};
 }

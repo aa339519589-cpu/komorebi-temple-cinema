@@ -1,0 +1,87 @@
+{
+  "status": "source-and-physical-material-port-limitations-confirmed",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalUnchanged": true,
+  "physicalPngSha256": "0fffa7db32b8d31e5f2bc69afbdd52ff360d5ea79889ce119c1449a0f337023b",
+  "granite": {
+    "sourceFile": "reconstructions/scene-01/src/stone-lantern219.js",
+    "sourceLines": "11–24",
+    "materialRecords": [
+      {
+        "name": "lantern219-fine-weathered-granite",
+        "id": "f26167e3-8d10-439c-aa92-764af6d7352d",
+        "colorLinearRGB": [
+          0.1878207722902346,
+          0.171441100722554,
+          0.13563332964548108
+        ],
+        "roughness": 0.94,
+        "textures": {},
+        "meshBuckets": 3,
+        "instances": 66
+      },
+      {
+        "name": "lantern219-worn-granite-arrises",
+        "id": "e3e36595-6038-4f88-9571-85b7a339b4ed",
+        "colorLinearRGB": [
+          0.24620132669705552,
+          0.21952619971859377,
+          0.16513219449147767
+        ],
+        "roughness": 0.94,
+        "textures": {},
+        "meshBuckets": 4,
+        "instances": 29
+      },
+      {
+        "name": "lantern219-damp-ancient-roof",
+        "id": "45dd1ff9-a820-4e40-a954-e7ac61fe6edd",
+        "colorLinearRGB": [
+          0.08228270712149792,
+          0.07618538147321911,
+          0.05612849004241121
+        ],
+        "roughness": 0.88,
+        "textures": {},
+        "meshBuckets": 4,
+        "instances": 156
+      },
+      {
+        "name": "lantern219-ochre-olive-moss",
+        "id": "48aad355-7579-4532-9f2a-10287dc09624",
+        "colorLinearRGB": [
+          0.14702726648767014,
+          0.1844749944900301,
+          0.035601314869097636
+        ],
+        "roughness": 0.99,
+        "textures": {
+          "map": "99a31fba-242b-43ba-b183-76f90fe0f144",
+          "bumpMap": "f76a3906-86f0-428e-bd97-6b1672bc9da1",
+          "roughnessMap": "a307dd1e-32f6-4114-b76b-eef676a627d9"
+        },
+        "meshBuckets": 3,
+        "instances": 1397
+      }
+    ],
+    "retained": "Exact original authored erosion and actual moss carpet/tuft/petal solids, exported base linear color and roughness, original moss image maps/UVs and instance colors",
+    "notPorted": "Stone/edge/roof original world-space gn noise at frequencies8/5/8,148,317; per-mineral darkening/quartz contribution; original1.5mm and0.5mm world-space noise differential bump at87 and219. These three original shader hooks are explicitly assigned to the native stone clone materials but absent from the portable export.",
+    "interpretation": "The resulting physical stone is visibly too smooth and pale. Missing granite hooks and the independently diagnosed wrong solar azimuth are both material limitations of R09b; this is not a verified source-direction/material equivalence frame."
+  },
+  "wood": {
+    "sourceFile": "reconstructions/scene-01/src/scene.js",
+    "sourceLines": "125–131",
+    "baseKeys": [
+      "wood",
+      "red",
+      "redLight",
+      "darkwood",
+      "endwood"
+    ],
+    "retained": "Original lacquered cherry albedo, normal and roughness PNGs, metric UVs, original linear material gains, normalXY scale, coat/roughness parameters and instance colors",
+    "notPorted": "World-space anisotropic weathering wf(P*[3.1,.32,3.1]), high frequency chip wf(P*38), native age/chip color modulation. Native coat normal texture is not one of the official portable exported texture channels, so it is not retained as a separate coat-normal input.",
+    "timberSource": "reconstructions/scene-01/src/scanned-timber.js:24–36",
+    "caveat": "Only known explicitly patched native base keys are asserted here. Several source clone records share the name wood; this audit does not infer that every clone retained an onBeforeCompile function."
+  },
+  "noExposureOrFillAdjustmentMade": true
+}

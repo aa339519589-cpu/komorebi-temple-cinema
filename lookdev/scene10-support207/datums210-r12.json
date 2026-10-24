@@ -1,0 +1,119 @@
+{
+  "scope": "Actual authored 3D points projected with unchanged physical1254 camera. Approximate HD9 manual silhouette intent was top~535/outer-foot~783; these projection datums are not a photographic accuracy verdict and are never runtime photograph samples.",
+  "landmarks": {
+    "lampFinial": {
+      "world": [
+        -2.96,
+        4.936272469089225,
+        -4.1
+      ],
+      "pixel": [
+        452.83549420393325,
+        534.9999999999998
+      ]
+    },
+    "lampBodyFoot": {
+      "world": [
+        -2.96,
+        1.4538758854458425,
+        -4.1
+      ],
+      "pixel": [
+        448.4816105934946,
+        740.9623433551837
+      ]
+    },
+    "outerStoneFoot": {
+      "world": [
+        -2.96,
+        0.7638758854458423,
+        -4.1
+      ],
+      "pixel": [
+        447.59296725556425,
+        783
+      ]
+    },
+    "stairFoot": {
+      "world": [
+        -1.6508404203631453,
+        0.78,
+        -2.9444191740710948
+      ],
+      "pixel": [
+        520.1188239351253,
+        782.9313961326592
+      ]
+    },
+    "stairHead": {
+      "world": [
+        -1.7539519142806999,
+        1.32,
+        -4.059662654133673
+      ],
+      "pixel": [
+        520.8809832525441,
+        749.0426115075737
+      ]
+    },
+    "bridgeNear": {
+      "world": [
+        -2.45,
+        1.32,
+        -5.1
+      ],
+      "pixel": [
+        486.82440714335695,
+        750.1037641282356
+      ]
+    },
+    "bridgeFar": {
+      "world": [
+        7.4629644746474115,
+        2.4000000000000004,
+        -6.016517867537935
+      ],
+      "pixel": [
+        1031.6394928574302,
+        692.0175439061692
+      ]
+    }
+  },
+  "stairRailHeadJoints": [
+    {
+      "stair": [
+        -2.348729782759545,
+        1.32,
+        -4.0046715820813965
+      ],
+      "bridge": [
+        -2.348729782759545,
+        1.32,
+        -4.0046715820813965
+      ],
+      "distance": 0
+    },
+    {
+      "stair": [
+        -1.1591740458018551,
+        1.32,
+        -4.114653726185949
+      ],
+      "bridge": [
+        -1.1591740458018553,
+        1.32,
+        -4.1146537261859475
+      ],
+      "distance": 1.790180836524724e-15
+    }
+  ],
+  "maximumJointDistance": 1.790180836524724e-15,
+  "lampPadToPlinthOverlap": 0.020000000000000018,
+  "entryDeckHeight": 1.32,
+  "riser": 0.135,
+  "width": 1.34,
+  "axis": [
+    -0.09206383385495936,
+    -0.9957531071987304
+  ]
+}

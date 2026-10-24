@@ -1,0 +1,35 @@
+{
+  "revision": "224R03 single-left proof",
+  "baseline": "f46bf4dea7d8cb5f0736a66db61de32ad70d3a6a9974e87a442b9d1e148c988f",
+  "candidate": "48bd6ade4d829f281015b6fc93b670913f0202b599f10dade7265139a45fd1fa",
+  "onlyExistingSourceModified": "src/altar-joinery198.js",
+  "existingSourcePatch": "r03-local198-family.patch",
+  "sourceToAdd": "r03-source-snapshot/ornament224.js",
+  "sourceHashes": {
+    "altar-joinery198.js": "665aeaaf73eed736b8566a2b098e1813d3f0fc5cf052612d4b1afbe7e8c07812",
+    "ornament224.js": "22c86c0551ed76997cec3ad65a4e23930bfcd3c2563ffd4c23e9eccd463d7262"
+  },
+  "restoreExactChecks": {
+    "restoration-altar.js": true,
+    "reference6-main.js": true
+  },
+  "assetDirectory": "candidate-root/reconstructions/scene-06/assets/ornament224-r01",
+  "runtimeField": "dragon-leaf-separated-r03.gray8.bin",
+  "runtimeFieldSha256": "75940d1e3b515d9881ac000765c7b903b1b974cf7efe0dfa78f08a5fb5511837",
+  "doNotCopyWholeScene": true,
+  "licensing": "Personal noncommercial mixed-source Scene06. Existing CC BY-NC-SA4.0 Amida and CC BY4.0 wood-carving attributions remain exact. New224 carving is independently inferred author form, not an artifact scan. No blanket MIT assertion.",
+  "geometry": "True clipped-front/rear with four-step rounded outer and through-opening walls; explicit6mm back, distinct34mm dragon and28percent subordinate foliage relief; runtime authored geometry only.",
+  "actualViews": [
+    "candidate-root/qa/ten-reference/06/iteration-ornament224-r03-separated-oldgold/reference.png",
+    "candidate-root/qa/ten-reference/06/iteration-ornament224-r03-separated-oldgold/detail-native.png",
+    "candidate-root/qa/ten-reference/06/iteration-ornament224-r03-low-oblique/inspection-view.png"
+  ],
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "observedRemaining": [
+    "Broad contour and anatomical dragon read improve over source176 figure-like masses.",
+    "Some cloud bubbles and slender foliage network remain in the independent authored guide.",
+    "Actual photographed motif is not recovered; panel is a working inferred author family only.",
+    "R03 oldgold and depth hierarchy need primary-agent comparison before any propagation."
+  ]
+}

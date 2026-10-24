@@ -1,0 +1,40 @@
+{
+  "asset": "Scene06 independent inferred long dragon and peony carved altar field",
+  "revision": "ornament224-r01",
+  "generator": "built-in image_gen through imagegen skill",
+  "sourceImage": "/Users/mima1234/.codex/generated_images/01a16ad8-2849-70f3-ab04-8a69688ed364/exec-17dd6cb7-a755-4dcd-9e9b-ba9910614428.png",
+  "guideSha256": "08832933aafe207af4580f7fdc407e883ee1c1d9e164dbe80ed5158bd8d609e4",
+  "projectGuide": "independent-dragon-peony-height-guide.png",
+  "originalSize": [
+    2172,
+    724
+  ],
+  "scalarCrop": [
+    21,
+    185,
+    2150,
+    534
+  ],
+  "scalarSize": [
+    1536,
+    256
+  ],
+  "scalarSha256": "1d4da03bedf9a9477e2113330d61eca46ecfe95dcbea6b6c8f708e830703735d",
+  "promptRecord": "prompt.txt",
+  "promptSha256": "81f71cc002e96d31b7904bc80742d45808006bd6fec9004d24bb6b36366009e2",
+  "referencePhoto": "references/hd/4-\u7167\u7247-5.jpg",
+  "referenceSha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+  "referencePurpose": "broad long low silhouette, traditional cloud/dragon/foliate density and horizontal organization only; no photograph pixels consumed in geometry or material",
+  "connectedComponentPixels": 290146,
+  "discardedDisconnectedPixels": 1,
+  "scalarConversion": "Luminance, tight nonblack crop, Lanczos1536x256, Gaussian0.40px, retain largest >24 connected component. Runtime threshold24.5, clipped-grid contour, closed convex-front/rear with rounded actual hole walls.",
+  "licenseScope": "New inferred authored carving; not an artifact scan. Surrounding inherited scene retains original mixed licenses, including CC BY-NC-SA4.0 Amida source and CC BY4.0 original carvings. No blanket MIT claim.",
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "limitations": [
+    "AI-authored nonmetric sculpt guide, not measured depth or a recovered historical motif.",
+    "Generated intensity is treated solely as authored depth; it is not calibrated metric data and contains artistic conventions.",
+    "No RGB texture, normal map, photo projection, AO, shading image or guide is assigned to a rendered material.",
+    "All native final pixels must be produced by actual geometry under the existing3D light and material response."
+  ]
+}

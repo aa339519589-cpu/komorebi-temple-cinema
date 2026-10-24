@@ -1,0 +1,365 @@
+{
+  "sourceHash": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+  "sourceSnapshotMatches": true,
+  "sourceChangedFromR09": [
+    "reconstructions/scene-10/natural193-provenance.json",
+    "reconstructions/scene-10/src/hall-front132.js",
+    "reconstructions/scene-10/src/layout125.js",
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/natural193.js",
+    "reconstructions/scene-10/src/rain-banks210.js",
+    "reconstructions/scene-10/src/stone-lantern.js",
+    "reconstructions/scene-10/src/support-route207.js",
+    "reconstructions/scene-10/support207-provenance.json"
+  ],
+  "scope": "Source-bound native GPU validity, explicit retained foreground inputs, authored structural/lamp topology and finite new bank/root records. Old tree anchors are historical implementation, not user restrictions. No photographic acceptance, complete-scene collision or engineering certification.",
+  "retainedForeground": {
+    "camera": true,
+    "fallenLeaves142": true,
+    "nearStoneRecords": true,
+    "pathCurbRecords125": true,
+    "waterRipples135": true,
+    "mapleCanopy136": true,
+    "carvedCloud183": true,
+    "towerMass183": true,
+    "pagodaSources141": true,
+    "hallTransform": true,
+    "pagodaTransform": true
+  },
+  "treeRootAndGrowthChanges": [
+    {
+      "index": 32,
+      "before": [
+        -10,
+        4.223181224892261,
+        -10.4
+      ],
+      "after": [
+        -10,
+        0.2434003235402815,
+        -10.4
+      ],
+      "heightBefore": 5.8,
+      "heightAfter": 9.779780901351979
+    },
+    {
+      "index": 33,
+      "before": [
+        -5.6,
+        4.798089135747625,
+        -10.8
+      ],
+      "after": [
+        -5.6,
+        0.09070226505351396,
+        -10.8
+      ],
+      "heightBefore": 3.8,
+      "heightAfter": 8.507386870694111
+    }
+  ],
+  "newBanks": {
+    "finite": true,
+    "rocks": 47,
+    "roots": 104,
+    "plinthCourses": 3,
+    "scope": "Actual connected low soil beds, partly buried original CC0 rock bodies, attached woody broadleaf masses and curved fern fronds; no image/depth/leaf walls."
+  },
+  "counts": {
+    "before": {
+      "terrainVertices": 197625,
+      "terrainTriangles": 393472,
+      "mineralFaceTriangles": 5015,
+      "stones": 285,
+      "rootedPlants": 2261,
+      "forestTrees": 56,
+      "coniferVariants": [
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.9,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2442,
+          "connectedWoodMembers": 2490,
+          "localWoodBounds": {
+            "min": [
+              -3.751882791519165,
+              -0.12415792047977448,
+              -1.1667454242706299
+            ],
+            "max": [
+              2.6493730545043945,
+              7.232721328735352,
+              1.2967387437820435
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 1,
+          "primaryBoughs": 6,
+          "foliageCushions": 32,
+          "terminalShoots": 3140,
+          "connectedWoodMembers": 3193,
+          "localWoodBounds": {
+            "min": [
+              -2.959914445877075,
+              -0.08315826952457428,
+              -1.538089632987976
+            ],
+            "max": [
+              3.205432653427124,
+              7.350986957550049,
+              1.646730899810791
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.8,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2389,
+          "connectedWoodMembers": 2437,
+          "localWoodBounds": {
+            "min": [
+              -2.3187365531921387,
+              -0.112271249294281,
+              -1.0483534336090088
+            ],
+            "max": [
+              3.3940560817718506,
+              7.276027679443359,
+              1.03927481174469
+            ]
+          }
+        }
+      ],
+      "evergreenBushVariants": [
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        }
+      ]
+    },
+    "after": {
+      "terrainVertices": 197625,
+      "terrainTriangles": 393472,
+      "mineralFaceTriangles": 3316,
+      "stones": 74,
+      "rootedPlants": 1029,
+      "forestTrees": 56,
+      "coniferVariants": [
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.9,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2442,
+          "connectedWoodMembers": 2490,
+          "localWoodBounds": {
+            "min": [
+              -3.751882791519165,
+              -0.12415792047977448,
+              -1.1667454242706299
+            ],
+            "max": [
+              2.6493730545043945,
+              7.232721328735352,
+              1.2967387437820435
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 1,
+          "primaryBoughs": 6,
+          "foliageCushions": 32,
+          "terminalShoots": 3140,
+          "connectedWoodMembers": 3193,
+          "localWoodBounds": {
+            "min": [
+              -2.959914445877075,
+              -0.08315826952457428,
+              -1.538089632987976
+            ],
+            "max": [
+              3.205432653427124,
+              7.350986957550049,
+              1.646730899810791
+            ]
+          }
+        },
+        {
+          "modeledHeightParameter": 7.8,
+          "modeledSpreadParameter": 0.8,
+          "primaryBoughs": 5,
+          "foliageCushions": 28,
+          "terminalShoots": 2389,
+          "connectedWoodMembers": 2437,
+          "localWoodBounds": {
+            "min": [
+              -2.3187365531921387,
+              -0.112271249294281,
+              -1.0483534336090088
+            ],
+            "max": [
+              3.3940560817718506,
+              7.276027679443359,
+              1.03927481174469
+            ]
+          }
+        }
+      ],
+      "evergreenBushVariants": [
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        },
+        {
+          "woodTriangles": 2736,
+          "leafTriangles": 9072
+        }
+      ]
+    }
+  },
+  "structuralSummary": {
+    "meshes": 364,
+    "nonfinite": 0,
+    "exactOrSubNanometreDegenerates": 0,
+    "unclosedEdges": 0,
+    "windingEdges": 0,
+    "nonpositiveVolumeMeshes": 0,
+    "circulationUncoveredBefore": 2999,
+    "circulationUncoveredAfter": 0
+  },
+  "lampPlinthAudit": {
+    "passed": true,
+    "meshes": 8,
+    "scope": "Exact new lamp shared-ring profiles and three independently authored plinth solids only. No renderer, asset export, original CC0 scan closure, plant contact, full collision or photographic acceptance."
+  },
+  "nativeViews": [
+    {
+      "view": "hero",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r12-hero/report.json",
+      "status": "rendered-review",
+      "sourceHash": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "1760391830e2f1b188116f719c0455a96572d4d7455e954df8236266dcfc57f6"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "42103735c80ae57380ac7231c9cf0deede5b9ca528768594b7e939052a1a4eaa"
+        }
+      ]
+    },
+    {
+      "view": "low",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r12-low/report.json",
+      "status": "rendered-review",
+      "sourceHash": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "19291042f9b129c59d0601352f03f8235ddf48348548190265391829aff6f802"
+        }
+      ]
+    },
+    {
+      "view": "overhead",
+      "path": "qa/ten-reference/10/iteration-scene10-rain210-r12-overhead/report.json",
+      "status": "rendered-review",
+      "sourceHash": "7b9aa0131e130960c0c2578cbe7c8b6884474f66e47433c63ded74ac2316633d",
+      "sourceMatches": true,
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "rgbaSha256": "c35478e13a66708bff06bf18bc408a29499f3923266dc9c71109cd23dd2d1764"
+        }
+      ]
+    }
+  ],
+  "visualAccepted": false,
+  "onlyScene10": true,
+  "groundContactAudit": {
+    "sourceMatches": true,
+    "scope": "Exact CPU evaluation of the authored height recipes followed by the rendered .25m indexed triangle interpolation; excludes physical rock ray hits, complete collision checking, engineering certification and photographic acceptance.",
+    "summary": {
+      "forestRoots": 56,
+      "maxForestTriangleYChange": 4.707386870694114,
+      "routeCenterSamples": 50,
+      "soilCrossingNominalFlagTop": 1,
+      "nonfinite": 0
+    },
+    "soilCrossingNominalPathTopSamples": [
+      {
+        "route": 0,
+        "index": 16,
+        "center": [
+          -2.49846228118742,
+          0.6256628083460591,
+          -2.643363989719836
+        ],
+        "triangleY": 0.65,
+        "nominalFlagBottom": 0.48966280834605913,
+        "nominalFlagTop": 0.6256628083460591
+      }
+    ]
+  },
+  "technicalPassed": false
+}

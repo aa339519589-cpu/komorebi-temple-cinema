@@ -1,0 +1,12 @@
+{
+  "event": "apply_patch failed before R13 mutation while disk was nearly full",
+  "canonicalFile": "reconstructions/scene-10/src/support-route207.js",
+  "canonicalBytes": 32404,
+  "canonicalSha256AfterFailure": "7e1746bab83c6d0af1671205f1f0d7c7a4d5f36389862b9494a407ec1de71c85",
+  "r12SnapshotSha256": "7e1746bab83c6d0af1671205f1f0d7c7a4d5f36389862b9494a407ec1de71c85",
+  "noTruncation": true,
+  "syntaxValid": true,
+  "noFailedNativeOutputReused": true,
+  "recovery": "Root reclaimed regenerable export space; R13 edits applied afterward from the intact R12 source",
+  "scope": "Own source integrity only; no shared/user assets deleted by this worker"
+}

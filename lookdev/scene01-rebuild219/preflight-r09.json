@@ -1,0 +1,82 @@
+{
+  "createdAt": "2026-10-23T23:21:35.295Z",
+  "status": "cpu-prepared-source-pinned-storage-reviewed",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "canonicalChanged": false,
+  "freeBytes": 2127581184,
+  "startThresholdBytes": 2040109466,
+  "reviewedExportLimits": {
+    "maxUniqueBytes": 805306368,
+    "minimumFreeBytes": 805306368,
+    "startFreeBytes": 2040109466,
+    "emergencyFloorBytes": 268435456
+  },
+  "storageReview": {
+    "reviewedBy": "Root",
+    "reviewedAt": "2026-10-23T23:21:34.925676+00:00",
+    "previousFailedAttempt": "export-physical-r08",
+    "previousFailedReport": "lookdev/scene01-rebuild219/export-physical-r08/export-report.json",
+    "previousVerifiedPartialStorage": {
+      "uniqueBytes": 395264899,
+      "logicalBytes": 423994377,
+      "files": 18314,
+      "uniqueFiles": 7518,
+      "savedBytes": 28729478,
+      "completeGeometryGroups": 3029,
+      "texturePNGs": 28,
+      "instancePayloads": 6184,
+      "finalManifestReturned": false,
+      "waterBuffersByteVerified": true,
+      "waterFullMatrixReturned": false
+    },
+    "reason": "One new attempt explicitly authorized after actual R08 unique-cap failure. All recorded R08 partial payloads were independently byte/hash verified before only its derived assets were removed. R09 retains exactly the same source geometry, textures and quality with 768MiB unique cap +768MiB per-write free floor and1.9GiB start budget, maintaining256MiB physical emergency monitor. The larger bounded allowance is based on measured partial export volume, not reduced geometry or hidden quality changes. No third automatic attempt.",
+    "freshExportAttemptsAuthorized": 1,
+    "physicalRenderFramesAuthorized": 1
+  },
+  "priorFailedReportUnmodified": true,
+  "exportStarted": false,
+  "physicalRenderStarted": false,
+  "blenderInstalledVersion": "5.2.1",
+  "files": {
+    "lookdev/scene01-rebuild219/physical-r09-settings.json": {
+      "sha256": "1eeb1fd32488f44099a97517f1f8e5d55281750b7915781be2a55ed69ec67025",
+      "bytes": 4242
+    },
+    "lookdev/scene01-rebuild219/render-physical219-r09.py": {
+      "sha256": "6c587ecd9cd51625e88f52fed862d2e6da9aa4aadc75221a6880acd9851bd105",
+      "bytes": 36735
+    },
+    "lookdev/scene01-rebuild219/verify-export219-r09.mjs": {
+      "sha256": "467741e86ae8ece4482f6772f84358c08fb3188f0b054dc9cad0da3fb3a8c4ee",
+      "bytes": 5809
+    },
+    "lookdev/scene01-rebuild219/run-export219-r09.mjs": {
+      "sha256": "fe515968e6722f05b6de10b8803688aa8b807408bc3b849b9998e58493f87bba",
+      "bytes": 2516
+    },
+    "lookdev/scene01-rebuild219/run-physical219-r09.mjs": {
+      "sha256": "f05a1beead9f8123b41d39c7fb9515307f2fa84effccbdd28c92ee28781a0881",
+      "bytes": 3430
+    },
+    "lookdev/scene01-rebuild219/cache-cleanup-r08.json": {
+      "sha256": "1820f15a979589a02d2ea4d7e100e278245c11e7357859013f1e554b61db5bd5",
+      "bytes": 2336183
+    },
+    "tools/export-reconstructed-scene.mjs": {
+      "sha256": "82b85d7a0b01f07d1ee9292de36c6491aa08eb89bfd59e2673b3aad8dafb41cf",
+      "bytes": 12846
+    },
+    "tools/export-asset-writer.mjs": {
+      "sha256": "1d4376974762153626a4b13d39fc304ba57b273545395abe2ae83fc8ccf95cde",
+      "bytes": 2823
+    },
+    "tools/run-blender-queued.mjs": {
+      "sha256": "56cdb3c5d640e6215bf4afdac81902c60680f9777af1a409537e8121435dc7c1",
+      "bytes": 1042
+    },
+    "tools/encode-webgl-png.mjs": {
+      "sha256": "9c1a92a67d5e0a1ff236cb5f699d6e99a858edf72fe528c4bf824e22da45663c",
+      "bytes": 2146
+    }
+  }
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "iteration": "ornament224-r03-separated-oldgold",
+    "status": "rendered-review",
+    "source": "48bd6ade4d829f281015b6fc93b670913f0202b599f10dade7265139a45fd1fa",
+    "visualAccepted": false,
+    "renderDriver": {
+      "path": "tools/render-one-reconstruction.mjs",
+      "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+    },
+    "sculptRequests": [
+      "/reconstructions/scene-06/src/ornament224.js",
+      "/reconstructions/scene-06/assets/ornament224-r01/dragon-leaf-separated-r03.gray8.bin"
+    ],
+    "guideRGBRequested": false,
+    "valid": true,
+    "frameHashes": {
+      "reference": "b6e077c20e552e25aa0dada50a1b0714ff97c639226737190dcdd55ccc37c086",
+      "detail-native": "6d1ef2d67e67690c0004648b561b850c0abf85c7e0cd5f20b99814d42a0cc125"
+    }
+  },
+  {
+    "iteration": "ornament224-r03-low-oblique",
+    "status": "rendered-review",
+    "source": "48bd6ade4d829f281015b6fc93b670913f0202b599f10dade7265139a45fd1fa",
+    "visualAccepted": false,
+    "renderDriver": {
+      "path": "tools/render-one-reconstruction.mjs",
+      "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+    },
+    "sculptRequests": [
+      "/reconstructions/scene-06/src/ornament224.js",
+      "/reconstructions/scene-06/assets/ornament224-r01/dragon-leaf-separated-r03.gray8.bin"
+    ],
+    "guideRGBRequested": false,
+    "valid": true,
+    "frameHashes": {
+      "inspection-view": "437371b93ea1f70b0241e4faba7b1436e871a99dceed2a7e2cabbaf077a4d623"
+    }
+  }
+]

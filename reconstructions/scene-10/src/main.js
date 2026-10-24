@@ -29,6 +29,7 @@ import {createVerandaFootstone142} from './solid-receiver142.js';
 import {loadLicensedCloud183} from './licensed-cloud183.js';
 import {installSupportMaterials207,createApproachPlan207,routeReserved207,buildSupportRoute207,createNarrowStairCore207,createPond207,createPondReflectionFootprint207,buildPondEdges207,buildFoundationRocks207} from './support-route207.js';
 import {buildTowerMass183} from './tower-mass183.js';
+import {towerBenchHeight210} from './rain-banks210.js';
 import {scene10Layout125 as L,bridgePoint125,bridgeToWorld125,hallToWorld125,createBridgeHallStairPlan125,rightPathEdge125,leftPathEdge125} from './layout125.js';
 const query=new URLSearchParams(location.search),W=Math.min(1800,+(query.get('w')||768)),H=Math.min(1800,+(query.get('h')||768));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.info.autoReset=false;document.body.appendChild(renderer.domElement);
@@ -49,7 +50,7 @@ for(const [i,t]of graniteMaps.entries()){t.wrapS=t.wrapT=T.RepeatWrapping;t.repe
 m.red.color.set('#813a2a');m.red.roughness=.61;m.cedar.color.set('#422b20');m.cedar.roughness=.78;m.darkwood.color.set('#211a16');m.slate.color.set('#34434c');m.slate.roughness=.30;m.tileEdge.color.set('#49565b');m.tileEdge.roughness=.48;m.gold.color.set('#bd9146');m.gold.roughness=.23;m.stone.color.set('#50554b');m.granite.color.set('#62665b');
 m.buddha=m.gold.clone();m.buddha.roughness=.30;m.buddha.color.set('#bf9952');m.plaster.color.set('#97886a');m.paper.color.set('#705637');m.paper.emissive=new T.Color('#ce8435');m.paper.emissiveIntensity=.32;
 for(let i=0;i<5;i++){m['window'+i]=m.paper.clone();m['window'+i].color.set(['#342b20','#4f412d','#6c5433','#956838','#c18b44'][i]);m['window'+i].emissiveIntensity=[.012,.05,.14,.32,.75][i];}
-m.lanternPaper=m.paper.clone();m.lanternPaper.color.set('#c8a86f');m.lanternPaper.emissive.set('#ffb346');m.lanternPaper.emissiveIntensity=2.2;m.stonePaper=m.lanternPaper.clone();m.stonePaper.emissiveIntensity=1.7;m.stonePaper.emissive.set('#ffaa28');
+m.lanternPaper=m.paper.clone();m.lanternPaper.color.set('#c8a86f');m.lanternPaper.emissive.set('#ffb346');m.lanternPaper.emissiveIntensity=2.2;m.stonePaper=m.lanternPaper.clone();m.stonePaper.emissiveIntensity=1.05;m.stonePaper.emissive.set('#ffad35');
 m.pagodaPaper=m.paper.clone();m.pagodaPaper.color.set('#806344');m.pagodaPaper.emissive.set('#ffac48');m.pagodaPaper.emissiveIntensity=1.35;
 for(let i=0;i<5;i++){m['pagodaWindow'+i]=m.pagodaPaper.clone();m['pagodaWindow'+i].name='pagoda141-warm-room-'+i;m['pagodaWindow'+i].color.set(['#3e2a1b','#72512d','#99703f','#b47f3b','#c19047'][i]);m['pagodaWindow'+i].emissiveIntensity=[.08,.20,.50,.95,1.40][i];}
 m.moss=new T.MeshStandardMaterial({color:'#29391e',roughness:.86});m.leaf=new T.MeshPhysicalMaterial({color:'#354a28',roughness:.62,clearcoat:.23,clearcoatRoughness:.20,side:T.DoubleSide});m.maple=new T.MeshStandardMaterial({color:'#a03224',roughness:.48,side:T.DoubleSide});m.pink=new T.MeshStandardMaterial({color:'#bc7c8b',roughness:.82,side:T.DoubleSide});m.pink.emissive=new T.Color('#2d1018');m.pink.emissiveIntensity=.06;m.black.roughness=.25;m.carvedStone=new T.MeshStandardMaterial({color:'#7b7b6d',roughness:.76,bumpMap:m.granite.bumpMap,bumpScale:.012});installSurfaceDetail(m.carvedStone,'stone');m.leaf.emissive=new T.Color('#122108');m.leaf.emissiveIntensity=.025;m.maple.emissive=new T.Color('#320b05');m.maple.emissiveIntensity=.12;
@@ -103,7 +104,7 @@ Object.assign(m,hall132Saved);
 // One closed bridge, turning landing and connected hall stair flight.
 const bridgeHallPlan=createBridgeHallStairPlan125(),bridgeApproach207=createApproachPlan207(L);
 const bridgeEndSupports125=[];
-const retainedRed142=m.red;m.bridgeRed142=m.nearLacquer.clone();m.bridgeRed142.name='rain142-bridge-worn-vermilion';m.bridgeRed142.color.set('#a0432e');m.bridgeRed142.roughness=.40;m.bridgeRed142.clearcoat=.65;m.bridgeRed142.clearcoatRoughness=.12;installSurfaceDetail(m.bridgeRed142,'wood');m.red=m.bridgeRed142;
+const retainedRed142=m.red;m.bridgeRed142=m.nearLacquer.clone();m.bridgeRed142.name='rain210-bridge-wet-vermilion';m.bridgeRed142.color.set('#922f20');m.bridgeRed142.roughness=.28;m.bridgeRed142.clearcoat=.90;m.bridgeRed142.clearcoatRoughness=.11;installSurfaceDetail(m.bridgeRed142,'wood');m.red=m.bridgeRed142;
 function solidFootprint125(outline,bottom,top,material='granite'){
  const shape=new T.Shape();outline.forEach(([x,z],i)=>i?shape.lineTo(x,-z):shape.moveTo(x,-z));shape.closePath();
  const geometry=new T.ExtrudeGeometry(shape,{depth:top-bottom,bevelEnabled:false,steps:1});geometry.rotateX(-Math.PI/2);geometry.translate(0,bottom,0);emit(geometry,material);return geometry;
@@ -132,9 +133,9 @@ group(...L.bridge.position,L.bridge.yaw,()=>{
   for(const side of[-w+.12,w-.12])between(P(t0,side,-.12),P(t1,side,-.12),.14,'cedar',true);
  }
  for(const side of[-b.width/2-.1,b.width/2+.1]){
-  const end=side<0?b.exitRailCutT:1,stations=Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8);stations.push(end);
-  for(const t of stations){const p=P(t,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
-  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(end*i/40,side,h)),.065,'red');
+  const end=side<0?b.exitRailCutT:1,railStart=side>0?(b.entryFlatT||0):0,stations=Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8&&(t===0||t>=railStart));if(railStart>0)stations.push(railStart);stations.push(end);
+  for(const t of stations){const postT=side>0&&t===0?(b.entryFirstPostT||0):t,p=P(postT,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
+  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(railStart+(end-railStart)*i/40,side,h)),.065,'red');
  }
 });
 const support207=buildSupportRoute207({emit,box,between,tube},L,bridgeHallPlan,bridgeApproach207,bridgeEndSupports125);
@@ -290,7 +291,7 @@ function rock(x,z,s){const y=s*.32,variant=Math.floor(rand()*8),sy=R(.6,.95)*s,s
 for(let k=0;k<85;k++){const z=R(-23,5),x=(rand()<.45?-1:1)*R(4.5,16);rock(x,z,R(.35,1.45));}for(let k=0;k<16;k++)rock(R(-4,-2),R(-8,-2),R(.2,.6));
 function circulationReserved125(x,z){
  if(routeReserved207(x,z,bridgeHallPlan,bridgeApproach207))return true;
- if(z>=-13&&z< -2&&Math.abs(x-(-2.5+.132*(z+3)))<1.02)return true;
+ if(z>=-13&&z< -7.65&&Math.abs(x-(-2.5+.132*(z+3)))<1.02)return true;
  // Reserve beyond the physical slab/curb by more than one .25m grid
  // diagonal. R03 reserved inside the paving edge and allowed the adjacent
  // raised soil triangle to cross the right curb and the veranda receiver.
@@ -302,7 +303,7 @@ function circulationReserved125(x,z){
 for(const scan of scannedStones.variants){scan.wet.roughness=.82;scan.wet.clearcoat=.12;scan.wet.clearcoatRoughness=.32;}
 // Hero and garden stone lanterns share a physical, weathered granite assembly.
 function stoneLantern(x,z,s=1,isNear=false){buildStoneLantern({T,emit,box,group,R,scene,materials:m,layout:L,x,z,s,isNear});}
-{const h=L.heroStoneLantern,scan=scannedStones.variants[3],bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position),scale=.85;emit(scan.geometry,scan.wet,h.position[0],h.supportTop-bounds.max.y*scale,h.position[2],scale,scale,scale,.3);box(h.position[0],h.position[1]-.07,h.position[2],1.12,.14,1.12,'granite');stoneLantern(h.position[0],h.position[2],1.30,true);}for(const [x,z,s]of[[-6,-2.7,.72],[-7.5,-6,.8],[-9,-10,.7],[-2,-7,.64],[4,-10,.75],[10,-1,.65]])stoneLantern(x,z,s);
+{const h=L.heroStoneLantern,w=h.bearingPadWidth||1.22;box(h.position[0],h.position[1]-.07,h.position[2],w,.14,w,'granite');stoneLantern(h.position[0],h.position[2],1.30,true);}for(const [x,z,s]of[[-6,-2.7,.72],[-7.5,-6,.8],[-9,-10,.7],[-2,-7,.64],[4,-10,.75],[10,-1,.65]])stoneLantern(x,z,s);
 // All foliage is three-dimensional leaf geometry attached to irregular woody branching.
 const leafPos=[],leafUv=[];const leafP=(u,t)=>{const width=Math.sin(Math.PI*t)*.22;return[u*width,Math.sin(Math.PI*t)*.06+Math.abs(u)*.035,(t-.5)*.65];};for(let j=0;j<4;j++)for(let i=0;i<2;i++){const a=leafP(-1+i,j/4),b=leafP(i,j/4),c=leafP(-1+i,(j+1)/4),d=leafP(i,(j+1)/4);for(const p of[a,c,b,b,c,d]){leafPos.push(...p);leafUv.push(p[0],p[2]);}}const leafGeo=new T.BufferGeometry();leafGeo.setAttribute('position',new T.Float32BufferAttribute(leafPos,3));leafGeo.setAttribute('uv',new T.Float32BufferAttribute(leafUv,2));leafGeo.computeVertexNormals();
 const mapleShape=new T.Shape();const mp=[[0,.9],[.12,.35],[.46,.65],[.35,.16],[.83,.2],[.38,-.08],[.50,-.40],[.13,-.22],[0,-.63],[-.13,-.22],[-.5,-.4],[-.38,-.08],[-.83,.2],[-.35,.16],[-.46,.65],[-.12,.35]];mp.forEach((p,i)=>i?mapleShape.lineTo(...p):mapleShape.moveTo(...p));mapleShape.closePath();const mapleGeo=new T.ShapeGeometry(mapleShape);mapleGeo.rotateX(Math.PI/2);
@@ -381,7 +382,7 @@ for(let i=0;i<26;i++){const z=R(-3,5),edge=rightPathEdge125(z);rock(edge+R(.2,1.
 m.farWalk142=new T.MeshPhysicalMaterial({name:'scene10-closed-far-rain-flagstones142',color:'#636e6d',map:graniteMaps[0],normalMap:graniteMaps[1],normalScale:new T.Vector2(.64,.64),roughnessMap:graniteMaps[2],roughness:.48,clearcoat:.54,clearcoatRoughness:.095,metalness:0});installSurfaceDetail(m.farWalk142,'stone');
 for(let i=0;i<15;i++){
  const z=-3-i*.72,centre=-2.5-.095*i,x0=centre-1.10,x1=centre+1.10,tint=R(.78,1.10);R(-.015,.015);
- const points=[[x0,z-.34],[x1,z-.34],[x1-.05,z+.34],[x0+.02,z+.34]],g=createWornFlagstone(T,{points,topOffset:.022,seed:142800+i*37});emit(g,'farWalk142',0,hillHeight(centre,z)+.020,0,1,1,1,0,tint);
+ const points=[[x0,z-.34],[x1,z-.34],[x1-.05,z+.34],[x0+.02,z+.34]],g=createWornFlagstone(T,{points,topOffset:.022,seed:142800+i*37});if(i>=7)emit(g,'farWalk142',0,towerBenchHeight210(centre,z,hillHeight(centre,z))+.020,0,1,1,1,0,tint); // Actual bench carries the surviving tower walk.
 }
 function hillHeight(x,z){
  const d=Math.hypot(x+8,(z+20)*1.2),t=T.MathUtils.clamp((20-d)/13,0,1),r=T.MathUtils.clamp((3-x)/6,0,1),raw=L.pagoda.position[1]*t*t*(3-2*t)*r*r*(3-2*r);
@@ -519,7 +520,7 @@ function captureNearEnvironment(){
  // All real geometry, including gilt surfaces, stays visible to the probe.
  // Its texture is assigned only after capture, so no self-feedback occurs.
  const wasMirror=mirror.visible,wasCreek=creekMirror207.visible;mirror.visible=false;creekMirror207.visible=false;nearCubeCamera.update(renderer,scene);mirror.visible=wasMirror;creekMirror207.visible=wasCreek;renderer.shadowMap.needsUpdate=true;
- for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}
+ for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}
  waterRipples135.setEnvironment(nearEnvironmentTarget.texture);
 }
 function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();renderer.info.reset();optics.render(scene,camera);return {position,target,time,fov,width:W,height:H};}

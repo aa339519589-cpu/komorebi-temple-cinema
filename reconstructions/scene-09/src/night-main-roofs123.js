@@ -3,7 +3,7 @@ import * as T from 'three';
 // Authored construction geometry. The photograph is never sampled here.
 // Dimensions are in the unscaled building coordinates; roof and frame share
 // the same analytical surface so that the visible bearing members meet it.
-export const PHYSICAL_ROOF_REVISION='scene09-thinner-seated-cedar-eaves221-r02';
+export const PHYSICAL_ROOF_REVISION='scene09-finer-seated-cedar-and-spaced-rafters221-r05';
 const TAU=Math.PI*2;
 const hash=(x,y=0)=>{const a=Math.sin(x*127.1+y*311.7+97.3)*43758.5453;return a-Math.floor(a);};
 
@@ -128,14 +128,14 @@ export function buildPhysicalRoof(api,{w,d,e,rise,curl=.5,gabled=false,pagoda=fa
     draw(timber(curve(face,1.008,-.37),.22,.10),'dark');
     draw(timber(curve(face,1.012,-.22),.032,.034),'gold');if(api.ornament){const n=Math.ceil((face%2?hd+bd:w)/.40);for(let i=0;i<=n;i++){const p=at(face,1,-1+2*i/n,-.18);api.ornament(p,face,.070);}}
     for(const t of[.58,.78,.92]){
-      if(t<t0)continue;draw(timber(curve(face,t,-.48,32),.32,.28),materials.fascia||'wood');
+      if(t<t0)continue;draw(timber(curve(face,t,-.43,32),.19,.16),materials.fascia||'wood');
     }
-    const rafters=Math.ceil((face%2?hd+bd:w)/.22);
+    const rafters=Math.ceil((face%2?hd+bd:w)/.32);
     for(let i=0;i<=rafters;i++){
       const u=-1+2*i/rafters,start=Math.max(t0,.50),main=Array.from({length:15},(_,j)=>at(face,start+(1.014-start)*j/14,u,-.275));
-      draw(timber(main,.16,.21),'wood');
-      const flying=Array.from({length:9},(_,j)=>at(face,.79+.223*j/8,u,-.245));draw(timber(flying,.105,.125),'wood');
-      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.108,.128),i%4===0?'gold':'wood');
+      draw(timber(main,.095,.14),'wood');
+      const flying=Array.from({length:9},(_,j)=>at(face,.79+.223*j/8,u,-.245));draw(timber(flying,.070,.083),'wood');
+      const cap=flying.slice(-2);cap[0]=cap[1].map((q,k)=>q+(cap[0][k]-q)*.08);draw(timber(cap,.073,.086),i%11===0?'gold':(materials.endgrain||'wood'));
     }
     // Hip rolls have real segmented ridge caps rather than one smooth pipe.
     for(const side of[-1,1]){

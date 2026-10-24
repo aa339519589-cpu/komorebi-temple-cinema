@@ -1,5 +1,5 @@
 {
-  "revision": "scene10-193-r08b-held-ecology-for207",
+  "revision": "scene10-193-held-forest-and-r06-garden-poses-for207-r09",
   "sourceHash": "6feb7f43a838cd34df79482e2e83f1d5520f4fc06ae8ed1c606fcc6770047138",
   "scope": "Actual previously rendered3D forest placement/growth datums, preserved during the207 support/route rebuild. No photograph, depth or radiance samples.",
   "forest": [
@@ -777,5 +777,166 @@
       "kind": "Whole source CC0 sapling, original geometry/UV/normal",
       "uniformScale": true
     }
-  ]
+  ],
+  "gardenTrees": {
+    "sourceHash": "c4fbd7afd7b098cf8a570632f0d2dbeef6d4d2dba996f82976ca3bde997e3421",
+    "scope": "Eleven rigid garden-tree poses recovered by exact R06 CPU geometry/RNG replay. The R06 native root/rock/forest records reproduce within 1e-12; geometry, growth and yaw remain held while roots still use the same rendered terrain.",
+    "recoveryReceipt": "lookdev/scene10-support207/recovered-garden-poses-r06.json",
+    "poses": [
+      {
+        "geometry": "natural193-connected-garden-wood-19371",
+        "position": [
+          -13,
+          6.138725083426961,
+          -14
+        ],
+        "scale": [
+          1.1833333333333333,
+          1.1833333333333333,
+          1.1833333333333333
+        ],
+        "yaw": 5.476192230278739
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19468",
+        "position": [
+          -17,
+          5.6569585910684514,
+          -23
+        ],
+        "scale": [
+          1.5999999999999999,
+          1.5999999999999999,
+          1.5999999999999999
+        ],
+        "yaw": 4.669196438201937
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19565",
+        "position": [
+          -5.7,
+          5.593024219851271,
+          -28
+        ],
+        "scale": [
+          1.7,
+          1.7,
+          1.7
+        ],
+        "yaw": 3.3356558012359865
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19662",
+        "position": [
+          19,
+          -0.1915486039424234,
+          -16
+        ],
+        "scale": [
+          1.4666666666666668,
+          1.4666666666666668,
+          1.4666666666666668
+        ],
+        "yaw": 2.7458598425983527
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19371",
+        "position": [
+          19,
+          0.09585665769365473,
+          -2
+        ],
+        "scale": [
+          1.4333333333333333,
+          1.4333333333333333,
+          1.4333333333333333
+        ],
+        "yaw": 1.4824994235487465
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19468",
+        "position": [
+          -6.1,
+          2.9204215420179267,
+          -8.6
+        ],
+        "scale": [
+          0.85,
+          0.85,
+          0.85
+        ],
+        "yaw": 0.6386995852471198
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-19565",
+        "position": [
+          10.4,
+          -0.043135750946500975,
+          -4.8
+        ],
+        "scale": [
+          1.2833333333333334,
+          1.2833333333333334,
+          1.2833333333333334
+        ],
+        "yaw": 5.390046880150556
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-193932",
+        "position": [
+          -5.4,
+          5.159493083655909,
+          -13.9
+        ],
+        "scale": [
+          0.75,
+          0.75,
+          0.75
+        ],
+        "yaw": 2.1521694687598365
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-193932",
+        "position": [
+          -0.8,
+          3.7456137737783917,
+          -13.8
+        ],
+        "scale": [
+          0.6666666666666666,
+          0.6666666666666666,
+          0.6666666666666666
+        ],
+        "yaw": 2.114913765595973
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-193932",
+        "position": [
+          -11.2,
+          0.7915188424570956,
+          -6
+        ],
+        "scale": [
+          0.7833333333333333,
+          0.7833333333333333,
+          0.7833333333333333
+        ],
+        "yaw": 4.104586798435579
+      },
+      {
+        "geometry": "natural193-connected-garden-wood-193932",
+        "position": [
+          1,
+          0.590909395119364,
+          -10.5
+        ],
+        "scale": [
+          0.7666666666666666,
+          0.7666666666666666,
+          0.7666666666666666
+        ],
+        "yaw": 3.917345091501201
+      }
+    ]
+  }
 }

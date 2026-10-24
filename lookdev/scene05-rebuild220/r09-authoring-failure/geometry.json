@@ -1,0 +1,138 @@
+{
+  "sash": {
+    "triangles": 244,
+    "vertices": 126,
+    "finite": true,
+    "signedVolume": 0.015224839037652422,
+    "minArea": 0.0000015052915543038725,
+    "unpairedEdges": 12,
+    "bounds": [
+      [
+        -0.03099999949336052,
+        -0.8259999752044678,
+        -0.09000000357627869
+      ],
+      [
+        0.03099999949336052,
+        0.8259999752044678,
+        0.06480000168085098
+      ]
+    ],
+    "spec": {
+      "architectureMember": "scene05-deep-shouldered-sash-bone220",
+      "sashBone220": {
+        "bodyLength": 1.6,
+        "width": 0.062,
+        "depth": 0.152,
+        "front": 0.062,
+        "back": -0.09,
+        "tenonLength": 0.026,
+        "rearHalfLap": {
+          "at": -0.31,
+          "height": 0.042,
+          "depth": 0.053
+        },
+        "frontEasing": 0.0055
+      }
+    }
+  },
+  "header": {
+    "triangles": 206,
+    "vertices": 105,
+    "finite": true,
+    "signedVolume": 0.47314545982024575,
+    "minArea": 0.000009646165134019613,
+    "unpairedEdges": 0,
+    "bounds": [
+      [
+        -4.489999771118164,
+        -0.10499999672174454,
+        -0.125
+      ],
+      [
+        4.489999771118164,
+        0.10499999672174454,
+        0.1289999932050705
+      ]
+    ],
+    "spec": {
+      "architectureMember": "scene05-crowned-eased-girt-with-cut-head220",
+      "girt220": {
+        "length": 8.98,
+        "height": 0.21,
+        "depth": 0.25,
+        "arris": 0.012,
+        "frontCrown": 0.004,
+        "headLift": 0.024,
+        "freeHead": 0.14,
+        "topDatumRetained": true
+      }
+    }
+  },
+  "rail": {
+    "triangles": 206,
+    "vertices": 105,
+    "finite": true,
+    "signedVolume": 0.004439462558933895,
+    "minArea": 2.679488042417466e-7,
+    "unpairedEdges": 0,
+    "bounds": [
+      [
+        -1,
+        -0.020999999716877937,
+        -0.026499999687075615
+      ],
+      [
+        1,
+        0.020999999716877937,
+        0.026499999687075615
+      ]
+    ],
+    "spec": {
+      "architectureMember": "scene05-crowned-eased-girt-with-cut-head220",
+      "girt220": {
+        "length": 2,
+        "height": 0.042,
+        "depth": 0.053,
+        "arris": 0.002,
+        "frontCrown": 0,
+        "headLift": 0,
+        "freeHead": 0.02,
+        "topDatumRetained": true
+      }
+    }
+  },
+  "surround": {
+    "triangles": 64,
+    "vertices": 32,
+    "finite": true,
+    "signedVolume": 0.16401205845073558,
+    "minArea": 0.009252559420316353,
+    "unpairedEdges": 0,
+    "bounds": [
+      [
+        -1.1714999675750732,
+        -0.8420000076293945,
+        -0.18199999630451202
+      ],
+      [
+        1.1714999675750732,
+        0.8420000076293945,
+        0.0820000022649765
+      ]
+    ],
+    "spec": {
+      "architectureMember": "scene05-closed-rebated-window-surround220",
+      "sashFrame220": {
+        "width": 2.27,
+        "height": 1.6,
+        "jamb": 0.073,
+        "rail": 0.084,
+        "back": -0.182,
+        "front": 0.082,
+        "rearRebate": 0.016,
+        "edgeEase": 0.008
+      }
+    }
+  }
+}

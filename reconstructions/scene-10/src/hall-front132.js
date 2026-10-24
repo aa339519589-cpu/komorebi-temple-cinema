@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
-import {installSurfaceDetail} from './surface-detail.js';
+import {installSurfaceDetail,detailNoise} from './surface-detail.js';
 import {createRanmaRelief138} from './ranma-relief138.js';
 import {createRainCeramicField141} from './rain-ceramic141.js';
 import {RectAreaLightUniformsLib} from 'three/addons/lights/RectAreaLightUniformsLib.js';
@@ -10,7 +10,7 @@ import {buildHallFoundation207} from './support-route207.js';
 
 // Scene10's established roof outline and hall transform are retained. Only
 // the hall owns this timber/metal palette and these physical assemblies.
-export const HALL132_REVISION='scene10-mass183-supported-carved-eave-course-r03';
+export const HALL132_REVISION='scene10-rain210-amber-paper-and-existing-hall-mass-r14';
 export function createHall132Palette(original){
   const specs={red:['#7d3627',.69,'wood'],cedar:['#59331f',.82,'wood'],darkwood:['#1d1813',.88,'wood'],endwood:['#67492e',.81,'wood'],gold:['#b08a4c',.49,'gold'],oldgold:['#8e703f',.61,'gold']};
   const palette={};
@@ -22,7 +22,7 @@ export function createHall132Palette(original){
   }
   const recessedStone=original.stone.clone();recessedStone.name='hall132-shadowed-shoreline-foundation';recessedStone.color.set('#59605d');recessedStone.roughness=.91;installSurfaceDetail(recessedStone,'stone');palette.recessedStone=recessedStone;
   // Recessed timber-backed lattice bays keep independent warm interior light.
-  for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall142-recessed-window-'+i;mat.color.set(['#29241c','#48351f','#78512a','#a37432','#c1954b'][i]);mat.emissiveIntensity=[.012,.08,.36,.80,1.05][i];palette[key]=mat;}
+  for(let i=0;i<5;i++){const key='window'+i,mat=original[key].clone();mat.name='hall210-amber-fibrous-recessed-window-'+i;mat.color.set(['#211a12','#39291a','#65421f','#93602a','#b5823d'][i]);mat.emissive.set('#eea644');mat.emissiveIntensity=[.005,.025,.08,.18,.34][i];mat.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vRoom210;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvRoom210=(modelMatrix*vec4(transformed,1.)).xyz;');shader.fragmentShader='varying vec3 vRoom210;\n'+detailNoise+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>','#include <emissivemap_fragment>\n totalEmissiveRadiance*=.32+.68*smoothstep(.18,.80,sdFbm(vRoom210*.78));');};mat.customProgramCacheKey=()=> 'hall210-variable-amber-paper';palette[key]=mat;}
   palette.slate=new T.MeshPhysicalMaterial({name:'hall142-rain-blue-grey-closed-ceramic',color:'#283945',map:original.slate.map,bumpMap:original.slate.bumpMap,bumpScale:.0025,roughness:.27,metalness:0,clearcoat:.78,clearcoatRoughness:.075,vertexColors:true});
   installSurfaceDetail(palette.slate,'stone');
   palette.tileEdge=original.tileEdge.clone();palette.tileEdge.name='hall141-clay-cut-and-raised-seal';palette.tileEdge.color.set('#3a454b');palette.tileEdge.roughness=.53;
@@ -346,7 +346,7 @@ export function buildHall132(api,L){
     // They point outward and remain on the real recessed glazing plane.
     records.windowApertureLights142=[];
     for(const [xx,intensity]of[[-5.125,3.2],[5.125,2.4]]){
-      const aperture=new T.RectAreaLight('#ffca86',intensity,1.60,3.00);aperture.name='scene10-existing-paper-bay-finite-area-emission';aperture.position.set(xx,3.25,2.905);aperture.rotation.y=Math.PI;aperture.applyMatrix4(stack.at(-1));scene.add(aperture);records.windowApertureLights142.push({localCentre:[xx,3.25,2.905],width:1.60,height:3,intensity,source:'Existing paper bay; finite outward room radiance, no camera fill'});
+      const aperture=new T.RectAreaLight('#ffb85f',intensity*.64,1.60,3.00);aperture.name='scene10-existing-paper-bay-finite-area-emission';aperture.position.set(xx,3.25,2.905);aperture.rotation.y=Math.PI;aperture.applyMatrix4(stack.at(-1));scene.add(aperture);records.windowApertureLights142.push({localCentre:[xx,3.25,2.905],width:1.60,height:3,intensity:intensity*.64,source:'Existing paper bay; finite amber room radiance, no camera fill'});
     }
 
     const light=new T.PointLight('#ffbd75',10,22,2);light.name='scene10-shadowed-recessed-shrine-inverse-square-source';light.position.set(L.hall.entranceX,3,1.1).applyMatrix4(stack.at(-1));light.castShadow=true;light.shadow.mapSize.set(1024,1024);light.shadow.camera.near=.10;light.shadow.camera.far=45;light.shadow.bias=-.000025;light.shadow.normalBias=.005;scene.add(light);

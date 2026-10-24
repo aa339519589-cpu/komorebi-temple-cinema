@@ -1,0 +1,979 @@
+{
+  "source": {
+    "hash": "08f35b88f2ca8176d21c1edbb54834f08791b5481964bcfa2f2064c74c864d5c",
+    "files": {
+      "assets/polyhaven/periwinkle-plant/periwinkle_plant.bin": "f039855d84d59f764838285c2b041a5cf255d103afc856e219a62482826d9655",
+      "assets/polyhaven/periwinkle-plant/provenance.json": "4c9191fd9b5f3672b8e951e759ffc385db839d6ccb205abda4a8af87235da75e",
+      "assets/polyhaven/periwinkle-plant/provider-files.json": "42a5696a46c9f77a1271edcf05494da138beac99f96b6afb0c420f6ce5836fd4",
+      "assets/polyhaven/periwinkle-plant/provider-info.json": "c7e6e190c866556825c5ca56eb16b669bc14c2d994f16ab8d773bb0683faf9a7",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_arm_4k.jpg": "f5907a0acc35a7f09c0cadf752ee3911f00aa41a887919354090d319ea551e4a",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_diff_4k.jpg": "e9fc57386108c8d0c0f86bc1bfb74e2e727d55c8b67ec7ae4836db2f06c96dbf",
+      "assets/polyhaven/periwinkle-plant/textures/periwinkle_plant_nor_gl_4k.jpg": "e4d3514491cf37b782b88bed11e842ae2c6c72a4d637627e7230864b41ffe5df",
+      "assets/polyhaven/rock-moss-set-01/provenance.json": "97cf9ead72513a3c1af7a17fd507e4694ddd34bdd68f3d5b1d1816588ac1ed19",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01.bin": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "assets/polyhaven/rock-moss-set-01/rock_moss_set_01_4k.gltf": "4d63e608b64e53f0fbf76174fbb2951b82fe6dc19e90202058d0771e6a790746",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_diff_4k.jpg": "4e817cf019ed58454773beeea2e45066860267fffc9fc32b46c9dd883c56a730",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_nor_gl_4k.jpg": "0abdb7876a3215e4428656e020ca3955c698e3fc932c64976ddb6e12deba066b",
+      "assets/polyhaven/rock-moss-set-01/textures/rock_moss_set_01_rough_4k.jpg": "540c5e7039d5ddb1689311762a50d4559db590732b8b137a9172c8f6cbe141f7",
+      "assets/polyhaven/shrub-02/provenance.json": "84260fb749f701fb8afdd429397412f860c6bda2aa4b6ff5723b91b382839113",
+      "assets/polyhaven/shrub-02/provider-files.json": "5b9ad5b93dddf1b439ab55c911fa33d365ce83e2b98308e67e257d3dfb74a9fa",
+      "assets/polyhaven/shrub-02/provider-info.json": "07c0d3dfb5afcd1f1016853ac44e175af7ff155d74601516ea57f214c55c9a28",
+      "assets/polyhaven/shrub-02/shrub_02.bin": "5c1b79da1cfdbac90599542ccd1f75ba433a3a4d356b1ea03655adb39b0e2c96",
+      "assets/polyhaven/shrub-02/shrub_02_4k.gltf": "2ee6eddd85e14e5105553e9930605db634c8c3d60bbbe54be1b10346ef0d0a69",
+      "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg": "bb728f8edb948ca515266b5d99de393f2c63ded68d616b4c521155203d6b8fa1",
+      "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg": "4b2b0ab0f5c760c7e58086c2f79ef09c58b295d4b988e8c685fdc4638d2bf94b",
+      "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg": "b0c25bddf4fab38561fec40ff09f3ae853869b8da1f834bb5656c7697656d898",
+      "assets/ranma-relief-v01/build-report.json": "d614300e8ce66c3ab99b3109392e00463bd9eea936eeb38607fda67a80bafb14",
+      "assets/ranma-relief-v01/generated-height-guide.png": "9e90d0b98393aa012bfd961cd00051f2b7e869413012c0faa3be144e87788af4",
+      "assets/ranma-relief-v01/height-field.json": "eb99049722946d08eb21fcf5d331a8aa66365d45ff228b1ca69c7f0c08c8940a",
+      "assets/ranma-relief-v01/provenance.json": "727c5c561493e0a0dd72719a5998b07d795fb91efee343c50a141328723ccd6b",
+      "reconstructions/scene-03/assets/timber/normal-gl-2k.png": "335e5e635037c2dd83332dae954fc28bc6ba87bfe80d88b9ecfa465b99e1b035",
+      "reconstructions/scene-03/assets/timber/provenance.json": "8d88e396ce0cff51159632bb560eb7a8efcbac2918e32334e6fe85ebad16074e",
+      "reconstructions/scene-03/assets/timber/roughness-2k.jpg": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-diff.png": "6e4618c2d3d8dccae03945b601ac6d96caf9b1b408e60899e6d9d45b9b0f4bc2",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-nor_gl.png": "43c88d92d94067dfa10ca0896adc13e890fe40aabde5ae009dbe9e7c92e5a789",
+      "reconstructions/scene-04/assets/granite-tile-04/granite-face-rough.png": "d5c891cddbcac3254b9aa763272708c4c71b8c8d2bfec581f3b8e7256e84f459",
+      "reconstructions/scene-04/assets/granite-tile-04/provenance.json": "27fe3cdb628255d3354249611180d6fff80c42b4197591d18bed3ac40f8f862b",
+      "reconstructions/scene-10/asset-dependencies.json": "6587ed0dd6d9da4ec2011ed23c222a53d8c38c37fde26591faf130951465cf7c",
+      "reconstructions/scene-10/assets/cloud-scroll176/component-y-up-z-front.glb": "0c693ba1108d00c08a8b76113998cfd498fef6cdd09ff4767d92b3a42825feee",
+      "reconstructions/scene-10/assets/cloud-scroll176/measured-mount-loops.json": "0788e0fdc7bd398ace5e93cd63a8de490ba490c45f0123272f7da90a18d843b0",
+      "reconstructions/scene-10/assets/cloud-scroll176/provenance.json": "19cc2d45a226d7fcf31963117fdc25e77fe738936d6708e3c831b42409531244",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small.bin": "b4d2fc73d53f1d8717eb5ef9a2c66957d2a53152787e543aace88fcd6fca94ef",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/pine_sapling_small_1k.gltf": "f358c01926861dd082f32dba60f7c9fba232b585a985cf38c0d2229eecf4bc48",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/provenance.json": "10461a2d9cb48515bc5cc3ee6063f3e6feb9ad74966df810163bf3830beb56be",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_arm_1k.jpg": "336a4680cd571b6076b67afee2310b290b8900d9d126eb39ec1ae92e95be2ea9",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_diff_1k.jpg": "5c76836b01c3536fa0e24207b67bf4f3315b53ebe2b4ecc6f08dfcf3f8d74929",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_bark_nor_gl_1k.jpg": "05c46455531781b6cf18cae0648cf627f60ee942adaa8bcbfd1592fc2506a9e0",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_arm_1k.jpg": "2eb0aa44124b5a4ae9401e00b23b3c916f4c3f421616ce1bb932f248fc061288",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_diff_1k.jpg": "54af7d6fb664b5a38bcb118b557bc50e01e86ec54d6f1a573c3e32c649a53362",
+      "reconstructions/scene-10/assets/pine-sapling-cc0-141/textures/pine_sapling_small_twig_nor_gl_1k.jpg": "76af87821d7ff00e25768d5d97a449394fe64a21ae55d099da7f5ed46d9098c8",
+      "reconstructions/scene-10/ecology193-held207.json": "ba039caef1b6abeff62bb6442a2cad6cdfd0de28eb20b3e828c2b04daf822158",
+      "reconstructions/scene-10/hall132-provenance.json": "877a9427f3244757126e4696eaa225312a42702906a8ba04199f52edd7ba3a35",
+      "reconstructions/scene-10/index.html": "72276586699e97b2d8e826ae4e05105cd61b2b233c9079077f455793963f45a1",
+      "reconstructions/scene-10/natural193-provenance.json": "eb2575ad933f85c4dd24501125f4dd1ee3d01e195ccac4edf6acb82e8d96843f",
+      "reconstructions/scene-10/ripple134-provenance.json": "a77b12ece7aec73a36920d9d6a41465e6fdff0783e418282d7f01bcd3aee8984",
+      "reconstructions/scene-10/src/architecture.js": "bcda54a3db2ee130882e10619a8da88d2d06486f6781a1654ba6bc25f8e0ed68",
+      "reconstructions/scene-10/src/buddha.js": "5338dd79901680ef5b2cdd0c0c08983ea2eb5626adf950c99bc574ecea423f56",
+      "reconstructions/scene-10/src/carpentry-mass183.js": "848176ab8940b7a2d5e0f5e4617650cf1a3a05c829cbc08e2bdf3e3e93916421",
+      "reconstructions/scene-10/src/dolly-path.js": "c4525a8161ef80e2df545a50cd329f58f768a01b7f0e4440057568c082b0bf2c",
+      "reconstructions/scene-10/src/hall-front132.js": "4f7a2b6aad433d4160088ca9645cfcfbfbd38ee303134eca5656adeaab31f6d4",
+      "reconstructions/scene-10/src/layout125.js": "88e55abded4aa1d01f66ca31c9d3f4653dd5be6657f4bf6b9116356dce56bf92",
+      "reconstructions/scene-10/src/licensed-cloud183.js": "2099c5c19bfbcce09498ce6977f9e9c2858008529c0cce49a5c8bde890df5d9e",
+      "reconstructions/scene-10/src/licensed-groundcover142.js": "b55897210140428b3685c2e3c864ca0d634da13970682c9060d7d588b96be004",
+      "reconstructions/scene-10/src/licensed-pine141.js": "0e73964668f79425705cffbee980f5428a92a4ac0badf597eb4d56ab818de877",
+      "reconstructions/scene-10/src/main.js": "020c4c2e34d386c2b38000c3d5e904689ec6785c1976e98259f5d9783acdc7f6",
+      "reconstructions/scene-10/src/maple-canopy136.js": "4b47b2c7088607ebbc8fa87dd66b8ae74e0db7721b3a270581d2c74fbf28f077",
+      "reconstructions/scene-10/src/materials.js": "51f2c2f6f13f929bbf9af808fbe147020ced5b6fc8f596dc2cd822de66307cf5",
+      "reconstructions/scene-10/src/natural-forms.js": "a3a0b5c6f42b9437189a789995d1056ba406bd46804db7fc64d6d0c4e05ac27e",
+      "reconstructions/scene-10/src/natural193.js": "ca0b6d1070ab7353d73f39314d8ab33ab4f61a1e60d844bc10691866010b85ce",
+      "reconstructions/scene-10/src/near-bank-outcrop.js": "4a5167de2665496d83f39e4c2dd34442855c10c35d3257308b42257e59edaf6e",
+      "reconstructions/scene-10/src/near-rain-stones.js": "be9fa43c4aaa81eb95dfcd3ce05ed2edf674f6b23a329ecfe95bac4e29c31049",
+      "reconstructions/scene-10/src/near-surface-reflection.js": "15ec00bd988ad7142c619491d8a68a101f57804a887b1bc58beb6a5c2c254e63",
+      "reconstructions/scene-10/src/optics.js": "dbb3a20d30005c67f8796111e33edf29b329069c7d99d54c7ee3b684a7d73299",
+      "reconstructions/scene-10/src/paving-mask.js": "b71bb0778f4b13e06264f8cf9a2b457a23adf931134e391dce015b41e49538a9",
+      "reconstructions/scene-10/src/pine-shoot193.js": "32af9778efec7edc2f91345c66bb0b34102f6030dd005962d712065680e887e1",
+      "reconstructions/scene-10/src/rain-banks210.js": "e712e895eda793fd791d98606ccdc731c467e2e40064715fde55bd58de8e4a08",
+      "reconstructions/scene-10/src/rain-ceramic141.js": "69293565d4acacee8da1309fd0b0ddb752c2144f8516699f843ecea4a1cd6892",
+      "reconstructions/scene-10/src/rain-frame-maple142.js": "83174f08ec35401cc587990f09e00f7d9816735e8277aef7e927986f0d3eb054",
+      "reconstructions/scene-10/src/ranma-relief138.js": "19d503da6ee3b649a739ab1ee4a1e16f3bdf6d2ca5aaf9fb25c94ad7c88bd062",
+      "reconstructions/scene-10/src/scanned-garden-stones.js": "f698e3467ec3028b5a48ea2253438b2256327112d7fad8b361c3be6595628619",
+      "reconstructions/scene-10/src/solid-receiver142.js": "f192a6c51ed3eacd638ed05860d7c567149b2e19a35333cf864ecd384bd54555",
+      "reconstructions/scene-10/src/stair-embankment137.js": "e528b0a33b5a724a6ab6a68dd7f50661d6f5746b1ccae5537b0ae6d13e2dff73",
+      "reconstructions/scene-10/src/stone-lantern.js": "b831ec3ddb851617b51962cc59fc72de219421ea2659e2c6d08523760bb79e13",
+      "reconstructions/scene-10/src/support-route207.js": "821e85a48368e5f83e231e3c52c152995a134259cea6782691e4d6c67991281c",
+      "reconstructions/scene-10/src/surface-detail.js": "1ebddc3f28b536f1f1c6182996799538480cfdc9ea7c01d1b2ebcc8c6a0cd406",
+      "reconstructions/scene-10/src/tower-mass183.js": "f745d03c3c6e668371db5a6c100e8c40cceea93b816621149d3333f28f02d1cf",
+      "reconstructions/scene-10/src/water-film-ripples134.js": "669c1ee65901de17aa654a057d9634f9373cbb9e474fba050c22db5437b7c21a",
+      "reconstructions/scene-10/src/water-film-ripples135.js": "0d7d6b6650ed368a2c839558007714349b8dcc76993ec882f268ac8392a6f45e",
+      "reconstructions/scene-10/src/weathered-boulder.js": "d19d5239f25e479f5a0b3e5c3617f068351bb211ecf9bc44f7ea26ee404f50f1",
+      "reconstructions/scene-10/src/worn-flagstone.js": "1b2c65b7e50424807c9088dcb320afa123ee90512fa1c1a03e1964611da51982",
+      "reconstructions/scene-10/support207-provenance.json": "076ece1a4cf30304ea445593250adca82bc3749cb3a461478fab2cc51baaae66",
+      "reconstructions/scene-10/tools/fetch-pine141.mjs": "40f6a4194b6178bcc8938cf146dfd3e50d7ac91e1edbd1b7b5681fbb2a2e888e",
+      "tools/build-ranma-relief-field.py": "757e28f6543205b0427e009549fc65f817df75f797901add6df53f547c12c529"
+    }
+  },
+  "scope": "Exact CPU evaluation of the authored height recipes followed by the rendered .25m indexed triangle interpolation; excludes physical rock ray hits, complete collision checking, engineering certification and photographic acceptance.",
+  "lantern": {
+    "position": [
+      -2.96,
+      1.4538758854458425,
+      -4.1
+    ],
+    "r06TriangleAtPreviousAnchor": -0.025,
+    "currentTriangleAtCurrentAnchor": 0.19999999999999998,
+    "actualStoneSupportTop": 1.3838758854458424,
+    "actualLanternBase": 1.4538758854458425
+  },
+  "forest": [
+    {
+      "index": 0,
+      "root": [
+        -29.31411204235628,
+        0.8268253559500366,
+        -35.05718728713691
+      ],
+      "oldTriangleY": 0.826825355950037,
+      "newTriangleY": 0.826825355950037
+    },
+    {
+      "index": 1,
+      "root": [
+        -19.446432293299583,
+        1.1710204273848404,
+        -35.28314374387264
+      ],
+      "oldTriangleY": 1.1710204273850318,
+      "newTriangleY": 1.1710204273850318
+    },
+    {
+      "index": 2,
+      "root": [
+        -15.740342721063644,
+        1.893040326014117,
+        -38.90329006500542
+      ],
+      "oldTriangleY": 1.8930403260141169,
+      "newTriangleY": 1.8930403260141169
+    },
+    {
+      "index": 3,
+      "root": [
+        -6.994728385005149,
+        1.9155604514073832,
+        -36.85411583259702
+      ],
+      "oldTriangleY": 1.915560451407383,
+      "newTriangleY": 1.915560451407383
+    },
+    {
+      "index": 4,
+      "root": [
+        0.20395699096843511,
+        3.195425133523075,
+        -34.70578525029123
+      ],
+      "oldTriangleY": 3.195425133523072,
+      "newTriangleY": 3.195425133523072
+    },
+    {
+      "index": 5,
+      "root": [
+        4.311256448086351,
+        6.307030149088031,
+        -37.393704526126385
+      ],
+      "oldTriangleY": 6.307030149088031,
+      "newTriangleY": 6.307030149088031
+    },
+    {
+      "index": 6,
+      "root": [
+        11.892947097402061,
+        2.2518593968570055,
+        -33.26454238034785
+      ],
+      "oldTriangleY": 2.2518593968569367,
+      "newTriangleY": 2.2518593968569367
+    },
+    {
+      "index": 7,
+      "root": [
+        16.600699299480763,
+        3.9210891173465052,
+        -36.21795367822051
+      ],
+      "oldTriangleY": 3.9210891173465057,
+      "newTriangleY": 3.9210891173465057
+    },
+    {
+      "index": 8,
+      "root": [
+        25.62390771908685,
+        1.3973902416279382,
+        -33.225256187841296
+      ],
+      "oldTriangleY": 1.3973902416280195,
+      "newTriangleY": 1.3973902416280195
+    },
+    {
+      "index": 9,
+      "root": [
+        -29.113555745128544,
+        1.470929158232677,
+        -47.00631046295166
+      ],
+      "oldTriangleY": 1.4709291582326698,
+      "newTriangleY": 1.4709291582326698
+    },
+    {
+      "index": 10,
+      "root": [
+        -20.842917155940086,
+        1.8404536416615298,
+        -44.14585285075009
+      ],
+      "oldTriangleY": 1.8404536416615298,
+      "newTriangleY": 1.8404536416615298
+    },
+    {
+      "index": 11,
+      "root": [
+        -13.057653857860714,
+        2.4837919094715573,
+        -47.4305316247046
+      ],
+      "oldTriangleY": 2.4837919094716603,
+      "newTriangleY": 2.4837919094716603
+    },
+    {
+      "index": 12,
+      "root": [
+        -9.469475922454151,
+        2.7213853712953178,
+        -45.68789624236524
+      ],
+      "oldTriangleY": 2.7213853712953178,
+      "newTriangleY": 2.7213853712953178
+    },
+    {
+      "index": 13,
+      "root": [
+        -1.544385718647392,
+        6.7584695092995934,
+        -44.908589728176594
+      ],
+      "oldTriangleY": 6.7584695092998786,
+      "newTriangleY": 6.7584695092998786
+    },
+    {
+      "index": 14,
+      "root": [
+        6.549934391956777,
+        10.131485474635454,
+        -44.93299418129027
+      ],
+      "oldTriangleY": 10.131485474635454,
+      "newTriangleY": 10.131485474635454
+    },
+    {
+      "index": 15,
+      "root": [
+        11.054156234767282,
+        9.564608381645064,
+        -46.48357940837741
+      ],
+      "oldTriangleY": 9.564608381645062,
+      "newTriangleY": 9.564608381645062
+    },
+    {
+      "index": 16,
+      "root": [
+        16.953511876892293,
+        7.540050019426959,
+        -43.82420468144119
+      ],
+      "oldTriangleY": 7.540050019426959,
+      "newTriangleY": 7.540050019426959
+    },
+    {
+      "index": 17,
+      "root": [
+        26.208921556826677,
+        5.496789184625954,
+        -46.82762362062931
+      ],
+      "oldTriangleY": 5.496789184626018,
+      "newTriangleY": 5.496789184626018
+    },
+    {
+      "index": 18,
+      "root": [
+        -28.148206510860472,
+        1.1747376223131436,
+        -58.732442202046514
+      ],
+      "oldTriangleY": 1.1747376223131436,
+      "newTriangleY": 1.1747376223131436
+    },
+    {
+      "index": 19,
+      "root": [
+        -23.58875445583835,
+        1.4585614762437533,
+        -56.370779890567064
+      ],
+      "oldTriangleY": 1.458561476242763,
+      "newTriangleY": 1.458561476242763
+    },
+    {
+      "index": 20,
+      "root": [
+        -16.757501197326928,
+        2.1214899772942695,
+        -54.14788389764726
+      ],
+      "oldTriangleY": 2.1214899772942695,
+      "newTriangleY": 2.1214899772942695
+    },
+    {
+      "index": 21,
+      "root": [
+        -9.374807014409456,
+        2.6175837973677356,
+        -53.554946564137936
+      ],
+      "oldTriangleY": 2.6175837973677356,
+      "newTriangleY": 2.6175837973677356
+    },
+    {
+      "index": 22,
+      "root": [
+        -3.39962624134496,
+        4.395599333850466,
+        -58.49637586809695
+      ],
+      "oldTriangleY": 4.395599333850467,
+      "newTriangleY": 4.395599333850467
+    },
+    {
+      "index": 23,
+      "root": [
+        6.61490191211924,
+        10.555007724377612,
+        -53.21276905760169
+      ],
+      "oldTriangleY": 10.555007724377921,
+      "newTriangleY": 10.555007724377921
+    },
+    {
+      "index": 24,
+      "root": [
+        10.54203441543504,
+        9.258088103333684,
+        -58.08083940856159
+      ],
+      "oldTriangleY": 9.258088103333684,
+      "newTriangleY": 9.258088103333684
+    },
+    {
+      "index": 25,
+      "root": [
+        19.34692734694108,
+        7.850993287085764,
+        -55.071546107530594
+      ],
+      "oldTriangleY": 7.850993287085871,
+      "newTriangleY": 7.850993287085871
+    },
+    {
+      "index": 26,
+      "root": [
+        23.965810698550193,
+        6.609739216111292,
+        -53.147677259519696
+      ],
+      "oldTriangleY": 6.60973921611107,
+      "newTriangleY": 6.60973921611107
+    },
+    {
+      "index": 27,
+      "root": [
+        8.7,
+        9.288254603128236,
+        -43
+      ],
+      "oldTriangleY": 9.288254603128255,
+      "newTriangleY": 9.288254603128255
+    },
+    {
+      "index": 28,
+      "root": [
+        4.7,
+        10.265670865868508,
+        -44.7
+      ],
+      "oldTriangleY": 10.26567086586848,
+      "newTriangleY": 10.26567086586848
+    },
+    {
+      "index": 29,
+      "root": [
+        -0.4,
+        7.6320887145462875,
+        -44
+      ],
+      "oldTriangleY": 7.632088714546295,
+      "newTriangleY": 7.632088714546295
+    },
+    {
+      "index": 30,
+      "root": [
+        13.8,
+        9.283630333983693,
+        -49
+      ],
+      "oldTriangleY": 9.283630333983691,
+      "newTriangleY": 9.283630333983691
+    },
+    {
+      "index": 31,
+      "root": [
+        -6.2,
+        2.50071723606326,
+        -38.5
+      ],
+      "oldTriangleY": 2.500717236063261,
+      "newTriangleY": 2.500717236063261
+    },
+    {
+      "index": 32,
+      "root": [
+        -10,
+        4.223181224892261,
+        -10.4
+      ],
+      "oldTriangleY": 4.223181224892212,
+      "newTriangleY": 0.24340032354028046
+    },
+    {
+      "index": 33,
+      "root": [
+        -5.6,
+        4.798089135747625,
+        -10.8
+      ],
+      "oldTriangleY": 4.798089135747627,
+      "newTriangleY": 0.09070226505351393
+    },
+    {
+      "index": 34,
+      "root": [
+        18.55875203292817,
+        4.643132688003859,
+        -37.768505150452256
+      ],
+      "oldTriangleY": 4.643132688003859,
+      "newTriangleY": 4.643132688003859
+    },
+    {
+      "index": 35,
+      "root": [
+        -7.524504221044481,
+        2.335855631590259,
+        -32.25684603303671
+      ],
+      "oldTriangleY": 2.335855631590259,
+      "newTriangleY": 2.335855631590259
+    },
+    {
+      "index": 36,
+      "root": [
+        15.233747630380094,
+        2.5958712308937586,
+        -34.29615545831621
+      ],
+      "oldTriangleY": 2.5958712308937586,
+      "newTriangleY": 2.5958712308937586
+    },
+    {
+      "index": 37,
+      "root": [
+        -24.16474778484553,
+        -0.09483854537388134,
+        -29.814854327589273
+      ],
+      "oldTriangleY": -0.09483854537380403,
+      "newTriangleY": -0.09483854537380403
+    },
+    {
+      "index": 38,
+      "root": [
+        -17.467607830651104,
+        2.0441624834538956,
+        -40.688179986551404
+      ],
+      "oldTriangleY": 2.0441624834538956,
+      "newTriangleY": 2.0441624834538956
+    },
+    {
+      "index": 39,
+      "root": [
+        -19.909398837946355,
+        1.9762112065408801,
+        -40.267353400588036
+      ],
+      "oldTriangleY": 1.9762112065408801,
+      "newTriangleY": 1.9762112065408801
+    },
+    {
+      "index": 40,
+      "root": [
+        -12.7316327476874,
+        2.3187142267848673,
+        -40.474725333973765
+      ],
+      "oldTriangleY": 2.318714226784862,
+      "newTriangleY": 2.318714226784862
+    },
+    {
+      "index": 41,
+      "root": [
+        -15.667302328161895,
+        3.2745295458183463,
+        -29.26128825172782
+      ],
+      "oldTriangleY": 3.274529545817393,
+      "newTriangleY": 3.274529545817393
+    },
+    {
+      "index": 42,
+      "root": [
+        -25.33380262274295,
+        1.0957866881173508,
+        -36.50809691287577
+      ],
+      "oldTriangleY": 1.0957866881173546,
+      "newTriangleY": 1.0957866881173546
+    },
+    {
+      "index": 43,
+      "root": [
+        -7.39605503436178,
+        1.6839032045010085,
+        -36.20704687386751
+      ],
+      "oldTriangleY": 1.6839032045010085,
+      "newTriangleY": 1.6839032045010085
+    },
+    {
+      "index": 44,
+      "root": [
+        6.814130797050893,
+        1.2214855406847331,
+        -31.229116370901465
+      ],
+      "oldTriangleY": 1.2214855406847238,
+      "newTriangleY": 1.2214855406847238
+    },
+    {
+      "index": 45,
+      "root": [
+        24.055953417904675,
+        4.075347772416409,
+        -38.42958329990506
+      ],
+      "oldTriangleY": 4.075347772416409,
+      "newTriangleY": 4.075347772416409
+    },
+    {
+      "index": 46,
+      "root": [
+        -12.738448371179402,
+        3.290792604234109,
+        -30.499885262921453
+      ],
+      "oldTriangleY": 3.2907926042341105,
+      "newTriangleY": 3.2907926042341105
+    },
+    {
+      "index": 47,
+      "root": [
+        17.845780790783465,
+        0.08394405060292051,
+        -29.10469689965248
+      ],
+      "oldTriangleY": 0.08394405060292051,
+      "newTriangleY": 0.08394405060292051
+    },
+    {
+      "index": 48,
+      "root": [
+        18.19842321332544,
+        5.93125752522674,
+        -39.6904549729079
+      ],
+      "oldTriangleY": 5.93125752522674,
+      "newTriangleY": 5.93125752522674
+    },
+    {
+      "index": 49,
+      "root": [
+        -0.2920462815091014,
+        4.180886603294331,
+        -36.167967926710844
+      ],
+      "oldTriangleY": 4.180886603294331,
+      "newTriangleY": 4.180886603294331
+    },
+    {
+      "index": 50,
+      "root": [
+        1.6542627243325114,
+        0.46161606161332736,
+        -29.70690288580954
+      ],
+      "oldTriangleY": 0.46161606161333724,
+      "newTriangleY": 0.46161606161333724
+    },
+    {
+      "index": 51,
+      "root": [
+        -13.860229558311403,
+        0.9634732040150357,
+        -34.38384931534529
+      ],
+      "oldTriangleY": 0.9634732040150357,
+      "newTriangleY": 0.9634732040150357
+    },
+    {
+      "index": 52,
+      "root": [
+        21.154147027991712,
+        5.132804859634434,
+        -39.648314809426665
+      ],
+      "oldTriangleY": 5.1328048596344304,
+      "newTriangleY": 5.1328048596344304
+    },
+    {
+      "index": 53,
+      "root": [
+        -0.8626152081415057,
+        3.6710137926465514,
+        -35.76241472736001
+      ],
+      "oldTriangleY": 3.6710137926465514,
+      "newTriangleY": 3.6710137926465514
+    },
+    {
+      "index": 54,
+      "root": [
+        -14.730750207789242,
+        2.14055594217824,
+        -39.78017364628613
+      ],
+      "oldTriangleY": 2.140555942178239,
+      "newTriangleY": 2.140555942178239
+    },
+    {
+      "index": 55,
+      "root": [
+        5.420171425677836,
+        8.980604361886193,
+        -40.511262848973274
+      ],
+      "oldTriangleY": 8.980604361886193,
+      "newTriangleY": 8.980604361886193
+    }
+  ],
+  "paths": [
+    {
+      "route": 0,
+      "index": 0,
+      "center": [
+        -3.165,
+        0.23119773732923005,
+        -7.71
+      ],
+      "triangleY": 0.10123983361165181,
+      "nominalFlagBottom": 0.09519773732923004,
+      "nominalFlagTop": 0.23119773732923005
+    },
+    {
+      "route": 0,
+      "index": 1,
+      "center": [
+        -3.376277302198501,
+        0.23146603695696236,
+        -7.485600036107635
+      ],
+      "triangleY": 0.10225708801098125,
+      "nominalFlagBottom": 0.09546603695696235,
+      "nominalFlagTop": 0.23146603695696236
+    },
+    {
+      "route": 0,
+      "index": 2,
+      "center": [
+        -3.5969213811240093,
+        0.23663202531540498,
+        -7.270281734913416
+      ],
+      "triangleY": 0.10758438120193481,
+      "nominalFlagBottom": 0.10063202531540497,
+      "nominalFlagTop": 0.23663202531540498
+    },
+    {
+      "route": 0,
+      "index": 3,
+      "center": [
+        -3.8182463833622604,
+        0.24789220761581673,
+        -7.055673515783568
+      ],
+      "triangleY": 0.11866413290977929,
+      "nominalFlagBottom": 0.11189220761581672,
+      "nominalFlagTop": 0.24789220761581673
+    },
+    {
+      "route": 0,
+      "index": 4,
+      "center": [
+        -4.031848821973671,
+        0.2646144060633875,
+        -6.833405589797554
+      ],
+      "triangleY": 0.13552291060009788,
+      "nominalFlagBottom": 0.12861440606338748,
+      "nominalFlagTop": 0.2646144060633875
+    },
+    {
+      "route": 0,
+      "index": 5,
+      "center": [
+        -4.226669725395541,
+        0.28616644286330717,
+        -6.594683194765107
+      ],
+      "triangleY": 0.15717722671745002,
+      "nominalFlagBottom": 0.15016644286330716,
+      "nominalFlagTop": 0.28616644286330717
+    },
+    {
+      "route": 0,
+      "index": 6,
+      "center": [
+        -4.385613236701801,
+        0.3119161402207658,
+        -6.331016156797709
+      ],
+      "triangleY": 0.1824532110461287,
+      "nominalFlagBottom": 0.1759161402207658,
+      "nominalFlagTop": 0.3119161402207658
+    },
+    {
+      "route": 0,
+      "index": 7,
+      "center": [
+        -4.494801235775364,
+        0.3412313203409532,
+        -6.043056278103888
+      ],
+      "triangleY": 0.21164970546481293,
+      "nominalFlagBottom": 0.2052313203409532,
+      "nominalFlagTop": 0.3412313203409532
+    },
+    {
+      "route": 0,
+      "index": 8,
+      "center": [
+        -4.564327267211588,
+        0.37347980542905934,
+        -5.742900299600918
+      ],
+      "triangleY": 0.24305408734481618,
+      "nominalFlagBottom": 0.23747980542905933,
+      "nominalFlagTop": 0.37347980542905934
+    },
+    {
+      "route": 0,
+      "index": 9,
+      "center": [
+        -4.601937681912279,
+        0.40802941769027407,
+        -5.437022841431035
+      ],
+      "triangleY": 0.2779852519752244,
+      "nominalFlagBottom": 0.27202941769027406,
+      "nominalFlagTop": 0.40802941769027407
+    },
+    {
+      "route": 0,
+      "index": 10,
+      "center": [
+        -4.614375096597147,
+        0.44424797932978755,
+        -5.129046952353779
+      ],
+      "triangleY": 0.3140149731923885,
+      "nominalFlagBottom": 0.30824797932978754,
+      "nominalFlagTop": 0.44424797932978755
+    },
+    {
+      "route": 0,
+      "index": 11,
+      "center": [
+        -4.607173695775389,
+        0.48150331255278944,
+        -4.820892722796223
+      ],
+      "triangleY": 0.3513847913383806,
+      "nominalFlagBottom": 0.34550331255278943,
+      "nominalFlagTop": 0.48150331255278944
+    },
+    {
+      "route": 0,
+      "index": 12,
+      "center": [
+        -4.585750912327669,
+        0.5191632395644699,
+        -4.513421049798889
+      ],
+      "triangleY": 0.3893011685190046,
+      "nominalFlagBottom": 0.38316323956446985,
+      "nominalFlagTop": 0.5191632395644699
+    },
+    {
+      "route": 0,
+      "index": 13,
+      "center": [
+        -4.552895493302222,
+        0.5565955825700185,
+        -4.206876778771455
+      ],
+      "triangleY": 0.42624017014525684,
+      "nominalFlagBottom": 0.4205955825700185,
+      "nominalFlagTop": 0.5565955825700185
+    },
+    {
+      "route": 0,
+      "index": 14,
+      "center": [
+        -4.502187183164075,
+        0.5931681637746256,
+        -3.902836102053025
+      ],
+      "triangleY": 0.4627397000198288,
+      "nominalFlagBottom": 0.45716816377462555,
+      "nominalFlagTop": 0.5931681637746256
+    },
+    {
+      "route": 0,
+      "index": 15,
+      "center": [
+        -4.423067801016784,
+        0.6282488053834808,
+        -3.605055046343653
+      ],
+      "triangleY": 0.4968073997449568,
+      "nominalFlagBottom": 0.4922488053834808,
+      "nominalFlagTop": 0.6282488053834808
+    },
+    {
+      "route": 0,
+      "index": 16,
+      "center": [
+        -4.295525751750191,
+        0.6612053296017741,
+        -3.3251097079233456
+      ],
+      "triangleY": 0.5307526729401549,
+      "nominalFlagBottom": 0.5252053296017741,
+      "nominalFlagTop": 0.6612053296017741
+    },
+    {
+      "route": 0,
+      "index": 17,
+      "center": [
+        -4.0834140096438745,
+        0.6914055586346958,
+        -3.1053378355494674
+      ],
+      "triangleY": 0.5606768509270381,
+      "nominalFlagBottom": 0.5554055586346958,
+      "nominalFlagTop": 0.6914055586346958
+    },
+    {
+      "route": 0,
+      "index": 18,
+      "center": [
+        -3.7996780803668626,
+        0.7182173146874353,
+        -2.98775040294958
+      ],
+      "triangleY": 0.5880716712323248,
+      "nominalFlagBottom": 0.5822173146874353,
+      "nominalFlagTop": 0.7182173146874353
+    },
+    {
+      "route": 0,
+      "index": 19,
+      "center": [
+        -3.4978490332661125,
+        0.7410084199651827,
+        -2.9254956562271706
+      ],
+      "triangleY": 0.610744006490177,
+      "nominalFlagBottom": 0.6050084199651827,
+      "nominalFlagTop": 0.7410084199651827
+    },
+    {
+      "route": 0,
+      "index": 20,
+      "center": [
+        -3.194267798529471,
+        0.7591466966731281,
+        -2.8718459876524305
+      ],
+      "triangleY": 0.6284142194888441,
+      "nominalFlagBottom": 0.623146696673128,
+      "nominalFlagTop": 0.7591466966731281
+    },
+    {
+      "route": 0,
+      "index": 21,
+      "center": [
+        -2.8942631506697643,
+        0.771999967016461,
+        -2.80108375074522
+      ],
+      "triangleY": 0.6410206654586571,
+      "nominalFlagBottom": 0.635999967016461,
+      "nominalFlagTop": 0.771999967016461
+    },
+    {
+      "route": 0,
+      "index": 22,
+      "center": [
+        -2.5920634344708935,
+        0.778936053200372,
+        -2.7402141160208147
+      ],
+      "triangleY": 0.6139556985794806,
+      "nominalFlagBottom": 0.642936053200372,
+      "nominalFlagTop": 0.778936053200372
+    },
+    {
+      "route": 0,
+      "index": 23,
+      "center": [
+        -2.2887454780989755,
+        0.78,
+        -2.68511711204329
+      ],
+      "triangleY": 0.4242075499106498,
+      "nominalFlagBottom": 0.644,
+      "nominalFlagTop": 0.78
+    },
+    {
+      "route": 0,
+      "index": 24,
+      "center": [
+        -1.9857467921888179,
+        0.78,
+        -2.628309750557632
+      ],
+      "triangleY": 0.2265179319405588,
+      "nominalFlagBottom": 0.644,
+      "nominalFlagTop": 0.78
+    }
+  ],
+  "summary": {
+    "forestRoots": 56,
+    "maxForestTriangleYChange": 4.707386870694114,
+    "routeCenterSamples": 25,
+    "soilCrossingNominalFlagTop": 0,
+    "nonfinite": 0
+  },
+  "visualAccepted": false
+}

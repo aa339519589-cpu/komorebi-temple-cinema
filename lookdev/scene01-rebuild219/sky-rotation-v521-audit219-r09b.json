@@ -1,0 +1,109 @@
+{
+  "status": "official-v5.2.1-code-derived-sky-rotation-audit-CPU-only",
+  "writtenAt": "2026-10-23T23:37:30.596Z",
+  "sourceHash": "d2587c2f5426ba656dc4c0d385b6499a452fbf26ff7352b9e712adb82e449dbd",
+  "manifestSha256": "062fb3d493f04b1af0eca6ddf75fed0ac4d78d3a3012822e9c1caf60babb738a",
+  "physicalR09bPngSha256": "0fffa7db32b8d31e5f2bc69afbdd52ff360d5ea79889ce119c1449a0f337023b",
+  "rootPlan": "Preserve R09b actual frame and wrong-direction report; same verified export, same model and energy. Change only sky RNA rotation convention plus record forward-mapped physical sun vector/projection before any render. No new GPU submission authorized by this receipt.",
+  "officialImplementation": [
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/scene/shader_nodes.cpp",
+      "function": "SkyTextureNode::simplify_settings",
+      "lines": "867-893",
+      "fact": "RNA rotation is wrapped and negated before physical sky evaluation"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/osl/shaders/node_sky_texture.osl",
+      "function": "sky_radiance_nishita + spherical_to_direction",
+      "lines": "98-101,125-132",
+      "fact": "Evaluation uses internal longitude plus pi/2; combining with the prior negation yields the formula below"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/v5.2.1/intern/cycles/kernel/svm/sky.h",
+      "function": "sky_radiance_nishita",
+      "lines": "137-146",
+      "fact": "Metal/SVM path applies the same geographic conversion and actual internal sun angle, not raw atan2(y,x)"
+    }
+  ],
+  "derivedFormula": {
+    "scope": "Blender RNA e=sun_elevation, r=sun_rotation, sceneZUp",
+    "forward": "D=(cos(e)*sin(r), cos(e)*cos(r), sin(e))",
+    "inverse": "e=asin(D.z); r=atan2(D.x,D.y)",
+    "oldError": "Used atan2(D.y,D.x); assignment residual only checked a scalar, not the resulting physical sky direction"
+  },
+  "sourceDirectionYUp": [
+    -0.3682471896995991,
+    0.20047123637403436,
+    -0.907857527734949
+  ],
+  "desiredDirectionZUp": [
+    -0.3682471896995991,
+    0.907857527734949,
+    0.2004712363740343
+  ],
+  "targetProjection": {
+    "inFrontOfCamera": true,
+    "cameraDirection": [
+      -0.3682471896995991,
+      0.10914113540870461,
+      -0.9232996370843252
+    ],
+    "pixels": [
+      184.9999999999981,
+      495.99999999999955
+    ]
+  },
+  "oldR09b": {
+    "elevationRNA": 0.20183880627155304,
+    "rotationRNA": 1.9561400413513184,
+    "effectiveSkyDirectionZUp": [
+      0.9078575417142787,
+      -0.3682472041743254,
+      0.20047114647823902
+    ],
+    "directionErrorDegrees": 128.9353641694349,
+    "effectiveSkyProjection": {
+      "inFrontOfCamera": false,
+      "cameraDirection": [
+        0.9078575417142787,
+        0.23611821264431257,
+        0.3464720387133167
+      ],
+      "pixels": [
+        -2276.85553808212,
+        1382.2431388459268
+      ]
+    },
+    "validSourceAlignedSun": false
+  },
+  "candidateCorrection": {
+    "requestedElevation": 0.20183889803008342,
+    "requestedRotation": -0.385343706228597,
+    "simulatedFloat32Elevation": 0.2018388956785202,
+    "simulatedFloat32Rotation": -0.3853437006473541,
+    "forwardMappedDirectionZUp": [
+      -0.3682471848098223,
+      0.9078575302270772,
+      0.20047123407020878
+    ],
+    "maxDirectionComponentResidual": 4.8897767501721034e-9,
+    "effectiveSkyProjection": {
+      "inFrontOfCamera": true,
+      "cameraDirection": [
+        -0.3682471848098223,
+        0.10914113286833654,
+        -0.9232996393348462
+      ],
+      "pixels": [
+        185.0000069464673,
+        496.0000033684637
+      ]
+    },
+    "projectionResidualPixels": [
+      0.000006946469198965133,
+      0.000003368464149389183
+    ],
+    "GPUOrActualSkyDiscVisualConfirmation": false
+  },
+  "photographicAcceptance": false
+}
