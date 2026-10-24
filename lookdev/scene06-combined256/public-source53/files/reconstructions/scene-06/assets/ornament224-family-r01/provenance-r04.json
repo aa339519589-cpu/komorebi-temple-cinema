@@ -1,0 +1,724 @@
+{
+  "revision": "ornament224-families-r04",
+  "generator": "built-in image_gen via imagegen skill",
+  "guides": [
+    {
+      "file": "independent-medium-peony-sheet.png",
+      "sha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "prompt": "prompt-medium-peony.txt",
+      "promptSha256": "3d477025f1d2fb20850fd03371eaf4d3c24a299dbc1cd8c0674c5a8deff443be"
+    },
+    {
+      "file": "independent-paired-dragons.png",
+      "sha256": "767cfe132a1faf4e67163795cb8c0387796893c0f76d9a93953fca874cc35799",
+      "prompt": "prompt-paired-dragons.txt",
+      "promptSha256": "63f404c282017550724155442ece2dd1e993e7274553562d0d36598b539ce75a"
+    }
+  ],
+  "families": [
+    {
+      "family": "medium-dragon",
+      "guide": "exec-27da119d-50af-46b3-abbe-97ab168d84e3.png",
+      "guideSha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "crop": [
+        10,
+        146,
+        1246,
+        643
+      ],
+      "grid": [
+        768,
+        288
+      ],
+      "naturalAspect": 2.4633663366336633,
+      "field": "medium-dragon-solid-head-r03.gray8.bin",
+      "fieldSha256": "355537ac4bdc6b2e27abdd1177ad8b3394488903555715d0f2bdaa9f20e07c77",
+      "connectedPixels": 153058,
+      "discardedDisconnectedPixels": 0,
+      "tinyGuidePuncturesChangedToIncisions": 152,
+      "filledPixels": 1258,
+      "heads": [
+        [
+          [
+            0.015,
+            0.16
+          ],
+          [
+            0.23,
+            0.02
+          ],
+          [
+            0.35,
+            0.3
+          ],
+          [
+            0.31,
+            0.6
+          ],
+          [
+            0.17,
+            0.67
+          ],
+          [
+            0.08,
+            0.47
+          ]
+        ]
+      ],
+      "spines": [
+        [
+          [
+            [
+              0.19,
+              0.4
+            ],
+            [
+              0.19,
+              0.67
+            ],
+            [
+              0.29,
+              0.75
+            ],
+            [
+              0.36,
+              0.49
+            ],
+            [
+              0.42,
+              0.37
+            ],
+            [
+              0.48,
+              0.48
+            ],
+            [
+              0.54,
+              0.72
+            ],
+            [
+              0.61,
+              0.74
+            ],
+            [
+              0.64,
+              0.49
+            ],
+            [
+              0.69,
+              0.36
+            ],
+            [
+              0.77,
+              0.49
+            ],
+            [
+              0.86,
+              0.69
+            ],
+            [
+              0.93,
+              0.61
+            ]
+          ],
+          215,
+          55
+        ],
+        [
+          [
+            [
+              0.86,
+              0.69
+            ],
+            [
+              0.94,
+              0.59
+            ],
+            [
+              0.96,
+              0.22
+            ]
+          ],
+          175,
+          35
+        ]
+      ],
+      "flowers": [],
+      "scalarChannelOrder": [
+        "contour/chisel",
+        "leaf/petal broad2.7px",
+        "true boundary distance/20px",
+        "author head/coil/tail domain",
+        "author peony domain",
+        "continuous body macro6.2px"
+      ],
+      "authoringMethod": "Independent inferred guide grayscale to closed layered geometry. Minute dark pits are concave real surface cuts, substantial openings have actual walls. No guide/reference image is a rendered material.",
+      "visualAccepted": false,
+      "photographicAccepted": false,
+      "sourceCropAspect": 2.48692152917505,
+      "scalarCanvasPaddingPixels": 4,
+      "aspectDefinition": "Actual cropped/padded source canvas; equal physical XY sampling reverses the scalar-grid resampling exactly.",
+      "headSolidRevision": {
+        "smallEnclosedHeadHolesConvertedToTrueConcaveSurfaceCuts": 2,
+        "convertedPixels": 366,
+        "maximumRegionPixels": 384,
+        "headMacroMassDomeRange8bit": [
+          104,
+          208
+        ],
+        "preservedLargerHeadOpeningsPixels": [
+          820
+        ],
+        "exteriorContourUnchanged": true,
+        "guideAndReferenceRGBMaterials": false
+      }
+    },
+    {
+      "family": "peony-cloud",
+      "guide": "exec-27da119d-50af-46b3-abbe-97ab168d84e3.png",
+      "guideSha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "crop": [
+        105,
+        736,
+        1134,
+        1131
+      ],
+      "grid": [
+        512,
+        224
+      ],
+      "naturalAspect": 2.5732009925558312,
+      "field": "peony-cloud-r01.gray8.bin",
+      "fieldSha256": "01f0c29e42528e53e1be04b6a1953ab155c5804ff853cfb4397c2f39ec4b3226",
+      "connectedPixels": 76937,
+      "discardedDisconnectedPixels": 0,
+      "tinyGuidePuncturesChangedToIncisions": 172,
+      "filledPixels": 992,
+      "heads": [],
+      "spines": [],
+      "flowers": [
+        [
+          0.42,
+          0.52,
+          0.31,
+          0.45
+        ],
+        [
+          0.8,
+          0.58,
+          0.15,
+          0.28
+        ]
+      ],
+      "scalarChannelOrder": [
+        "contour/chisel",
+        "leaf/petal broad2.7px",
+        "true boundary distance/20px",
+        "author head/coil/tail domain",
+        "author peony domain",
+        "continuous body macro6.2px"
+      ],
+      "authoringMethod": "Independent inferred guide grayscale to closed layered geometry. Minute dark pits are concave real surface cuts, substantial openings have actual walls. No guide/reference image is a rendered material.",
+      "visualAccepted": false,
+      "photographicAccepted": false,
+      "sourceCropAspect": 2.6050632911392406,
+      "scalarCanvasPaddingPixels": 4,
+      "aspectDefinition": "Actual cropped/padded source canvas; equal physical XY sampling reverses the scalar-grid resampling exactly."
+    },
+    {
+      "family": "paired-dragons",
+      "guide": "exec-72a0d630-43be-4f10-8d7c-2ac9a3d6d5a5.png",
+      "guideSha256": "767cfe132a1faf4e67163795cb8c0387796893c0f76d9a93953fca874cc35799",
+      "crop": [
+        13,
+        34,
+        2157,
+        664
+      ],
+      "grid": [
+        768,
+        240
+      ],
+      "naturalAspect": 3.373040752351097,
+      "field": "paired-dragons-solid-head-r03.gray8.bin",
+      "fieldSha256": "8ca7ba7ef6f05fe36a8da5bedd838047a5bc7fbaa1a115197f85b59daf45c296",
+      "connectedPixels": 137372,
+      "discardedDisconnectedPixels": 0,
+      "tinyGuidePuncturesChangedToIncisions": 333,
+      "filledPixels": 2439,
+      "heads": [
+        [
+          [
+            0.22,
+            0.01
+          ],
+          [
+            0.35,
+            0.09
+          ],
+          [
+            0.43,
+            0.32
+          ],
+          [
+            0.4,
+            0.52
+          ],
+          [
+            0.29,
+            0.59
+          ],
+          [
+            0.24,
+            0.32
+          ]
+        ],
+        [
+          [
+            0.56,
+            0.25
+          ],
+          [
+            0.68,
+            0.11
+          ],
+          [
+            0.78,
+            0.2
+          ],
+          [
+            0.75,
+            0.48
+          ],
+          [
+            0.64,
+            0.63
+          ],
+          [
+            0.55,
+            0.54
+          ]
+        ]
+      ],
+      "spines": [
+        [
+          [
+            [
+              0.28,
+              0.48
+            ],
+            [
+              0.27,
+              0.69
+            ],
+            [
+              0.19,
+              0.74
+            ],
+            [
+              0.1,
+              0.59
+            ],
+            [
+              0.09,
+              0.34
+            ],
+            [
+              0.16,
+              0.25
+            ],
+            [
+              0.23,
+              0.32
+            ],
+            [
+              0.29,
+              0.55
+            ],
+            [
+              0.38,
+              0.64
+            ]
+          ],
+          210,
+          52
+        ],
+        [
+          [
+            [
+              0.69,
+              0.47
+            ],
+            [
+              0.72,
+              0.67
+            ],
+            [
+              0.82,
+              0.75
+            ],
+            [
+              0.93,
+              0.64
+            ],
+            [
+              0.92,
+              0.4
+            ],
+            [
+              0.85,
+              0.3
+            ],
+            [
+              0.8,
+              0.45
+            ],
+            [
+              0.82,
+              0.61
+            ]
+          ],
+          200,
+          52
+        ]
+      ],
+      "flowers": [
+        [
+          0.5,
+          0.66,
+          0.11,
+          0.28
+        ]
+      ],
+      "scalarChannelOrder": [
+        "contour/chisel",
+        "leaf/petal broad2.7px",
+        "true boundary distance/20px",
+        "author head/coil/tail domain",
+        "author peony domain",
+        "continuous body macro6.2px"
+      ],
+      "authoringMethod": "Independent inferred guide grayscale to closed layered geometry. Minute dark pits are concave real surface cuts, substantial openings have actual walls. No guide/reference image is a rendered material.",
+      "visualAccepted": false,
+      "photographicAccepted": false,
+      "sourceCropAspect": 3.403174603174603,
+      "scalarCanvasPaddingPixels": 4,
+      "aspectDefinition": "Actual cropped/padded source canvas; equal physical XY sampling reverses the scalar-grid resampling exactly.",
+      "headSolidRevision": {
+        "smallEnclosedHeadHolesConvertedToTrueConcaveSurfaceCuts": 1,
+        "convertedPixels": 307,
+        "maximumRegionPixels": 384,
+        "headMacroMassDomeRange8bit": [
+          104,
+          208
+        ],
+        "preservedLargerHeadOpeningsPixels": [
+          522
+        ],
+        "exteriorContourUnchanged": true,
+        "guideAndReferenceRGBMaterials": false
+      }
+    },
+    {
+      "family": "peony-cup",
+      "guide": "exec-27da119d-50af-46b3-abbe-97ab168d84e3.png",
+      "guideSha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "crop": [
+        228,
+        756,
+        825,
+        1111
+      ],
+      "grid": [
+        384,
+        256
+      ],
+      "naturalAspect": 1.6666666666666667,
+      "field": "peony-cup-r01.gray8.bin",
+      "fieldSha256": "2eb5eb23269bad3d51d670a4ac81a0e83de1ac80981d41852b0cb1352f390017",
+      "connectedPixels": 68481,
+      "discardedDisconnectedPixels": 65,
+      "tinyGuidePuncturesChangedToIncisions": 162,
+      "filledPixels": 1128,
+      "heads": [],
+      "spines": [],
+      "flowers": [
+        [
+          0.5,
+          0.52,
+          0.47,
+          0.47
+        ]
+      ],
+      "scalarChannelOrder": [
+        "contour/chisel",
+        "leaf/petal broad2.7px",
+        "true boundary distance/20px",
+        "author head/coil/tail domain",
+        "author peony domain",
+        "continuous body macro6.2px"
+      ],
+      "authoringMethod": "Independent inferred guide grayscale to closed layered geometry. Minute dark pits are concave real surface cuts, substantial openings have actual walls. No guide/reference image is a rendered material.",
+      "visualAccepted": false,
+      "photographicAccepted": false,
+      "sourceCropAspect": 1.6816901408450704,
+      "scalarCanvasPaddingPixels": 4,
+      "aspectDefinition": "Actual cropped/padded source canvas; equal physical XY sampling reverses the scalar-grid resampling exactly."
+    },
+    {
+      "family": "foliate-scroll",
+      "revision": "r04-fluted-and-longitudinally-rolled-bearing",
+      "grid": [
+        224,
+        448
+      ],
+      "naturalAspect": 0.5,
+      "field": "foliate-scroll-fluted-r04.gray8.bin",
+      "fieldSha256": "2a8854678b43f6c3050054e791d012667d4d32c582353a5d437fa929996c73b1",
+      "guide": "independent-medium-peony-sheet.png",
+      "guideSha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "guidePurpose": "Traditional acanthus/cloud visual vocabulary only; no guide pixels determine the new vector-carved shape or its depth.",
+      "authoringMethod": "Hand-authored cubic leaf veins, lobed rolled transverse profiles, one continuous curled stem, real closed front/rear/opening/exterior walls at runtime.",
+      "priorNativeSource": "4f17b49fddd4252ff8f51b7a24bffa9f75c6c9c6b85f1baf450533aef9404202",
+      "physicalVeinCyclesPerLeaf": 4.8,
+      "materialOrLightingChanged": false,
+      "recipeSha256": "fdd30fe2220e02a723e46e55e48469bed80b193098c9fc0ed9c50a71b1d00112",
+      "supersamples": 4,
+      "stemPoints": [
+        [
+          0.14,
+          0.93
+        ],
+        [
+          0.4,
+          0.84
+        ],
+        [
+          0.68,
+          0.7
+        ],
+        [
+          0.62,
+          0.55
+        ],
+        [
+          0.36,
+          0.4
+        ],
+        [
+          0.49,
+          0.25
+        ],
+        [
+          0.72,
+          0.15
+        ],
+        [
+          0.84,
+          0.2
+        ],
+        [
+          0.76,
+          0.3
+        ],
+        [
+          0.61,
+          0.31
+        ],
+        [
+          0.58,
+          0.25
+        ]
+      ],
+      "leaves": [
+        {
+          "vein": [
+            [
+              0.4,
+              0.84
+            ],
+            [
+              0.16,
+              0.87
+            ],
+            [
+              0.035,
+              0.71
+            ],
+            [
+              0.075,
+              0.57
+            ]
+          ],
+          "widthPixels": 53
+        },
+        {
+          "vein": [
+            [
+              0.4,
+              0.84
+            ],
+            [
+              0.72,
+              0.94
+            ],
+            [
+              0.98,
+              0.8
+            ],
+            [
+              0.88,
+              0.64
+            ]
+          ],
+          "widthPixels": 53
+        },
+        {
+          "vein": [
+            [
+              0.68,
+              0.7
+            ],
+            [
+              0.28,
+              0.73
+            ],
+            [
+              0.015,
+              0.52
+            ],
+            [
+              0.09,
+              0.38
+            ]
+          ],
+          "widthPixels": 55
+        },
+        {
+          "vein": [
+            [
+              0.62,
+              0.55
+            ],
+            [
+              0.87,
+              0.61
+            ],
+            [
+              0.98,
+              0.44
+            ],
+            [
+              0.91,
+              0.31
+            ]
+          ],
+          "widthPixels": 50
+        },
+        {
+          "vein": [
+            [
+              0.36,
+              0.4
+            ],
+            [
+              0.06,
+              0.4
+            ],
+            [
+              0.06,
+              0.18
+            ],
+            [
+              0.22,
+              0.07
+            ]
+          ],
+          "widthPixels": 45
+        },
+        {
+          "vein": [
+            [
+              0.49,
+              0.25
+            ],
+            [
+              0.75,
+              0.33
+            ],
+            [
+              0.99,
+              0.18
+            ],
+            [
+              0.91,
+              0.065
+            ]
+          ],
+          "widthPixels": 42
+        },
+        {
+          "vein": [
+            [
+              0.4,
+              0.84
+            ],
+            [
+              0.56,
+              0.85
+            ],
+            [
+              0.74,
+              0.88
+            ],
+            [
+              0.73,
+              0.955
+            ]
+          ],
+          "widthPixels": 30
+        }
+      ],
+      "stemRootPixel": [
+        39,
+        396
+      ],
+      "stemRootScalarValue": 226,
+      "connectedPixels": 39899,
+      "discardedSubpixelComponentsPixels": 0,
+      "channels": [
+        "physical oblique-vein and lobed fold/chisel profile",
+        "broad rolled leaf mass",
+        "physical boundary distance/20px",
+        "raised continuous stem, longitudinal leaf roll and rolled-tip domain",
+        "zero flower domain",
+        "continuous broad mass"
+      ],
+      "rearCarrierEmbedMetres": 0.006,
+      "authoredDepthParameterMetres": 0.038,
+      "sourceRGBMaterial": false,
+      "referencePhotoGeometryOrMaterial": false,
+      "artifactScan": false,
+      "licenseScope": "Independent inferred hand-authored form; existing mixed scene licenses and original guide provenance remain unchanged. Personal noncommercial review.",
+      "visualAccepted": false,
+      "photographicAccepted": false
+    }
+  ],
+  "referencePhoto": "references/hd/4-\u7167\u7247-5.jpg",
+  "referencePurpose": "Comparison and traditional visual vocabulary only; no reference RGB/depth scene material",
+  "runtimeGeometry": "Closed front, rear, rounded actual external and opening walls, six scalar channels controlling nonmetric authored sculpt form. Uniform XY aspect-preserving mounting,6mm back embed.",
+  "licenseScope": "Existing mixed CC BY-NC-SA4.0 Amida and CC BY4.0 wood-carving/donor attributions remain exact. New forms are independently inferred author art, not scans. No blanket MIT assertion. Personal noncommercial review.",
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "revisionChange": "After actual R03 full, truecrop and right-oblique review: sculpt physical oblique leaf veins and longitudinal rolled folds into only the new continuous leaf bearings. This widens the actual front-surface normal directions so broad dark planar-looking faces can catch existing room light. Same hand-authored leaf outlines, positive primary/stem anchors, natural aspect,6mm back embed, primary dragon geometry, old longR03/shortR02, cabinet198, material/PBR, lighting and reference camera remain unchanged.",
+  "sculptureDepthsMetres": {
+    "medium-dragon": 0.027,
+    "paired-dragons": 0.026,
+    "peony-cloud": 0.02,
+    "peony-cup": 0.021,
+    "compact-dragon": 0.026,
+    "foliate-scroll": 0.038
+  },
+  "reviewBasis": "family-r03-recovery241-actual-review.json; all three actual views inspected, source4f17b49fddd4252ff8f51b7a24bffa9f75c6c9c6b85f1baf450533aef9404202",
+  "mountingRevision": "Continuous leaf stem roots coincide with positive solid primary-grid samples; physical XY equality preserved,6mm rear embed, frame clearance checked against rotated envelopes."
+}

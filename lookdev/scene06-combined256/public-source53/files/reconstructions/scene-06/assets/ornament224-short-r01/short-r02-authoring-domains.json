@@ -1,0 +1,136 @@
+{
+  "revision": "short-r02-domain-draft",
+  "fieldSha256": "1909ef7dd8b2f7b1d058066ceffb870f45e7d3d37e68da64097905ed0f8b3a76",
+  "grid": [
+    512,
+    448
+  ],
+  "channels": [
+    "raw contour and submillimeter chisels",
+    "broad2.7px curvature",
+    "edge distance/20px",
+    "manual head/coiled-body/tail depth-domain",
+    "manual peony cup and petal depth-domain"
+  ],
+  "geometryIntent": "Head in foreground, main coil slightly behind and tail lower again; peony cups have independent solid petal thickness between dragon and subordinate leaf planes. All are actual scalar-authored geometry, never RGB material.",
+  "headPolygon": [
+    [
+      0.015,
+      0.1
+    ],
+    [
+      0.35,
+      0.0
+    ],
+    [
+      0.57,
+      0.3
+    ],
+    [
+      0.41,
+      0.48
+    ],
+    [
+      0.25,
+      0.46
+    ],
+    [
+      0.1,
+      0.36
+    ]
+  ],
+  "bodySpine": [
+    [
+      0.25,
+      0.36
+    ],
+    [
+      0.22,
+      0.53
+    ],
+    [
+      0.31,
+      0.63
+    ],
+    [
+      0.48,
+      0.7
+    ],
+    [
+      0.66,
+      0.65
+    ],
+    [
+      0.73,
+      0.51
+    ],
+    [
+      0.69,
+      0.36
+    ],
+    [
+      0.58,
+      0.29
+    ],
+    [
+      0.43,
+      0.34
+    ]
+  ],
+  "tailSpine": [
+    [
+      0.48,
+      0.7
+    ],
+    [
+      0.5,
+      0.79
+    ],
+    [
+      0.67,
+      0.84
+    ],
+    [
+      0.85,
+      0.88
+    ],
+    [
+      0.94,
+      0.77
+    ]
+  ],
+  "bodyDomainValues": {
+    "head": 255,
+    "coil": 215,
+    "tail": 175
+  },
+  "bodySpineWidthPixels": 70,
+  "tailWidthPixels": 34,
+  "bodySoftTransition": 5.0,
+  "flowerDomains": [
+    {
+      "center": [
+        0.8,
+        0.3
+      ],
+      "radii": [
+        0.18,
+        0.18
+      ]
+    },
+    {
+      "center": [
+        0.19,
+        0.79
+      ],
+      "radii": [
+        0.19,
+        0.2
+      ]
+    }
+  ],
+  "flowerSoftTransition": 4.2,
+  "claim": "Independent author semantic layer over generated compact guide; not an artifact scan or photo geometry recovery.",
+  "visualAccepted": false,
+  "photographicAccepted": false
+}

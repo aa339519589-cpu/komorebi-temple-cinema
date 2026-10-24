@@ -1,0 +1,34 @@
+{
+  "status": "native-reviewed-working-indirect-lighting-source-exact",
+  "source": "e27e7f8aa59e12ef688f400e74d8394ba1b33eff986e3b7bd99e07d7ebafd76f",
+  "before": "6bdce147cc43286f03c598471cd456f1bd562ba2c3abe8b1343280d14e9642c5",
+  "changed": [
+    {
+      "path": "reconstructions/scene-06/src/reference6-main.js",
+      "before": "e3c780ae70b7e281c32feabfe545ef601cc84b5bedde1de60dd5cfbd0d05b67d",
+      "after": "edf35c4dcd083a9e2805cbdedeac9ef55c540f7cdcc3d3a373c111c192d96422"
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-scene.js",
+      "before": "a55945be4e018c145c22d862ef1a2cac60114ed981b4be553716ba8e6428cc9a",
+      "after": "1470876b4f0895e4ee9f1d9bc4aeee60154a7a5a085f4cfc44f973ae7aab57b6"
+    },
+    {
+      "path": "reconstructions/scene-06/src/indirect-visibility245.js",
+      "before": null,
+      "after": "d98cf4d0650ae7fc748f3b73354b13081c8ea33f833b712b63ccc3b35550dbe6"
+    },
+    {
+      "path": "reconstructions/scene-06/src/ltc-atlas245.js",
+      "before": null,
+      "after": "8b23b3827d75d3ab6596c405fb9c292e4d3039885a5ca8b2dfe70c87becf49e1"
+    }
+  ],
+  "rootViewed": [
+    "Full reference camera",
+    "True left-room subfrustum"
+  ],
+  "technical": "Both actual frames all-linked GL0; source LUT values and float precision retained. Exact peak bindings not separately measured.",
+  "photographicAccepted": false,
+  "scope": "Only indirect screen visibility replaces beauty-wide multiplication; native LTC tables packed without resolution/precision reduction. No geometry/camera/light/texture-source changes."
+}

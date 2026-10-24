@@ -1,0 +1,72 @@
+{
+  "sourceHash": "2e72e61435d0443968174d398503ff250bdd8510367ecfb15017bd8f00f38860",
+  "baseSourceHash": "53b7228f6bbd25fac1069a5308d0d0b03cf8bb7b89424d096be3ceed473bbcbd",
+  "files": [
+    {
+      "path": "lotus-throne222.js",
+      "sha256": "8cfa1cf29a0fa1f7155794ba805bce0af82b2e9c536a698f5a56e9ffcf537dac",
+      "bytes": 6635
+    },
+    {
+      "path": "lotus-gilt222.js",
+      "sha256": "bcb34c0c465273503b80b06992544c5b026a63dfb9e62f2eac9e3b7e0e39d758",
+      "bytes": 2063
+    }
+  ],
+  "actualViews": [
+    "candidate-r02/qa/ten-reference/06/iteration-scene06-lotus258-r02-native-personal-nc/reference.png",
+    "candidate-r02/qa/ten-reference/06/iteration-scene06-lotus258-r02-native-personal-nc/detail-native.png",
+    "candidate-r02/qa/ten-reference/06/iteration-scene06-lotus258-r02-low-oblique-personal-nc/inspection-view.png"
+  ],
+  "rootPersonallyViewedAll": true,
+  "photographicAccepted": false,
+  "changed": "Actual 3 closed convex petal tiers, 44 to63 leaves, shorter overlapping outer tier and returned points. Intermediate roughness restores narrow metallic response while reducing R01 rectangular probe bands.",
+  "unchanged": "Source hem contact core and bearings, body, pose, camera, room, illumination, all textures and raw source retained.",
+  "remaining": [
+    "Gold still has nonphysical repeated probe highlights; full multi-bounce scene is independent252 work.",
+    "Central body anatomy, halo shape, altar and tables remain substantially unlike reference.",
+    "Petal/ring geometry is an inferred reconstruction, not a source artifact scan."
+  ],
+  "cropBoard": {
+    "file": "reference-before-after-seat-native.png",
+    "order": [
+      "reference",
+      "combined53-before",
+      "lotus258-r02-after"
+    ],
+    "inputs": [
+      {
+        "path": "references/hd/4-\u7167\u7247-5.jpg",
+        "box": [
+          480,
+          484,
+          780,
+          614
+        ],
+        "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35"
+      },
+      {
+        "path": "lookdev/scene06-room248/combined-prototype-root/qa/ten-reference/06/iteration-scene06-combined248-r01-room-native-personal-nc/reference.png",
+        "box": [
+          480,
+          500,
+          780,
+          630
+        ],
+        "sha256": "5ece0a3ffcd93e4cd1853a3288523230c544a1f85fecd83c3c5778f3c35cce47"
+      },
+      {
+        "path": "lookdev/scene06-lotus258/candidate-r02/qa/ten-reference/06/iteration-scene06-lotus258-r02-native-personal-nc/reference.png",
+        "box": [
+          480,
+          500,
+          780,
+          630
+        ],
+        "sha256": "14a0de6b19e7aa2f2840c01d7b1c4f1ad9e0bc75786bba99656eccd75d86ec1a"
+      }
+    ],
+    "allCropsAreUnscaledNativePixels": true,
+    "notARenderAsset": true
+  }
+}

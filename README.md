@@ -4,9 +4,11 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
-2026-10-24 工作检查点：可直接查看[十景最新保留实渲／参考对照](qa/ten-reference/working-model-review-20261024-l/all-ten-reference-left-render-right.jpg)与[各幅独立源码身份](qa/ten-reference/working-model-review-20261024-l/frames.json)。第4景入口木构、第7/8景真实承托与窗廊、第6景天花及花供已继续重建；新纸屏窗候选仍待原生画面审查。所有场景的摄影匹配仍未通过。
+2026-10-24 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261024-l/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261024-l/frames.json)。此对照早于最新佛堂重建。供桌、跪垫、柜面、柱网和房间纵深正在继续重做；所有场景的摄影匹配仍未通过。
 
-新一轮1080×1080、24fps影片固定于公开源码 `c355c5d4` 的独立快照，原生以1620×1620渲染后缩小。系统重启时已完成的8个七秒镜头逐文件核对字节保留，正在接续第9/10景；[快照核对](lookdev/film-sol61-232/snapshot-proof.json)及[中断与恢复记录](lookdev/film-sol61-232/reboot-interruption242.json)保留。新一分钟版本尚未完成，下面的播放器及旧样片链接仍指向各自的历史制作检查点。
+佛堂整屋研究原型 `53b7228f` 已保存为[可复原的精确源码覆盖包](lookdev/scene06-combined256/public-source53/README.md)，基于公开提交 `62ba98d1`，含真实供桌、房间、独立雕刻/藻井材料、实体滑动纸屏和间接可见度着色。[实际全幅](lookdev/scene06-combined256/actual-source53/full.png)、[供桌真局部](lookdev/scene06-combined256/actual-source53/table-detail-native.png)和[低侧角](lookdev/scene06-combined256/actual-source53/low-oblique.png)均由同一源实际渲染。它仍有明显造型和光照差距，此后柱头、织锦、漆座、侧像和实体多次反弹照明继续重建。[莲座258两轮建模与实际检查](lookdev/scene06-lotus258/delivery-r02/handoff-r02.json)独立保留。
+
+新一轮十景工作影片F已完成媒体输出：[60秒／70秒及原生画面对照](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/working-film-2026-10-24-f)。影片固定于完整公开源码 `c355c5d4` 的独立快照，1080×1080、24fps，原生1620×1620采样后缩小。[快照核对](lookdev/film-sol61-232/snapshot-proof.json)、[重启恢复记录](lookdev/film-sol61-232/reboot-interruption242.json)与[实际媒体哈希／时长／帧数](output/sol61-rebuild-20261024-f-resume1/media-receipt.json)保留。两版均完整解码检查；抽样画面不证明逐帧照片精度或完全无闪烁。此片早于上面的供桌和整屋新模型，十景均未验收。
 
 [佛堂228七秒工作运镜](qa/ten-reference/06/iteration-scene06-ceiling228-motion-r01-personal-nc/motion-review.mp4)与[花供233实际三轮记录](lookdev/scene06-living233/review-r03.json)可单独查看；[第一景九个实际编码帧](lookdev/film-sol61-232/scene01-f-nine-actual-frames.jpg)用于观察真实近景拉远过程。抽样画面不证明逐帧照片精度或完全无闪烁。
 
@@ -21,9 +23,9 @@ PORT=4318 node tools/server.mjs
 - [十景影片制作预览](http://127.0.0.1:4318/film.html)：60 秒叠化剪辑、70 秒完整源镜头、十景原图与实际渲染对照。
 - [左侧参考图／右侧实时 3D](http://127.0.0.1:4318/compare-ten.html)：十个独立场景入口。
 
-播放器当前指向 `native-rebuild-review-20261021-e` 制作检查点，960×960、24 fps。每个源镜头 7 秒、168 帧；九处叠化重叠得到 60 秒、1,440 帧的剪辑。十景均已加入这一轮重建；之后的建筑比例、佛像塑形、园林层次和物理光照仍继续修改。
+播放器当前指向 `sol61-rebuild-20261024-f-resume1` 冻结工作检查点，1080×1080、24fps。每个源镜头7秒、168帧，九处叠化得到60秒、1440帧剪辑。十景源文件逐镜头身份见 [影片记录](output/sol61-rebuild-20261024-f-resume1/film-build.json)；[原生源帧清单](qa/ten-reference/film-review-sol61-rebuild-20261024-f-resume1/frames.json)和[原图／实际影片源帧](output/sol61-rebuild-20261024-f-resume1/references-left-renders-right.jpg)保留。
 
-本片逐镜头核验公开 Git 源码：十景均对应同一个完整源码快照 `69211a6`，包含各景声明的原始素材文件。各镜头完整文件集、源码与视频哈希在 [影片记录](qa/ten-reference/film-review-native-20261021-e/film-build.json)；[起／中／末实际视频帧](qa/ten-reference/film-review-native-20261021-e/all-shots-start-middle-end.jpg) 和 [十景原图／实际渲染](qa/ten-reference/film-review-native-20261021-e/all-ten-reference-left-native-right.jpg) 可直接查看。它是未通过照片匹配的制作版，此后模型继续修改。
+MP4超过Git单文件大小，存放在上述预发行资产。新检出仓库时，把两份 `temple-ten-scenes-60s.mp4`、`temple-ten-scenes-70s.mp4` 下载到 `output/sol61-rebuild-20261024-f-resume1/` 后即可本地播放；[下载地址与SHA-256](output/sol61-rebuild-20261024-f-resume1/public-media.json)明确保留。源代码许可不覆盖素材的独立非商用／署名条款。
 
 本轮夜景另有 [1080×1080、24 fps 的真实 7 秒运镜草稿](qa/ten-reference/09/iteration-scene09-carried-hall-motion187-r02/motion-review.mp4)：从低机位殿前木构拉远到塔、桥和池塘。它没有配乐，只用于检查这一景的模型与镜头，不是十景成片。此前前景柱帽占据开场的版本已按实际画面退回，原帧与片段保留。
 

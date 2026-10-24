@@ -1,0 +1,55 @@
+{
+  "revision": "r02",
+  "ownAlbedo": "coffer-rear-dark-r02-albedo.png",
+  "ownAlbedoSha256": "79d16ef6b58b4bf83cd632d7127bcab4a41c4b3d623eca6ef2a50fd607b5a137",
+  "dimensions": [
+    971,
+    1620
+  ],
+  "physicalPanelAspect": 0.6,
+  "method": "Warm-chroma soft pigment separation from independent generated albedo only. No photograph or scene-light data.",
+  "confidenceFormula": {
+    "warmRedMinusBlueSmoothstep": [
+      0.025,
+      0.105
+    ],
+    "maximumRGBSmoothstep": [
+      0.045,
+      0.155
+    ],
+    "excludeBlueMinusRedSmoothstep": [
+      0.015,
+      0.075
+    ]
+  },
+  "parameters": {
+    "groundMetalness": 0.018,
+    "goldPigmentMetalness": 0.38,
+    "groundRoughness": 0.84,
+    "goldPigmentRoughness": 0.69,
+    "emission": 0
+  },
+  "goldConfidenceMean": 0.3761492763872099,
+  "goldConfidenceAboveHalfFraction": 0.3759360974431349,
+  "dataFiles": {
+    "gold-mask": {
+      "file": "coffer-rear-dark-r02-gold-mask.png",
+      "sha256": "eec9e4e8af33d9483068cb84e7102498144d6befa0679c88657c7dd0f9a6f441",
+      "linearData": true
+    },
+    "metalness": {
+      "file": "coffer-rear-dark-r02-metalness.png",
+      "sha256": "a16160a404878e1b0ca871a9e1aa148cce41e2b06cb4c3623a832c8247dfe791",
+      "linearData": true
+    },
+    "roughness": {
+      "file": "coffer-rear-dark-r02-roughness.png",
+      "sha256": "925ba3031867c51cd1deaeaca976a0d281cb935dd61ae1a5c81e48946409c298",
+      "linearData": true
+    }
+  },
+  "recipeSha256": "97a4af22fb292123320dbcb73922c56db08721957307019761732821c4155316",
+  "referenceSceneRGBRead": false,
+  "albedoModified": false,
+  "photographicAccepted": false
+}

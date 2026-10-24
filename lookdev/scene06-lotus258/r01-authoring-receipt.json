@@ -1,0 +1,618 @@
+{
+  "baseSourceHash": "53b7228f6bbd25fac1069a5308d0d0b03cf8bb7b89424d096be3ceed473bbcbd",
+  "clone": [
+    {
+      "path": "reconstructions/ten-scenes.json",
+      "sha256": "ba1601195da2135160d7141615a79f834f6ca284515591d382bbf3adeb24d75a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/camera-dolly.js",
+      "sha256": "d3a1003ad0103e25f37eb8e49b62b5fdcb6a0529c73b6dca2c38941aa1d635f5",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/index.html",
+      "sha256": "660ec3bdb105f9728b22969e86e2c96bbd237d82278e3636761f180ee37e8948",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/ATTRIBUTION-AND-ASSET-LICENSES.md",
+      "sha256": "616245bfe456e7775a869c30e2044637a92b98c27c14855352624d94bb2c50cf",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r07/build.py",
+      "sha256": "a4aefdc3deb8e70c2850806d2b591726544c712c976bfe6fa0e48ec0a3b1bc1d",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r07/anatomy.py",
+      "sha256": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r07/__pycache__/anatomy.cpython-313.pyc",
+      "sha256": "cfbd342d852ccc736ce3c67af03e32731703a1d2a39bbc9f9d7c8deef2897391",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/scene06-r10-sculpture-landmarks.json",
+      "sha256": "f4778d9965c1a47bcc00ee3631902e7a3b2af680c7671a487d63f4d4c41e49ae",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r06/build.py",
+      "sha256": "10a9b08e3ee616204b7c1cf28ef27d8d233157e5f33eb65472cd039794c98c39",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r06/anatomy.py",
+      "sha256": "f550f1695cf3c91d734486796d58b80d4b3aa2513ab97d990ac4b0738767842a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r06/__pycache__/anatomy.cpython-313.pyc",
+      "sha256": "94d1a12ef8b40bb038dfc6aa6b463bcfefb60eefcebd72e9a82aef909454fa42",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculpt199-r05.mjs",
+      "sha256": "3c12c50b2acd5b3de137ba16d41cc79d7787739272ec890600bb6bc32733ed52",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/reconstruct-r05-pre-curl-for-r06.mjs",
+      "sha256": "4a285bd4439fca9ce7c39becd0e3b161d4c13973b6eb15b4f1345c79016980da",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculptural-cast.mjs",
+      "sha256": "0b6ae6c99c05573857943b1750481d651d95bc76d7af2691e76cc2f9577d4c5a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/__pycache__/fuse-sculptural-cast-r11.cpython-314.pyc",
+      "sha256": "88048e74cffb798024bbb99c140cf7ff7de462cd8cd94537561794aa0cbb7c06",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r9.py",
+      "sha256": "467b87a0c17a86ad2675e5121948d53958910bd52defadffeb9c834e76958636",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/scene06-r11-sculpture-landmarks.json",
+      "sha256": "ba456630ec0d2aa9345302381631506fa4e1253dcbc485fc2b98e3ac43c4149a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r04/build.py",
+      "sha256": "e5dd61344d0563759d60ff931589e1234fca9942a26183d7bf8572ba9723fee3",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r04/anatomy.py",
+      "sha256": "305c09f0d861e9ba8eca610b7feb910030111fc2e77cc0ce4a592e1b5ae77187",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r04/__pycache__/anatomy.cpython-313.pyc",
+      "sha256": "6cf1feb0e04181ffcaa4560fa58d88ffe1b34efcbdc21f4b6ed52bba48296241",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r03/build.py",
+      "sha256": "118fbd06eae9619405f529fd0f210a4d644b91e6515cd97806100b5d4637eab9",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r03/anatomy.py",
+      "sha256": "11992ae1a9cffbec2bfc967323af19d288e5462a28c9425721516fd5d062dea6",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r03/__pycache__/build.cpython-314.pyc",
+      "sha256": "422598b42e4ba0b2a87b35279865f8b0575591ccaa06e38b721ff0434ebe0e75",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r03/__pycache__/anatomy.cpython-314.pyc",
+      "sha256": "8bfc8a55f7716e3656efe4de57d2a0a2d7d21c395c56aa5779e87a0f63b28089",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r03/__pycache__/anatomy.cpython-313.pyc",
+      "sha256": "76a9fb80f76ae0e834854b6b54f95d54c9068c3ef0191523f4ccd2ef262b1f05",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculptural-cast-r9.mjs",
+      "sha256": "9b571a8d4377c605a5a979335694e1a0d9731daada46e5ac8c4ea4483fe8d591",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r02/build.py",
+      "sha256": "d6eadd4c661f21fca2adc9e48bd083fd2daa3abe4e75abdfaa008881a34e3c4e",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r02/__pycache__/build.cpython-314.pyc",
+      "sha256": "7ed884cf8d1cd37df859f70f2ac8ff449ab95b6f20e44537ff164dfc96533a9d",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r02/__pycache__/geometry.cpython-314.pyc",
+      "sha256": "05cb98479d6c38257c595e13ffdfbbb2c652473bafd1da80a091f000dfdda486",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r02/__pycache__/geometry.cpython-313.pyc",
+      "sha256": "d93c120742fe36031c6fee9b753d01e65f23c6ca31bbbc040b775c18bb2fef3e",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r02/geometry.py",
+      "sha256": "f2dc8dd36421522538a79ff86623cb5320b06c132fae099c4c87148fcb897ee2",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/fuse-sculptural-cast.py",
+      "sha256": "de0c6c863f0d54ae6421e72fa6023da4440cd4cc39f9bf8a2caeffb6da4f0f95",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r05/build.py",
+      "sha256": "03ca47100191556251a11af8a3813f832834938bd86ccdbad85a4c36482dac3e",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165-r05/anatomy.py",
+      "sha256": "3b19e02e22bc5f49aff77c98ed50839fd83d8ce042f0b991d46955de1b455032",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165/build.py",
+      "sha256": "4b323f51b16397b7b1ddf79d2eff4654e5b54a743550b5b6cdf31e1aef62be32",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165/__pycache__/build.cpython-314.pyc",
+      "sha256": "35a8d8a892d15c839fb9909198c743eca03af05cebefb41d70b37cbcbe26edc0",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165/__pycache__/geometry.cpython-314.pyc",
+      "sha256": "ec123a821878cc4519f271ef78e1e04d60639909f15c84c6a870cfc33da8a875",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165/__pycache__/geometry.cpython-313.pyc",
+      "sha256": "612d1b271a77c49e65f2f0b42bb6b88a69c25d97e49551bef707338c721804e8",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture165/geometry.py",
+      "sha256": "78a5cb8690534ead007accf6478d316440c6aa0ae6abced23a473827b2517db3",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r10.py",
+      "sha256": "76750cbbb248d593095253d0fb9e94b7244ee282921b3820b16a2cbaee7a9116",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-attendant-bearing-v4.py",
+      "sha256": "7688e5dd759698dd73199638c68ba6bf67a8774fe53553902422ef6012644400",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculpt199-r06d-rays173.mjs",
+      "sha256": "a7eca5905cf28167eec7dce77352e68e57e9514b85d4b63ed33e91de73ec27c2",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture199-r08a/scalp-curls199.mjs",
+      "sha256": "72c3ee144260c80a03210e9b327e6759c44129c2af64a5dbeea34a39af534af3",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture199-r08a/bundle-continuous-seed199-r08a.mjs",
+      "sha256": "ab9ac80d5dc16043d4da9c17aa41e5c7957441cebbd66628ac072c415de4db31",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture199-r08a/recipe-manifest.json",
+      "sha256": "b026283f0326286533ff41a63834b54db8a589e68dc3a7a3a46991e61bf31c8e",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture199-r08a/continuous-source-fit199.mjs",
+      "sha256": "c50ea947153554974a3558617fd335d2c00167d20adce54ff1b14fe3ddffdca0",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/sculpture199-r08a/build-sculpt199-r08a-continuous-source-fit.mjs",
+      "sha256": "882c93a0eafed7bba0162c286dbbc07c4e606108dcc6d98c8a768c2677884590",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-attendant-faces-v3.py",
+      "sha256": "395a51d9577242154b3161f4b6f0fa17127da344b1c35f3bd932b8335b1ffd91",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/fuse-sculptural-cast-r11.py",
+      "sha256": "b2a2c541800e961a9a4752b44914237e95ac8302135fc48b422c54be275ea40c",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculptural-cast-r11.mjs",
+      "sha256": "2146b3ca0967cb21129ae5ffec5400d9f013b86171e3290f2a7ea618a23268cf",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/modeling/build-sculptural-cast-r10.mjs",
+      "sha256": "d8fe6200cb528337b50bb4af7f9a7addacab728ebdfbea434c25296172b394b5",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/README.md",
+      "sha256": "b4bd29c38f2bf11683e42fab9961afd729ac023ddf5f5f984568d8c0bd5d5b5b",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/asset-dependencies.json",
+      "sha256": "5584e9cef044311ee4958d66d885126e0c47efd10390afb0a79b848c70957205",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/sculpt-fields-r01.gray8.bin",
+      "sha256": "e46abecd711c57fb691a8411c380478fa4b677693834680479ac38e004d16338",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/provenance.json",
+      "sha256": "89285c985647819e06f8508e0c9a2634dd570b0721c2f0494760976e571770fa",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/short-r02-solid-mass-provenance.json",
+      "sha256": "562766c28cb53349d508bb41e05446147697aa05c32a0d1646a2efcad2c5ea4b",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/prompt.txt",
+      "sha256": "4a647c56167cce933884b79b6798561f04b4ada0d1f3e51880465bc0deaf83a7",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/sculpt-fields-r02-solid.gray8.bin",
+      "sha256": "3afa919a5444a28d38d5ded16f9b0080f390e55113897abf02c2046d8bf31b97",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/independent-compact-dragon-guide.png",
+      "sha256": "8e79d08afdcb8d95610e2915428da3ff474f8970ccd846c4f852a3b811716c21",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-short-r01/short-r02-authoring-domains.json",
+      "sha256": "0d34af6a942209959adee8fdc3dd21d0b7fe7a1a6fad142f8135d1730bb8f6e9",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/prompt-medium-peony.txt",
+      "sha256": "3d477025f1d2fb20850fd03371eaf4d3c24a299dbc1cd8c0674c5a8deff443be",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/foliate-wing-r02.gray8.bin",
+      "sha256": "4fdf6c9b390d061b3f0b84edc8230c1dd20693aef08939d6565205b020250cae",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/provenance-r01.json",
+      "sha256": "46021511c10eb21bc9256ffef53a4267d04b0b6521cc00898978ac1605bae02f",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/medium-dragon-r01.gray8.bin",
+      "sha256": "69e10a9a58c050840dff0076e6ca64e6aff6c762a1db5430d3e79df885abf18d",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/independent-medium-peony-sheet.png",
+      "sha256": "60969dd1b7827f4faf30a53409eee6641ab3d4d5a627100084ff79cbdff75466",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/medium-dragon-solid-head-r03.gray8.bin",
+      "sha256": "355537ac4bdc6b2e27abdd1177ad8b3394488903555715d0f2bdaa9f20e07c77",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/peony-cloud-r01.gray8.bin",
+      "sha256": "01f0c29e42528e53e1be04b6a1953ab155c5804ff853cfb4397c2f39ec4b3226",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/peony-cup-r01.gray8.bin",
+      "sha256": "2eb5eb23269bad3d51d670a4ac81a0e83de1ac80981d41852b0cb1352f390017",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/paired-dragons-r01.gray8.bin",
+      "sha256": "39a47ae0e3e422f122f84371622098d34a050d0862e5c324c2ec3263c15b45f8",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/provenance-r04.json",
+      "sha256": "665960495770e2de7ad58e77bded8466ba44deb69376ca2970a26081f479931a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/foliate-scroll-handcarved-r03.gray8.bin",
+      "sha256": "579c9abfc20ccce232a7d097fdc8ed9db7cf81121652fe8912f31e7ea214eace",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/prompt-paired-dragons.txt",
+      "sha256": "63f404c282017550724155442ece2dd1e993e7274553562d0d36598b539ce75a",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/independent-paired-dragons.png",
+      "sha256": "767cfe132a1faf4e67163795cb8c0387796893c0f76d9a93953fca874cc35799",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/provenance-r03.json",
+      "sha256": "47beef3f725f714ac5b2167ac8d2d1a3febedee224b7544b02249ca922ceceaa",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/provenance-r02.json",
+      "sha256": "6aa3f90b14b745475ea59af0bbb4a656873f3f95b2a55511c58f8149dccbcf11",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/paired-dragons-solid-head-r03.gray8.bin",
+      "sha256": "8ca7ba7ef6f05fe36a8da5bedd838047a5bc7fbaa1a115197f85b59daf45c296",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/assets/ornament224-family-r01/foliate-scroll-fluted-r04.gray8.bin",
+      "sha256": "2a8854678b43f6c3050054e791d012667d4d32c582353a5d437fa929996c73b1",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/mandorla205.js",
+      "sha256": "0491ab3de9e2efbe432d11fa81dd4d6b15ec5167fb119bac3b09932b748d8c4f",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/ornament224.js",
+      "sha256": "22c86c0551ed76997cec3ad65a4e23930bfcd3c2563ffd4c23e9eccd463d7262",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/mandorla-botanical-cast-r10.js",
+      "sha256": "1e5dbb89a084aa84735f2fef0e293f1fda5ee1d7a14b588eb5d8fdbccaedc8d9",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/table247-reference-traces.js",
+      "sha256": "afd3b601cfc12d1bb00901c119eb0d1faf5ad5d6144c43425b50a86b2b44a3ef",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/offering-table247.js",
+      "sha256": "52cbde43434d45213bb4f763f4ebf27e7c56ffd268fe79daecbe38f92a0847a3",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-lighting.js",
+      "sha256": "05388e9b9ed8f70c043da6677853680c5a6eb58964921a3d459637d9d655c0c4",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/foreground-floor-panels.js",
+      "sha256": "6cbeb9718391342601fe21878b41f296d37d730908dab2763d67f4cf87463780",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/painted-coffers228.js",
+      "sha256": "559494abc1dbed18807e625b7f2be516cab3a0f2789e4d16d7d55a372a4781d4",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/mandorla-botanical-cast-r9.js",
+      "sha256": "df1685d3cdab508c139d6053e3eebadaa3a28102bce9560371a8768b08f8c802",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-coffer-relief.js",
+      "sha256": "f963b3bfb725c74a4f95706f82066fa2b8a28d30d5033e01a102d0c391769d53",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/lotus-throne222.js",
+      "sha256": "fc44442a0e51592bd2d52181518500a2507ac8aae684fbfd1f749dffe9157cb2",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/lotus-gilt222.js",
+      "sha256": "69a33b1104cf2a92bd18cf278a1dd2bbe9d0a8d9cafabc333dfe2a4aab2c541c",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/room-layout248.js",
+      "sha256": "d0dcdf10182a43836c4dd7f5a4113537b357bd6348b4a733b1b5be02421faf54",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-altar.js",
+      "sha256": "33b8dd0939ab7f438d5f9d32bc55fcabc7137843dfa3dc93e921d3dbfcf3aab9",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/paint-material249-r02.js",
+      "sha256": "d9b15c847ae5fd0065fe57386e80fdc047700da569b05a26d168bfce844af4f3",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/floor-varnish.js",
+      "sha256": "5c3ea28a04085765b3d631eb75b2a25b7092519db31d038a6da9595615d8b14c",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/altar-joinery198.js",
+      "sha256": "df31b6226d9ad08950173286ea9c1e5b2a6d8d54929732cd9417fe5663b070f8",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-camera-shot.js",
+      "sha256": "1a523ba662e994ff012985f32701b6e85132ad889101075fbb4683467cb4cf48",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/room-structure248.js",
+      "sha256": "c994348629e54310ef1c75c695757abdd8d6d5e548d083200d86ea5bc837df63",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/altar-metalwork198-r06.js",
+      "sha256": "d038b0836e7ddd7c90d8bbe0a90875c12254162444cf790d79c6b12ff0e61ce5",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/floor-scan106.js",
+      "sha256": "a6544e43dfa578bde1a1a40d6bab8a6cb0b0c409f963f6cb516bd798bd2995dd",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/monumental-altar-v3.js",
+      "sha256": "25a95aeb0563f60b50ac31ab56be25a8205cb3623050f1f8a5e3e66f787b91b1",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/timber-reflectance228.js",
+      "sha256": "3c90fe67ad355e5a622bb7f66739b5520e8c606e6ab1558488626a6ae1de78c4",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/ltc-atlas245.js",
+      "sha256": "8b23b3827d75d3ab6596c405fb9c292e4d3039885a5ca8b2dfe70c87becf49e1",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-column-collar.js",
+      "sha256": "9b50889fb44d1251bcfb8d4270df13332b33f1946cb018f4f17d5ed58f079a94",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/sculptural-cast-assets.js",
+      "sha256": "d0064f4c86f228595226850bf2542e473249205e2ff21f8e475353f2e99115f2",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/indirect-visibility245.js",
+      "sha256": "d98cf4d0650ae7fc748f3b73354b13081c8ea33f833b712b63ccc3b35550dbe6",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/lotus-throne179.js",
+      "sha256": "7e56d91b1d17c2a2e66b732b14b78e9aab4ca1b8bb4643f1c002f47d72495ae9",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-chandelier.js",
+      "sha256": "be83cbfdf8cbfe5a5568c70b25ee4305a169209c3a36c4d1773c284316e8a887",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/ornament-family224.js",
+      "sha256": "b9c259e8a375f3a8185fb722d142c64245044ccb1dff86fb00159da3fffd29c8",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-buddha.js",
+      "sha256": "91a3d04500fc0d49bc96d9a44abb3a4a7518f49c0d55118cafdef4e5f5c4e31d",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/ornament-short224.js",
+      "sha256": "ca6631d57daa6ff59a333a39b2f61b3777b4532dd161e2925bcc15e583de5cb6",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/window-canopy195.js",
+      "sha256": "aab4b4c66a5de202fe21f38943aea80119434830dddce2c68da9ad6efe43f80e",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/restoration-render-diagnostics.js",
+      "sha256": "7c2ed63a945983ff09ada9cfd0c8bae8c53f702522825d586927d215906f9a25",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/central-sculpture-scalp199.js",
+      "sha256": "99898625c20cf4433abfc623803480c9dc8bf048838a588e3995d7efba35c397",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-scene.js",
+      "sha256": "06230b1fd4f377e43029d386373f59210517417fbbba9707275013e4216f5636",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-main.js",
+      "sha256": "c4cd5d7564385f0e873d547946b7e61ecfd126bd16eac3f7d1bf82fbc0c57849",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/daylight-scattering195.js",
+      "sha256": "6bad2bfeaa83ab33dc5d825d451788742ea80bf790b7e7237bf3c9632e901735",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/lens-bloom.js",
+      "sha256": "951cc93b16fd2d593875034d13ee8609699e211472901468cceda0d9d4c9451d",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/living-offerings233.js",
+      "sha256": "171ebd91729300f05aa1ee9abb6b9390aa1588e058613541466c37d6af13c3ab",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/shot-focus.js",
+      "sha256": "3101c18d1285ec0b96745ef2d7c9c5e40783e7e4a9b138a8bf3966b7aa533079",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/sliding-shoji234.js",
+      "sha256": "0b7168f90a4acf126fbb8336816f9c77539bc6760adb5a4fa31cf4bfb5ba3b12",
+      "independentInode": true
+    },
+    {
+      "path": "reconstructions/scene-06/src/paint-material249.js",
+      "sha256": "0fdb50ad6f988c33094ffc331ea3a0096fd2b2cfa74f58b2a325e81f28af9c37",
+      "independentInode": true
+    },
+    {
+      "path": "tools/server.mjs",
+      "sha256": "48f6f032395f8f4d3821ce4722abaf5237810b143c128252b9d321daacf21ca4",
+      "independentInode": true
+    }
+  ],
+  "changedOnly": [
+    "src/lotus-throne222.js",
+    "src/lotus-gilt222.js"
+  ],
+  "scope": "Actual three-layer closed carved meshes; reference picture used only for side-by-side shape study. Geometry and material values inferred, not measured.",
+  "contactCoreAndSourceHemUnchanged": true,
+  "bodyAndRoomAndCameraAndLightUnchanged": true,
+  "photographicAccepted": false
+}
