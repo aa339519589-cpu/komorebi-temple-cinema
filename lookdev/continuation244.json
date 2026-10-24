@@ -1,0 +1,66 @@
+{
+  "status": "active-working-reconstruction-all-ten-photographically-unaccepted",
+  "updatedUtc": "2026-10-24T04:41:51.753000+00:00",
+  "publicCommit": "0db3929f83eef31bcb30ddb9406c8daa679eebe6",
+  "branch": "work/ten-view-reconstruction-20261018",
+  "film": {
+    "captureRoot": "/Users/mima1234/temple-cinema-film-f-sol61-232",
+    "publicSourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+    "iteration": "sol61-rebuild-20261024-f-resume1",
+    "execSession": 53859,
+    "wrapperPid": 6356,
+    "capturePid": 6402,
+    "lastObservedReference": 9,
+    "lastObservedFrames": 120,
+    "totalFramesInShot": 168,
+    "completeClips": 8,
+    "oldInterrupted09Retained": true,
+    "resumeLog": "lookdev/film232-render-resume1.log",
+    "progressWatcherSession": 65923,
+    "progress": "lookdev/film-sol61-232/progress.json",
+    "instruction": "Poll the same process/handle; do not restart for a timeout or slow capture. Source files in the captureRoot are read-only and must remain untouched."
+  },
+  "rootWindows234": {
+    "source": "6bdce147cc43286f03c598471cd456f1bd562ba2c3abe8b1343280d14e9642c5",
+    "state": "first-native-review-queued",
+    "execSession": 25916,
+    "pid": 8224,
+    "iteration": "scene06-window234-r01-personal-nc",
+    "log": "lookdev/scene06-window234/r01-native.log",
+    "geometry": "Real sliding closed paper panels and their carried lattice, actual clear slots; existing lights held. Paper emission is an explicitly inferred transmission-radiance boundary, not full GI.",
+    "previousFloraSource": "c0afc84039a5652a63948ee65affdf217faa935c0c3cebc905545c1a313ca522",
+    "previousFloraActual": "qa/ten-reference/06/iteration-scene06-living233-r03-recover242-personal-nc"
+  },
+  "workers": {
+    "sol61_scene04_recover237": "Private212R27 778e97de34be0ec0467a2a5939dcfa666bec66b23667d62ecd79963991ee1fe3 pending actual; R28 closed structural supports prepared. Root canonical04 stays R25 c648.",
+    "sol61_scene07_recover238": "Canonical R26 b3143c273ea0b562df1e6c6390365d1137adbe6934decc451259e5d401050289 pending actual; substantial R27 true pigment/lights/mountain/canopy draft ready. working-handoff-r27-238.json.",
+    "sol61_scene08_recover239": "Canonical R21 b2d1d1dcd07ab9aeb863b56c62baadb61c2f530a94b6739c8cdba64ba2bea5ea pending actual; R22 full left-hall timber/gilt/low-sun material candidate remains lookdev only and has strict prior-review activation.",
+    "sol61_sculpt199_recover240": "Private199 R12b d41f8c73cc9882771991bed46997c51487e3bd5a429b9431ba4d8499f513a376 front actual viewed, remaining three queued; wholeNC/R05 head 619 real traced curls. Coverage does change on scalp; face/body changes0; explicitly corrected in r12b-coverage-change-audit.json. No canonical promotion.",
+    "sol61_ornament224_recover241": "Private familyR02 03facc6434d7dc8e984b48c7b3c32d245ad90baeed47253ea613da8bf2da967f actual full/crop/oblique pending; R03 authoring only. R01 all17 real panels actual reviewed, frozen source035960 retained. Surgical198 patch only, no entire scene overwrite."
+  },
+  "workerConfiguration": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "max",
+    "fork_turns": "none",
+    "newWorkersAfterSystemReboot": true
+  },
+  "previewServer": {
+    "port": 4318,
+    "execSession": 17795,
+    "log": "lookdev/preview-server242.log"
+  },
+  "protectedDirtyFiles": [
+    "qa/depth-field-film-v02/assets.json",
+    "lookdev/scene06-statue-foundation-v2/README.md",
+    "reconstructions/scene-08/README.md",
+    "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json"
+  ],
+  "next": [
+    "Inspect native window234 first round before any further canonical06 edits; retain/repair rather than assume visual success.",
+    "Continue exact-source film and finish09/10, then assemble both60/70 edits using original approved PeriTune Oboro.",
+    "Run root tools/review-and-package-ten-film.py against FILM_CAPTURE_ROOT with FILM_SKIP_ZIP=1; tool is now fps-aware and checks actual master frames/duration/decode. It has not yet been run against the unfinished film.",
+    "Build actual encoded ten-shot motion board; view the resulting artifacts.",
+    "Retain original source clips/reports; mirror final valid artifacts to root through exact-byte independent CoW as needed, update player only once full film is actually complete and verified. Publish source/media with original NC-SA4 statue attribution.",
+    "Review and integrate released precise worker deltas; all photographic fidelity remains unaccepted; original scope is all ten scenes, not the subset currently being refined."
+  ]
+}

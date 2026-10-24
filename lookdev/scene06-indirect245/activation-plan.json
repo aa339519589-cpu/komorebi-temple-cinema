@@ -1,0 +1,18 @@
+{
+  "status": "draft-only-not-active-and-not-native-reviewed",
+  "baseCandidate": "scene06-window234-r01",
+  "precondition": "Root must view and decide the queued window234 full/true-crop images before changing canonical06 again.",
+  "steps": [
+    "Retain exact native-reviewed source and original reference6-main.js before any installation.",
+    "Keep the existing opaque normal/depth pass and GTAO geometric radius/thickness/samples/denoise settings.",
+    "Set GTAOPass.output to Off; remove its multiply blend from the beauty composer.",
+    "Install only after initial room cube/PMREM captures. Existing material hooks and cache keys must remain composed.",
+    "Every frame: render actual opaque depth, run contactAO.render(renderer,null,null) to compute its public gtaoMap, enable the main-view indirect shader, render beauty composer, disable in finally.",
+    "Keep the planar reflector guard; main-camera visibility must be disabled throughout reflected-camera renders.",
+    "Update truthful limitation/diagnostic metadata. Direct sun/lamp values, camera, exposure, geometry, sculpture, materials and floor reflection settings are otherwise held.",
+    "Use a new official FIFO native iteration for full/true-crop/low images and all actual sampler/link/GL diagnostics, then inspect the pixels. Do not claim success from shader text alone."
+  ],
+  "shaderSemantics": "Applies the pinned ordinary PBR indirect diffuse, indirect clearcoat/sheen and roughness-aware indirect specular occlusion operations to a native screen visibility field; it does not multiply direct lighting or emissive radiance.",
+  "risk": "One additional sampler on affected programs. Verify actual compilation in the native context, including reflection and transmission passes; no assumption that a previous texture budget still holds.",
+  "photographicAccepted": false
+}

@@ -4,6 +4,12 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
+2026-10-24 工作检查点：可直接查看[十景最新保留实渲／参考对照](qa/ten-reference/working-model-review-20261024-l/all-ten-reference-left-render-right.jpg)与[各幅独立源码身份](qa/ten-reference/working-model-review-20261024-l/frames.json)。第4景入口木构、第7/8景真实承托与窗廊、第6景天花及花供已继续重建；新纸屏窗候选仍待原生画面审查。所有场景的摄影匹配仍未通过。
+
+新一轮1080×1080、24fps影片固定于公开源码 `c355c5d4` 的独立快照，原生以1620×1620渲染后缩小。系统重启时已完成的8个七秒镜头逐文件核对字节保留，正在接续第9/10景；[快照核对](lookdev/film-sol61-232/snapshot-proof.json)及[中断与恢复记录](lookdev/film-sol61-232/reboot-interruption242.json)保留。新一分钟版本尚未完成，下面的播放器及旧样片链接仍指向各自的历史制作检查点。
+
+[佛堂228七秒工作运镜](qa/ten-reference/06/iteration-scene06-ceiling228-motion-r01-personal-nc/motion-review.mp4)与[花供233实际三轮记录](lookdev/scene06-living233/review-r03.json)可单独查看；[第一景九个实际编码帧](lookdev/film-sol61-232/scene01-f-nine-actual-frames.jpg)用于观察真实近景拉远过程。抽样画面不证明逐帧照片精度或完全无闪烁。
+
 ## 本地查看
 
 从仓库根目录运行：
