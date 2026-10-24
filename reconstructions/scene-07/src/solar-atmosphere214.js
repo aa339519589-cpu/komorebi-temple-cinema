@@ -3,11 +3,12 @@ import * as T from 'three';
 // native half-float ceiling. Camera exposure uses the reciprocal; albedo and
 // all light ratios remain invariant under this unit conversion.
 export const RADIANCE_SCALE214=1/6;
+export const SOLAR_DIRECTION214=Object.freeze([-.58,.045,-.81]);
 
 // One finite source, quadrature-sampled over its physical 0.53-degree disk.
 // Every sample casts a real shadow; there are no auxiliary fill directions.
 export function createSolarDisk214(scene){
- const totalIntensity=24,angularRadius=T.MathUtils.degToRad(.265),solidAngle=2*Math.PI*(1-Math.cos(angularRadius)),direction=new T.Vector3(-.58,.045,-.81).normalize(),target=new T.Vector3(0,3,3),u=new T.Vector3(0,1,0).cross(direction).normalize(),v=direction.clone().cross(u).normalize(),samples=[{weight:.25,direction:direction.clone()}];
+ const totalIntensity=24,angularRadius=T.MathUtils.degToRad(.265),solidAngle=2*Math.PI*(1-Math.cos(angularRadius)),direction=new T.Vector3(...SOLAR_DIRECTION214).normalize(),target=new T.Vector3(0,3,3),u=new T.Vector3(0,1,0).cross(direction).normalize(),v=direction.clone().cross(u).normalize(),samples=[{weight:.25,direction:direction.clone()}];
  for(let i=0;i<4;i++){const a=(i+.173)*Math.PI/2,r=angularRadius*Math.sqrt(2/3),d=direction.clone().multiplyScalar(Math.cos(r)).addScaledVector(u,Math.cos(a)*Math.sin(r)).addScaledVector(v,Math.sin(a)*Math.sin(r)).normalize();samples.push({weight:.1875,direction:d});}
  const lights=samples.map((sample,i)=>{
   const light=new T.DirectionalLight(0xffffff,totalIntensity*sample.weight*RADIANCE_SCALE214);light.color.setRGB(1,.40,.085);light.name='scene07-shadowed-finite-solar-disk214-r20-'+i;light.target.position.copy(target);light.position.copy(sample.direction).multiplyScalar(1200).add(target);light.castShadow=true;light.shadow.mapSize.set(i?2048:4096,i?2048:4096);Object.assign(light.shadow.camera,{left:-38,right:38,top:34,bottom:-25,near:1,far:2400});light.shadow.bias=-.0000025;light.shadow.normalBias=.004;light.shadow.radius=i?1.5:2;scene.add(light,light.target);return light;

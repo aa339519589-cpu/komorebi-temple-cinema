@@ -1,0 +1,16 @@
+{
+  "recipe": "scene06-capital254-r01b",
+  "startedAt": "2026-10-24T09:45:46.464Z",
+  "status": "cpu-authored-mesh-written-awaiting-native-review",
+  "files": {
+    "lookdev/scene06-table-scan254/build-capital254-r01b.py": "d96d61e501592a472abf7879a807237af4e29aa9005cb41014bf3e04270c349c",
+    "lookdev/scene06-table-scan254/capital254-guides-r01b.json": "68328879bfebf647d8cb911580f52010c3956a50302c64f3206b7b84d78a72c5"
+  },
+  "threads": 4,
+  "scope": "Root previously read entire R01 original sculpt script and all manual paths; personally read exact R01b script delta and parsed legal guide JSON against a leading-zero-normalized original. Only GUIDEs/DEST/revision and JSON number spelling differ. No numeric contour, dimensions or algorithms changed. Original R01 failure retained. CPU-only original mesh union/normal carving and compact mesh writes, four threads owned CPU lock, no render/export/viewport/bake/GPU. Target fidelity still requires native whole-table review.",
+  "gpuFifoAcquired": false,
+  "visualAccepted": false,
+  "childPid": 29394,
+  "exitCode": 0,
+  "completedAt": "2026-10-24T09:46:02.933Z"
+}

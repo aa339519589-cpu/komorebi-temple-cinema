@@ -182,7 +182,11 @@ export function buildReference4Architecture(T,options={}) {
    const x=side*(seg[0]+seg[1])/2,w=seg[1]-seg[0],h=2.82,y=C.stairTopY+h/2+.54;
    box(x,y,-.79,w,h,.18,'darkwood');
    emit(createPiercedWindow212({width:w-.12,height:2.12,depth:.14}),'cedar',x,C.stairTopY+1.63,-.35);
-   emit(createSculptedCloudBody212({width:w*.49,height:.78,depth:.050,frontFloor:.008,back:.035,y:0,z:0,region:[.36,.02,.64,.98],outline:'ellipse'}),windowSculpture212,x,C.stairTopY+1.77,-.35);
+   emit(createSculptedCloudBody212({width:w*.43,height:.72,depth:.041,frontFloor:.006,back:.035,y:0,z:0,region:[.36,.02,.64,.98],outline:'ellipse'}),windowSculpture212,x,C.stairTopY+1.63,-.39);
+   // Rear timber spokes physically receive the centre carving inside its
+   // open octagonal frame; fine square cells remain visible around it.
+   box(x,C.stairTopY+1.63,-.43,(w-.12)*.57,.038,.12,'darkwood');
+   box(x,C.stairTopY+1.63,-.43,.038,2.12*.43,.12,'darkwood');
    for(let i=0;i<12;i++)box(x-w*.45+i*w*.90/11,C.stairTopY+2.91,-.36,.022,.54,.12,'cedar');
    for(let j=0;j<5;j++)box(x,C.stairTopY+2.65+j*.13,-.34,w-.10,.022,.12,'cedar');
    box(x,C.stairTopY+2.61,-.34,w,.095,.22,'cedar');
@@ -213,10 +217,10 @@ export function buildReference4Architecture(T,options={}) {
    for(const yy of[.98,2.18,3.38])C.spatial188.panel(emit,{x,y:y0+yy,z:z+.285,width:.29,height:.96,vertical:true,label:'front-portal-bearing-stile-'+side+'-'+yy});
    box(side*(clearW/2+.035),y0+clearH/2,z-.08,.07,clearH,.42,'oldgold');
   }
-  box(0,y0+clearH+.23,z,5.04,.46,.50,'cedar');box(0,y0+.035,z,4.2,.07,.60,'darkwood');
+  box(0,y0+.035,z,4.2,.07,.60,'darkwood');
   // The new source-scaled transfer/nuki hierarchy replaces the overlapping
   // front central beam copies. Side-bay real timbers stay on their bay axes.
-  for(const s of[-1,1])for(const span of[[C.columnAxes[3],C.columnAxes[4],C.capitalTop-.72],[C.columnAxes[4],C.columnAxes[5],C.capitalTop-1.0]]){const x=s*(span[0]+span[1])/2,w=span[1]-span[0];box(x,span[2]+.12,.04,w,.27,.44,'red');}
+  // Full-depth mortised side headers now belong to the joined porch frame.
  });
 
  const upper=roof({name:'main-upper-roof',w:C.upperRoofWidth,d:9,eave:upperEave,rise:C.ridgeY-upperEave,curl:upperCurl,centerZ:C.ridgeZ,connected:true,ridgeHalfRatio:upperRidgeHalfRatio,ridgeOffsetX:upperRidgeOffset,eaveOffsetX:upperEaveOffset});

@@ -151,6 +151,42 @@ reviewed['scene06-sculpture165-r07']={
  "receipt": "lookdev/scene06-sculpture165/r07-cpu-authoring-receipt.json",
  "scope": "Root reviewed exact measured neck-only repair against R06; complete unchanged helper remains pinned. CPU-only local cloth-neck trim, endpoint-tangent exact boundary strip, source-head positions/normals/fit unchanged. No render, scene export, image sampling, viewport, UV bake or GPU compute. Actual collar/seat/face review required; photographic fidelity unaccepted."
 };
+reviewed['scene06-capital254-r01']={
+  "script": "lookdev/scene06-table-scan254/build-capital254-r01.py",
+  "files": {
+    "lookdev/scene06-table-scan254/build-capital254-r01.py": "c878ee2b07878dd4685475e4f7730649e1f7a1e9ea6544729ab57db59bd22072",
+    "lookdev/scene06-table-scan254/capital254-guides-r01.json": "ac2f3d394cdd0be5aab2c3cf128ebee0442e08ebcddc0f4192bdcc3da2d543bf"
+  },
+  "receipt": "lookdev/scene06-table-scan254/authored-r01-cpu-receipt.json",
+  "scope": "Root personally read entire self-contained script and JSON guide. Original authored closed changing-section leaves and bearing web, CPU voxel union/small smoothing, BVH chisel-path normal carving and compact SC07/JSON output only. No raster/source-scan sampling, scene export, render, viewport, UV bake or GPU. Four threads and owned CPU authoring lock required. True target-shape fidelity remains pending actual native component and whole-table review."
+};
+reviewed['scene06-capital254-r01b']={
+  "script": "lookdev/scene06-table-scan254/build-capital254-r01b.py",
+  "files": {
+    "lookdev/scene06-table-scan254/build-capital254-r01b.py": "d96d61e501592a472abf7879a807237af4e29aa9005cb41014bf3e04270c349c",
+    "lookdev/scene06-table-scan254/capital254-guides-r01b.json": "68328879bfebf647d8cb911580f52010c3956a50302c64f3206b7b84d78a72c5"
+  },
+  "receipt": "lookdev/scene06-table-scan254/authored-r01b-cpu-receipt.json",
+  "scope": "Root previously read entire R01 original sculpt script and all manual paths; personally read exact R01b script delta and parsed legal guide JSON against a leading-zero-normalized original. Only GUIDEs/DEST/revision and JSON number spelling differ. No numeric contour, dimensions or algorithms changed. Original R01 failure retained. CPU-only original mesh union/normal carving and compact mesh writes, four threads owned CPU lock, no render/export/viewport/bake/GPU. Target fidelity still requires native whole-table review."
+};
+reviewed['scene06-capital254-r02']={
+  "script": "lookdev/scene06-table-scan254/build-capital254-r02.py",
+  "files": {
+    "lookdev/scene06-table-scan254/build-capital254-r02.py": "b9b5ba0d705b5ce1decd3113dd2e2f1f57040c82623eff4606dd3ce7edbbdbc5",
+    "lookdev/scene06-table-scan254/capital254-guides-r02.json": "804ddd3c590ef93aacb97b1aa2de2ce83df5432bd530d9f01544982d296dba51"
+  },
+  "receipt": "lookdev/scene06-table-scan254/authored-r02-cpu-receipt.json",
+  "scope": "Root personally read complete original CPU sculpt script, whole R02 change set/new fan-shell function and all new guide coordinates, then final visibility-kernel center/assertion repair. Original closed palmette front/back/rim loft, variable-section shoulder leaves and geometry-projected physical chisel grooves; same CPU voxel union and compact mesh output. No reference raster/height-field sampling, source scan replacement, render, scene export, viewport, bake or GPU. Four threads and one owned CPU authoring lock. Actual source-camera table/capital/low-side review remains required; no photographic acceptance."
+};
+reviewed['scene06-capital254-r03']={
+  "script": "lookdev/scene06-table-scan254/build-capital254-r03.py",
+  "files": {
+    "lookdev/scene06-table-scan254/build-capital254-r03.py": "a378af48e8d415df806583e4cce28b5d5ee2748b3106060f24fa2b691f19312a",
+    "lookdev/scene06-table-scan254/capital254-guides-r03.json": "0fbe7b8752092fa2eb6fee2c3a599c67845ddfea9845c9c632ea828d9834da85"
+  },
+  "receipt": "lookdev/scene06-table-scan254/authored-r03-cpu-receipt.json",
+  "scope": "Root read complete earlier sculpt script/helpers, entire R03 code diff and changed guide objects. Actual rounded radial-contour fan front/back/return, depth-curled rim, two real asymmetric turnback leaf solids, physical valley channels and normal chisel paths; same CPU closed-volume voxel union/output. Original R02 and all failed candidates retained. Four-thread exclusive CPU-authoring lock, no render/scene export/viewport/image sampling/bake/GPU. Native whole-table/capital/low-side image comparison remains required; topology is not photographic acceptance."
+};
 if(!Object.hasOwn(reviewed,recipe))throw Error('An exact root-reviewed CPU authoring recipe is required.');
 const spec=reviewed[recipe],digest=b=>createHash('sha256').update(b).digest('hex');
 async function verify(){for(const [name,expected]of Object.entries(spec.files))if(digest(await readFile(resolve(root,name)))!==expected)throw Error('Reviewed CPU source changed: '+name);}

@@ -1,8 +1,8 @@
 import * as T from 'three';
-export const NATURAL197_REVISION='scene08-natural-sun-carved-court197-r04';
+export const NATURAL197_REVISION='scene08-lower-sun-warm-finish-chain213-r22';
 
 export function installSun197(scene){
- const sun=new T.DirectionalLight(0xffffff,5.1);sun.name='scene08-197-single-shadow-casting-sun';sun.color.setRGB(1,.79,.52);sun.position.set(-31,25,20);sun.target.position.set(0,5,-7);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.radius=3.0;Object.assign(sun.shadow.camera,{left:-27,right:27,top:33,bottom:-18,near:1,far:100});sun.shadow.bias=-.00010;sun.shadow.normalBias=.024;scene.add(sun,sun.target);
+ const sun=new T.DirectionalLight(0xffffff,5.1);sun.name='scene08-197-single-shadow-casting-sun';sun.color.setRGB(1,.79,.52);sun.position.set(-31,18,20);sun.target.position.set(0,5,-7);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.radius=3.0;Object.assign(sun.shadow.camera,{left:-27,right:27,top:33,bottom:-18,near:1,far:100});sun.shadow.bias=-.00010;sun.shadow.normalBias=.024;scene.add(sun,sun.target);
  return{sun,info:{revision:NATURAL197_REVISION,sun:{position:sun.position.toArray(),target:sun.target.position.toArray(),linearRGB:sun.color.toArray(),intensity:sun.intensity,shadowMap:4096,shadowRadius:3},additionalDirectionalFills:0,ambientLights:0,hemisphereLights:0,cameraFollowingLights:0,parallelProjectionLighting:false,referencePixelsUsed:false,visualAccepted:false}};
 }
 
@@ -23,7 +23,7 @@ export function captureHallCourt197({renderer,scene,materials,stream,grandFrame}
    finally{camera.removeFromParent();target.dispose();}
   }
  }finally{stream.visible=mirror;renderer.shadowMap.autoUpdate=auto;pmrem.dispose();}
- const eaveRoles=new Set(['hallArm213','hallReceiver213','hallRafter213','hallCut213','hallSoffit213','hallFascia213']);
+ const eaveRoles=new Set(['hallArm213','hallReceiver213','hallRafter213','hallCut213','hallSoffit213','hallFascia213','hallInlay213']);
  for(const m of materials)if(m.name.startsWith('grand-hall-')){
   const high=eaveRoles.has(m.userData.hallTimber213?.role),capture=captures[high?1:0];
   m.envMap=capture.environment.texture;m.envMapRotation.set(0,0,0);m.envMapIntensity=1;m.userData.actualCourtCapture213=capture.label;m.needsUpdate=true;capture.materials.push(m.name);

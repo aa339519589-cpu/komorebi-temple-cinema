@@ -1,0 +1,124 @@
+{
+  "updatedAt": "2026-10-24T06:43:15.869Z",
+  "revision": "scene07-rebuild214-r29",
+  "sourceIdentity": "af2e6143fa9df3e3b83fad2622000c51ec846f4ddb5b611cc51e3ef4acec8b2c",
+  "baselineR22Source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+  "canonical": "reconstructions/scene-07",
+  "frozenRuntimeSource": "lookdev/scene07-rebuild214/r29-source",
+  "sourceManifest": "lookdev/scene07-rebuild214/r29-source-identity.json",
+  "runtimeDelta": "lookdev/scene07-rebuild214/runtime-delta-r29/manifest.json",
+  "sourceVerification": "lookdev/scene07-rebuild214/r29-snapshot-verification.json",
+  "actualReview": "lookdev/scene07-rebuild214/r29-review.json",
+  "reviewPage": "lookdev/scene07-rebuild214/review-r29.html",
+  "actualNativeChecks": [
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r29-238/report.json",
+      "source": "af2e6143fa9df3e3b83fad2622000c51ec846f4ddb5b611cc51e3ef4acec8b2c",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "maxSampler": 16,
+          "limit": 16,
+          "captureStages": 26,
+          "captureMaxSampler": 16,
+          "allCaptureProgramsLinked": true,
+          "allCaptureProgramsWithinBudget": true,
+          "actualShadowedFixtureLights": 4,
+          "paperEmissiveIntensity": 0,
+          "rgbaSha256": "83f77219b34c3746280c4e5e73197f2863cc846ea0628f7e727a4802d577e0ee"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "maxSampler": 16,
+          "limit": 16,
+          "captureStages": 26,
+          "captureMaxSampler": 16,
+          "allCaptureProgramsLinked": true,
+          "allCaptureProgramsWithinBudget": true,
+          "actualShadowedFixtureLights": 4,
+          "paperEmissiveIntensity": 0,
+          "rgbaSha256": "423cc7504a295053f039c35e79ae196a7344cd07a0e7c8186bc8c086b6164254"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r29-238-near-shore-low/report.json",
+      "source": "af2e6143fa9df3e3b83fad2622000c51ec846f4ddb5b611cc51e3ef4acec8b2c",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "maxSampler": 16,
+          "limit": 16,
+          "captureStages": 26,
+          "captureMaxSampler": 16,
+          "allCaptureProgramsLinked": true,
+          "allCaptureProgramsWithinBudget": true,
+          "actualShadowedFixtureLights": 4,
+          "paperEmissiveIntensity": 0,
+          "rgbaSha256": "1db6eb4d1d4c3c950060a8499ee35d0d85595e8926b7480fc4233aecf9ca927b"
+        }
+      ]
+    }
+  ],
+  "sourceOnlyRuntimeBytes": 153884,
+  "rawAssetBytesCopied": 0,
+  "photographicAcceptance": false,
+  "retainedFrozenSources": [
+    "r22-source",
+    "r23-source",
+    "r24-source",
+    "r25-source",
+    "r26-source",
+    "r27-source",
+    "r28-source",
+    "r29-source"
+  ],
+  "evidence": [
+    "r25-review.json",
+    "r26-review.json",
+    "r27-review.json",
+    "r28-review.json",
+    "r29-review.json",
+    "r27-material-chain-source-audit238.json",
+    "r27-paper-source-light-analysis238.json",
+    "r27-shared-sampler-source-check238.json",
+    "r28-paper-source-check238.json",
+    "r28-mountain-cpu-comparison238.json",
+    "r29-forest-range-cpu238.json"
+  ],
+  "completedWork": "Recovered exact R25, then completed and personally inspected four further real 3D iterations. Hall return/door/gilded joinery, measured material/lighting chain, actual thin-paper/interior fixture light, lossless identical-image sampler binding and coherent actual terrain solar transport are source-backed and rendered.",
+  "remainingDefects": [
+    "The continuous far canopy is now too smooth and its resolved source pines are sparse/skeletal; the hills still lack convincing forest mesostructure and source-appropriate vegetation albedo.",
+    "The main hall remains schematically regular, with incomplete lower returned-porch wall/post separation and insufficient material/ornament variation compared with HD07.",
+    "Near garden foliage, stone/route edges, water/plant interaction and the retained generated sky remain visibly CG.",
+    "Native first-bounce environments, diffuse-sheet paper and interpolated surface shadow controls remain approximations, not solved volumetric/multi-bounce transport."
+  ],
+  "nextWork": "Derive appropriate resolved/aggregate vegetation from source plant structure, restore non-repeating forest mesostructure on the coherent range, and then rebuild lower returned porch/remaining hall surface hierarchy. Do not describe sampler or topology passes as photographic acceptance.",
+  "protectedScopes": "No Git writes/commits, shared source/other scene change, raw asset copy, Blender export or modification to the independently frozen R22 film root. Legacy R11 QA report was not touched.",
+  "activeOwnGpuJobs": []
+}

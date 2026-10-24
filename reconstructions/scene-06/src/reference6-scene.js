@@ -1,4 +1,7 @@
 import * as T from 'three';
+import {buildRoomStructure248} from './room-structure248.js';
+import {ROOM_LAYOUT248} from './room-layout248.js';
+import {createPaintMaterial249} from './paint-material249-r02.js';
 import {installCentralScalp199} from './central-sculpture-scalp199.js';
 import {buildWindowCanopy195} from './window-canopy195.js';
 import {createShojiPaper234,buildSlidingShoji234} from './sliding-shoji234.js';
@@ -18,7 +21,7 @@ import {createReference6Chandelier} from './reference6-chandelier.js';
 
 // Independent room, not a material patch over the exterior-world reconstruction.
 // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene06-sculpture199-r08a-continuous-source-fit-mixed-source-licenses',roomWidth:13.6,ceilingY:7.2,backZ:-5.8,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.72,.50,-.48],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Personal noncommercial NC-SA4 mixed-source derivative. The entire J/NC face remains uncut and continuous; real donor triangle/barycentric targets guide bounded actual eye/brow/nose/lip detail on a conformingly refined source surface. Rejected donor-cheek transplants remain frozen and are not used. Actual NC ear volume turns coherently with direct original-NC triangle/barycentric ancestry. Raised coils and irregular actual-surface roots replace the straight cap edge; standard aged-gold vertex color keeps original metalness, roughness and roughnessMap. Original body/palms/garments/hem/seat positions and normals belowY2.15 stay exact from J/R05. All raw sources and traces retained; no image projection, hidden head, face disc or global filter. Photographic fidelity remains unaccepted.'});
+export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene06-sculpture199-r08a-continuous-source-fit-mixed-source-licenses',roomWidth:13.6,ceilingY:7.2,backZ:ROOM_LAYOUT248.bounds.backZ,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.72,.50,-.48],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Personal noncommercial NC-SA4 mixed-source derivative. The entire J/NC face remains uncut and continuous; real donor triangle/barycentric targets guide bounded actual eye/brow/nose/lip detail on a conformingly refined source surface. Rejected donor-cheek transplants remain frozen and are not used. Actual NC ear volume turns coherently with direct original-NC triangle/barycentric ancestry. Raised coils and irregular actual-surface roots replace the straight cap edge; standard aged-gold vertex color keeps original metalness, roughness and roughnessMap. Original body/palms/garments/hem/seat positions and normals belowY2.15 stay exact from J/R05. All raw sources and traces retained; no image projection, hidden head, face disc or global filter. Photographic fidelity remains unaccepted.'});
 function woodMap(){
  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
@@ -43,7 +46,7 @@ function castGiltMicroSurface(){
  }
  const t=new T.DataTexture(data,n,n,T.RGBAFormat);t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(7,7);t.minFilter=T.LinearMipmapLinearFilter;t.magFilter=T.LinearFilter;t.generateMipmaps=true;t.anisotropy=8;t.needsUpdate=true;return t;
 }
-export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCubeSize=128,floorSurface=null,timberMap=null,sculptureMetrics=null}={}){
+export function buildReference6Scene({reflectionSize=768,shadowSize=2048,roomCubeSize=128,floorSurface=null,timberMap=null,sculptureMetrics=null,capitalCarvings=null}={}){
  const scene=new T.Scene();scene.background=new T.Color('#ead4aa').multiplyScalar(3.0);const architecture=new T.Group();architecture.name='reference6-independent-room';scene.add(architecture);const wood=timberMap??woodMap(),woodTint=timberMap?'#ffffff':null;
  const materials={
   column:new T.MeshPhysicalMaterial({name:'reference6-red-lacquer-column',color:timberMap?'#db9c80':'#963a25',map:wood,bumpMap:wood,bumpScale:.0012,roughness:.38,metalness:0,clearcoat:.22,clearcoatRoughness:.28}),
@@ -99,7 +102,8 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
   const m=materials.floor.clone(),grain=(floorSurface?.map??wood).clone();grain.repeat.set(1,1);grain.offset.set((i*17+k*7)%31/31,(k*11+i*3)%23/23);grain.needsUpdate=true;m.map=grain;m.color.multiplyScalar(.96+.06*((i*13+k*7+71)%19)/18);bindFloorScan106(m,grain,floorSurface);bindFloorVarnish(m,floorReflectionState,101+i*13+k*3);
   const g=createForegroundFloorPanel(FOREGROUND_FLOOR_PATCH.x[i],FOREGROUND_FLOOR_PATCH.x[i+1],FOREGROUND_FLOOR_PATCH.z[k],FOREGROUND_FLOOR_PATCH.z[k+1]),panel=mesh(g,m);panel.name='scene06-observed-foreground-thick-wood-panel';
  }
- box([0,3.6,-5.8],[13.8,7.2,.26],materials.dark);// Inferred broad entrance behind the camera, not a black reflection trap.
+ // Rear closure is authored by room248 at its explicitly inferred depth.
+ // Retain the original inferred entrance behind the camera.
  box([-5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([0,6.80,10.2],[7.6,.80,.24],materials.beam);box([0,.065,10.2],[7.6,.13,.24],materials.beam);
  // Photo-led receiving-domain reconstruction: real opaque wall fields separate
  // low front daylight openings from one upper middle clerestory. These are not
@@ -132,46 +136,26 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
  }
  architecture.userData.shoji234={revision:'r01',panels:shojiPanels234,radianceBoundary:shojiPaper234.scope,allExistingLightParametersHeld:true,photographicAccepted:false};
  const daylightCanopy195=buildWindowCanopy195(scene);
- // Complete ceiling and red cross frames. No unrelated exterior roofs participate.
- box([0,7.25,2.1],[14.2,.16,16.4],materials.dark);
- for(const z of [-4.8,-2.6,1.6,4.8,8.0])box([0,6.98,z],[13.8,.40,.30],structuralBeamFaces);
- for(const x of [-6.7,-4.6,-2.3,0,2.3,4.6,6.7])box([x,7.05,2.1],[.25,.30,16],structuralBeamFaces);
- for(const side of [-1,1])for(const z of [-4.8,-2.60,5.6]){
-  const x=side*(z===5.6?6.25:z===-2.60?5.10:4.6);const cs=z===-2.60?1.25:1;box([x,.10,z],[.92*cs,.20,.92*cs],materials.black);const o=cylinder([x,3.55,z],.39*cs,6.7);o.name='reference6-red-column';pillarRoots.push(o);
-  // Broad black-lacquer and gilt column cuffs visible in the photograph,
-  // replacing the previous thin plain rings. The scroll relief is real geometry.
-  for(const [y,h]of[[.40,.46],[6.57,.30]]){
-   const cuff=mesh(columnCollar.body,materials.black,[x,y,z]);cuff.scale.set(cs,h/.46,cs);
-   const vines=mesh(columnCollar.relief,materials.oldgold,[x,y,z]);vines.scale.set(cs,h/.46,cs);
-   for(const yy of[y-h/2,y+h/2])cylinder([x,yy,z],.435*cs,.026,materials.gold);
-  }
-  box([x,6.80,z],[.88,.12,.88],materials.ceilingLacquer);
-  box([x,6.72,z],[1.25,.22,.9],structuralBeamFaces);
- }
+ // Room248 replaces only architectural solids. Materials, all light parameters,
+ // low camera, figures, altar and table retain the exact234 baseline.
+ const room248=buildRoomStructure248({materials,layout:ROOM_LAYOUT248,bindTimber:bindMetricBoxTimber228,columnCollar,apertures,capitalCarvings,paper234:shojiPaper234,floorPanelMaterial:({position,size,seed})=>{
+  const m=materials.floor.clone(),grain=(floorSurface?.map??wood).clone();grain.repeat.set(.6,size[2]/.8);grain.offset.set((seed*17%31)/31,(seed*11%23)/23);grain.needsUpdate=true;m.map=m.bumpMap=grain;bindFloorScan106(m,grain,floorSurface);bindFloorVarnish(m,floorReflectionState,seed);return m;
+ }});architecture.add(room248.group);blockers.push(...room248.blockers);pillarRoots.push(...room248.pillarRoots);architecture.userData.room248=room248.stats;
  // Original ceiling: pale floral coffer lanes separated by broad red-brown
  // timber, not the previous wall-to-wall mechanical ivory flower grid.
  const cofferRelief=createReference6CofferRelief();
- for(let i=0;i<16;i++)box([-1.875+i*.25,7.13,2.1],[.245,.035,16.0],materials.ceilingWood);
- const coffer228=buildPaintedCoffers228({mesh,box,materials});
+ // Room248 owns the closed central boards and their actual receivers.
+ const rearPaint249=createPaintMaterial249({variant:'rear-dark'});materials.rearPaint249=rearPaint249;
+ const coffer228=buildPaintedCoffers228({mesh,box,materials,plan:room248.cofferPlan,rearMaterial:rearPaint249});
  architecture.userData.coffer228=coffer228;
  architecture.userData.timber228=timber228;
- // Fine cast mounts on black beam faces and recessed rear fields.
- for(const z of[-4.8,-2.6,1.6,4.8,8.0]){
-  box([0,6.98,z+.165],[13.4,.22,.040],materials.ceilingLacquer);
-  for(const y of[6.88,7.08])box([0,y,z+.191],[13.4,.008,.014],materials.oldgold);
-  for(const x of[-5.7,-4.6,-3.4,-2.3,0,2.3,3.4,4.6,5.7]){
-   const mount=mesh(cofferRelief.gilt,materials.gold,[x,6.98,z+.20],[-Math.PI/2,0,0]);mount.scale.setScalar(.21);
-  }
+ // Retained source mounts follow the front of each new full-depth girder.
+ for(const plane of room248.mountPlanes){
+  const y=plane.y;box([0,y,plane.facingCentreZ],[plane.width,.22,.040],materials.ceilingLacquer);
+  for(const yy of[y-.10,y+.10])box([0,yy,plane.facingFrontZ+.007],[plane.width,.008,.014],materials.oldgold);
+  for(const x of[-5.7,-4.6,-3.4,-2.3,0,2.3,3.4,4.6,5.7]){const mount=mesh(cofferRelief.gilt,materials.gold,[x,y,plane.reliefZ],[-Math.PI/2,0,0]);mount.scale.setScalar(.21);}
  }
- // Black rear cupboards and framed gold fields are spatial recesses, not yellow walls.
- for(let i=0;i<8;i++){
-  const x=-5.95+i*1.70;
-  box([x,3.35,-5.62],[1.55,5.5,.06],materials.rearPanel);
-  // Actual forward timber framing leaves the dark field recessed in depth.
-  for(const dx of[-.78,.78])box([x+dx,3.35,-5.49],[.11,5.68,.22],materials.rearFrame);
-  for(const yy of[.56,3.50,6.14])box([x,yy,-5.49],[1.67,.12,.22],materials.rearFrame);
- }
- box([0,6.42,-5.40],[13.6,.28,.36],materials.rearFrame);
+ // Room248 owns the returned/recessed apse fields and real rear closure.
  // The original photograph has a transverse woven prayer-mat band, not
  // an empty central aisle. Side mats continue a little toward the camera;
  // the nearest foreground returns to reflective wood. All are true receivers.
@@ -236,7 +220,7 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
  const portalKey=new T.RectAreaLight('#ffe2ac',2.2,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
  const floorBounce=new T.RectAreaLight('#ffd08a',1.10,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
  const practicals=[];for(const side of[-1,1]){const l=new T.PointLight('#ffc577',1.4,2.2,2);l.name='reference6-floor-lantern-source';l.position.set(side*3.2-.025,1.35,-.12);l.castShadow=true;l.shadow.mapSize.set(256,256);l.shadow.bias=-.00015;l.shadow.normalBias=.008;scene.add(l);practicals.push(l);}
- const floor=new Reflector(new T.PlaneGeometry(13.4,15.8),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.rotation.x=-Math.PI/2;floor.position.set(0,0,2.1);bindFloorReflection(floor,reflectionSize,floorReflectionState);scene.add(floor);
+ const floor=new Reflector(new T.PlaneGeometry(13.4,ROOM_LAYOUT248.bounds.frontZ-ROOM_LAYOUT248.bounds.backZ),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.rotation.x=-Math.PI/2;floor.position.set(0,0,(ROOM_LAYOUT248.bounds.frontZ+ROOM_LAYOUT248.bounds.backZ)/2);bindFloorReflection(floor,reflectionSize,floorReflectionState);scene.add(floor);
  scene.updateMatrixWorld(true);let environment=null,statueEnvironment=null,environmentInitialized=false;
  function initializeEnvironment(renderer){
   if(environmentInitialized)throw Error('Reference6 environment initialized once.');
@@ -256,5 +240,5 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
   finally{floor.visible=prior;pmrem.dispose();}
  }
  const depthExclusions=[];scene.traverse(o=>{if(o.isMesh&&(o===floor||o.userData.excludeFromOpaqueDepth||o.material.transparent||o.material.transmission>0))depthExclusions.push(o);});
- return{scene,architecture,materials,sun,windowSky,frontWindowSources,practicals,floor,altar,hanging,sculptures,furniture,apertures,blockers,pillarRoots,prayerMats,depthExclusions,initializeEnvironment,layout,configuration:REFERENCE6_FOUNDATION,limits:['Actual sliding paper panels carry their own lattice and leave physical clear slots. Paper emission is an inferred diffuse exterior-radiance boundary standing for uncomputed paper transmission, not measured illumination or full GI. Existing lights/exposure remain held for this geometry comparison.','Small-radius native GTAO visibility now attenuates only indirect diffuse/specular PBR components in the main view. Direct sun/lamps and emissive radiance retain their values. Reflected-camera visibility and offscreen occlusion are not solved; this is not multi-bounce GI.','Monumental altarV3 with actual Japanese Amida central source under asset-specific CC BY-NC-SA4 for personal noncommercial use; independent CC BY attendant heads retained. Photographic fidelity remains unaccepted.','Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.','Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.','Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison.']};
+ return{scene,architecture,room248,materials,sun,windowSky,frontWindowSources,practicals,floor,altar,hanging,sculptures,furniture,apertures,blockers,pillarRoots,prayerMats,depthExclusions,initializeEnvironment,layout,configuration:REFERENCE6_FOUNDATION,limits:['Actual sliding paper panels carry their own lattice and leave physical clear slots. Paper emission is an inferred diffuse exterior-radiance boundary standing for uncomputed paper transmission, not measured illumination or full GI. Existing lights/exposure remain held for this geometry comparison.','Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.','Monumental altarV3 with actual Japanese Amida central source under asset-specific CC BY-NC-SA4 for personal noncommercial use; independent CC BY attendant heads retained. Photographic fidelity remains unaccepted.','Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.','Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.','Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison.']};
 }

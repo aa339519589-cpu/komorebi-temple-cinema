@@ -45,27 +45,25 @@ function boardGeometry(width,depth,thickness,variant){
  return g;
 }
 
-function frameGeometry(width,depth){
+function frameGeometry(width,depth,thickness=.042){
  const outer=new T.Shape();outer.moveTo(-width/2,-depth/2);outer.lineTo(width/2,-depth/2);outer.lineTo(width/2,depth/2);outer.lineTo(-width/2,depth/2);outer.closePath();
  const hole=new T.Path(),ix=width/2-.027,iz=depth/2-.027;
  hole.moveTo(-ix,-iz);hole.lineTo(-ix,iz);hole.lineTo(ix,iz);hole.lineTo(ix,-iz);hole.closePath();outer.holes.push(hole);
- const g=new T.ExtrudeGeometry(outer,{depth:.042,bevelEnabled:true,bevelSize:.0022,bevelThickness:.0022,bevelSegments:2,curveSegments:1,steps:1});
- g.rotateX(Math.PI/2);g.userData.coffer228={actualThroughOpening:true,closedRoutedFrame:true,frameWidthMetres:.027,roundedArrisMetres:.0022};return g;
+ const arris=thickness>.05?.0035:.0022,g=new T.ExtrudeGeometry(outer,{depth:thickness,bevelEnabled:true,bevelSize:arris,bevelThickness:thickness>.05?.003:.0022,bevelSegments:3,curveSegments:1,steps:1});
+ g.rotateX(Math.PI/2);g.userData.coffer228={actualThroughOpening:true,closedRoutedFrame:true,frameWidthMetres:.027,roundedArrisMetres:arris,closedFrameDepthMetres:thickness};return g;
 }
 
-export function buildPaintedCoffers228({mesh,box,materials}){
+export function buildPaintedCoffers228({mesh,box,materials,plan=null,rearMaterial=null}){
  if(!paintedSurface228)throw Error('Coffer228 surface must be loaded before room construction');
- const panelWidth=.762,panelDepth=1.274,frame=frameGeometry(.814,1.326),boards=Array.from({length:4},(_,i)=>boardGeometry(panelWidth,panelDepth,.034,i));
+ const panelWidth=.762,panelDepth=1.274,frame=frameGeometry(.814,1.326,plan?.[0]?.frameDepth??.042),boards=Array.from({length:4},(_,i)=>boardGeometry(panelWidth,panelDepth,.034,i));
  const panels=[];
- for(const strip of[-5.55,-3.4,3.4,5.55])for(const dx of[-.42,.42])for(let row=0;row<10;row++){
-  const x=strip+dx,z=-4.5+row*1.38,variant=(row+(strip<0?1:0)+(dx<0?2:0))%4;
-  const board=mesh(boards[variant],[materials.ceilingWood,paintedSurface228],[x,7.101,z]);board.name='coffer228-closed-painted-timber-panel';
-  const rim=mesh(frame,materials.ceilingLacquer,[x,7.105,z]);rim.name='coffer228-closed-recessed-lacquer-frame';
-  // Small actual retaining clips connect the panel frame to the timber lane.
-  for(const sx of[-1,1])for(const sz of[-1,1]){
-   const clip=box([x+sx*.391,7.060,z+sz*.646],[.037,.014,.037],materials.oldgold);clip.name='coffer228-cast-corner-retaining-clip';
-  }
-  panels.push({center:[x,7.101,z],field:[panelWidth,panelDepth],thickness:.034,variant});
+ const entries=plan??[-5.55,-3.4,3.4,5.55].flatMap(strip=>[-.42,.42].flatMap(dx=>Array.from({length:10},(_,row)=>({x:strip+dx,y:7.101,z:-4.5+row*1.38,variant:(row+(strip<0?1:0)+(dx<0?2:0))%4,lane:'legacy'}))));
+ for(const entry of entries){
+  const{x,y,z,variant}=entry,frameY=entry.frameY??y+.004,clipY=entry.clipY??y-.041,paint=entry.region==='rear-black-gilt'&&rearMaterial?rearMaterial:paintedSurface228;
+  const board=mesh(boards[variant],[materials.ceilingWood,paint],[x,y,z]);board.name='coffer228-closed-painted-timber-panel';board.userData.room248CofferZone=entry.region??'legacy';
+  const rim=mesh(frame,materials.ceilingLacquer,[x,frameY,z]);rim.name='coffer228-closed-recessed-lacquer-frame';
+  for(const sx of[-1,1])for(const sz of[-1,1]){const clip=box([x+sx*.391,clipY,z+sz*.646],[.037,.014,.037],materials.oldgold);clip.name='coffer228-cast-corner-retaining-clip';}
+  panels.push({center:[x,y,z],field:[panelWidth,panelDepth],thickness:.034,variant,lane:entry.lane,region:entry.region,frameY,clipY,recessMetres:entry.recessMetres??0,bearingClearBounds:entry.bearingClearBounds,bearingEndClearance:entry.bearingEndClearance});
  }
- return {revision:'coffer228-r01',panels:panels.length,paintedSurface:'Independent generated mineral-paint base color on actual closed wood, no scene/reference RGB plate',closedFrames:panels.length,retainingClips:panels.length*4,photographicAcceptance:false};
+ return {revision:plan?'coffer228-room248-recessed-r03':'coffer228-r01',panels:panels.length,actualRecessedBoards:!!plan,rearMaterialPanels:rearMaterial?entries.filter(e=>e.region==='rear-black-gilt').length:0,paintedSurface:'Independent generated mineral-paint base color on actual closed wood, no scene/reference RGB plate',closedFrames:panels.length,retainingClips:panels.length*4,photographicAcceptance:false};
 }

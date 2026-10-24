@@ -1,4 +1,7 @@
 import * as T from 'three';
+import {loadShortOrnament224,addCompactShort224} from './ornament-short224.js';
+import {loadOrnamentFamilies224,tryRemainingAltarFamilies224} from './ornament-family224.js';
+import {buildOfferingJoinery247} from './offering-table247.js';
 import {loadOrnament224,addDragonPeony224} from './ornament224.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -17,6 +20,8 @@ export async function loadAltarCarvings198(){
   new GLTFLoader().loadAsync(new URL('../assets/floral157-altar198-CC-BY-4.0/component.gltf',import.meta.url).href),
   new T.TextureLoader().loadAsync(new URL('../assets/brocade201/brocade-albedo-r01.png',import.meta.url).href),
   loadOrnament224(),
+  loadShortOrnament224(),
+  loadOrnamentFamilies224(),
  ]);
  if(!response.ok||!mountResponse.ok)throw Error('altar198 source carving failed');
  const buffer=await response.arrayBuffer(),header=new DataView(buffer),n=header.getUint32(4,true),ni=header.getUint32(8,true);
@@ -164,6 +169,11 @@ function sourceCloud(b,key,x,y,z,s,side=1,tableScale=[.74,.80,.74]){
 }
 
 export function buildOfferingJoinery198(b,layout,z,floorY){
+ return buildOfferingJoinery247(b,layout,z,floorY,{cloud:carvings.cloud,cloudCaps:carvings.cloudCaps,floral:carvings.floral,frieze:carvings.frieze});
+}
+// Retained only as a source checkpoint. The current table247 build above is
+// independent of these rejected slender shafts and their thin apron.
+function buildOfferingJoinery198Legacy(b,layout,z,floorY){
  materials(b);
  // A thin closed tabletop and rebated waist. The overhang follows the photo:
  // the outer red feet almost align with its ends. No broad scalloped fascia.
@@ -309,4 +319,18 @@ export function sourceLongDragon198(b,x,y,z,w,h){
  const bounds=carvings.frieze.boundingBox,size=bounds.getSize(new T.Vector3()),s=Math.min(w*.92/size.x,h*.89/size.y),center=bounds.getCenter(new T.Vector3());
  b.add(carvings.frieze,'tableGilt198',x-center.x*s,y-center.y*s,z-bounds.min.z*s,s,s,s);
  recordMount(b,{component:'176 whole original frieze',worldUniformScale:s,support:'recessed deep timber field with 0.006 overlap; no anisotropic scan scaling',sourceTriangles:2233900},x,y,z,s,s,s);
+}
+
+// Surgical224 dispatch; all retained198 framing/positions above stay exact.
+export function tryCompactShortOrnament198(b,x,y,z,w,h){
+ materials(b);
+ if(Math.abs(y-1.28)<1e-7&&x<0&&x>-.8&&w/h>1.05&&w/h<2){addCompactShort224(b,x,y,z,w,h);return true;}
+ return tryRemainingAltarFamilies224(b,x,y,z,w,h);
+}
+
+// Read-only reuse of already loaded licensed176/157 sculpture for Room248.
+// No source positions/normals/indices or table/altar geometry are changed.
+export function getSourceCapitalCarvings248(){
+ if(!carvings.cloud||!carvings.cloudCaps||!carvings.floral)throw Error('Load198 source carvings before Room248');
+ return{cloud176:carvings.cloud,cloudCaps176:carvings.cloudCaps,peony157:carvings.floral};
 }

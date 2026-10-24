@@ -1,0 +1,49 @@
+{
+  "revision": "ornament224-short-r01",
+  "subject": "Independent compact coiled dragon with peony blossoms, single neighboring short altar field",
+  "generator": "built-in image_gen via imagegen skill",
+  "guide": "independent-compact-dragon-guide.png",
+  "guideSha256": "8e79d08afdcb8d95610e2915428da3ff474f8970ccd846c4f852a3b811716c21",
+  "prompt": "prompt.txt",
+  "promptSha256": "4a647c56167cce933884b79b6798561f04b4ada0d1f3e51880465bc0deaf83a7",
+  "field": "sculpt-fields-r01.gray8.bin",
+  "fieldSha256": "e46abecd711c57fb691a8411c380478fa4b677693834680479ac38e004d16338",
+  "fieldGrid": [
+    512,
+    448
+  ],
+  "channels": [
+    "authored raw contour/chisel",
+    "Gaussian2.7px broad sculpt mass",
+    "true Euclidean silhouette distance/20px",
+    "initial compact major-mass domain220/255"
+  ],
+  "guideInputReferences": [
+    {
+      "role": "Actual photograph06 altar vocabulary only",
+      "source": "references/hd/4-\u7167\u7247-5.jpg",
+      "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35"
+    },
+    {
+      "role": "Independent generated neutral carving style guide",
+      "source": "lookdev/scene06-ornament224/cpu-drafts/two-families-r03/independent-guide.png",
+      "sha256": "76f3654cc57db6c84a5384f919811040270b725bba03cf5a145de169719c5f64"
+    }
+  ],
+  "authoringScript": "lookdev/scene06-ornament224/cpu-drafts/prepare-families.py",
+  "sourceCrop": [
+    172,
+    9,
+    1320,
+    1032
+  ],
+  "construction": "Clipped contour front and rear with four-step rounded actual outside and through-hole walls. Uniform fitting preserves the independent short-guide aspect; not affine shortening of the long224 dragon.6mm rear embeds into existing black-lacquer carrier.",
+  "limitations": [
+    "Independently inferred author form, not artifact scan or measured depth.",
+    "No guide/reference RGB, normal map, photographic shading or scene replacement image is used as a rendered material.",
+    "First native short-family proof; main-mass and leaf/petal separation still to be evaluated."
+  ],
+  "licenseScope": "Surrounding Scene06 remains mixed CC BY-NC-SA4.0 Amida and CC BY4.0 wood-carving sources. All existing source attributions unchanged; no blanket MIT assertion. Personal noncommercial scene review.",
+  "photographicAccepted": false,
+  "visualAccepted": false
+}

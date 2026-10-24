@@ -82,22 +82,26 @@ export async function installWorldRadiance214({renderer,scene,sun}){
 // Copies of hall timber/plaster and spatially split foliage receive these
 // maps. Tiled roofs and the veranda keep the common outdoor sky environment.
 // This is a fixed local radiance approximation, not solved multi-bounce GI.
-export function captureHallRadiance214({renderer,scene,water,sky,materials,landscapeMaterials=new Map()}){
+export function captureHallRadiance214({renderer,scene,water,sky,materials,landscapeMaterials=new Map(),programDiagnostic=null}){
  // Exterior bearings and rails see the actual open forecourt hemisphere;
  // shutters and inner ties see the deep room capture. A single dark capture
  // was previously assigned to both, erasing their different spatial lighting.
- const localCapturePoints214={'lower-room':[-3,4.4,-1.0],'lower-porch':[0,4.4,2.15],'upper-room':[-2.3,9.5,1.2],'upper-porch':[1.1,9.6,3.55]};
+ const localCapturePoints214={'lower-room':[-3,4.4,-1.0],'lower-porch':[.40,4.4,3.12],'upper-room':[-2.3,9.5,1.2],'upper-porch':[.45,9.40,3.12],'lower-east-porch':[7.50,4.45,0],'lower-west-porch':[-7.50,4.45,0],'upper-east-porch':[6.90,9.55,0],'upper-west-porch':[-6.90,9.55,0]};
  const positions=Object.fromEntries(Object.entries(localCapturePoints214).map(([key,p])=>[key,sitePoint214(hallLocalPoint214(p,{upper:key.startsWith('upper')}))]));positions['ground-near-bank']=[7,1.6,5.5];positions['ground-far-bank']=[6.5,2.3,-9];positions['canopy-near-bank']=[5,8.6,6];positions['canopy-far-bank']=[1,8.4,-13];const captures=[],pmrem=new T.PMREMGenerator(renderer),oldWater=water.visible,oldAuto=renderer.shadowMap.autoUpdate;
- water.visible=false;sky.beginIndirectCapture();renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;
+ const captureProgramDiagnostics238=[];
+ const recordPrograms238=(stage,region=null)=>{if(!programDiagnostic)return;const budget=programDiagnostic();captureProgramDiagnostics238.push({stage,region,...budget});if(!budget.allWithinBudget||budget.allProgramsLinked===false)throw Error('Scene07 actual program budget/link failure during '+stage+' '+region);};
+ water.visible=false;sky.beginIndirectCapture();renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;recordPrograms238('before-real-scene-captures');
  try{
   for(const [region,position]of Object.entries(positions)){
    const target=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:false}),camera=new T.CubeCamera(.08,1800,target);camera.position.fromArray(position);scene.add(camera);scene.updateMatrixWorld(true);
-   camera.update(renderer,scene);const environment=pmrem.fromCubemap(target.texture);camera.removeFromParent();target.dispose();captures.push({region,position,environment});
+   camera.update(renderer,scene);recordPrograms238('after-real-scene-cube',region);
+   const environment=pmrem.fromCubemap(target.texture);recordPrograms238('after-explicit-pmrem',region);
+   camera.removeFromParent();target.dispose();captures.push({region,position,environment});
   }
  }finally{water.visible=oldWater;sky.endIndirectCapture();renderer.shadowMap.autoUpdate=oldAuto;pmrem.dispose();}
- const assignments=[];
+ recordPrograms238('all-captures-and-pmrem-complete-before-binding');const assignments=[];
  for(const {region,position,environment}of captures){
   const names=[];for(const material of [...materials.values(),...landscapeMaterials.values()])if((material.userData.hallRegion214||material.userData.landscapeRegion214)===region){material.envMap=environment.texture;material.envMapRotation.set(0,0,0);material.envMapIntensity=1;material.needsUpdate=true;names.push(material.name);}assignments.push({region,position,materials:names});
  }
- return{info:{revision:'scene07-room-versus-porch-capture-locations-repaired214-r20',resolution:128,assignments,hallLocalCapturePoints:localCapturePoints214,source:'Eight actual same-scene 3D cube captures. Hall probes now occupy the enclosed side aisle, sheltered porch, upper room and upper gallery rather than two outside-courtyard locations. Same solar-separated sky and shadowed finite sun.',solarDiskExcludedFromAllCaptures:true,constantFillLights:0,cameraFollowing:false,approximateSingleBounce:true,visualAccepted:false},dispose(){for(const c of captures)c.environment.dispose();}};
+ return{info:{revision:'scene07-explicit-completed-capture-before-binding-and-actual-program-diagnostics238-r27',resolution:128,assignments,hallLocalCapturePoints:localCapturePoints214,cubeNearMetres:.08,source:'Twelve actual same-scene 3D cube captures: two rooms, front lower/upper porches, four returned side porches and four bank/crown positions. Gold inset domains and returned timber use their actual spatial captures. Same solar-separated sky and shadowed finite sun.',pmremBindingSequence:'All twelve 3D captures and their explicit PMREM conversions finish before any spatial environment binds to a scene material. No capture invokes PMREM recursively.',captureProgramDiagnostics238,solarDiskExcludedFromAllCaptures:true,constantFillLights:0,cameraFollowing:false,approximateSingleBounce:true,visualAccepted:false},dispose(){for(const c of captures)c.environment.dispose();}};
 }

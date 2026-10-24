@@ -4,12 +4,14 @@ import {ShaderPass} from 'three/addons/postprocessing/ShaderPass.js';
 // World-fixed air and actual sun-shadow visibility. Finite-sun filtering uses
 // distance from the real left window wall as a penumbra estimate; it is not a
 // full multiple-scattering transport solver or a screen-space beam pattern.
-export function createDaylightScattering195(camera,sun,depth){
+export function createDaylightScattering195(camera,sun,depth,roomBounds={}){
+ const min=roomBounds.min??[-6.8,0,-5.8],max=roomBounds.max??[6.8,7.2,10.0],windowPlaneX=roomBounds.windowPlaneX??-6.8;
+ if(![min,max].every(a=>a.length===3&&a.every(Number.isFinite))||min.some((v,i)=>v>=max[i])||!Number.isFinite(windowPlaneX))throw Error('Finite physical room air bounds required.');
  const pass=new ShaderPass({defines:{RESTORATION_SHADOW_PCF:1},uniforms:{
   tDiffuse:{value:null},tDepth:{value:depth},tShadow:{value:null},
   inverseProjection:{value:camera.projectionMatrixInverse},cameraWorld:{value:camera.matrixWorld},sunShadowMatrix:{value:sun.shadow.matrix},
   sunDirection:{value:new T.Vector3()},sunColor:{value:new T.Color()},shadowWorldSpan:{value:new T.Vector2(24,22)},shadowTexel:{value:new T.Vector2()},
-  density:{value:.004},scatteringGain:{value:1.75},shadowReady:{value:0}
+  roomMin195:{value:new T.Vector3(...min)},roomMax195:{value:new T.Vector3(...max)},windowPlaneX195:{value:windowPlaneX},density:{value:.004},scatteringGain:{value:1.75},shadowReady:{value:0}
  },vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',fragmentShader:`
   uniform sampler2D tDiffuse,tDepth;
   #if RESTORATION_SHADOW_PCF == 1
@@ -19,14 +21,14 @@ export function createDaylightScattering195(camera,sun,depth){
   #endif
   uniform mat4 inverseProjection,cameraWorld,sunShadowMatrix;
   uniform vec3 sunDirection,sunColor;uniform vec2 shadowWorldSpan,shadowTexel;
-  uniform float density,scatteringGain,shadowReady;varying vec2 vUv;
+  uniform float density,scatteringGain,shadowReady,windowPlaneX195;uniform vec3 roomMin195,roomMax195;varying vec2 vUv;
   float hash3(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
   float air(vec3 p){vec3 c=floor(p),f=fract(p);f=f*f*(3.-2.*f);
    return mix(mix(mix(hash3(c),hash3(c+vec3(1,0,0)),f.x),mix(hash3(c+vec3(0,1,0)),hash3(c+vec3(1,1,0)),f.x),f.y),
               mix(mix(hash3(c+vec3(0,0,1)),hash3(c+vec3(1,0,1)),f.x),mix(hash3(c+vec3(0,1,1)),hash3(c+vec3(1,1,1)),f.x),f.y),f.z);}
   float visibility(vec3 p){vec4 q=sunShadowMatrix*vec4(p,1.);q.xyz/=max(q.w,.00001);
    if(any(lessThan(q.xyz,vec3(0)))||any(greaterThan(q.xyz,vec3(1))))return 0.;
-   float travel=max(0.,(p.x+6.8)/max(abs(sunDirection.x),.1));
+   float travel=max(0.,(p.x-windowPlaneX195)/max(abs(sunDirection.x),.1));
    // 0.265 degree solar angular radius; broad source edges soften with distance.
    float radius=.008+travel*.004625;vec2 spread=radius/shadowWorldSpan+shadowTexel*.35;
    float result=0.;for(int k=0;k<8;k++){float a=float(k)*2.39996323,r=sqrt((float(k)+.5)/8.);
@@ -42,8 +44,9 @@ export function createDaylightScattering195(camera,sun,depth){
    vec3 origin=cameraWorld[3].xyz,end=(cameraWorld*v).xyz,delta=end-origin;float lengthRay=max(length(delta),.0001);
    vec3 ray=delta/lengthRay;float stepSize=min(lengthRay,40.)/88.,transmission=1.,radiance=0.;
    for(int i=0;i<88;i++){vec3 p=origin+ray*(float(i)+.5)*stepSize;
-    float room=(1.-smoothstep(6.65,6.8,abs(p.x)))*smoothstep(-5.8,-5.55,p.z)*(1.-smoothstep(9.8,10.,p.z));
-    room*=smoothstep(.02,.10,p.y)*(1.-smoothstep(7.05,7.2,p.y));
+    float room=smoothstep(roomMin195.x,roomMin195.x+.15,p.x)*(1.-smoothstep(roomMax195.x-.15,roomMax195.x,p.x));
+    room*=smoothstep(roomMin195.z,roomMin195.z+.25,p.z)*(1.-smoothstep(roomMax195.z-.20,roomMax195.z,p.z));
+    room*=smoothstep(roomMin195.y+.02,roomMin195.y+.10,p.y)*(1.-smoothstep(roomMax195.y-.15,roomMax195.y,p.y));
     float rho=density*room*(.84+.16*air(p*vec3(.19,.13,.23)));
     float extinction=exp(-rho*stepSize);
     if(room>.001)radiance+=transmission*(1.-extinction)*visibility(p);transmission*=extinction;
@@ -59,5 +62,6 @@ export function createDaylightScattering195(camera,sun,depth){
   pass.uniforms.sunDirection.value.copy(sun.position).sub(sun.target.position).normalize();pass.uniforms.sunColor.value.copy(sun.color).multiplyScalar(sun.intensity);
   pass.uniforms.shadowTexel.value.set(1/sun.shadow.mapSize.x,1/sun.shadow.mapSize.y);const c=sun.shadow.camera;pass.uniforms.shadowWorldSpan.value.set(c.right-c.left,c.top-c.bottom);
  };
+ pass.roomBounds195={min:[...min],max:[...max],windowPlaneX,densityHeld:.004,scope:'Actual room-space raymarch envelope; not full multiple scattering',photographicAccepted:false};
  pass.sync();return pass;
 }

@@ -16,7 +16,7 @@ export async function installScannedTimber(mats){
    // Opaque vermilion pigment is not dark brown wood multiplied by an
    // above-one gain. Retain measured grain/normal, but use bounded actual
    // pigment reflectance and a physically separate clear lacquer lobe.
-   m.color.setRGB(.46,.10,.040);m.normalScale.set(.10,.10);m.roughness=.58;m.clearcoat=.24;m.clearcoatRoughness=.34;m.userData.pigmentedLacquer214=true;
+   m.color.setRGB(.275,.040,.020);m.normalScale.set(.55,.55);m.roughness=.76;m.clearcoat=.18;m.clearcoatRoughness=.42;m.userData.pigmentedLacquer214=true;
   }
   m.onBeforeCompile=shader=>{
    shader.vertexShader='attribute vec3 timberExtent;attribute vec3 timberCentre;varying float vTimberEdge214;\n'+shader.vertexShader;
@@ -50,21 +50,21 @@ export async function installScannedTimber(mats){
     vec3 wornCedar214=clamp(measuredWood214*vec3(8.5,5.0,2.7),vec3(.008),vec3(.62));
     float oldCoating214=dot(texture2D(map,vMapUv*.23+vec2(.137,.391)).rgb,vec3(.2126,.7152,.0722));
     float edgeWear214=1.-smoothstep(.002,.016,vTimberEdge214);
-    float wear214=clamp(.055+.25*smoothstep(.015,.075,oldCoating214)+.34*edgeWear214,.055,.58);
+    float wear214=clamp(.040+.16*smoothstep(.015,.075,oldCoating214)+.24*edgeWear214,.040,.46);
     diffuseColor.rgb=mix(diffuseColor.rgb*grain214,wornCedar214,wear214);
     #endif`);
    if(key==='wood')shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
     diffuseColor.rgb=clamp(diffuseColor.rgb,vec3(0.),vec3(.62,.45,.27));`);
    shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',key==='red'?`#include <roughnessmap_fragment>
-    roughnessFactor=clamp(.30+roughnessFactor*.35,.32,.68);`:`#include <roughnessmap_fragment>
+    roughnessFactor=clamp(.38+.72*roughnessFactor,.42,.76);`:`#include <roughnessmap_fragment>
     roughnessFactor=clamp(.36+roughnessFactor*.72,.42,.94);`);
    if(key==='red')shader.fragmentShader=shader.fragmentShader.replace('#include <lights_physical_fragment>',`#include <lights_physical_fragment>
     #ifdef USE_MAP
     material.clearcoat*=mix(.40,1.,smoothstep(.72,1.12,grain214))*(1.-wear214*.88);
-    material.clearcoatRoughness=mix(.28,.53,wear214);
+    material.clearcoatRoughness=mix(.38,.59,wear214);
     #endif`);
   };
-  m.customProgramCacheKey=()=> 'scene07-cc0-member-timber-'+key+'-bounded-reflectance-and-coating214-r21';m.needsUpdate=true;
+  m.customProgramCacheKey=()=> 'scene07-cc0-member-timber-'+key+'-deep-red-pigment-and-measured-roughness238-r27';m.needsUpdate=true;
  }
  return {dispose(){for(const t of[albedo,normal,rough])t.dispose();}};
 }

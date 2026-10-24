@@ -33,25 +33,20 @@ export function watersideReeds(seed=7){const p=[],r=random(seed);for(let k=0;k<2
 // leaves. It prevents the sparse former volume from reading as see-through
 // stippling; the actual silhouette and light-facing facets remain geometric.
 export function distantCrown(seed=3){
- const p=[],r=random(seed),core=new T.SphereGeometry(1,28,16).toNonIndexed();
- const a=core.attributes.position;
+ // Fine, irregular closed bough aggregate. The rejected R27 smooth lobes
+ // were too large and read as balloons; no separate spherical skins remain.
+ const p=[],core=new T.SphereGeometry(1,20,14).toNonIndexed(),a=core.attributes.position;
  for(let i=0;i<a.count;i++){
-  const x=a.getX(i),y=a.getY(i),z=a.getZ(i),t=(y+1)*.5,theta=Math.atan2(z,x),
-   radius=.91*Math.sin(t*Math.PI)*(.88+.09*Math.sin(theta*5+seed)+.055*Math.sin(theta*11+t*17+seed*.7)+.035*Math.cos(theta*19-t*29)),
-   radial=Math.hypot(x,z);
-  p.push(radial>1e-6?x/radial*radius:0,t*2,radial>1e-6?z/radial*radius:0);
+  const x=a.getX(i),z=a.getZ(i),t=(a.getY(i)+1)*.5,theta=Math.atan2(z,x),radial=Math.hypot(x,z),
+   envelope=.70*Math.pow(Math.max(0,Math.sin(t*Math.PI)),.68),
+   bough=.74+.15*Math.sin(theta*3+seed)+.13*Math.sin(theta*7+t*17+seed*.7)+.095*Math.cos(theta*9-t*23+seed*.37),
+   radius=envelope*Math.max(.28,bough),leanX=.09*Math.sin(t*5+seed)*Math.sin(t*Math.PI),leanZ=.07*Math.cos(t*7+seed*.4)*Math.sin(t*Math.PI);
+  p.push(leanX+(radial>1e-6?x/radial*radius:0),t*2,leanZ+(radial>1e-6?z/radial*radius:0));
  }
- core.dispose();
- for(let k=0;k<390;k++){
-  const theta=r()*TAU,t=.045+r()*.91,
-   outline=Math.sin(t*Math.PI)*(.88+.09*Math.sin(theta*5+seed)+.055*Math.sin(theta*11+t*17+seed*.7)+.035*Math.cos(theta*19-t*29)),
-   rho=.88+r()*.15,c=[Math.cos(theta)*rho*outline,t*2,Math.sin(theta)*rho*outline];
-  leaf(p,c,[Math.cos(theta),r()*.7-.1,Math.sin(theta)],.12+r()*.12,.04+r()*.04);
- }
- // Weld the displaced core before computing its normals: the old unindexed
- // vertices gave each broad triangle a separate flat grey lighting facet.
- // The irregular silhouette and raised individual leaves remain geometric.
- const raw=finish(p);raw.deleteAttribute('normal');const g=mergeVertices(raw,.00001);raw.dispose();g.computeVertexNormals();return g;
+ core.dispose();const raw=finish(p);raw.deleteAttribute('normal');const g=mergeVertices(raw,.00001);raw.dispose();g.computeVertexNormals();
+ const pos=g.attributes.position,colors=[];
+ for(let i=0;i<pos.count;i++){const theta=Math.atan2(pos.getZ(i),pos.getX(i)),t=pos.getY(i)*.5,q=Math.max(.50,Math.min(1.02,.79+.13*Math.sin(theta*3+t*8+seed)+.10*Math.sin(theta*7-t*17+seed*.7)));colors.push(q*.82,q,q*.74);}
+ g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.userData.naturalMember='fine-irregular-closed-bough-aggregate238-r28';return g;
 }
 // Solid ceramic half-shells have a real thickness and closed end lips.
 export function halfBarrel(segments=12,span=Math.PI){const p=[],uv=[],normals=[];const P=(a,z,r)=>[Math.cos(a)*r,Math.sin(a)*r,z];function tri(a,b,c,mode){for(const q of[a,b,c]){p.push(...q);uv.push(q[0],q[2]);if(typeof mode==='number'){const r=Math.hypot(q[0],q[1]);normals.push(q[0]/r*mode,q[1]/r*mode,0);}else normals.push(...mode);}}const quad=(a,b,c,d,mode)=>{tri(a,b,c,mode);tri(c,b,d,mode);};for(let i=0;i<segments;i++){const a=i*span/segments,b=(i+1)*span/segments;quad(P(a,-.5,1),P(b,-.5,1),P(a,.5,1),P(b,.5,1),1);quad(P(a,.5,.80),P(b,.5,.80),P(a,-.5,.80),P(b,-.5,.80),-1);quad(P(a,-.5,.80),P(b,-.5,.80),P(a,-.5,1),P(b,-.5,1),[0,0,-1]);quad(P(a,.5,1),P(b,.5,1),P(a,.5,.80),P(b,.5,.80),[0,0,1]);}if(span<Math.PI*1.99)for(const a of[0,Math.PI])quad(P(a,-.5,.8),P(a,-.5,1),P(a,.5,.8),P(a,.5,1),[0,-1,0]);const g=finish(p,uv);g.setAttribute('normal',new T.Float32BufferAttribute(normals,3));return g;}

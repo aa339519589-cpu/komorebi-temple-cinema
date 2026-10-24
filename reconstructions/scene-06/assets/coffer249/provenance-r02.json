@@ -1,0 +1,67 @@
+{
+  "asset": "coffer249-rear-dark-r02",
+  "generator": "builtin image_gen using imagegen skill; independent single flat material edit",
+  "originalOutput": "/Users/mima1234/.codex/generated_images/01a16bf7-e792-7273-9a34-1df6ed87b2c6/exec-64613aa2-d2c7-4556-a8fc-4e2aaecaef02.png",
+  "file": "coffer-rear-dark-r02-albedo.png",
+  "sha256": "79d16ef6b58b4bf83cd632d7127bcab4a41c4b3d623eca6ef2a50fd607b5a137",
+  "dimensions": [
+    971,
+    1620
+  ],
+  "pixelAspect": 0.5993827160493828,
+  "prompt": "prompt-rear-dark-r02.txt",
+  "promptText": "Use case: style-transfer.\nEdit target Image1 is our NEW independent black-ground single-board PBR albedo, not a photograph. Image2 is ONLY a temple-ceiling style/detail reference, never source pixels for the material or a room image.\nKeep the portrait3:5 flat panel, very deep quiet blue-black ground, restrained warm old-gold pigment palette, tiny brush texture, and orthographic uniformly unlit surface nature of Image1. Change only the painted ornament: replace the large broad eight-petaled flower and four oversized corner blooms entirely. Author a noticeably finer, more compact ROUND lotus/chrysanthemum/hosoge medallion, about60-65% of the panel WIDTH, with three nested whorls of many small rounded petal tips, fine stamens, tiny hand-painted gold veins and little leaf lobes. It must read as delicate intricate classical Japanese Buddhist ceiling painting, not a thick-petaled logo or a radial geometric mandala. Add four much smaller restrained corner lotus/cloud-leaf sprays with fine gold outlines and small filled petals, each about22-27% of panel width. Preserve generous quiet black ground around and between the discrete motifs. Fine light-old-gold linework and muted ochre pigment, not large bright solid yellow or orange shapes; no ivory/white petals. No long winding wallpaper vines, no Western Rococo acanthus, no vector icon look, no parchment dirt or broad crackle.\nThe whole canvas remains JUST ONE independent flat painted material surface. No border or timber frame, no bevel or embossing, no perspective, no room or ceiling view, no cast or contact shadows, no specular highlights, no gold glints, no lighting gradient, bloom, emission or glowing lines, no text/seals/logos. Paint color only, to be lit later on real closed wooden boards by ordinary PBR in a separately modeled3D room. Never reproduce any photographic geometry or illumination from Image2. Keep all previous variants separate.\n",
+  "promptSha256": "97415a4c4182e278d35b1a160fc4082eebacb41aab0bde5daa54cb912c7a6b1b",
+  "inputs": [
+    {
+      "role": "edit target: own independently generated rear-dark R01 albedo, retained unchanged",
+      "path": "lookdev/scene06-coffer249/assets/coffer249/coffer-rear-dark-r01-albedo.png",
+      "sha256": "252c232866fbaf0e483c30aba590d8619fd06ea6095f754c9007a950ddf49ae9"
+    },
+    {
+      "role": "style/pigment vocabulary only, never a material/room plate",
+      "path": "lookdev/scene06-ceiling228/reference-ceiling-original-crop.png",
+      "sha256": "dafd7833ec188fa6c5781f411dd2779e11abd1bf0986c7bc66c68ad4d09f77b3"
+    }
+  ],
+  "referencePhoto": {
+    "path": "references/hd/4-\u7167\u7247-5.jpg",
+    "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+    "usage": "visual comparison only, no reference pixels used by runtime paint material"
+  },
+  "surfaceOnly": true,
+  "roomOrLightingGenerated": false,
+  "ordinaryPBR": {
+    "api": "loadPaintMaterial249 / createPaintMaterial249",
+    "variant": "rear-dark",
+    "albedoColorSpace": "sRGB",
+    "metalRoughColorSpace": "NoColorSpace linear",
+    "pigmentData": "pigment-data-r02.json",
+    "noEmission": true,
+    "noCustomShader": true,
+    "metalnessRange": [
+      0.018,
+      0.38
+    ],
+    "roughnessRange": [
+      0.69,
+      0.84
+    ],
+    "envMapIntensity": 0.2
+  },
+  "application": "UV0..1 on actual closed34mm board face MaterialIndex1; choose by entry.region rear-black-gilt/world z<-2.6, never by reference screen coordinates. Position/frame/geometry owned by room248.",
+  "status": "R02 independent fine-pattern candidate; private234 native verification pending",
+  "limits": [
+    "R02 increases nested petal/vein detail and smaller corner sprays, but remains an inferred pattern and still needs native region/scale evaluation.",
+    "Independent inferred decorative painting, not an artifact scan or exact historical recovery.",
+    "A material preview is not a room reconstruction or native render."
+  ],
+  "licenseScope": "Independent generated component; surrounding scene original mixed CC BY-NC-SA4.0 / CC BY4.0 attribution remains unchanged. Personal noncommercial review.",
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "previousCandidate": {
+    "file": "coffer-rear-dark-r01-albedo.png",
+    "sha256": "252c232866fbaf0e483c30aba590d8619fd06ea6095f754c9007a950ddf49ae9",
+    "reason": "Large broad8-petal centre and corner blooms are too coarse for the rear ceiling vocabulary; retained as first usable material/native comparison."
+  }
+}

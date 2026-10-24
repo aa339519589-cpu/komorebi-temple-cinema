@@ -20,13 +20,13 @@ function giltMasks(){
 export function configureLotusGilt222(materials){
  const maps=giltMasks();
  for(const [name,color,roughness]of[
-  ['lotusGold',[.72,.46,.145],.43],
-  ['lotusGiltSoft',[.63,.38,.105],.46],
-  ['lotusEdge',[.80,.56,.21],.39]
+  ['lotusGold',[.72,.46,.145],.35],
+  ['lotusGiltSoft',[.63,.38,.105],.38],
+  ['lotusEdge',[.80,.56,.21],.32]
  ]){
-  const m=materials[name];if(m.userData.lotusGilt222==='r07')continue;
-  m.name='scene06-lotus222-r07-beaten-gilt-'+name;m.color.setRGB(...color);m.metalness=.94;m.roughness=roughness;
+  const m=materials[name];if(m.userData.lotusGilt222==='root258-r02')continue;
+  m.name='scene06-lotus258-r02-beaten-gilt-'+name;m.color.setRGB(...color);m.metalness=.99;m.roughness=roughness;
   m.roughnessMap=maps.rough;m.bumpMap=maps.height;m.bumpScale=.00018;
-  m.userData.lotusGilt222='r07';m.userData.physicalMaskScale={heightAmplitudeMetres:.00018,repeatPerLeaf:[2,2],seed:17083,scope:'Authored fine gilt response; not a measurement of the reference metal'};m.needsUpdate=true;
+  m.userData.lotusGilt222='root258-r02';m.userData.physicalMaskScale={heightAmplitudeMetres:.00018,repeatPerLeaf:[2,2],seed:17083,scope:'Authored fine gilt response; not a measurement of the reference metal'};m.needsUpdate=true;
  }
 }

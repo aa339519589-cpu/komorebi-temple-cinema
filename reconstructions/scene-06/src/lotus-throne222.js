@@ -46,11 +46,11 @@ function petalGeometry(field,radius,height,ring,k,row){
   const v=j/rows,u=j===0||j===rows?0:i/cols*2-1,w=Math.max(0,Math.sin(Math.PI*v));
   const kind=(k+row)%3,cap=Math.pow(w,.62);
   const outline=kind===0?Math.pow(v,.57)*Math.pow(1-v,.86)*2.63:kind===1?Math.pow(v,.78)*Math.pow(1-v,.94)*3.05:Math.pow(v,.74)*Math.pow(1-v,.65)*2.62;
-  const width=[.455,.415,.435][kind]*outline;
-  // Outward-pointing apex remains in front of its own shoulder in the low
-  // reference camera. R05 returned its apex into the inflated silhouette,
-  // hiding the point and making the closed leaves read like round balloons.
-  const meridian=(1.61+.018*kind)*v-(.82+.012*kind)*v*v+.02*v*v*v;
+  const width=[.455,.415,.435][kind]*outline*.72;
+  // R01 study: short convex cast leaves return toward a narrower pointed
+  // crown. Separate vertically staggered tiers expose the return instead of
+  // hiding every upper tier behind one long outer tulip cup.
+  const meridian=(.30+.012*kind)*v+(.55-.012*kind)*Math.sin(Math.PI*.84*v);
   const cup=-(kind===2?.025:.034)*Math.sin(Math.PI*v*.92)*Math.pow(Math.max(0,1-u*u),.70);
   const rib=.017*Math.exp(-Math.pow(u/.17,2))*w;
   const rolled=.016*Math.pow(Math.abs(u),5)*w*(.52+.48*v);
@@ -82,14 +82,14 @@ function petalGeometry(field,radius,height,ring,k,row){
 }
 export function buildLayeredLotus222(b,{radius,height,depthAspect,sourceBearing}){
  configureLotusGilt222(b.materials);
- const contact=measuredContour(sourceBearing,depthAspect),field=coreSurface(radius,height,contact),tag='lotus222-r07-'+sourceBearing.sourceBufferSha256.slice(0,16);
+ const contact=measuredContour(sourceBearing,depthAspect),field=coreSurface(radius,height,contact),tag='lotus258-r01-'+sourceBearing.sourceBufferSha256.slice(0,16);
  b.add(b.geometry(tag+'-hidden-contact-core',()=>coreGeometry(field,height)),'lotusShadow');
- const rings=[{n:15,base:.025,span:.88,rr:.58,scale:.47,phase:.13},{n:14,base:.30,span:.62,rr:.52,scale:.42,phase:.66},{n:15,base:.68,span:.31,rr:.50,scale:.38,phase:.18}];
+ const rings=[{n:22,base:.015,span:.64,rr:.61,scale:.50,phase:.13},{n:21,base:.23,span:.69,rr:.54,scale:.50,phase:.66},{n:20,base:.59,span:.40,rr:.46,scale:.51,phase:.18}];
  for(const [row,ring]of rings.entries()){
   const parts=Array.from({length:ring.n},(_,k)=>petalGeometry(field,radius,height,ring,k,row));
   const g=b.geometry(tag+'-cast-layer-'+row,()=>mergeGeometries(parts,false));b.add(g,row===1?'lotusGiltSoft':'lotusGold');for(const part of parts)part.dispose();
  }
  b.lathe(tag+'-lower-bearing-foot',[[.44,0],[.56,0],[.605,.012],[.605,.038],[.55,.058],[.45,.058],[.44,0]],0,0,0,radius,1,'lotusShadow',96);
  b.torus(0,.034,0,radius*.545,.007,'lotusEdge',Math.PI/2);
- b.root.userData.sourceLotus222??=[];b.root.userData.sourceLotus222.push({revision:'r07',rows:3,petals:44,sourceContactSha256:sourceBearing.sourceBufferSha256,actualHemContourRetained:true,sourceSculptureEdited:false,construction:'Recessed continuous structural seat plus individually closed overlapping leaves with flared pointed apexes, shallow cupped faces, narrow raised midribs and chased margins; seeded scalar height/roughness masks on ordinary metallic PBR. Inferred reference anatomy and metal finish, not a scan of the supplied seat.',visualAccepted:false});
+ b.root.userData.sourceLotus222??=[];b.root.userData.sourceLotus222.push({revision:'root258-r01',rows:3,petals:63,sourceContactSha256:sourceBearing.sourceBufferSha256,actualHemContourRetained:true,sourceSculptureEdited:false,construction:'Recessed continuous structural seat plus individually closed overlapping leaves with shorter convex bodies, returned pointed apexes and staggered visible tiers, shallow cupped faces, narrow raised midribs and chased margins; seeded scalar height/roughness masks on ordinary metallic PBR. Inferred reference anatomy and metal finish, not a scan of the supplied seat.',visualAccepted:false});
 }

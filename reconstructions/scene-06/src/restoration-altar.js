@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {buildMandorla205} from './mandorla205.js';
-import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
+import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildLayeredLotus222} from './lotus-throne222.js';
 import {buildLivingOfferings233} from './living-offerings233.js';
@@ -671,6 +671,7 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
     b.box(x,y+side*(h/2-.010),z+.043,w+.010,.0065,.014,'oldgold');
     b.box(x+side*w/2,y+side*h/2,z+.046,.061,.040,.022,'oldgold');
   }
+  if(tryCompactShortOrnament198(b,x,y,z,w,h))return;
   // Only the two broad middle fields receive the original complete dragon
   // scan: equal world scale on all axes, continuous backing and actual depth.
   if(y>1.20&&y<1.40&&w/h>4){

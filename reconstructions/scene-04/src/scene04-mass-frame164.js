@@ -14,7 +14,7 @@ export function buildMassFrame164(T,{emit,box,between,tube,rosette,mats,material
   box(x,bearing+.24,.20,.88,.17,.78,'cedar');
   for(const sx of[-1,1])box(x+sx*.43,bearing+.18,.20,.20,.17,.55,'endwood');
   const archY=profile.canopy(x,.70)-.60;
-  between([x,bearing+.25,.25],[x,archY,.83],.31,.43,'cedar');
+  between([x,bearing+.25,-.48],[x,archY,-.30],.25,.34,'cedar');
   // Rear returns reveal how the front transfer sits in a deep timber bay.
   box(x,bearing+.24,-.78,.31,.30,1.72,'red');
   between([x,bearing+.31,-.15],[x,bearing+1.18,-1.21],.19,.22,'cedar');
@@ -49,7 +49,7 @@ export function buildMassFrame164(T,{emit,box,between,tube,rosette,mats,material
  // the former purely front-facing rail impression beneath the shoulder eave.
  for(const side of[-1,1])for(const [a,b,drop]of[[C.columnAxes[3],C.columnAxes[4],.72],[C.columnAxes[4],C.columnAxes[5],1.0]]){
   const x=side*(a+b)/2,w=b-a+.08,y=C.capitalTop-drop+.16;
-  box(x,y,-.23,w,.35,.82,'cedar');
+  box(x,y,-.70,w,.17,.36,'cedar');
   for(const xx of[side*a,side*b]){box(xx,y+.25,-.18,.39,.17,.76,'endwood');between([xx,y+.21,.12],[xx,y+.82,-.42],.17,.23,'cedar');}
  }
  // Long timber ties cross the newly recessed upper wall plane and carry

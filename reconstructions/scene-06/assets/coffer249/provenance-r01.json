@@ -1,0 +1,62 @@
+{
+  "asset": "coffer249-rear-dark-r01",
+  "generator": "builtin image_gen using imagegen skill; independent single flat material edit",
+  "originalOutput": "/Users/mima1234/.codex/generated_images/01a16bf7-e792-7273-9a34-1df6ed87b2c6/exec-37b90aec-6fc5-4168-b44f-490f46d6df14.png",
+  "file": "coffer-rear-dark-r01-albedo.png",
+  "sha256": "252c232866fbaf0e483c30aba590d8619fd06ea6095f754c9007a950ddf49ae9",
+  "dimensions": [
+    971,
+    1620
+  ],
+  "pixelAspect": 0.5993827160493828,
+  "prompt": "prompt-rear-dark-r01.txt",
+  "promptText": "Use case: style-transfer.\nAsset type: one independent flat PBR base-color texture for the painted face of one real wooden Japanese Buddhist ceiling coffer, portrait3:5 aspect (width/height about0.6).\nEdit target Image1: the previously independently authored pale painted-coffer surface. Preserve a single orthographic flat panel canvas and author a separate rear-dark variant. Image2 is ONLY a small photographic ceiling style/pigment vocabulary reference; no photographic scene pixels, room geometry, lighting or perspective may enter the new surface.\nReplace the ivory ground with a quiet very deep blue-black / black-lacquer pigment ground, approximately #080a0c. Replace broad pale petals and strong rust-orange patches with finely hand-painted warm muted old-gold pigment: a compact, intricately nested lotus/chrysanthemum/hosoge round floral medallion, fine individual rounded petals, stamens and delicate botanical linework, with four restrained corner cloud-leaf/lotus sprays. Dense fine temple-painting detail like the rear dark coffers of the reference, enough quiet black ground between motifs and around the edges. Warm ochre/old-gold palette roughly #9b753b, #b69047 and #6b4f29, limited tiny subdued brown accents, no ivory/white filled petals. Traditional painted ornament, not Rococo wallpaper, not a radial geometric mandala and not a vector icon. Minute real brush variation and restrained pigment wear on smooth wood; no dirt or parchment crackle.\nThe entire image is JUST the painted material surface. Front-on orthographic, no perspective, no border, no frame, no edge bevel, no surrounding objects. Perfectly even neutral diffuse flat color for later physical scene lighting. Absolutely no cast shadows, depth shading, specular reflections, gold glints, fake lighting, bloom, emission, glowing lines, lettering, logos or seals. Do not output a room or a rendering of a ceiling. This is surface pigment only, to be placed on separately modeled closed wooden boards and lit by the real3D scene. Keep the original pale asset separate and unchanged.\n",
+  "promptSha256": "4f7922868cb501d06e490acb5ff4c60ea1d65c5cb6aba5081f602eae588a4251",
+  "inputs": [
+    {
+      "role": "edit target: previously independently generated pale single-board albedo, retained unchanged",
+      "path": "reconstructions/scene-06/assets/coffer228/coffer-painted-lotus-r02.png",
+      "sha256": "832df7b2131be9228f780ec78cb894ce039e0a9adb955b79f378fe8a9264e7bb"
+    },
+    {
+      "role": "style/pigment vocabulary only, never a material/room plate",
+      "path": "lookdev/scene06-ceiling228/reference-ceiling-original-crop.png",
+      "sha256": "dafd7833ec188fa6c5781f411dd2779e11abd1bf0986c7bc66c68ad4d09f77b3"
+    }
+  ],
+  "referencePhoto": {
+    "path": "references/hd/4-\u7167\u7247-5.jpg",
+    "sha256": "fd2b565f599ddfc6b3b470e6706dd6a02fa7b8308e3b45be1ec1a710bb0d8f35",
+    "usage": "visual comparison only, no reference pixels used by runtime paint material"
+  },
+  "surfaceOnly": true,
+  "roomOrLightingGenerated": false,
+  "ordinaryPBR": {
+    "api": "loadPaintMaterial249 / createPaintMaterial249",
+    "variant": "rear-dark",
+    "albedoColorSpace": "sRGB",
+    "metalRoughColorSpace": "NoColorSpace linear",
+    "pigmentData": "pigment-data-r01.json",
+    "noEmission": true,
+    "noCustomShader": true,
+    "metalnessRange": [
+      0.018,
+      0.38
+    ],
+    "roughnessRange": [
+      0.69,
+      0.84
+    ],
+    "envMapIntensity": 0.2
+  },
+  "application": "UV0..1 on actual closed34mm board face MaterialIndex1; choose by entry.region rear-black-gilt/world z<-2.6, never by reference screen coordinates. Position/frame/geometry owned by room248.",
+  "status": "usable material/API handoff; room/native validation pending",
+  "limits": [
+    "R01 retains the broad original8-petal layout and needs finer rear-ceiling floral detail.",
+    "Independent inferred decorative painting, not an artifact scan or exact historical recovery.",
+    "A material preview is not a room reconstruction or native render."
+  ],
+  "licenseScope": "Independent generated component; surrounding scene original mixed CC BY-NC-SA4.0 / CC BY4.0 attribution remains unchanged. Personal noncommercial review.",
+  "visualAccepted": false,
+  "photographicAccepted": false
+}
