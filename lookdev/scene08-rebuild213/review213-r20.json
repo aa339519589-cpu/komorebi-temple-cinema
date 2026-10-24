@@ -1,0 +1,1340 @@
+{
+  "revision": "scene08-pierced-moulded-bearing213-r20",
+  "source": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d",
+  "baseline": "3438b5bc01ee0df1fc5ce31c7431bee601425592820dc43702af82acfaf693f3",
+  "status": "three-official-bearing-geometry-rounds-reviewed-photographic-fidelity-false",
+  "reviewedAt": "2026-10-24T03:39:50.232Z",
+  "visualAccepted": false,
+  "originalSizeReferenceComparison": "compare-r17-native.html",
+  "beforeFindings": "r18-before-findings.json",
+  "actualViewed": [
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r18/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r18/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r18-low3q/inspection-view.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r19/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r19/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r19-low3q/inspection-view.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239/reference.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239/detail-native.png",
+    "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239-low3q/inspection-view.png"
+  ],
+  "reference": "references/hd/7-照片-8.jpg",
+  "changes": [
+    "Replace the complete main-hall bracket kit with genuinely curved incised crossing arms, small receiving dou and closed upper rails. Twenty-eight continuous rising four-stage load paths replace tall pale vertical spacer blocks and meet the original actual roof underside.",
+    "Turned wooden capitals carry two narrow inlay rings and twelve small petal plates each. Profile terminals use small paired pierced four-lobed metal fields, exposing timber rather than entire pale end sleeves.",
+    "Each stage has an actual perpendicular notched saddle and two connected carved return ribs. Closed pierced spandrels, fitted dark/gilt curved borders and longitudinally recessed main/upper beams complete the post-to-lintel-to-head layers.",
+    "The existing independent timber scan supplies normalized grain once; dark beam, warm arm and receiving timber roles are separated from real metal inlays. Original source textures and the same Sun, measured sky, actual unit-gain scene captures, physical camera, exposure and contact pass are held."
+  ],
+  "technicalValidation": {
+    "officialFIFO": true,
+    "substantiveRounds": 3,
+    "nativeFrames": 9,
+    "allNativeMetal1254": true,
+    "allSourceMatched": true,
+    "allGLErrorsZero": true,
+    "allProgramsLinked": true,
+    "noContextLoss": true,
+    "checkedClosedProfileCapitalAndMouldedSolids": 460,
+    "roofReceivers": 28,
+    "actualPrimaryStageJointSamples": 84,
+    "actualReturnRibJointSamples": 448,
+    "allJointSamplesInsideBothActualSolids": true,
+    "prototypePiercedVoidRays": [
+      {
+        "name": "scene08-213-closed-pierced-lintel-spandrel",
+        "side": -1,
+        "clearThroughActualMesh": true
+      },
+      {
+        "name": "scene08-213-closed-pierced-lintel-spandrel",
+        "side": 1,
+        "clearThroughActualMesh": true
+      },
+      {
+        "name": "scene08-213-closed-pierced-lintel-spandrel",
+        "side": -1,
+        "clearThroughActualMesh": true
+      },
+      {
+        "name": "scene08-213-closed-pierced-lintel-spandrel",
+        "side": 1,
+        "clearThroughActualMesh": true
+      }
+    ],
+    "actualMouldedBeamCoveRays": [
+      {
+        "name": "scene08-213-closed-recessed-structural-crossbeam",
+        "actualRecessMetres": 0.013999998569488414,
+        "physicalRecessVerified": true
+      },
+      {
+        "name": "scene08-213-closed-recessed-structural-crossbeam",
+        "actualRecessMetres": 0.013999998569488525,
+        "physicalRecessVerified": true
+      },
+      {
+        "name": "scene08-213-closed-recessed-structural-crossbeam",
+        "actualRecessMetres": 0.013999998569488414,
+        "physicalRecessVerified": true
+      },
+      {
+        "name": "scene08-213-closed-recessed-structural-crossbeam",
+        "actualRecessMetres": 0.013999998569488414,
+        "physicalRecessVerified": true
+      }
+    ],
+    "ceramicPenetratingBodies": 0,
+    "minimumSoffitClearanceMetres": 0.12071731525802498,
+    "scope": "Technical source/mesh evidence only. Joint tests sample actual solids; they are not a complete structural simulation or photographic acceptance."
+  },
+  "nativeConstruction": {
+    "revision": "scene08-pierced-moulded-bearing213-r20",
+    "frontAxes": [
+      -1.75,
+      0,
+      1.75
+    ],
+    "sideAxes": [
+      -1,
+      0.4,
+      1.8
+    ],
+    "secondaryBracketAxes": [
+      [
+        -0.875,
+        -2.4,
+        8.808036880185409
+      ],
+      [
+        0.875,
+        -2.4,
+        7.958940678176591
+      ],
+      [
+        -0.875,
+        3.2,
+        9.25
+      ],
+      [
+        0.875,
+        3.2,
+        9.25
+      ],
+      [
+        -1.75,
+        -1.7,
+        9.25
+      ],
+      [
+        -1.75,
+        -0.3,
+        9.25
+      ],
+      [
+        -1.75,
+        1.1,
+        9.25
+      ],
+      [
+        -1.75,
+        2.5,
+        9.25
+      ],
+      [
+        1.75,
+        -1.7,
+        8.137907343061896
+      ],
+      [
+        1.75,
+        -0.3,
+        9.25
+      ],
+      [
+        1.75,
+        1.1,
+        9.25
+      ],
+      [
+        1.75,
+        2.5,
+        9.25
+      ]
+    ],
+    "joinery213": {
+      "revision": "scene08-interlocked-pierced-inlay-head213-r19",
+      "envelopeWidth": 0.94,
+      "lowerBase": -0.14,
+      "upperPlane": 0.54,
+      "physicalCurvedShoulders": true,
+      "terminalGiltWidthMetres": 0.04,
+      "piercedMetalFields": true,
+      "fullPaleSleevesRetired": true,
+      "visualAccepted": false
+    },
+    "shaftRadiusMetres": [
+      0.295,
+      0.273
+    ],
+    "deepWindowSetback": 0.42,
+    "innerReturnSetback": 1.03,
+    "roofCoupling": "Actual same-scene roof-triangle XZ barycentric query, no image depth",
+    "bearingHeights": [
+      {
+        "axis": [
+          -1.75,
+          -2.4
+        ],
+        "seat": 8.972418036698494
+      },
+      {
+        "axis": [
+          0,
+          -2.4
+        ],
+        "seat": 7.958940678176591
+      },
+      {
+        "axis": [
+          1.75,
+          -2.4
+        ],
+        "seat": 7.958940678176591
+      },
+      {
+        "axis": [
+          -1.75,
+          3.2
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          0,
+          3.2
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          1.75,
+          3.2
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          -1.75,
+          -1
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          -1.75,
+          0.4
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          -1.75,
+          1.8
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          1.75,
+          -1
+        ],
+        "seat": 9.04088929242415
+      },
+      {
+        "axis": [
+          1.75,
+          0.4
+        ],
+        "seat": 9.25
+      },
+      {
+        "axis": [
+          1.75,
+          1.8
+        ],
+        "seat": 9.25
+      }
+    ],
+    "roofReceivers": [
+      {
+        "shaft": [
+          -1.75,
+          8.972418036698494,
+          -2.4
+        ],
+        "roofReceiver": [
+          -1.75,
+          9.792418036698495,
+          -3.375
+        ],
+        "actualWeatherY": 9.912418036698494,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -0.875,
+          8.808036880185409,
+          -2.4
+        ],
+        "roofReceiver": [
+          -0.875,
+          9.628036880185409,
+          -3.225
+        ],
+        "actualWeatherY": 9.748036880185408,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          0,
+          7.958940678176591,
+          -2.4
+        ],
+        "roofReceiver": [
+          0,
+          9.467278602677778,
+          -3.075
+        ],
+        "actualWeatherY": 9.587278602677777,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          0.875,
+          7.958940678176591,
+          -2.4
+        ],
+        "roofReceiver": [
+          0.875,
+          9.307064444151077,
+          -2.9250000000000003
+        ],
+        "actualWeatherY": 9.427064444151076,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          7.958940678176591,
+          -2.4
+        ],
+        "roofReceiver": [
+          1.75,
+          9.149175189169618,
+          -2.7
+        ],
+        "actualWeatherY": 9.269175189169617,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          -1.75,
+          10.478466604431105,
+          4.4
+        ],
+        "actualWeatherY": 10.598466604431104,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -0.875,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          -0.875,
+          10.42534214974748,
+          4.4
+        ],
+        "actualWeatherY": 10.54534214974748,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          0,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          0,
+          10.380105726413422,
+          4.4
+        ],
+        "actualWeatherY": 10.500105726413421,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          0.875,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          0.875,
+          10.34172691521136,
+          4.4
+        ],
+        "actualWeatherY": 10.46172691521136,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          1.75,
+          10.310369397068703,
+          4.4
+        ],
+        "actualWeatherY": 10.430369397068702,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          8.972418036698494,
+          -2.4
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.556412474206043,
+          -2.4
+        ],
+        "actualWeatherY": 10.676412474206042,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          -1.7
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.562791142840231,
+          -1.7
+        ],
+        "actualWeatherY": 10.68279114284023,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          -1
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.582170839573703,
+          -1
+        ],
+        "actualWeatherY": 10.702170839573702,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          -0.3
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.609768241067327,
+          -0.3
+        ],
+        "actualWeatherY": 10.729768241067326,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          0.4
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.644695859462646,
+          0.4
+        ],
+        "actualWeatherY": 10.764695859462645,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          1.1
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.687061402776974,
+          1.1
+        ],
+        "actualWeatherY": 10.807061402776974,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          1.8
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.736704359765303,
+          1.8
+        ],
+        "actualWeatherY": 10.856704359765303,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          2.5
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.794504392224841,
+          2.5
+        ],
+        "actualWeatherY": 10.91450439222484,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          -1.75,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          -3.65,
+          10.865108562157213,
+          3.2
+        ],
+        "actualWeatherY": 10.985108562157212,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          7.958940678176591,
+          -2.4
+        ],
+        "roofReceiver": [
+          3.774999999999999,
+          8.77894067817659,
+          -2.4
+        ],
+        "actualWeatherY": 8.89894067817659,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          8.137907343061896,
+          -1.7
+        ],
+        "roofReceiver": [
+          4.15,
+          8.957907343061896,
+          -1.7
+        ],
+        "actualWeatherY": 9.077907343061895,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.04088929242415,
+          -1
+        ],
+        "roofReceiver": [
+          4.15,
+          9.860889292424151,
+          -1
+        ],
+        "actualWeatherY": 9.98088929242415,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          -0.3
+        ],
+        "roofReceiver": [
+          4.15,
+          10.723406152714507,
+          -0.3
+        ],
+        "actualWeatherY": 10.843406152714506,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          0.4
+        ],
+        "roofReceiver": [
+          4.15,
+          10.551042623645179,
+          0.4
+        ],
+        "actualWeatherY": 10.671042623645178,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          1.1
+        ],
+        "roofReceiver": [
+          4.15,
+          10.443658387400921,
+          1.1
+        ],
+        "actualWeatherY": 10.56365838740092,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          1.8
+        ],
+        "roofReceiver": [
+          4.15,
+          10.413476441270662,
+          1.8
+        ],
+        "actualWeatherY": 10.533476441270661,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          2.5
+        ],
+        "roofReceiver": [
+          4.15,
+          10.57921673997434,
+          2.5
+        ],
+        "actualWeatherY": 10.69921673997434,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      },
+      {
+        "shaft": [
+          1.75,
+          9.25,
+          3.2
+        ],
+        "roofReceiver": [
+          4.15,
+          10.8553897076706,
+          3.2
+        ],
+        "actualWeatherY": 10.9753897076706,
+        "curvedStages": 4,
+        "tallVerticalSpacerBlocksRetired": true
+      }
+    ],
+    "columnHeadFinish": "wood capital with narrow actual inlay bands and twelve small petal plates",
+    "curvedLintelSpandrels": 12,
+    "tallCantileverSpacersRetired": true,
+    "returnRibsPerStage": 2,
+    "halfLappedStageSaddles": true,
+    "piercedFourLobedMetalFields": true,
+    "realLintelMouldingLayers": 2,
+    "piercedSpandrelVoids": 24,
+    "actualBeamCoveDepth": 0.014,
+    "peonyMounts": 2,
+    "ceramicCornerCaps": 4,
+    "visualAccepted": false
+  },
+  "nativeTimber": {
+    "revision": "scene08-carved-cloud-material-hierarchy213-r18",
+    "inlay": {
+      "linearRGB": [
+        0.68,
+        0.41,
+        0.12
+      ],
+      "metalness": 0.88,
+      "roughness": 0.43,
+      "emissive": [
+        0,
+        0,
+        0
+      ],
+      "capture": "eave"
+    },
+    "normalizedSourceGrainAppliedOnce": true,
+    "baseColorAfterPortableAlbedo": [
+      1,
+      1,
+      1
+    ],
+    "sourceScan": "reconstructions/scene-08/assets/timber/diffuse-2k.jpg",
+    "sourceRoughnessRemap": "0.6784 + 0.30 * source channel, then physical role scalar",
+    "roles": [
+      {
+        "role": "hallLacquer213",
+        "use": "Sparse turned lacquer columns and vertical framing",
+        "pigment": "#a64b2c",
+        "linearPigment": [
+          0.3813260114221238,
+          0.07036009568874305,
+          0.025186859622305935
+        ],
+        "meanPortableAlbedoLinear": [
+          0.37801501427035167,
+          0.06975880461771312,
+          0.02496279107373687
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.76,
+        "normalScale": [
+          0.1,
+          0.1
+        ],
+        "clearcoat": 0.12,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallBeam213",
+        "use": "Dark brown primary beams, tie members and purlins",
+        "pigment": "#73432b",
+        "linearPigment": [
+          0.171441100722554,
+          0.05612849004241121,
+          0.024157632443547246
+        ],
+        "meanPortableAlbedoLinear": [
+          0.17013398138990843,
+          0.055656207239356215,
+          0.023952346980389987
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.88,
+        "normalScale": [
+          0.09,
+          0.09
+        ],
+        "clearcoat": 0.025,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallFascia213",
+        "use": "Thin exposed brown-red fascia courses, distinct from pale cut ends",
+        "pigment": "#6b3926",
+        "linearPigment": [
+          0.14702726648767014,
+          0.040915196900556984,
+          0.019382360952473074
+        ],
+        "meanPortableAlbedoLinear": [
+          0.14588294006633862,
+          0.04055285469295365,
+          0.01925172949273131
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.89,
+        "normalScale": [
+          0.07,
+          0.07
+        ],
+        "clearcoat": 0.02,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallArm213",
+        "use": "Weathered warm timber bracket arms",
+        "pigment": "#8d4f2c",
+        "linearPigment": [
+          0.2663556047920505,
+          0.07818742179702069,
+          0.025186859622305935
+        ],
+        "meanPortableAlbedoLinear": [
+          0.2640915738339756,
+          0.07749565151701059,
+          0.02496279107373687
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.85,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.018,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallReceiver213",
+        "use": "Cut timber dou and actual bearing receivers",
+        "pigment": "#895334",
+        "linearPigment": [
+          0.2501582847191642,
+          0.08650046202808521,
+          0.0343398068028541
+        ],
+        "meanPortableAlbedoLinear": [
+          0.24804632474775945,
+          0.08576591941695602,
+          0.03403078088450873
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.01,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallRafter213",
+        "use": "Distinct parallel rafter bodies and flying eave tails",
+        "pigment": "#9c7447",
+        "linearPigment": [
+          0.33245153633549385,
+          0.174647403645279,
+          0.06301001764564068
+        ],
+        "meanPortableAlbedoLinear": [
+          0.32957347559712497,
+          0.17335161648165318,
+          0.062479624542986875
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.83,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "clearcoat": 0.015,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallCut213",
+        "use": "Exposed nonmetallic cut ends on actual profiled timber",
+        "pigment": "#ba9661",
+        "linearPigment": [
+          0.4910208498384856,
+          0.3049873140591091,
+          0.11953842797895521
+        ],
+        "meanPortableAlbedoLinear": [
+          0.4868121772874281,
+          0.3023822848179913,
+          0.11833791990644357
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.055,
+          0.055
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallSoffit213",
+        "use": "Sheltered solid roof boards",
+        "pigment": "#705038",
+        "linearPigment": [
+          0.16202937562896222,
+          0.08021982030622662,
+          0.03954623527052923
+        ],
+        "meanPortableAlbedoLinear": [
+          0.1606965454529393,
+          0.07955604048729291,
+          0.03920441299473072
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.91,
+        "normalScale": [
+          0.07,
+          0.07
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "eave",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallWindow213",
+        "use": "Projecting window muntins and frame reveals",
+        "pigment": "#a48a60",
+        "linearPigment": [
+          0.3712376804636741,
+          0.2541520943200296,
+          0.11697066774917994
+        ],
+        "meanPortableAlbedoLinear": [
+          0.36813813826378683,
+          0.2519483982770763,
+          0.11578648490618268
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.86,
+        "normalScale": [
+          0.06,
+          0.06
+        ],
+        "clearcoat": 0.015,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      },
+      {
+        "role": "hallPanel213",
+        "use": "Recessed dark-brown timber window backing",
+        "pigment": "#59432e",
+        "linearPigment": [
+          0.09989872823822872,
+          0.05612849004241121,
+          0.02732089163382382
+        ],
+        "meanPortableAlbedoLinear": [
+          0.09894705722874066,
+          0.055656207239356215,
+          0.02707783930450195
+        ],
+        "baseColor": [
+          1,
+          1,
+          1
+        ],
+        "metalness": 0,
+        "roughnessScalar": 0.94,
+        "normalScale": [
+          0.04,
+          0.04
+        ],
+        "clearcoat": 0,
+        "AOMap": false,
+        "emissive": [
+          0,
+          0,
+          0
+        ],
+        "environment": "actual-scene-court-capture",
+        "captureHeightRole": "porch",
+        "environmentGain": 1
+      }
+    ],
+    "cameraExposureChanged": false,
+    "lightsAdded": 0,
+    "visualAccepted": false
+  },
+  "nativeRenderGeometryCounts": {
+    "instances": 1395680,
+    "triangles": 97229686,
+    "originalCeramicCovers": 2156,
+    "originalCeramicPans": 2100,
+    "qualityScope": "No mesh decimation, texture reduction or render-quality reduction. Authored pierced/moulded timber topology replaces the previous plain/solid members."
+  },
+  "rounds": [
+    {
+      "round": "r18",
+      "source": "ed7b45508cb499ec7a1a80e59d8bc2d50791e9be4a9161f186b7861b371dca6e",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r18/report.json",
+          "source": "ed7b45508cb499ec7a1a80e59d8bc2d50791e9be4a9161f186b7861b371dca6e",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r18/reference.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "63076d03a784ff6f15e9a9302f72cc86923874cbb01f9d6daabc99649d7b6517"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r18/detail-native.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "2e22b5606eab0375bdfbfbd968ee9d75a20aa7ad4e61377668e689c0bb81199d"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r18-low3q/report.json",
+          "source": "ed7b45508cb499ec7a1a80e59d8bc2d50791e9be4a9161f186b7861b371dca6e",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r18-low3q/inspection-view.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "9c72d72aed4317202b587622e4d18d9374b9cbf39f679d95017e9f2dfe8b8f5a"
+            }
+          ]
+        }
+      ],
+      "archive": "lookdev/scene08-rebuild213/r18-source-scripts.tgz"
+    },
+    {
+      "round": "r19",
+      "source": "ca3adeefcde3f3cb1a92fbf0eb1170f76d2a15940fd5f07e7cb5a3087941fe94",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r19/report.json",
+          "source": "ca3adeefcde3f3cb1a92fbf0eb1170f76d2a15940fd5f07e7cb5a3087941fe94",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r19/reference.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "49f005267b1e47ace538b6da6ed570c3ea4054689a76263f1cedb058b53409e8"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r19/detail-native.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "60fdef57a1c7c5121acad590d713657287e7cf5d8912abec6d339ba3c2fc8e9a"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r19-low3q/report.json",
+          "source": "ca3adeefcde3f3cb1a92fbf0eb1170f76d2a15940fd5f07e7cb5a3087941fe94",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r19-low3q/inspection-view.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "6a041492ee731b674309c12edd0e56582fa4e9215b30b432a41661472badd52e"
+            }
+          ]
+        }
+      ],
+      "archive": "lookdev/scene08-rebuild213/r19-source-scripts.tgz"
+    },
+    {
+      "round": "r20",
+      "source": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d",
+      "reports": [
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239/report.json",
+          "source": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "reference",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239/reference.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "f5c61c20c9a492fa8f73fe58614556e6b6d764d7960f112a0874f9c003cb5b62"
+            },
+            {
+              "name": "detail-native",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239/detail-native.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "0d968ce23c0121af7737d968a4ff791fa1c92ca1c9755228ef59fd3cff297214"
+            }
+          ]
+        },
+        {
+          "path": "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239-low3q/report.json",
+          "source": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d",
+          "sourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+          "status": "rendered-review",
+          "backend": "metal",
+          "frames": [
+            {
+              "name": "inspection-view",
+              "png": "qa/ten-reference/08/iteration-scene08-rebuild213-r20-recover239-low3q/inspection-view.png",
+              "valid": true,
+              "width": 1254,
+              "height": 1254,
+              "glError": 0,
+              "allProgramsLinked": true,
+              "contextLost": false,
+              "rgbaSha256": "921e8084cae8d23b833043b25d74a190864ecb97c136d8d9dac2c4f2bc077a36"
+            }
+          ]
+        }
+      ],
+      "archive": "lookdev/scene08-rebuild213/r20-source-scripts.tgz"
+    }
+  ],
+  "retainedFailures": [
+    "r18a-source-identity.json",
+    "r18a-source-scripts.tgz",
+    "bearing-audit-r18a.json",
+    "r18-review.json",
+    "r19-review.json"
+  ],
+  "finalGeometryReceipt": "bearing-audit-r20.json",
+  "ceramicRegressionReceipt": "ceramic-clearance-r20.json",
+  "sourceIdentity": "r20-source-identity.json",
+  "sourceArchive": "r20-source-scripts.tgz",
+  "runtimeDelta": "runtime-delta-r17-r20.tgz",
+  "runtimeDeltaBytes": 26327,
+  "boundary": "boundary-r20.json",
+  "limitations": [
+    "The roof/tower proportions, repeated timber rhythm, precise decorative motifs and overall photographic material response still differ from HD08.",
+    "Foreground stone-lamp proportions and the garden species/scale remain uncorrected in this bearing-focused continuation; their exact prior geometry is retained.",
+    "Pigments and carpenter dimensions are authored visual estimates. Native scene captures approximate reflected radiance and are not full path-traced GI.",
+    "Closed solids, sampled contact, shader success and GL0 do not establish a photographic match."
+  ],
+  "scope": "Scene08 source/provenance plus lookdev213 and new QA08 only. README08, Git, shared sources, other scenes and the parent COW film source were not changed. No original large asset copied or new exporter/Blend output.",
+  "recoveryReceipt": "r20-recover239-receipt.json",
+  "recoveryJobs": {
+    "source": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d",
+    "startedAt": "2026-10-24T03:32:40.393Z",
+    "reason": "Prior official R20 jobs were interrupted by a system restart before GPU acquisition. Original queued logs retained verbatim.",
+    "originalLogs": [
+      "r20-full-bearing.log",
+      "r20-low3q.log"
+    ],
+    "sourceUnchanged": true,
+    "photographicAccepted": false,
+    "jobs": [
+      {
+        "iteration": "scene08-rebuild213-r20-recover239",
+        "port": 4828,
+        "extra": {
+          "DETAIL_CROP": "155,190,650,1254"
+        },
+        "log": "r20-recover239-full-bearing.log",
+        "pid": 5476,
+        "status": "complete",
+        "exitCode": 0,
+        "completedAt": "2026-10-24T03:38:43.974Z"
+      },
+      {
+        "iteration": "scene08-rebuild213-r20-recover239-low3q",
+        "port": 4829,
+        "extra": {
+          "VIEW_POSITION": "1.6,2.2,5.6",
+          "VIEW_TARGET": "-3,8.2,-8",
+          "VIEW_FOV": "51"
+        },
+        "log": "r20-recover239-low3q.log",
+        "pid": 5477,
+        "status": "complete",
+        "exitCode": 0,
+        "completedAt": "2026-10-24T03:39:02.754Z"
+      }
+    ],
+    "completedAt": "2026-10-24T03:39:02.755Z",
+    "finalSource": "7abe1c7cd7bca58b33373e72d1c7e86c4ca82318f737794d94d849e86914d55d"
+  }
+}

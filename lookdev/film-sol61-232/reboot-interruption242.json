@@ -1,0 +1,83 @@
+{
+  "status": "original-capture-process-absent-after-system-reboot-eight-complete-shots-retained",
+  "observedAt": "2026-10-24T03:34:24.611081+00:00",
+  "uptime": "11:34  up 13 mins, 2 users, load averages: 19.18 14.78 13.36",
+  "oldPidsMissing": true,
+  "originalFilmBuildSha256": "85c34b6d4bde927d8aff4a889220e214fa7bd69668584a8c66cb689f36f59d4c",
+  "completed": [
+    {
+      "reference": 1,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/01/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "929f48ccfa9136f0f697756b1eed29cd5b3633b45c577b0143028ce064b2b750",
+      "bytes": 11812476,
+      "source": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 2,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/02/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "9c6a1bc9aba35d5a70def09fa3b54cb2b0194582b2c0c32ebf4f65f2aa5d08f5",
+      "bytes": 15517127,
+      "source": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 3,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/03/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "4da900f00ffbd1d89fbb10a51c519a1bf1495d2b550a9ab5106ae231ce0b2974",
+      "bytes": 10304486,
+      "source": "5d8c529c74df128c1859e6b7bf325a4c6715d828898d9d910963b9183e7862d3",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 4,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/04/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "d88b3fd96001f2aa5f6fde65aaef10a6c594ef309f9a36b3d15b45eafb07270f",
+      "bytes": 24590944,
+      "source": "da07ab60fa0208997ac9e94522a3b51dccbef640853d4549b9cf412cd374c86f",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 5,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/05/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "eda12347b6c46361b26d7d180379a11220d30ec636e107e52dc9138d373a2810",
+      "bytes": 11883799,
+      "source": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 6,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/06/iteration-scene06-ceiling228-motion-r01-personal-nc/motion-review.mp4",
+      "sha256": "65111e606fa516fdb957955d916da7d326bdc681e51b21a43b200ccb81451573",
+      "bytes": 18487361,
+      "source": "bc7476cb7a26058d916744ed6b56a3e04349160a6668ddc090eae462aeb495e9",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 7,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/07/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "8b914da0af536cedffe66a93a4ba0435bc155ea316efd853e0ca6e279a5c58fb",
+      "bytes": 15402703,
+      "source": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+      "originalCompleteClipByteExact": true
+    },
+    {
+      "reference": 8,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/08/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "sha256": "bdade65e4dc13cf8f6d87294d818d43885f56d396319130ddfba9628c8bebbf1",
+      "bytes": 11195071,
+      "source": "3438b5bc01ee0df1fc5ce31c7431bee601425592820dc43702af82acfaf693f3",
+      "originalCompleteClipByteExact": true
+    }
+  ],
+  "interrupted09": {
+    "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/09/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+    "bytes": 2097200,
+    "sha256": "afcf042ca0d4db48136483bd5ee07e245062cb32f042166c567441327dd140a0",
+    "probeExit": 1,
+    "probeError": "[mov,mp4,m4a,3gp,3g2,mj2 @ 0x933054000] moov atom not found\n/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/09/iteration-sol61-rebuild-20261024-f/motion-review.mp4: Invalid data found when processing input\n",
+    "reusable": false
+  },
+  "resumePlan": "New unique film iteration; exact original source guard; reuse complete scenes01–08 including06 cache; capture missing09/10; preserve interrupted09 bytes/logs unchanged.",
+  "photographicAccepted": false
+}

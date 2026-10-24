@@ -1,3 +1,9 @@
+# Scene04 — working R25 wood profiles and local gilt reflections, unaccepted
+
+Current source: `c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94`. R25 separates vermilion lacquer, brown timber and end grain, uses actual closed bevels, and admits local scene reflection only to metal domains while retaining the original sky on timber. Root reviewed full/true crop/low images; photographic fidelity remains unaccepted. The new film remains frozen separately at c355c5d4/R22. Exact integration: `lookdev/scene04-canonical236/integration.json`; R24 failed reflection candidate is retained.
+
+The following describes retained earlier structural/source work and its historical evidence.
+
 # Scene04 — spatial188 R03 portal and source sculpture, unaccepted
 
 Current source: `8acb73308e2a1ece8c3118c57e0f2fcf2effbe23eaf7af1c432c01c3d3c1ae2c`. This is a genuine 3D source checkpoint, not an accepted photographic match. See [source and image attribution](ATTRIBUTION.md): the original Japanese Amida and rendered images containing it are for personal noncommercial use under CC BY-NC-SA 4.0. The source is a different artifact from the supplied reference.

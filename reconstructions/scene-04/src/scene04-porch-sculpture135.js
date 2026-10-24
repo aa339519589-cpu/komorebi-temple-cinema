@@ -6,6 +6,7 @@ import {createRainbowBeam212} from './scene04-porch-core212.js';
 import {createHeavyKarahafu212,createCloudTransfer212,cloudTransferEnvelope212,createRaisedScrollVine212} from './scene04-front-frame212.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+import {createPrecisionTimberFactory04,ensureTimberEndGrainAttributes212} from './scene04-timber-precision134.js';
 const lin=(a,b,n)=>Array.from({length:n+1},(_,i)=>a+(b-a)*i/n);
 const V=p=>new T.Vector3(...p);
 function closedGeometry(p,id,tag){
@@ -30,12 +31,12 @@ function coating(grid,tag){
  return closedGeometry(p,id,tag);
 }
 function sweepSection(fn,x0,x1,section,tag){
- const xs=lin(x0,x1,160),p=[],id=[],m=section.length;
- for(const x of xs){const slope=(fn(x+.001)-fn(x-.001))/.002,n=1/Math.hypot(1,slope);for(const [dy,z]of section)p.push(x-dy*slope*n,fn(x)+dy*n,z);}
+ const xs=lin(x0,x1,160),p=[],id=[],uv=[],m=section.length,across=[0];let along=0,previous=null;for(let k=1;k<m;k++)across[k]=across[k-1]+Math.hypot(section[k][0]-section[k-1][0],section[k][1]-section[k-1][1]);
+ for(const x of xs){const y=fn(x),slope=(fn(x+.001)-fn(x-.001))/.002,n=1/Math.hypot(1,slope);if(previous)along+=Math.hypot(x-previous[0],y-previous[1]);previous=[x,y];for(let k=0;k<m;k++){const[dy,z]=section[k];p.push(x-dy*slope*n,y+dy*n,z);uv.push(along/1.45+.37,across[k]/.38+.23);}}
  for(let j=0;j<xs.length-1;j++)for(let i=0;i<m;i++){const k=(i+1)%m,a=j*m+i,b=j*m+k,c=(j+1)*m+i,d=(j+1)*m+k;id.push(a,c,b,b,c,d);}
  const cap=T.ShapeUtils.triangulateShape(section.map(q=>new T.Vector2(...q)),[]);
  for(const [a,b,c]of cap){id.push(a,b,c);const off=(xs.length-1)*m;id.push(a+off,c+off,b+off);}
- return closedGeometry(p,id,tag);
+ const g=closedGeometry(p,id,tag);g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.userData.grain212='Metric arc length along sweep, section perimeter across';return g;
 }
 
 export function ridgeFront135(half,x,yRelative){
@@ -101,13 +102,13 @@ export function buildPorchJoinery135(mats,{C,profile,spatial188=null}){
  if(!reliefField)throw Error('Carving135 data not ready');
  const group=new T.Group();group.name='scene04-135-dominant-carved-porch-and-coupled-hafu';
  const materials=[],batches=new Map(),stats={revision:'scene04-212-upright-roof-seated-carved-receiving-heads-r21',pairedHafu:2,hafuVisibleNormalDepthMetres:.585,hafuForeAftRetreatMetres:.54,carvedPanels:0,reliefTriangles:0,deepCorbelSets:0,shaftBearingSets:0,closedRafterBoards:0,visualAccepted:false};
- const finish=(source,name,color,roughness)=>{const m=source.clone();m.name=name;m.color.setHex(color);m.roughness=roughness;m.clearcoat=source.metalness>.4?.025:source===mats.red?.09:.045;m.clearcoatRoughness=source.metalness>.4?.60:.42;materials.push(m);return m;};
- const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x60351a,.77),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x5e2613,.66),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x241107,.78),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xac8338,.47),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0x9b732e,.47);gilt.metalness=.88;oldgilt.metalness=.85;
- const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x64381c,.78);
+ const finish=(source,name,color,roughness)=>{const m=source.clone();m.name=name;m.color.setHex(color);m.roughness=roughness;materials.push(m);return m;};
+ const wood=finish(mats.cedar,'scene04-135-carved-aged-cedar',0x794725,.61),red=finish(mats.red,'scene04-135-carved-vermilion-timber',0x793a25,.48),dark=finish(mats.darkwood,'scene04-135-deep-carving-recess',0x382213,.74),gilt=finish(mats.gold,'scene04-135-worn-gilded-carving',0xc59c4e,.34),oldgilt=finish(mats.oldgold,'scene04-135-recessed-aged-gold',0xb58b45,.43);gilt.metalness=.94;oldgilt.metalness=.88;
+ const vaultWood=finish(mats.darkwood,'scene04-135-dark-curved-vault-timber',0x774b2b,.66),precisionTimber=createPrecisionTimberFactory04();
  const sculptedMaterial=createCarvedGiltWood212();materials.push(sculptedMaterial);
- function put(g,m,x=0,y=0,z=0,rotY=0){if(rotY)g.rotateY(rotY);g.translate(x,y,z);let list=batches.get(m);if(!list){list=[];batches.set(m,list);}list.push(g);}
+ function put(g,m,x=0,y=0,z=0,rotY=0){if(m.userData.timberFinish212)ensureTimberEndGrainAttributes212(g);if(rotY)g.rotateY(rotY);g.translate(x,y,z);let list=batches.get(m);if(!list){list=[];batches.set(m,list);}list.push(g);}
  function mesh(g,m,name){const o=new T.Mesh(g,m);o.name=name;o.castShadow=o.receiveShadow=true;group.add(o);return o;}
- const box=(w,h,d,x,y,z,m=wood)=>put(new RoundedBoxGeometry(w,h,d,1,Math.min(.0045,Math.min(w,h,d)*.065)),m,x,y,z);
+ const box=(w,h,d,x,y,z,m=wood)=>put(m.userData.timberFinish212?precisionTimber.box(w,h,d).clone():new RoundedBoxGeometry(w,h,d,2,Math.min(.002,Math.min(w,h,d)*.08)),m,x,y,z);
  function relief({name,width,height,x=0,y=0,z=0,depth=.10,back=.045,nx=380,ny=96,uRepeat=1,uPhase=0,u0=0,u1=1,v0=0,v1=1,warp=null,limit=null,gold=true,bodyMaterial=wood,solidCutoff=.21,skinCutoff=.46}){
   const replaced=spatial188&&/sculpted-transfer-end|gilded-carved-column-nose|real-door-lintel-relief/.test(name);
   if(replaced)return;

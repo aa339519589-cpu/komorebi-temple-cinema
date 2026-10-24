@@ -3,6 +3,7 @@ import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildLayeredLotus222} from './lotus-throne222.js';
+import {buildLivingOfferings233} from './living-offerings233.js';
 import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
@@ -60,7 +61,7 @@ export function buildRestorationAltar(options = {}) {
       buildLotusThrone(b,side*layout.sideFigureX,layout.sideSeatY,-.08,layout.throneRadii[1],layout.sideThroneHeight,layout.throneCompensation,layout.throneDepthAspect,layout.sideSourceBearings?.[side<0?0:1]);
     }
   }
-  if (options.ritualObjects !== false) {buildRitualObjects(b,layout);buildMonumentalFlowers(b,layout);}
+  if (options.ritualObjects !== false) {buildRitualObjects(b,layout);buildLivingOfferings233(b,layout);}
   if (options.offeringTable !== false) buildOfferingTable(b,layout);
   if (options.hanging !== false) {
     buildCanopy(b,...layout.centralCanopy);
@@ -1040,14 +1041,14 @@ function buildRitualObjects(b,layout) {
     // The foreground lamps are taller than the rear tabletop lamps.
     buildLantern(b,side*layout.floorLampX+layout.floorLampCenterOffsetX,layout.floorContactY,2.18,layout.floorLampScale,true,-side*layout.floorLampYaw,layout.floorLampChamberRadialScale);
     buildLantern(b,side*2.03,1.8295,1.01,.31);
-    buildUpperOfferingVase(b,side*layout.upperVaseX,layout.upperVaseY,layout.upperVaseZ,side);
+    buildUpperOfferingVase(b,side*layout.upperVaseX,layout.upperVaseY,layout.upperVaseZ,side,false);
     buildFloorOfferingVase(b,side*layout.floorVaseX,layout.floorContactY,1.90);
-    buildFloorFloralOffering(b,side*layout.floorVaseX,layout.floorContactY,1.90,side);
+    // Floral organs are now built once by living-offerings233, at this mouth.
     buildLiddedUrn(b,side*layout.floorUrnX,layout.floorContactY,1.75,.79);
     for(let i=0;i<3;i++)buildCandlestick(b,side*(i===2?2.50:1.37+i*.60),2.33,1.17-(i%2)*.15,.57+(i===1?.24:0),i===2,1.8295);
     buildLotusOffering(b,side*layout.innerRitualLotusX,2.33,layout.innerRitualLotusZ,.45,-side,true,layout.innerRitualLotusSupportY);
     buildLotusOffering(b,side*layout.outerRitualLotusX,2.31,layout.outerRitualLotusZ,.38,-side,false,layout.outerRitualLotusSupportY);
-    buildFloralOffering(b,side*.77,1.8295,1.168,side);
+    buildFloralOffering(b,side*.77,1.8295,1.168,side,false);
     // One slender flared vessel between each flower vase and the center,
     // rather than two identical short bowls at each side of the smoke axis.
     const xx=side*.43;
@@ -1131,10 +1132,11 @@ function pointOnNaturalStemAtY(points,y) {
   return curve.getPoint((lo+hi)/2);
 }
 
-function buildFloralOffering(b,x,y,z,side) {
+function buildFloralOffering(b,x,y,z,side,includeLegacyFoliage=true) {
   // Two compact cut-flower offerings are visible in the original, in black
   // gilt vases before the upper stair. No extra bouquets fill other gaps.
   buildVase(b,x,y,z,.28,.25,'lacquer');
+  if(!includeLegacyFoliage)return;
   const leaf=offeringNaturalLeaf(b),petal=offeringNaturalPetal(b);
   b.withTransform(x,y,z,1,()=>{
     for(let row=0;row<2;row++)for(let k=0;k<9;k++){
@@ -1240,7 +1242,7 @@ function conformCastScrollToVase(g,profile,depth,radialScale=1,heightScale=1) {
   g.computeVertexNormals();smoothCoincidentShellNormals(g);g.userData.castOnVaseBody=true;
 }
 
-function buildUpperOfferingVase(b,x,y,z,side) {
+function buildUpperOfferingVase(b,x,y,z,side,includeLegacyFoliage=true) {
   b.withTransform(x,y,z,1,()=>{
     // Original upper vases are small bulb-footed, long-necked vessels below
     // the attendant knees, not tall empty versions of the floor vessels.
@@ -1259,6 +1261,7 @@ function buildUpperOfferingVase(b,x,y,z,side) {
       b.box(0,.320,.052,.010,.112,.007,'oldgold');
     },k*Math.PI/3);
     });
+    if(!includeLegacyFoliage)return;
     const leaf=offeringNaturalLeaf(b);
     const firstStem=new T.CatmullRomCurve3([[0,.394,0],[-.11*side*.32,.49,-.015*.35],[-.11*side*.79,.60,-.015*.8],[-.11*side,.68,-.015]].map(p=>new T.Vector3(...p)));
     const neck=firstStem.getPointAt(1/20),bouquetRoot=new T.Vector3(0,.0938,0).lerp(neck,(.394-.0938)/(neck.y-.0938));

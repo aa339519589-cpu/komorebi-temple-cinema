@@ -41,10 +41,10 @@ export function createSculptedCloudBody212({width=5.40,height=.76,depth=.23,back
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('sculpt212Gilt',new T.Float32BufferAttribute(gilding,1));g.setIndex(ix);g.computeVertexNormals();g.userData.architectureMember='scene04-212-independent-sculpted-cloud-lotus-body';g.userData.sculpt212={source:'Built-in image_gen independent nonmetric grayscale guide',scalarGrid:[w,h],region,outline,activeCells:cells,closedBoundarySegments:edges,woodBackThickness:back,frontReliefDepth:depth,frontFloor,width,height,scalarSmoothing:'Separable5-tap Gaussian for geometry only; raw mask retains actual openings',guideRGBUsedAsMaterial:false,photographicDepthClaim:false,visualAccepted:false};return g;
 }
 export function createCarvedGiltWood212(){
- const m=new T.MeshPhysicalMaterial({name:'scene04-212-sculpted-worn-gilt-on-dark-timber',color:'#b28a43',roughness:.62,metalness:.73,clearcoat:.025,clearcoatRoughness:.60});
+ const m=new T.MeshPhysicalMaterial({name:'scene04-212-sculpted-worn-gilt-on-dark-timber',color:'#c7a154',roughness:.40,metalness:.90,clearcoat:.025,clearcoatRoughness:.46});
  m.onBeforeCompile=s=>{
   s.vertexShader='attribute float sculpt212Gilt;varying float vSculpt212Gilt;\n'+s.vertexShader;s.vertexShader=s.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvSculpt212Gilt=sculpt212Gilt;');
-  s.fragmentShader='varying float vSculpt212Gilt;\n'+s.fragmentShader;s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=mix(vec3(.035,.015,.006),diffuseColor.rgb,vSculpt212Gilt);').replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(.90,.62,vSculpt212Gilt);').replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor*=vSculpt212Gilt;');
+  s.fragmentShader='varying float vSculpt212Gilt;\n'+s.fragmentShader;s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb=mix(vec3(.080,.034,.013),diffuseColor.rgb,vSculpt212Gilt);').replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(.72,.40,vSculpt212Gilt);').replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor*=vSculpt212Gilt;');
  };
- m.customProgramCacheKey=()=> 'scene04-212-geometry-scalar-gilding-r12';m.userData.sculpt212={materialImageUsed:false,physicalGildedWood:true};return m;
+ m.customProgramCacheKey=()=> 'scene04-212-geometry-scalar-gilding-r23';m.userData.sculpt212={materialImageUsed:false,physicalGildedWood:true};return m;
 }

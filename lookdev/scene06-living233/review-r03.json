@@ -1,0 +1,58 @@
+{
+  "status": "r03-working-native-reviewed-photographically-unaccepted",
+  "baseline": "bc7476cb7a26058d916744ed6b56a3e04349160a6668ddc090eae462aeb495e9",
+  "r03Source": "c0afc84039a5652a63948ee65affdf217faa935c0c3cebc905545c1a313ca522",
+  "construction": "One closed botanical system replaces simultaneous legacy generators. Retained actual vase mouths; spline-rooted cut stems, woody twigs and pedicels; thin two-skin leaves, six individually recurved tepals, five-petal twig blossoms, calyces, separate filaments/anthers/styles. Ordinary nonemissive PBR and linear vertex color. No reference image/depth or view-dependent petal plate. Inferred forms, no historical species identification.",
+  "iterations": [
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-living233-r01-personal-nc/report.json",
+      "sha256": "21e9e054e23a3793266c1e2999e81c1962e446389368749c95843d1d21df69df",
+      "source": "003cd9cb017d8b20ab4369b1307280e2760f1cab98524929fc91181c20289062",
+      "status": "failed",
+      "actualFrames": [],
+      "rootPersonallyViewed": false
+    },
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-living233-r01b-personal-nc/report.json",
+      "sha256": "1d6a252b771df563352edd0d0e9dff49db1c1d80cf10fd818a55cc0c5512d74c",
+      "source": "e0dfcadd2e47fa11abd36f07351c531339fcb00be1d29593e8b3802d639613f2",
+      "status": "rendered-review",
+      "actualFrames": [
+        "reference",
+        "detail-native"
+      ],
+      "rootPersonallyViewed": true
+    },
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-living233-r02-personal-nc/report.json",
+      "sha256": "b48aadeb74eade22644c56fcf54307e3c0e3aa636891703eecdebc535e9bbbdd",
+      "source": "b65093e67fce3acc0690237a0b47b5dda4e1addf9e0bc85fcd4b37ccfd7fa26c",
+      "status": "rendered-review",
+      "actualFrames": [
+        "reference",
+        "detail-native"
+      ],
+      "rootPersonallyViewed": true
+    },
+    {
+      "report": "qa/ten-reference/06/iteration-scene06-living233-r03-recover242-personal-nc/report.json",
+      "sha256": "242fb8e79ad26fc4d83c722a1303f13cc07afbf87039e564a5fb4346c1bc9df9",
+      "source": "c0afc84039a5652a63948ee65affdf217faa935c0c3cebc905545c1a313ca522",
+      "status": "rendered-review",
+      "actualFrames": [
+        "reference",
+        "detail-native"
+      ],
+      "rootPersonallyViewed": true
+    }
+  ],
+  "returned": {
+    "r01": "Startup failure: negative remainder selected undefined tepal; all original bytes and failure retained.",
+    "r01b": "Flowers too closed; leaves too regularly fanned.",
+    "r02": "Open angle change exposed incorrect Euler composition: all tepals tipped into a common side. Returned with original actual pixels retained."
+  },
+  "r03Change": "Each tepal receives its own radial parent before its local bending; correct complete whorl geometry. Root viewed full and true crop.",
+  "heldUnchanged": "Existing vessels, cabinet/table/sculpture/halo, camera, all original lighting/volume/exposure/floor and reflection settings. New paper234 is a later separately reviewed candidate.",
+  "remaining": "Bouquet proportions, leaf silhouette and diffuse/reflective appearance still synthetic relative to the photograph. No claim of photographic restoration or a finished film.",
+  "photographicAccepted": false
+}

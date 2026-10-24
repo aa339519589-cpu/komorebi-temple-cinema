@@ -1,0 +1,84 @@
+{
+  "revision": "scene07-rebuild214-r25",
+  "reviewRevision": "recover238-after-confirmed-system-restart",
+  "sourceIdentity": "3e38d1cbd380ef0c9fbcd55ba3f0a932a7b32f96dde9d8bc7db1bc6262b82c0d",
+  "status": "Actual 1254 reference, true native subfrustum and retained low view personally inspected; unaccepted intermediate",
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "countsAsVisualIteration": true,
+  "reference": "references/hd/6-照片-7.jpg",
+  "improvements": [
+    "Paired narrower primary knees and smaller single intermediate members remove the broad repeated red plates visible in R24.",
+    "Returned eave construction is physically visible from the original low view; gilded carved cheeks remain separate domains.",
+    "All three official restored frames retain exact R25 source identity and no GL/page/resource errors."
+  ],
+  "failures": [
+    "Returned upper window wall is only 0.38 model metres behind the side column axis; it does not form the same deep veranda as the front.",
+    "The open central sanctuary lacks actual inward-swung door leaves and reads as a broad black opening.",
+    "Column heads still have sparse cast fittings, simple repetitive curves and limited gilded hierarchy compared with HD07.",
+    "Lower side window wall remains nearly coincident with side posts; this has not been corrected by R25.",
+    "Full scene remains visibly CG with broader garden, atmospheric and surface differences; no photographic acceptance."
+  ],
+  "nextActualWork": "R26 reconstructs the upper side wall perimeter, fits actual sanctuary door leaves and pierced cast inserts/neck collars to the retained timber frame. Original sky/sun/camera/pond/PBR settings retained.",
+  "checks": [
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r25-recover238/report.json",
+      "source": "3e38d1cbd380ef0c9fbcd55ba3f0a932a7b32f96dde9d8bc7db1bc6262b82c0d",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "reference",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "samplers": 14,
+          "limit": 16,
+          "rgbaSha256": "528ec6a36f0008380f3182ec69e879fb749cde4ece152579b2043ba319959f54"
+        },
+        {
+          "name": "detail-native",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "samplers": 14,
+          "limit": 16,
+          "rgbaSha256": "cbddccd0f751c8a58b3539b27a2936edc5ea35ed1050a31f7aa1c3ae8df2ba73"
+        }
+      ]
+    },
+    {
+      "report": "qa/ten-reference/07/iteration-scene07-rebuild214-r25-recover238-near-shore-low/report.json",
+      "source": "3e38d1cbd380ef0c9fbcd55ba3f0a932a7b32f96dde9d8bc7db1bc6262b82c0d",
+      "status": "rendered-review",
+      "errors": [],
+      "frames": [
+        {
+          "name": "inspection-view",
+          "size": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "GL": 0,
+          "linked": true,
+          "samplers": 14,
+          "limit": 16,
+          "rgbaSha256": "0ea4ca436193d7bc341adb11245bd38293063adfe3f9a53ce4b4b2da4e9b6643"
+        }
+      ]
+    }
+  ],
+  "preservedOriginalQueuedLogs": [
+    "lookdev/scene07-rebuild214/r25-render.log",
+    "lookdev/scene07-rebuild214/r25-near-shore-low-render.log"
+  ]
+}

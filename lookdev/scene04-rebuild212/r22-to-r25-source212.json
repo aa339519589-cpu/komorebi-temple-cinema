@@ -1,0 +1,99 @@
+{
+  "baselineHash": "da07ab60fa0208997ac9e94522a3b51dccbef640853d4549b9cf412cd374c86f",
+  "candidateHash": "c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r22-to-r25-source212.patch",
+  "patchSha256": "f7163802c59fd073ceda9f723d40bcc911ec4cce95b24780dae4dd5bd3f1421a",
+  "patchBytes": 42574,
+  "files": [
+    {
+      "file": "reconstructions/scene-04/src/reference4-architecture.js",
+      "beforeSha256": "eb0ca9931712ac39dbbf18cfc23c7110e2231567f6fc8b2a7f085e3fa9e6a17b",
+      "afterSha256": "2425e5cd15f404b81de36c76d8b247f1727ae905268f5c0745152c45eea604a9",
+      "beforeBytes": 36323,
+      "afterBytes": 36450,
+      "addedLines": 1,
+      "removedLines": 1
+    },
+    {
+      "file": "reconstructions/scene-04/src/reference4-materials.js",
+      "beforeSha256": "be50adfd64510b4e68e1c1f658092734068eec5b778bbae3b22487b9881ca005",
+      "afterSha256": "a8693d5628d788ed9db21fad6378b227b333380e014a11d0798315b1ae72fd6a",
+      "beforeBytes": 8876,
+      "afterBytes": 10189,
+      "addedLines": 12,
+      "removedLines": 6
+    },
+    {
+      "file": "reconstructions/scene-04/src/reference4-scene.js",
+      "beforeSha256": "d10612a2e9c1f5c76fa96925a0e0eb9008c4999f628c5ae81071ef069fae2dd0",
+      "afterSha256": "648dbaf5a0bae57c0b1b0de55178b44f1dc53b56c7d44f39911f732522571ba6",
+      "beforeBytes": 15880,
+      "afterBytes": 18467,
+      "addedLines": 11,
+      "removedLines": 3
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-carved-bearing212.js",
+      "beforeSha256": "fecfc19739d92ed6fe5e7e00c2ec9fd3f0c2c2c089ace28342470605eec9f2ea",
+      "afterSha256": "25f9e5a93687567586f1113faf2cb1c5f8320da1a207fea2b819c8577af3de87",
+      "beforeBytes": 4542,
+      "afterBytes": 4659,
+      "addedLines": 3,
+      "removedLines": 2
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-front-frame212.js",
+      "beforeSha256": "22ba0903d0e4121d61cba5e145bc83c683865377aeeeaf2c75797fa3f82fb1ab",
+      "afterSha256": "ce123af4287b8bc8a88f3af5bce5fa1304644a5668ad47a53e8d8ebd18be95b7",
+      "beforeBytes": 5840,
+      "afterBytes": 6957,
+      "addedLines": 8,
+      "removedLines": 3
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-porch-sculpture135.js",
+      "beforeSha256": "566d75f7430c02841c91544b19d8447ca853262005d388f59d185617518f3316",
+      "afterSha256": "91d694ab5605e5cb1b1067922d6b87e63aca7ee9e5e361a3f80cb2088acc9306",
+      "beforeBytes": 24721,
+      "afterBytes": 25338,
+      "addedLines": 9,
+      "removedLines": 8
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-sculpted-core212.js",
+      "beforeSha256": "f7085d464f37a3b9df50365edfd5a2b14cc3a40d689efc95c86f4686fee4fcd2",
+      "afterSha256": "673899b1d891c4dd08f3407179da41aa64c49fc0df44f50ac098c7f87b1dc0c6",
+      "beforeBytes": 5860,
+      "afterBytes": 5860,
+      "addedLines": 3,
+      "removedLines": 3
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-timber-finish212.js",
+      "beforeSha256": null,
+      "afterSha256": "4d09cf83882ef4714a8374942fc87a06d0ff86cb627ab404c0dcac6cc555de4d",
+      "beforeBytes": 0,
+      "afterBytes": 6271,
+      "addedLines": 56,
+      "removedLines": 0
+    },
+    {
+      "file": "reconstructions/scene-04/src/scene04-timber-precision134.js",
+      "beforeSha256": "db46b8e80e37cac8dad2ff2bd39466f690df60f4f464fb5c7681636b339f5d6f",
+      "afterSha256": "10b96db7437922907acf87c1ffe04c5f068c2c9c2b7c86ad81bce0bfbcfc43aa",
+      "beforeBytes": 1573,
+      "afterBytes": 2675,
+      "addedLines": 12,
+      "removedLines": 2
+    }
+  ],
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/candidate-root",
+  "runtimeOnlyDelta": true,
+  "assetCopies": false,
+  "sharedOrCanonicalWrites": false,
+  "status": "exact-frozen-source-delta-actual-full-native-hero-low-personally-reviewed-photographic-false",
+  "visualAccepted": false,
+  "canonicalIntegrated": false,
+  "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r25-actual-review212.json",
+  "nativeVerification": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r25-native-source-verification212.json"
+}

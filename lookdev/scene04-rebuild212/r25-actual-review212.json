@@ -1,0 +1,94 @@
+{
+  "sourceHash": "c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94",
+  "status": "personally-viewed-three-native-rounds-material-and-edge-checkpoint-photographic-match-rejected",
+  "actualRounds": [
+    "r23",
+    "r24",
+    "r25"
+  ],
+  "finalViews": [
+    {
+      "view": "reference",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-facade-native-personal-CC-BY-NC-SA4/reference.png",
+      "sha256": "eb649a2a9e0bb6ab2bf47aa764fe67c623493e7b087b9a8c6813dd8517d02116",
+      "sourceHash": "c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94",
+      "report": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-facade-native-personal-CC-BY-NC-SA4/report.json",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "personallyViewed": true,
+      "pngFullyDecodedWithFfmpeg": true
+    },
+    {
+      "view": "detail-native",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-facade-native-personal-CC-BY-NC-SA4/detail-native.png",
+      "sha256": "0305b52a55de6a5bcb8544a10b9b5383da6b7cbc2be3a9c2a572d16a96af6328",
+      "sourceHash": "c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94",
+      "report": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-facade-native-personal-CC-BY-NC-SA4/report.json",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "personallyViewed": true,
+      "pngFullyDecodedWithFfmpeg": true
+    },
+    {
+      "view": "inspection-view",
+      "png": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-low-personal-CC-BY-NC-SA4/inspection-view.png",
+      "sha256": "8ebdf3e4db4d4fc6990762c3cdfb55ee786a445eb2c92e5287a18d40dadfde60",
+      "sourceHash": "c648a61193fdffe4ba10c6b914bd5685586f20df857b27f3493704c116708a94",
+      "report": "/Users/mima1234/temple-cinema-live-sync/qa/ten-reference/04/iteration-scene04-rebuild212-r25-low-personal-CC-BY-NC-SA4/report.json",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "valid": true,
+      "personallyViewed": true,
+      "pngFullyDecodedWithFfmpeg": true
+    }
+  ],
+  "comparisons": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/reference-inspection/hd04-left-r25-right-native-pixels.jpg",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/reference-inspection/hd04-left-r25-right-hafu-native-pixels.jpg",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/reference-inspection/hd04-left-r25-right-core-native-pixels.jpg"
+  ],
+  "measuredBaseline": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r22-wood-chain-audit212.json",
+  "reflectanceDelta": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r25-reflectance-delta212.json",
+  "runtimeMaterialAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r25-runtime-material-audit212.json",
+  "progress": [
+    "Confirmed active wood albedo mean .769759 linear; original dark diffuse is neutralized before tint, so Scene04 was not the Scene06 .017-red duplicate-darkening case.",
+    "Separated opaque vermilion coating, varnished brown timber, exposed end timber, recessed wood and old gilt; actual effective property products are recorded.",
+    "Generic stretched structural boxes replaced with real metric rounded-arris solids; exposed transverse ends have independent 4.8mm ring pitch, while painted ends stay opaque.",
+    "Curved hafu now has actual small profile arrises and grain following metric arc length, with original nominal fitted layout.",
+    "Six selected gilt/mixed materials receive an actual128px scene reflection. Mixed wood samples the original sky separately with its own atlas metrics; no post gain on hemisphere/other lighting.",
+    "R24 near-black mixed-wood failure is repaired in actual R25 full/hero/low. Ordinary exterior timber and paving retain their original environment roles."
+  ],
+  "remainingRanked": [
+    "Under-eave bearing still reads as broad planar members with a sparse triangular vault; the HD04 reference has a denser hierarchy of curved wood receivers and smaller negative spaces.",
+    "The AI-authored scalar motif remains an inferred decorative pattern, not the reference sculpture; large beam fields/pendant are still too flat or oversized in appearance, and some gilt still reads olive/cream.",
+    "Lacquer/wood response is more distinct, but facade tone remains too even and the reference warm gloss/aged variation is not reproduced.",
+    "Retained roof projection, toro profile/weathering, pruned foliage, stairs and coarse paving remain visibly different; this material stage does not establish their accuracy."
+  ],
+  "limits": [
+    "Single local PMREM reflection approximation, not full GI or per-pixel parallax-correct reflection.",
+    "Metric grain/end rings and profile arrises are authored hypotheses, not recovered timber measurements.",
+    "Native shader linkage, source identity, finite geometry and decoded PNGs are technical evidence only."
+  ],
+  "unchangedScope": {
+    "nominalFittedHallAndColumnLayout": true,
+    "sunSkyAOExposure": true,
+    "forestAndGardenSource": true,
+    "assetsAndGuides": true
+  },
+  "rejectedEvidencePreserved": {
+    "r23Source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r23-source212.json",
+    "r24Source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r24-source212.json",
+    "r24FailureReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/r24-actual-review212.json",
+    "allActualPngs": true
+  },
+  "visualAccepted": false,
+  "canonicalIntegrated": false
+}

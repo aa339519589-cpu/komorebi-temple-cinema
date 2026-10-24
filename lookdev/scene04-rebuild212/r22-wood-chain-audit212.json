@@ -1,0 +1,272 @@
+{
+  "sourceHash": "da07ab60fa0208997ac9e94522a3b51dccbef640853d4549b9cf412cd374c86f",
+  "decoder": "ffmpeg RGBA JPEG decode; sRGB transfer is explicitly decoded to linear. Browser JPEG/Canvas color management may differ slightly.",
+  "sources": {
+    "diffuse": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/candidate-root/assets/polyhaven/lacquered-cherry-wood/diffuse-2k.jpg",
+      "sha256": "15728956eae2ae99a4d23e69f94f9690a063477e253c92d04c7109b7702332b8",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "originalMeanSrgb": [
+        0.18426049829993868,
+        0.10914416873901808,
+        0.05917952387886329
+      ],
+      "originalMeanLinear": [
+        0.029079909174353807,
+        0.011899580966139816,
+        0.004961750188327597
+      ]
+    },
+    "roughness": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-rebuild212/candidate-root/assets/polyhaven/lacquered-cherry-wood/roughness-2k.jpg",
+      "sha256": "e1d7ec1e5d030e764b8bcad07048a7e197fae4498e57c29facc83d726e44a290",
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "originalMean": 0.24752584999188507
+    }
+  },
+  "runtimeMap": {
+    "originalRgbDirectlyAssigned": false,
+    "algorithm": "byte-luma normalized z, clamped [-1.6,1.6]; linear gray .77+.13*z; encode+quantize to sRGB byte; SRGBColorSpace decode in shader",
+    "sourceLumaMean": 0.12150645305050037,
+    "sourceLumaSigma": 0.023450965510213098,
+    "neutralizedMeanLinear": 0.7697587635923412,
+    "neutralizedSigmaLinear": 0.11946724990887425,
+    "neutralizedRangeLinear": [
+      0.5647115057049292,
+      0.9822505503331171
+    ],
+    "roughnessMapMean": 0.7644103059639797,
+    "roughnessMapRange": [
+      0.7411764705882353,
+      0.9607843137254902
+    ],
+    "normalScale": [
+      0.52,
+      0.52
+    ],
+    "sharedByAllFourWoodRoles": true
+  },
+  "roles": {
+    "cedar": {
+      "hex": "#60391f",
+      "materialColorLinear": [
+        0.11697066775851084,
+        0.04091519690685319,
+        0.013702083047289686
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.09003919659036183,
+        0.031494831383156494,
+        0.010547298505121287
+      ],
+      "instanceTintRange": [
+        0.91,
+        1.04
+      ],
+      "effectiveRoughnessMean": 0.5809518325326246,
+      "effectiveRoughnessRange": [
+        0.5632941176470588,
+        0.7301960784313726
+      ]
+    },
+    "red": {
+      "hex": "#6f2b13",
+      "materialColorLinear": [
+        0.1589608350608804,
+        0.024157632448504756,
+        0.006512090792594475
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.12236149585606938,
+        0.018595549284879245,
+        0.005012738956908592
+      ],
+      "instanceTintRange": [
+        0.91,
+        1.04
+      ],
+      "effectiveRoughnessMean": 0.48922259581694705,
+      "effectiveRoughnessRange": [
+        0.47435294117647064,
+        0.6149019607843138
+      ]
+    },
+    "endwood": {
+      "hex": "#73451f",
+      "materialColorLinear": [
+        0.1714411007328226,
+        0.0595112381629812,
+        0.013702083047289686
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.13196828972900754,
+        0.04580929710818576,
+        0.010547298505121287
+      ],
+      "instanceTintRange": [
+        0.91,
+        1.04
+      ],
+      "effectiveRoughnessMean": 0.5962400386519042,
+      "effectiveRoughnessRange": [
+        0.5781176470588236,
+        0.7494117647058824
+      ]
+    },
+    "darkwood": {
+      "hex": "#34190d",
+      "materialColorLinear": [
+        0.03433980680868217,
+        0.00972121732023785,
+        0.004024717018496307
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.026433367231051046,
+        0.007482992225038739,
+        0.0030980611959667706
+      ],
+      "instanceTintRange": [
+        0.91,
+        1.04
+      ],
+      "effectiveRoughnessMean": 0.5962400386519042,
+      "effectiveRoughnessRange": [
+        0.5781176470588236,
+        0.7494117647058824
+      ]
+    },
+    "porchCedar": {
+      "hex": "#60351a",
+      "materialColorLinear": [
+        0.11697066775851084,
+        0.03560131487502034,
+        0.010329823029626936
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.09003919659036183,
+        0.027404424120457283,
+        0.007951471803413322
+      ],
+      "instanceTintRange": [
+        1,
+        1
+      ],
+      "effectiveRoughnessMean": 0.5885959355922644,
+      "effectiveRoughnessRange": [
+        0.5707058823529412,
+        0.7398039215686275
+      ]
+    },
+    "porchRed": {
+      "hex": "#5e2613",
+      "materialColorLinear": [
+        0.1119324278369056,
+        0.019382360956935723,
+        0.006512090792594475
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.08616096725762541,
+        0.014919742205711309,
+        0.005012738956908592
+      ],
+      "instanceTintRange": [
+        1,
+        1
+      ],
+      "effectiveRoughnessMean": 0.5045108019362267,
+      "effectiveRoughnessRange": [
+        0.4891764705882353,
+        0.6341176470588236
+      ]
+    },
+    "porchDark": {
+      "hex": "#241107",
+      "materialColorLinear": [
+        0.017641954488384078,
+        0.005605391624202723,
+        0.0021246888848418626
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.013580049074330882,
+        0.004314799326097153,
+        0.0016354978890142622
+      ],
+      "instanceTintRange": [
+        1,
+        1
+      ],
+      "effectiveRoughnessMean": 0.5962400386519042,
+      "effectiveRoughnessRange": [
+        0.5781176470588236,
+        0.7494117647058824
+      ]
+    },
+    "vaultWood": {
+      "hex": "#64381c",
+      "materialColorLinear": [
+        0.12743768043564743,
+        0.03954623527673284,
+        0.011612245179743885
+      ],
+      "meanEffectiveDiffuseLinear": [
+        0.09809627132721986,
+        0.030441061171349697,
+        0.008938627492090777
+      ],
+      "instanceTintRange": [
+        1,
+        1
+      ],
+      "effectiveRoughnessMean": 0.5962400386519042,
+      "effectiveRoughnessRange": [
+        0.5781176470588236,
+        0.7494117647058824
+      ]
+    }
+  },
+  "ao": {
+    "materialAoMap": false,
+    "screenContact": {
+      "algorithm": "GTAO",
+      "radiusMetres": 0.32,
+      "blend": 0.6,
+      "thicknessMetres": 0.16
+    },
+    "roomSkyVisibility": "Indirect diffuse and specular only, limited inside finite portal; upper hafu/bearing y>8.15 outside influence; no duplicate albedo multiplication."
+  },
+  "capture": {
+    "output": "sRGB",
+    "toneMapping": "ACESFilmic",
+    "exposure": 1,
+    "directionalSun": 11,
+    "hemi": 0.13,
+    "sceneSkyEnvironment": 0.09,
+    "exteriorTimberLocalProbe": false,
+    "exteriorGiltLocalProbe": false,
+    "pavingOnly": {
+      "actualCubeCapture": true,
+      "pixels": 256,
+      "diffuseIblGain": 0.14
+    },
+    "shrineOnly": {
+      "actualCubeCapture": true,
+      "pixels": 256,
+      "metalEnvironmentIntensity": 0.85,
+      "woodEnvironmentIntensity": 0.4
+    },
+    "r16RejectedProbeNotActive": true
+  },
+  "geometry": {
+    "commonTimber": "RoundedBoxGeometry one segment, radius min(6.5mm,minimum dimension*.075)",
+    "uv": "Longest face axis U; no transverse end-grain role. between() still stretches generic cube in many structural members.",
+    "carvedBearing": "Actual closed source meshes; gold mask mixes metallic and roughness only on same sculpted vertices."
+  },
+  "finding": "Scene04 does not use dark original diffuse multiplied by dark red. Its active map mean is about .77 linear. Existing over-dark/flat response comes from low role reflectance, one shared strong grain normal/roughness for opaque lacquer and wood, tiny edge sections and no exterior gilt scene reflection. This is an authoring audit, not a photographic acceptance.",
+  "visualAccepted": false
+}

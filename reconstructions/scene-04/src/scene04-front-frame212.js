@@ -10,14 +10,19 @@ function solid(p,id,tag){
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(id);g.computeVertexNormals();g.userData.architectureMember=tag;g.userData.frontFrame212={closed:true,source:'Independent HD04 proportion reconstruction',referenceImageUsedAsTexture:false};return g;
 }
 export function createHeavyKarahafu212(profile){
- const z=profile.front,section=[[-.025,z-.22],[-.025,z+.075],[-.070,z+.155],[-.115,z+.185],[-.165,z+.180],[-.185,z+.140],[-.220,z+.125],[-.235,z+.155],[-.285,z+.150],[-.310,z+.135],[-.335,z+.120],[-.375,z-.030],[-.585,z-.245],[-.565,z-.245],[-.355,z-.310],[-.120,z-.295]],p=[],id=[],N=216,M=section.length;
+ const z=profile.front,raw=[[-.025,z-.22],[-.025,z+.075],[-.070,z+.155],[-.115,z+.185],[-.165,z+.180],[-.185,z+.140],[-.220,z+.125],[-.235,z+.155],[-.285,z+.150],[-.310,z+.135],[-.335,z+.120],[-.375,z-.030],[-.585,z-.245],[-.565,z-.245],[-.355,z-.310],[-.120,z-.295]],section=[];
+ // Real 8mm profile arrises reveal a moving narrow highlight on the curved
+ // timber. The fitted span, crown, receiving axes and section envelope stay.
+ for(let i=0;i<raw.length;i++){const b=new T.Vector2(...raw[i]),a=new T.Vector2(...raw[(i+raw.length-1)%raw.length]),c=new T.Vector2(...raw[(i+1)%raw.length]),trim=Math.min(.008,b.distanceTo(a)*.22,b.distanceTo(c)*.22),p=b.clone().lerp(a,trim/b.distanceTo(a)),q=b.clone().lerp(c,trim/b.distanceTo(c));for(let k=0;k<=3;k++){const t=k/3,s=1-t;section.push([s*s*p.x+2*s*t*b.x+t*t*q.x,s*s*p.y+2*s*t*b.y+t*t*q.y]);}}
+ const p=[],id=[],uv=[],N=216,M=section.length,across=[0];let along=0,previous=null;for(let k=1;k<M;k++)across[k]=across[k-1]+Math.hypot(section[k][0]-section[k-1][0],section[k][1]-section[k-1][1]);
  for(let j=0;j<=N;j++){
   const x=-profile.half+2*profile.half*j/N,slope=(profile.canopy(x+.001,z)-profile.canopy(x-.001,z))/.002,n=1/Math.hypot(1,slope);
-  for(const[dy,zz]of section)p.push(x-dy*slope*n,profile.canopy(x,z)+dy*n,zz);
+  const y=profile.canopy(x,z);if(previous)along+=Math.hypot(x-previous[0],y-previous[1]);previous=[x,y];
+  for(let k=0;k<M;k++){const[dy,zz]=section[k];p.push(x-dy*slope*n,y+dy*n,zz);uv.push(along/1.45+.37,across[k]/.38+.23);}
  }
  for(let j=0;j<N;j++)for(let k=0;k<M;k++){const q=(k+1)%M,a=j*M+k,b=j*M+q,c=(j+1)*M+k,d=(j+1)*M+q;id.push(a,c,b,b,c,d);}
  const caps=T.ShapeUtils.triangulateShape(section.map(q=>new T.Vector2(...q)),[]);for(const[a,b,c]of caps){id.push(a,b,c);const o=N*M;id.push(o+a,o+c,o+b);}
- const g=solid(p,id,'entrance-saddled-bargeboard');g.userData.frontFrame212.sectionDepthMetres=.560;g.userData.frontFrame212.foreAftDepthMetres=.495;return g;
+ const g=solid(p,id,'entrance-saddled-bargeboard');g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.userData.frontFrame212.sectionDepthMetres=.560;g.userData.frontFrame212.foreAftDepthMetres=.495;g.userData.frontFrame212.profileArrisMetres=.008;g.userData.frontFrame212.grain='Metric arc length along the actual compound hafu; transverse section perimeter across grain.';return g;
 }
 export function cloudTransferEnvelope212(x,width,height,bow=.08){
  const u=2*x/width,belly=1-u*u,shoulder=Math.exp(-Math.pow((Math.abs(u)-.79)/.13,2)),endCurl=Math.exp(-Math.pow((Math.abs(u)-.96)/.065,2));

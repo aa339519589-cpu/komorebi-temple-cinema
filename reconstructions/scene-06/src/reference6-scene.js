@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {installCentralScalp199} from './central-sculpture-scalp199.js';
 import {buildWindowCanopy195} from './window-canopy195.js';
+import {createShojiPaper234,buildSlidingShoji234} from './sliding-shoji234.js';
 import {createReference6ColumnCollar} from './reference6-column-collar.js';
 import {createReference6CofferRelief} from './reference6-coffer-relief.js';
 import {buildPaintedCoffers228} from './painted-coffers228.js';
@@ -75,7 +76,7 @@ materials.clothGold=materials.buddha.clone();materials.clothGold.name='scene06-r
 materials.handGold=materials.buddha.clone();materials.handGold.name='scene06-r9-cast-palm-gilt';materials.handGold.color.set('#d8b05f');materials.handGold.metalness=.85;materials.handGold.roughness=.31;
 materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-polished-gilt-facial-planes';materials.faceGold.bumpScale=.00015;materials.faceGold.roughness=.275;materials.faceGold.metalness=.92;materials.faceGold.color.set('#d0a04a');
  materials.statueGold=materials.gold.clone();materials.statueGold.name='reference6-statue-ornament-private-gilt';
- const blockers=[],apertures=[],pillarRoots=[];
+ const blockers=[],apertures=[],pillarRoots=[],shojiPanels234=[];const shojiPaper234=createShojiPaper234();
  const columnCollar=createReference6ColumnCollar();
  function mesh(g,m,p=[0,0,0],rot=null,parent=architecture){const o=new T.Mesh(g,m);o.position.fromArray(p);if(rot)o.rotation.set(...rot);o.castShadow=true;o.receiveShadow=true;parent.add(o);blockers.push(o);return o;}
  const box=(p,s,m=materials.beam)=>{
@@ -122,20 +123,14 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
    for(const sign of[-1,1])box([x,(bottom+top)/2,z+sign*(width/2+sideWidth/2)],[.24,top-bottom,sideWidth],materials.beam);
    for(const zz of[z-width/2-.045,z+width/2+.045])box([x,(bottom+top)/2,zz],[.28,top-bottom+.16,.09],materials.column);
    for(const yy of[bottom-.045,top+.045])box([x,yy,z],[.28,.09,width+.18],materials.beam);
-   // Sliding timber shutters occupy part of each bay; the remaining
-   // real openings preserve bright shafts through an otherwise dark hall.
-   const shutterWidth=side<0?(b%2?.46:.28):.66;
-   box([x-side*.10,(bottom+top)/2,z+(width-shutterWidth)/2],[.065,top-bottom,shutterWidth],materials.dark);
-   for(let rail=0;rail<4;rail++)box([x-side*.15,bottom+(rail+.5)*(top-bottom)/4,z+(width-shutterWidth)/2],[.035,.035,shutterWidth],materials.beam);
-   const columns=Math.ceil(width/.16),rows=Math.ceil((top-bottom)/.17);
-   for(let k=1;k<columns;k++)box([x,(bottom+top)/2,z-width/2+k*width/columns],[.045,top-bottom,.012],materials.beam);
-   for(let k=1;k<rows;k++)box([x,bottom+k*(top-bottom)/rows,z],[.045,.011,width],materials.beam);
+   shojiPanels234.push(buildSlidingShoji234({box,aperture:{side,x,z,bottom,top,width,kind},paper:shojiPaper234,timber:materials.beam}));
    apertures.push({side,x,z,bottom,top,width,kind,unobstructedSideExterior:true});
   }
   // Close the old unframed end gaps; the next room is not an infinite side light.
   box([x,3.6,9.40],[.24,7.2,1.40],materials.beam);
   box([x,3.6,-5.80],[.24,7.2,.20],materials.beam);
  }
+ architecture.userData.shoji234={revision:'r01',panels:shojiPanels234,radianceBoundary:shojiPaper234.scope,allExistingLightParametersHeld:true,photographicAccepted:false};
  const daylightCanopy195=buildWindowCanopy195(scene);
  // Complete ceiling and red cross frames. No unrelated exterior roofs participate.
  box([0,7.25,2.1],[14.2,.16,16.4],materials.dark);
@@ -261,5 +256,5 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
   finally{floor.visible=prior;pmrem.dispose();}
  }
  const depthExclusions=[];scene.traverse(o=>{if(o.isMesh&&(o===floor||o.userData.excludeFromOpaqueDepth||o.material.transparent||o.material.transmission>0))depthExclusions.push(o);});
- return{scene,architecture,materials,sun,windowSky,frontWindowSources,practicals,floor,altar,hanging,sculptures,furniture,apertures,blockers,pillarRoots,prayerMats,depthExclusions,initializeEnvironment,layout,configuration:REFERENCE6_FOUNDATION,limits:['Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.','Monumental altarV3 with actual Japanese Amida central source under asset-specific CC BY-NC-SA4 for personal noncommercial use; independent CC BY attendant heads retained. Photographic fidelity remains unaccepted.','Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.','Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.','Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison.']};
+ return{scene,architecture,materials,sun,windowSky,frontWindowSources,practicals,floor,altar,hanging,sculptures,furniture,apertures,blockers,pillarRoots,prayerMats,depthExclusions,initializeEnvironment,layout,configuration:REFERENCE6_FOUNDATION,limits:['Actual sliding paper panels carry their own lattice and leave physical clear slots. Paper emission is an inferred diffuse exterior-radiance boundary standing for uncomputed paper transmission, not measured illumination or full GI. Existing lights/exposure remain held for this geometry comparison.','Small-radius screen-space geometric contact occlusion is a visibility approximation, not multi-bounce GI; reflections and off-screen occluders are not reconstructed by it.','Monumental altarV3 with actual Japanese Amida central source under asset-specific CC BY-NC-SA4 for personal noncommercial use; independent CC BY attendant heads retained. Photographic fidelity remains unaccepted.','Side-window and sunlit-floor RectArea indirect proxies have no own occlusion; the inferred front field now has six real shadow-casting samples. This is finite source quadrature, not measured illumination or full GI.','Two spatial room environment captures (lower furnishings and higher triad) are local approximations, not iterative global illumination.','Front entrance outside the photograph is an inferred incident-radiance boundary, not a measured architectural claim. No photographic acceptance until actual comparison.']};
 }

@@ -1,0 +1,52 @@
+{
+  "revision": "scene07-rebuild214-r25",
+  "status": "Actual restored 1254 full/truecrop/low inspected; retained unaccepted intermediate",
+  "photographicAcceptance": false,
+  "baselineSource": "0b1009b11684d16eeb731adcfef3e94323037440db5ca80e206c56c8a18d104e",
+  "targetSource": "3e38d1cbd380ef0c9fbcd55ba3f0a932a7b32f96dde9d8bc7db1bc6262b82c0d",
+  "files": [
+    {
+      "path": "reconstructions/scene-07/src/grand-frame182.js",
+      "packagePath": "src/grand-frame182.js",
+      "sha256": "6f13a89decb5718094789ba603a5bb2ca52dae29c542a24f24289857a34ec26d",
+      "bytes": 6503,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/hall-facade214.js",
+      "packagePath": "src/hall-facade214.js",
+      "sha256": "8e8a40f515d8df76a6823514624c9c8f02150d3e72ddf5ef085d081faee5426d",
+      "bytes": 12343,
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-07/src/main.js",
+      "packagePath": "src/main.js",
+      "sha256": "8faf33c780c35b6408733f22d2bc41cd9f043d45af244c32d4422be3b239dfa4",
+      "bytes": 71602,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/occupied-hall152.js",
+      "packagePath": "src/occupied-hall152.js",
+      "sha256": "fec0c6cab2e028c16a84f34562a4621713115d1130d979208c62aa75d5c5e2f8",
+      "bytes": 4704,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-07/src/world-radiance214.js",
+      "packagePath": "src/world-radiance214.js",
+      "sha256": "44a287380d039b1237dc7c66cadf45e494f178879339be2d42b588215f985da2",
+      "bytes": 12299,
+      "added": false
+    }
+  ],
+  "totalRuntimeBytes": 107451,
+  "assetBytesCopied": 0,
+  "sharedSourcesChanged": 0,
+  "copyTarget": "reconstructions/scene-07/src",
+  "unchangedResources": "All baseline scene assets, index.html, asset-dependencies.json and declared external dependencies retain exact R22 hashes",
+  "completeIdentityManifest": "lookdev/scene07-rebuild214/r25-source-identity.json",
+  "restoreR22": "Restore main.js / grand-frame182.js / occupied-hall152.js / world-radiance214.js from r22-source and remove hall-facade214.js.",
+  "actualNativeReview": "lookdev/scene07-rebuild214/r25-review.json"
+}

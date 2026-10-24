@@ -36,7 +36,11 @@ export function loadReference4GeneratedMaps(){
     const image=cedarRoughness.image,canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const data=ctx.getImageData(0,0,image.width,image.height).data;
     for(let i=0;i<data.length;i+=4){const v=Math.round(255*(.70+.26*data[i]/255));data[i]=data[i+1]=data[i+2]=v;data[i+3]=255;}
     const roughness=new T.DataTexture(data,image.width,image.height,T.RGBAFormat);roughness.name='scene04-CC0-weathered-exterior-cedar-roughness';roughness.wrapS=roughness.wrapT=T.RepeatWrapping;roughness.generateMipmaps=true;roughness.minFilter=T.LinearMipmapLinearFilter;roughness.magFilter=T.LinearFilter;roughness.anisotropy=8;roughness.needsUpdate=true;cedarRoughness.dispose();
-    scannedCedar164={albedo:cedar.albedo,height:cedar.height,normal:cedarNormal,roughness,sourceStatistics:cedar.sourceStatistics};
+  // The painted shafts do not expose the raw wood's strong diffuse grain.
+  // Retain only a weak coating variation, using the same independent scan.
+  const lacquerPixels=cedar.albedo.image.data.slice();for(let i=0;i<lacquerPixels.length;i+=4){const s=lacquerPixels[i]/255,linear=s<=.04045?s/12.92:Math.pow((s+.055)/1.055,2.4),v=Math.round(255*linearToSrgb(.96+.022*(linear-.77)));lacquerPixels[i]=lacquerPixels[i+1]=lacquerPixels[i+2]=v;}
+  const lacquer=new T.DataTexture(lacquerPixels,cedar.albedo.image.width,cedar.albedo.image.height,T.RGBAFormat);lacquer.colorSpace=T.SRGBColorSpace;lacquer.wrapS=lacquer.wrapT=T.RepeatWrapping;lacquer.generateMipmaps=true;lacquer.minFilter=T.LinearMipmapLinearFilter;lacquer.magFilter=T.LinearFilter;lacquer.anisotropy=8;lacquer.name='scene04-212-opaque-vermilion-coating-microvariation';lacquer.needsUpdate=true;
+  scannedCedar164={albedo:cedar.albedo,lacquer,height:cedar.height,normal:cedarNormal,roughness,sourceStatistics:cedar.sourceStatistics};
     generatedMaps=generated;return generatedMaps;
   })();return generatedMapsPromise;
 }
@@ -46,21 +50,23 @@ export function getReference4GeneratedMaps(){if(!generatedMaps)throw Error('Gene
 export function createReference4MaterialSet(T, options={}) {
   if(!generatedMaps)throw Error('Generated PBR material detail must load before scene04 construction');
   const palette={
-    cedar:[0x60391f,.76,0],red:[0x6f2b13,.64,0],endwood:[0x73451f,.78,0],darkwood:[0x34190d,.78,0],
-    gold:[0xd4a74b,.31,.86],oldgold:[0xac7f33,.49,.76],black:[0x20231f,.66,.03],
+    cedar:[0x7a4a2b,.61,0],red:[0x823c29,.46,0],endwood:[0x98683b,.69,0],darkwood:[0x462b19,.72,0],
+    gold:[0xd7af59,.32,.94],oldgold:[0xb58b45,.43,.88],black:[0x20231f,.66,.03],
     slate:[0x3b4853,.64,0],tileEdge:[0x596264,.73,0],stone:[0x62676c,.95,0],
     granite:[0x73777b,.95,0],plaster:[0xc4baa3,.92,0],paper:[0xb5aa8c,.97,0]
   };
   const materials=[],textures=[],mats={};
   for(const [key,[color,roughness,metalness]] of Object.entries(palette)) {
     const woodLike=['cedar','red','endwood','darkwood'].includes(key);
-    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='red'?.10:key==='darkwood'?.015:.045,clearcoatRoughness:key==='darkwood'?.60:.42}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
+    const m=options.materials?.[key]||(['stone','granite'].includes(key)?stoneMaterial('reference4_'+key,color,{seed:key==='stone'?31:73}):key==='slate'?new T.MeshPhysicalMaterial({name:'kiln-fired-ceramic',color,roughness:.43,metalness:0,envMapIntensity:.50,clearcoat:.16,clearcoatRoughness:.29}):woodLike?new T.MeshPhysicalMaterial({name:'reference4_'+key,color,roughness,metalness,clearcoat:key==='red'?.31:key==='darkwood'?.06:.18,clearcoatRoughness:key==='red'?.26:key==='darkwood'?.45:.34}):new T.MeshStandardMaterial({name:'reference4_'+key,color,roughness,metalness}));
     mats[key]=m;if(!options.materials?.[key])materials.push(m);
   }
   const wood=scannedCedar164.albedo,woodHeight=scannedCedar164.height,stone=generatedMaps.slate.albedo,stoneHeight=generatedMaps.slate.height;
-  const generatedTextureSet=Object.values(generatedMaps).flatMap(m=>[m.albedo,m.height,m.roughness]);textures.push(...generatedTextureSet,...[scannedCedar164.albedo,scannedCedar164.height,scannedCedar164.normal,scannedCedar164.roughness]);
+  const generatedTextureSet=Object.values(generatedMaps).flatMap(m=>[m.albedo,m.height,m.roughness]);textures.push(...generatedTextureSet,...[scannedCedar164.albedo,scannedCedar164.lacquer,scannedCedar164.height,scannedCedar164.normal,scannedCedar164.roughness]);
   for(const key of ['red','cedar','endwood','darkwood'])if(materials.includes(mats[key])) {
-    Object.assign(mats[key],{map:wood,normalMap:scannedCedar164.normal,normalScale:new T.Vector2(.52,.52),bumpMap:null,bumpScale:0,roughnessMap:scannedCedar164.roughness});
+    const painted=key==='red',normal=painted?.11:key==='darkwood'?.28:.33;
+    Object.assign(mats[key],{map:painted?scannedCedar164.lacquer:wood,normalMap:scannedCedar164.normal,normalScale:new T.Vector2(normal,normal),bumpMap:null,bumpScale:0,roughnessMap:scannedCedar164.roughness});
+    mats[key].userData.timberFinish212={role:painted?'opaque-vermilion-lacquer':key==='endwood'?'exposed-cut-timber':key==='darkwood'?'aged-recess-timber':'varnished-brown-timber',originalScanRgbDirectlyMultiplied:false,neutralAlbedoMeanLinear:.7697587636,paintedAlbedoMeanLinear:painted?.96:null};
   }
   for(const key of ['slate'])if(materials.includes(mats[key])) {
     Object.assign(mats[key],{map:stone,bumpMap:stoneHeight,bumpScale:.0028,roughnessMap:generatedMaps.slate.roughness});
