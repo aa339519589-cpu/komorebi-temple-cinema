@@ -1,0 +1,165 @@
+--- a/reconstructions/scene-06/src/reference6-scene.js
++++ b/reconstructions/scene-06/src/reference6-scene.js
+@@ -21,7 +21,7 @@
+ 
+ // Independent room, not a material patch over the exterior-world reconstruction.
+ // Metres, floorY=0; altar front +Z. Only generated geometry/textures, no photo planes.
+-export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene06-sculpture199-r08a-continuous-source-fit-mixed-source-licenses',roomWidth:13.6,ceilingY:7.2,backZ:ROOM_LAYOUT248.bounds.backZ,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.72,.50,-.48],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Personal noncommercial NC-SA4 mixed-source derivative. The entire J/NC face remains uncut and continuous; real donor triangle/barycentric targets guide bounded actual eye/brow/nose/lip detail on a conformingly refined source surface. Rejected donor-cheek transplants remain frozen and are not used. Actual NC ear volume turns coherently with direct original-NC triangle/barycentric ancestry. Raised coils and irregular actual-surface roots replace the straight cap edge; standard aged-gold vertex color keeps original metalness, roughness and roughnessMap. Original body/palms/garments/hem/seat positions and normals belowY2.15 stay exact from J/R05. All raw sources and traces retained; no image projection, hidden head, face disc or global filter. Photographic fidelity remains unaccepted.'});
++export const REFERENCE6_FOUNDATION=Object.freeze({revision:'scene06-native284-r08-ff57-pendants283-r06-PBR-front-left-daylight',roomWidth:13.6,ceilingY:7.2,backZ:ROOM_LAYOUT248.bounds.backZ,frontZ:10.0,altarOrigin:[0,.045,-2.3],camera:{position:[0,.58,8.40],target:[0,2.40,-2.3],fov:64},sunDirection:[-.935,.105,.339],sunTarget:[0,4.0,-.2],sunIntensity:22.0,sourceLimit:'Personal noncommercial NC-SA4 mixed-source derivative. The entire J/NC face remains uncut and continuous; real donor triangle/barycentric targets guide bounded actual eye/brow/nose/lip detail on a conformingly refined source surface. Rejected donor-cheek transplants remain frozen and are not used. Actual NC ear volume turns coherently with direct original-NC triangle/barycentric ancestry. Raised coils and irregular actual-surface roots replace the straight cap edge; standard aged-gold vertex color keeps original metalness, roughness and roughnessMap. Original body/palms/garments/hem/seat positions and normals belowY2.15 stay exact from J/R05. All raw sources and traces retained; no image projection, hidden head, face disc or global filter. Photographic fidelity remains unaccepted.'});
+ function woodMap(){
+  const canvas=document.createElement('canvas');canvas.width=512;canvas.height=512;const c=canvas.getContext('2d'),im=c.createImageData(512,512);let seed=19473;const r=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
+  for(let y=0;y<512;y++)for(let x=0;x<512;x++){const u=x+.85*Math.sin(y*.019)+.35*Math.sin(y*.061);const v=230+5*Math.sin(u*.38)+4*Math.sin(u*1.77)+(r()-.5)*4,j=(y*512+x)*4;im.data[j]=im.data[j+1]=im.data[j+2]=v;im.data[j+3]=255;}c.putImageData(im,0,0);const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;map.wrapS=map.wrapT=T.RepeatWrapping;map.anisotropy=8;return map;
+@@ -105,22 +105,24 @@
+  // Rear closure is authored by room248 at its explicitly inferred depth.
+  // Retain the original inferred entrance behind the camera.
+  box([-5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([5.35,3.6,10.2],[3.1,7.2,.24],materials.dark);box([0,6.80,10.2],[7.6,.80,.24],materials.beam);box([0,.065,10.2],[7.6,.13,.24],materials.beam);
+- // Photo-led receiving-domain reconstruction: real opaque wall fields separate
+- // low front daylight openings from one upper middle clerestory. These are not
+- // screen masks or selective material lighting flags. Every panel casts shadows.
++ // Daylight284: tall framed side apertures continue toward the entrance.
++ // The photograph supports tall visible side glazing; dimensions hidden by
++ // the crop and posts are inferred. Closed sill, jambs and header remain.
+  for(const side of [-1,1]){
+   const x=side*6.8;
+-  box([x,.43,2.1],[.24,.86,16],materials.beam);box([x,7.05,2.1],[.30,.30,16],materials.beam);
++  // The retained sill must not cross the new clear aperture. Rear raised
++  // wall fields below1.05m remain as their individual closed bay panels.
++  box([x,.12,2.1],[.24,.24,16],materials.beam);box([x,7.05,2.1],[.30,.30,16],materials.beam);
+   const bays=[
+    {bottom:1.05,top:5.60,width:1.70,kind:'rear-daylight-window'},
+    {bottom:1.05,top:5.60,width:1.70,kind:'rear-daylight-window'},
+    {bottom:1.05,top:4.70,width:1.70,kind:'middle-daylight-window'},
+-   {bottom:1.05,top:2.70,width:1.70,kind:'front-low-daylight'},
+-   {bottom:1.05,top:2.45,width:1.70,kind:'front-low-daylight'},
+-   {bottom:.75,top:2.70,width:2.16,kind:'front-low-daylight'}
++   {bottom:.25,top:6.35,width:1.70,kind:'inferred-tall-front-daylight284'},
++   {bottom:.25,top:6.35,width:1.70,kind:'inferred-tall-front-daylight284'},
++   {bottom:.25,top:6.35,width:2.16,kind:'inferred-tall-front-daylight284'}
+   ];
+   for(let b=0;b<6;b++){
+-   const z=-4.5+b*2.4,{width,bottom,kind}=bays[b],top=side<0&&b===2?5.60:bays[b].top;
++   const z=-4.5+b*2.4,{width,bottom,kind}=bays[b],top=side<0&&b===2?6.35:bays[b].top;
+    box([x,bottom/2,z],[.24,bottom,2.4],materials.beam);
+    box([x,(top+7.2)/2,z],[.24,7.2-top,2.4],materials.beam);
+    const sideWidth=(2.4-width)/2;
+@@ -134,7 +136,7 @@
+   box([x,3.6,9.40],[.24,7.2,1.40],materials.beam);
+   box([x,3.6,-5.80],[.24,7.2,.20],materials.beam);
+  }
+- architecture.userData.shoji234={revision:'r01',panels:shojiPanels234,radianceBoundary:shojiPaper234.scope,allExistingLightParametersHeld:true,photographicAccepted:false};
++ architecture.userData.shoji234={revision:'daylight284-r01',panels:shojiPanels234,radianceBoundary:shojiPaper234.scope,allExistingLightParametersHeld:false,physicalApertureInference:'Front bays and upper left middle bay extend to6.35m under retained7.2m roof; hidden entrance continuation is inferred. Actual paper and lattice slide together, no light mask.',photographicAccepted:false};
+  const daylightCanopy195=buildWindowCanopy195(scene);
+  // Room248 replaces only architectural solids. Materials, all light parameters,
+  // low camera, figures, altar and table retain the exact234 baseline.
+@@ -219,6 +221,10 @@
+  for(const side of[-1,1]){const l=new T.RectAreaLight('#ffe2aa',side<0?3.4:1.05,1.15,3.8);l.name='scene06-tall-entrance-window-field';l.position.set(side*3.5,4.4,3.5);l.lookAt(0,4.5,-2.3);scene.add(l);windowSky.push(l);}
+  const portalKey=new T.RectAreaLight('#ffe2ac',2.2,4.8,2.8);portalKey.name='scene06-entrance-warm-head-field';portalKey.position.set(0,5.4,7.0);portalKey.lookAt(0,4.8,-2.3);scene.add(portalKey);windowSky.push(portalKey);
+  const floorBounce=new T.RectAreaLight('#ffd08a',1.10,4.0,3.0);floorBounce.name='reference6-sunlit-floor-bounce-proxy';floorBounce.position.set(0,.18,3.2);floorBounce.lookAt(0,4.2,-2.3);scene.add(floorBounce);windowSky.push(floorBounce);
++ // Keep legacy records inspectable but inactive: this candidate cannot gain
++ // an invisible front/area/hemisphere fill when correcting the real windows.
++ for(const light of[...windowSky,...frontWindowSources,warmBounce]){light.userData.daylight284OriginalIntensity=light.intensity;light.intensity=0;}
++ room248.stats.held.lightParameters=false;room248.stats.held.existingApertureCoordinates=false;
+  const practicals=[];for(const side of[-1,1]){const l=new T.PointLight('#ffc577',1.4,2.2,2);l.name='reference6-floor-lantern-source';l.position.set(side*3.2-.025,1.35,-.12);l.castShadow=true;l.shadow.mapSize.set(256,256);l.shadow.bias=-.00015;l.shadow.normalBias=.008;scene.add(l);practicals.push(l);}
+  const floor=new Reflector(new T.PlaneGeometry(13.4,ROOM_LAYOUT248.bounds.frontZ-ROOM_LAYOUT248.bounds.backZ),{textureWidth:reflectionSize,textureHeight:reflectionSize,clipBias:.002,multisample:0,color:0xffffff});floor.rotation.x=-Math.PI/2;floor.position.set(0,0,(ROOM_LAYOUT248.bounds.frontZ+ROOM_LAYOUT248.bounds.backZ)/2);bindFloorReflection(floor,reflectionSize,floorReflectionState);scene.add(floor);
+  scene.updateMatrixWorld(true);let environment=null,statueEnvironment=null,environmentInitialized=false;
+--- a/reconstructions/scene-06/src/sliding-shoji234.js
++++ b/reconstructions/scene-06/src/sliding-shoji234.js
+@@ -19,7 +19,7 @@
+ }
+ 
+ export function buildSlidingShoji234({box,aperture,paper,timber}){
+- const{side,x,z,bottom,top,width}=aperture,height=top-bottom,bay=Math.round((z+4.5)/2.4),leftOpen=[.18,.37,.45,.08,.14,.22],rightOpen=[0,.05,.10,0,.04,.03];
++ const{side,x,z,bottom,top,width}=aperture,height=top-bottom,bay=Math.round((z+4.5)/2.4),leftOpen=[.18,.37,.49,.49,.49,.49],rightOpen=[0,.05,.10,0,.04,.03];
+  const openingFraction=(side<0?leftOpen:rightOpen)[bay],pw=width/2+.018,stile=.042,rail=.045,records=[];
+  if(!Number.isFinite(openingFraction)||height<=0)throw Error('Shoji234 aperture is outside the retained six-bay room.');
+  for(let panel=0;panel<2;panel++){
+--- a/reconstructions/scene-06/src/reference6-main.js
++++ b/reconstructions/scene-06/src/reference6-main.js
+@@ -16,6 +16,28 @@
+ import {loadPaintedCofferSurface228} from './painted-coffers228.js';
+ import {loadAltar260} from './altar260.js';
+ import {loadPaintMaterial249} from './paint-material249-r02.js';
++import {auditDaylight284} from './daylight-audit284.js';
++
++// R06 material experiment carried into the real Three scene before either
++// environment capture. Exact roles only; no color/map/geometry substitution.
++function applyNativePBR284(room){
++ const consumers=new Map();room.scene.traverse(o=>{if(o.isMesh)for(const m of(Array.isArray(o.material)?o.material:[o.material])){if(!consumers.has(m))consumers.set(m,[]);consumers.get(m).push(o);}});
++ const floor=[...consumers].filter(([m])=>m.name==='reference6-varnished-red-brown-floor-body'&&m.userData.actualFloorSolidReflection===true);
++ const central=[...consumers].filter(([m])=>m.name==='scene06-sculpture199-r08a-continuous-source-fit:central-ordinary-PBR');
++ const floorNames=new Set(['scene06-jointed-polished-floorboard','scene06-observed-foreground-thick-wood-panel','room248-jointed-rear-floorboard']);
++ if(floor.length!==243||floor.some(([,objects])=>objects.length!==1||!floorNames.has(objects[0].name))||central.length!==1||central[0][1].length!==1)throw Error('Native284 exact material/consumer role changed');
++ const ancestry=[];for(let o=central[0][1][0];o;o=o.parent)if(o.name)ancestry.unshift(o.name);
++ if(ancestry.join('/')!=='reference6-rebuilt-furnishings/reference6-rebuilt-triad')throw Error('Native284 central consumer ancestry changed');
++ const held=m=>({color:m.color.toArray(),vertexColors:m.vertexColors,bumpScale:m.bumpScale,textures:Object.fromEntries(Object.entries(m).filter(([k,v])=>v?.isTexture&&k!=='envMap').map(([k,v])=>[k,v.uuid]))}),records=[];
++ for(const[role,entries,values]of[['floor',floor,{clearcoat:.95,clearcoatRoughness:.06}],['central',central,{metalness:.98,roughness:.30}]])for(const[m,objects]of entries){
++  const before=held(m),sourceValues=Object.fromEntries(Object.keys(values).map(k=>[k,m[k]])),hook=m.onBeforeCompile;
++  Object.assign(m,values);m.needsUpdate=true;
++  if(JSON.stringify(before)!==JSON.stringify(held(m))||m.onBeforeCompile!==hook)throw Error('Native284 original color/maps/varnish changed');
++  records.push({role,name:m.name,materialUUID:m.uuid,consumers:objects.map(o=>o.name),sourceValues,candidateValues:{...values},baseRoughness:m.roughness,originalColorVertexColorsAndTexturePointersHeld:true,originalValues:before});
++ }
++ room.room248.stats.held.materialDefinitions=false;
++ return{revision:'native284-r08-r06-exact-role-PBR-before-capture',baseSourceHash:'ff57ab9bb8c46bfca62d2081c784d130a2546628f1d6db62ad713c8bf1ecf89c',floorMaterials:floor.length,centralMaterials:central.length,appliedBeforeEnvironmentCapture:true,allOtherMaterialsHeld:true,inferredNotMeasured:true,records,nativePixelEquivalentToCycles:false,photographicAccepted:false};
++}
+ 
+ const query=new URLSearchParams(location.search),dimension=(key,fallback)=>{const n=Number(query.get(key));return Number.isFinite(n)&&n>=64?Math.min(2048,Math.round(n)):fallback;};
+ const width=dimension('w',960),height=dimension('h',960);
+@@ -36,9 +58,10 @@
+ });
+ const camera=new T.PerspectiveCamera(REFERENCE6_FOUNDATION.camera.fov,width/height,.06,60);camera.position.fromArray(REFERENCE6_FOUNDATION.camera.position);camera.lookAt(new T.Vector3(...REFERENCE6_FOUNDATION.camera.target));camera.updateMatrixWorld(true);
+ const [floorSurface,timberMap,castManifest]=await Promise.all([loadFloorSurface106(),loadTempleWoodTexture(),loadSculpturalCastAssets(),loadAltarCarvings198(),loadPaintedCofferSurface228(),loadPaintMaterial249({variant:'rear-dark'}),loadAltar260()]);
+-let room;
+-try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:1024,shadowSize:2048,roomCubeSize:128,floorSurface,timberMap,sculptureMetrics:castManifest.mainMetrics,capitalCarvings:getSourceCapitalCarvings248()}));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
++let room,nativePBR284;
++try {room=diagnostics.run('reference6-room-build',()=>buildReference6Scene({reflectionSize:1024,shadowSize:2048,roomCubeSize:128,floorSurface,timberMap,sculptureMetrics:castManifest.mainMetrics,capitalCarvings:getSourceCapitalCarvings248()}));nativePBR284=diagnostics.run('reference6-native-pbr284-before-capture',()=>applyNativePBR284(room));diagnostics.run('reference6-room-environment-capture',()=>room.initializeEnvironment(renderer));}catch(error){renderer.dispose();throw error;}
+ const {scene,sun}=room;
++const daylightAudit284=auditDaylight284(scene,sun,camera);
+ // Locate the actual central bowl/cartouche surface without changing any
+ // geometry or material. Altar-local Y1.426 lies across the six-lobed body.
+ scene.updateMatrixWorld(true);
+@@ -74,7 +97,7 @@
+ }
+ function renderFrame(reference=6){if(Number(reference)!==6)throw Error('This isolated foundation reconstructs reference 6 only.');return diagnostics.run('reference6-render-frame',()=>{camera.updateMatrixWorld(true);renderOpaqueDepth();contactAO.render(renderer,null,null);scattering.sync({mist:.009});indirectVisibility245.beginMainView();try{composer.render(0);}finally{indirectVisibility245.endMainView();}frame++;return{reference:6,frame,width,height,revision:REFERENCE6_FOUNDATION.revision,camera:{position:camera.position.toArray(),target:[...activeTarget],quaternion:camera.quaternion.toArray(),fov:camera.fov},shot:activeShot,focus:shotFocus.info(),quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:1024,composerSamples:composerAA.samples},renderVariant:REFERENCE6_FOUNDATION.revision,validation:'Native review candidate; visual match remains under iteration.'};});}
+ const counts={meshes:0,instances:0,triangles:0};scene.traverse(o=>{if(o.isMesh){counts.meshes++;const n=o.isInstancedMesh?o.count:1;counts.instances+=n;counts.triangles+=(o.geometry.index?.count??o.geometry.attributes.position.count)/3*n;}});
+-function originalCombinedR02Info248(){return{revision:REFERENCE6_FOUNDATION.revision,sculptureAssetRevision:castManifest.revision,centralSourceLicense:castManifest.license,botanicalOfferings233:room.altar.userData.livingOfferings233,slidingWindows234:room.architecture.userData.shoji234,roomArchitecture248:room.architecture.userData.room248,cofferGeometry228:room.architecture.userData.coffer228,centralSourceAttribution:castManifest.attribution,personalNoncommercialUseOnly:true,altar260:room.altar.userData.altar260,altar198:{joinery:room.altar.userData.offeringJoinery198,metalwork:room.altar.userData.refinedMetalwork198,seat:room.altar.userData.kneelingSeat198,carvingMounts:room.altar.userData.carvingMounts198,scope:'Actual3D altar198 integrated candidate; current central sculpt follows sculptureAssetRevision; original raw source retained; photographic fidelity unaccepted'},reference:6,frame,counts:{...counts},independentInterior:true,exteriorWorldBuilt:false,photoPlanes:false,exposure:renderer.toneMappingExposure,lights:{sun:1,indirectAreaProxies:room.windowSky.length,frontWindowShadowSamples:6,practicals:2},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:1024},renderVariant:REFERENCE6_FOUNDATION.revision,suspendedCanopy:(()=>{const c=scene.getObjectByName('reference6-central-floral-chain-curtain');return{chainStrands:c.userData.chainStrands,instancedFloralDrops:c.userData.instancedFloralDrops,centerFaceClearanceMeters:c.userData.centerFaceClearanceMeters,visibleHoopRings:c.userData.visibleHoopRings};})(),cameraShot:{...shot.info,current:activeShot,focus:shotFocus.info()},composerAA,solarScattering:{roomBounds195:scattering.roomBounds195,shadowReady:scattering.uniforms.shadowReady.value,hasShadowDepthTexture:Boolean(scattering.uniforms.tShadow.value),pcfDefine:scattering.material.defines.RESTORATION_SHADOW_PCF,density:scattering.uniforms.density.value,gain:scattering.uniforms.scatteringGain.value,sunDirection:scattering.uniforms.sunDirection.value.toArray()},materialSources:{architecturalTimber:'Generated repeating hinoki albedo on modeled columns, beams, and central ceiling; no photo planes.'},contactOcclusion:{method:'GTAO-native-indirect-visibility245',radius:.18,thickness:.14,strength:.65,source:'Actual opaque geometry normals and depth, denoised before beauty',transport:indirectVisibility245.info,limitation:'Main-view screen-space visibility of indirect PBR components; not full GI or offscreen visibility. Direct lighting and emissive radiance are untouched; planar reflected cameras bypass main-view visibility.'},limits:[...room.limits],diagnostics:diagnostics.snapshot()};}
++function originalCombinedR02Info248(){return{revision:REFERENCE6_FOUNDATION.revision,sculptureAssetRevision:castManifest.revision,centralSourceLicense:castManifest.license,botanicalOfferings233:room.altar.userData.livingOfferings233,slidingWindows234:room.architecture.userData.shoji234,roomArchitecture248:room.architecture.userData.room248,cofferGeometry228:room.architecture.userData.coffer228,centralSourceAttribution:castManifest.attribution,personalNoncommercialUseOnly:true,altar260:room.altar.userData.altar260,altar198:{joinery:room.altar.userData.offeringJoinery198,metalwork:room.altar.userData.refinedMetalwork198,seat:room.altar.userData.kneelingSeat198,carvingMounts:room.altar.userData.carvingMounts198,scope:'Actual3D altar198 integrated candidate; current central sculpt follows sculptureAssetRevision; original raw source retained; photographic fidelity unaccepted'},reference:6,frame,counts:{...counts},independentInterior:true,exteriorWorldBuilt:false,photoPlanes:false,exposure:renderer.toneMappingExposure,lights:{sun:1,indirectAreaProxies:room.windowSky.filter(l=>l.intensity>0).length,frontWindowShadowSamples:room.frontWindowSources.filter(l=>l.intensity>0).length,practicals:2},quality:{sunShadow:2048,pointShadow:256,roomCube:128,roomProbeCount:2,floorReflection:1024},renderVariant:REFERENCE6_FOUNDATION.revision,suspendedCanopy:(()=>{const c=scene.getObjectByName('reference6-central-floral-chain-curtain');return{chainStrands:c.userData.chainStrands,instancedFloralDrops:c.userData.instancedFloralDrops,centerFaceClearanceMeters:c.userData.centerFaceClearanceMeters,visibleHoopRings:c.userData.visibleHoopRings};})(),cameraShot:{...shot.info,current:activeShot,focus:shotFocus.info()},composerAA,solarScattering:{roomBounds195:scattering.roomBounds195,shadowReady:scattering.uniforms.shadowReady.value,hasShadowDepthTexture:Boolean(scattering.uniforms.tShadow.value),pcfDefine:scattering.material.defines.RESTORATION_SHADOW_PCF,density:scattering.uniforms.density.value,gain:scattering.uniforms.scatteringGain.value,sunDirection:scattering.uniforms.sunDirection.value.toArray()},materialSources:{architecturalTimber:'Generated repeating hinoki albedo on modeled columns, beams, and central ceiling; no photo planes.'},contactOcclusion:{method:'GTAO-native-indirect-visibility245',radius:.18,thickness:.14,strength:.65,source:'Actual opaque geometry normals and depth, denoised before beauty',transport:indirectVisibility245.info,limitation:'Main-view screen-space visibility of indirect PBR components; not full GI or offscreen visibility. Direct lighting and emissive radiance are untouched; planar reflected cameras bypass main-view visibility.'},limits:[...room.limits],diagnostics:diagnostics.snapshot()};}
+ function applyView(position,target,fov){activeShot=null;activeTarget=[...target];camera.position.fromArray(position);camera.fov=fov;camera.lookAt(new T.Vector3(...target));camera.updateProjectionMatrix();camera.updateMatrixWorld(true);shotFocus.sync({focusDistance:shot.info.focus.referenceFocusDistance,strength:0,enabled:false});}
+ function renderReference(n=6){if(Number(n)!==6)throw Error('Scene 06 only.');applyView(REFERENCE6_FOUNDATION.camera.position,REFERENCE6_FOUNDATION.camera.target,REFERENCE6_FOUNDATION.camera.fov);return renderFrame(6);}
+ function renderView(position,target,time=0,fov=62){applyView(position,target,fov);return renderFrame(6);}
+@@ -117,5 +140,5 @@
+    if(isCushion)cushion.push(rec);
+   }
+  });
+- return{...prior,combinedR02Evidence248:{capital254:{revision:'authored-r03-compacted-same-adapter',mounts,allWorldUniform:mounts.every(m=>m.worldUniform),allPositiveDeterminants:mounts.every(m=>m.positiveDeterminant),allNormalProtection:mounts.every(m=>m.normalProtection),allRoleCompacted:mounts.every(m=>m.roleCompacted&&m.roleTriangleCornersUnchanged)},cushion255:{revision:'cushion255-r06-abf-sewn-side',parts:cushion},photographicAcceptance:false}};
++ return{...prior,daylight284:{nativePBR:nativePBR284,actualTriangleAudit:daylightAudit284,legacyIndirectAndFrontProxiesActive:0,nativeBoundary:'Single active native directional Sun; legacy approximate room captures/paper boundary are not full GI. The independent Cycles output uses one metered physical sky with one solar disc.',inferred:'Sun elevation/azimuth, unseen front window heights and sliding positions are inferred from HD illumination; no EXIF/time/location supplied.',photographicAccepted:false},combinedR02Evidence248:{capital254:{revision:'authored-r03-compacted-same-adapter',mounts,allWorldUniform:mounts.every(m=>m.worldUniform),allPositiveDeterminants:mounts.every(m=>m.positiveDeterminant),allNormalProtection:mounts.every(m=>m.normalProtection),allRoleCompacted:mounts.every(m=>m.roleCompacted&&m.roleTriangleCornersUnchanged)},cushion255:{revision:'cushion255-r06-abf-sewn-side',parts:cushion},photographicAcceptance:false}};
+ }
+--- a/reconstructions/scene-06/src/daylight-audit284.js
++++ b/reconstructions/scene-06/src/daylight-audit284.js
+@@ -0,0 +1,27 @@
++import * as T from 'three';
++
++// Read-only geometric evidence from the actual complete native scene. Runs
++// once inside its official render job; no alternate scene or shadow proxy.
++export function auditDaylight284(scene,sun,camera){
++ scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);
++ const objects=[];scene.traverseVisible(o=>{if(o.isMesh&&!o.isReflector&&!o.material?.isShaderMaterial&&o.material?.visible!==false)objects.push(o);});
++ const D=sun.position.clone().sub(sun.target.position).normalize(),oldD=new T.Vector3(-.72,.50,-.48).normalize();
++ const trace=(origin,direction,max=30)=>{
++  const r=new T.Raycaster(new T.Vector3(...origin),direction.clone().normalize(),.0001,max),all=r.intersectObjects(objects,false),hits=[];
++  for(const h of all){
++   if(hits.some(p=>p.objectUUID===h.object.uuid&&p.instance===h.instanceId&&Math.abs(p.distance-h.distance)<1e-5))continue;
++   const o=h.object,m=(Array.isArray(o.material)?o.material:[o.material])[h.face?.materialIndex??0],matrix=o.matrixWorld.clone();
++   if(h.instanceId!==undefined){const im=new T.Matrix4();o.getMatrixAt(h.instanceId,im);matrix.multiply(im);}
++   const normal=h.face.normal.clone().applyNormalMatrix(new T.Matrix3().getNormalMatrix(matrix));
++   const ancestry=[];for(let q=o;q;q=q.parent)if(q.name)ancestry.unshift(q.name);
++   hits.push({objectUUID:o.uuid,name:o.name,ancestry,instance:h.instanceId,distance:h.distance,triangle:h.faceIndex,material:m.name,positionYUp:h.point.toArray(),outwardFaceNormalYUp:normal.toArray(),paper:m.name.startsWith('scene06-paper234-'),transparent:!!m.transparent,frontFace:normal.dot(direction)<0});
++  }return hits;
++ };
++ const witnessPoint=new T.Vector3(.077323146,5.399013914,-2.285690482),from=camera.position.toArray(),cameraDirection=witnessPoint.clone().sub(camera.position).normalize();
++ const witness=trace(from,cameraDirection).find(h=>h.material.includes('central-ordinary-PBR'));
++ const rows=[];
++ if(witness){const p=witness.positionYUp.map((v,k)=>v+witness.outwardFaceNormalYUp[k]*.003),normal=new T.Vector3(...witness.outwardFaceNormalYUp);for(const[label,d]of[['old-sun-actual-camera-visible-face',oldD],['new-sun-actual-camera-visible-face',D]])rows.push({label,originYUp:p,normalDotToSun:normal.dot(d),hits:trace(p,d).slice(0,14)});}
++ for(const[label,p]of[['central-floor',[0,.05,4]],['left-floor',[-3,.05,4]],['central-altar-front',[0,1.5,1.2]],['left-altar-front',[-2,2,0]],['upper-halo-left',[-1.5,5.9,-3]]])rows.push({label,originYUp:p,hits:trace(p,D).slice(0,14)});
++ const floorGrid=[];for(const x of[-4,-2,0,2,4])for(const z of[0,2,4,6,8]){const hits=trace([x,.05,z],D);floorGrid.push({originYUp:[x,.05,z],firstHits:hits.slice(0,3),opaqueBlocked:hits.some(h=>!h.paper&&!h.transparent),paperFrontEvents:hits.filter(h=>h.paper&&h.frontFace).length});}
++ return{schema:'scene06-daylight284-native-triangle-rays-v1',scope:'Read-only exact scene mesh/instance raycasts; same official GPU job; not radiometric path tracing',sunDirectionYUp:D.toArray(),sunElevationDegrees:Math.asin(D.y)*180/Math.PI,oldSunDirectionYUp:oldD.toArray(),actualCameraVisibleWitness:witness,sourceMeshRecords:objects.length,rays:rows,floorGrid,photographicAccepted:false};
++}

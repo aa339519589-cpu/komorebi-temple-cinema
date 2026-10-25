@@ -1,0 +1,18 @@
+{
+  "status": "approved-full-point-uv-adapter-delta-and-exact-GN-probe",
+  "at": "2026-10-25T07:11:20.975085+00:00",
+  "files": {
+    "render-physical252.py": "bff476794de619db499a9d5781a6f6528cd3c8e34cc9e767469c3256db139b1c",
+    "materials252.py": "f453a15e1c1ab04a126deb61998d42792d992797bf490954f0cf791331be957e",
+    "geometry252.py": "5547515b0d8a2586f1ba6fc945432c560c784d7cbe52c2883fbc637507b33f08",
+    "pipeline252.mjs": "75ddabdbfa7799d5cf0233516befad3a4131d12e5056394fd050b514c11ebab2",
+    "probe-point-uv284.py": "5b0b8df75ed8f968bdd3a9ca7684a539017332414a744ceafc059266a2443925"
+  },
+  "recipeSha256": "ab0a4401095d7634becea93b40f2c5ed5c87cdb8f2238cc0fb8d29ca9cf2ccb9",
+  "rootReviewedEntireDelta": true,
+  "rootReviewedEntireFinalProbe": true,
+  "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "scope": "Full float32 XY retained in POINT vectors where no tangent consumers exist. Tangent materials retain actual corner UV layers. All raw package attributes and triangle topology retained; actual imported values read back. Same named GEOMETRY shader attribute, with matched pixel/camera/seed comparison through actual hidden prototype/GN instance path. Final96x40 two-frame Metal probe under official FIFO is required before the full1254/512 frame. No surrogate scene images, no model simplification or texture downsize.",
+  "memory": "Original14GiB ownRSS cap/3GiB actual reserve unchanged; updated exact UV and affine storage counted.",
+  "photographicAccepted": false
+}

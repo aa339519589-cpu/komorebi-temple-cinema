@@ -1,0 +1,80 @@
+{
+  "status": "personally-viewed-r06-real-PBR-candidate-improves-gold-and-reflections-not-HD-accepted",
+  "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "recipeSha256": "9523e48702795a5698924ca1049e9486a7cc83b85d308d01f1e3802877303d09",
+  "settings": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/settings-r06-pbr.json",
+  "settingsSha256": "5e529afa97a71f0f7011b521d520548109c9b20e02d47eacc8210e5e0f323450",
+  "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/cycles-r06-pbr/scene06-9fe4d1ec02b2-physical252-cycles-r06-pbr-CC-BY-NC-SA-4.0.png",
+  "pngSha256": "9ca186d502c2311a19cb2395909aeb834fad8e613d5c9c2a5264555d7bb356bc",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "samples": 512,
+  "actualRenderSeconds": 792.2764070034027,
+  "personallyViewed": true,
+  "photographicAccepted": false,
+  "nativePixelEquivalent": false,
+  "allSourceTrianglesRetained": true,
+  "sourceTriangles": 45388446,
+  "actualRoleRecords": {
+    "floor": 243,
+    "central": 1,
+    "sourceMaterialRecords": 312,
+    "untouchedOtherMaterialRecords": 68,
+    "perRecordSourceCandidateAndActualRNA": "cycles-r06-pbr/report.json#pbrStudy284.records"
+  },
+  "controls": {
+    "sameImmutableManifest": true,
+    "sameImmutableExportReport": true,
+    "sameSourceCamera": true,
+    "sameSourceStatistics": true,
+    "sameFullLightingSettings": true,
+    "sameActualAtmosphereRNA": true,
+    "sameSunDirection": true,
+    "sameWorldStrength": true,
+    "measuredBoundaryEqualWithin1eMinus5": true,
+    "exposureEVHeld": true,
+    "airExtinctionHeld": true,
+    "UVOriginalXYRetained": true
+  },
+  "maxMeasuredBoundaryRGBResidual": 8.154950137395645e-8,
+  "resources": {
+    "actualBlenderPeakResidentBytes": 12726042624,
+    "sampledOwnSubtreePeakRSSBytes": 12495077376,
+    "minimumSampledActualAvailableBytes": 12665618432,
+    "ownRSSHardCapBytes": 15032385536,
+    "actualReserveFloorBytes": 3221225472
+  },
+  "physicalPBRInferences": {
+    "floor": {
+      "sourceCoat": 0.72,
+      "sourceCoatRoughness": 0.17,
+      "candidateCoat": 0.95,
+      "candidateCoatRoughness": 0.06,
+      "sourceBaseRoughnessHeld": 0.9290908038883472,
+      "originalWoodAlbedoRoughnessMapAndVarnishSlopesHeld": true
+    },
+    "central": {
+      "exactMaterialId": "39d7efde-c35e-4188-b024-f24e9a61790b",
+      "sourceMetalness": 0.88,
+      "sourceRoughness": 0.47,
+      "candidateMetalness": 0.98,
+      "candidateRoughness": 0.3,
+      "sourceLinearColorVertexColorBumpAndRoughnessMapHeld": true,
+      "continuousMaterialDarkFootprintsRetainOriginalColor": true
+    },
+    "inferredNotMeasured": true,
+    "notANativeSourcePBREdit": true
+  },
+  "observations": [
+    "Compared with R05, broad pale/white areas over the main face/chest/robe are substantially smaller; gold color and fold separation are visibly stronger.",
+    "The front floor now contains recognizable reflected suspended gold ornaments, lanterns and shrine forms; reflected window strips are sharper. These are genuine ray-traced scene reflections, not the native Reflector capture.",
+    "Dark lacquer and beam regions retain the R05 exposure/air contrast because no light/exposure/air parameter changed.",
+    "The central statue still has some pale bright ridges and a high-contrast polished appearance; no photographic match is claimed.",
+    "The floor reflection remains broader/warmer than HD and the wood field remains orange in lit areas.",
+    "The HD left diagonal shaft pattern remains weaker/less localized; geometry/paper-head-shadow study can follow this actual result.",
+    "Other gold, independent dark hair, flowers and glass were not selected. The single continuous main statue has shared PBR with original vertex-color dark footprints; their colors/geometry were never overwritten or masked."
+  ],
+  "nextDecision": "Root actual-image comparison and integration decision; this is the requested controlled PBR candidate, not a final photographic acceptance."
+}

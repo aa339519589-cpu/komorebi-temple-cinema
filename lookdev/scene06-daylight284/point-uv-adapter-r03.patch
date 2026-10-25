@@ -1,0 +1,104 @@
+--- a/geometry252.py
++++ b/geometry252.py
+@@ -73,6 +73,7 @@
+     scene = bpy.context.scene; geometries = {g['id']: g for g in package['geometries']}; mat_recs = {m['id']: m for m in package['materials']}
+     conversion = np.asarray(Matrix.Rotation(math.pi/2, 4, 'X'), np.float64)
+     prototypes = {}; templates = {}; source_alias_rows = []; imported_triangles = 0; linked = baked = singular = reflected = 0; max_residual = max_vertex_residual = 0
++    uv_storage = {'pointFloat3Sets': 0, 'pointUVVertices': 0, 'tangentCornerSets': 0, 'tangentUVLoops': 0, 'maximumOriginalXYResidual': 0.0}
+     templates_collection = bpy.data.collections.new('252 original hidden prototypes, identity local coordinates'); scene.collection.children.link(templates_collection)
+ 
+     def point_attribute(mesh, name, values, kind):
+@@ -103,6 +104,7 @@
+         if owners.max(initial=0) >= len(record['materials']): raise RuntimeError('Source material group outside slot array')
+         smooth = np.asarray([not mat_recs[record['materials'][i]].get('flatShading', False) for i in owners], np.bool_)
+         mesh.polygons.foreach_set('material_index', owners); mesh.polygons.foreach_set('use_smooth', smooth); mesh.update(calc_edges=True)
++        needs_tangent_uv = any(mat_recs[mid].get('textures', {}).get('normalMap') or mat_recs[mid].get('textures', {}).get('clearcoatNormalMap') or float(mat_recs[mid].get('anisotropy') or 0) != 0 for mid in record['materials'])
+         if 'normal' in data:
+             normals = data['normal']
+             if linear is not None:
+@@ -120,7 +122,21 @@
+             if key == 'uv' or (key.startswith('uv') and key[2:].isdigit()):
+                 if values.shape[1] != 2: raise RuntimeError('Source UV item size is not2')
+                 name = 'sourceUV' if key == 'uv' else 'sourceUV'+key[2:]
+-                layer = mesh.uv_layers.new(name=name); layer.data.foreach_set('uv', values[faces.ravel(), :2].astype(np.float32).ravel())
++                if needs_tangent_uv:
++                    layer = mesh.uv_layers.new(name=name); layer.data.foreach_set('uv', values[faces.ravel(), :2].astype(np.float32).ravel())
++                    uv_storage['tangentCornerSets'] += 1; uv_storage['tangentUVLoops'] += faces.size
++                else:
++                    # Three already splits vertices at UV seams. Preserve the
++                    # original float2 exactly in POINT float3(U,V,0); shader
++                    # barycentric interpolation is identical per triangle.
++                    # Tangent-dependent maps retain real UV loop layers above.
++                    expanded = np.zeros((count, 3), np.float32); expanded[:, :2] = values
++                    point_attribute(mesh, name, expanded, 'FLOAT_VECTOR')
++                    if not np.array_equal(expanded[:, :2], values): raise RuntimeError('Original source UV changed')
++                    readback = np.empty((count, 3), np.float32); mesh.attributes[name].data.foreach_get('vector', readback.ravel())
++                    if not np.array_equal(readback, expanded): raise RuntimeError('Actual Blender POINT UV storage differs from original')
++                    del readback, expanded
++                    uv_storage['pointFloat3Sets'] += 1; uv_storage['pointUVVertices'] += count
+             if key == 'color':
+                 colors = np.ones((count, 4), np.float32); colors[:, :values.shape[1]] = values
+                 point_attribute(mesh, 'sourceColor', colors, 'FLOAT_COLOR')
+@@ -139,7 +155,7 @@
+             if isinstance(field, (tuple, list, np.ndarray)): point_attribute(mesh, name, np.tile(field, (count, 1)), 'FLOAT_COLOR')
+             else: point_attribute(mesh, name, np.full(count, field, np.float32), 'FLOAT')
+         mesh['sourceGeometryId'] = g['id']; mesh['sourceGeometryIds']=json.dumps([g['id']]); mesh['sourcePrototypeAttributeLayout'] = json.dumps({k: list(v.shape) for k, v in data.items() if k != 'index'}, sort_keys=True)
+-        mesh['sourceImmutablePackage'] = str(buffers.root); mesh['positionNormalUVStorage'] = 'Actual co / exact float3 point custom_normal / full corner UV; original raw bytes remain in verified package, no redundant debug copies'
++        mesh['sourceImmutablePackage'] = str(buffers.root); mesh['positionNormalUVStorage'] = 'Actual co / exact float3 point custom_normal / full source UV in exact point or tangent corner domains; original raw bytes remain in verified package, no redundant debug copies'
+         mesh.update()
+         if source_instance is not None: mesh['sourceInstanceIndex'] = source_instance
+         for mid in record['materials']: mesh.materials.append(direct_materials[mid] if linear is not None or fields is not None else materials[mid])
+@@ -189,5 +205,6 @@
+         if at % 50 == 0: print('PHYSICAL252_SOURCE', at, '/', len(package['meshes']), 'linked', linked, 'affine', baked, flush=True)
+     expected = package['statistics']['triangles']
+     if imported_triangles != expected: raise RuntimeError('No source triangle deletion is allowed: '+str((imported_triangles, expected)))
+-    report['geometry252'] = {'originalPrototypeCount': len(geometries), 'contentAndMaterialSharedMeshes': len(prototypes), 'sourceInstances': sum(m['instances'] for m in package['meshes']), 'linkedPositiveTRSInstances': linked, 'bakedShearedReflectedOrSingularInstances': baked, 'singularInstancesRetained': singular, 'reflectedInstancesRetained': reflected, 'sourceTriangles': expected, 'importedTriangles': imported_triangles, 'allSourceTrianglesRetained': True, 'maximumTRSMatrixResidual': max_residual, 'maximumBakedVertexResidualMetres': max_vertex_residual, 'fullWorldMatricesClassified': True, 'originalDataPreserved': 'Actual co, full float3 custom_normal, complete source corner UV and colors/custom attributes; exact raw original buffers retained in immutable package', 'noRedundantPositionNormalUVDebugCopies': True, 'bufferCache': {'limitBytes': buffers.cache_limit_bytes, 'observedCachedBytesPeak': buffers.cache_high_water, 'payloadReads': buffers.payload_reads}, 'vertexAndInstanceColorDomainsSeparate': True, 'negativeDeterminantUVLoopsReorderedAfterFaceFlip': True, 'hiddenPrototypesRemainIdentity': True, 'exactImportedMaterialAliasesUsedForGeometrySharing': True, 'decimation': False, 'substituteModel': False, 'coordinateConversion': 'One rigid +pi/2 X: Three (x,y,z) to Blender (x,-z,y)'}
++    report['geometry252'] = {'originalPrototypeCount': len(geometries), 'contentAndMaterialSharedMeshes': len(prototypes), 'sourceInstances': sum(m['instances'] for m in package['meshes']), 'linkedPositiveTRSInstances': linked, 'bakedShearedReflectedOrSingularInstances': baked, 'singularInstancesRetained': singular, 'reflectedInstancesRetained': reflected, 'sourceTriangles': expected, 'importedTriangles': imported_triangles, 'allSourceTrianglesRetained': True, 'maximumTRSMatrixResidual': max_residual, 'maximumBakedVertexResidualMetres': max_vertex_residual, 'fullWorldMatricesClassified': True, 'originalDataPreserved': 'Actual co, full float3 custom_normal, complete source UV and colors/custom attributes; exact raw original buffers retained in immutable package', 'noRedundantPositionNormalUVDebugCopies': True, 'bufferCache': {'limitBytes': buffers.cache_limit_bytes, 'observedCachedBytesPeak': buffers.cache_high_water, 'payloadReads': buffers.payload_reads}, 'vertexAndInstanceColorDomainsSeparate': True, 'negativeDeterminantUVLoopsReorderedAfterFaceFlip': True, 'hiddenPrototypesRemainIdentity': True, 'exactImportedMaterialAliasesUsedForGeometrySharing': True, 'decimation': False, 'substituteModel': False, 'coordinateConversion': 'One rigid +pi/2 X: Three (x,y,z) to Blender (x,-z,y)'}
++    report['uvStorage284'] = {**uv_storage, 'originalFloatXYUnchanged': True, 'nativeUVSeamsAlreadySplitInOriginalVertices': True, 'tangentDependentMaterialsRetainCornerUVLayers': True, 'shaderLookup': 'Same named sourceUV through GEOMETRY Attribute Vector; POINT and CORNER both use native triangle barycentric interpolation', 'originalRawPackagePreserved': True}
+     return conversion
+--- a/materials252.py
++++ b/materials252.py
+@@ -42,15 +42,15 @@
+ 
+ 
+ def uv_socket(nodes, links, tex):
+-    uv = nodes.new('ShaderNodeUVMap'); channel = int(tex.get('uvChannel') or 0)
+-    uv.uv_map = 'sourceUV' if channel == 0 else 'sourceUV' + str(channel)
++    uv = nodes.new('ShaderNodeAttribute'); uv.attribute_type = 'GEOMETRY'; channel = int(tex.get('uvChannel') or 0)
++    uv.attribute_name = 'sourceUV' if channel == 0 else 'sourceUV' + str(channel)
+     sx, sy = tex.get('repeat', [1, 1]); ox, oy = tex.get('offset', [0, 0]); cx, cy = tex.get('center', [0, 0]); rotation = tex.get('rotation', 0)
+     c, s = math.cos(rotation), math.sin(rotation)
+     rows = [(sx*c, sx*s, -sx*(c*cx+s*cy)+cx+ox), (-sy*s, sy*c, -sy*(-s*cx+c*cy)+cy+oy)]
+     if not tex.get('flipY', True): a, b, d = rows[1]; rows[1] = (-a, -b, 1-d)
+     components = []
+     for axis, (a, b, d) in enumerate(rows):
+-        dot = nodes.new('ShaderNodeVectorMath'); dot.operation = 'DOT_PRODUCT'; dot.inputs[1].default_value = (a, b, 0); links.new(uv.outputs['UV'], dot.inputs[0])
++        dot = nodes.new('ShaderNodeVectorMath'); dot.operation = 'DOT_PRODUCT'; dot.inputs[1].default_value = (a, b, 0); links.new(uv.outputs['Vector'], dot.inputs[0])
+         value = math_socket(nodes, links, 'ADD', dot.outputs['Value'], d)
+         wrapping = int(tex['wrapS' if axis == 0 else 'wrapT'])
+         if wrapping == 1002:
+--- a/pipeline252.mjs
++++ b/pipeline252.mjs
+@@ -69,18 +69,18 @@
+  const geometryContributions=[];
+  const indexMaxByHash=new Map();
+  for(const g of scene.geometries){const count=g.attributes.position.count/g.attributes.position.itemSize;for(const a of Object.values(g.attributes))if(a.type!=='Float32Array'||a.count*4!==report.exportedAssets[a.file].bytes||a.count/a.itemSize!==count)throw Error('Complete source attribute layout differs');const key=report.exportedAssets[g.index.file].sha256;if(!indexMaxByHash.has(key)){const b=await readFile(resolve(root,'assets',g.index.file));if(g.index.type!=='Uint32Array'||b.length!==g.index.count*4)throw Error('Source index type/count differs');let max=0;for(let i=0;i<b.length;i+=4)max=Math.max(max,b.readUInt32LE(i));indexMaxByHash.set(key,max);}if(indexMaxByHash.get(key)>=count)throw Error('Actual source index exceeds original position buffer');}
+- const geo=new Map(scene.geometries.map(g=>[g.id,g])),prototypeKeys=new Set();let vertices=0,triangles=0,uvLoops=0,effective=0,bakedVertices=0,bakedTriangles=0,maxVertices=0,sourceInstances=0,retainedSourceAttributeBytes=0,largestGeometryPayloadBytes=0;
++ const geo=new Map(scene.geometries.map(g=>[g.id,g])),prototypeKeys=new Set();let vertices=0,triangles=0,uvLoops=0,uvPointVertices=0,bakedUVLoops=0,bakedUVPointVertices=0,effective=0,bakedVertices=0,bakedTriangles=0,maxVertices=0,sourceInstances=0,retainedSourceAttributeBytes=0,largestGeometryPayloadBytes=0;
+  const materialById=new Map(scene.materials.map(m=>[m.id,m]));const matrix=new T.Matrix4(),local=new T.Matrix4(),combined=new T.Matrix4();
+  for(const m of scene.meshes){
+   const g=geo.get(m.geometry);if(!g)throw Error('Source prototype missing');const v=g.attributes.position.count/g.attributes.position.itemSize,t=g.index.count/3;if(!Number.isInteger(v)||!Number.isInteger(t))throw Error('Invalid source topology counts');if(g.drawRange?.start!==0||(g.drawRange.count!==null&&g.drawRange.count<g.index.count))throw Error('A partial native drawRange needs exact reviewed index selection; never import hidden triangles');
+-  const key=JSON.stringify([Object.entries(g.attributes).sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:0).map(([n,a])=>[n,a.itemSize,report.exportedAssets[a.file].sha256]),report.exportedAssets[g.index.file].sha256,stable(g.groups),m.materials.map(id=>materialAlias.get(id))]);if(!prototypeKeys.has(key)){prototypeKeys.add(key);vertices+=v;triangles+=t;const uvCount=Object.keys(g.attributes).filter(k=>/^uv\d*$/.test(k)).length;uvLoops+=uvCount*t*3;maxVertices=Math.max(maxVertices,v);let extra=0;for(const[k,a]of Object.entries(g.attributes))if(!['position','normal','color'].includes(k)&&!/^uv\d*$/.test(k))extra+=v*(a.itemSize===1?4:a.itemSize<=3?12:16);if(g.attributes.color||m.materials.some(id=>materialById.get(id).vertexColors))extra+=v*16;retainedSourceAttributeBytes+=extra;const payload=Object.values(g.attributes).reduce((sum,a)=>sum+report.exportedAssets[a.file].bytes,0)+report.exportedAssets[g.index.file].bytes;largestGeometryPayloadBytes=Math.max(largestGeometryPayloadBytes,payload);geometryContributions.push({sourceGeometryId:g.id,sourceName:m.name,ancestry:m.ancestry,sourceMaterials:m.materials,canonicalMaterials:m.materials.map(id=>materialAlias.get(id)),vertices:v,triangles:t,prototypeMeshBytes:v*64+t*144+uvCount*t*24+extra,prototypeDeviceBytes:t*144+v*48});}
++  const key=JSON.stringify([Object.entries(g.attributes).sort((a,b)=>a[0]<b[0]?-1:a[0]>b[0]?1:0).map(([n,a])=>[n,a.itemSize,report.exportedAssets[a.file].sha256]),report.exportedAssets[g.index.file].sha256,stable(g.groups),m.materials.map(id=>materialAlias.get(id))]);if(!prototypeKeys.has(key)){prototypeKeys.add(key);vertices+=v;triangles+=t;const uvCount=Object.keys(g.attributes).filter(k=>/^uv\d*$/.test(k)).length;const needsTangentUV=m.materials.some(id=>{const rec=materialById.get(id);return rec.textures.normalMap||rec.textures.clearcoatNormalMap||Number(rec.anisotropy??0)!==0;});if(needsTangentUV)uvLoops+=uvCount*t*3;else uvPointVertices+=uvCount*v;maxVertices=Math.max(maxVertices,v);let extra=0;for(const[k,a]of Object.entries(g.attributes))if(!['position','normal','color'].includes(k)&&!/^uv\d*$/.test(k))extra+=v*(a.itemSize===1?4:a.itemSize<=3?12:16);if(g.attributes.color||m.materials.some(id=>materialById.get(id).vertexColors))extra+=v*16;retainedSourceAttributeBytes+=extra;const payload=Object.values(g.attributes).reduce((sum,a)=>sum+report.exportedAssets[a.file].bytes,0)+report.exportedAssets[g.index.file].bytes;largestGeometryPayloadBytes=Math.max(largestGeometryPayloadBytes,payload);geometryContributions.push({sourceGeometryId:g.id,sourceName:m.name,ancestry:m.ancestry,sourceMaterials:m.materials,canonicalMaterials:m.materials.map(id=>materialAlias.get(id)),vertices:v,triangles:t,prototypeMeshBytes:v*64+t*144+(needsTangentUV?uvCount*t*24:uvCount*v*12)+extra,sourceUVStorage:needsTangentUV?'full-corner-float2-for-tangents':'exact-point-float3-UV-xy-zero-z',prototypeDeviceBytes:t*144+v*48});}
+   effective+=t*m.instances;sourceInstances+=m.instances;matrix.fromArray(m.matrix);let raw=null;if(m.instanceMatrices){const b=await readFile(resolve(root,'assets',m.instanceMatrices.file));raw=new Float32Array(b.buffer,b.byteOffset,b.byteLength/4);if(raw.length!==m.instances*16)throw Error('Source instance count mismatch');}
+-  for(let i=0;i<m.instances;i++){if(raw){local.fromArray(raw,i*16);combined.multiplyMatrices(matrix,local);}else combined.copy(matrix);const e=combined.elements,cols=[[e[0],e[1],e[2]],[e[4],e[5],e[6]],[e[8],e[9],e[10]]],lengths=cols.map(c=>Math.hypot(...c));let shear=0;for(let a=0;a<3;a++)for(let b=a+1;b<3;b++)shear=Math.max(shear,Math.abs(cols[a].reduce((s,x,k)=>s+x*cols[b][k],0)/Math.max(lengths[a]*lengths[b],1e-30)));if(combined.determinant()<=1e-12||shear>1e-7){bakedVertices+=v;bakedTriangles+=t;}}
++  for(let i=0;i<m.instances;i++){if(raw){local.fromArray(raw,i*16);combined.multiplyMatrices(matrix,local);}else combined.copy(matrix);const e=combined.elements,cols=[[e[0],e[1],e[2]],[e[4],e[5],e[6]],[e[8],e[9],e[10]]],lengths=cols.map(c=>Math.hypot(...c));let shear=0;for(let a=0;a<3;a++)for(let b=a+1;b<3;b++)shear=Math.max(shear,Math.abs(cols[a].reduce((s,x,k)=>s+x*cols[b][k],0)/Math.max(lengths[a]*lengths[b],1e-30)));if(combined.determinant()<=1e-12||shear>1e-7){bakedVertices+=v;bakedTriangles+=t;const uvCount=Object.keys(g.attributes).filter(k=>/^uv\d*$/.test(k)).length,needsTangentUV=m.materials.some(id=>{const rec=materialById.get(id);return rec.textures.normalMap||rec.textures.clearcoatNormalMap||Number(rec.anisotropy??0)!==0;});if(needsTangentUV)bakedUVLoops+=uvCount*t*3;else bakedUVPointVertices+=uvCount*v;}}
+  }
+  if(effective!==scene.statistics.triangles||sourceInstances!==scene.statistics.instances)throw Error('All current source instances/triangles must be accounted for');
+  for(const m of scene.materials)if(m.hasDisplacementMap&&m.displacementScale!==0)throw Error('Undeformed displaced source is not an exact geometry package');
+  const textureKeys=new Set();let imagePixels=0;for(const tex of scene.textures){const payload=tex.file??tex.data?.file;if(tex.sourceImageURI?.includes('/references/'))throw Error('Reference imagery is a comparison input, never a physical material');if(tex.premultiplyAlpha)throw Error('A source premultiplied texture needs an explicit reviewed RGB/alpha port');if(!payload||!report.exportedAssets[payload])throw Error('Original source PBR image absent');if(tex.wrapS===undefined||tex.wrapT===undefined)throw Error('Source wrapping metadata absent');const key=report.exportedAssets[payload].sha256+':'+tex.colorSpace+':'+tex.width+':'+tex.height+':'+(tex.storage??'png');if(!textureKeys.has(key)){textureKeys.add(key);imagePixels+=tex.width*tex.height;}}
+- const memoryParts={boundedSourceBufferWorkingSet:template.memory.sourceBufferCacheBytes+largestGeometryPayloadBytes,blenderMeshes:(vertices+bakedVertices)*64+(triangles+bakedTriangles)*144+uvLoops*8+retainedSourceAttributeBytes+bakedVertices*36,prototypeBVHAndDevice:(triangles+bakedTriangles)*144+(vertices+bakedVertices)*48,decodedImagesAndDeviceMipmaps:imagePixels*16*2.5,largestAttributeTransferTemporary:maxVertices*64,pointAndInstanceAttributes:sourceInstances*192,renderDenoisingAndApplication:2*1024**3};const estimatedResidentBytes=Math.ceil(Object.values(memoryParts).reduce((a,b)=>a+b,0)*1.25),memory=await availableMemory(),disk=await statfs(HERE);
++ const memoryParts={boundedSourceBufferWorkingSet:template.memory.sourceBufferCacheBytes+largestGeometryPayloadBytes,blenderMeshes:(vertices+bakedVertices)*64+(triangles+bakedTriangles)*144+(uvLoops+bakedUVLoops)*8+(uvPointVertices+bakedUVPointVertices)*12+retainedSourceAttributeBytes+bakedVertices*36,prototypeBVHAndDevice:(triangles+bakedTriangles)*144+(vertices+bakedVertices)*48,decodedImagesAndDeviceMipmaps:imagePixels*16*2.5,largestAttributeTransferTemporary:maxVertices*64,pointAndInstanceAttributes:sourceInstances*192,renderDenoisingAndApplication:2*1024**3};const estimatedResidentBytes=Math.ceil(Object.values(memoryParts).reduce((a,b)=>a+b,0)*1.25),memory=await availableMemory(),disk=await statfs(HERE);
+  const budgetPath=safeOutput(args['budget-output']??resolve(HERE,'resource-budget-'+pin.slice(0,12)+'-'+Date.now()+'.json')),budget={sourceHash:pin,allPayloadHashesVerified:true,sourceTriangles:effective,sourceInstances,sourceMaterialRecords:scene.materials.length,uniqueExactImportedAppearances:appearanceClasses.size,exactContentAndAppearancePrototypeVariants:prototypeKeys.size,geometryContributions:geometryContributions.sort((a,b)=>(b.prototypeMeshBytes+b.prototypeDeviceBytes)-(a.prototypeMeshBytes+a.prototypeDeviceBytes)),uniqueBytes,memory:{parts:memoryParts,estimatedResidentBytes,actualAvailable:memory},strictImporterCapBytes:template.memory.maximumEstimatedResidentBytes,actualReserveBytes:template.memory.minimumOtherAvailableReserveBytes,canImport:estimatedResidentBytes<=template.memory.maximumEstimatedResidentBytes&&memory.bytes>=estimatedResidentBytes+template.memory.minimumOtherAvailableReserveBytes,photographicAccepted:false};await writeFile(budgetPath,JSON.stringify(budget,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({event:'exact-content-appearance-resource-budget',budgetPath,canImport:budget.canImport,estimatedResidentBytes,prototypeVariants:prototypeKeys.size,uniqueAppearances:appearanceClasses.size}));
+  if(!budget.canImport)throw Error('Complete exact import exceeds strict actual budget; component contributions preserved at '+budgetPath+'; no model simplification or import submitted');
+  if(disk.bavail*disk.bsize<template.storage.minimumRenderStartFreeBytes)throw Error('Actual render disk start threshold not met');

@@ -1,0 +1,72 @@
+{
+  "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "baseSourceHash": "a80228ae9d68822ffa89ad6afccd7e19d25e6a9bfab9cc70bf502ca6d505011b",
+  "status": "native-geometry-checked-physical-render-pending",
+  "reference": "references/hd/4-照片-5.jpg",
+  "personallyViewedInputs": [
+    "HD reference",
+    "physical252 cycles-source53-r03 actual PNG",
+    "own R01 full and true-window crop",
+    "own R02 full and true-window crop",
+    "own R02 low oblique"
+  ],
+  "inferredArchitecture": {
+    "roofAndPostGridHeld": true,
+    "sideWindowPlaneX": [
+      -6.8,
+      6.8
+    ],
+    "baysCenterZ": [
+      -4.5,
+      -2.1,
+      0.3,
+      2.7,
+      5.1,
+      7.5
+    ],
+    "forwardBays": [
+      3,
+      4,
+      5
+    ],
+    "forwardApertureBottom": 0.25,
+    "forwardApertureTop": 6.35,
+    "leftMiddleBay2Top": 6.35,
+    "continuousClosedKickSillHeight": 0.24,
+    "rationale": "HD visible tall glazed side fields and strong front-left incoming light. Old partly hidden half-height forward windows and0.86m continuous lower beam were an earlier unmeasured hypothesis; this candidate tests a coherent tall side opening under retained7.2m roof. Front continuation and exact sliding states are inferred."
+  },
+  "sun": {
+    "directionYUp": [
+      -0.9349200677511649,
+      0.10499102365120032,
+      0.3389710192167325
+    ],
+    "elevationDegrees": 6.026649394698723,
+    "sourceSide": "front-left; altar front +Z",
+    "timeLocationWeatherMeasured": false,
+    "nativeIntensityHeld": 22,
+    "physicalBoundary": "Single source-aligned solar disc within same multiple-scattering physical sky, no separate Sun object or front area fill",
+    "DHIrelative": 12,
+    "absoluteSIPhotometryClaimed": false
+  },
+  "opticalInferences": {
+    "cameraEV": 0.35,
+    "airExtinctionPerMetre": 0.0018,
+    "airSingleScatterAlbedo": 0.9,
+    "airAnisotropy": 0.2,
+    "paperDiffuseTransmissionClosureMix": 0.65,
+    "paperSingleThinSheetEvent": true,
+    "sourceFiberAndLinearAlbedoHeld": true,
+    "physicalNoPaperEmission": true,
+    "nativeCaptureLimit": "Native warm background capture and paper emission remain a declared legacy radiance boundary approximation; physical frame replaces them with measured physical sky and thin paper closure."
+  },
+  "sourceCompleteness": {
+    "allExistingMeshAndInstancesRetained": true,
+    "nativeLegacyFillLightsActive": 0,
+    "newAuxiliaryFillLights": 0,
+    "photographOrDepthSceneSubstitute": false,
+    "BlenderDecimation": false,
+    "originalPBRFieldsHeld": true
+  },
+  "photographicAccepted": false
+}

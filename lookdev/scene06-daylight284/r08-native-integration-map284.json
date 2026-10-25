@@ -1,0 +1,88 @@
+{
+  "baseSourceHash": "ff57ab9bb8c46bfca62d2081c784d130a2546628f1d6db62ad713c8bf1ecf89c",
+  "sourceHash": "12a4a4093f336d75365294021794685345f9e702d00ce54421fb6c4e6330d4f9",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08",
+  "changed": [
+    {
+      "path": "reconstructions/scene-06/src/daylight-audit284.js",
+      "before": null,
+      "after": "aac34c6a0054351ebc5d1a77f5d598705f02600fc5f5463675808704e68cfbf4"
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-main.js",
+      "before": "4294c10ebd52b02722b8f565858d239a96731a0d39c947e81b2b503bac03f1b3",
+      "after": "0701deb5a5775900bbc3f9ae9faff396fa38f7b3c9a5803f9219638c36c8faf9"
+    },
+    {
+      "path": "reconstructions/scene-06/src/reference6-scene.js",
+      "before": "f67b712cc0b3747bb3cbce75131e8eed82569bdf22b620c79759ea487b4330db",
+      "after": "e19e7c1e2312da8dce6acc9faca1534969d029f91f78d0845cedd8296799b474"
+    },
+    {
+      "path": "reconstructions/scene-06/src/sliding-shoji234.js",
+      "before": "0b7168f90a4acf126fbb8336816f9c77539bc6760adb5a4fa31cf4bfb5ba3b12",
+      "after": "9d8714bb3854c356d4856cfde9ae3a15d1f1adb89137de9d0a6679f551959ba3"
+    }
+  ],
+  "allNonTargetFilesHeld": true,
+  "originalReferenceCameraAndShotModuleHeld": true,
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-native-from-ff57.patch",
+  "sourceFileIdentity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-source284.json",
+  "nativeMotionReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-native-motion-actual-review284.json",
+  "video": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08/qa/ten-reference/06/iteration-scene06-native284-r08-motion1080/motion-review.mp4",
+    "sha256": "ecdfacc51930a6ccdc5692ae411ab34083c5f1e5ad8691f06362d344ba3c2e50",
+    "bytes": 17666354,
+    "duration": 7,
+    "fps": 24,
+    "decodedFrames": 168,
+    "decodeErrors": 0,
+    "all168ActualGPUFramesValid": true,
+    "nativeResolution": [
+      1620,
+      1620
+    ],
+    "outputResolution": [
+      1080,
+      1080
+    ],
+    "genuineSupersampling": 1.5,
+    "filter": "official Lanczos real1620→1080, not an upscale",
+    "sourceFramePNGs": [
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08/qa/ten-reference/06/iteration-scene06-native284-r08-motion1080/frame-0000.png",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08/qa/ten-reference/06/iteration-scene06-native284-r08-motion1080/frame-0084.png",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08/qa/ten-reference/06/iteration-scene06-native284-r08-motion1080/frame-0167.png"
+    ],
+    "silent": true,
+    "centeredSampleTimes": [
+      0.020833333333333332,
+      6.979166666666667
+    ],
+    "exact0And7BoundaryStillsSeparatelyRendered": true,
+    "lastCenteredCameraPositionResidualFromExactReferenceMetres": 0.000001543870273027451,
+    "exactSevenSecondPoseEqualsReference": true,
+    "personallyInspectedWholeSequenceViaAll168FrameSheets": true,
+    "representativeFullResolutionConsecutiveInspection": {
+      "frames": [
+        144,
+        149,
+        155
+      ],
+      "files": [
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/late-contiguous-01.png",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/late-contiguous-06.png",
+        "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/late-contiguous-12.png"
+      ]
+    },
+    "allDecodedFrameSheets": [
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/all-frames-01.png",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/all-frames-02.png",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/all-frames-03.png",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/all-frames-04.png"
+    ],
+    "temporalDiagnostics": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r08-motion-review/temporal-diagnostics.json",
+    "nativeReport": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/candidate-r08/qa/ten-reference/06/iteration-scene06-native284-r08-motion1080/report.json"
+  },
+  "photographicAccepted": false,
+  "canonicalModified": false
+}

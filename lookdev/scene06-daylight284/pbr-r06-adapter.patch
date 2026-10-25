@@ -1,0 +1,58 @@
+--- a/materials252.py
++++ b/materials252.py
+@@ -93,6 +93,23 @@
+     instance_colored = {mid for obj in package['meshes'] if 'instanceColors' in obj for mid in obj['materials']}
+     materials, geometry_materials, images, adaptations = {}, {}, {}, []
+     appearances, aliases = {}, {}
++    # Optional exact-role PBR experiment. Immutable package records/images stay
++    # unchanged; candidate scalars enter the existing full material path.
++    study = settings.get('pbrStudy284'); candidates = {}
++    if study:
++        if source_report['sourceHash'] != study['expectedSourceHash']: raise RuntimeError('PBR study source pin differs')
++        floor = [r for r in package['materials'] if r.get('nativeFloorVarnish') and r['name'] == study['floor']['exactName']]
++        central = [r for r in package['materials'] if r['id'] == study['central']['exactId'] and r['name'] == study['central']['exactName']]
++        if len(floor) != study['floor']['expectedRecords'] or len(central) != 1: raise RuntimeError('PBR study exact role count differs')
++        central_meshes = [m for m in package['meshes'] if central[0]['id'] in m['materials']]
++        if len(central_meshes) != 1 or central_meshes[0]['instances'] != 1 or central_meshes[0]['ancestry'] != study['central']['exactAncestry']: raise RuntimeError('PBR study central consumer differs')
++        floor_ids = {r['id'] for r in floor}; floor_meshes = [m for m in package['meshes'] if floor_ids.intersection(m['materials'])]
++        if len(floor_meshes) != study['floor']['expectedMeshes'] or any(m['name'] not in study['floor']['exactConsumerNames'] for m in floor_meshes): raise RuntimeError('PBR study floor consumer differs')
++        for role, entries, allowed in [('floor', floor, {'clearcoat','clearcoatRoughness'}), ('central', central, {'metalness','roughness'})]:
++            values = study[role]['candidate']
++            if set(values) != allowed or any(not isinstance(v,(int,float)) or not math.isfinite(v) or not 0 <= v <= 1 for v in values.values()): raise RuntimeError('PBR study scalar whitelist/range differs')
++            for source in entries: candidates[source['id']] = (role, values)
++        report['pbrStudy284'] = {'inferredNotMeasured': True, 'sourceHash': source_report['sourceHash'], 'sourcePackageUnchanged': True, 'sourceColorsVertexColorsImagesAndAllGeometryHeld': True, 'floorRecords': len(floor), 'floorMeshes': len(floor_meshes), 'centralRecords': 1, 'centralMeshes': 1, 'centralDarkFootprintNote': 'One continuous central material includes original vertex-color dark footprints; no color/vertex-color/geometry edit or extra color-based mask. Other dark-eye/hair, flower, glass and gold material records are not selected.', 'inference': study['inference'], 'records': []}
+     def exact_imported_appearance(rec):
+         # Only IDs/asset filenames/URIs are excluded. All source names,
+         # parameters, color flags, floor phase, hook identity and every actual
+@@ -109,6 +126,10 @@
+     paper_prefix = settings['paper']['materialPrefix']
+     for rec in package['materials']:
+         if rec.get('type') == 'ShaderMaterial': raise RuntimeError('No silent shader substitution: ' + rec['name'])
++        if rec['id'] in candidates:
++            role, values = candidates[rec['id']]
++            report['pbrStudy284']['records'].append({'id': rec['id'], 'name': rec['name'], 'role': role, 'sourceValues': {k: rec.get(k) for k in values}, 'candidateValues': values, 'originalBaseRoughness': rec.get('roughness'), 'originalLinearColorHeld': rec.get('color'), 'originalVertexColorsHeld': rec.get('vertexColors'), 'originalTextureIdsHeld': rec['textures']})
++            rec = {**rec, **values}
+         appearance = exact_imported_appearance(rec)
+         if appearance in appearances:
+             canonical = appearances[appearance]; materials[rec['id']] = materials[canonical]; geometry_materials[rec['id']] = geometry_materials[canonical]; aliases[rec['id']] = canonical
+@@ -166,7 +187,7 @@
+             if phase is None or not math.isfinite(phase): raise RuntimeError('Actual floor varnish phase was not captured: '+rec['name'])
+             normal_socket = varnish_normal(nodes, links, phase, normal_socket); set_value(bs, ['Coat Weight', 'Clearcoat'], scalar(rec, 'clearcoat', 0), True)
+             if 'Coat Normal' not in bs.inputs: raise RuntimeError('Installed coat normal input absent')
+-            links.new(normal_socket, bs.inputs['Coat Normal']); adaptations.append({'material': rec['name'], 'kind': 'floor-physical-varnish', 'phase': phase, 'originalCoat': rec.get('clearcoat'), 'originalCoatRoughness': rec.get('clearcoatRoughness'), 'captureImageUsed': False, 'derivativeAAIsNotPixelEquivalent': True})
++            links.new(normal_socket, bs.inputs['Coat Normal']); adaptations.append({'material': rec['name'], 'kind': 'floor-physical-varnish', 'phase': phase, 'originalCoat': records[rec['id']].get('clearcoat'), 'originalCoatRoughness': records[rec['id']].get('clearcoatRoughness'), 'captureImageUsed': False, 'derivativeAAIsNotPixelEquivalent': True})
+         if normal_socket: links.new(normal_socket, bs.inputs['Normal'])
+         for channel, target, component, factor in [('roughnessMap', 'Roughness', 'Green', scalar(rec, 'roughness', .5)), ('metalnessMap', 'Metallic', 'Blue', scalar(rec, 'metalness', 0)), ('clearcoatMap', 'Coat Weight', 'Red', scalar(rec, 'clearcoat', 0)), ('clearcoatRoughnessMap', 'Coat Roughness', 'Green', scalar(rec, 'clearcoatRoughness', .15)), ('transmissionMap', 'Transmission Weight', 'Red', scalar(rec, 'transmission', 0))]:
+             if channel in tex_nodes:
+@@ -224,5 +245,11 @@
+             if node.type == 'ATTRIBUTE' and node.attribute_name in {'instanceColor', 'physical252_emissionRGB', 'physical252_emitBack'}: node.attribute_type = 'GEOMETRY'
+         geometry_materials[rec['id']] = copy
+         appearances[appearance] = rec['id']; aliases[rec['id']] = rec['id']
++    for row in report.get('pbrStudy284', {}).get('records', []):
++        node = next(n for n in materials[row['id']].node_tree.nodes if n.type == 'BSDF_PRINCIPLED')
++        sockets = {'metalness': 'Metallic', 'roughness': 'Roughness', 'clearcoat': 'Coat Weight', 'clearcoatRoughness': 'Coat Roughness'}
++        row['actualRNADefaults'] = {k: float(node.inputs[sockets[k]].default_value) for k in row['candidateValues']}
++        row['actualMapInputLinked'] = {k: bool(node.inputs[sockets[k]].is_linked) for k in row['candidateValues']}
++        if any(abs(row['actualRNADefaults'][k]-v) > 1e-6 for k, v in row['candidateValues'].items()): raise RuntimeError('Actual installed PBR study scalar differs')
+     report['materialAdapter252'] = {'materials': len(materials), 'uniqueExactImportedAppearances': len(appearances), 'sourceMaterialAliases': [{'sourceId': rec['id'], 'sourceName': rec['name'], 'canonicalId': aliases[rec['id']]} for rec in package['materials']], 'uniqueDecodedImagesByHashAndColorSpace': len(images), 'adaptations': adaptations, 'normalMapHasNativePriorityOverBumpMap': True, 'sourceFactorsNotNormalizedOrDoubleTinted': True, 'originalImagesNotResized': True, 'sameUVTransformAndWrappingMetadata': True, 'nativePixelEquivalence': False, 'remainingNativeHookInventory':[{'material':r['name'],'hookId':r.get('nativeShaderHookId'),'floorPorted':bool(r.get('nativeFloorVarnish'))} for r in package['materials']], 'remainingHooksNotAutomaticallyClaimedPortable':True}
+     return materials, geometry_materials

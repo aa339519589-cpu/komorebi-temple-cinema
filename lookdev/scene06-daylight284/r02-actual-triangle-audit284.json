@@ -1,0 +1,1816 @@
+{
+  "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "schema": "scene06-daylight284-native-triangle-rays-v1",
+  "scope": "Read-only exact scene mesh/instance raycasts; same official GPU job; not radiometric path tracing",
+  "sunDirectionYUp": [
+    -0.9349200677511649,
+    0.10499102365120035,
+    0.33897101921673256
+  ],
+  "sunElevationDegrees": 6.026649394698723,
+  "oldSunDirectionYUp": [
+    -0.7204323891892088,
+    0.5003002702702839,
+    -0.4802882594594725
+  ],
+  "actualCameraVisibleWitness": {
+    "objectUUID": "87dca6a4-3622-4b59-b601-66465fa769af",
+    "name": "",
+    "ancestry": [
+      "reference6-rebuilt-furnishings",
+      "reference6-rebuilt-triad"
+    ],
+    "distance": 11.722322937507904,
+    "triangle": 90333,
+    "material": "scene06-sculpture199-r08a-continuous-source-fit:central-ordinary-PBR",
+    "positionYUp": [
+      0.07732314600053053,
+      5.399013914033064,
+      -2.2856904820733144
+    ],
+    "outwardFaceNormalYUp": [
+      -0.16343608483180858,
+      -0.45570458260504826,
+      0.8749982740369314
+    ],
+    "paper": false,
+    "transparent": false,
+    "frontFace": true
+  },
+  "sourceMeshRecords": 2803,
+  "rays": [
+    {
+      "label": "old-sun-actual-camera-visible-face",
+      "originYUp": [
+        0.07683283774603511,
+        5.39764680028525,
+        -2.2830654872512035
+      ],
+      "normalDotToSun": -0.5304958748328428,
+      "hits": [
+        {
+          "objectUUID": "87dca6a4-3622-4b59-b601-66465fa769af",
+          "name": "",
+          "ancestry": [
+            "reference6-rebuilt-furnishings",
+            "reference6-rebuilt-triad"
+          ],
+          "distance": 0.00769412174936382,
+          "triangle": 1670716,
+          "material": "scene06-sculpture199-r08a-continuous-source-fit:central-ordinary-PBR",
+          "positionYUp": [
+            0.07128974323142805,
+            5.401496171475948,
+            -2.286760883594275
+          ],
+          "outwardFaceNormalYUp": [
+            -0.3501137079293475,
+            -0.46439691585731546,
+            0.8134838019666877
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "ed2ff1ff-1e7f-4d98-b9a6-e81b086e0487",
+          "name": "room248-closed-ceiling-deck",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-closed-ceiling-deck"
+          ],
+          "distance": 3.5425789407337085,
+          "triangle": 175,
+          "material": "reference6-deep-brown-recess",
+          "positionYUp": [
+            -2.4753557724181268,
+            7.170000001788139,
+            -3.984524560693978
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            -1,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    },
+    {
+      "label": "new-sun-actual-camera-visible-face",
+      "originYUp": [
+        0.07683283774603511,
+        5.39764680028525,
+        -2.2830654872512035
+      ],
+      "normalDotToSun": 0.4015538416568731,
+      "hits": []
+    },
+    {
+      "label": "central-floor",
+      "originYUp": [
+        0,
+        0.05,
+        4
+      ],
+      "hits": [
+        {
+          "objectUUID": "fd9c5418-f625-4359-bf6c-9f61cef0d65f",
+          "name": "room248-retained-source-cuff-relief",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-source-cuff-relief"
+          ],
+          "distance": 4.87351621748263,
+          "triangle": 7464,
+          "material": "scene06-r04-deep-carved-aged-gilt-recess",
+          "positionYUp": [
+            -4.556348112235261,
+            0.5616754564542272,
+            5.651980759409362
+          ],
+          "outwardFaceNormalYUp": [
+            0.9471751589692163,
+            0.25992356376178233,
+            -0.1878801725382822
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "541e073c-a166-4086-85bb-fa78c0eea39e",
+          "name": "room248-retained-closed-column-cuff",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-closed-column-cuff"
+          ],
+          "distance": 4.884704869816465,
+          "triangle": 29,
+          "material": "scene06-r06-aged-black-lacquer-beam-facings-and-coffer-frames",
+          "positionYUp": [
+            -4.566808607833254,
+            0.562850164516034,
+            5.655773388294624
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891765001087075,
+            0,
+            0.1467305408995967
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "e7fbd014-7f75-48f7-b6d8-3bb89fc77c9f",
+          "name": "room248-column-entrance-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-entrance-bay--1"
+          ],
+          "distance": 4.932850252682094,
+          "triangle": 170,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -4.611820692443894,
+            0.5679049975471753,
+            5.672093277795167
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891744222126645,
+            0.0020186965778388895,
+            0.14673066245460772
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "8e82e64e-33a9-4a15-927d-b6f20d4a71e0",
+          "name": "room248-deep-window-jamb",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-deep-window-jamb"
+          ],
+          "distance": 6.888289413082125,
+          "triangle": 25,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.440000004768372,
+            0.7732085566852183,
+            6.334930483012276
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "5bcbb474-13e4-4b3a-afc2-1b198c4df4e5",
+          "name": "room248-structural-side-wall-stud",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-structural-side-wall-stud"
+          ],
+          "distance": 6.963162124038449,
+          "triangle": 25,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.510000004768372,
+            0.7810695192520631,
+            6.360310162156662
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "86f305c7-86b1-44e5-a9dc-98769ed074dc",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 7.12360364177845,
+          "triangle": 0,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -6.659999999403953,
+            0.797914438435738,
+            6.414695186949669
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "2c15fd9f-c379-4939-9737-772d07728f17",
+          "name": "scene06-paper234-sliding-shoji-stile",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-sliding-shoji-stile"
+          ],
+          "distance": 7.186876566903895,
+          "triangle": 27,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.719155126849048,
+            0.8045575276140644,
+            6.436142874868265
+          ],
+          "outwardFaceNormalYUp": [
+            0.9732489153827312,
+            0,
+            -0.22975323437622647
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "39ebe2a1-5812-4056-befd-3e084c4941f8",
+          "name": "scene06-paper234-sliding-shoji-stile",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-sliding-shoji-stile"
+          ],
+          "distance": 7.224146997431596,
+          "triangle": 24,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.754000000283122,
+            0.8084705882670886,
+            6.448776470690886
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "181907b9-97ff-449b-a602-b1111acef587",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 7.260620703482597,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.78810000001546,
+            0.812300000001736,
+            6.461140000005606
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    },
+    {
+      "label": "left-floor",
+      "originYUp": [
+        -3,
+        0.05,
+        4
+      ],
+      "hits": [
+        {
+          "objectUUID": "47106790-74ca-46c4-bfb4-b5d455fefe3a",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 4.014353878447683,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.7531000000154595,
+            0.4714711229963884,
+            5.360749625674055
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "77149776-433f-4cb7-8a52-c584cc6d71d5",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 4.051790233925846,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.7881000000154605,
+            0.4754016042798108,
+            5.373439465246247
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    },
+    {
+      "label": "central-altar-front",
+      "originYUp": [
+        0,
+        1.5,
+        1.2
+      ],
+      "hits": [
+        {
+          "objectUUID": "f71d98cc-fc00-4d0f-9c66-588d66fa36b1",
+          "name": "room248-deep-window-jamb",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-deep-window-jamb"
+          ],
+          "distance": 6.962247118474732,
+          "triangle": 274,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.509144547704748,
+            2.230973451881282,
+            3.5600000017881386
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -1
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "ee9126eb-9843-4ea5-a4ba-b87ceefa01ae",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 7.12360364177845,
+          "triangle": 0,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -6.659999999403953,
+            2.247914438435738,
+            3.614695186949669
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "05a6f916-6c37-4874-9fa7-c6f271ba24be",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 7.1449958484152845,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682209,
+            2.250160428108697,
+            3.6219465250366514
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    },
+    {
+      "label": "left-altar-front",
+      "originYUp": [
+        -2,
+        2,
+        0
+      ],
+      "hits": [
+        {
+          "objectUUID": "1e8770bd-0dd1-4703-9424-65b4b301ab6d",
+          "name": "room248-column-front-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-front-bay--1"
+          ],
+          "distance": 3.2721776160359406,
+          "triangle": 376,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -5.059224518478167,
+            2.343549277476158,
+            1.1091733815658809
+          ],
+          "outwardFaceNormalYUp": [
+            0.049067128146314296,
+            -0.00048448973836593876,
+            -0.9987953655304808
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "4104f614-1d3f-4c3d-823c-e028b3f48c4f",
+          "name": "room248-structural-side-wall-stud",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-structural-side-wall-stud"
+          ],
+          "distance": 4.825475813816596,
+          "triangle": 21,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.511434174785019,
+            2.5066316452967135,
+            1.6356964548151034
+          ],
+          "outwardFaceNormalYUp": [
+            0.8112435942077593,
+            0,
+            0.5847083297310521
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "0dfc0d91-a51d-4baa-a432-ea2926f8f690",
+          "name": "room248-deep-window-jamb",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-deep-window-jamb"
+          ],
+          "distance": 4.956175916366392,
+          "triangle": 275,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.633628323515958,
+            2.520353982854733,
+            1.680000001788139
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -1
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "fa304f85-d901-49a1-a0d7-1894b60107ee",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 5.00577553537745,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682209,
+            2.5255614976274137,
+            1.6968128351970793
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "64c30457-0778-4428-aacf-1e8a81721be3",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 5.192184282534623,
+          "triangle": 11,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -6.854277281203803,
+            2.5451327428089834,
+            1.7599999982118606
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -1
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    },
+    {
+      "label": "upper-halo-left",
+      "originYUp": [
+        -1.5,
+        5.9,
+        -3
+      ],
+      "hits": [
+        {
+          "objectUUID": "d1494785-7796-49c5-b6bc-8a7baffecde6",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 5.54058061363691,
+          "triangle": 24,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.68000000268221,
+            6.481711230247735,
+            -1.1219037423430271
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "a2c1b330-5fa9-41a8-8480-18da47c40956",
+          "name": "",
+          "ancestry": [
+            "scene06-exterior-maple-solar-occluder195"
+          ],
+          "distance": 8.595593368604922,
+          "triangle": 220811,
+          "material": "",
+          "positionYUp": [
+            -9.536192734537577,
+            6.802460146659301,
+            -0.0863429550714021
+          ],
+          "outwardFaceNormalYUp": [
+            0.8581831195779253,
+            -0.032828645796592795,
+            0.5122928979467337
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ]
+    }
+  ],
+  "floorGrid": [
+    {
+      "originYUp": [
+        -4,
+        0.05,
+        0
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "3c35ef42-2429-4c1c-b11d-c887e9b491ee",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 2.8665552223396165,
+          "triangle": 24,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.68000000268221,
+            0.3509625671461305,
+            0.9716791453575071
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -4,
+        0.05,
+        2
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -4,
+        0.05,
+        4
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -4,
+        0.05,
+        6
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "843c6191-b3bf-41eb-8a58-9a1f397c4ae9",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 2.9447437219287673,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.75310000001546,
+            0.35917165775574666,
+            6.998182780754269
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "181907b9-97ff-449b-a602-b1111acef587",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 2.9821800774069285,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.78810000001546,
+            0.3631021390391691,
+            7.010872620326461
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 2
+    },
+    {
+      "originYUp": [
+        -4,
+        0.05,
+        8
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f5667131-325c-4b0d-955f-a4973c015404",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 2.8665552223396165,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.68000000268221,
+            0.3509625671461305,
+            8.971679145357507
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -2,
+        0.05,
+        0
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "b9ee3058-1a07-4ced-a12f-c02516cbef43",
+          "name": "room248-retained-source-cuff-relief",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-source-cuff-relief"
+          ],
+          "distance": 3.1675263016516078,
+          "triangle": 13300,
+          "material": "scene06-r04-deep-carved-aged-gilt-recess",
+          "positionYUp": [
+            -4.961383904543718,
+            0.3825618288525031,
+            1.0736996188666534
+          ],
+          "outwardFaceNormalYUp": [
+            0.45455882321649793,
+            0.5829845334763204,
+            -0.6734280287925573
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "194f8138-3858-4209-98a2-d23d1718cb38",
+          "name": "room248-retained-closed-column-cuff",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-closed-column-cuff"
+          ],
+          "distance": 3.183002992141178,
+          "triangle": 59,
+          "material": "scene06-r06-aged-black-lacquer-beam-facings-and-coffer-frames",
+          "positionYUp": [
+            -4.9758533730647905,
+            0.3841867424297359,
+            1.0789457684160049
+          ],
+          "outwardFaceNormalYUp": [
+            0.24297990634346794,
+            0,
+            -0.9700313217176646
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "1e8770bd-0dd1-4703-9424-65b4b301ab6d",
+          "name": "room248-column-front-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-front-bay--1"
+          ],
+          "distance": 3.2680404290581926,
+          "triangle": 374,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -5.055356579348631,
+            0.3931149099803275,
+            1.1077709950793433
+          ],
+          "outwardFaceNormalYUp": [
+            0.04906713597535434,
+            0.0020187033850323005,
+            -0.9987934426115439
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -2,
+        0.05,
+        2
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f71d98cc-fc00-4d0f-9c66-588d66fa36b1",
+          "name": "room248-deep-window-jamb",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-deep-window-jamb"
+          ],
+          "distance": 4.749069100044291,
+          "triangle": 25,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.440000004768372,
+            0.5486096262039348,
+            3.6097967931727037
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "05a6f916-6c37-4874-9fa7-c6f271ba24be",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 5.00577553537745,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682209,
+            0.5755614976274135,
+            3.696812835197079
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -2,
+        0.05,
+        4
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "fd9c5418-f625-4359-bf6c-9f61cef0d65f",
+          "name": "room248-retained-source-cuff-relief",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-source-cuff-relief"
+          ],
+          "distance": 3.1675263016516078,
+          "triangle": 13300,
+          "material": "scene06-r04-deep-carved-aged-gilt-recess",
+          "positionYUp": [
+            -4.961383904543718,
+            0.3825618288525031,
+            5.0736996188666525
+          ],
+          "outwardFaceNormalYUp": [
+            0.45455882321649793,
+            0.5829845334763204,
+            -0.6734280287925573
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "541e073c-a166-4086-85bb-fa78c0eea39e",
+          "name": "room248-retained-closed-column-cuff",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-closed-column-cuff"
+          ],
+          "distance": 3.1830029921411778,
+          "triangle": 59,
+          "material": "scene06-r06-aged-black-lacquer-beam-facings-and-coffer-frames",
+          "positionYUp": [
+            -4.9758533730647905,
+            0.38418674242973594,
+            5.078945768416004
+          ],
+          "outwardFaceNormalYUp": [
+            0.24297990634346794,
+            0,
+            -0.9700313217176646
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "e7fbd014-7f75-48f7-b6d8-3bb89fc77c9f",
+          "name": "room248-column-entrance-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-entrance-bay--1"
+          ],
+          "distance": 3.2680404290581904,
+          "triangle": 374,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -5.055356579348629,
+            0.39311490998032744,
+            5.107770995079343
+          ],
+          "outwardFaceNormalYUp": [
+            0.04906713597535434,
+            0.0020187033850323005,
+            -0.9987934426115439
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 2
+    },
+    {
+      "originYUp": [
+        -2,
+        0.05,
+        6
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        -2,
+        0.05,
+        8
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f5667131-325c-4b0d-955f-a4973c015404",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 5.005775535377451,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.68000000268221,
+            0.5755614976274139,
+            9.696812835197079
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        0,
+        0.05,
+        0
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "b9ee3058-1a07-4ced-a12f-c02516cbef43",
+          "name": "room248-retained-source-cuff-relief",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-source-cuff-relief"
+          ],
+          "distance": 4.87351621748263,
+          "triangle": 7464,
+          "material": "scene06-r04-deep-carved-aged-gilt-recess",
+          "positionYUp": [
+            -4.556348112235261,
+            0.5616754564542272,
+            1.6519807594093627
+          ],
+          "outwardFaceNormalYUp": [
+            0.9471751589692163,
+            0.25992356376178233,
+            -0.1878801725382822
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "194f8138-3858-4209-98a2-d23d1718cb38",
+          "name": "room248-retained-closed-column-cuff",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-closed-column-cuff"
+          ],
+          "distance": 4.884704869816465,
+          "triangle": 29,
+          "material": "scene06-r06-aged-black-lacquer-beam-facings-and-coffer-frames",
+          "positionYUp": [
+            -4.566808607833254,
+            0.562850164516034,
+            1.6557733882946242
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891765001087075,
+            0,
+            0.1467305408995967
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "1e8770bd-0dd1-4703-9424-65b4b301ab6d",
+          "name": "room248-column-front-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-front-bay--1"
+          ],
+          "distance": 4.932850252682094,
+          "triangle": 170,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -4.611820692443894,
+            0.5679049975471753,
+            1.6720932777951663
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891744222126645,
+            0.0020186965778388895,
+            0.14673066245460772
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 2
+    },
+    {
+      "originYUp": [
+        0,
+        0.05,
+        2
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        0,
+        0.05,
+        4
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "fd9c5418-f625-4359-bf6c-9f61cef0d65f",
+          "name": "room248-retained-source-cuff-relief",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-source-cuff-relief"
+          ],
+          "distance": 4.87351621748263,
+          "triangle": 7464,
+          "material": "scene06-r04-deep-carved-aged-gilt-recess",
+          "positionYUp": [
+            -4.556348112235261,
+            0.5616754564542272,
+            5.651980759409362
+          ],
+          "outwardFaceNormalYUp": [
+            0.9471751589692163,
+            0.25992356376178233,
+            -0.1878801725382822
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "541e073c-a166-4086-85bb-fa78c0eea39e",
+          "name": "room248-retained-closed-column-cuff",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-retained-closed-column-cuff"
+          ],
+          "distance": 4.884704869816465,
+          "triangle": 29,
+          "material": "scene06-r06-aged-black-lacquer-beam-facings-and-coffer-frames",
+          "positionYUp": [
+            -4.566808607833254,
+            0.562850164516034,
+            5.655773388294624
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891765001087075,
+            0,
+            0.1467305408995967
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "e7fbd014-7f75-48f7-b6d8-3bb89fc77c9f",
+          "name": "room248-column-entrance-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-entrance-bay--1"
+          ],
+          "distance": 4.932850252682094,
+          "triangle": 170,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -4.611820692443894,
+            0.5679049975471753,
+            5.672093277795167
+          ],
+          "outwardFaceNormalYUp": [
+            0.9891744222126645,
+            0.0020186965778388895,
+            0.14673066245460772
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 1
+    },
+    {
+      "originYUp": [
+        0,
+        0.05,
+        6
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        0,
+        0.05,
+        8
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "c3861fd7-cad0-4270-9e48-25e8f8c461e4",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 6.136217802597131,
+          "triangle": 11,
+          "material": "reference6-deep-brown-recess",
+          "positionYUp": [
+            -5.736873163740014,
+            0.694247788441392,
+            10.080000002682208
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -1
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        2,
+        0.05,
+        0
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "132f3550-6f9e-4056-a638-d9754d865405",
+          "name": "restoration-altar:lacquer",
+          "ancestry": [
+            "reference6-rebuilt-furnishings",
+            "restoration-reference6-altar",
+            "restoration-altar:lacquer"
+          ],
+          "instance": 155,
+          "distance": 1.9685105271866297,
+          "triangle": 1,
+          "material": "restoration-black-brown-lacquer",
+          "positionYUp": [
+            0.15960000455379486,
+            0.25667593531748834,
+            0.6672680197393195
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        2,
+        0.05,
+        2
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "75cc12f2-b822-4b80-9ec8-e17d8673bb3e",
+          "name": "restoration-altar:table247Black",
+          "ancestry": [
+            "reference6-rebuilt-furnishings",
+            "restoration-reference6-altar",
+            "restoration-altar:table247Black"
+          ],
+          "instance": 0,
+          "distance": 1.249694476466126,
+          "triangle": 538,
+          "material": "table247-r06-black-urushi-deep-joints",
+          "positionYUp": [
+            0.8316355553940331,
+            0.1812067023354294,
+            2.4236102103972437
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -0.9999999999999999
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "ec524531-409b-45f4-a9b2-caf0dc8e436a",
+          "name": "restoration-altar:table247Red",
+          "ancestry": [
+            "reference6-rebuilt-furnishings",
+            "restoration-reference6-altar",
+            "restoration-altar:table247Red"
+          ],
+          "instance": 0,
+          "distance": 2.8265388477883975,
+          "triangle": 21047,
+          "material": "table247-r06-dark-crimson-turned-wood",
+          "positionYUp": [
+            -0.6425878910756279,
+            0.3467612070191881,
+            2.958114754090522
+          ],
+          "outwardFaceNormalYUp": [
+            0.9904644780646212,
+            0.04190639127291153,
+            0.13124013129625842
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "c190d5dc-36d6-4975-9706-c0c541b35610",
+          "name": "restoration-altar:merged-table247Gold",
+          "ancestry": [
+            "reference6-rebuilt-furnishings",
+            "restoration-reference6-altar",
+            "restoration-altar:merged-table247Gold"
+          ],
+          "distance": 2.867589035810692,
+          "triangle": 13141,
+          "material": "table247-r06-aged-gilt-carved-volume",
+          "positionYUp": [
+            -0.6809665356426295,
+            0.35107110828072313,
+            2.972029578163478
+          ],
+          "outwardFaceNormalYUp": [
+            0.6460363807038748,
+            0.010049299009129532,
+            -0.7632404643337926
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 2
+    },
+    {
+      "originYUp": [
+        2,
+        0.05,
+        4
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f074b808-e16f-4bd3-a11a-26ea05ad90ba",
+          "name": "scene06-paper234-carried-vertical-lattice",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-carried-vertical-lattice"
+          ],
+          "distance": 9.360942841831985,
+          "triangle": 29,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.75173331590034,
+            1.0328149713043162,
+            7.173088335925364
+          ],
+          "outwardFaceNormalYUp": [
+            0.8112423521850236,
+            0,
+            -0.5847100529504434
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "843c6191-b3bf-41eb-8a58-9a1f397c4ae9",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 9.362404661042271,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.75310000001546,
+            1.0329684491995974,
+            7.173583850272986
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "181907b9-97ff-449b-a602-b1111acef587",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 9.39984101652043,
+          "triangle": 1,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.788100000015458,
+            1.0368989304830194,
+            7.186273689845177
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 2
+    },
+    {
+      "originYUp": [
+        2,
+        0.05,
+        6
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f5667131-325c-4b0d-955f-a4973c015404",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 9.284216161453118,
+          "triangle": 25,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682211,
+            1.0247593585899808,
+            9.147080214876224
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        2,
+        0.05,
+        8
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "c3861fd7-cad0-4270-9e48-25e8f8c461e4",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 6.203738958812706,
+          "triangle": 1,
+          "material": "reference6-deep-brown-recess",
+          "positionYUp": [
+            -3.8000000476837164,
+            0.7013369037505774,
+            10.102887717823293
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        4,
+        0.05,
+        0
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "8845cdf0-0406-4abc-9e5e-c9233a581c82",
+          "name": "room248-structural-side-wall-stud",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-structural-side-wall-stud"
+          ],
+          "distance": 11.241602750114119,
+          "triangle": 25,
+          "material": "scene06-r04-shadowed-rear-lacquer-framing",
+          "positionYUp": [
+            -6.510000004768371,
+            1.23026738021463,
+            3.810577541835806
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "05a6f916-6c37-4874-9fa7-c6f271ba24be",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 11.423436474490954,
+          "triangle": 24,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682209,
+            1.2493582890712638,
+            3.872213904715796
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "0195676b-c5e8-4d38-823d-b392ff138daa",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 11.505408373825125,
+          "triangle": 275,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.756637176361404,
+            1.2579646026929918,
+            3.900000002980232
+          ],
+          "outwardFaceNormalYUp": [
+            0,
+            0,
+            -1
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        4,
+        0.05,
+        2
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "e7fbd014-7f75-48f7-b6d8-3bb89fc77c9f",
+          "name": "room248-column-entrance-bay--1",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-room248-closed-interior-frame",
+            "room248-column-entrance-bay--1"
+          ],
+          "distance": 9.430697693714622,
+          "triangle": 303,
+          "material": "reference6-red-lacquer-column",
+          "positionYUp": [
+            -4.816948526748428,
+            1.0401386046081125,
+            5.196733209163335
+          ],
+          "outwardFaceNormalYUp": [
+            0.595698167511606,
+            0.0020186982157902682,
+            -0.8032058379275067
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "47106790-74ca-46c4-bfb4-b5d455fefe3a",
+          "name": "scene06-paper234-actual-sliding-paper-panel",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-actual-sliding-paper-panel"
+          ],
+          "distance": 11.501624974080102,
+          "triangle": 0,
+          "material": "scene06-paper234-left-daylit-sliding-shoji",
+          "positionYUp": [
+            -6.753100000015459,
+            1.2575673796808804,
+            5.898717540112558
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": true,
+          "transparent": false,
+          "frontFace": true
+        },
+        {
+          "objectUUID": "56bf0271-8d09-4d45-8dde-9173a24bbae7",
+          "name": "scene06-paper234-sliding-shoji-stile",
+          "ancestry": [
+            "reference6-independent-room",
+            "scene06-paper234-sliding-shoji-stile"
+          ],
+          "distance": 11.506067559807866,
+          "triangle": 273,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.757253462565049,
+            1.258033811304096,
+            5.900223447924654
+          ],
+          "outwardFaceNormalYUp": [
+            0.22975323437622647,
+            0,
+            -0.9732489153827312
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 1
+    },
+    {
+      "originYUp": [
+        4,
+        0.05,
+        4
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        4,
+        0.05,
+        6
+      ],
+      "firstHits": [
+        {
+          "objectUUID": "f5667131-325c-4b0d-955f-a4973c015404",
+          "name": "",
+          "ancestry": [
+            "reference6-independent-room"
+          ],
+          "distance": 11.423436474490954,
+          "triangle": 24,
+          "material": "scene06-r04-deep-red-lacquer-structural-timber",
+          "positionYUp": [
+            -6.680000002682209,
+            1.2493582890712642,
+            9.872213904715796
+          ],
+          "outwardFaceNormalYUp": [
+            1,
+            0,
+            0
+          ],
+          "paper": false,
+          "transparent": false,
+          "frontFace": true
+        }
+      ],
+      "opaqueBlocked": true,
+      "paperFrontEvents": 0
+    },
+    {
+      "originYUp": [
+        4,
+        0.05,
+        8
+      ],
+      "firstHits": [],
+      "opaqueBlocked": false,
+      "paperFrontEvents": 0
+    }
+  ],
+  "photographicAccepted": false
+}

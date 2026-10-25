@@ -1,0 +1,16 @@
+{
+  "status": "all-original-UV-vertices-and-triangle-corners-exact",
+  "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "geometriesChecked": 2572,
+  "UVsets": 2572,
+  "sourceUVVertices": 14955973,
+  "sourceTriangleCorners": 71881731,
+  "maximumXYResidual": 0,
+  "maximumBarycentricResidual": 0,
+  "tangentConsumers": 0,
+  "tangentPolicy": "All future normalMap/clearcoatNormalMap/anisotropy consumers retain actual corner UV layers; current source has none.",
+  "mathematicalReason": "Every original face corner fetches the exact same source float2 from its unchanged original vertex index. Therefore every barycentric interpolant, UV seam and UV derivative of those triangles is identical. POINT float3 carries source U,V and a new unused zero Z; no source UV is quantized or discarded.",
+  "geometryOrExportChanged": false,
+  "actualGPUJob": false,
+  "photographicAccepted": false
+}

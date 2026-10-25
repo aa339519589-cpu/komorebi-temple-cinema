@@ -1,0 +1,201 @@
+{
+  "schema": "scene06-physical252-settings-v1",
+  "expectedSourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+  "exportDirectory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/export-r02",
+  "outputDirectory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/cycles-r06-pbr",
+  "roomBoundsYUp": [
+    [
+      -6.68,
+      0.03,
+      -8.87
+    ],
+    [
+      6.68,
+      7.15,
+      10.08
+    ]
+  ],
+  "roomBoundsSourceEvidence": {
+    "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+    "nativeModule": "reconstructions/scene-06/src/reference6-main.js",
+    "nativeModuleSha256": "6f51a8bcec67fa4097ff3f1b5f8ba38cb9ceb916a18d8d75a3521dd291b6c332",
+    "actualNativeField": "solarScattering.roomBounds195",
+    "derivation": "Exact caller source retains bounded air min[-6.68,.03,-8.87] max[6.68,7.15,10.08] under same retained room248 physical envelope. Only actual side windows/solar vector change."
+  },
+  "rootReviewedRecipeSha256": "9523e48702795a5698924ca1049e9486a7cc83b85d308d01f1e3802877303d09",
+  "purpose": "R06 explicit inferred PBR study on the same complete9fe source package, following Root actual R05 review: actual floor clearcoat.72/.17 to.95/.06, base roughness/maps/albedo/varnish slopes held; central exact material metalness.88/roughness.47 to.98/.30, source color/vertex-color/bump/roughnessMap held. Sun/sky/DHI12/EV-1/air.0007 and every geometry/instance remain the same. No image grade or new export.",
+  "storage": {
+    "minimumExportStartFreeBytes": 4294967296,
+    "maximumUniqueExportBytes": 1610612736,
+    "minimumPerWriteFreeBytes": 2147483648,
+    "minimumRenderStartFreeBytes": 2147483648,
+    "emergencyFreeBytes": 536870912,
+    "maximumOutputBytes": 268435456
+  },
+  "memory": {
+    "maximumEstimatedResidentBytes": 15032385536,
+    "minimumOtherAvailableReserveBytes": 3221225472,
+    "sourceBufferCacheBytes": 67108864,
+    "runtimeMaximumOwnProcessRSSBytes": 15032385536,
+    "runtimeMinimumAvailableBytes": 3221225472,
+    "schemaBudget": "Blender5.2 exact live storage: co/float3 POINT custom_normal/full corner UV/source colors and true extra attributes; redundant sourceRaw position/normal/uv and per-prototype instance fields omitted, original raw bytes preserved in verified package. CPU array envelope64B/V+144B/T+actual UV/color/extra storage; device/BVH envelope unchanged, overall25% margin. Daylight284 full float source UV uses POINT float3 for non-tangent images, corner UV for actual tangent consumers; exact affine UV copies explicitly counted; cap/reserve remain unchanged."
+  },
+  "render": {
+    "size": 1254,
+    "samples": 512,
+    "adaptiveSampling": false,
+    "denoise": true,
+    "device": "METAL",
+    "maxBounces": 16,
+    "diffuseBounces": 8,
+    "glossyBounces": 8,
+    "transmissionBounces": 12,
+    "transparentBounces": 16,
+    "volumeBounces": 4,
+    "threads": 4,
+    "saveBlend": false,
+    "frames": 1,
+    "viewTransform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": "Inferred physical camera EV-1.0 after actual corrected-front-source R04 showed pale/white gilt highlights atEV+.35",
+    "gamma": 1,
+    "directClamp": 0,
+    "indirectClamp": 0,
+    "exposureEV": -1
+  },
+  "lighting": {
+    "relativeSceneUnitScale": 1,
+    "absoluteSIPhotometryClaimed": false,
+    "world": "One declared physical multiple-scattering atmosphere, source-aligned sole solar disc; normalized by measured sky DHI, same all paths",
+    "sunAngularDiameterDegrees": 0.53,
+    "sunEnergy": "Atmosphere supplies the solar spectrum and native Sun direction/0.53degree disc; original native22 and warm RGB recorded, not re-applied",
+    "practicalAuthoritativeSource": "4*pi*native PointLight.intensity RGB flux redistributed over actual associated paper area; original paper emission replaced, point proxy not also imported",
+    "practicalAssociationMaximumDistanceMetres": 1.25,
+    "expectedFloorPracticalSources": 2,
+    "unpairedPracticalPolicy": "fail; do not invent an emitter",
+    "unproxiedFixtureEmission": "Original actual fixture emissive RGB*intensity and emissiveMap; source geometry area and emission-sidedness recorded",
+    "exteriorMode": "physical-multiple-scattering",
+    "physicalAtmosphere": {
+      "skyType": "MULTIPLE_SCATTERING",
+      "airDensity": 1,
+      "aerosolDensity": 1,
+      "ozoneDensity": 1,
+      "altitudeMetres": 100,
+      "targetDiffuseHorizontalRelativeIrradiance": 12,
+      "meterSamples": 16,
+      "diffuseMeterSize": [
+        256,
+        128
+      ],
+      "solarMeterSize": 128,
+      "minimumDirectNormalToDiffuseRatio": 1,
+      "maximumDirectNormalToDiffuseRatio": 20,
+      "inference": "No time/location/weather/EXIF calibration supplied. Inferred front-left Sun vector[-.935,.105,.339], elevation~6.03degrees, clear/hazy Earth atmosphere densities1 altitude100m. One physical sky model supplies both direct/diffuse spectrum; DHI12 uses same relative normalization as R03. Camera EV+.35, air.0018 and thin-paper diffuse transmission mix.65 are inferred/held. No auxiliary area/spot/front fill or geometry deletion. Opening heights6.35m in front and left-middle are an architectural inference under retained7.2m roof. R05 optical changes are physical cameraEV-1.0 and homogeneous air extinction.0007 after full R04 actual; same measured atmosphere model/Sun ratio and DHI12. No post-image adjustment."
+    }
+  },
+  "proxyLightNames": [
+    "reference6-side-window-diffuse-sky-proxy",
+    "reference6-shadowed-front-window-field",
+    "scene06-warm-diffuse-room-return",
+    "scene06-tall-entrance-window-field",
+    "scene06-entrance-warm-head-field",
+    "reference6-sunlit-floor-bounce-proxy"
+  ],
+  "floorPracticalNames": [
+    "reference6-floor-lantern-source"
+  ],
+  "captureUtilityNames": [
+    "reference6-room-reflection-capture-only"
+  ],
+  "paper": {
+    "materialPrefix": "scene06-paper234-",
+    "translucentMix": 0.65,
+    "singleThinSheetEvent": true,
+    "sourceGeometryThicknessHeld": true,
+    "paperEmissionSuppressed": true,
+    "sourceFiberMapAndLinearAlbedoHeld": true,
+    "transmissionMixIsInferredNotMeasured": true,
+    "r02Inference": "Original paper linear albedo/fiber image held. Redistribution from45% to65% translucent closure weight raises actual single-sheet diffuse transmission approximately0.29 to0.42, trading diffuse reflection for transmission without emitted energy. Overlapping two actual paper slabs still compound; no clear slot or wood lattice erased. Inferred, not measured paper optical data."
+  },
+  "volume": {
+    "enabled": true,
+    "densitySource": "nativeInfo.solarScattering.density",
+    "singleScatterAlbedo": 0.9,
+    "anisotropy": 0.2,
+    "sourceGain1_75NotRepeated": true,
+    "boundsMustBeBoundToExactNewSource": true,
+    "screenBeamCards": false,
+    "densityPerMetre": 0.0007
+  },
+  "floor": {
+    "retainOriginalCoatAndRoughness": false,
+    "portActualVarnishSlopes": true,
+    "sourceAmplitudeFactor": 0.18,
+    "cameraDerivativeAAIsNotPixelEquivalent": true,
+    "nativeCaptureImageImported": false,
+    "retainOriginalBaseRoughness": true,
+    "coatStudyIsInferred": true
+  },
+  "geometry": {
+    "decimation": false,
+    "linkedOrthogonalTransforms": true,
+    "exactBakeForShearReflectionAndSingular": true,
+    "deleteCollapsedSourceTriangles": false,
+    "completeOriginalIndicesPositionsNormalsUVColors": true,
+    "exactSourceUVPointStorageForNonTangentMaterials": true,
+    "actualUVStorageReadbackRequired": true
+  },
+  "acceptance": {
+    "photographicAccepted": false,
+    "nativePixelEquivalent": false,
+    "successfulImportIsNotAcceptance": true
+  },
+  "requiredNativeOpticalModules": {
+    "reconstructions/scene-06/src/floor-varnish.js": "5c3ea28a04085765b3d631eb75b2a25b7092519db31d038a6da9595615d8b14c",
+    "reconstructions/scene-06/src/sliding-shoji234.js": "9d8714bb3854c356d4856cfde9ae3a15d1f1adb89137de9d0a6679f551959ba3",
+    "reconstructions/scene-06/src/daylight-scattering195.js": "6bad2bfeaa83ab33dc5d825d451788742ea80bf790b7e7237bf3c9632e901735"
+  },
+  "rootReviewEvidence": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/root-approved-r06-pbr291.json",
+    "sha256": "cdfec3c681ca17b0ae485c9ed9dcfbaaace846c88e38dddf23c3c9818f674564",
+    "rootReviewedEntire58LineDeltaAndSettings": true,
+    "priorPointUVApproval": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/root-approved-point-uv-review286.json",
+    "actualUVProbe": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/point-uv-probe284/report.json",
+    "sourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+    "sourcePackageGeometryAndUVUnchanged": true,
+    "rawSourcePBRInferredOverridesDeclared": true,
+    "previousFullActualReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-daylight284/r05-physical-actual-review284.json",
+    "pbrCandidateReviewPending": false
+  },
+  "pbrStudy284": {
+    "expectedSourceHash": "9fe4d1ec02b2f010c265df0acc5dc25b5ebd08644a4b9bfd81e3e84b623a3682",
+    "inferredNotMeasured": true,
+    "inference": "R05 actual full image and HD reference support a sharper polished lacquer coating and a conductor-like gold-leaf central statue. These candidate PBR scalars are inferred, not measured material constants. Original package records and images remain immutable. Single continuous central material preserves all vertex-color dark footprints; there is no independent eye material to replace and no color mask introduced.",
+    "floor": {
+      "exactName": "reference6-varnished-red-brown-floor-body",
+      "expectedRecords": 243,
+      "expectedMeshes": 243,
+      "exactConsumerNames": [
+        "scene06-jointed-polished-floorboard",
+        "scene06-observed-foreground-thick-wood-panel",
+        "room248-jointed-rear-floorboard"
+      ],
+      "candidate": {
+        "clearcoat": 0.95,
+        "clearcoatRoughness": 0.06
+      }
+    },
+    "central": {
+      "exactId": "39d7efde-c35e-4188-b024-f24e9a61790b",
+      "exactName": "scene06-sculpture199-r08a-continuous-source-fit:central-ordinary-PBR",
+      "exactAncestry": [
+        "reference6-rebuilt-furnishings",
+        "reference6-rebuilt-triad"
+      ],
+      "candidate": {
+        "metalness": 0.98,
+        "roughness": 0.3
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ export function createShojiPaper234(){
 }
 
 export function buildSlidingShoji234({box,aperture,paper,timber}){
- const{side,x,z,bottom,top,width}=aperture,height=top-bottom,bay=Math.round((z+4.5)/2.4),leftOpen=[.18,.37,.45,.08,.14,.22],rightOpen=[0,.05,.10,0,.04,.03];
+ const{side,x,z,bottom,top,width}=aperture,height=top-bottom,bay=Math.round((z+4.5)/2.4),leftOpen=[.18,.37,.49,.49,.49,.49],rightOpen=[0,.05,.10,0,.04,.03];
  const openingFraction=(side<0?leftOpen:rightOpen)[bay],pw=width/2+.018,stile=.042,rail=.045,records=[];
  if(!Number.isFinite(openingFraction)||height<=0)throw Error('Shoji234 aperture is outside the retained six-bay room.');
  for(let panel=0;panel<2;panel++){
