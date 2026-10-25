@@ -1,0 +1,126 @@
+{
+  "status": "reviewable-independent-scene03-3d-candidate-not-integrated",
+  "reference": 3,
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03",
+  "canonicalSourceHash": "5d8c529c74df128c1859e6b7bf325a4c6715d828898d9d910963b9183e7862d3",
+  "baselineSourceHash": "5d8c529c74df128c1859e6b7bf325a4c6715d828898d9d910963b9183e7862d3",
+  "canonicalUnchanged": true,
+  "sourceHash": "6e2f4a7140a5f5002bab0c2604f8ebf51ebc0345e1c358900c461e677fdb363b",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/scene03-craft308-r03.patch",
+  "patchSha256": "cb8ae44e0c56d5542e164d540384089e12d58c7be24c0845f835a975771ca4b2",
+  "patchApplyCheck": "git apply --check passed against current unchanged canonical scene03",
+  "changedFiles": {
+    "reconstructions/scene-03/src/scene03-facade308.js": "4df4218ae01f9ffbdb98caf8e21dce9553d8e8e5fb3ddfaf36920088af080c77",
+    "reconstructions/scene-03/src/scene03-hall-carpentry.js": "65f264c76d46b11ee8b9a22122fdb9224efa403a13ccdaa46215f4f52dd72148",
+    "reconstructions/scene-03/src/scene03-bearing174.js": "c87465819cb2c089b79f9250237d24777881486fa133fc90d28281ca3542d237",
+    "reconstructions/scene-03/src/reference4-architecture.js": "599fe24c2175d9246412ff93438a8e153c333c5b27e8447e9af11596c4b4db4b",
+    "reconstructions/scene-03/src/main.js": "adf45560344428ec1769f0531e5ad70d0e634bb98c8c7bc8d9d7d76707bf00b2",
+    "reconstructions/scene-03/craft308-provenance.json": "c503cf6b2af8b0239d470f216df77a1920205c46ccae2752c835c00382e6de67"
+  },
+  "audit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/carpentry-audit-r03.json",
+  "auditSourceMatches": true,
+  "closedPrototypeCount": 30,
+  "allNewInstanceTransformsPositive": true,
+  "frames": [
+    {
+      "role": "fullAndFacadeDetail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-full-detail-repaired-dependency/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-full-detail-repaired-dependency/report.json",
+      "sourceHash": "6e2f4a7140a5f5002bab0c2604f8ebf51ebc0345e1c358900c461e677fdb363b",
+      "sha256": "28c4931afe6716fc79dbbecb29926269e5813b37f714bcbe12dc430a67a6178e",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": null,
+      "inspectionView": null,
+      "calls": 305,
+      "triangles": 45336099,
+      "visualAccepted": false
+    },
+    {
+      "role": "fullAndFacadeDetail-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-full-detail-repaired-dependency/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-full-detail-repaired-dependency/report.json",
+      "sourceHash": "6e2f4a7140a5f5002bab0c2604f8ebf51ebc0345e1c358900c461e677fdb363b",
+      "sha256": "803dfe0585738dbb1c1ac73e61389664dc85547af914166afd9e4eb8da108a38",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": [
+        560,
+        260,
+        550,
+        1254
+      ],
+      "inspectionView": null,
+      "calls": 122,
+      "triangles": 32212377,
+      "visualAccepted": false
+    },
+    {
+      "role": "lowOblique",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-low-oblique/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-low-oblique/report.json",
+      "sourceHash": "6e2f4a7140a5f5002bab0c2604f8ebf51ebc0345e1c358900c461e677fdb363b",
+      "sha256": "3321ed84375a7bcb1673e252adadfd12b38086e477c1785e32f61722ced93160",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": null,
+      "inspectionView": {
+        "position": [
+          1.8,
+          4.8,
+          8.2
+        ],
+        "target": [
+          6.2,
+          10,
+          -1.8
+        ],
+        "fov": 62,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "calls": 111,
+      "triangles": 31859609,
+      "visualAccepted": false
+    }
+  ],
+  "comparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/hd03-canonical-r03-full-comparison.jpg",
+  "nativeDriver": "Official tools/render-one-reconstruction.mjs shared FIFO only",
+  "realServerCopy": {
+    "symlink": false,
+    "inode": 30210808,
+    "canonicalInode": 25969387
+  },
+  "construction": [
+    "Closed deep174 four-rank timber kit with carved noses and continuous raking tails replaces the thin1.5m/0.19m-depth kit",
+    "Deep segmented gallery returns and actual struts replace the long flat upper frieze band",
+    "Three nested closed cyma/rebate/bead portal casing sections preserve the4.2m clear opening",
+    "Two continuous lower rafter courses reach the unchanged outer ceramic fascia; four transverse purlin courses and roof-matched lower bearing heights connect them",
+    "Thin closed gilt skins follow the original carved cut surfaces; source arrays retained"
+  ],
+  "held": [
+    "Reference camera and all hall/bridge/tower/stair anchors",
+    "Outer roof envelopes and existing tiles",
+    "Lights, exposure and environment",
+    "Garden, shrine and source scan components"
+  ],
+  "newImagesOrReferenceScenePixels": false,
+  "failedEvidenceRetained": [
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r02/qa/ten-reference/03/iteration-scene03-craft308-r02-full-detail/preflight-failure.json",
+      "status": "No native frame: excluded immutable QA dependency and CPU found negative jamb transforms"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-craft308/candidate-r03/qa/ten-reference/03/iteration-scene03-craft308-r03-full-detail/preflight-failure.json",
+      "status": "No native frame: missing declared QA dependency restored; successful run has a separate iteration name"
+    }
+  ],
+  "limits": [
+    "Reference joinery density and exact hand-carved forms remain substantially richer",
+    "Existing wood grain, pale trim, lighting and material finish still look synthetic in places",
+    "Gallery/frame geometry is an authored interpretation, not surveyed historic joinery",
+    "Native PBR lighting is not solved diffuse GI; no photographic or finished-film acceptance"
+  ],
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "filmComplete": false
+}

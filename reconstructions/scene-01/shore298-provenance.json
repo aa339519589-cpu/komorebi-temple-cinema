@@ -1,0 +1,55 @@
+{
+  "revision": "shore298-r15",
+  "status": "source-and-native-review-candidate-not-photographically-accepted",
+  "baselineSourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+  "scope": "Scene01 actual bank terrain, stone/water boundaries, scan material energy and bridge-pier ground contact. Camera, sun, environment intensity, exposure and water shader remain at R07.",
+  "diagnosis": {
+    "method": "Official1254 low courtyard ray picks on unchanged R07 source",
+    "actualBareSoilPoints": [
+      [
+        -4.1238,
+        1.0711,
+        -3.2127
+      ],
+      [
+        0.9662,
+        1.5793,
+        0.3587
+      ]
+    ],
+    "causes": [
+      "Earth color times dark procedural map produces near-black soil",
+      "Broad1.8m smooth route shoulders and three giant rounded soil masses obscure natural water boundaries",
+      "Scan recoloring and added moss cover much of each stone with a similar olive finish"
+    ]
+  },
+  "geometry": [
+    "Continuous closed terraced shore and local bridge inlet; route-distance blending carries the actual route foundations without abrupt cliffs",
+    "Route bank falloff contracts from1.8m to1.25m and three oversized buried soil mounds are omitted",
+    "63 additional placements of the retained full3D CC0 stone scans form drowned toes, short middle/upper strata and court-face receiver courses",
+    "Existing shore stones are lowered where the new ground would otherwise leave them floating; actual cascade lips are held",
+    "Two stepped closed granite pier shoes extend into the new inlet bed by at least.12m and overlap original pier bases by.16m",
+    "Small shore pebbles use centerY=terrainY+.30s and verticalRadius=.70s, embedding their lower.40s into actual ground",
+    "New creased sedge blades and dry root runs occupy sparse actual crevices; three rooted flower shelves retain a lower azalea hierarchy"
+  ],
+  "materials": [
+    "Original scan geometry/UV/color/normal assets retained with sparse slope-dependent moss and height-dependent wet roughness",
+    "Sparse physically closed surface-conformed moss skins replace the broad olive coating; detached moss balls are muted while retaining original RNG consumption",
+    "Mineral soil reflectance and world-stable grain/gravel/root shading replace the black double-tinted earth"
+  ],
+  "preserved": [
+    "R07 foreground craft, temple/pagoda/bridge architecture and camera",
+    "Main sun/sky/light intensities/exposure",
+    "Actual scene-reflecting water shader and source asset identities"
+  ],
+  "newImageAssets": false,
+  "referencePhotographPixelsUsed": false,
+  "newExternalSources": false,
+  "structuralCertification": false,
+  "limitations": [
+    "Inherited bridge-end shrub volume remains visibly simplified; later alternative shrubs/large rock spurs were rejected and retained outside this candidate",
+    "Some route-facing soil/masonry surfaces and geological repetition remain visible",
+    "The bank is an authored interpretation, not surveyed geology",
+    "Full scene remains short of HD01 photographic fidelity"
+  ]
+}

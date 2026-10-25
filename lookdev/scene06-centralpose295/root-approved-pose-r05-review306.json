@@ -1,0 +1,13 @@
+{
+  "status": "approved-exact-r05-profile-supported-CPU-authoring",
+  "at": "2026-10-25T13:01:50.836085+00:00",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r05.py": "b666a0c7c35179c78e7af81d9aafa9f6637d2e02f7b1d8ddab6552cd02102b6b",
+    "lookdev/scene06-centralpose295/authoring/pose-r05.json": "ace8d1138b58e180726882ff6424392ac5ea007ab730eea8af5dcad5840b22f7",
+    "lookdev/scene06-centralpose295/authoring/support-constraints-r05.json": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+    "lookdev/scene06-centralpose295/authoring/build-support-constraints295-r05.mjs": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450"
+  },
+  "recipe": "scene06-centralpose295-r05",
+  "scope": "Root reviewed entire R05 delta against fully reviewed R04, complete constraint proposal generator and config, and parsed all three actual source-profile constraint groups with original triangle/barycentric leg witnesses. Actual source-index ring supports translated from R04 with positive fixed-leg roof clearance, original folded panel pins, same CPU local differential solve and protected identities. CPU only four threads under existing exclusive lock; no render, viewport draw, export, bake, Blend or GPU. Whole deformed cuff and adjacent cloth still require independent crossing and native shape review.",
+  "photographicAccepted": false
+}

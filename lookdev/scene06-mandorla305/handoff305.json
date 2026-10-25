@@ -1,0 +1,139 @@
+{
+  "status": "independent-single-file-native-reviewed-candidate",
+  "photographicAccepted": false,
+  "canonicalModified": false,
+  "pushed": false,
+  "requestedModel": "gpt-6.1-sol/max",
+  "baseSource": "c85f7579e790a6103e8ad0372dff2c7f74d12467fb878cecaf04cfba96438f7e",
+  "candidateSource": "fbb0b8a84bb45e35f9913a0e5c00ec028035e11d73361915d7e6d9141beeefa1",
+  "module": "reconstructions/scene-06/src/mandorla205.js",
+  "moduleSha256": "de8beca442ac15a51fc4933d50a9ffeec6b75270ce3398127963dad4890c4645",
+  "baseModuleSha256": "0491ab3de9e2efbe432d11fa81dd4d6b15ec5167fb119bac3b09932b748d8c4f",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01",
+  "changedFiles": [
+    "reconstructions/scene-06/src/mandorla205.js"
+  ],
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/integration-delta305.patch",
+  "patchCheck": "git apply --check passed against canonical module; root integration remains separate",
+  "serverIsActualIndependentCopy": true,
+  "modeling": {
+    "newGeometry": "Adaptive spline sections measured on actual left/right/front rails; closed front fluted shoulders, convex back, four real bevel segments on each edge, finite tapered caps.",
+    "curvature": "Smooth finite-arc curvature width constraint; genuine near-cusp return paths removed by reauthoring the entire stem reconnect. All3565 unique closed strips meet final tolerance; no unresolved interval.",
+    "largestShapeRepair": "Photograph outer mandorla has long ascending return flames; old edge tags selected round scroll families by height. Edge flames now use elongated asymmetric teardrop stems with a small recurved terminal and staggered rooted side returns. Fine leaves narrowed to keep real pierced gaps.",
+    "preserved": "Same overall H/W/head-centre input values, actor anchoring, main figure, unchanged black cup mesh/material/transform; no other source file, light or camera changed.",
+    "overallBounds": {
+      "baseline": [
+        [
+          -1.555471684846211,
+          -0.00039469026548671904,
+          -0.13893606533262945
+        ],
+        [
+          1.605857768169677,
+          4.46004581451416,
+          0.07686955481767654
+        ]
+      ],
+      "candidate": [
+        [
+          -1.5401028907678793,
+          -0.0003946902654867329,
+          -0.13893606533262945
+        ],
+        [
+          1.5969156649791332,
+          4.4600419998168945,
+          0.07621512562036514
+        ]
+      ],
+      "widthFraction": 0.9923099133987179,
+      "note": "Actual envelope narrows less than1% as leaves become thinner; target H/W/centres are unchanged."
+    },
+    "provenance": "Hand-authored JS Three indexed3D surfaces, using references/hd/4-照片-5.jpg only for visual comparison. No new photo-derived texture/plane/mask, no ImageGen and no Blender."
+  },
+  "geometry": {
+    "audit": "r03-geometry305-exact.json",
+    "baselineAudit": "baseline-geometry305-exact.json",
+    "baselineTriangles": 1987536,
+    "candidateTriangles": 9313304,
+    "addedTriangles": 7325768,
+    "baselineUniqueMiB": 28.842132568359375,
+    "candidateUniqueMiB": 143.5450897216797,
+    "addedUniqueMiB": 114.70295715332031,
+    "finite": true,
+    "indexValid": true,
+    "nonUnitNormals": 0,
+    "sampling": {
+      "solidStrips": 3565,
+      "minStations": 17,
+      "maxStations": 129,
+      "totalStations": 162159,
+      "curvatureNarrowedStations": 34201,
+      "unresolvedSegments": 0,
+      "maxRailChordError": 0.0029348829880241774,
+      "maxTangentTurn": 0.22998840815883054,
+      "maxRailChordErrorFractionOfTolerance": 0.9999824246250614
+    },
+    "closedAudit": {
+      "enabled": true,
+      "weldTolerance": 1e-8,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "geometriesWithBoundary": [],
+      "degenerateEdges": 0
+    },
+    "cap": 10000000,
+    "note": "The historical comment1,964,864 in the module refers to the initial narrower helper probe; actual canonical total is1,987,536, as the exact audit records."
+  },
+  "native": {
+    "driver": "tools/render-one-reconstruction.mjs",
+    "sharedGpuFifo": true,
+    "sourceFrozen": true,
+    "source": "fbb0b8a84bb45e35f9913a0e5c00ec028035e11d73361915d7e6d9141beeefa1",
+    "wholeSceneTriangles": 58058244,
+    "fullAndCropSeconds": 32.802,
+    "fullAndCropPeakDescendantRssMiB": 5533.8125,
+    "threeQuarterPeakDescendantRssMiB": 5390.734375,
+    "rssLimitation": "Sampled sum of RSS for official render-one driver and descendant server/browser processes; RSS can double-count shared pages and is not hardware GPU allocation. Official shared GPU FIFO is unchanged.",
+    "glErrors": 0,
+    "contextLost": false,
+    "programsLinked": true,
+    "guardValid": true,
+    "full": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01/qa/ten-reference/06/iteration-mandorla305-r03-full-crop/reference.png",
+    "crop": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01/qa/ten-reference/06/iteration-mandorla305-r03-full-crop/detail-native.png",
+    "cropSubfrustum": {
+      "pixels": [
+        485,
+        325,
+        160,
+        1254
+      ],
+      "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+    },
+    "threeQuarter": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01/qa/ten-reference/06/iteration-mandorla305-r03-three-quarter/inspection-view.png",
+    "fullReport": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01/qa/ten-reference/06/iteration-mandorla305-r03-full-crop/report.json",
+    "threeQuarterReport": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r01/qa/ten-reference/06/iteration-mandorla305-r03-three-quarter/report.json"
+  },
+  "visualReview": {
+    "personallyViewed": [
+      "HD reference and crop",
+      "295 full-arm actual native crop",
+      "R02 native full, subfrustum and three-quarter",
+      "R03 native full, subfrustum and three-quarter"
+    ],
+    "improved": "R15 obvious polygon coils are replaced by continuously sampled curves; R03 less pinched and slimmer than R02, physical front/back order and finite edges visible in three-quarter.",
+    "limits": "Repeated authored scroll families and broad open radial head field remain approximate against the HD carving. This is a geometry improvement candidate, not a photographic-fidelity acceptance or a new whole-scene/film sign-off."
+  },
+  "history": [
+    "mandorla205-baseline-c85f.js",
+    "mandorla305-r01-preflight-overbudget.js",
+    "r01-preflight-failure305.json",
+    "mandorla305-r02-rendered-source.js",
+    "candidate-r01/qa/ten-reference/06/iteration-mandorla305-r02-full-crop",
+    "candidate-r01/qa/ten-reference/06/iteration-mandorla305-r02-three-quarter",
+    "mandorla305-r03-preflight-overbudget.js",
+    "r03-preflight-failure305.json",
+    "mandorla305-r03-cusp-preflight.js",
+    "r03-cusp-preflight-failure305.json"
+  ]
+}

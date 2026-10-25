@@ -9,7 +9,7 @@ export function mossSkin132(geometry){
  function id(q,n){const key=q.toArray().map(v=>v.toFixed(6)).join(',');if(lookup.has(key))return lookup.get(key);const value=points.length;lookup.set(key,value);points.push(q);directions.push(n.clone().normalize());return value;}
  function patch(q,n){
   const c=q[0].clone().add(q[1]).add(q[2]).multiplyScalar(1/3),up=n[0].y+n[1].y+n[2].y,field=.68*noise(c.x*4.2,c.z*4.2,132)+.32*noise(c.x*13,c.z*13,219);
-  if(up<.42||field<.46)return;topFaces.push(q.map((v,i)=>id(v,n[i])));
+  if(up<1.45||field<.64)return;topFaces.push(q.map((v,i)=>id(v,n[i])));
  }
  for(let face=0;face<index.count;face+=3){
   const ids=[index.getX(face),index.getX(face+1),index.getX(face+2)],q=ids.map(point),n=ids.map(normal),m=[],mn=[];

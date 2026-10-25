@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {buildPendantPiercing283,buildPendantHeader283} from './pendant-filigree283.js';
-import {withAltarTier260,withAltarAccents260,buildPanelFrame260,buildPanelDivider260,buildTierEdge260,buildUprightCapital260,buildAltarUpright260} from './altar260.js';
+import {withAltarTier260,withAltarAccents260,buildPanelFrame260,buildPanelDivider260,buildTierEdge260,buildUprightCapital260,buildAltarUpright260,withAltarPanelCase260,buildAltarUprightFinial260} from './altar260.js';
 import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
@@ -585,7 +585,7 @@ function buildTerraces(b,layout) {
       const bearingZ=tiers[row].d/2-inset+(isLedge?(row===3?.08:.04):0);
       buildUprightCapital260(b,xx,yy,1.56,bearingZ,row);
     }
-    b.ball(xx,1.91,1.56,.048,.064,.048,'trim');
+    buildAltarUprightFinial260(b,xx);
   }
   b.box(0,1.01,1.57,.43,.48,.13,'trim');
   b.box(0,1.01,1.645,.35,.40,.035,'lacquer');
@@ -660,6 +660,7 @@ const REF6_CAST_PANEL_FIELDS={"middleLeft":{"bounds":[395,716,537,739],"axis":[4
 
 function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   const back=Number.isFinite(bearingZ)?Math.min(z-.082,bearingZ-.008):z-.082;
+  return withAltarPanelCase260(b,x,y,z,w,h,back,()=>{
   buildPanelFrame260(b,x,y,z,w,h,back);
   if(tryCompactShortOrnament198(b,x,y,z,w,h))return;
   // Only the two broad middle fields receive the original complete dragon
@@ -689,6 +690,7 @@ function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   b.add(b.geometry(key,()=>sculptedDragonRelief(w*.83,h*.84,variant,singleDirection||mirror)),'gold',x,y,z+.038);
 
   if(w>.85)for(const side of[-1,1])ref6Scroll(b,x+side*(w*.5-.10),y,z+.034,.11,.075,side*.18,'oldgold',side);
+  });
 }
 
 function scrollReliefGeometry(variant,singleDirection=0) {

@@ -81,20 +81,35 @@ export function createBearing174(T,{emit,grouped,keep=g=>g}){
   const c=p.length/3;p.push(...curve.getPoint(0).toArray(),...curve.getPoint(1).toArray());uv.push(.5,0,.5,1);for(let k=0;k<N;k++)ids.push(c,(k+1)%N,k,c+1,R*N+k,R*N+(k+1)%N);
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);return finish(g,'scene03-closed-raking-cantilever-tail174');
  }
+ const faceSkins308=new Map();
+ function fittedEndSkins308(g,half){
+  const pos=g.attributes.position,ids=g.index.array,out=[];
+  for(const sign of[-1,1]){
+   const chosen=[];for(let k=0;k<ids.length;k+=3){const t=[ids[k],ids[k+1],ids[k+2]];if(t.every(i=>sign*pos.getX(i)>=half-.00001))chosen.push(t);}if(!chosen.length)throw Error('308 cut face selection empty');
+   const map=new Map(),p=[],uv=[],edges=new Map(),ix=[];for(const t of chosen)for(const id of t)if(!map.has(id)){map.set(id,map.size);p.push(pos.getX(id)+sign*.0025,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
+   const count=map.size;for(const id of map.keys()){p.push(pos.getX(id)-sign*.0003,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
+   for(const t of chosen){const a=t.map(id=>map.get(id));ix.push(...a,a[0]+count,a[2]+count,a[1]+count);for(let k=0;k<3;k++){const j=a[k],l=a[(k+1)%3],key=Math.min(j,l)+','+Math.max(j,l);if(edges.has(key))edges.get(key).n++;else edges.set(key,{a:j,b:l,n:1});}}
+   for(const {a,b,n}of edges.values())if(n===1)ix.push(a+count,a,b,a+count,b,b+count);
+   const skin=new T.BufferGeometry();skin.setAttribute('position',new T.Float32BufferAttribute(p,3));skin.setAttribute('uv',new T.Float32BufferAttribute(uv,2));skin.setIndex(ix);out.push(finish(skin,'scene03-308-closed-thin-gilt-following-actual-carved-cut-'+sign));
+  }
+  faceSkins308.set(g,out);
+ }
  const cups=[cup(.88,.26),cup(.47,.22),cup(.42,.20)],arms=[arm(1.39,.47,{lap:'top',rank:0}),noseArm(1.39,.47,1,'bottom'),arm(1.80,.43,{rank:2}),noseArm(1.66,.42,3),arm(2.10,.46,{rank:4}),noseArm(1.47,.39,5)],raking=tail();
  const receiver=finish(createCurvedEaveRafter([[-1.12,1.97,1.43],[0,1.95,1.43],[1.12,1.97,1.43]],.43,.22),'scene03-continuous-cambered-roof-receiver174');
+ for(const [g,length]of[[arms[1],1.39],[arms[3],1.66],[arms[5],1.47]])fittedEndSkins308(g,length/2);
  function cluster(x,base,z,top,scale=1,major=true,depthScale=scale){
   const sy=(top-base)/2.08;if(!(sy>0))throw Error('174 requires a positive occupied bearing gap');
+  const carvedBeam308=(g,ma,...a)=>{emit(g,ma,...a);for(const skin of faceSkins308.get(g)??[])emit(skin,'bearingGilt',...a);};
   grouped(x,base,z,0,()=>{
    emit(cups[0],'red',0,0,0,scale,sy,depthScale);
    // The equal contact plane .455 is shared by the complementary laps.
    emit(arms[0],'cedar',0,.45*sy,0,scale,sy,depthScale);
-   emit(arms[1],'red',0,.45*sy,0,depthScale,sy,scale,Math.PI/2);
+   carvedBeam308(arms[1],'red',0,.45*sy,0,depthScale,sy,scale,Math.PI/2);
    for(const sign of[-1,1]){
     emit(cups[1],'red',sign*.36*scale,.615*sy,.35*depthScale,scale,sy,depthScale);
-    emit(arms[3],'cedar',sign*.36*scale,.99*sy,.39*depthScale,depthScale,sy,scale,Math.PI/2);
+    carvedBeam308(arms[3],'cedar',sign*.36*scale,.99*sy,.39*depthScale,depthScale,sy,scale,Math.PI/2);
     emit(cups[2],'cedar',sign*.53*scale,1.205*sy,.84*depthScale,scale,sy,depthScale);
-    emit(arms[5],'cedar',sign*.53*scale,1.76*sy,.96*depthScale,depthScale,sy,scale,Math.PI/2);
+    carvedBeam308(arms[5],'cedar',sign*.53*scale,1.76*sy,.96*depthScale,depthScale,sy,scale,Math.PI/2);
     // Tail bodies have continuous belly, cheeks, rounded section and caps.
     if(major)emit(raking,'red',sign*.26*scale,0,0,scale,sy,depthScale);
    }
@@ -104,5 +119,5 @@ export function createBearing174(T,{emit,grouped,keep=g=>g}){
   });
   instances++;seats.push({column:[x,base,z],roofReceiverY:top,normalizedGap:top-base,major,sectionScale:[scale,sy,depthScale],normalizedReceiverOverrun:0});
  }
- return{cluster,prototypes,seats,get instances(){return instances;},construction:'Complementary half-lapped crossed arms, flared dou, waisted canted cheeks, two continuous raking tails and one cambered purlin seat; no ornamental end plates or gold bands'};
+ return{cluster,prototypes,seats,get instances(){return instances;},construction:'Complementary half-lapped crossed arms, flared dou, waisted canted cheeks, two continuous raking tails and one cambered purlin seat; thin fitted metal follows the actual curved carved cut faces without flat decorative badges'};
 }

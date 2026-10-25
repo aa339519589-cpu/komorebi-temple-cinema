@@ -1,0 +1,899 @@
+{
+  "status": "frozen-6-official-actual-pngs-personally-viewed-local-geometry-delta-for-root-review",
+  "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+  "base12a4": "12a4a4093f336d75365294021794685345f9e702d00ce54421fb6c4e6330d4f9",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02",
+  "sourceReceipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-source293.json",
+  "sourceMap": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-complete-source-map293.json",
+  "sourceSnapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-source",
+  "delta": [
+    "reconstructions/scene-06/src/altar260.js",
+    "reconstructions/scene-06/src/cabinet-cases293.js",
+    "reconstructions/scene-06/src/restoration-altar.js"
+  ],
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-cabinet293.patch",
+  "verification": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-native-verification293.json",
+  "actualReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-actual-review293.json",
+  "actualViews": [
+    {
+      "kind": "detail-native",
+      "view": "reference",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-detail-native-personal-nc/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-detail-native-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "8e16eb8270add6185a7b24c0b223939383adbeb46880ba8dafc4d0090c990b53",
+      "rgbaSha256": "3860f803634b99880b1d89fcc09c7ac2a0e5a113f1dd4619f87b44e2b0f80217",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": null,
+      "personallyViewed": true,
+      "decoded": true
+    },
+    {
+      "kind": "detail-native",
+      "view": "detail-native",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-detail-native-personal-nc/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-detail-native-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "2a9516e8e1cc16468da308e5f982490f44032815859f45af13819bccdde9354e",
+      "rgbaSha256": "631d95537d217fcdcad9eec99c4c6d4ed1d14db280b7a69619cc7ccda120b196",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": [
+        320,
+        350,
+        620,
+        1254
+      ],
+      "inspectionCamera": null,
+      "personallyViewed": true,
+      "decoded": true
+    },
+    {
+      "kind": "low-oblique",
+      "view": "inspection-view",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-low-oblique-personal-nc/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-low-oblique-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "b6b542aaf76b98e36cdbd71d87abe604dc581e81e439286986b88797c813ea90",
+      "rgbaSha256": "3bce565dab4b7b494c51f789cb75dae8795f4cf99e6f228a20fde7f7cfcfc13f",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": {
+        "position": [
+          -3.6,
+          0.75,
+          2.3
+        ],
+        "target": [
+          0.3,
+          1.2,
+          -0.75
+        ],
+        "fov": 52,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "personallyViewed": true,
+      "decoded": true
+    },
+    {
+      "kind": "case-native",
+      "view": "reference",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-case-native-personal-nc/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-case-native-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "b53e9f367b5a4752fc3fd0e805bedab5266dab62ce1b85c0acdb663d88674a75",
+      "rgbaSha256": "b47046ceebe91704a80c83071b89f333b583ed8d8aa2ec30d4ab40a6d589afe2",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": null,
+      "personallyViewed": true,
+      "decoded": true
+    },
+    {
+      "kind": "case-native",
+      "view": "detail-native",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-case-native-personal-nc/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-case-native-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "f315ef6c471a89a24b6eceb075de8be241cdf231a166d198c0a836378dae9b0b",
+      "rgbaSha256": "0fce81399f93eec6f99dbe00500cbecbfa8d0e423cff91d3e1f4f0d29c392e40",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": [
+        350,
+        630,
+        400,
+        1254
+      ],
+      "inspectionCamera": null,
+      "personallyViewed": true,
+      "decoded": true
+    },
+    {
+      "kind": "section-oblique",
+      "view": "inspection-view",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-section-oblique-personal-nc/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/candidate-r02/qa/ten-reference/06/iteration-scene06-cabinet293-r02-section-oblique-personal-nc/report.json",
+      "sourceHash": "ff891cf72b7efacd7cac05d6e5777854ec76cc9cd74bb6df2039a108f98fab18",
+      "sha256": "b25238d5107bc1d9b934bcbf5d7e085e2f59ba67bcb528661b359b2a3f665e89",
+      "rgbaSha256": "29e8d4012757c5f0875e9b5cc4fd21c698f8490d6e37d6c56caf1553d0deeaf2",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": {
+        "position": [
+          -2.65,
+          1.05,
+          0.65
+        ],
+        "target": [
+          -1.35,
+          1.15,
+          -0.8
+        ],
+        "fov": 48,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "personallyViewed": true,
+      "decoded": true
+    }
+  ],
+  "protectedComparisons": {
+    "frontTable254And255WorldContacts": true,
+    "table247AndApron248": true,
+    "cushion255": true,
+    "actorAndLotusLayoutAnchors": true,
+    "existingTierYPlacements": true,
+    "sculptureSourceRevision": true,
+    "room248": true,
+    "coffer249": true,
+    "solarAir": true,
+    "lightMetadata": true,
+    "exposure": true,
+    "photographicReferenceCamera": true
+  },
+  "carvingSourceCounts": {
+    "familyPrimary": 14,
+    "subordinate": 16,
+    "short": 1,
+    "retainedLong": 2,
+    "total": 33,
+    "main": 17
+  },
+  "carvingTranslationChecks": [
+    {
+      "index": 0,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 1,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 2,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 3,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 4,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 5,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 6,
+      "revision": "family-r04",
+      "caseZTranslation": 0.045,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 7,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 8,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 9,
+      "revision": "family-r04",
+      "caseZTranslation": -0.028,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 10,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 11,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 12,
+      "revision": "family-r04",
+      "caseZTranslation": 0.08,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 13,
+      "revision": "224 independent inferred dragon/peony carving",
+      "caseZTranslation": 0.045,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 14,
+      "revision": "short-r02",
+      "caseZTranslation": -0.03,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 15,
+      "revision": "family-r04",
+      "caseZTranslation": 0.065,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 16,
+      "revision": "family-r04",
+      "caseZTranslation": -0.03,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 17,
+      "revision": "224 independent inferred dragon/peony carving",
+      "caseZTranslation": 0.045,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 18,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 19,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 20,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 21,
+      "revision": "family-r04",
+      "caseZTranslation": -0.024,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 22,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 23,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 24,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 25,
+      "revision": "family-r04",
+      "caseZTranslation": 0.05,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 26,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 27,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 28,
+      "revision": "family-r04",
+      "caseZTranslation": 0.015,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 29,
+      "revision": "family-r04",
+      "caseZTranslation": -0.024,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 30,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 31,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    },
+    {
+      "index": 32,
+      "revision": "family-r04",
+      "caseZTranslation": 0.035,
+      "allOriginalSourceScaleAndOtherFieldsHeld": true,
+      "xyAndOriginalSourcePositionsHeldAfterUndoingDeclaredZ": true
+    }
+  ],
+  "caseAndDividerGeometryBoundsOnly": [
+    [
+      -2.301700009985974,
+      0.6567703095898033,
+      -1.167999999523163
+    ],
+    [
+      2.3017000099859737,
+      1.8262000005543229,
+      -0.6227978352904318
+    ]
+  ],
+  "actualCabinetRecipe": {
+    "revision": "cabinet293-r02-recessed-rolled-frames",
+    "pilasterZ": 1.7,
+    "oldPilasterZ": 1.56,
+    "metalFrameWidth": 0.0126,
+    "metalFrameDepth": 0.0121,
+    "metalOpeningOffset": 0.021,
+    "frameRetreatFromR01": 0.008,
+    "cornerGuardsOutsideCarvingWindow": true,
+    "photographicAcceptance": false,
+    "cases": [
+      {
+        "level": 1,
+        "role": "outer-returned-case",
+        "x": -1.539367088607595,
+        "y": 0.92,
+        "z": 1.543,
+        "w": 0.9012658227848102,
+        "h": 0.21699999999999997,
+        "back": 1.4609999999999999,
+        "advance": 0.08,
+        "key": "L1-X-1.539367-W0.901266",
+        "actualFrontZ": 1.623,
+        "actualBackZ": 1.4609999999999999,
+        "woodCaseDepth": 0.16800000000000015,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 1,
+        "role": "recessed-neighbour-case",
+        "x": -0.6457594936708859,
+        "y": 0.92,
+        "z": 1.543,
+        "w": 0.6759493670886076,
+        "h": 0.21699999999999997,
+        "back": 1.4609999999999999,
+        "advance": -0.028,
+        "key": "L1-X-0.645759-W0.675949",
+        "actualFrontZ": 1.515,
+        "actualBackZ": 1.4609999999999999,
+        "woodCaseDepth": 0.06000000000000005,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 1,
+        "role": "central-proud-case",
+        "x": 1.6653345369377348e-16,
+        "y": 0.92,
+        "z": 1.543,
+        "w": 0.40556962025316456,
+        "h": 0.21699999999999997,
+        "back": 1.4609999999999999,
+        "advance": 0.045,
+        "key": "L1-X0.000000-W0.405570",
+        "actualFrontZ": 1.5879999999999999,
+        "actualBackZ": 1.4609999999999999,
+        "woodCaseDepth": 0.133,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 1,
+        "role": "recessed-neighbour-case",
+        "x": 0.6457594936708863,
+        "y": 0.92,
+        "z": 1.543,
+        "w": 0.6759493670886076,
+        "h": 0.21699999999999997,
+        "back": 1.4609999999999999,
+        "advance": -0.028,
+        "key": "L1-X0.645759-W0.675949",
+        "actualFrontZ": 1.515,
+        "actualBackZ": 1.4609999999999999,
+        "woodCaseDepth": 0.06000000000000005,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 1,
+        "role": "outer-returned-case",
+        "x": 1.5393670886075952,
+        "y": 0.92,
+        "z": 1.543,
+        "w": 0.9012658227848102,
+        "h": 0.21699999999999997,
+        "back": 1.4609999999999999,
+        "advance": 0.08,
+        "key": "L1-X1.539367-W0.901266",
+        "actualFrontZ": 1.623,
+        "actualBackZ": 1.4609999999999999,
+        "woodCaseDepth": 0.16800000000000015,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 2,
+        "role": "outer-returned-case",
+        "x": -1.4481964056482668,
+        "y": 1.28,
+        "z": 1.393,
+        "w": 1.3136071887034662,
+        "h": 0.26699999999999996,
+        "back": 1.311,
+        "advance": 0.045,
+        "key": "L2-X-1.448196-W1.313607",
+        "actualFrontZ": 1.438,
+        "actualBackZ": 1.311,
+        "woodCaseDepth": 0.133,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 2,
+        "role": "recessed-neighbour-case",
+        "x": -0.5112451861360717,
+        "y": 1.28,
+        "z": 1.393,
+        "w": 0.3502952503209243,
+        "h": 0.26699999999999996,
+        "back": 1.311,
+        "advance": -0.03,
+        "key": "L2-X-0.511245-W0.350295",
+        "actualFrontZ": 1.363,
+        "actualBackZ": 1.311,
+        "woodCaseDepth": 0.05800000000000005,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 2,
+        "role": "central-proud-case",
+        "x": 1.6653345369377348e-16,
+        "y": 1.28,
+        "z": 1.393,
+        "w": 0.4621951219512195,
+        "h": 0.26699999999999996,
+        "back": 1.311,
+        "advance": 0.065,
+        "key": "L2-X0.000000-W0.462195",
+        "actualFrontZ": 1.458,
+        "actualBackZ": 1.311,
+        "woodCaseDepth": 0.15300000000000002,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 2,
+        "role": "recessed-neighbour-case",
+        "x": 0.5112451861360721,
+        "y": 1.28,
+        "z": 1.393,
+        "w": 0.3502952503209243,
+        "h": 0.26699999999999996,
+        "back": 1.311,
+        "advance": -0.03,
+        "key": "L2-X0.511245-W0.350295",
+        "actualFrontZ": 1.363,
+        "actualBackZ": 1.311,
+        "woodCaseDepth": 0.05800000000000005,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 2,
+        "role": "outer-returned-case",
+        "x": 1.4481964056482672,
+        "y": 1.28,
+        "z": 1.393,
+        "w": 1.3136071887034662,
+        "h": 0.26699999999999996,
+        "back": 1.311,
+        "advance": 0.045,
+        "key": "L2-X1.448196-W1.313607",
+        "actualFrontZ": 1.438,
+        "actualBackZ": 1.311,
+        "woodCaseDepth": 0.133,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "outer-returned-case",
+        "x": -1.957105263157895,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.6157894736842106,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": 0.035,
+        "key": "L3-X-1.957105-W0.615789",
+        "actualFrontZ": 1.2779999999999998,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.123,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "recessed-neighbour-case",
+        "x": -1.3536090225563913,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.381203007518797,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": -0.024,
+        "key": "L3-X-1.353609-W0.381203",
+        "actualFrontZ": 1.2189999999999999,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.06400000000000006,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "recessed-neighbour-case",
+        "x": -0.7061278195488725,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.7037593984962407,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": 0.015,
+        "key": "L3-X-0.706128-W0.703759",
+        "actualFrontZ": 1.2579999999999998,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.10299999999999998,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "central-proud-case",
+        "x": -2.7755575615628914e-16,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.49849624060150377,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": 0.05,
+        "key": "L3-X-0.000000-W0.498496",
+        "actualFrontZ": 1.293,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.13800000000000012,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "recessed-neighbour-case",
+        "x": 0.7061278195488719,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.7037593984962407,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": 0.015,
+        "key": "L3-X0.706128-W0.703759",
+        "actualFrontZ": 1.2579999999999998,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.10299999999999998,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "recessed-neighbour-case",
+        "x": 1.3536090225563908,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.381203007518797,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": -0.024,
+        "key": "L3-X1.353609-W0.381203",
+        "actualFrontZ": 1.2189999999999999,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.06400000000000006,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      },
+      {
+        "level": 3,
+        "role": "outer-returned-case",
+        "x": 1.9571052631578945,
+        "y": 1.64,
+        "z": 1.2429999999999999,
+        "w": 0.6157894736842106,
+        "h": 0.187,
+        "back": 1.1609999999999998,
+        "advance": 0.035,
+        "key": "L3-X1.957105-W0.615789",
+        "actualFrontZ": 1.2779999999999998,
+        "actualBackZ": 1.1609999999999998,
+        "woodCaseDepth": 0.123,
+        "sourceCarvingOnlyTranslated": true,
+        "sourceUniformScaleHeld": true
+      }
+    ],
+    "dividers": [
+      {
+        "row": 1,
+        "x": -1.0362341772151897,
+        "y": 0.92,
+        "frontZ": 1.645,
+        "backZ": 1.432,
+        "closedDepth": 0.21300000000000008
+      },
+      {
+        "row": 1,
+        "x": -0.2552848101265821,
+        "y": 0.92,
+        "frontZ": 1.645,
+        "backZ": 1.432,
+        "closedDepth": 0.21300000000000008
+      },
+      {
+        "row": 1,
+        "x": 0.25528481012658244,
+        "y": 0.92,
+        "frontZ": 1.645,
+        "backZ": 1.432,
+        "closedDepth": 0.21300000000000008
+      },
+      {
+        "row": 1,
+        "x": 1.0362341772151902,
+        "y": 0.92,
+        "frontZ": 1.645,
+        "backZ": 1.432,
+        "closedDepth": 0.21300000000000008
+      },
+      {
+        "row": 2,
+        "x": -0.7388928112965338,
+        "y": 1.28,
+        "frontZ": 1.475,
+        "backZ": 1.282,
+        "closedDepth": 0.19300000000000006
+      },
+      {
+        "row": 2,
+        "x": -0.28359756097560956,
+        "y": 1.28,
+        "frontZ": 1.475,
+        "backZ": 1.282,
+        "closedDepth": 0.19300000000000006
+      },
+      {
+        "row": 2,
+        "x": 0.2835975609756099,
+        "y": 1.28,
+        "frontZ": 1.475,
+        "backZ": 1.282,
+        "closedDepth": 0.19300000000000006
+      },
+      {
+        "row": 2,
+        "x": 0.7388928112965342,
+        "y": 1.28,
+        "frontZ": 1.475,
+        "backZ": 1.282,
+        "closedDepth": 0.19300000000000006
+      },
+      {
+        "row": 3,
+        "x": -1.5967105263157897,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      },
+      {
+        "row": 3,
+        "x": -1.1105075187969928,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      },
+      {
+        "row": 3,
+        "x": -0.30174812030075215,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      },
+      {
+        "row": 3,
+        "x": 0.3017481203007516,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      },
+      {
+        "row": 3,
+        "x": 1.1105075187969924,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      },
+      {
+        "row": 3,
+        "x": 1.5967105263157892,
+        "y": 1.64,
+        "frontZ": 1.3079999999999998,
+        "backZ": 1.132,
+        "closedDepth": 0.17599999999999993
+      }
+    ],
+    "sourceTip": {
+      "sourceUID": "1336fa1889cf4eba829594fa30edd6ff",
+      "author": "3dscantech",
+      "license": "CC-BY-4.0",
+      "sourceURL": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+      "asset": "assets/altar260/cloud-tip260-r01.bin",
+      "sha256": "2722b86d9d9c7cbf628289f0b02bc277170e51878223cf2094927cfd3061603d",
+      "triangles": 2524,
+      "scope": "Existing capped spatial scan tip; source is not the photographed reference artifact. Isometric reflections and positive uniform fitting only."
+    },
+    "sourceGeometryAndUniformScalesHeld": true,
+    "hiddenDepthInferred": true,
+    "altarPilasterAxes": [
+      {
+        "x": -2.14,
+        "oldZ": 1.56,
+        "newZ": 1.7,
+        "bottomY": 0.61,
+        "topY": 1.89
+      },
+      {
+        "x": -1.68,
+        "oldZ": 1.56,
+        "newZ": 1.7,
+        "bottomY": 0.61,
+        "topY": 1.89
+      },
+      {
+        "x": 1.68,
+        "oldZ": 1.56,
+        "newZ": 1.7,
+        "bottomY": 0.61,
+        "topY": 1.89
+      },
+      {
+        "x": 2.14,
+        "oldZ": 1.56,
+        "newZ": 1.7,
+        "bottomY": 0.61,
+        "topY": 1.89
+      }
+    ]
+  },
+  "cpuAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-cabinet293/r02-cpu-geometry293.json",
+  "findings": [
+    "All six official1254 actual PNGs personally viewed:reference full/genuine620 altar detail,low oblique,full control/genuine400 case detail,and a closer section oblique. Two full frames share the original physical reference pose; there are five distinct views.",
+    "R02 retains the17 independently returned shallow cases and fourteen deep dividers from R01. Their fronts vary by role while original tierY positions, carved source meshes, uniform scales and original X/Y placements remain held; all declared Z translations are recorded. Four owned altar pilasters and return bearings support the projected cases.",
+    "R01's polished straight16mm rails and repeated full-width cap strips were rejected after actual review by Root and owner. R02 uses12.6mm convex/concave double-rolled sections with a real recessed gutter, returned aged cap hems on selected cases, and fewer open-fold corner guards. Two duplicate inner rails and the bright full-cap bindings were removed.",
+    "The new frame/wood surfaces physically retreat, the carving opening moves7mm outward, and broad overlapping L fittings are replaced by open folds outside the carving window. Small licensed source tips are limited to outer-case fittings. The closer oblique shows exposed carving edge volumes ahead of the frame, with true returns and shallow curved light transitions rather than a black cover plane.",
+    "The case/divider-only geometric front bound retreats fromR01 z=-0.6115000002 toR02 z=-0.6227978353. This bound excludes the separately translated existing altar pilasters and is not the whole scene envelope. Case tier hierarchy and pilaster placement are retained betweenR01/R02.",
+    "Actors, central/side lotus model source and layout, protected fronttable247+254/255 shape/world contacts, scene room/coffer, light/exposure and photographic camera remain held. The33 existing carving mounts keep all original source/scale fields and original positions after undoing their explicitly declared caseZ shifts.",
+    "The cabinetry remains an inferred reconstruction from one view, with more regular drawer divisions and different relief/lighting hierarchy from the photograph. Hidden depth, wall sections, fasteners and case returns are authored, not surveyed. Photographic fidelity remains false.",
+    "Private source stays on12a4. Root canonicalc85f adds299 floor mats. Fusion must take only the3 listed files/minimum restoration hooks and retain reference6-scene/prayer-mats299. R01 source and its three official actuals remain preserved with the rejected white-frame finding."
+  ],
+  "recommendForIntegration": true,
+  "recommendationScope": "Local boxed-case geometry/frame cross-section progression only. Photographic fidelity unaccepted.",
+  "fusionPolicy": "Only listed3 files / surgical restoration hooks against12a4. Root canonicalc85f includes floor299; preserve prayer-mats299 and reference6-scene. Do not overlay this old whole private scene. Merged canonical identity will differ and needs its own official render identity.",
+  "inference": "Case depth, wall sections and hidden joints are authored from visible reference hierarchy, not measured historic cabinetry.",
+  "visualAccepted": false,
+  "photographicMatch": false
+}

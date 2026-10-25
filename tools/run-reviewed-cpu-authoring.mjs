@@ -196,6 +196,29 @@ reviewed['scene06-centralpose295-r04']={
   "receipt": "lookdev/scene06-centralpose295/r04-reviewed-blender-cpu-receipt.json",
   "scope": "Root read complete266-line self-contained CPU Blender Laplacian solver and whole pinned config. Broad real source left-arm/cloth patch, fixed body/shoulder/two-ring boundary, source-index hand/elbow anchors, CPU bind/depsgraph evaluation and compact SC07/JSON output only. Original UV/index/head/right/leg/CM07 held. Four threads under exclusive CPU lock. No render, viewport draw, export, UV bake, Blend save or GPU. Solver is not collision-constrained; actual crossing and native shape reviews mandatory."
 };
+reviewed['scene06-centralpose295-r05']={
+  "script": "lookdev/scene06-centralpose295/authoring/build-pose295-r05.py",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r05.py": "b666a0c7c35179c78e7af81d9aafa9f6637d2e02f7b1d8ddab6552cd02102b6b",
+    "lookdev/scene06-centralpose295/authoring/pose-r05.json": "ace8d1138b58e180726882ff6424392ac5ea007ab730eea8af5dcad5840b22f7",
+    "lookdev/scene06-centralpose295/authoring/support-constraints-r05.json": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+    "lookdev/scene06-centralpose295/authoring/build-support-constraints295-r05.mjs": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450"
+  },
+  "receipt": "lookdev/scene06-centralpose295/r05-reviewed-blender-cpu-receipt.json",
+  "scope": "Root reviewed entire R05 delta against fully reviewed R04, complete constraint proposal generator and config, and parsed all three actual source-profile constraint groups with original triangle/barycentric leg witnesses. Actual source-index ring supports translated from R04 with positive fixed-leg roof clearance, original folded panel pins, same CPU local differential solve and protected identities. CPU only four threads under existing exclusive lock; no render, viewport draw, export, bake, Blend or GPU. Whole deformed cuff and adjacent cloth still require independent crossing and native shape review."
+};
+reviewed['scene06-centralpose295-r06']={
+  "script": "lookdev/scene06-centralpose295/authoring/build-pose295-r06.py",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r06.py": "008976af0a6ad1df9466db124d2c6888ab5076becc2b3c68834d9a5e78eb2c83",
+    "lookdev/scene06-centralpose295/authoring/pose-r06.json": "95153c90a7c0097562ac250ddf614db984379855d5ccc44f47e5656019952a5d",
+    "lookdev/scene06-centralpose295/authoring/active-contact-helper295-r06.mjs": "3fed2051d9b06d229e59e2a2bd7a4b3156d103ac4ddad2e0add2eef655091b05",
+    "lookdev/scene06-centralpose295/authoring/support-constraints-r05.json": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+    "lookdev/scene06-centralpose295/authoring/build-support-constraints295-r05.mjs": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450"
+  },
+  "receipt": "lookdev/scene06-centralpose295/r06-reviewed-blender-cpu-receipt.json",
+  "scope": "Root read complete R06 delta against reviewed R05, entire CPU contact helper, all config changes and retained pinned R05 constraint generator/data. Bounded actual wrist/sleeve-root contacts, original-source inherited controls, max4 local separation passes with compact local snapshots and final one SC07. Child Node runs one main plus3 V8 workers and UV pool1 while Blender synchronously waits. Same outer exclusiveCPU lock, maximum4 active compute threads; no graphics, render, export, bake or Blend. Actual shape/crossings remain review evidence only, never photographic acceptance."
+};
 if(!Object.hasOwn(reviewed,recipe))throw Error('An exact root-reviewed CPU authoring recipe is required.');
 const spec=reviewed[recipe],digest=b=>createHash('sha256').update(b).digest('hex');
 async function verify(){for(const [name,expected]of Object.entries(spec.files))if(digest(await readFile(resolve(root,name)))!==expected)throw Error('Reviewed CPU source changed: '+name);}

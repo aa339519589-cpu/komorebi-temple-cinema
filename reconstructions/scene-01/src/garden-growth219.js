@@ -13,7 +13,7 @@ export function buildFloweringBanks219(B,{site,clearance}){
  const pale=B.m.pinkLight.clone();pale.name='garden219-soft-pink-corolla';pale.color.setHex(0xe7a0ae);pale.roughness=.80;pale.side=T.DoubleSide;pale.onBeforeCompile=B.m.leaf.onBeforeCompile;pale.customProgramCacheKey=pink.customProgramCacheKey;Object.assign(B.m,{garden219Pink:pink,garden219Pale:pale});
  function limb(points,r,tip=.22){const curve=new T.CatmullRomCurve3(points.map(V)),g=new T.TubeGeometry(curve,12,r,6,false),p=g.attributes.position;for(let j=0;j<=12;j++){const c=curve.getPointAt(j/12);for(let k=0;k<=6;k++){const i=j*7+k,v=new T.Vector3().fromBufferAttribute(p,i).sub(c).multiplyScalar(1-(1-tip)*j/12).add(c);p.setXYZ(i,v.x,v.y,v.z);}}g.computeVertexNormals();branches.push(g);return curve;}
  let plants=0,leaves=0,flowers=0;
- for(const [x,z,r,h,flowered]of[[4.55,-.82,1.45,2.50,true],[6.40,-1.20,1.32,2.15,true],[7.50,1.38,1.30,1.90,true],[6.40,4.35,.85,1.06,true],[4.88,4.80,.70,.63,false],[-.53,-2.15,1.0,1.06,true],[-7.55,1.8,1.05,1.18,true],[-5.9,3.7,.80,.73,false]]){
+ for(const [x,z,r,h,flowered]of[[4.85,-.86,1.16,1.60,true],[6.40,-1.20,1.08,1.42,true],[7.18,.66,.94,1.24,true],[6.40,4.35,.85,1.06,true],[4.88,4.80,.70,.63,false],[-.53,-2.15,1.0,1.06,true],[-7.55,1.8,1.05,1.18,true],[-5.9,3.7,.80,.73,false]]){
   if(clearance(x,z,r*.55))continue;const y=site(x,z).height+.025;plants++;
   B.label('garden219-rooted-branching-azalea-and-bank-underplanting',()=>{
    for(let arm=0;arm<7;arm++){

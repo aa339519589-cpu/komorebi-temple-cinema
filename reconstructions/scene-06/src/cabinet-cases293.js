@@ -1,0 +1,105 @@
+import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+// Original boxed joinery derived from visible 12a4/reference front hierarchy.
+// Hidden case depth, wall thickness, joints and metal sections are authored
+// inferences. All reused scan tips retain uniform fitting and attribution.
+const active293=new WeakMap();
+export const CABINET293=Object.freeze({revision:'cabinet293-r02-recessed-rolled-frames',pilasterZ:1.70,oldPilasterZ:1.56,metalFrameWidth:.0126,metalFrameDepth:.0121,metalOpeningOffset:.021,frameRetreatFromR01:.008,cornerGuardsOutsideCarvingWindow:true,photographicAcceptance:false});
+export const SOURCE_TIP293=Object.freeze({sourceUID:'1336fa1889cf4eba829594fa30edd6ff',author:'3dscantech',license:'CC-BY-4.0',sourceURL:'https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff',asset:'assets/altar260/cloud-tip260-r01.bin',sha256:'2722b86d9d9c7cbf628289f0b02bc277170e51878223cf2094927cfd3061603d',triangles:2524,scope:'Existing capped spatial scan tip; source is not the photographed reference artifact. Isometric reflections and positive uniform fitting only.'});
+
+export function caseRecipe293(x,y,z,w,h,back){
+ const level=Math.abs(y-.92)<1e-6?1:Math.abs(y-1.28)<1e-6?2:Math.abs(y-1.64)<1e-6?3:0;
+ if(!level||h<.15||h>.29)return null;
+ const central=Math.abs(x)<.30,outer=level===1?w>.80:level===2?w>.90:Math.abs(x)>1.70;
+ const advance=level===1?(central?.045:outer?.080:-.028):level===2?(central?.065:outer?.045:-.030):(central?.050:outer?.035:w>.60?.015:-.024);
+ return{level,role:central?'central-proud-case':outer?'outer-returned-case':'recessed-neighbour-case',x,y,z,w,h,back,advance,key:'L'+level+'-X'+x.toFixed(6)+'-W'+w.toFixed(6)};
+}
+export function data293(metadata){
+ return metadata.cabinet293??=( {...CABINET293,cases:[],dividers:[],sourceTip:SOURCE_TIP293,sourceGeometryAndUniformScalesHeld:true,hiddenDepthInferred:true,photographicAcceptance:false} );
+}
+
+function finish293(g,role){
+ if(!g.index)g.setIndex(Array.from({length:g.attributes.position.count},(_,i)=>i));if(!g.attributes.normal)g.computeVertexNormals();
+ const p=g.attributes.position,n=g.attributes.normal,indices=Array.from(g.index.array),arrays=Object.fromEntries(Object.entries(g.attributes).map(([k,a])=>[k,Array.from(a.array)]));let splits=0;
+ for(let t=0;t<indices.length;t+=3){const ids=indices.slice(t,t+3),v=ids.map(i=>new T.Vector3().fromBufferAttribute(p,i)),face=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0]));if(face.lengthSq()<1e-24)continue;face.normalize();for(let k=0;k<3;k++)if(face.dot(new T.Vector3().fromBufferAttribute(n,ids[k]))<=1e-6){const next=arrays.position.length/3;indices[t+k]=next;splits++;for(const [name,a]of Object.entries(g.attributes))if(name==='normal')arrays.normal.push(...face.toArray());else for(let j=0;j<a.itemSize;j++)arrays[name].push(a.array[ids[k]*a.itemSize+j]);}}
+ for(const [name,a]of Object.entries(g.attributes))g.setAttribute(name,new T.Float32BufferAttribute(arrays[name],a.itemSize));g.setIndex(indices);g.computeBoundingBox();g.computeBoundingSphere();g.parameters={cabinet293:{role,closedSolid:true}};g.userData={...g.userData,cabinet293:true,role293:role,closedCarvedShell:true,coincidentNormalsSmoothed:true,finalSurfaceNormalsOutward:true,normalCornerSplits:splits,allAttributesExtendedTogether:true};return g;
+}
+function box293(b,key,x,y,z,w,h,d,material='lacquer',radius=.002){
+ const r=Math.min(radius,w/6,h/6,d/6),g=b.geometry('293-box-'+key+':'+[w,h,d,r].join(':'),()=>finish293(new RoundedBoxGeometry(w,h,d,3,r),key));b.add(g,material,x,y,z);return g;
+}
+function rail293(b,key,x,y,z,length,profile,material,vertical=false){
+ const g=b.geometry('293-section-'+key+':'+length,()=>{
+  const s=new T.Shape();s.moveTo(...profile[0]);for(const p of profile.slice(1))s.lineTo(...p);s.closePath();const q=new T.ExtrudeGeometry(s,{depth:length,steps:1,bevelEnabled:true,bevelSize:.0007,bevelThickness:.0007,bevelSegments:2,curveSegments:1}),p=q.attributes.position,n=q.attributes.normal;
+  for(let i=0;i<p.count;i++){const a=[p.getX(i),p.getY(i),p.getZ(i)],v=[n.getX(i),n.getY(i),n.getZ(i)];p.setXYZ(i,a[2]-length/2,a[0],a[1]);n.setXYZ(i,v[2],v[0],v[1]);}return finish293(q,key);
+ });b.add(g,material,x,y,z,1,1,1,0,0,vertical?Math.PI/2:0);
+}
+function reflected293(source,hand,up=1){
+ const g=source.clone(),p=g.attributes.position,n=g.attributes.normal;for(let i=0;i<p.count;i++){p.setXYZ(i,p.getX(i)*hand,p.getY(i)*up,p.getZ(i));n.setXYZ(i,n.getX(i)*hand,n.getY(i)*up,n.getZ(i));}if(hand*up<0){const ix=g.index;if(ix)for(let i=0;i<ix.count;i+=3){const a=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,a);}else for(const a of Object.values(g.attributes))for(let i=0;i<a.count;i+=3)for(let k=0;k<a.itemSize;k++){const v=a.array[(i+1)*a.itemSize+k];a.array[(i+1)*a.itemSize+k]=a.array[(i+2)*a.itemSize+k];a.array[(i+2)*a.itemSize+k]=v;}}
+ return g;
+}
+function agedFrameProfile293(){
+ const s=new T.Shape();s.moveTo(-.0063,-.006);s.lineTo(-.0063,.0018);s.absarc(-.0038,.0018,.0025,Math.PI,0,true);s.bezierCurveTo(-.0009,.0010,-.0010,-.0025,0,-.0025);s.bezierCurveTo(.0010,-.0025,.0011,.0015,.0013,.0036);s.absarc(.0038,.0036,.0025,Math.PI,0,true);s.lineTo(.0063,-.006);s.closePath();return s.getPoints(10).slice(0,-1).map(p=>p.toArray());
+}
+function capHemProfile293(){
+ const s=new T.Shape();s.moveTo(-.0035,-.004);s.lineTo(-.0035,0);s.absarc(0,0,.0035,Math.PI,0,true);s.lineTo(.0035,-.004);s.closePath();return s.getPoints(10).slice(0,-1).map(p=>p.toArray());
+}
+function corner293(b,key,x,y,z,hand,up,tip,metadata,withScan=true){
+ const g=b.geometry('293-r02-open-folded-corner-'+hand+'-'+up+'-'+withScan,()=>{
+  const s=new T.Shape(),w=withScan?.055:.038,h=withScan?.045:.029,t=.009;s.moveTo(.006,.006);s.lineTo(-w,.006);s.lineTo(-w,-t);s.lineTo(-t,-t);s.lineTo(-t,-h);s.lineTo(.006,-h);s.closePath();const q=new T.ExtrudeGeometry(s,{depth:.0035,bevelEnabled:true,bevelSize:.00065,bevelThickness:.0006,bevelSegments:3,curveSegments:7});return finish293(reflected293(q,hand,up),'open-folded-corner-outside-carving');
+ });b.add(g,'tableGilt198',x,y,z);
+ if(!withScan)return;
+ if(!tip)throw Error('293 requires already-loaded licensed closed260 tip');
+ const source=b.geometry('293-source-tip-'+hand,()=>{const q=reflected293(tip,hand);q.userData={...q.userData,actualSource293:SOURCE_TIP293,trianglePositionsPreservedExceptIsometricReflection:true};return finish293(q,'uniform-licensed-cloud-tip');});
+ const size=source.boundingBox.getSize(new T.Vector3()),rotation=up*Math.PI/2,c=Math.abs(Math.cos(rotation)),s=Math.abs(Math.sin(rotation)),scale=Math.min(.037/(c*size.x+s*size.y),.019/(s*size.x+c*size.y),.0065/size.z);
+ b.add(source,'oldgold',x-hand*.023,y-up*.002,z+.002,scale,scale,scale,0,0,rotation);metadata.scannedCornerInstances++;return scale;
+}
+
+export function withCabinetCase293(b,{x,y,z,w,h,back},metadata,emit){
+ const recipe=caseRecipe293(x,y,z,w,h,back);if(!recipe)return emit();
+ const before=b.root.userData.carvingMounts198?.length??0,beforeOrnament=b.root.userData.ornament224?.length??0,prior=active293.get(b),state=data293(metadata);
+ b.withTransform(0,0,recipe.advance,1,()=>{
+  active293.set(b,recipe);try{emit();}finally{if(prior)active293.set(b,prior);else active293.delete(b);}
+ });
+ const update=rec=>{rec.sourcePlacementBefore293={};for(const key of ['position','center','parentFieldCenter'])if(Array.isArray(rec[key])){rec.sourcePlacementBefore293[key]=[...rec[key]];rec[key]=rec[key].map((v,k)=>k===2?v+recipe.advance:v);}rec.caseTranslation293=[0,0,recipe.advance];rec.caseRole293=recipe.role;};
+ for(const rec of (b.root.userData.carvingMounts198??[]).slice(before))update(rec);for(const rec of (b.root.userData.ornament224??[]).slice(beforeOrnament))update(rec);
+ state.cases.push({...recipe,actualFrontZ:z+recipe.advance,actualBackZ:back,woodCaseDepth:z+.006+recipe.advance-back,sourceCarvingOnlyTranslated:true,sourceUniformScaleHeld:true});
+}
+
+export function tryBuildCaseFrame293(b,{x,y,z,w,h,back,tip},metadata){
+ const c=active293.get(b);if(!c)return false;const rear=back-c.advance,front=z+.006,depth=front-rear;
+ if(depth<.035)throw Error('293 case depth invalid');
+ // Closed separate boards form an actual shallow chest. Its back remains
+ // embedded in the retained carcass while its decorated front steps forward.
+ box293(b,'case-backboard',x,y,rear+.008,w+.040,h+.048,.016);
+ for(const side of [-1,1]){
+  box293(b,'returned-side-wall',x+side*(w/2+.008),y,(rear+front+.014)/2,.028,h+.048,front+.014-rear);
+  box293(b,'closed-top-and-bottom',x,y+side*(h/2+.011),(rear+front+.014)/2,w+.056,.026,front+.014-rear);
+  box293(b,'front-rebated-stile',x+side*(w/2+.014),y,z+.002,w<.40?.024:.028,h+.047,.045);
+  box293(b,'front-rebated-crossrail',x,y+side*(h/2+.014),z+.002,w+.055,.028,.045);
+ }
+ box293(b,'closed-inset-carving-panel',x,y,z-.005,w-.012,h-.010,.022);
+ const metal=agedFrameProfile293();
+ for(const side of [-1,1]){
+  rail293(b,'aged-double-rolled-recess-frame-horizontal',x,y+side*(h/2+.021),z+.028,w+.044,metal,'tableGilt198');
+  rail293(b,'aged-double-rolled-recess-frame-vertical',x+side*(w/2+.021),y,z+.028,h+.030,metal,'tableGilt198',true);
+ }
+ const cap=[[-.022,-.035],[.022,-.035],[.022,-.007],[.011,.006],[.008,.028],[-.011,.038],[-.022,.031]];
+ rail293(b,'individual-closed-ogee-case-cap',x,y+h/2+.025,z+.014,w+.072,cap,'lacquer');
+ if(c.role!=='recessed-neighbour-case')rail293(b,'returned-aged-cap-hem',x,y+h/2+.016,z+.050,c.role==='outer-returned-case'?w+.066:w*.68,capHemProfile293(),'oldgold');
+ rail293(b,'individual-case-lower-shadow-roll',x,y-h/2-.027,z+.012,w+.060,[[-.012,-.026],[.010,-.026],[.011,.008],[.004,.022],[-.008,.020]],'lacquer');
+ if(c.role==='outer-returned-case')for(const hand of [-1,1])for(const up of [-1,1])corner293(b,c.key,x+hand*(w/2+.030),y+up*(h/2+.030),z+.0235,hand,up,tip,metadata,true);
+ else if(c.role==='central-proud-case')for(const hand of [-1,1])corner293(b,c.key,x+hand*(w/2+.030),y+h/2+.030,z+.0235,hand,1,tip,metadata,false);
+ metadata.frames++;return true;
+}
+
+export function tryBuildCaseDivider293(b,{x,y,z,h},metadata){
+ const row=caseRecipe293(x,y,z,.50,.20,z-.10)?.level;if(!row)return false;
+ const front=z+(row===1?.098:row===2?.078:.061),rear=z-.115;
+ box293(b,'deep-T-mullion',x,y,(front+rear)/2,.060,h+.012,front-rear);
+ rail293(b,'recessed-mullion-rounded-nose',x,y,front+.002,h-.008,capHemProfile293(),'tableRecess198',true);
+ const variant=Math.round(Math.abs(x)*100)%3,kw=[.050,.062,.056][variant],kh=[.022,.026,.020][variant];
+ const knuckle=b.geometry('293-r02-cambered-mullion-knuckle-'+variant,()=>{const s=new T.Shape();s.moveTo(-kw/2,-kh*.25);s.quadraticCurveTo(-kw*.52,kh*.35,-kw*.20,kh*.45);s.quadraticCurveTo(0,kh*.15,kw*.20,kh*.45);s.quadraticCurveTo(kw*.52,kh*.35,kw/2,-kh*.25);s.quadraticCurveTo(0,-kh*.50,-kw/2,-kh*.25);s.closePath();return finish293(new T.ExtrudeGeometry(s,{depth:.006,bevelEnabled:true,bevelSize:.0007,bevelThickness:.00065,bevelSegments:3,curveSegments:10}),'cambered-aged-mullion-key');});
+ for(const side of [-1,1])b.add(knuckle,'tableGilt198',x,y+side*(h*.39),front-.001);
+ data293(metadata).dividers.push({row,x,y,frontZ:front,backZ:rear,closedDepth:front-rear});metadata.dividers++;return true;
+}

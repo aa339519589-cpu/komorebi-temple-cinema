@@ -9,15 +9,20 @@ function addStoneSurfaceBreakup(material){
  material.onBeforeCompile=shader=>{
   shader.vertexShader=shader.vertexShader.replace(
    '#include <common>',
-   '#include <common>\nvarying vec3 vStoneFieldPosition;'
+   '#include <common>\nvarying vec3 vStoneFieldPosition; varying vec3 vStoneFieldNormal;'
   ).replace(
    '#include <worldpos_vertex>',
-   '#include <worldpos_vertex>\nvStoneFieldPosition = worldPosition.xyz;'
+   `#include <worldpos_vertex>
+    vStoneFieldPosition=worldPosition.xyz;vec3 bankNormal=objectNormal;
+    #ifdef USE_INSTANCING
+     mat3 bankInstance=mat3(instanceMatrix);bankNormal/=vec3(dot(bankInstance[0],bankInstance[0]),dot(bankInstance[1],bankInstance[1]),dot(bankInstance[2],bankInstance[2]));bankNormal=bankInstance*bankNormal;
+    #endif
+    vStoneFieldNormal=normalize(mat3(modelMatrix)*bankNormal);`
   );
   shader.fragmentShader=shader.fragmentShader.replace(
    '#include <common>',
    `#include <common>
-    varying vec3 vStoneFieldPosition;
+    varying vec3 vStoneFieldPosition; varying vec3 vStoneFieldNormal;
     float stoneHash(vec3 p){
      p=fract(p*0.1031);
      p+=dot(p,p.yzx+33.33);
@@ -48,16 +53,17 @@ function addStoneSurfaceBreakup(material){
     float broad=stoneValueNoise(vStoneFieldPosition*5.0+vec3(7.0,3.0,11.0));
     float strata=stoneValueNoise(vStoneFieldPosition*14.0+vec3(2.7,6.1,0.9));
     float flecks=smoothstep(0.72,0.91,stoneValueNoise(vStoneFieldPosition*31.0+vec3(4.0,8.0,2.0)));
-    float proceduralMoss=smoothstep(0.43,0.71,broad)*(0.65+0.35*strata);
-    float mossMask=clamp(max(scanMoss*0.95,proceduralMoss*0.88),0.0,0.91);
-    vec3 charcoal=vec3(stoneLuma*0.78,stoneLuma*0.83,stoneLuma*0.89);
+    float up=clamp(vStoneFieldNormal.y,0.,1.);float proceduralMoss=smoothstep(.65,.83,broad)*smoothstep(.30,.83,up);
+    float mossMask=clamp(scanMoss*.48+proceduralMoss*.28,0.,.58);
+    vec3 charcoal=mix(vec3(stoneLuma*.95,stoneLuma*.98,stoneLuma*1.02),scannedStone,.22);
     vec3 oliveMoss=mix(vec3(.026,.045,.006),vec3(.10,.14,.020),strata);
     float facetValue=0.82+broad*0.22+(strata-0.5)*0.08;
     diffuseColor.rgb=mix(charcoal,oliveMoss,mossMask)*facetValue;
-    diffuseColor.rgb+=flecks*vec3(0.007,0.009,0.011);`
+    diffuseColor.rgb+=flecks*vec3(.012,.012,.010);float waterline=1.-smoothstep(.16,.42,vStoneFieldPosition.y);diffuseColor.rgb*=1.-waterline*.27;`
   );
+  shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nfloat bankWet=1.-smoothstep(.16,.42,vStoneFieldPosition.y);roughnessFactor=mix(roughnessFactor,max(.22,roughnessFactor*.56),bankWet);');
  };
- material.customProgramCacheKey=()=> 'scanned-garden-stone-breakup-v1';
+ material.customProgramCacheKey=()=> 'scanned-garden-stone-sparse-moss-waterline298-v2';
 }
 
 // The scan supplies each stone's eroded outline and surface. Placement, size,

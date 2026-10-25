@@ -1,0 +1,12 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
+import {reconstructionSourceIdentity} from '../../tools/reconstruction-source-identity.mjs';
+const root=resolve(import.meta.dirname,'../..'),h=JSON.parse(await readFile(resolve(root,'lookdev/scene03-craft308/handoff-r03.json'))),sha=b=>createHash('sha256').update(b).digest('hex');
+const before=await reconstructionSourceIdentity(root,'03');if(before.hash!==h.canonicalSourceHash)throw Error('Canonical changed');
+const patch=await readFile(h.patch);if(sha(patch)!==h.patchSha256)throw Error('Reviewed patch changed');
+for(const f of h.frames)if(sha(await readFile(f.path))!==f.sha256)throw Error('Actual image changed');
+execFileSync('git',['apply','--check',h.patch],{cwd:root});execFileSync('git',['apply',h.patch],{cwd:root});
+const after=await reconstructionSourceIdentity(root,'03');if(after.hash!==h.sourceHash)throw Error('Applied source differs');
+await writeFile(resolve(import.meta.dirname,'integration.json'),JSON.stringify({status:'reviewed-working-thick-bearing-frame-and-deep-facade-integrated',before:before.hash,after:after.hash,files:h.changedFiles,patchSha256:h.patchSha256,rootPersonallyViewed:['HD/canonical/R03 full comparison','true facade detail','low facade oblique'],scope:'Deep closed bearing assemblies, continuous double rafters and recessed facade joinery; photographic fidelity remains unaccepted',photographicAccepted:false,existingFilmContainsThisSource:false},null,2)+'\n',{flag:'wx'});console.log(after.hash);

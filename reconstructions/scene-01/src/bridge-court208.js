@@ -23,6 +23,7 @@ function region208(u,v,margin=0){
  return[{distance:east,y:eastY},{distance:north,y:eastY-halfDescent*T.MathUtils.clamp((-v-1.10)/1.55,0,1)},{distance:turn,y:turnY},{distance:eastFlight,y:turnY+(S.landingY-turnY)*T.MathUtils.clamp((u-E)/(eu-E),0,1)},{distance:west,y:westY},{distance:westFlight,y:westY+(1.69-westY)*T.MathUtils.clamp((-v-1.10)/3.50,0,1)}];
 }
 function courtCoordinates(x,z){const q=new T.Vector3(x,0,z).sub(foot),u=q.dot(across),v=q.dot(forward);return{u,v,distance:Math.hypot(Math.max(Math.abs(u)-C,0),Math.max(-v,0,v-1.95))};}
+export function routeDistance298(x,z){const p=UV(x,z),regions=region208(p.x,p.z),court=courtCoordinates(x,z);return Math.min(court.distance,...regions.map(q=>q.distance));}
 export function routeClearance208(x,z,margin=.15){
  const p=UV(x,z),regions=region208(p.x,p.z),court=courtCoordinates(x,z);
  return regions.some(q=>q.distance<=margin)||court.distance<=margin;
@@ -33,7 +34,7 @@ export function routeHeight208(x,z,margin=0){
 export function bank208(x,z,original){
  const p=UV(x,z);let y=original;
  const pondRecession=1-T.MathUtils.smoothstep(p.z,.55,2.50),cascadeClearance=1-T.MathUtils.smoothstep(p.z,-1.1,-.20)*T.MathUtils.smoothstep(p.x,E-.05,E+.82);
- for(const r of region208(p.x,p.z)){const weight=(1-T.MathUtils.smoothstep(r.distance,.08,1.80))*pondRecession*cascadeClearance;y=Math.max(y,original+Math.max(0,r.y-.43-original)*weight);}
+ for(const r of region208(p.x,p.z)){const weight=(1-T.MathUtils.smoothstep(r.distance,.04,1.25))*pondRecession*cascadeClearance;y=Math.max(y,original+Math.max(0,r.y-.43-original)*weight);}
  const court=courtCoordinates(x,z),weight=1-T.MathUtils.smoothstep(court.distance,0,1.45);y=Math.max(y,original+Math.max(0,S.landingY-.19-original)*weight);
  // Keep the occupied channel beneath the bridge open. Raised end shoulders
  // stop at actual masonry abutments instead of filling the arch with a mound.

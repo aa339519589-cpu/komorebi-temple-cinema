@@ -1,0 +1,112 @@
+--- root-reviewed-r04/build-pose295-r04.py
++++ r05/build-pose295-r05.py
+@@ -8,3 +8,3 @@
+ import numpy as np
+-from mathutils import Quaternion, Vector
++from mathutils import Quaternion, Vector, Matrix
+ from pathlib import Path
+@@ -15,4 +15,14 @@
+ ROOT=LANE.parent.parent
+-CONFIG_FILE=HERE/'pose-r04.json'
++CONFIG_FILE=HERE/'pose-r05.json'
+ C=json.loads(CONFIG_FILE.read_text())
++SUPPORT_FILE=HERE/C['supportConstraints']['file']
++GENERATOR_FILE=HERE/C['supportConstraints']['generator']
++support_bytes=SUPPORT_FILE.read_bytes()
++if hashlib.sha256(support_bytes).hexdigest()!=C['supportConstraints']['sha256']:
++    raise RuntimeError('Exact actual cuff support targets changed')
++if hashlib.sha256(GENERATOR_FILE.read_bytes()).hexdigest()!=C['supportConstraints']['generatorSha256']:
++    raise RuntimeError('Exact actual source constraint generator changed')
++SUPPORT=json.loads(support_bytes)
++if SUPPORT['sourceRawSha256']!=C['sourceRawSha256'] or SUPPORT['actualR04RawSha256']!=C['supportConstraints']['actualR04RawSha256']:
++    raise RuntimeError('Support target source/control identity mismatch')
+ OUT=LANE/('authored-'+C['revision'])
+@@ -58,3 +68,3 @@
+ HP=np.frombuffer(hraw,dtype='<f4',count=n*3,offset=20).reshape((-1,3))
+-source_hashes={str(Path(__file__).resolve()):sha(Path(__file__).read_bytes()),str(CONFIG_FILE):sha(CONFIG_FILE.read_bytes()),str(SOURCE/'manifest.json'):sha(source_manifest_bytes),str(HBASE/'manifest.json'):sha(hmanifest_bytes)}
++source_hashes={str(Path(__file__).resolve()):sha(Path(__file__).read_bytes()),str(CONFIG_FILE):sha(CONFIG_FILE.read_bytes()),str(SOURCE/'manifest.json'):sha(source_manifest_bytes),str(HBASE/'manifest.json'):sha(hmanifest_bytes),str(SUPPORT_FILE):sha(support_bytes),str(GENERATOR_FILE):sha(GENERATOR_FILE.read_bytes())}
+ OUT.mkdir()
+@@ -85,2 +95,5 @@
+     body|=boundary
++    fold=C['sourceFoldPins']
++    fold_pin=np.all(rest>=np.asarray(fold['min']),axis=1)&np.all(rest<=np.asarray(fold['max']),axis=1)
++    body|=fold_pin
+     shoulder=C['shoulderAnchor']
+@@ -96,3 +109,23 @@
+     elbow&=~body&~hand
+-    anchored=body|hand|elbow
++    support=np.zeros(len(global_ids),dtype=bool)
++    support_final=np.zeros((len(global_ids),3),dtype=np.float64)
++    support_groups=[]
++    for section in SUPPORT['groups']:
++        ids=np.asarray([r['vertex'] for r in section['records']],dtype=np.int32)
++        lids=local_map[ids]
++        if np.any(lids<0) or np.any(body[lids]|hand[lids]|elbow[lids]|support[lids]):
++            raise RuntimeError('Whole source cuff profile conflicts with an existing anchor or patch')
++        targets=np.asarray([r['target'] for r in section['records']],dtype=np.float64)
++        support[lids]=True
++        support_final[lids]=targets
++        c0=np.mean(rest[lids],axis=0)
++        c1=np.mean(targets,axis=0)
++        U,_,Vh=np.linalg.svd((rest[lids]-c0).T@(targets-c1))
++        rotation=Vh.T@U.T
++        if np.linalg.det(rotation)<0:
++            Vh[2]*=-1
++            rotation=Vh.T@U.T
++        residual=targets-((rest[lids]-c0)@rotation.T+c1)
++        support_groups.append({'localIDs':lids,'sourceCenter':c0,'targetCenter':c1,'rotation':Matrix(rotation.tolist()).to_quaternion(),'residual':residual,'targets':targets,'station':section['sourceYStation']})
++    anchored=body|hand|elbow|support
+     if not np.any(hand) or not np.any(elbow) or np.sum(~anchored)<1000:
+@@ -101,6 +134,6 @@
+         bpy.data.objects.remove(ob,do_unlink=True)
+-    mesh=bpy.data.meshes.new('source295-r04-actual-local-indexed-patch')
++    mesh=bpy.data.meshes.new('source295-r05-actual-local-indexed-patch')
+     mesh.from_pydata(rest.tolist(),[],F.tolist())
+     mesh.update()
+-    obj=bpy.data.objects.new('source295-r04-cpu-differential-arm-cloth',mesh)
++    obj=bpy.data.objects.new('source295-r05-cpu-differential-arm-cloth',mesh)
+     bpy.context.scene.collection.objects.link(obj)
+@@ -135,2 +168,10 @@
+             hand_target=HP[hand_global].astype(np.float64)
++        support_step=np.zeros_like(rest)
++        for section in support_groups:
++            lids=section['localIDs']
++            sq=identity.slerp(section['rotation'],t)
++            center=(1-t)*section['sourceCenter']+t*section['targetCenter']+np.array([C['solver']['supportPathOuterArc']*path,0,C['solver']['supportPathFrontArc']*path])
++            support_step[lids]=np.asarray([sq@Vector(p-section['sourceCenter'])+Vector(center) for p in rest[lids]],dtype=np.float64)+t*section['residual']
++            if step==steps:
++                support_step[lids]=section['targets']
+         local[body]=rest[body]
+@@ -138,2 +179,3 @@
+         local[elbow]=elbow_target
++        local[support]=support_step[support]
+         mesh.vertices.foreach_set('co',np.asarray(local,dtype=np.float32).reshape(-1))
+@@ -156,2 +198,3 @@
+         local[elbow]=elbow_target
++        local[support]=support_step[support]
+         if not np.all(np.isfinite(local)):
+@@ -230,3 +273,3 @@
+     digest=sha(compressed)
+-    filename='central-left-arm-pose295-r04-differential-'+digest[:16]+'-gzip.bin'
++    filename='central-left-arm-pose295-r05-differential-'+digest[:16]+'-gzip.bin'
+     (OUT/filename).write_bytes(compressed)
+@@ -240,2 +283,3 @@
+     shutil.copyfile(CONFIG_FILE,OUT/CONFIG_FILE.name)
++    shutil.copyfile(SUPPORT_FILE,OUT/SUPPORT_FILE.name)
+     anchor_kind=np.zeros(len(global_ids),dtype=np.uint32)
+@@ -244,9 +288,11 @@
+     anchor_kind[elbow]=3
++    anchor_kind[support]=4
+     trace=np.column_stack((global_ids.astype(np.uint32),anchor_kind)).astype('<u4')
+-    trace_file='actual-source-local-vertex-anchor-identities295-r04.bin'
++    trace_file='actual-source-local-vertex-anchor-identities295-r05.bin'
+     (OUT/trace_file).write_bytes(struct.pack('<5I',0x3430414c,n,len(global_ids),8,1)+trace.tobytes())
+-    audit={'sourceVertices':n,'sourceTriangles':ni//3,'authoredVertices':n,'authoredTriangles':ni//3,'localVertices':len(global_ids),'localTriangles':len(F),'freeClothAndSkinVertices':int(np.sum(~anchored)),'fixedBodyAndBoundaryAnchors':int(np.sum(body)),'realOriginalHandAnchors':int(np.sum(hand)),'originalElbowAnchors':int(np.sum(elbow)),'boundaryPinnedRings':pins['boundaryRings'],'sourceElbowVertex':C['elbowSourceVertex'],'actualPosedElbowAnchor':P[C['elbowSourceVertex']].astype(float).tolist(),'elbowTarget':C['elbowTarget'],'sourceShoulderPositionOrNormalChanges':int(np.any(P[C['shoulderSourceVertex']]!=P0[C['shoulderSourceVertex']]) or np.any(N[C['shoulderSourceVertex']]!=N0[C['shoulderSourceVertex']])),'changedPositions':int(np.sum(changed)),'changedNormals':int(np.sum(np.any(N!=N0,axis=1))),'protectedPositionOrNormalChanges':0,'sourceHandTargetMaxError':float(np.max(np.linalg.norm(P[hand_global]-HP[hand_global],axis=1))),'indicesAndTriangleOrderByteExact':True,'uvByteExact':True,'scalpCoverageByteExact':True,'vertexAndTriangleIdentityMapping':'Output vertex v and triangle t retain R08a identity v/t, with no appended/reordered vertices or triangles.','localMinimumTwiceArea':float(np.min(new_area)),'localDegenerateTriangles':0,'localAreaRatioPercentiles':dict(zip(('minimum','p01','median','p99','maximum'),map(float,np.quantile(ratios,[0,.01,.5,.99,1])))),'triangleNormalsOpposedToLocalNeighborRotationField':opposed,'normalOrientationDiagnosticScope':'Source local one-ring closest proper rotations. Not a complete collision or injectivity proof.','selfIntersectionsChecked':False,'solver':C['solver'],'visualAccepted':False}
+-    attribution='Scan-the-World Sainsbury Amida, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0; preserved R08a head/ear/scalp derivative additionally incorporates source-supported Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0, culture/period unspecified. POSE295 R04 is an explicitly declared local differential-coordinate left-arm/garment pose adaptation. Original source hand/finger vertices are rigid anchor targets retained from the R03 hand-only pose; the rejected R03 body is not adopted. Source chest/rear/large upper sleeve/boundary controls stay fixed while a broad actual original neighboring cloth/skin patch is solved in CPU Blender Laplacian Deform. Head/ears/scalp Y>=2.10, figure-right X<=0, legs Y<=.70, bearing/contact band, all original vertex/triangle/UV identities and CM07 mask remain exact from R08a. Actual body and left-arm/palm positions/normals are declared modified. No photograph, depth map, image plane, synthetic hand primitive, scene export or raster sampling is used. Original inputs, source ancestry, licenses and all failed candidates remain retained. Personal noncommercial CC BY-NC-SA4.0 adaptation only; no endorsement implied.'
++    audit={'sourceVertices':n,'sourceTriangles':ni//3,'authoredVertices':n,'authoredTriangles':ni//3,'localVertices':len(global_ids),'localTriangles':len(F),'freeClothAndSkinVertices':int(np.sum(~anchored)),'fixedBodyAndBoundaryAnchors':int(np.sum(body)),'realOriginalHandAnchors':int(np.sum(hand)),'originalElbowAnchors':int(np.sum(elbow)),'wholeCuffProfileSupportAnchors':int(np.sum(support)),'fixedOriginalFoldPanelVertices':int(np.sum(fold_pin)),'wholeCuffTargetMaxError':float(np.max(np.linalg.norm(P[global_ids[support]]-support_final[support],axis=1))),'wholeProfileTranslations':[g['translation'] for g in SUPPORT['groups']],'boundaryPinnedRings':pins['boundaryRings'],'sourceElbowVertex':C['elbowSourceVertex'],'actualPosedElbowAnchor':P[C['elbowSourceVertex']].astype(float).tolist(),'elbowTarget':C['elbowTarget'],'sourceShoulderPositionOrNormalChanges':int(np.any(P[C['shoulderSourceVertex']]!=P0[C['shoulderSourceVertex']]) or np.any(N[C['shoulderSourceVertex']]!=N0[C['shoulderSourceVertex']])),'changedPositions':int(np.sum(changed)),'changedNormals':int(np.sum(np.any(N!=N0,axis=1))),'protectedPositionOrNormalChanges':0,'sourceHandTargetMaxError':float(np.max(np.linalg.norm(P[hand_global]-HP[hand_global],axis=1))),'indicesAndTriangleOrderByteExact':True,'uvByteExact':True,'scalpCoverageByteExact':True,'vertexAndTriangleIdentityMapping':'Output vertex v and triangle t retain R08a identity v/t, with no appended/reordered vertices or triangles.','localMinimumTwiceArea':float(np.min(new_area)),'localDegenerateTriangles':0,'localAreaRatioPercentiles':dict(zip(('minimum','p01','median','p99','maximum'),map(float,np.quantile(ratios,[0,.01,.5,.99,1])))),'triangleNormalsOpposedToLocalNeighborRotationField':opposed,'normalOrientationDiagnosticScope':'Source local one-ring closest proper rotations. Not a complete collision or injectivity proof.','selfIntersectionsChecked':False,'solver':C['solver'],'visualAccepted':False}
++    attribution='Scan-the-World Sainsbury Amida, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0; preserved R08a head/ear/scalp derivative additionally incorporates source-supported Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0, culture/period unspecified. POSE295 R05 is an explicitly declared local differential-coordinate left-arm/garment pose adaptation. Original source hand/finger vertices are rigid anchor targets retained from the R03 hand-only pose; the rejected R03 body is not adopted. R05 adds actual fixed-leg roof support constraints on three complete original cuff profiles; every profile translates rigidly upward and elbowward from its real R04 shape without radial squeezing, and a real original folded sleeve-root panel stays pinned to prevent the measured local layer crossings. Source chest/rear/large upper sleeve/boundary controls stay fixed while the broad actual neighboring cloth/skin patch is solved in CPU Blender Laplacian Deform. Head/ears/scalp Y>=2.10, figure-right X<=0, legs Y<=.70, bearing/contact band, all original vertex/triangle/UV identities and CM07 mask remain exact from R08a. Actual body and left-arm/palm positions/normals are declared modified. No photograph, depth map, image plane, synthetic hand primitive, scene export or raster sampling is used. Original inputs, source ancestry, licenses and all failed candidates remain retained. Personal noncommercial CC BY-NC-SA4.0 adaptation only; no endorsement implied.'
+     mesh_definition=dict(D, file=filename,sha256=digest,uncompressedSha256=sha(output),effectiveGeometrySha256=sha(output),bytes=len(compressed),uncompressedBytes=len(output),topology=dict(D['topology'],poseDerivative=True,sourceIndexOrderExact=True))
+-    manifest=dict(M,revision='scene06-centralpose295-r04-differential-left-arm-lap-pose',attribution=attribution,visualAccepted=False,photographicFidelityAccepted=False,productionIntegrated=False,variants={'central':[mesh_definition]},sourceContactBearing=dict(M['sourceContactBearing'],bodyUnchangedFrom199R05=False,bodyUnchangedFromR08a=False,contactBandPositionsUnchanged=True,method=M['sourceContactBearing']['method'].replace('below the unchanged body','below the contact-band-preserved posed body')),poseDerivative={'sourceRevision':M['revision'],'sourceGeometrySha256':C['sourceRawSha256'],'sourceManifest':'../sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json','sourceBodyAndLeftPalmChanged':True,'sourceIndexMapping':'identity','config':C,'solver':'CPU Blender Laplacian Deform over a broad actual source patch, pinned body/shoulder/boundary and rigid original hand/elbow controls.','inputHistoricalAttribution':M['attribution'],'handOnlyControl':{'sourceRevision':HM['revision'],'packedSha256':C['handControlPackedSha256'],'rawSha256':C['handControlRawSha256'],'vertices':int(np.sum(hand)),'scope':C['handControlScope']},'sourceAnchors':{'file':trace_file,'sha256':sha((OUT/trace_file).read_bytes()),'format':'LA04 header sourceVertices/localRecords/recordBytes8/version1; uint32 original vertex ID and kind0free1body2hand3elbow.'},'audit':audit},nativeMaterialStudyChange='Original metallic PBR and CM07 scalp material remain; only actual source left arm/neighbor garments and their corresponding physical normals are modified.')
++    manifest=dict(M,revision='scene06-centralpose295-r05-differential-left-arm-lap-pose',attribution=attribution,visualAccepted=False,photographicFidelityAccepted=False,productionIntegrated=False,variants={'central':[mesh_definition]},sourceContactBearing=dict(M['sourceContactBearing'],bodyUnchangedFrom199R05=False,bodyUnchangedFromR08a=False,contactBandPositionsUnchanged=True,method=M['sourceContactBearing']['method'].replace('below the unchanged body','below the contact-band-preserved posed body')),poseDerivative={'sourceRevision':M['revision'],'sourceGeometrySha256':C['sourceRawSha256'],'sourceManifest':'../sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json','sourceBodyAndLeftPalmChanged':True,'sourceIndexMapping':'identity','config':C,'solver':'CPU Blender Laplacian Deform over a broad actual source patch, fixed body/shoulder/boundary and original hand/elbow controls plus actual fixed-leg contact constraints on three whole original cuff profiles.',
++        'actualCuffSupportConstraints':dict(C['supportConstraints'],sourceFoldPins=C['sourceFoldPins']),'inputHistoricalAttribution':M['attribution'],'handOnlyControl':{'sourceRevision':HM['revision'],'packedSha256':C['handControlPackedSha256'],'rawSha256':C['handControlRawSha256'],'vertices':int(np.sum(hand)),'scope':C['handControlScope']},'sourceAnchors':{'file':trace_file,'sha256':sha((OUT/trace_file).read_bytes()),'format':'LA04 header sourceVertices/localRecords/recordBytes8/version1; uint32 original vertex ID and kind0free1body2hand3elbow4wholeCuffSupport.'},'audit':audit},nativeMaterialStudyChange='Original metallic PBR and CM07 scalp material remain; only actual source left arm/neighbor garments and their corresponding physical normals are modified.')
+     provenance={'revision':manifest['revision'],'license':manifest['license'],'licenseUrl':manifest['licenseUrl'],'attribution':attribution,'sourceLicenses':manifest['sourceLicenses'],'source':D,'geometry':mesh_definition,'poseDerivative':manifest['poseDerivative'],'builder':{'file':str(Path(__file__).resolve()),'sourceHashes':source_hashes,'BlenderVersion':bpy.app.version_string},'visualAccepted':False,'photographicFidelityAccepted':False,'limits':C['limitations']}

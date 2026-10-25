@@ -1,0 +1,15 @@
+{
+  "status": "approved-exact-r06-bounded-active-contact-CPU-authoring",
+  "at": "2026-10-25T13:46:05.167610+00:00",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r06.py": "008976af0a6ad1df9466db124d2c6888ab5076becc2b3c68834d9a5e78eb2c83",
+    "lookdev/scene06-centralpose295/authoring/pose-r06.json": "95153c90a7c0097562ac250ddf614db984379855d5ccc44f47e5656019952a5d",
+    "lookdev/scene06-centralpose295/authoring/active-contact-helper295-r06.mjs": "3fed2051d9b06d229e59e2a2bd7a4b3156d103ac4ddad2e0add2eef655091b05",
+    "lookdev/scene06-centralpose295/authoring/support-constraints-r05.json": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+    "lookdev/scene06-centralpose295/authoring/build-support-constraints295-r05.mjs": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450"
+  },
+  "recipe": "scene06-centralpose295-r06",
+  "scope": "Root read complete R06 delta against reviewed R05, entire CPU contact helper, all config changes and retained pinned R05 constraint generator/data. Bounded actual wrist/sleeve-root contacts, original-source inherited controls, max4 local separation passes with compact local snapshots and final one SC07. Child Node runs one main plus3 V8 workers and UV pool1 while Blender synchronously waits. Same outer exclusiveCPU lock, maximum4 active compute threads; no graphics, render, export, bake or Blend. Actual shape/crossings remain review evidence only, never photographic acceptance.",
+  "rootMetadataRepair": "Preserved submitted writer before correction. Changed only erroneous new bodyUnchangedFrom199R06 key back to existing bodyUnchangedFrom199R05=False, so inherited old true flag cannot remain. No geometry or contact solver code changed.",
+  "photographicAccepted": false
+}

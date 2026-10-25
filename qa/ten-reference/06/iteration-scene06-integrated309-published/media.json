@@ -1,0 +1,65 @@
+{
+  "sourceHash": "19c197c53b2f9b25f26865d3161bc06a43aff1b5a2e8a244a8abccdc63bf127b",
+  "status": "working-native-3d-motion-not-final-film",
+  "durationSeconds": 7,
+  "fps": 24,
+  "frames": 168,
+  "dimensions": [
+    1080,
+    1080
+  ],
+  "nativeDimensions": [
+    1620,
+    1620
+  ],
+  "downsampling": "Lanczos",
+  "audio": false,
+  "allFramesDecodedWithoutErrors": true,
+  "rootVisualReview": "Full, altar crop and motion first/middle/last native frames personally viewed. Not an exhaustive temporal-fidelity or shimmer-free claim.",
+  "license": "CC-BY-NC-SA-4.0; component attribution retained",
+  "files": [
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/full.png",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-cabinet-halo/reference.png",
+      "sha256": "6bc81a68a087f6b863722d8020614c5bbed9ecd53165d72788aa9495174e750e",
+      "bytes": 2688174
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/altar-detail-native.png",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-cabinet-halo/detail-native.png",
+      "sha256": "7ec65a12e6f5405ef4316a651c8bf43824fb9836d7020a9862857cb0f2dd5b8f",
+      "bytes": 2319945
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/motion-start-native.png",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-motion1080/frame-0000.png",
+      "sha256": "12ac6521c2b1b7b9022a6f1e1953a66d100abb2527760eebe8825f0830b61b1c",
+      "bytes": 3524735
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/motion-middle-native.png",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-motion1080/frame-0084.png",
+      "sha256": "b4f30acc8ce19fb2c0ac711c2e2b60a0e2909a351da3719e7c496397b3e79b34",
+      "bytes": 3732937
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/motion-end-native.png",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-motion1080/frame-0167.png",
+      "sha256": "941a06cdea79722d7743614ac50d221453af3a364ad00f1dbd06c126915b4a08",
+      "bytes": 4294179
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/motion-review.mp4",
+      "original": "lookdev/scene06-integrated309/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated309-motion1080/motion-review.mp4",
+      "sha256": "d6604a9543b5239d85372e02a75629508a4f519cc486a8eb6e114200f38b2b9a",
+      "bytes": 17737166
+    }
+  ],
+  "compressedOriginalReport": {
+    "file": "qa/ten-reference/06/iteration-scene06-integrated309-published/original-motion-report.json.gz",
+    "rawBytes": 101183533,
+    "rawSha256": "8bf590a64ff06eb0c10c9b8f346b5fcbcdeb39450295d32a47654c10aec67626"
+  },
+  "photographicAccepted": false,
+  "newFigurePosesIncluded": false
+}

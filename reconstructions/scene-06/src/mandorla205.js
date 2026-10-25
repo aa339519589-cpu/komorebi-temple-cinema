@@ -1,6 +1,6 @@
 import * as T from 'three';
 
-// Scene 06 / 205 R15. Hand-authored 3D interpretation of the original photograph.
+// Scene 06 / 305 R03. Hand-authored 3D interpretation of the original photograph.
 // Connected, fluted openwork in three carving scales. The openings are actual
 // space between closed solids, and the palmette apertures have bevelled walls.
 // No photo, projected mask, image texture, traced pixel skeleton or billboard.
@@ -22,30 +22,73 @@ function finish205(p, uv, ix) {
   g.userData={mandorla205:true,closedCarvedShell:true,coincidentNormalsSmoothed:true,mergeUniqueCarving:true};return g;
 }
 
-// Closed rolled strip: two offset rolled shoulders, hollowed central flute,
-// a convex back, and a finite rounded edge. All are vertex geometry.
+// Sampling follows actual spline curvature. The former 7/10-station small
+// volutes exposed their polygonal centreline in native subfrustum captures.
+// This bounds centreline chord error AND tangent turn, adding real stations.
+function carvingStations305(state,width,steps) {
+  const ts=[0],minSteps=Math.max(16,steps),tolerance=Math.max(width,.070)*.022,turnLimit=.230;
+  const rail=(s,u)=>new T.Vector3(s.q.x+s.v.y/s.l*u*s.w,s.q.y-s.v.x/s.l*u*s.w,s.q.z+(u===0?.72:.20)*s.thick+u*s.w*s.twist);
+  const deviation=(A,B,M)=>{const AB=B.clone().sub(A),den=AB.lengthSq();return M.distanceTo(A.clone().addScaledVector(AB,den?clamp(M.clone().sub(A).dot(AB)/den,0,1):0));};
+  let maxChordError=0,maxTangentTurn=0,unresolvedSegments=0;
+  function split(a,b,level=0){
+    const m=(a+b)*.5,A=state(a),B=state(b),M=state(m),error=Math.max(...[-1,0,1].map(u=>deviation(rail(A,u),rail(B,u),rail(M,u))));
+    const ta=new T.Vector2(A.v.x,A.v.y).normalize(),tm=new T.Vector2(M.v.x,M.v.y).normalize(),tb=new T.Vector2(B.v.x,B.v.y).normalize(),turn=Math.max(ta.angleTo(tm),tm.angleTo(tb),ta.angleTo(tb));
+    if(level<12&&(error>tolerance||turn>turnLimit)){split(a,m,level+1);split(m,b,level+1);}else{ts.push(b);maxChordError=Math.max(maxChordError,error);maxTangentTurn=Math.max(maxTangentTurn,turn);if(error>tolerance||turn>turnLimit)unresolvedSegments++;}
+  }
+  for(let i=0;i<minSteps;i++)split(i/minSteps,(i+1)/minSteps);
+  return {ts,tolerance,maxChordError,maxTangentTurn,unresolvedSegments};
+}
+
+// Closed section with two rolled shoulders, a hollow central flute, convex
+// back and FOUR real bevel facets on each rolled edge. Neither the smooth
+// centreline nor edge roundover is a normal-only substitution.
 function carving205(curve,width,depth,{steps=40,cols=10,tip=.07,root=.65,flute=1,phase=0,closed=false}={}) {
-  const p=[],uv=[],ix=[],stride=(steps+1)*(cols+1);
-  for(let skin=0;skin<2;skin++)for(let j=0;j<=steps;j++){
-    const t=j/steps,q=curve.getPoint(t),v=curve.getTangent(t),l=Math.hypot(v.x,v.y)||1;
-    const end=1-(1-tip)*Math.pow(t,3.5),waist=(root+(1-root)*Math.sin(Math.PI*Math.min(1,t*1.8))**.55);
-    const w=width*waist*end*(1+.10*Math.sin(t*(closed?TAU*2:10)+phase));
-    const twist=(closed?.08:.22)*Math.sin(t*(closed?TAU:Math.PI*1.5)+phase),thick=depth*(.65+.35*Math.sin(t*Math.PI))*(.3+.7*end);
-    for(let k=0;k<=cols;k++){
-      const u=2*k/cols-1,shoulder=Math.exp(-Math.pow((u-.65)/.24,2))+.78*Math.exp(-Math.pow((u+.62)/.28,2));
-      const profile=skin===0?(.20+.47*Math.max(0,1-u*u)**.58+.43*shoulder*flute):-(.20+.30*Math.max(0,1-u*u)**.75);
-      p.push(q.x+v.y/l*u*w,q.y-v.x/l*u*w,q.z+profile*thick+u*w*twist);uv.push(k/cols,t);
-      if(j<steps&&k<cols){const a=skin*stride+j*(cols+1)+k,b=a+cols+1;skin===0?ix.push(a,a+1,b,a+1,b+1,b):ix.push(a,b,a+1,a+1,b,b+1);}
+  const p=[],uv=[],ix=[],section=[],stateCache=new Map();
+  const state=t=>{
+    if(stateCache.has(t))return stateCache.get(t);
+    const q=curve.getPoint(t),v=curve.getTangent(t),l=Math.hypot(v.x,v.y)||1;
+    const end=1-(1-tip)*Math.pow(t,3.5),waist=root+(1-root)*Math.sin(Math.PI*Math.min(1,t*1.8))**.55;
+    const nominal=width*waist*end*(1+.07*Math.sin(t*(closed?TAU*2:10)+phase));
+    // A finite arc estimate averages the Catmull knot curvature transition;
+    // the .64 radius margin leaves room for the rolled shoulder itself.
+    const lo=Math.max(0,t-.004),hi=Math.min(1,t+.004),A=curve.getPoint(lo),B=curve.getPoint(hi),a=curve.getTangent(lo),b=curve.getTangent(hi);
+    const turn=Math.abs(Math.atan2(a.x*b.y-a.y*b.x,a.x*b.x+a.y*b.y)),radius=turn>1e-7?Math.hypot(B.x-A.x,B.y-A.y)/turn:1e6;
+    const w=nominal/Math.pow(1+Math.pow(nominal/(radius*.64),4),.25);
+    const twist=(closed?.08:.17)*Math.sin(t*(closed?TAU:Math.PI*1.5)+phase),thick=depth*(.65+.35*Math.sin(t*Math.PI))*(.18+.82*end);
+    const s={q,v,l,nominal,w,twist,thick};stateCache.set(t,s);return s;
+  };
+  const sampling=carvingStations305(state,width,steps),ts=sampling.ts;
+  const front=u=>{const shoulder=Math.exp(-Math.pow((u-.65)/.24,2))+.78*Math.exp(-Math.pow((u+.62)/.28,2));return .20+.47*Math.max(0,1-u*u)**.58+.43*shoulder*flute;};
+  const back=u=>-(.20+.30*Math.max(0,1-u*u)**.75);
+  for(let k=0;k<=cols;k++){const u=2*k/cols-1;section.push([u*.94,front(u),k/cols]);}
+  for(let k=1;k<4;k++){const a=k/4*Math.PI;section.push([.94+.06*Math.sin(a),T.MathUtils.lerp(front(1),back(1),(1-Math.cos(a))*.5),1]);}
+  // The plain convex back needs fewer section samples than the two chased
+  // front shoulders; spend those vertices along actual curling silhouettes.
+  const backCols=Math.max(4,cols-4);
+  for(let k=backCols;k>=0;k--){const u=2*k/backCols-1;section.push([u*.94,back(u),k/backCols]);}
+  for(let k=1;k<4;k++){const a=k/4*Math.PI;section.push([-.94-.06*Math.sin(a),T.MathUtils.lerp(back(-1),front(-1),(1-Math.cos(a))*.5),0]);}
+  const around=section.length,stride=around+1;
+  let narrowed=0;
+  for(let j=0;j<ts.length;j++){
+    const t=ts[j],{q,v,l,nominal,w,twist,thick}=state(t);
+    // Smooth curvature-aware width prevents the inner shoulder folding into
+    // a broad lollipop. The ribbon remains finite through every curled tip.
+    if(w<nominal*.9)narrowed++;
+    for(let k=0;k<=around;k++){
+      const [u,z,uTex]=section[k%around];p.push(q.x+v.y/l*u*w,q.y-v.x/l*u*w,q.z+z*thick+u*w*twist);uv.push(uTex,t);
+      if(j<ts.length-1&&k<around){const a=j*stride+k,b=a+stride;ix.push(a,a+1,b,a+1,b+1,b);}
     }
   }
-  if(closed)for(let skin=0;skin<2;skin++)for(let k=0;k<=cols;k++)for(let a=0;a<3;a++)p[(skin*stride+steps*(cols+1)+k)*3+a]=p[(skin*stride+k)*3+a];
-  for(let j=0;j<steps;j++)for(const e of[0,cols]){const a=j*(cols+1)+e,b=a+cols+1,c=a+stride,d=b+stride;e===0?ix.push(a,b,c,c,b,d):ix.push(a,c,b,c,d,b);}
-  if(!closed)for(const j of[0,steps])for(let k=0;k<cols;k++){const a=j*(cols+1)+k,b=a+1,c=a+stride,d=b+stride;j===0?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}
-  const g=finish205(p,uv,ix);g.userData.closedFlutedCarving205=true;return g;
+  if(closed)for(let k=0;k<=around;k++)for(let a=0;a<3;a++)p[((ts.length-1)*stride+k)*3+a]=p[k*3+a];
+  if(!closed)for(const j of[0,ts.length-1]){
+    const centre=p.length/3,q=curve.getPoint(j?1:0);p.push(q.x,q.y,q.z);uv.push(.5,j?1:0);
+    for(let k=0;k<around;k++){const a=j*stride+k;j===0?ix.push(centre,a+1,a):ix.push(centre,a,a+1);}
+  }
+  const g=finish205(p,uv,ix);g.userData.closedFlutedCarving205=true;g.userData.realCurvatureSampling305={stations:ts.length,sectionVertices:around,curvatureNarrowedStations:narrowed,chordTolerance:sampling.tolerance,actualMaxRailChordError:sampling.maxChordError,actualMaxTangentTurn:sampling.maxTangentTurn,unresolvedSegments:sampling.unresolvedSegments,edgeBevelSegments:4};return g;
 }
 
 function seed205(text){let h=2166136261;for(let i=0;i<text.length;i++)h=Math.imul(h^text.charCodeAt(i),16777619);return h>>>0;}
-function branchingRelief205(seed,mirror,fine,family) {
+function branchingRelief205(seed,mirror,fine,family,longEdge=false) {
   // Four authored carving families have distinct silhouette and void rhythm.
   // Their lobes vary per actual position; there is no repeated flame stamp.
   let state=seed;const rand=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296;};
@@ -56,17 +99,24 @@ function branchingRelief205(seed,mirror,fine,family) {
     [[0,0],[.13,.17],[.09,.40],[-.05,.65],[.08,.89],[.26,1.13]],
     [[0,0],[.24,.13],[.37,.34],[.21,.56],[-.04,.53],[-.17,.34],[.01,.24],[.14,.33],[.10,.44]],
   ];
+  if(longEdge)designs[2]=[[0,0],[.07,.19],[-.02,.43],[-.10,.68],[-.03,.92],[.13,1.12],[.08,1.23]];
   const ps=designs[family].map(([x,y],i)=>[x+bend*y+.035*Math.sin(i*1.73+seed%19)*Math.sin(Math.PI*i/(designs[family].length-1)),y*stretch,.09*y*y]);
-  const spine=path(ps),parts=[carving205(spine,(family===0?.135:.115)*( .91+rand()*.16),.044,{steps:fine?10:22,cols:fine?6:10,root:.74,tip:.035,phase:rand()*TAU})];
+  const spine=path(ps),parts=[carving205(spine,(family===0?.125:.105)*( .91+rand()*.16),.044,{steps:fine?16:22,cols:fine?8:10,root:.74,tip:.018,phase:rand()*TAU})];
   const lobes=fine?2:3,hand=rand()>.5?1:-1;
   for(let i=0;i<lobes;i++){
-    const t=.19+i*(fine?.25:.18),q=spine.getPoint(t),sg=hand*(i%2?-1:1),width=(.22+rand()*.13)*(i===2?.80:1),rise=(.25+rand()*.18)*(i===2?.78:1);
+    const t=.19+i*(fine?.25:.18),q=spine.getPoint(t),sg=hand*(i%2?-1:1),width=(.22+rand()*.13)*(i===2?.80:1)*(longEdge?.80:1),rise=(.25+rand()*.18)*(i===2?.78:1)*(longEdge?1.20:1);
     const pp=[q,q.clone().add(new T.Vector3(sg*width*.56,rise*.18,.018)),q.clone().add(new T.Vector3(sg*width,rise*.66,.045)),q.clone().add(new T.Vector3(sg*width*.72,rise,.080)),q.clone().add(new T.Vector3(sg*width*.20,rise*.94,.105)),q.clone().add(new T.Vector3(sg*width*.10,rise*.58,.115)),q.clone().add(new T.Vector3(sg*width*.44,rise*.43,.13))];
-    if(i===0)pp[pp.length-1]=spine.getPoint(Math.min(.90,t+.31));
-    parts.push(carving205(path(pp),(.077+.020*rand())*(i===2?.85:1),.038,{steps:fine?7:16,cols:fine?6:8,root:.78,tip:i===0?.50:.035,phase:rand()*TAU}));
+    if(i===0){
+      // The old descending hook then jumped to an ascending stem point,
+      // producing near-cusps in XY and abrupt carved-section reversals.
+      // Route the whole return continuously back into its physical root.
+      const root=spine.getPoint(Math.min(.90,t+.31)),returnShoulder=pp[3].clone().lerp(root,.5).add(new T.Vector3(sg*width*.10,rise*.10,.025));
+      pp[4]=returnShoulder;pp[5]=returnShoulder.clone().lerp(root,.65);pp[6]=root;
+    }
+    parts.push(carving205(path(pp),(.052+.014*rand())*(i===2?.85:1),fine?.030:.034,{steps:fine?16:20,cols:fine?8:10,root:.73,tip:i===0?.18:.015,phase:rand()*TAU}));
   }
   const p=[],uv=[],ix=[];for(const g of parts){const offset=p.length/3,pp=g.attributes.position.array,ii=g.index.array;for(let j=0;j<pp.length;j+=3)p.push(pp[j]*mirror,pp[j+1],pp[j+2]);uv.push(...g.attributes.uv.array);for(let j=0;j<ii.length;j+=3)mirror>0?ix.push(offset+ii[j],offset+ii[j+1],offset+ii[j+2]):ix.push(offset+ii[j],offset+ii[j+2],offset+ii[j+1]);g.dispose();}
-  const g=finish205(p,uv,ix);g.userData.branchingRolledRelief205=true;g.userData.carvedFamily=family;g.userData.voids='between physically overlapping rooted closed ribbon lobes';return g;
+  const g=finish205(p,uv,ix);g.userData.branchingRolledRelief205=true;g.userData.carvedFamily=family;g.userData.curvatureSampling305=parts.map(p=>p.userData.realCurvatureSampling305);g.userData.voids='between physically overlapping rooted closed ribbon lobes';return g;
 }
 
 function nimbus205() {
@@ -97,14 +147,15 @@ function chasedAnnularScale205(R,angle,s) {
 
 export function buildMandorla205(b,{height:H,halfWidth:W,headCenter:cy,isMain}) {
   const s=H/4.52,R=(isMain?.665:.37)*s,fan=R*(isMain?1.52:1.43);
-  const stats={revision:'mandorla205-r15',height:H,halfWidth:W,headCenter:cy,isMain,triangles:0,primaryRibbons:0,secondaryRibbons:0,carvedGroups:0,connectedRootCount:0,visualAccepted:false};
+  const stats={revision:'mandorla305-r03-edge-aware-solid-rolls',height:H,halfWidth:W,headCenter:cy,isMain,triangles:0,primaryRibbons:0,secondaryRibbons:0,carvedGroups:0,connectedRootCount:0,visualAccepted:false};
   if(!b.materials.mandorla205Nimbus){const m=b.materials.haloLacquer.clone();m.name='scene06-mandorla205-carbon-indigo-lacquer';m.color.set('#02050a');m.metalness=0;m.roughness=.86;m.ior=1.22;m.specularIntensity=.03;m.clearcoat=0;m.envMapIntensity=.08;b.materials.mandorla205Nimbus=m;}
   const add=(g,mat,...args)=>{stats.triangles+=g.index?g.index.count/3:g.attributes.position.count/3;b.add(g,mat,...args);};
-  const ribbon=(tag,points,w,d,mat='gold',options={})=>{const c=points instanceof T.Curve?points:path(options.closed?points.slice(0,-1):points,!!options.closed),g=b.geometry(`205r15:${isMain}:${tag}`,()=>carving205(c,w,d,options));add(g,mat);stats.secondaryRibbons++;stats.connectedRootCount++;return c;};
+  const ribbon=(tag,points,w,d,mat='gold',options={})=>{const c=points instanceof T.Curve?points:path(options.closed?points.slice(0,-1):points,!!options.closed),g=b.geometry(`305r03:${isMain}:${tag}`,()=>carving205(c,w,d,options));add(g,mat);stats.secondaryRibbons++;stats.connectedRootCount++;return c;};
   const carvedGroup=(tag,p,a,L,width,mirror=1,variant=0,mat='gold')=>{
-    const family=tag.startsWith('ray')||tag.startsWith('crown')?2:p.y/H<.34?0:p.y/H<.70?1:3;
-    const fine=L<.205*s,seed=seed205(`${isMain}:${tag}`),g=b.geometry(`205r15-branching:${isMain}:${tag}:${fine}:${family}`,()=>branchingRelief205(seed,mirror,fine,family));
-    if(tag.startsWith('scroll-split')||tag.startsWith('interlaced-return')){L*=1.20;width*=1.38;}
+    const edge=tag.startsWith('edge-flame'),family=edge||tag.startsWith('ray')||tag.startsWith('crown')?2:p.y/H<.34?0:p.y/H<.70?1:3;
+    const fine=L<.205*s,seed=seed205(`${isMain}:${tag}`),g=b.geometry(`305r03-branching:${isMain}:${tag}:${fine}:${family}`,()=>branchingRelief205(seed,mirror,fine,family,edge));
+    if(edge){L*=1.10;width*=.80;}
+    if(tag.startsWith('scroll-split')||tag.startsWith('interlaced-return')){L*=1.20;width*=1.25;}
     if(!g.boundingBox)g.computeBoundingBox();const bb=g.boundingBox,dy=Math.max(-Math.sin(a)*width*bb.min.x,-Math.sin(a)*width*bb.max.x)+Math.max(Math.cos(a)*L*bb.min.y,Math.cos(a)*L*bb.max.y);
     if(dy>0&&p.y+dy>H-.002*s){const f=clamp((H-.002*s-p.y)/dy,.08,1);L*=f;width*=f;}
     const low=Math.min(-Math.sin(a)*width*bb.min.x,-Math.sin(a)*width*bb.max.x)+Math.min(Math.cos(a)*L*bb.min.y,Math.cos(a)*L*bb.max.y);
@@ -211,5 +262,8 @@ export function buildMandorla205(b,{height:H,halfWidth:W,headCenter:cy,isMain}) 
     }
   }
   b.root.userData.mandorla205??=[];b.root.userData.mandorla205.push(stats);
-  if(b.root.userData.mandorla205.reduce((n,r)=>n+r.triangles,0)>2_000_000)throw Error('Mandorla205 exceeded two-million replacement triangle budget');
+  // Local, declared replacement budget only. Adaptive high-curvature solids
+  // replace the nearly saturated historical 1,964,864-triangle R15 geometry.
+  // Scene captures still run under the unchanged official shared GPU FIFO.
+  if(b.root.userData.mandorla205.reduce((n,r)=>n+r.triangles,0)>10_000_000)throw Error('Mandorla305 exceeded ten-million adaptive replacement triangle budget');
 }

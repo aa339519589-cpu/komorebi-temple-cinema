@@ -1,0 +1,23 @@
+{
+  "revision": "craft308-r03",
+  "status": "unaccepted-3D-model-candidate",
+  "baselineSourceHash": "5d8c529c74df128c1859e6b7bf325a4c6715d828898d9d910963b9183e7862d3",
+  "fundamentalIssue": "The visible main facade is flattened by the thin1.5m/0.19m-depth repeated bearing kit and one continuous.74m high pale upper strip. Actual upper/lower eave supports and portal return depth differ substantially from HD03.",
+  "construction": [
+    "Reuse retained Scene03 authored closed174 four-rank bearing kit with full canted/waisted arm sections, carved solid noses and real raking tails; fit to Scene03 actual roof/bearing datums",
+    "Upper field divided into three recessed cells per bay with real returned jamb/head/sill depth and paired closed/openwork struts",
+    "Three nested full-depth portal casings share actual head/jamb contact planes and preserve the4.2m clear opening"
+  ],
+  "preserved": [
+    "Reference camera and hall/bridge/tower/stair layout",
+    "Roof exterior envelopes and tile geometry",
+    "Lights, environment and material palette",
+    "Existing full3D source carving components, garden and sanctuary"
+  ],
+  "newImageAssets": false,
+  "referenceScenePixelsUsed": false,
+  "historicalOrStructuralCertification": false,
+  "photographicAccepted": false,
+  "r02": "Native R01 detail/low view shows the new deep frame as broad flat casing. R02 builds a closed cyma/rebate/bead section through each jamb/head, and seats2.8mm closed worked-metal skins on the retained actual carved nose cuts; original carved source positions are unchanged. The larger R01 structural kit, deep window cells, camera/roof/site/light remain.",
+  "r03": "CPU audit found three negatively scaled jamb instances in R02; R03 explicitly mirrors the closed source geometry with corrected winding and keeps all instance matrices positive. Low R01/R02 view also exposed the inherited short lower eave rafter reach. Two genuine continuous rafter courses now reach the existing outer ceramic fascia; four transverse purlin courses connect them and the lower bearing receiver datum follows the actual new flying-rafter underside."
+}

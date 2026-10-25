@@ -1,0 +1,358 @@
+--- /dev/null
++++ b/reconstructions/scene-01/src/shoreline-craft298.js
+@@ -0,0 +1,114 @@
++import * as T from 'three';
++import {layout124 as L} from './layout124.js';
++import {noise,rng} from './kernel.js';
++import {routeClearance208,routeHeight208,routeDistance298} from './bridge-court208.js';
++const TAU=Math.PI*2;
++export const shoreZone298=(x,z)=>x>-9.6&&x<8.4&&z>-4.8&&z<3.3;
++export const shoreEdge298=x=>-.70+.34*Math.sin(x*.72)+.18*Math.sin(x*2.1)-1.08*Math.exp(-(((x+4.35)/1.45)**2))+.11*(noise(x*1.9,.31,298)-.5);
++export function shoreHeight298(x,z,original,raised){
++ if(!shoreZone298(x,z))return raised;
++ // Keep the surveyed/authored cascade run and route-bearing cores. The
++ // bank between them is now a terraced water edge with a bridge inlet.
++ if(Math.abs(x-L.waterfall.x)<.71&&z>L.waterfall.z[0]-.30&&z<L.waterfall.z[1]+.83)return raised;
++ const routeDistance=routeDistance298(x,z);
++ const d=shoreEdge298(x)-z,step=(a,b)=>T.MathUtils.smoothstep(d,a,b);
++ const bed=-.19+.035*noise(x*3.1,z*3.6,2981);
++ const terraces=bed+.29*step(-.20,.06)+.25*step(.25,.56)+.30*step(.90,1.25)+.30*step(1.65,2.04)+.42*step(2.35,3.10);
++ const granular=(noise(x*4.4,z*3.8,2982)-.5)*.075+(noise(x*12.1,z*11.7,2983)-.5)*.024;
++ const transition=T.MathUtils.smoothstep(z,-4.8,-4.1)*(1-T.MathUtils.smoothstep(z,2.5,3.3))*(1-T.MathUtils.smoothstep(Math.abs(x+.6),7.7,9.0));
++ let natural=terraces+granular;
++ for(const [cx,cz,rx,rz,h]of[[5.65,-.65,2.25,1.80,1.04],[-6.6,.45,1.55,1.6,.62],[.35,-2.40,1.30,1.15,1.16]]){
++  const r=Math.hypot((x-cx)/rx,(z-cz)/rz)*(1+.11*(noise(x*2.1,z*2.7,2989)-.5));
++  const shelf=bed+(h-bed)*(.40*(1-T.MathUtils.smoothstep(r,.70,1.0))+.34*(1-T.MathUtils.smoothstep(r,.38,.67))+.26*(1-T.MathUtils.smoothstep(r,.10,.34)));
++  natural=Math.max(natural,shelf+granular);
++ }
++ // A continuous receiving shoulder carries the actual court retaining
++ // edge; no abrupt route-core-to-river cliff is cut into the soil mesh.
++ const shoulder=1-T.MathUtils.smoothstep(routeDistance,.10,1.15);natural=T.MathUtils.lerp(natural,Math.max(natural,raised),shoulder);
++ return T.MathUtils.lerp(raised,natural,transition);
++}
++const fieldGLSL=`float sh(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}float sn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(sh(i),sh(i+vec3(1,0,0)),f.x),mix(sh(i+vec3(0,1,0)),sh(i+vec3(1,1,0)),f.x),f.y),mix(mix(sh(i+vec3(0,0,1)),sh(i+vec3(1,0,1)),f.x),mix(sh(i+vec3(0,1,1)),sh(i+vec3(1,1,1)),f.x),f.y),f.z);}`;
++export function installShoreMaterials298(m){
++ // Moist mineral soil: the old dark color multiplied by a dark map yielded
++ // <1-percent reflectance. Retain the physical map but restore earth albedo.
++ const soil=m.earth;soil.name='shore298-mineral-soil-fine-gravel-and-root-mat';soil.color.setHex(0x665d46);soil.roughness=.98;soil.bumpScale=.018;
++ soil.onBeforeCompile=shader=>{
++  shader.vertexShader='varying vec3 vShoreWorld;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvShoreWorld=worldPosition.xyz;');
++  shader.fragmentShader='varying vec3 vShoreWorld;\n'+fieldGLSL+'\n'+shader.fragmentShader;
++  shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
++   float clast=sn(vShoreWorld*vec3(32.,43.,31.));float grit=sn(vShoreWorld*141.);float roots=sn(vShoreWorld*vec3(7.,23.,7.));
++   diffuseColor.rgb*=.66+.42*grit;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.095,.090,.074),smoothstep(.70,.86,clast)*.40);
++   diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.028,.023,.014),smoothstep(.72,.88,roots)*.45);
++   float wet=1.-smoothstep(.11,.31,vShoreWorld.y);diffuseColor.rgb*=1.-wet*.32;`);
++ };
++ soil.customProgramCacheKey=()=> 'shore298-world-mineral-soil-v1';
++ const rock=m.rock.clone();rock.name='shore298-fractured-pier-bearing-granite';rock.color.setHex(0x8b8b80);rock.roughness=.87;rock.bumpScale=.012;rock.onBeforeCompile=shader=>{
++  shader.vertexShader='varying vec3 vBearingWorld;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <worldpos_vertex>','#include <worldpos_vertex>\nvBearingWorld=worldPosition.xyz;');shader.fragmentShader='varying vec3 vBearingWorld;\n'+fieldGLSL+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\nfloat mineral=sn(vBearingWorld*32.);diffuseColor.rgb*=.78+.27*mineral;');
++ };rock.customProgramCacheKey=()=> 'shore298-footing-granite-v1';m.shore298Rock=rock;
++ const sedge=m.leafDark.clone();sedge.name='shore298-creased-reed-and-sedge-blades';sedge.color.setHex(0x4b5529);sedge.roughness=.9;sedge.side=T.DoubleSide;m.shore298Sedge=sedge;
++ const dead=m.bark.clone();dead.name='shore298-dry-root-and-dead-sedge';dead.color.setHex(0x76613d);m.shore298Dead=dead;
++}
++function blade298(length,width,bend,seed){
++ const p=[],uv=[],ix=[],N=9;
++ for(let j=0;j<=N;j++){const t=j/N,w=width*Math.sin(Math.PI*(.08+.92*t))*(1-.72*t),z=bend*t*t,y=length*(t-.16*t*t);
++  for(const side of[-1,0,1]){p.push(side*w,y+(side===0?.010:0)*Math.sin(t*Math.PI),z+Math.abs(side)*.010*Math.sin(t*Math.PI));uv.push((side+1)/2,t);}
++  if(j<N)for(let k=0;k<2;k++){const a=j*3+k;ix.push(a,a+3,a+1,a+1,a+3,a+4);}
++ }
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.name='shore298-continuous-creased-sedge-blade';return g;
++}
++function bevelBlock298(w,h,d){const s=new T.Shape(),b=.025;s.moveTo(-w/2+b,-h/2);s.lineTo(w/2-b,-h/2);s.lineTo(w/2,-h/2+b);s.lineTo(w/2,h/2-b);s.lineTo(w/2-b,h/2);s.lineTo(-w/2+b,h/2);s.lineTo(-w/2,h/2-b);s.lineTo(-w/2,-h/2+b);s.closePath();const g=new T.ExtrudeGeometry(s,{depth:d-.018,bevelEnabled:true,bevelSize:.009,bevelThickness:.009,bevelSegments:2,steps:1});g.translate(0,0,-d/2+.009);g.name='shore298-closed-cut-granite-pier-bearing-stone';return g;}
++export function buildRockBank298(B,{site}){
++ const random=rng(298810),rr=(a,b)=>a+(b-a)*random(),stones=[],plants=[],foundations=[];
++ const variants=B.scannedStones.variants;
++ function stone(x,z,sx,sy,sz,yaw,top,variant=0){
++  const scan=variants[(variant+variants.length)%variants.length],rot=new T.Quaternion().setFromEuler(new T.Euler(rr(-.07,.07),yaw,rr(-.09,.09))),matrix=new T.Matrix4().compose(new T.Vector3(x,0,z),rot,new T.Vector3(sx,sy,sz));scan.geometry.computeBoundingBox();const bounds=scan.geometry.boundingBox.clone().applyMatrix4(matrix),limit=routeHeight208(x,z,Math.max(sx,sz)*.48),cap=Math.min(top,limit-.10),y=cap-bounds.max.y;
++  B.emit(scan.geometry,cap<.55?scan.wet:scan.dry,x,y,z,sx,sy,sz,[new T.Euler().setFromQuaternion(rot).x,yaw,new T.Euler().setFromQuaternion(rot).z],rr(.94,1.10));
++  if(scan.mossGeometry&&cap>.30&&random()<.42)B.emit(scan.mossGeometry,'moss',x,y,z,sx,sy,sz,[new T.Euler().setFromQuaternion(rot).x,yaw,new T.Euler().setFromQuaternion(rot).z]);
++  stones.push({x,z,top:cap,bottom:y+bounds.min.y,width:sx*2});
++ }
++ B.label('shore298-interlocked-waterline-toe-and-layered-rock-banks',()=>{
++  const centers=[-8.65,-7.36,-6.18,-5.05,-3.91,-2.68,-1.41,-.18,3.32,4.56,5.95,7.27];
++  for(let i=0;i<centers.length;i++){
++   const x=centers[i],edge=shoreEdge298(x),yaw=-.26+rr(-.23,.23);
++   // Each geological group has a water-buried toe, a readable dry face and
++   // an inset upper ledge. Open gaps between groups stay as actual water.
++   stone(x,edge+.18,rr(.58,.88),rr(.42,.62),rr(.38,.58),yaw,rr(.23,.39),i);
++   stone(x+rr(-.25,.22),edge-.35,rr(.60,.88),rr(.58,.82),rr(.43,.67),yaw+rr(-.18,.18),rr(.55,.79),i+2);
++   if(i%3!==1)stone(x+rr(-.28,.31),edge-.95,rr(.56,.82),rr(.53,.76),rr(.40,.63),yaw,rr(.82,1.10),i+4);
++   if(i%3===0)stone(x+rr(.50,.72),edge+.32,rr(.23,.39),rr(.22,.37),rr(.26,.43),yaw+.4,rr(.13,.22),i+1);
++  }
++  // Exposed faces in the former black bank behind the bridge continue
++  // inland in short overlapping strata instead of a smooth earthen wall.
++  for(const [i,x,z,top,sx,sy,sz]of[[0,-5.10,-2.45,.94,.82,.65,.59],[1,-4.04,-2.85,1.11,.87,.64,.67],[2,-3.00,-3.07,1.16,.79,.70,.67],[3,-2.03,-2.62,.96,.68,.60,.59],[4,-.83,-2.48,1.18,.78,.72,.63],[5,.29,-2.73,1.43,.78,.74,.62],[6,1.02,-3.13,1.60,.66,.77,.64],[7,3.11,-3.35,1.76,.66,.78,.65]])stone(x,z,sx,sy,sz,-.26+rr(-.12,.12),Math.max(top,site(x,z).height+.26),i);
++  // Three rising, interlocked courses receive the stair forecourt face.
++  // They cover the former blank retaining wall while remaining below the
++  // authored walking surface and joining the lower drowned toe stones.
++  for(const [i,x,z]of[[0,2.93,-2.70],[1,3.62,-2.58],[2,4.35,-2.45],[3,5.12,-2.31],[4,5.78,-2.20],[5,.55,-2.96],[6,-1.38,-2.92]]){
++   stone(x,z,.72+rr(-.08,.08),.92+rr(-.08,.12),.58+rr(-.06,.08),-.25+rr(-.15,.15),Math.min(2.02,site(x,z).height+.40),i+1);
++   stone(x+rr(-.18,.18),z+.49,.76+rr(-.10,.12),.70+rr(-.06,.10),.54+rr(-.05,.10),-.2,Math.min(1.34,site(x,z+.49).height+.34),i+3);
++   if(i<5)stone(x+.15,z+.93,.63,.58,.48,-.19,Math.min(.74,site(x,z+.93).height+.28),i+5);
++  }
++ });
++ B.label('shore298-sparse-rooted-sedge-crevice-plants-and-dry-root-runs',()=>{
++  const geometries=Array.from({length:8},(_,i)=>blade298(.18+i*.035,.007+(i%3)*.003,.07+i*.017,i));
++  for(let k=0;k<48;k++){
++   const x=rr(-8.9,7.8),edge=shoreEdge298(x),z=edge-rr(.12,1.22);if(Math.abs(x-2.05)<.85||routeClearance208(x,z,.21)||noise(x*.71,z*.9,2987)<.40)continue;
++   const y=site(x,z).height;if(y<.15)continue;const count=5+k%5;
++   for(let n=0;n<count;n++){const a=n*2.39996+rr(-.20,.20),r=rr(.009,.048);B.emit(geometries[(k+n)%8],n%7?'shore298Sedge':'shore298Dead',x+Math.sin(a)*r,y-.012,z+Math.cos(a)*r,1,rr(.68,1.13),1,[rr(-.12,.12),a,rr(-.15,.15)],rr(.81,1.12));}
++   plants.push({x,y,z,blades:count});
++   if(k%4===0)for(let r=0;r<3;r++){const a=r*1.4+k;B.between([x,y+.008,z],[x+Math.cos(a)*.22,y-.035,z+Math.sin(a)*.21],.009,.008,'shore298Dead',true);}
++  }
++ });
++ // Existing bridge piers start at world Y-.01. These genuinely buried,
++ // stepped cut-stone shoes extend them into the newly lowered inlet bed.
++ B.label('shore298-central-bridge-pier-shoes-buried-in-the-actual-inlet-bed',()=>{
++  const G=L.bridge,matrix=new T.Matrix4().compose(new T.Vector3(...G.position),new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),G.yaw),new T.Vector3(...G.scale));
++  for(const side of[-1,1]){
++   const c=new T.Vector3(-.50,0,side*.55).applyMatrix4(matrix),ground=site(c.x,c.z).height,bottom=Math.min(ground-.12,-.18),top=.12;
++   B.with(c.x,(bottom+top)/2,c.z,G.yaw,()=>B.emit(bevelBlock298(.80,top-bottom,.75),'shore298Rock'));
++   B.with(c.x,.105,c.z,G.yaw,()=>B.emit(bevelBlock298(.66,.09,.63),'shore298Rock'));
++   foundations.push({center:[c.x,c.z],terrainY:ground,bottomY:bottom,oldPierBottomY:-.01,shoeTopY:.15,burial:ground-bottom,oldPierOverlap:.16});
++  }
++ });
++ B.layout124??={};B.layout124.shore298={revision:'shore298-r15-terraced-water-edge-and-buried-pier-shoes',stones:stones.length,rootedCrevicePlants:plants.length,sedgesAreNewCreasedBlades:true,referencePixelsUsed:false,bridgePierFoundations:foundations,blackBankDiagnosticWorldPoints:[[-4.1238,1.0711,-3.2127],[.9662,1.5793,.3587]],waterLevel:.13,terrain:'Closed terraced bank and local bridge inlet, with inset soil shoulders and water-buried interlocked stone toes',photographicAccepted:false};
++}
+--- a/reconstructions/scene-01/src/garden.js
++++ b/reconstructions/scene-01/src/garden.js
+@@ -1,4 +1,5 @@
+ import * as T from 'three';
++import {shoreZone298,shoreHeight298,shoreEdge298,buildRockBank298} from './shoreline-craft298.js';
+ import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUtils.js';
+ import {TAU,V,rng,noise,lin,surface} from './kernel.js';
+ import {layout124 as L} from './layout124.js';
+@@ -12,14 +13,17 @@
+ // therefore keep their original identity. This is physical planted clearance.
+ let muted208=0;const clearance208={plants:0,rocks:0};
+ function mute208(blocked,fn){if(!blocked)return fn();const put=B.put;muted208++;B.put=()=>{};try{return fn();}finally{B.put=put;muted208--;}}
++function blockedRoot298(x,y,z){const p=new T.Vector3(x,y,z).applyMatrix4(B.stack.at(-1));return shoreZone298(p.x,p.z)&&site124(p.x,p.z).height<.15;}
+ function blocked208(x,y,z,margin){const p=new T.Vector3(x,y,z).applyMatrix4(B.stack.at(-1));return routeClearance208(p.x,p.z,margin);}
+-function shrub(x,y,z,r=1,h=.85,flowers=false){const blocked=blocked208(x,y,z,r*.75+.10);if(blocked)clearance208.plants++;return mute208(blocked,()=>shrubRaw208(x,y,z,r,h,flowers));}
+-function pine(x,y,z,h=4,r=2.2){const blocked=blocked208(x,y,z,.30);if(blocked)clearance208.plants++;return mute208(blocked,()=>pineRaw208(x,y,z,h,r));}
+-function fern(x,y,z,s=1){const blocked=blocked208(x,y,z,s*.80+.04);if(blocked)clearance208.plants++;return mute208(blocked,()=>fernRaw208(x,y,z,s));}
++function shrub(x,y,z,r=1,h=.85,flowers=false){const blocked=blocked208(x,y,z,r*.75+.10)||blockedRoot298(x,y,z);if(blocked)clearance208.plants++;return mute208(blocked,()=>shrubRaw208(x,y,z,r,h,flowers));}
++function pine(x,y,z,h=4,r=2.2){const blocked=blocked208(x,y,z,.30)||blockedRoot298(x,y,z);if(blocked)clearance208.plants++;return mute208(blocked,()=>pineRaw208(x,y,z,h,r));}
++function fern(x,y,z,s=1){const blocked=blocked208(x,y,z,s*.80+.04)||blockedRoot298(x,y,z);if(blocked)clearance208.plants++;return mute208(blocked,()=>fernRaw208(x,y,z,s));}
+ function rock(x,y,z,sx=1,sy=.8,sz=1,wet=false,moss=true){const blocked=blocked208(x,y,z,Math.max(sx,sz)*.80+.06);if(blocked)clearance208.rocks++;return mute208(blocked,()=>rockRaw208(x,y,z,sx,sy,sz,wet,moss));}
+ 
+-function scanned132(scan,material,...args){const [x=0,y=0,z=0,sx=1,,sz=1]=args,blocked=blocked208(x,y,z,Math.max(sx,sz)*.80+.06);mute208(blocked,()=>{B.emit(scan.geometry,material,...args);if(scan.mossGeometry)B.emit(scan.mossGeometry,'moss',...args);});}
+-function site124(x,z){const edge=-.70+.34*Math.sin(x*.72)+.18*Math.sin(x*2.1),t=T.MathUtils.smoothstep(edge-z,0,3.75),original=.055+1.48*t+.12*noise(x*.6,z*.7,381)*t,height=bankHeight124(x,z,bank208(x,z,original));return{height,raised:height>original+.06};}
++function scanned132(scan,material,...args){const [x=0,y=0,z=0,sx=1,sy=1,sz=1]=args;
++ if(shoreZone298(x,z)&&!(Math.abs(x-L.waterfall.x)<.85&&z>-2.4&&z<.4)){scan.geometry.computeBoundingBox();args[1]=Math.min(y,site124(x,z).height-scan.geometry.boundingBox.min.y*sy*.55);}
++ const blocked=blocked208(x,args[1],z,Math.max(sx,sz)*.80+.06);mute208(blocked,()=>{B.emit(scan.geometry,material,...args);if(scan.mossGeometry)B.emit(scan.mossGeometry,'moss',...args);});}
++function site124(x,z){const edge=-.70+.34*Math.sin(x*.72)+.18*Math.sin(x*2.1),t=T.MathUtils.smoothstep(edge-z,0,3.75),original=.055+1.48*t+.12*noise(x*.6,z*.7,381)*t,height=shoreHeight298(x,z,original,bankHeight124(x,z,bank208(x,z,original)));return{height,raised:height>original+.06};}
+ 
+ // Smooth narrow elliptical leaves with cupped cross sections and a modeled rib.
+ const foliage=(()=>{const p=[],uv=[],ix=[],N=6;for(let j=0;j<=N;j++){const t=j/N,w=.28*Math.sin(Math.PI*t)**.8;for(let i=0;i<3;i++){const u=-1+i;p.push(u*w,.043*(1-u*u)*Math.sin(Math.PI*t)+.025*t*t,(t-.5)*1.02);uv.push(i/2,t);if(i<2&&j<N){const q=j*3+i;ix.push(q,q+3,q+1,q+1,q+3,q+4);}}}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;})();
+@@ -51,15 +55,15 @@
+ }const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;})();
+ function branch(points,r,tip=.18,n=12,radial=7){if(muted208)return;const curve=new T.CatmullRomCurve3(points.map(V)),g=new T.TubeGeometry(curve,n,r,radial,false),p=g.attributes.position;for(let j=0;j<=n;j++){const center=curve.getPointAt(j/n);for(let k=0;k<=radial;k++){const i=j*(radial+1)+k,q=new T.Vector3().fromBufferAttribute(p,i).sub(center).multiplyScalar((1-(1-tip)*j/n)*(1+.055*Math.sin(k*2.7+j*.37)+.040*noise(j*.39,k*.71,132))).add(center);p.setXYZ(i,q.x,q.y,q.z);}}g.computeVertexNormals();g.applyMatrix4(B.stack.at(-1));trunks.push(g);}
+ function leafCluster(x,y,z,rx,ry,rz,count=250,ma='leaf',scale=.2,mapleLeaf=false,pineNeedle=false){for(let k=0;k<Math.ceil(count*(pineNeedle?.55:mapleLeaf?.40:3.8));k++){const a=rr(0,TAU),q=Math.cbrt(random()),v=rr(-1,1),r=Math.sqrt(1-v*v);const xx=x+rx*Math.cos(a)*r*q,zz=z+rz*Math.sin(a)*r*q,yy=y+ry*v*q;const s=scale*rr(.65,1.25)*(pineNeedle?1.35:mapleLeaf?1.45:.42);B.emit(pineNeedle?pineShoot:mapleLeaf?maple:foliage,pineNeedle?'pineLeaf':mapleLeaf?(ma==='leafLight'?'mapleLight':ma==='leafDark'?'mapleDark':'mapleLeaf'):ma,xx,yy,zz,s,s,s,[rr(-.6,.6),rr(0,TAU),rr(-.35,.35)],rr(.66,1.17));}}
+-function shrubRaw208(x,y,z,r=1,h=.85,flowers=false){const ground=site124(x,z);y=Math.max(y,ground.height+.015);if(ground.raised){h=Math.min(h,1.1);r=Math.min(r,1.65);}B.with(x,y,z,0,()=>{const stems=7;for(let i=0;i<stems;i++){const a=i*2.39996,reach=r*rr(.35,.85),tip=[Math.cos(a)*reach,h*rr(.60,.94),Math.sin(a)*reach];branch([[0,0,0],[tip[0]*.4,h*.6,tip[2]*.4],tip],r*.029,.12,7,5);leafCluster(tip[0],tip[1],tip[2],r*.45,h*.33,r*.45,rr(90,145),'leafDark',r*.20);leafCluster(tip[0],tip[1]+h*.10,tip[2],r*.42,h*.22,r*.42,rr(70,120),'leaf',r*.17);if(flowers)for(let k=0;k<100;k++){const a=rr(0,TAU),d=rr(.08,.38)*r,xx=tip[0]+Math.cos(a)*d,zz=tip[2]+Math.sin(a)*d,yy=tip[1]+h*rr(.22,.40);const s=rr(.020,.040);if(k%2)continue;for(let p=0;p<5;p++){const a=p*TAU/5;B.sphere(xx+Math.cos(a)*s*.7,yy,zz+Math.sin(a)*s*.7,s*.65,s*.28,s*.65,k%3?'pink':'pinkLight');}B.sphere(xx,yy+.018,zz,s*.28,s*.20,s*.28,'pollen');}}});}
++function shrubRaw208(x,y,z,r=1,h=.85,flowers=false){const ground=site124(x,z);y=shoreZone298(x,z)?ground.height+.015:Math.max(y,ground.height+.015);if(ground.raised){h=Math.min(h,1.1);r=Math.min(r,1.65);}B.with(x,y,z,0,()=>{const stems=7;for(let i=0;i<stems;i++){const a=i*2.39996,reach=r*rr(.35,.85),tip=[Math.cos(a)*reach,h*rr(.60,.94),Math.sin(a)*reach];branch([[0,0,0],[tip[0]*.4,h*.6,tip[2]*.4],tip],r*.029,.12,7,5);leafCluster(tip[0],tip[1],tip[2],r*.45,h*.33,r*.45,rr(90,145),'leafDark',r*.20);leafCluster(tip[0],tip[1]+h*.10,tip[2],r*.42,h*.22,r*.42,rr(70,120),'leaf',r*.17);if(flowers)for(let k=0;k<100;k++){const a=rr(0,TAU),d=rr(.08,.38)*r,xx=tip[0]+Math.cos(a)*d,zz=tip[2]+Math.sin(a)*d,yy=tip[1]+h*rr(.22,.40);const s=rr(.020,.040);if(k%2)continue;for(let p=0;p<5;p++){const a=p*TAU/5;B.sphere(xx+Math.cos(a)*s*.7,yy,zz+Math.sin(a)*s*.7,s*.65,s*.28,s*.65,k%3?'pink':'pinkLight');}B.sphere(xx,yy+.018,zz,s*.28,s*.20,s*.28,'pollen');}}});}
+ function pineRaw208(x,y,z,h=4,r=2.2){const ground=site124(x,z);y=Math.max(y,ground.height+.02);B.with(x,y,z,rr(-.4,.4),()=>{const lean=rr(-.6,.6);branch([[0,0,0],[lean*.4,h*.25,.05],[lean,h*.6,-.10],[lean*.8,h,.02]],h*.06,.13,20,9);for(let k=0;k<10;k++){const a=k*2.39996,yy=h*(.30+.065*k),extent=r*(1-k*.055),tip=[lean*.7+Math.cos(a)*extent,yy+.20,Math.sin(a)*extent];branch([[lean*.5,yy-.2,0],[tip[0]*.65,yy-.10,tip[2]*.65],tip],h*.025*(1-k*.055),.15,9,6);leafCluster(...tip,extent*.60,h*.10,extent*.42,340,k%3?'leafDark':'leaf',rr(.34,.44),false,true);}});}
+ const rocks=[];for(let k=0;k<9;k++){const raw=new T.IcosahedronGeometry(1,4);raw.deleteAttribute("normal");raw.deleteAttribute("uv");const g=mergeVertices(raw,.0001);raw.dispose();const p=g.attributes.position;for(let i=0;i<p.count;i++){const v=new T.Vector3().fromBufferAttribute(p,i),f=.78+.26*noise(v.x*2.8+k*3,v.y*2.8+v.z,41)+.14*noise(v.z*8,v.y*8,k);v.multiplyScalar(f);v.y*=.8+.12*noise(v.x*5,v.z*5,k);p.setXYZ(i,v.x,v.y,v.z);}const rockUv=[];for(let i=0;i<p.count;i++){const v=new T.Vector3().fromBufferAttribute(p,i).normalize();rockUv.push(.5+Math.atan2(v.z,v.x)/TAU,.5-Math.asin(v.y)/Math.PI);}g.setAttribute("uv",new T.Float32BufferAttribute(rockUv,2));g.computeVertexNormals();rocks.push(g);}
+-function rockRaw208(x,y,z,sx=1,sy=.8,sz=1,wet=false,moss=true){if(z+sz>L.waterfall.z[0]-.20&&z-sz<L.waterfall.z[1]+.8&&Math.abs(x-L.waterfall.x)<sx+.65)x=L.waterfall.x+(x<L.waterfall.x?-1:1)*(sx+.65);const ground=site124(x,z);y=Math.max(y,ground.height+sy*.02);const i=Math.floor(rr(0,rocks.length));const scan=B.scannedStones?.variants[i%B.scannedStones.variants.length];const rot=[rr(-.10,.10),rr(0,TAU),rr(-.10,.10)],tint=rr(.90,1.10);if(scan)scanned132(scan,wet?scan.wet:scan.dry,x,y,z,sx,sy,sz,rot,tint);else B.emit(rocks[i],wet?'rockWet':'rock',x,y,z,sx,sy,sz,rot,tint);if(moss)for(let k=0;k<12;k++){const a=rr(0,TAU),q=rr(.08,.67);B.sphere(x+Math.cos(a)*sx*q,y+sy*(.76-.45*q)+rr(-.04,.04),z+Math.sin(a)*sz*q,rr(.025,.065),rr(.012,.027),rr(.025,.065),'moss');}}
++function rockRaw208(x,y,z,sx=1,sy=.8,sz=1,wet=false,moss=true){if(z+sz>L.waterfall.z[0]-.20&&z-sz<L.waterfall.z[1]+.8&&Math.abs(x-L.waterfall.x)<sx+.65)x=L.waterfall.x+(x<L.waterfall.x?-1:1)*(sx+.65);const ground=site124(x,z);y=shoreZone298(x,z)?ground.height+sy*.03:Math.max(y,ground.height+sy*.02);const i=Math.floor(rr(0,rocks.length));const scan=B.scannedStones?.variants[i%B.scannedStones.variants.length];const rot=[rr(-.10,.10),rr(0,TAU),rr(-.10,.10)],tint=rr(.90,1.10);if(scan)scanned132(scan,wet?scan.wet:scan.dry,x,y,z,sx,sy,sz,rot,tint);else B.emit(rocks[i],wet?'rockWet':'rock',x,y,z,sx,sy,sz,rot,tint);if(moss)for(let k=0;k<12;k++){const a=rr(0,TAU),q=rr(.08,.67);mute208(true,()=>B.sphere(x+Math.cos(a)*sx*q,y+sy*(.76-.45*q)+rr(-.04,.04),z+Math.sin(a)*sz*q,rr(.025,.065),rr(.012,.027),rr(.025,.065),'moss'));}}
+ function fernRaw208(x,y,z,s=1){if(z>L.waterfall.z[0]-.2&&z<L.waterfall.z[1]+.9&&Math.abs(x-L.waterfall.x)<.55)return;const ground=site124(x,z);y=Math.max(y,ground.height+.015);for(let k=0;k<8;k++){const a=k*TAU/8+rr(-.1,.1),len=s*rr(.6,1.0),end=[x+Math.cos(a)*len,y+s*rr(.35,.6),z+Math.sin(a)*len];for(let j=1;j<10;j++){const t=j/10,xx=x+(end[0]-x)*t,zz=z+(end[2]-z)*t,yy=y+Math.sin(t*Math.PI*.8)*s*.7;for(const sign of[-1,1]){const q=a+sign*.75,sz=.18*s*Math.sin(t*Math.PI);B.emit(foliage,'leaf',xx+Math.cos(q)*sz*.2,yy,zz+Math.sin(q)*sz*.2,sz,.7,sz*1.5,[.15,q,sign*.3],rr(.7,1.15));}}}}
+ function stoneLantern(){B.lantern219=buildStoneLantern219(B);for(let k=0;k<220;k++)random();}
+ 
+ function lotus(x,z,s=1,bloom=true){const y=.17+rr(0,.04);B.emit(leafDisc,'lotusLeaf',x,y,z,s,s*.6,s,[rr(-.08,.08),rr(0,TAU),rr(-.06,.06)],rr(.6,1.08));if(s>.10)for(let j=0;j<1;j++){const a=j*2.8+noise(x*3,z*3,132)*TAU,scale=s*(.66+.16*j);B.emit(leafDisc,'lotusLeaf',x+Math.cos(a)*s*1.2,y+.008+j*.005,z+Math.sin(a)*s,scale,scale*.6,scale,[.07*Math.sin(a),a,.07*Math.cos(a)],.80+.10*j);}if(bloom){const xx=x+s*.22,zz=z+s*.10,stem=.10+rr(0,.12);B.between([xx,.12,zz],[xx,y+stem,zz],.018,.018,'leaf',true);for(let ring=0;ring<3;ring++){const n=ring===0?9:7;for(let k=0;k<n;k++){const a=k*TAU/n+ring*.40,siz=s*(.60-ring*.15);B.emit(petal,ring===2?'lotusInside':'lotus',xx,y+stem+ring*.025,zz,siz,siz*(1.0+ring*.6),siz,[-.12-ring*.28,a,0]);}}B.sphere(xx,y+stem+.10,zz,s*.09,s*.045,s*.09,'pollen');}}
+-B.label('garden-landforms',()=>{B.box(0,-.65,-7,40,1.0,30,'earth');for(const [x,z,rx,rz,h]of[[-8,-2.3,5.8,3.7,1.4],[4,-5.5,8,3.6,1.8],[11,-.2,4.4,9.5,1.3],[-11,6,3,8,1.0],[0,-.8,2.0,1.3,.50],[-1,11,4,1.5,.45]])B.sphere(x,.05,z,rx,h,rz,'earth');});
++B.label('garden-landforms',()=>{B.box(0,-.65,-7,40,1.0,30,'earth');for(const [x,z,rx,rz,h]of[[11,-.2,4.4,9.5,1.3],[-11,6,3,8,1.0],[-1,11,4,1.5,.45]])B.sphere(x,.05,z,rx,h,rz,'earth');});
+ buildBridge208(B);buildCourt208(B);stoneLantern();B.label('stone-lantern-founded-shore-island',()=>{B.sphere(5.30,.05,6.2,1.05,.43,1.02,'earth');for(let k=0;k<9;k++){const a=k*TAU/9;rock(5.30+Math.cos(a)*.76,.18,6.2+Math.sin(a)*.73,.40,.45,.37,k%3===0,true);}});
+ const bankHeight=(x,z)=>site124(x,z).height;
+ B.label('continuous-soil-bank-from-stair-to-pond',()=>{const grid=lin(-6.1,3.2,64).map(z=>lin(-11,9.5,84).map(x=>[x,bankHeight(x,z),z]));B.emit(solidTerrain124(grid),'earth');});
+@@ -67,7 +71,7 @@
+ B.label('layout124-front-bank-rock-buttresses',()=>{for(const [i,x,y,z,sx,sy,sz]of[[0,3.8,.62,.05,1.45,.90,1.18],[2,5.15,.62,.35,1.30,.85,1.20],[4,.48,.82,.23,1.10,1.05,1.08]]){const scan=B.scannedStones.variants[i];scanned132(scan,scan.wet,x,y,z,sx,sy,sz,[.04,i*.54,.02],1.0);}});
+ B.label('planted-stair-bank-ferns-and-low-rocks',()=>{for(let k=0;k<90;k++){const x=rr(-7.8,8.5),z=rr(-3.4,-.7);if(Math.abs(x-1.65)<.65&&z> -1.7)continue;const y=bankHeight(x,z);if(k%3===0)rock(x,y-.04,z,rr(.24,.52),rr(.32,.62),rr(.30,.60),k%4===0,false);fern(x,y+.02,z,rr(.20,.48));}});
+ 
+-B.label('garden-shore-boulders-moss-and-crevices',()=>{for(let i=0;i<45;i++){const x=-12+i*.56,z=-1.8+.5*Math.sin(x*.8);if(x>-5.4&&x<-.8)continue;rock(x,.40,z,rr(.32,.72),rr(.34,.68),rr(.40,.78),true,true);}for(let i=0;i<25;i++){const z=-1.8+i*.50;rock(9.0+.3*Math.sin(z),.38,z,rr(.48,.86),rr(.38,.70),rr(.42,.82),true,true);rock(-9.4+.3*Math.sin(z*.7),.30,z,rr(.48,.82),rr(.34,.65),rr(.40,.78),false,true);}for(let k=0;k<30;k++){const x=k%2===0?rr(-9,-5.8):rr(5.8,9),z=rr(11,15);rock(x,.10,z,rr(.32,.78),rr(.32,.62),rr(.38,.78),false,true);}rock(-6.4,.53,-1.6,.58,.62,.66,true,true);rock(-4.8,.87,-2.2,.62,.68,.70,true,true);rock(6.4,.60,-1.5,.66,.62,.68,true,true);rock(8.0,.35,-.3,.58,.48,.62,true,true);for(let k=0;k<900;k++){const x=rr(-12,12),z=rr(-2,15);if(x>-8.5&&x<8.4&&z>1.5&&z<11.7)continue;const s=rr(.025,.13);B.sphere(x,.08+rr(0,.16),z,s,s*.7,s*.85,'stone',rr(0,TAU),rr(.5,1.0));}});
++B.label('garden-shore-boulders-moss-and-crevices',()=>{for(let i=0;i<45;i++){const x=-12+i*.56,z=-1.8+.5*Math.sin(x*.8);if(x>-5.4&&x<-.8)continue;rock(x,.40,z,rr(.32,.72),rr(.34,.68),rr(.40,.78),true,true);}for(let i=0;i<25;i++){const z=-1.8+i*.50;rock(9.0+.3*Math.sin(z),.38,z,rr(.48,.86),rr(.38,.70),rr(.42,.82),true,true);rock(-9.4+.3*Math.sin(z*.7),.30,z,rr(.48,.82),rr(.34,.65),rr(.40,.78),false,true);}for(let k=0;k<30;k++){const x=k%2===0?rr(-9,-5.8):rr(5.8,9),z=rr(11,15);rock(x,.10,z,rr(.32,.78),rr(.32,.62),rr(.38,.78),false,true);}rock(-6.4,.53,-1.6,.58,.62,.66,true,true);rock(-4.8,.87,-2.2,.62,.68,.70,true,true);rock(6.4,.60,-1.5,.66,.62,.68,true,true);rock(8.0,.35,-.3,.58,.48,.62,true,true);for(let k=0;k<900;k++){const x=rr(-12,12),z=rr(-2,15);if(x>-8.5&&x<8.4&&z>1.5&&z<11.7)continue;const s=rr(.025,.13);const legacyPebbleY=.08+rr(0,.16),pebbleY=shoreZone298(x,z)?site124(x,z).height+s*.30:legacyPebbleY;B.sphere(x,pebbleY,z,s,s*.7,s*.85,'stone',rr(0,TAU),rr(.5,1.0));}});
+ B.label('foreground-east-island-boulder-and-ferns',()=>{rock(5.55,.85,12.5,.55,.62,.60,false,true);rock(6.35,.43,11.8,.48,.48,.58,true,true);for(let k=0;k<16;k++)fern(rr(5.15,6.8),rr(.35,.75),rr(11.6,12.9),rr(.25,.50));});
+ B.label('west-bridge-root-rocks-and-flowering-groundcover',()=>{for(let k=0;k<18;k++){const x=rr(-7.9,-3.0),z=rr(1.0,5.4);rock(x,rr(.23,.54),z,rr(.40,.87),rr(.55,.94),rr(.50,.90),k%4===0,true);fern(x,.65,z,rr(.27,.52));}for(let k=0;k<7;k++)shrub(rr(-7.2,-4.3),.45,rr(2,6),rr(.6,.9),rr(.5,.8),k%3===0);});
+ B.label('deep-layered-rock-bank-and-understory',()=>{for(let k=0;k<48;k++){const x=k%2===0?rr(-9,-4.4):rr(5.2,8),z=rr(-4.5,-2.2),h=.25+.65*noise(x*.4,z*.8,77);rock(x,h,z,rr(.32,.82),rr(.32,.68),rr(.38,.82),k%3===0,true);}rock(-4.2,1.04,-2.25,.58,.64,.62,true,true);rock(6.0,1.00,-2.4,.58,.64,.68,true,true);for(let k=0;k<280;k++){const side=k%3,x=side===0?rr(-9,-6.5):side===1?rr(6.2,9.3):rr(-8,7),z=side===2?rr(-2.8,-1.0):rr(1.0,12);fern(x,rr(.17,.35),z,rr(.20,.51));}});
+@@ -296,7 +300,8 @@
+ })),[vineScale,1,vineScale]);
+ B.label('foreground-reference-boulder-and-crevice-ferns',()=>{const hero=B.scannedStones.variants[0];scanned132(hero,hero.dry,2.85,.54,10.70,1.25,1.75,1.35,[.09,-1.10,.07],1.04);for(let k=0;k<14;k++)fern(2.08+k*.070,.92,11.60+.20*Math.sin(k*2.4),.18+.07*Math.sin(k));});
+ B.label('bridge-abutment-rock-and-herb-understory',()=>{for(let k=0;k<42;k++){const x=-8.7+(k%7)*.60,z=.4+Math.floor(k/7)*.72,top=.23+.12*Math.sin(k*.7);if(k%2===0)rock(x,top,z,.40,.50,.37,k%3===0,false);fern(x,top+.26,z,.28+.10*Math.sin(k*2.1));}});
+-B.growth219=buildFloweringBanks219(B,{site:site124,clearance:routeClearance208});
++B.growth219=buildFloweringBanks219(B,{site:site124,clearance:(x,z,r)=>routeClearance208(x,z,r)||(shoreZone298(x,z)&&site124(x,z).height<.15)});
++buildRockBank298(B,{site:site124});
+ if(trunks.length){const g=mergeGeometries(trunks);B.label('connected-garden-bark-branch-sweeps',()=>B.emit(g,'bark'));trunks.forEach(g=>g.dispose());}
+ return{rock,stats:{branches:trunks.length,lantern219:B.lantern219,growth219:B.growth219}};
+ }
+--- a/reconstructions/scene-01/src/garden-growth219.js
++++ b/reconstructions/scene-01/src/garden-growth219.js
+@@ -13,7 +13,7 @@
+  const pale=B.m.pinkLight.clone();pale.name='garden219-soft-pink-corolla';pale.color.setHex(0xe7a0ae);pale.roughness=.80;pale.side=T.DoubleSide;pale.onBeforeCompile=B.m.leaf.onBeforeCompile;pale.customProgramCacheKey=pink.customProgramCacheKey;Object.assign(B.m,{garden219Pink:pink,garden219Pale:pale});
+  function limb(points,r,tip=.22){const curve=new T.CatmullRomCurve3(points.map(V)),g=new T.TubeGeometry(curve,12,r,6,false),p=g.attributes.position;for(let j=0;j<=12;j++){const c=curve.getPointAt(j/12);for(let k=0;k<=6;k++){const i=j*7+k,v=new T.Vector3().fromBufferAttribute(p,i).sub(c).multiplyScalar(1-(1-tip)*j/12).add(c);p.setXYZ(i,v.x,v.y,v.z);}}g.computeVertexNormals();branches.push(g);return curve;}
+  let plants=0,leaves=0,flowers=0;
+- for(const [x,z,r,h,flowered]of[[4.55,-.82,1.45,2.50,true],[6.40,-1.20,1.32,2.15,true],[7.50,1.38,1.30,1.90,true],[6.40,4.35,.85,1.06,true],[4.88,4.80,.70,.63,false],[-.53,-2.15,1.0,1.06,true],[-7.55,1.8,1.05,1.18,true],[-5.9,3.7,.80,.73,false]]){
++ for(const [x,z,r,h,flowered]of[[4.85,-.86,1.16,1.60,true],[6.40,-1.20,1.08,1.42,true],[7.18,.66,.94,1.24,true],[6.40,4.35,.85,1.06,true],[4.88,4.80,.70,.63,false],[-.53,-2.15,1.0,1.06,true],[-7.55,1.8,1.05,1.18,true],[-5.9,3.7,.80,.73,false]]){
+   if(clearance(x,z,r*.55))continue;const y=site(x,z).height+.025;plants++;
+   B.label('garden219-rooted-branching-azalea-and-bank-underplanting',()=>{
+    for(let arm=0;arm<7;arm++){
+--- a/reconstructions/scene-01/src/garden-surface132.js
++++ b/reconstructions/scene-01/src/garden-surface132.js
+@@ -9,7 +9,7 @@
+  function id(q,n){const key=q.toArray().map(v=>v.toFixed(6)).join(',');if(lookup.has(key))return lookup.get(key);const value=points.length;lookup.set(key,value);points.push(q);directions.push(n.clone().normalize());return value;}
+  function patch(q,n){
+   const c=q[0].clone().add(q[1]).add(q[2]).multiplyScalar(1/3),up=n[0].y+n[1].y+n[2].y,field=.68*noise(c.x*4.2,c.z*4.2,132)+.32*noise(c.x*13,c.z*13,219);
+-  if(up<.42||field<.46)return;topFaces.push(q.map((v,i)=>id(v,n[i])));
++  if(up<1.45||field<.64)return;topFaces.push(q.map((v,i)=>id(v,n[i])));
+  }
+  for(let face=0;face<index.count;face+=3){
+   const ids=[index.getX(face),index.getX(face+1),index.getX(face+2)],q=ids.map(point),n=ids.map(normal),m=[],mn=[];
+--- a/reconstructions/scene-01/src/scanned-garden-stones.js
++++ b/reconstructions/scene-01/src/scanned-garden-stones.js
+@@ -9,15 +9,20 @@
+  material.onBeforeCompile=shader=>{
+   shader.vertexShader=shader.vertexShader.replace(
+    '#include <common>',
+-   '#include <common>\nvarying vec3 vStoneFieldPosition;'
++   '#include <common>\nvarying vec3 vStoneFieldPosition; varying vec3 vStoneFieldNormal;'
+   ).replace(
+    '#include <worldpos_vertex>',
+-   '#include <worldpos_vertex>\nvStoneFieldPosition = worldPosition.xyz;'
++   `#include <worldpos_vertex>
++    vStoneFieldPosition=worldPosition.xyz;vec3 bankNormal=objectNormal;
++    #ifdef USE_INSTANCING
++     mat3 bankInstance=mat3(instanceMatrix);bankNormal/=vec3(dot(bankInstance[0],bankInstance[0]),dot(bankInstance[1],bankInstance[1]),dot(bankInstance[2],bankInstance[2]));bankNormal=bankInstance*bankNormal;
++    #endif
++    vStoneFieldNormal=normalize(mat3(modelMatrix)*bankNormal);`
+   );
+   shader.fragmentShader=shader.fragmentShader.replace(
+    '#include <common>',
+    `#include <common>
+-    varying vec3 vStoneFieldPosition;
++    varying vec3 vStoneFieldPosition; varying vec3 vStoneFieldNormal;
+     float stoneHash(vec3 p){
+      p=fract(p*0.1031);
+      p+=dot(p,p.yzx+33.33);
+@@ -48,16 +53,17 @@
+     float broad=stoneValueNoise(vStoneFieldPosition*5.0+vec3(7.0,3.0,11.0));
+     float strata=stoneValueNoise(vStoneFieldPosition*14.0+vec3(2.7,6.1,0.9));
+     float flecks=smoothstep(0.72,0.91,stoneValueNoise(vStoneFieldPosition*31.0+vec3(4.0,8.0,2.0)));
+-    float proceduralMoss=smoothstep(0.43,0.71,broad)*(0.65+0.35*strata);
+-    float mossMask=clamp(max(scanMoss*0.95,proceduralMoss*0.88),0.0,0.91);
+-    vec3 charcoal=vec3(stoneLuma*0.78,stoneLuma*0.83,stoneLuma*0.89);
++    float up=clamp(vStoneFieldNormal.y,0.,1.);float proceduralMoss=smoothstep(.65,.83,broad)*smoothstep(.30,.83,up);
++    float mossMask=clamp(scanMoss*.48+proceduralMoss*.28,0.,.58);
++    vec3 charcoal=mix(vec3(stoneLuma*.95,stoneLuma*.98,stoneLuma*1.02),scannedStone,.22);
+     vec3 oliveMoss=mix(vec3(.026,.045,.006),vec3(.10,.14,.020),strata);
+     float facetValue=0.82+broad*0.22+(strata-0.5)*0.08;
+     diffuseColor.rgb=mix(charcoal,oliveMoss,mossMask)*facetValue;
+-    diffuseColor.rgb+=flecks*vec3(0.007,0.009,0.011);`
++    diffuseColor.rgb+=flecks*vec3(.012,.012,.010);float waterline=1.-smoothstep(.16,.42,vStoneFieldPosition.y);diffuseColor.rgb*=1.-waterline*.27;`
+   );
++  shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nfloat bankWet=1.-smoothstep(.16,.42,vStoneFieldPosition.y);roughnessFactor=mix(roughnessFactor,max(.22,roughnessFactor*.56),bankWet);');
+  };
+- material.customProgramCacheKey=()=> 'scanned-garden-stone-breakup-v1';
++ material.customProgramCacheKey=()=> 'scanned-garden-stone-sparse-moss-waterline298-v2';
+ }
+ 
+ // The scan supplies each stone's eroded outline and surface. Placement, size,
+--- a/reconstructions/scene-01/src/bridge-court208.js
++++ b/reconstructions/scene-01/src/bridge-court208.js
+@@ -23,6 +23,7 @@
+  return[{distance:east,y:eastY},{distance:north,y:eastY-halfDescent*T.MathUtils.clamp((-v-1.10)/1.55,0,1)},{distance:turn,y:turnY},{distance:eastFlight,y:turnY+(S.landingY-turnY)*T.MathUtils.clamp((u-E)/(eu-E),0,1)},{distance:west,y:westY},{distance:westFlight,y:westY+(1.69-westY)*T.MathUtils.clamp((-v-1.10)/3.50,0,1)}];
+ }
+ function courtCoordinates(x,z){const q=new T.Vector3(x,0,z).sub(foot),u=q.dot(across),v=q.dot(forward);return{u,v,distance:Math.hypot(Math.max(Math.abs(u)-C,0),Math.max(-v,0,v-1.95))};}
++export function routeDistance298(x,z){const p=UV(x,z),regions=region208(p.x,p.z),court=courtCoordinates(x,z);return Math.min(court.distance,...regions.map(q=>q.distance));}
+ export function routeClearance208(x,z,margin=.15){
+  const p=UV(x,z),regions=region208(p.x,p.z),court=courtCoordinates(x,z);
+  return regions.some(q=>q.distance<=margin)||court.distance<=margin;
+@@ -33,7 +34,7 @@
+ export function bank208(x,z,original){
+  const p=UV(x,z);let y=original;
+  const pondRecession=1-T.MathUtils.smoothstep(p.z,.55,2.50),cascadeClearance=1-T.MathUtils.smoothstep(p.z,-1.1,-.20)*T.MathUtils.smoothstep(p.x,E-.05,E+.82);
+- for(const r of region208(p.x,p.z)){const weight=(1-T.MathUtils.smoothstep(r.distance,.08,1.80))*pondRecession*cascadeClearance;y=Math.max(y,original+Math.max(0,r.y-.43-original)*weight);}
++ for(const r of region208(p.x,p.z)){const weight=(1-T.MathUtils.smoothstep(r.distance,.04,1.25))*pondRecession*cascadeClearance;y=Math.max(y,original+Math.max(0,r.y-.43-original)*weight);}
+  const court=courtCoordinates(x,z),weight=1-T.MathUtils.smoothstep(court.distance,0,1.45);y=Math.max(y,original+Math.max(0,S.landingY-.19-original)*weight);
+  // Keep the occupied channel beneath the bridge open. Raised end shoulders
+  // stop at actual masonry abutments instead of filling the arch with a mound.
+--- a/reconstructions/scene-01/src/scene.js
++++ b/reconstructions/scene-01/src/scene.js
+@@ -1,4 +1,5 @@
+ import * as T from 'three';
++import {installShoreMaterials298} from './shoreline-craft298.js';
+ import {installCraftMaterials298} from './foreground-craft298.js';
+ import {installScannedTimber} from './scanned-timber.js';
+ import {loadBlenderJoinery} from './blender-joinery.js';
+@@ -135,7 +136,7 @@
+ mats.bark.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vBarkField;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvBarkField=position;');shader.fragmentShader='varying vec3 vBarkField;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+ float lichen=wf(vBarkField*vec3(9.,12.,9.));float islands=smoothstep(.62,.78,lichen);diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.165,.115),islands*.85);`);};mats.bark.customProgramCacheKey=()=> 'scene01-132-bark-lichen-field';
+ const timber=await installScannedTimber(mats);
+-const hardware=installHardwareMaterials131(mats);installCraftMaterials298(mats);
++const hardware=installHardwareMaterials131(mats);installCraftMaterials298(mats);installShoreMaterials298(mats);
+ const joineryKit=await loadBlenderJoinery();
+ const scannedStones=await loadScannedGardenStones();
+ const carvedSources185=await loadCarvedSources185();
+@@ -172,5 +173,5 @@
+ const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
+ for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,1.5,2.6,2);lamp.position.copy(local);scene.add(lamp);}
+  RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,2.0,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
+- let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.66;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt','craft298Brass','craft298Recess']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-craft298-closed-cast-fittings-and-seated-cast-relief-and-courtyard-radiance-r07',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Low sunlit courtyard horizon bounce approximation with actual shadowing; main sun and sky held',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
++ let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.66;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt','craft298Brass','craft298Recess']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-craft298-closed-cast-fittings-and-terraced-water-edge-scanned-rock-banks-and-buried-piers-r15',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Low sunlit courtyard horizon bounce approximation with actual shadowing; main sun and sky held',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
+ }
+--- /dev/null
++++ b/reconstructions/scene-01/shore298-provenance.json
+@@ -0,0 +1,55 @@
++{
++  "revision": "shore298-r15",
++  "status": "source-and-native-review-candidate-not-photographically-accepted",
++  "baselineSourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
++  "scope": "Scene01 actual bank terrain, stone/water boundaries, scan material energy and bridge-pier ground contact. Camera, sun, environment intensity, exposure and water shader remain at R07.",
++  "diagnosis": {
++    "method": "Official1254 low courtyard ray picks on unchanged R07 source",
++    "actualBareSoilPoints": [
++      [
++        -4.1238,
++        1.0711,
++        -3.2127
++      ],
++      [
++        0.9662,
++        1.5793,
++        0.3587
++      ]
++    ],
++    "causes": [
++      "Earth color times dark procedural map produces near-black soil",
++      "Broad1.8m smooth route shoulders and three giant rounded soil masses obscure natural water boundaries",
++      "Scan recoloring and added moss cover much of each stone with a similar olive finish"
++    ]
++  },
++  "geometry": [
++    "Continuous closed terraced shore and local bridge inlet; route-distance blending carries the actual route foundations without abrupt cliffs",
++    "Route bank falloff contracts from1.8m to1.25m and three oversized buried soil mounds are omitted",
++    "63 additional placements of the retained full3D CC0 stone scans form drowned toes, short middle/upper strata and court-face receiver courses",
++    "Existing shore stones are lowered where the new ground would otherwise leave them floating; actual cascade lips are held",
++    "Two stepped closed granite pier shoes extend into the new inlet bed by at least.12m and overlap original pier bases by.16m",
++    "Small shore pebbles use centerY=terrainY+.30s and verticalRadius=.70s, embedding their lower.40s into actual ground",
++    "New creased sedge blades and dry root runs occupy sparse actual crevices; three rooted flower shelves retain a lower azalea hierarchy"
++  ],
++  "materials": [
++    "Original scan geometry/UV/color/normal assets retained with sparse slope-dependent moss and height-dependent wet roughness",
++    "Sparse physically closed surface-conformed moss skins replace the broad olive coating; detached moss balls are muted while retaining original RNG consumption",
++    "Mineral soil reflectance and world-stable grain/gravel/root shading replace the black double-tinted earth"
++  ],
++  "preserved": [
++    "R07 foreground craft, temple/pagoda/bridge architecture and camera",
++    "Main sun/sky/light intensities/exposure",
++    "Actual scene-reflecting water shader and source asset identities"
++  ],
++  "newImageAssets": false,
++  "referencePhotographPixelsUsed": false,
++  "newExternalSources": false,
++  "structuralCertification": false,
++  "limitations": [
++    "Inherited bridge-end shrub volume remains visibly simplified; later alternative shrubs/large rock spurs were rejected and retained outside this candidate",
++    "Some route-facing soil/masonry surfaces and geological repetition remain visible",
++    "The bank is an authored interpretation, not surveyed geology",
++    "Full scene remains short of HD01 photographic fidelity"
++  ]
++}

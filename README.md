@@ -4,9 +4,9 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
-2026-10-25 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261025-n/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261025-n/frames.json)。此固定对照包含第一景新廊架、第五景角灯，以及佛堂新采光、垂饰和薄草席；新佛像姿态仍未纳入。供桌、跪垫、柜面、柱网和房间纵深正在继续重做；所有场景的摄影匹配仍未通过。
+2026-10-25 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261025-o/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261025-o/frames.json)。此固定对照包含第一景廊架和石岸、第三景承檐木构、第五景角灯，以及佛堂新柜面、连续背光雕刻和薄草席；新佛像姿态仍未纳入。供桌、跪垫、柜面、柱网和房间纵深正在继续重做；所有场景的摄影匹配仍未通过。
 
-佛堂最新原生工作源 `12a4a409` 已合入实体高窗、滑屏、前左太阳、供桌、织锦跪垫与立体垂饰：[7 秒 1080×1080／24fps 实际拉远片段](qa/ten-reference/06/iteration-scene06-native284-r08-published/motion-review.mp4)、[全幅](qa/ten-reference/06/iteration-scene06-native284-r08-published/full.png)、[供桌局部](qa/ten-reference/06/iteration-scene06-native284-r08-published/altar-detail-native.png)与[精确媒体身份](qa/ten-reference/06/iteration-scene06-native284-r08-published/media.json)。此片静音，尚未合入下方冻结十景影片；主佛手势和胁侍造型仍在单独重建。画面仍有明显的造型、明暗与材质差距。
+佛堂最新原生工作源 `19c197c5` 已合入实体高窗、滑屏、前左太阳、供桌、织锦跪垫、分层柜面与连续背光雕刻：[7 秒 1080×1080／24fps 实际拉远片段](qa/ten-reference/06/iteration-scene06-integrated309-published/motion-review.mp4)、[全幅](qa/ten-reference/06/iteration-scene06-integrated309-published/full.png)、[供桌局部](qa/ten-reference/06/iteration-scene06-integrated309-published/altar-detail-native.png)与[精确媒体身份](qa/ten-reference/06/iteration-scene06-integrated309-published/media.json)。此片静音，尚未合入下方冻结十景影片；主佛手势和胁侍造型仍在单独重建。画面仍有明显的造型、明暗与材质差距。
 
 [完整几何的 Cycles 采光研究](lookdev/scene06-daylight284/publication/README.md)另保留可再生代码、材质参数和实际物理渲染；它与原生影片是两个明确区分的渲染检查点。
 

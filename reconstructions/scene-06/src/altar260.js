@@ -1,9 +1,10 @@
 import * as T from 'three';
 import {chasedBaseRosette198} from './altar-joinery198.js';
+import {CABINET293,withCabinetCase293,tryBuildCaseFrame293,tryBuildCaseDivider293,data293} from './cabinet-cases293.js';
 
 // World/altar-unit construction, inferred from held53/reference front edges.
 // Existing224 meshes/scales and all scene/layout object anchors are retained.
-export const ALTAR260_PROFILE=Object.freeze({revision:'altar260-r02',tierShiftY:Object.freeze({1:-.16,2:-.10,3:0,4:0}),baseTop:.610,doorBottom:.060,doorTop:.520,baseDoorOuterWidth:.720,baseDoorInnerWidth:.642,thinBeadRadius:.0015});
+export const ALTAR260_PROFILE=Object.freeze({revision:'altar260-r04-cabinet293-rolled-recessed-frames',tierShiftY:Object.freeze({1:-.16,2:-.10,3:0,4:0}),baseTop:.610,doorBottom:.060,doorTop:.520,baseDoorOuterWidth:.720,baseDoorInnerWidth:.642,thinBeadRadius:.0015});
 let tip260=null;
 export async function loadAltar260(){
  if(tip260)return;
@@ -119,7 +120,11 @@ export function withAltarTier260(b,layout,t,level,emitOriginalTier){
  data.tierPlacements.push({level,originalY:t.y,actualY:t.y+shift,translationY:shift,carvingSourcesAndUniformScalesUnchanged:true});
 }
 
+export function withAltarPanelCase260(b,x,y,z,w,h,back,emit){
+ return withCabinetCase293(b,{x,y,z,w,h,back},data260(b),emit);
+}
 export function buildPanelFrame260(b,x,y,z,w,h,back){
+ if(tryBuildCaseFrame293(b,{x,y,z,w,h,back,tip:tip260},data260(b)))return;
  b.box(x,y,(z+.006+back)/2,w+.018,h+.035,z+.006-back,'lacquer');
  for(const side of[-1,1]){
   rounded260(b,'panel-rebated-stile',x+side*w/2,y,z+.008,.045,h+.056,.060,'lacquer',.0022);
@@ -130,6 +135,7 @@ export function buildPanelFrame260(b,x,y,z,w,h,back){
  }data260(b).frames++;
 }
 export function buildPanelDivider260(b,x,y,z,h){
+ if(tryBuildCaseDivider293(b,{x,y,z,h},data260(b)))return;
  rounded260(b,'dark-joinery-divider',x,y,z,.052,h,.085,'lacquer',.0025);
  for(const side of[-1,1]){bead260(b,'divider-edge',x+side*.020,y,z+.045,h-.020,true);plaque260(b,x,y+side*(h*.38),z+.046,.060,.034,1,side);}data260(b).dividers++;
 }
@@ -141,13 +147,17 @@ export function buildTierEdge260(b,t,level,front,frontWidth,wingInset,stepped){
 }
 export function buildAltarUpright260(b,x){
  const bottom=ALTAR260_PROFILE.baseTop,top=1.890,height=top-bottom,profile=[[0,0],[.058,.008],[.044,.050],[.028,.100],[.027,height-.110],[.050,height-.070],[.041,height-.010],[0,height]];
- const g=b.geometry('260-supported-tier-upright',()=>{const q=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),24);q.userData.altar260={closedSolid:true,actualRevolvedJoinery:true,baseBearingY:bottom,upperAnchorY:top};return q;});b.add(g,'lacquer',x,bottom,1.56);
+ const g=b.geometry('260-supported-tier-upright',()=>{const q=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),24);q.userData.altar260={closedSolid:true,actualRevolvedJoinery:true,baseBearingY:bottom,upperAnchorY:top};return q;});b.add(g,'lacquer',x,bottom,CABINET293.pilasterZ);
+ const data=data293(data260(b));data.altarPilasterAxes??=[];data.altarPilasterAxes.push({x,oldZ:CABINET293.oldPilasterZ,newZ:CABINET293.pilasterZ,bottomY:bottom,topY:top});
 }
 export function buildUprightCapital260(b,x,y,z,bearingZ,row){
- const shift=ALTAR260_PROFILE.tierShiftY[row]??0,yy=y+shift;
- b.torus(x,yy,z,.043,.006,'oldgold',Math.PI/2);
- rounded260(b,'upright-depth-bearing',x,yy,(z+bearingZ)/2,.113,.031,Math.abs(z-bearingZ)+.10,'lacquer',.0022);
- plaque260(b,x,yy,z+.055,.080,.038,1,1);
+ const shift=ALTAR260_PROFILE.tierShiftY[row]??0,yy=y+shift,actualZ=z+CABINET293.pilasterZ-CABINET293.oldPilasterZ;
+ b.torus(x,yy,actualZ,.043,.006,'oldgold',Math.PI/2);
+ rounded260(b,'upright-depth-bearing',x,yy,(actualZ+bearingZ)/2,.113,.031,Math.abs(actualZ-bearingZ)+.10,'lacquer',.0022);
+ plaque260(b,x,yy,actualZ+.055,.080,.038,1,1);
+}
+export function buildAltarUprightFinial260(b,x){
+ b.ball(x,1.91,CABINET293.pilasterZ,.048,.064,.048,'trim');
 }
 export function withAltarAccents260(b,layout,emitOriginalAccents){
  const geometry=b.geometry,add=b.add,keys=new Map();

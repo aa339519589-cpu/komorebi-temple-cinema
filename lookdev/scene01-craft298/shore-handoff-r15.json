@@ -1,0 +1,735 @@
+{
+  "status": "reviewable-native-3d-bank-repair-candidate-not-integrated",
+  "reference": 1,
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15",
+  "baselineCommitRootReported": "837b164a",
+  "baselineSourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+  "canonicalSourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+  "canonicalUnchanged": true,
+  "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/scene01-shore298-r15-over-r07.patch",
+  "patchSha256": "a33e9d10e769a44a7481bc9a762867fa1e3b0aac74adac32154c96b6118238f3",
+  "patchApplyCheck": "git apply --check passed against current canonical R07",
+  "changedFiles": {
+    "reconstructions/scene-01/src/shoreline-craft298.js": "c828cc79b85aed71f6d579ef6a2a2c301a3525d96dc98b03589b56467e8d2f17",
+    "reconstructions/scene-01/src/garden.js": "48e6b65566f2701c996c8a37d6ef827dc856ebba06b298ef921e2412cd2c8b3f",
+    "reconstructions/scene-01/src/garden-growth219.js": "414c805a13e338d3afeefb85a942640b82d06c989deb6fdb3c4928ba94a652f4",
+    "reconstructions/scene-01/src/garden-surface132.js": "122cf77d7e5860ac823e90e8abab1ea8b43e46c5c883371a664a42ba178e4246",
+    "reconstructions/scene-01/src/scanned-garden-stones.js": "c71b870d1b9217779b14854af1cac4cd035f7e8c5fd2b91344a567bdd17de0ec",
+    "reconstructions/scene-01/src/bridge-court208.js": "6908a0f765e57d0d5192af3b4ff539ead98de42b635415987c3c75f2ced0f572",
+    "reconstructions/scene-01/src/scene.js": "4ac069f5b6043216d94d498d1e64a7cbf32da985c3dcfb1cd41851c8d29319b5",
+    "reconstructions/scene-01/shore298-provenance.json": "b75c3b971c0f0d33008610d3b1f135205a10a5b8b5593c539eab808d0c186999"
+  },
+  "audit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/shore-geometry-contact-audit-r15.json",
+  "auditSourceMatches": true,
+  "realServerCopy": {
+    "inode": 30186470,
+    "liveInode": 25969387,
+    "symlink": false
+  },
+  "frames": [
+    {
+      "role": "fullAndBankDetail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-full-and-bank-detail/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-full-and-bank-detail/report.json",
+      "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "e54e20b0bf3cfedac0e4e5414f47c4c9d732a2f9c58d435a477feb259f30515f",
+      "camera": null,
+      "detailCrop": null,
+      "rayPicks": null,
+      "calls": 29432,
+      "triangles": 350194612,
+      "shore": {
+        "revision": "shore298-r15-terraced-water-edge-and-buried-pier-shoes",
+        "stones": 63,
+        "rootedCrevicePlants": 10,
+        "sedgesAreNewCreasedBlades": true,
+        "referencePixelsUsed": false,
+        "bridgePierFoundations": [
+          {
+            "center": [
+              -4.511217086902675,
+              -1.4038678631209338
+            ],
+            "terrainY": -0.16890729356509335,
+            "bottomY": -0.28890729356509337,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12000000000000002,
+            "oldPierOverlap": 0.16
+          },
+          {
+            "center": [
+              -4.508780008092581,
+              -0.34345097625806364
+            ],
+            "terrainY": -0.1521708151446416,
+            "bottomY": -0.2721708151446416,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12,
+            "oldPierOverlap": 0.16
+          }
+        ],
+        "blackBankDiagnosticWorldPoints": [
+          [
+            -4.1238,
+            1.0711,
+            -3.2127
+          ],
+          [
+            0.9662,
+            1.5793,
+            0.3587
+          ]
+        ],
+        "waterLevel": 0.13,
+        "terrain": "Closed terraced bank and local bridge inlet, with inset soil shoulders and water-buried interlocked stone toes",
+        "photographicAccepted": false
+      },
+      "visualAccepted": false
+    },
+    {
+      "role": "fullAndBankDetail-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-full-and-bank-detail/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-full-and-bank-detail/report.json",
+      "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "fb72c9820f2e1610bf949ee04fdbc0a32c2b5a8537cfc9366e72e9c122198841",
+      "camera": null,
+      "detailCrop": [
+        520,
+        660,
+        580,
+        1254
+      ],
+      "rayPicks": null,
+      "calls": 23414,
+      "triangles": 335992064,
+      "shore": {
+        "revision": "shore298-r15-terraced-water-edge-and-buried-pier-shoes",
+        "stones": 63,
+        "rootedCrevicePlants": 10,
+        "sedgesAreNewCreasedBlades": true,
+        "referencePixelsUsed": false,
+        "bridgePierFoundations": [
+          {
+            "center": [
+              -4.511217086902675,
+              -1.4038678631209338
+            ],
+            "terrainY": -0.16890729356509335,
+            "bottomY": -0.28890729356509337,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12000000000000002,
+            "oldPierOverlap": 0.16
+          },
+          {
+            "center": [
+              -4.508780008092581,
+              -0.34345097625806364
+            ],
+            "terrainY": -0.1521708151446416,
+            "bottomY": -0.2721708151446416,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12,
+            "oldPierOverlap": 0.16
+          }
+        ],
+        "blackBankDiagnosticWorldPoints": [
+          [
+            -4.1238,
+            1.0711,
+            -3.2127
+          ],
+          [
+            0.9662,
+            1.5793,
+            0.3587
+          ]
+        ],
+        "waterLevel": 0.13,
+        "terrain": "Closed terraced bank and local bridge inlet, with inset soil shoulders and water-buried interlocked stone toes",
+        "photographicAccepted": false
+      },
+      "visualAccepted": false
+    },
+    {
+      "role": "lowPierSide",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-low-pier-side/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-low-pier-side/report.json",
+      "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "40196f7d83b0aeae28b1db7173c5a7b156e68d2d2a3ecda55ecc5ea34b35c17d",
+      "camera": {
+        "position": [
+          -2.7,
+          0.9,
+          4.8
+        ],
+        "target": [
+          -4.52,
+          0.85,
+          -0.88
+        ],
+        "fov": 58,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "rayPicks": null,
+      "calls": 5434,
+      "triangles": 70309374,
+      "shore": {
+        "revision": "shore298-r15-terraced-water-edge-and-buried-pier-shoes",
+        "stones": 63,
+        "rootedCrevicePlants": 10,
+        "sedgesAreNewCreasedBlades": true,
+        "referencePixelsUsed": false,
+        "bridgePierFoundations": [
+          {
+            "center": [
+              -4.511217086902675,
+              -1.4038678631209338
+            ],
+            "terrainY": -0.16890729356509335,
+            "bottomY": -0.28890729356509337,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12000000000000002,
+            "oldPierOverlap": 0.16
+          },
+          {
+            "center": [
+              -4.508780008092581,
+              -0.34345097625806364
+            ],
+            "terrainY": -0.1521708151446416,
+            "bottomY": -0.2721708151446416,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12,
+            "oldPierOverlap": 0.16
+          }
+        ],
+        "blackBankDiagnosticWorldPoints": [
+          [
+            -4.1238,
+            1.0711,
+            -3.2127
+          ],
+          [
+            0.9662,
+            1.5793,
+            0.3587
+          ]
+        ],
+        "waterLevel": 0.13,
+        "terrain": "Closed terraced bank and local bridge inlet, with inset soil shoulders and water-buried interlocked stone toes",
+        "photographicAccepted": false
+      },
+      "visualAccepted": false
+    },
+    {
+      "role": "sameLowCourtyard",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-low-courtyard/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r15/qa/ten-reference/01/iteration-scene01-shore298-r15-low-courtyard/report.json",
+      "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "391b2846375ad4639a721c26437b55635c8477783eb5f0069cdccc338fd39e60",
+      "camera": {
+        "position": [
+          0.6,
+          1.75,
+          9.5
+        ],
+        "target": [
+          0,
+          7.5,
+          -9
+        ],
+        "fov": 65,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "rayPicks": [
+        {
+          "pixel": [
+            0.22,
+            0.79
+          ],
+          "hits": [
+            {
+              "distance": 13.412459661926922,
+              "point": [
+                -4.065894192599032,
+                1.079445879685187,
+                -3.056825344728513
+              ],
+              "name": "stone-lantern-founded-shore-island / planted-stair-bank-ferns-and-low-rocks / garden-shore-boulders-moss-and-crevices / deep-layered-rock-bank-and-understory / hall-terrace-rooted-pine-and-rock-garden / maple-rooted-east-shore-extension / bridge-abutment-rock-and-herb-understory / shore298-interlocked-waterline-toe-and-layered-rock-banks",
+              "instanceId": 35,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scanned-weathered-moss-stone-1",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -4.879557071886057,
+                  0.5890910997312231,
+                  -3.6629120288785435
+                ],
+                [
+                  -3.2004428518199974,
+                  1.109999977119668,
+                  -2.037087780386593
+                ]
+              ]
+            },
+            {
+              "distance": 13.5166717252453,
+              "point": [
+                -4.102147234419261,
+                1.0742358115689703,
+                -3.154389304724397
+              ],
+              "name": "stone-lantern-founded-shore-island / planted-stair-bank-ferns-and-low-rocks / garden-shore-boulders-moss-and-crevices / deep-layered-rock-bank-and-understory / hall-terrace-rooted-pine-and-rock-garden / maple-rooted-east-shore-extension / bridge-abutment-rock-and-herb-understory / shore298-interlocked-waterline-toe-and-layered-rock-banks",
+              "instanceId": 35,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scanned-weathered-moss-stone-1",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -4.879557071886057,
+                  0.5890910997312231,
+                  -3.6629120288785435
+                ],
+                [
+                  -3.2004428518199974,
+                  1.109999977119668,
+                  -2.037087780386593
+                ]
+              ]
+            },
+            {
+              "distance": 13.523992921145116,
+              "point": [
+                -4.104694114431791,
+                1.0738697893627536,
+                -3.1612434523263833
+              ],
+              "name": "stone-lantern-founded-shore-island / layout124-supported-shore-rock-masses / planted-stair-bank-ferns-and-low-rocks / garden-shore-boulders-moss-and-crevices / west-bridge-root-rocks-and-flowering-groundcover / deep-layered-rock-bank-and-understory / hall-terrace-rooted-pine-and-rock-garden / garden132-planted-central-bent-and-cascade-lips / garden132-organic-planted-bridge-and-waterfall-shelves / structure208-rooted-rock-and-herb-bridge-shoulders / maple-rooted-east-shore-extension / bridge-abutment-rock-and-herb-understory / shore298-interlocked-waterline-toe-and-layered-rock-banks",
+              "instanceId": 76,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "moss",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -4.863445555481973,
+                  0.6600063439915527,
+                  -3.6114774362044786
+                ],
+                [
+                  -3.237771540179474,
+                  1.1015553849686786,
+                  -2.0552603154423608
+                ]
+              ]
+            },
+            {
+              "distance": 14.597787979008197,
+              "point": [
+                -4.478243355272909,
+                1.0201855495907075,
+                -4.166536839034116
+              ],
+              "name": "stone-lantern-founded-shore-island / planted-stair-bank-ferns-and-low-rocks / garden-shore-boulders-moss-and-crevices / west-bridge-root-rocks-and-flowering-groundcover / deep-layered-rock-bank-and-understory / structure208-rooted-rock-and-herb-bridge-shoulders / foreground-reference-boulder-and-crevice-ferns / bridge-abutment-rock-and-herb-understory / shore298-interlocked-waterline-toe-and-layered-rock-banks",
+              "instanceId": 18,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scanned-weathered-moss-stone-0",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -5.677066100038912,
+                  0.8687046346390019,
+                  -4.655665043852509
+                ],
+                [
+                  -4.201050507627103,
+                  1.4062999906814326,
+                  -3.384853716828643
+                ]
+              ]
+            },
+            {
+              "distance": 14.602199499831213,
+              "point": [
+                -4.479778024521313,
+                1.019964996199362,
+                -4.170666931341977
+              ],
+              "name": "continuous-soil-bank-from-stair-to-pond",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "shore298-mineral-soil-fine-gravel-and-root-mat",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -11,
+                  -0.3499999940395355,
+                  -6.099999904632568
+                ],
+                [
+                  9.5,
+                  2.741637706756592,
+                  3.200000047683716
+                ]
+              ]
+            },
+            {
+              "distance": 15.025400691475602,
+              "point": [
+                -4.627000236715528,
+                0.9988071094334593,
+                -4.566870430409657
+              ],
+              "name": "stone-lantern-founded-shore-island / planted-stair-bank-ferns-and-low-rocks / garden-shore-boulders-moss-and-crevices / west-bridge-root-rocks-and-flowering-groundcover / deep-layered-rock-bank-and-understory / structure208-rooted-rock-and-herb-bridge-shoulders / foreground-reference-boulder-and-crevice-ferns / bridge-abutment-rock-and-herb-understory / shore298-interlocked-waterline-toe-and-layered-rock-banks",
+              "instanceId": 18,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "scanned-weathered-moss-stone-0",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -5.677066100038912,
+                  0.8687046346390019,
+                  -4.655665043852509
+                ],
+                [
+                  -4.201050507627103,
+                  1.4062999906814326,
+                  -3.384853716828643
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "pixel": [
+            0.56,
+            0.76
+          ],
+          "hits": [
+            {
+              "distance": 8.372907095169854,
+              "point": [
+                0.935057895808911,
+                1.5938294879622619,
+                1.1352573140609006
+              ],
+              "name": "west-bridge-root-rocks-and-flowering-groundcover / hall-terrace-rooted-pine-and-rock-garden / flowering-garden-shrubs / garden132-organic-planted-bridge-and-waterfall-shelves / structure208-rooted-rock-and-herb-bridge-shoulders / garden132-rounded-broadleaf-middle-ground",
+              "instanceId": 66003,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "leafDark",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  0.8804070957900958,
+                  1.5884815325507085,
+                  1.0137700854962894
+                ],
+                [
+                  1.012478388457306,
+                  1.6119565231460136,
+                  1.1644268761839673
+                ]
+              ]
+            },
+            {
+              "distance": 8.643243863023528,
+              "point": [
+                0.9458759387618885,
+                1.5887871972765466,
+                0.8651841511866905
+              ],
+              "name": "west-bridge-root-rocks-and-flowering-groundcover / hall-terrace-rooted-pine-and-rock-garden / flowering-garden-shrubs / garden132-organic-planted-bridge-and-waterfall-shelves / structure208-rooted-rock-and-herb-bridge-shoulders / garden132-rounded-broadleaf-middle-ground",
+              "instanceId": 65997,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "leafDark",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  0.8981593159388818,
+                  1.5496575181354078,
+                  0.8287387735116726
+                ],
+                [
+                  0.9824532937731123,
+                  1.6043214114377315,
+                  0.96258065776495
+                ]
+              ]
+            },
+            {
+              "distance": 9.185510786390038,
+              "point": [
+                0.967575787123369,
+                1.5786728962194942,
+                0.32344599148903974
+              ],
+              "name": "continuous-soil-bank-from-stair-to-pond",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "shore298-mineral-soil-fine-gravel-and-root-mat",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  -11,
+                  -0.3499999940395355,
+                  -6.099999904632568
+                ],
+                [
+                  9.5,
+                  2.741637706756592,
+                  3.200000047683716
+                ]
+              ]
+            },
+            {
+              "distance": 12.953880168724318,
+              "point": [
+                1.1183742973091597,
+                1.508385698559559,
+                -3.4412488594763477
+              ],
+              "name": "structure208-bearing-bridge-landings-and-turning-stair-route",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "route219-weathered-cut-bearing-stone",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.0584214925765991,
+                  1.3104771375656128,
+                  -3.6117374897003174
+                ],
+                [
+                  1.3680343627929688,
+                  1.5493725538253784,
+                  -3.4411110877990723
+                ]
+              ]
+            },
+            {
+              "distance": 13.042214696527118,
+              "point": [
+                1.121909172433948,
+                1.5067380929811411,
+                -3.529497252412728
+              ],
+              "name": "structure208-bearing-bridge-landings-and-turning-stair-route",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "route219-weathered-cut-bearing-stone",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  0.9420013427734375,
+                  0.05000000074505806,
+                  -4.562168598175049
+                ],
+                [
+                  1.5467158555984497,
+                  2.308058738708496,
+                  -3.5283262729644775
+                ]
+              ]
+            },
+            {
+              "distance": 13.990096576925787,
+              "point": [
+                1.1598404792921104,
+                1.4890583078204351,
+                -4.476454854602403
+              ],
+              "name": "structure208-bearing-bridge-landings-and-turning-stair-route",
+              "instanceId": 0,
+              "geometry": "BufferGeometry",
+              "material": [
+                {
+                  "name": "route219-weathered-cut-bearing-stone",
+                  "type": "MeshStandardMaterial",
+                  "opacity": 1
+                }
+              ],
+              "bounds": [
+                [
+                  1.0697712898254395,
+                  1.3104771375656128,
+                  -4.6469621658325195
+                ],
+                [
+                  1.417626142501831,
+                  1.5493725538253784,
+                  -4.476247787475586
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "calls": 13002,
+      "triangles": 201823092,
+      "shore": {
+        "revision": "shore298-r15-terraced-water-edge-and-buried-pier-shoes",
+        "stones": 63,
+        "rootedCrevicePlants": 10,
+        "sedgesAreNewCreasedBlades": true,
+        "referencePixelsUsed": false,
+        "bridgePierFoundations": [
+          {
+            "center": [
+              -4.511217086902675,
+              -1.4038678631209338
+            ],
+            "terrainY": -0.16890729356509335,
+            "bottomY": -0.28890729356509337,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12000000000000002,
+            "oldPierOverlap": 0.16
+          },
+          {
+            "center": [
+              -4.508780008092581,
+              -0.34345097625806364
+            ],
+            "terrainY": -0.1521708151446416,
+            "bottomY": -0.2721708151446416,
+            "oldPierBottomY": -0.01,
+            "shoeTopY": 0.15,
+            "burial": 0.12,
+            "oldPierOverlap": 0.16
+          }
+        ],
+        "blackBankDiagnosticWorldPoints": [
+          [
+            -4.1238,
+            1.0711,
+            -3.2127
+          ],
+          [
+            0.9662,
+            1.5793,
+            0.3587
+          ]
+        ],
+        "waterLevel": 0.13,
+        "terrain": "Closed terraced bank and local bridge inlet, with inset soil shoulders and water-buried interlocked stone toes",
+        "photographicAccepted": false
+      },
+      "visualAccepted": false
+    }
+  ],
+  "comparisons": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/hd01-r07-r15-bank-full-comparison.jpg",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/r07-r15-same-low-courtyard-comparison.jpg"
+  ],
+  "newImageAssets": false,
+  "referenceRGBUsedForSceneSurfaces": false,
+  "allActualImageJobs": "tools/render-one-reconstruction.mjs shared GPU FIFO; no physical export or Blender used",
+  "rejectedCandidatesRetained": [
+    {
+      "candidate": "candidate-r08",
+      "reason": "Abrupt lower bank exposed plain route foundations and removed flower roots"
+    },
+    {
+      "candidate": "candidate-r10",
+      "reason": "Reduced hedge exposed remaining east-landing earth cone"
+    },
+    {
+      "candidate": "candidate-r11",
+      "reason": "Tall separate scan stones read as upright pillars"
+    },
+    {
+      "candidate": "candidate-r12",
+      "reason": "Wider separate scan stones still look slab-like with local gaps"
+    },
+    {
+      "candidate": "candidate-r13",
+      "reason": "Continuous loft was too rotational and regularly stepped"
+    },
+    {
+      "candidate": "candidate-r14",
+      "reason": "Continuous deformed boulder remained too isolated and artificially surfaced"
+    }
+  ],
+  "chosenBranch": "R09 reviewed continuous shore/scan/footing work plus R15 physically bed-seated shore pebbles; later experimental spurs and replacement shrubs are excluded",
+  "limits": [
+    "Inherited bridge-end shrub remains a simplified upright volume",
+    "Some route-facing earth/masonry and repeated geological forms remain visible",
+    "Sky, main architecture, vegetation and overall photographic fidelity are still unaccepted",
+    "Native manual radiance remains the R07 approximation without solved diffuse GI"
+  ],
+  "photographicAccepted": false,
+  "visualAccepted": false,
+  "filmComplete": false
+}

@@ -1,7 +1,7 @@
 import {createCurvedEaveRafter} from './scene03-curved-rafter.js';
 import {createCarvedReceivers106} from './scene03-carved-receivers106.js';
 import {createSculptedTimber109} from './scene03-sculpted-timber109.js';
-import {createKumimono211 as createBearing174} from './scene03-kumimono211-r11.js';
+import {createBearing174} from './scene03-bearing174.js';
 
 //109 replaces thin separated ranks with an occupied, stepped bearing canopy.
 // All altered cross-sections, carved noses, cups, girts and returns are actual
@@ -17,10 +17,10 @@ export function buildHallCarpentry03(T,api){
  }
  const seat=(x,z)=>{const t=(z-C.ridgeZ)/5.2,u=x/(api.upperWidth*(.275+.225*t));return upper.P(0,t,u)[1]-.30;},curveAt=(y,x,z)=>y+seat(x,z)-seat(0,z);
  function girt(y,z,half=6.03,w=.46,h=.31,ma='red'){curved(lin(-half,half,72).map(x=>[x,curveAt(y,x,z),z]),w,h,ma);}
- role('upper-rebuilt-connected-gallery211-r11',()=>{
+ role('scene03-308-deep-segmented-gallery-and-returned-bays',()=>{
   // A taller short-post storey replaces the low concealed wall and floating
   // thin rails. Real recessed panels and sill/head timbers fill this band.
-  box(0,12.20,wallZ-.18,12.04,1.74,.30,'darkwood');
+  box(0,12.20,wallZ-.44,12.04,1.74,.22,'darkwood');
   box(0,12.20,-8.0,12.04,1.74,.30,'darkwood');
   for(const sign of[-1,1]){
    for(const y of[11.35,12.64,13.04])box(sign*5.94,y,-4.5,.34,.18,7.35,'red');
@@ -36,19 +36,24 @@ export function buildHallCarpentry03(T,api){
   const brace=keep(new T.ExtrudeGeometry(braceShape,{depth:.18,steps:1,curveSegments:20,bevelEnabled:true,bevelSize:.010,bevelThickness:.010,bevelSegments:2}));brace.name='scene03-r11-pierced-double-shoulder-gallery-brace';
   for(let i=0;i<axes.length-1;i++){
    const x=(axes[i]+axes[i+1])/2,w=axes[i+1]-axes[i]-.30;
-   box(x,12.20,wallZ-.045,w,.74,.18,'roofFrieze');
+   for(let cell=0;cell<3;cell++){
+    const cw=(w-.12)/3,xx=x-w/2+.06+cw*(cell+.5);
+    box(xx,12.20,wallZ-.22,cw-.075,.39,.10,'roofFrieze');
+    for(const edge of[-1,1]){box(xx+edge*cw*.47,12.20,wallZ-.065,.065,.65,.37,'red');box(xx,12.20+edge*.235,wallZ-.065,cw,.080,.37,'cedar');}
+   }
    for(const sign of[-1,1]){box(x,12.20+sign*.43,wallZ+.08,w+.06,.10,.22,'cedar');box(x+sign*(w/2+.015),12.20,wallZ+.07,.075,.92,.20,'red');}
    api.rosette(x,12.20,wallZ+.16,.105,'oldgold');
-   emit(brace,'gableCarving',x,12.65,wallZ+.03,w/1.96,1,1);
+   emit(carving.frogStrut(),'cedar',x,12.64,wallZ+.03,w/2.2,.40,.90);
+   emit(carving.foliateStrut(),'gableCarving',x,12.64,wallZ+.25,w/2.1,.40,.72);
   }
   for(const x of axes){box(x,12.20,wallZ+.16,.27,1.72,.42,'red');box(x,12.88,wallZ+.16,.36,.12,.47,'cedar');}
   for(const y of[11.55,11.84])girt(y,-.30,6.02,.11,.085,'red');
   for(let i=0;i<=29;i++)box(-5.94+i*11.88/29,11.69,-.30,.040,.35,.085,'red');
  });
- role('upper-rebuilt-fine-carved-kumimono211-r11',()=>{
+ role('scene03-308-deep-occupied-four-rank-upper-tokyo',()=>{
   grouped(0,0,-1.57,0,()=>atticPanel174(5.98,13.04,x=>seat(x,-1.38)+.11,.34));
   for(const[y,z,w,h]of[[13.04,-.72,.40,.24],[13.41,-.65,.22,.12],[13.69,-.30,.20,.12],[14.15,.333,.22,.13]])girt(y,z,6.03,w,h,'cedar');
-  for(const x of axes){const base=curveAt(13.04,x,-.80),front=-.80+1.10*1.03;cluster(x,base,-.80,seat(x,front)-.13,1.0,true,1.03);}
+  for(const x of axes){const base=curveAt(13.04,x,-.80),front=-.80+1.43*.94;cluster(x,base,-.80,seat(x,front)-.345,.92,true,.94);}
   // Rafters keep a constant transverse station. Their inner cuts stop at
   // the actual hip; the former fixed-u rows incorrectly fanned to the ridge.
   for(let j=1;j<80;j++){
