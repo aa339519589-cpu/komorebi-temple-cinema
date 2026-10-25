@@ -1,0 +1,175 @@
+{
+  "status": "reviewable-native-3d-candidate-not-integrated",
+  "scene": 1,
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07",
+  "canonicalUnchanged": true,
+  "canonicalSourceHash": "3edd3edb412597b8dc4f6394e9db04c3984cc371dacd90b72ab7e529bc48fbf6",
+  "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/scene01-craft298-r07.patch",
+  "patchSha256": "581ea93907ef0c23788f4ebf1759e2c6d0200223ea2867aa1bd8bd1fb35d52a3",
+  "patchApplyCheck": "git apply --check passed against unchanged canonical scene01",
+  "sourceFiles": {
+    "reconstructions/scene-01/src/foreground-craft298.js": "adc5462f4e66f467226389a7fd17395db834c8472f928822668bcffbceb41ba2",
+    "reconstructions/scene-01/src/layout-components124.js": "eefebac935e349b765dad054f906254bd0c03a31214e14d3aeaaf346080db593",
+    "reconstructions/scene-01/src/bridge-court208.js": "d4c9973d3db6497e59272653585c9b54c53c71c8a1c73c9af713747fa1cef102",
+    "reconstructions/scene-01/src/scene.js": "07005b44e7393cedd4db0bccad423002e8231a0fc796b6403c70b3586c304b00",
+    "reconstructions/scene-01/craft298-provenance.json": "4278a2c109f10052570cd4b8bdbd00fcb7224eef9a9047f687ea3f3f18fa43ea"
+  },
+  "geometryValidation": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/geometry-validation-r07.json",
+  "geometryValidationSourceMatches": true,
+  "nativeDriver": "tools/render-one-reconstruction.mjs shared FIFO; no ad-hoc renderer or Blender used",
+  "realServerCopy": {
+    "candidateInode": 30150202,
+    "canonicalInode": 25969387,
+    "symlink": false
+  },
+  "frames": [
+    {
+      "role": "fullAndEave",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-full-eave-detail/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-full-eave-detail/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ca355c9b3c033f734790dc43e01b39b4bdbb3df915413669b7714dce74b1d554",
+      "view": {
+        "pixels": [
+          0,
+          0,
+          420,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "visualAccepted": false,
+      "calls": 29312,
+      "triangles": 419149702
+    },
+    {
+      "role": "fullAndEave-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-full-eave-detail/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-full-eave-detail/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "84820edf161341dc9476f0f7d57019f23c4bc414e030ec4250da928aaabe3156",
+      "view": {
+        "pixels": [
+          0,
+          0,
+          420,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "visualAccepted": false,
+      "calls": 10803,
+      "triangles": 185136552
+    },
+    {
+      "role": "bridgeDetail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-bridge-detail/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-bridge-detail/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ca355c9b3c033f734790dc43e01b39b4bdbb3df915413669b7714dce74b1d554",
+      "view": {
+        "pixels": [
+          110,
+          585,
+          600,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "visualAccepted": false,
+      "calls": 29312,
+      "triangles": 419149702
+    },
+    {
+      "role": "bridgeDetail-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-bridge-detail/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-bridge-detail/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "ab99a0b226cd629b0dd81a8e517499f4bccec3d23cdec0b9a9e31e5d2673fe94",
+      "view": {
+        "pixels": [
+          110,
+          585,
+          600,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "visualAccepted": false,
+      "calls": 12498,
+      "triangles": 191261950
+    },
+    {
+      "role": "courtyardLowOblique",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-low-courtyard-oblique/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-low-courtyard-oblique/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "808d3ceb917efd25a65ccbfee8647109d97abe4b8845110e950c7a7a6e906353",
+      "view": {
+        "position": [
+          0.6,
+          1.75,
+          9.5
+        ],
+        "target": [
+          0,
+          7.5,
+          -9
+        ],
+        "fov": 65,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "visualAccepted": false,
+      "calls": 12922,
+      "triangles": 247793152
+    },
+    {
+      "role": "verandaLowOblique",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-low-veranda-oblique/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/candidate-r07/qa/ten-reference/01/iteration-scene01-craft298-r07-low-veranda-oblique/report.json",
+      "sourceHash": "da62d04787fc99fbbfebc6d0634cd3051ace0830091a98741d61b2e3d88f5d1c",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "2a758b26c851492b2608cc69ea8cc76ed77a2173ffa4cfebd9703476fce51448",
+      "view": {
+        "position": [
+          -0.5,
+          3,
+          15.3
+        ],
+        "target": [
+          -4.1,
+          8.3,
+          7.1
+        ],
+        "fov": 65,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "visualAccepted": false,
+      "calls": 4210,
+      "triangles": 93943028
+    }
+  ],
+  "comparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-craft298/hd01-canonical-r07-full-comparison.jpg",
+  "visualAccepted": false,
+  "photographicAccepted": false,
+  "filmComplete": false,
+  "limitations": [
+    "Main-hall/pagoda material and overall form are still simplified relative to HD01",
+    "Garden foliage clustering and leaf distribution remain visibly uniform",
+    "Pond and background/sunset still differ markedly; actual reflected pond luminance improved but remains low",
+    "Manually authored sky/court diffuse radiance is an approximation, not solved GI",
+    "New craft interpretation is original geometry, not a surveyed historic ornament replica"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "status": "approved-exact-r02-CPU-Node-pose-authoring",
+  "at": "2026-10-25T11:25:35.180763+00:00",
+  "files": {
+    "build-pose295-r02.mjs": "5d184465d06c4b3c1e81341603772046cf33de0b98bece060c800d5ed444cc89",
+    "pose-r02.json": "deccc1325506e772957814f1812e42106c670787a920226965efa5734f9caa88",
+    "analyze-source295.mjs": "7dd9d346152a6e8a139ba17c8580c30a11e28e086276e5625131c09685da2274",
+    "source-analysis-r01.json": "de12928247cbe55836d6bcc9508c89ac59cc75003c2185e1e2d05028b06185a9"
+  },
+  "reviewed": "Complete R02 writer and complete final config, R01-to-R02 diff; unchanged source-analysis helper and data retain prior full Root review.",
+  "allowedCommand": "UV_THREADPOOL_SIZE=1 node --v8-pool-size=3 authoring/build-pose295-r02.mjs pose-r02.json",
+  "scope": "Single existing exclusive CPU lock, maximum four CPU threads, bounded original left-arm DQ posing plus local wrist cage. Full transported forearm frame carries supination. No renderer/export/bake/Blender/GPU.",
+  "guards": "Original source hashes, protected head/right/legs attributes, no overwrite outputs or receipts, owned lock-only removal retained.",
+  "requiresReview": [
+    "Repeat source-control strict local triangle crossing probe; no global intersection-free claim",
+    "Actual palm-to-lap contact and wrist, sleeve, elbow shape from full and oblique native renders",
+    "Preserve every failed candidate and source ancestry"
+  ],
+  "photographicAccepted": false
+}

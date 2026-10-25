@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildPrayerMats299} from './prayer-mats299.js';
 import {buildRoomStructure248} from './room-structure248.js';
 import {ROOM_LAYOUT248} from './room-layout248.js';
 import {createPaintMaterial249} from './paint-material249-r02.js';
@@ -161,13 +162,8 @@ materials.faceGold=materials.buddha.clone();materials.faceGold.name='scene06-r9-
  // The original photograph has a transverse woven prayer-mat band, not
  // an empty central aisle. Side mats continue a little toward the camera;
  // the nearest foreground returns to reflective wood. All are true receivers.
- const prayerMats=[],weave=strawWeave();
- for(const [x,z,w,d]of[[0,5.20,4.00,.84],[-3.225,5.60,3.95,1.75],[3.225,5.60,3.95,1.75]]){
-  const material=materials.mat.clone(),map=weave.clone();map.repeat.set(w/.32,d/.32);map.needsUpdate=true;material.map=material.bumpMap=map;
-  const mat=box([x,.016,z],[w,.032,d],material);mat.name='reference6-woven-prayer-mat';prayerMats.push(mat);
-  for(const dz of[-d/2,d/2])box([x,.034,z+dz],[w+.026,.008,.026],materials.black);
-  for(const dx of[-w/2,w/2])box([x+dx,.034,z],[.026,.008,d],materials.black);
- }
+ const matCraft299=buildPrayerMats299();architecture.add(matCraft299.group);blockers.push(...matCraft299.blockers);const prayerMats=matCraft299.mats;
+ architecture.userData.prayerMats299=matCraft299.details;
 
  const furniture=new T.Group();furniture.name='reference6-rebuilt-furnishings';furniture.position.fromArray(REFERENCE6_FOUNDATION.altarOrigin);scene.add(furniture);
  // Retain the model-unit conversion; actual fitted height/neck/depth are

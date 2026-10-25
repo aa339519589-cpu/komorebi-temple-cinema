@@ -1,0 +1,102 @@
+--- root-reviewed-r01/build-pose295.mjs
++++ r02/build-pose295-r02.mjs
+@@ -8,3 +8,3 @@
+ const LANE=resolve(import.meta.dirname,'..'),ROOT=resolve(LANE,'../..');
+-const configFile=resolve(import.meta.dirname,process.argv[2]??'pose-r01.json');
++const configFile=resolve(import.meta.dirname,process.argv[2]??'pose-r02.json');
+ const config=JSON.parse(await readFile(configFile,'utf8'));
+@@ -39,4 +39,9 @@
+ const E=config.elbowSource,W=config.wristSource;
+-const qF=qBetween(sub(W,E),config.forearmTargetDirection),W1=add(E,rotate(qF,sub(W,E)));
+ const qH=mapFrames(frame(config.sourceFingerAxis,config.sourcePalmNormal),frame(config.targetFingerAxis,config.targetPalmNormal));
++// Preserve the full source-hand frame when choosing forearm axial orientation.
++// The remaining minimum rotation aligns its transported elbow-wrist axis.
++// This carries supination in the forearm instead of forcing an axial flip into
++// the short wrist blend. Joint endpoints and original source length stay exact.
++const qF=qMul(qBetween(rotate(qH,sub(W,E)),config.forearmTargetDirection),qH),W1=add(E,rotate(qF,sub(W,E)));
++const wristRelativeDegrees=2*Math.acos(Math.max(-1,Math.min(1,Math.abs(dot(qF,qH)))))*180/Math.PI;
+ const tF=sub(E,rotate(qF,E)),tH=sub(W1,rotate(qH,W));
+@@ -51,3 +56,4 @@
+  const release=env.frontSideRelease*smooth(z,env.frontSideStart,env.frontSideFull);
+- const arm=smooth(x,env.sideStart-release,env.sideFull-release)*smooth(z,env.frontStart,env.frontFull)*smooth(y,env.bottomStart,env.bottomFull)*(1-smooth(y,env.topFull,env.topEnd));
++ const upper=config.upperSleeveHold,upperHold=upper?1-smooth(y,upper.startY,upper.fullY)*(1-smooth(z,upper.frontStart,upper.frontFull)):1;
++ const arm=upperHold*smooth(x,env.sideStart-release,env.sideFull-release)*smooth(z,env.frontStart,env.frontFull)*smooth(y,env.bottomStart,env.bottomFull)*(1-smooth(y,env.topFull,env.topEnd));
+  const hand=smooth(y,wb.startY,wb.fullY)*smooth(z,wb.startZ,wb.fullZ);
+@@ -75,3 +81,5 @@
+   for(let j=0;j<3;j++){movedBounds.min[j]=Math.min(movedBounds.min[j],P0[k+j]);movedBounds.max[j]=Math.max(movedBounds.max[j],P0[k+j]);}
+-  const d=blendDQ(arm,hand),q=d.slice(0,4),t=mul(qMul(d.slice(4),qConj(q)).slice(1),2),p=add(rotate(q,Array.from(P0.subarray(k,k+3))),t);
++  let sourcePoint=Array.from(P0.subarray(k,k+3));
++  if(config.wristCage){const c=config.wristCage,u=unit(config.sourceFingerAxis),d=sub(sourcePoint,W),s=dot(d,u),band=smooth(s,c.startS,c.fullStartS)*(1-smooth(s,c.fullEndS,c.endS))*(1-smooth(Math.hypot(...d),c.radiusFull,c.radiusEnd))*smooth(sourcePoint[2],c.frontStart,c.frontFull),scale=1-(1-c.radialScale)*band;sourcePoint=add(W,add(mul(u,s),mul(sub(d,mul(u,s)),scale)));}
++  const d=blendDQ(arm,hand),q=d.slice(0,4),t=mul(qMul(d.slice(4),qConj(q)).slice(1),2),p=add(rotate(q,sourcePoint),t);
+   P.set(p,k);moved[v]=1;count++;maxDelta=Math.max(maxDelta,Math.hypot(P[k]-P0[k],P[k+1]-P0[k+1],P[k+2]-P0[k+2]));
+@@ -81,5 +89,6 @@
+  for(let j=0;j<ni;j+=3)if(moved[I[j]]||moved[I[j+1]]||moved[I[j+2]]){touched[I[j]]=1;touched[I[j+1]]=1;touched[I[j+2]]=1;}
+- let normalsChanged=0,protectedChanges=0,headCount=0,rightCount=0,legCount=0;
++ let normalsChanged=0,protectedChanges=0,headCount=0,rightCount=0,legCount=0,positionChangesExact=0;
+  for(let v=0;v<n;v++){
+   const k=v*3;if(touched[v]){const d=blendDQ(armWeights[v],handWeights[v]),q=d.slice(0,4),residual=rotate(q,sub(Array.from(N0.subarray(k,k+3)),Array.from(G0.subarray(k,k+3)))),normal=unit(add(Array.from(G1.subarray(k,k+3)),residual));N.set(normal,k);if(normal.some((a,j)=>N[k+j]!==N0[k+j]))normalsChanged++;}
++  if([0,1,2].some(j=>P[k+j]!==P0[k+j]))positionChangesExact++;
+   const held=P0[k+1]>=config.protected.headAtOrAboveY||P0[k]<=config.protected.rightAtOrBelowX||P0[k+1]<=config.protected.legsAtOrBelowY;
+
+# Metadata-only delta after this algorithm section: audit names changedPositions as exact float32 count; adds selectedPoseVertices, forearmFrameMethod, wristRelativeDegrees, localOriginalWristCage and upperSleeveHold. Attribution explicitly declares frame-based supination, upper sleeve hold, local wrist cage and actual R01-native-guided pose. No source/UV/index/CM07/protected-region changes. Full lines are in the complete R02 file.
+
+--- pose-r01.json
++++ pose-r02.json
+@@ -1,3 +1,3 @@
+ {
+-  "revision": "r01",
++  "revision": "r02",
+   "elbowSource": [
+@@ -13,5 +13,5 @@
+   "forearmTargetDirection": [
+-    -0.17,
+-    -0.4,
+-    0.53
++    -0.14,
++    -0.49,
++    0.37
+   ],
+@@ -28,10 +28,10 @@
+   "targetFingerAxis": [
+-    -0.9968,
+-    0.0,
+-    0.08
++    -0.993,
++    -0.08,
++    0.089
+   ],
+   "targetPalmNormal": [
+-    0.0,
+-    1.0,
+-    0.0
++    0,
++    0.96,
++    0.28
+   ],
+@@ -61,6 +61,24 @@
+   },
+-  "notes": "First anatomical pose study. Source original left (+X) shoulder remains fixed; elbow stays in place; DQ turns source forearm toward lap and transports original hand/fingers to upward palm. Photo is a visual comparison only and is never sampled by this CPU script.",
++  "notes": "R02 actual-image repair after R01 full/native arm/front/3q: hold upper sleeve near source, narrow only original wrist/cuff through a local smooth cage, lower original palm toward lap and tilt normal slightly forward. Fingers and all topology retained. No reference raster/depth sampling. Exact unchanged-leg roof study selects direction [-.14,-.49,.37] and 4.6-degree downward finger axis: predicted minimum real original-hand/leg vertical clearance .003081884 source units, 0/7840 hand samples below roof. Wrist target [.500943,.529734,.153143] retains original elbow-wrist length. Actual DQ mesh and native verification remain required.",
+   "sourceAnalysis": "source-analysis-r01.json",
+   "sourcePalmSeedVertex": 141564,
+-  "jointGuideScope": "Elbow pivot is an original source surface anchor; wrist center is the length-weighted centroid of the exact source closed triangle-plane section at Y1.38. Neither is claimed an original rig."
++  "jointGuideScope": "Elbow pivot is an original source surface anchor; wrist center is the length-weighted centroid of the exact source closed triangle-plane section at Y1.38. Neither is claimed an original rig.",
++  "upperSleeveHold": {
++    "startY": 1.3,
++    "fullY": 1.78,
++    "frontStart": -0.1,
++    "frontFull": 0.12
++  },
++  "wristCage": {
++    "radialScale": 0.88,
++    "startS": -0.16,
++    "fullStartS": -0.06,
++    "fullEndS": 0.03,
++    "endS": 0.12,
++    "radiusFull": 0.2,
++    "radiusEnd": 0.34,
++    "frontStart": 0.02,
++    "frontFull": 0.12
++  },
++  "forearmOrientation": "Minimum change from complete source-hand frame under target elbow-wrist-axis constraint; forearm carries supination, wrist carries the remaining anatomical bend."
+ }

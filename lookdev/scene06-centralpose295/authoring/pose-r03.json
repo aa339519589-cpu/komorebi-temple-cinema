@@ -1,0 +1,104 @@
+{
+  "revision": "r03",
+  "elbowSource": [
+    0.6367751359939575,
+    1.0051466226577759,
+    -0.2058418095111847
+  ],
+  "wristSource": [
+    0.56286480292494,
+    1.3800000000000008,
+    0.2709803826966819
+  ],
+  "forearmTargetDirection": [
+    -0.48,
+    -0.3,
+    0.2
+  ],
+  "sourceFingerAxis": [
+    0.08,
+    0.98,
+    0.16
+  ],
+  "sourcePalmNormal": [
+    0.0,
+    -0.16,
+    0.98
+  ],
+  "targetFingerAxis": [
+    -0.993,
+    -0.08,
+    0.089
+  ],
+  "targetPalmNormal": [
+    0,
+    0.96,
+    0.28
+  ],
+  "envelope": {
+    "frontStart": -0.44,
+    "frontFull": 0.025,
+    "sideStart": 0.4,
+    "sideFull": 0.5,
+    "frontSideRelease": 0.15,
+    "frontSideStart": -0.08,
+    "frontSideFull": 0.15,
+    "bottomStart": 0.72,
+    "bottomFull": 0.94,
+    "topFull": 1.95,
+    "topEnd": 2.08
+  },
+  "wristBlend": {
+    "startY": 1.22,
+    "fullY": 1.48,
+    "startZ": -0.02,
+    "fullZ": 0.19
+  },
+  "protected": {
+    "headAtOrAboveY": 2.1,
+    "rightAtOrBelowX": 0.0,
+    "legsAtOrBelowY": 0.7
+  },
+  "notes": "R03 after actual R02 full/crop/front/3q and classified strict crossings: move actual source elbow outward/forward/down to create real limb space, explicitly pin source chest/large sleeve, curve cuff/forearm outward and forward in its original bone parameter, remove radial wrist squeezing. Original hand frame remains, true elbow-wrist length retained. Hand-only original-leg roof prediction for final direction gives min clearance .007571585 source units (~5.8mm world), not a full cuff/body collision proof. Full actual mesh source-control crossing probe and native views required.",
+  "sourceAnalysis": "source-analysis-r01.json",
+  "sourcePalmSeedVertex": 141564,
+  "jointGuideScope": "Elbow pivot is an original source surface anchor; wrist center is the length-weighted centroid of the exact source closed triangle-plane section at Y1.38. Neither is claimed an original rig.",
+  "upperSleeveHold": {
+    "startY": 1.3,
+    "fullY": 1.65,
+    "frontStart": -0.05,
+    "frontFull": 0.13
+  },
+  "wristCage": null,
+  "forearmOrientation": "Minimum change from complete source-hand frame under target elbow-wrist-axis constraint; forearm carries supination, wrist carries the remaining anatomical bend.",
+  "elbowTarget": [
+    0.9,
+    0.835,
+    -0.04
+  ],
+  "sourceBodyPin": {
+    "frontStart": -0.03,
+    "frontFull": 0.13,
+    "sideStart": 0.48,
+    "sideFull": 0.58
+  },
+  "elbowInfluence": {
+    "radiusFull": 0.08,
+    "radiusEnd": 0.25,
+    "frontStart": -0.38,
+    "frontFull": -0.22,
+    "sideStart": 0.48,
+    "sideFull": 0.58
+  },
+  "cuffArc": {
+    "sourceStart": 0.1,
+    "sourceFullStart": 0.3,
+    "sourceFullEnd": 0.7,
+    "sourceEnd": 0.94,
+    "offset": [
+      0.06,
+      0,
+      0.075
+    ]
+  }
+}

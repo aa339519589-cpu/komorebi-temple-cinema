@@ -1,0 +1,15 @@
+{
+  "status": "approved-exact-r04-local-differential-CPU-authoring",
+  "at": "2026-10-25T12:19:57.967715+00:00",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r04.py": "e02390dbcc3a34fb2eec409b5bf90862e055ba1fae1fe554651825471d473756",
+    "lookdev/scene06-centralpose295/authoring/pose-r04.json": "545d03f356ee122cd921eb843d271ab6a98baf4a2c27ebda7ea76e96afa64891"
+  },
+  "runner": "tools/run-reviewed-cpu-authoring.mjs",
+  "recipe": "scene06-centralpose295-r04",
+  "scope": "Root read complete266-line self-contained CPU Blender Laplacian solver and whole pinned config. Broad real source left-arm/cloth patch, fixed body/shoulder/two-ring boundary, source-index hand/elbow anchors, CPU bind/depsgraph evaluation and compact SC07/JSON output only. Original UV/index/head/right/leg/CM07 held. Four threads under exclusive CPU lock. No render, viewport draw, export, UV bake, Blend save or GPU. Solver is not collision-constrained; actual crossing and native shape reviews mandatory.",
+  "commands": [
+    "node tools/run-reviewed-cpu-authoring.mjs scene06-centralpose295-r04"
+  ],
+  "photographicAccepted": false
+}

@@ -1,0 +1,16 @@
+{
+  "status": "approved-exact-r01-CPU-Node-pose-authoring",
+  "at": "2026-10-25T10:50:39.527471+00:00",
+  "files": {
+    "build-pose295.mjs": "dd7cff20f900657be8776e32699b0908cf3671f573bd978b341217de17105583",
+    "pose-r01.json": "1052b7bd9f0a28447a8372d802a00de2a1f3ad134c6e2c4410231b311416384f",
+    "analyze-source295.mjs": "7dd9d346152a6e8a139ba17c8580c30a11e28e086276e5625131c09685da2274",
+    "source-analysis-r01.json": "de12928247cbe55836d6bcc9508c89ac59cc75003c2185e1e2d05028b06185a9"
+  },
+  "reviewed": "Complete self-contained author script, full read-only source analysis helper, complete pose config and source analysis identity/landmarks/section structure.",
+  "rootProtocolRepairs": "Refuse existing output and receipt before acquiring lock, independent copies for analysis/mask/license snapshots, actual mask SHA verified, only clear own PID CPU lock. Geometry algorithm and joint weights unchanged. Original script retained.",
+  "allowedCommand": "UV_THREADPOOL_SIZE=1 node --v8-pool-size=3 authoring/build-pose295.mjs pose-r01.json",
+  "scope": "Actual source palm-seed triangle-connected region inside bounded left-arm domain, dual-quaternion shoulder/elbow/wrist posing, all original vertex/index/UV identities and head/right/leg controls held. PureCPU compactSC07+weights+JSON; no renderer/browser/Blender/export/viewport/bake/GPU. Thread cap1main plus3V8 workers.",
+  "requiresActualNativeReview": "Finite/index checks do not prove no self-intersection. Inspect hand/thumb/finger transport, palm-up lap bearing, elbow/sleeve stretch and all protected parts in actual full/detail/3q.",
+  "photographicAccepted": false
+}

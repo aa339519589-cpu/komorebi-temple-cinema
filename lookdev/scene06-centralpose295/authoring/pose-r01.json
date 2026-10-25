@@ -1,0 +1,66 @@
+{
+  "revision": "r01",
+  "elbowSource": [
+    0.6367751359939575,
+    1.0051466226577759,
+    -0.2058418095111847
+  ],
+  "wristSource": [
+    0.56286480292494,
+    1.3800000000000008,
+    0.2709803826966819
+  ],
+  "forearmTargetDirection": [
+    -0.17,
+    -0.4,
+    0.53
+  ],
+  "sourceFingerAxis": [
+    0.08,
+    0.98,
+    0.16
+  ],
+  "sourcePalmNormal": [
+    0.0,
+    -0.16,
+    0.98
+  ],
+  "targetFingerAxis": [
+    -0.9968,
+    0.0,
+    0.08
+  ],
+  "targetPalmNormal": [
+    0.0,
+    1.0,
+    0.0
+  ],
+  "envelope": {
+    "frontStart": -0.44,
+    "frontFull": 0.025,
+    "sideStart": 0.4,
+    "sideFull": 0.5,
+    "frontSideRelease": 0.15,
+    "frontSideStart": -0.08,
+    "frontSideFull": 0.15,
+    "bottomStart": 0.72,
+    "bottomFull": 0.94,
+    "topFull": 1.95,
+    "topEnd": 2.08
+  },
+  "wristBlend": {
+    "startY": 1.28,
+    "fullY": 1.48,
+    "startZ": -0.02,
+    "fullZ": 0.19
+  },
+  "protected": {
+    "headAtOrAboveY": 2.1,
+    "rightAtOrBelowX": 0.0,
+    "legsAtOrBelowY": 0.7
+  },
+  "notes": "First anatomical pose study. Source original left (+X) shoulder remains fixed; elbow stays in place; DQ turns source forearm toward lap and transports original hand/fingers to upward palm. Photo is a visual comparison only and is never sampled by this CPU script.",
+  "sourceAnalysis": "source-analysis-r01.json",
+  "sourcePalmSeedVertex": 141564,
+  "jointGuideScope": "Elbow pivot is an original source surface anchor; wrist center is the length-weighted centroid of the exact source closed triangle-plane section at Y1.38. Neither is claimed an original rig."
+}

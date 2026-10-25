@@ -2,6 +2,7 @@ import * as T from 'three';
 import {V,lin,surface} from './kernel.js';
 import {layout124 as L} from './layout124.js';
 import {buildBalustradeFinial131} from './foreground-hardware131.js';
+import {buildCeilingCraft298,buildColumnCraft298,housedCeilingBeam298} from './foreground-craft298.js';
 
 export function verandaEdge124(z){const a=L.foreground.postL,b=L.foreground.postN,t=(z-a[2])/(b[2]-a[2]);return[a[0]+(b[0]-a[0])*t,L.foreground.deckY,z];}
 export function solidTerrain124(grid,bottom=-.35){const g=surface(grid,.72),p=g.attributes.position,n=grid.length*grid[0].length;for(let i=n;i<p.count;i++)p.setY(i,bottom);g.computeVertexNormals();return g;}
@@ -52,11 +53,7 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
  });
  B.label('foreground124-measured-column-and-bearing',()=>{
   const p=F.columnPosition,r=F.columnRadius,h=F.columnTop,col=new T.LatheGeometry([[0,0],[r*.96,0],[r,.15],[r,3.8],[r*.95,8.2],[r*.90,h],[0,h]].map(p=>new T.Vector2(...p)),64);B.emit(col,'red',...p);
-  // The existing fitting is bolted to an actual cylinder intersection. Its
-  // height is recovered with this closer column rather than left at an old
-  // world height that would now place it entirely above the photograph.
-  const cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.fromArray(L.camera.position);cam.lookAt(...L.camera.target);cam.updateMatrixWorld(true);const d=new T.Vector3(110/627-1,1-158/627,.5).unproject(cam).sub(cam.position).normalize(),ox=cam.position.x-p[0],oz=cam.position.z-p[2],aa=d.x*d.x+d.z*d.z,bb=2*(ox*d.x+oz*d.z),cc=ox*ox+oz*oz-r*r,dis=bb*bb-4*aa*cc;
-  if(dis>=0){const t=(-bb-Math.sqrt(dis))/(2*aa),q=cam.position.clone().addScaledVector(d,t),n=V([q.x-p[0],0,q.z-p[2]]).normalize();B.with(q.x,q.y,q.z,Math.atan2(n.x,n.z),()=>carvedFitting(0,0,.007,.17,.22));}
+
  });
  B.label('foreground124-continuous-ceiling-load-path',()=>{
   const cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.fromArray(L.camera.position);cam.lookAt(...L.camera.target);cam.updateMatrixWorld(true);
@@ -69,12 +66,13 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
    for(const [lo,hi,z0,z1]of[[-w/2,w/2,0,12],[w/2,9.2,4,12]]){
     B.box((lo+hi)/2,.05,(z0+z1)/2,hi-lo,.16,z1-z0,'darkwood');
     for(let x=lo+.10;x<hi;x+=.62)B.box(x,-.18,(z0+z1)/2,.19,.33,z1-z0,'wood');
-    for(let z=z0+.15;z<z1;z+=1.8)B.box((lo+hi)/2,-.41,z,hi-lo,.28,.29,'redLight');
+    for(let z=z0+.15;z<z1;z+=1.8)housedCeilingBeam298(B,lo,hi,z);
    }
    B.box(0,-.37,.10,w,.27,.32,'wood');for(const y of[-.47,-.26])B.box(0,y,.275,w,.024,.018,'hardwareGold131');for(let i=0;i<=Math.ceil(w/.32);i++){const x=-w/2+w*i/Math.ceil(w/.32);B.box(x,-.35,.04,.24,.12,.35,'redLight');if(B.joineryKit)B.emit(B.joineryKit.relief,'hardwareRelief131',x,-.365,.276,.23,.16,.10);}
    // This beam's lower face is exactly the column top (Y9.595), while its
    // upper face bears against the rafters at Y9.955. No suspended column.
    B.box((9.2-w/2)/2,-.525,colLocal.z,9.2+w/2,.36,.34,'wood');
+   buildCeilingCraft298(B,{width:w,colLocal});
   });
  });
  B.label('foreground124-joined-panel-balustrade',()=>{
@@ -89,6 +87,7 @@ export function buildForeground124(B,{carvedFitting,squareGold}){
    for(let i=0;i<n;i++){const p=pa.clone().lerp(pb,(i+.5)/n),span=pa.distanceTo(pb)/n-.11;B.with(p.x,0,p.z,yaw,()=>{B.box(0,2.025,0,.055,.23,span,'darkwood');B.with(-.042,2.025,0,-Math.PI/2,()=>squareGold(0,0,0,Math.min(.26,span*.65),.18));});}
   }
  });
+ buildColumnCraft298(B);
  B.layout124??={};B.layout124.foreground={postHeadY:F.postHeadY,deckY:F.deckY,columnTop:F.columnTop,ceilingBearingBottom:F.columnTop,columnDeckHole:true,structuralRails:4,postCentres:[a,b],mainVisibleSpan:length};
 }
 

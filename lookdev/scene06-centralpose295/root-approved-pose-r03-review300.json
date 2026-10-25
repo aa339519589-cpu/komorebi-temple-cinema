@@ -1,0 +1,20 @@
+{
+  "status": "approved-exact-r03-CPU-Node-pose-authoring",
+  "at": "2026-10-25T11:51:01.762092+00:00",
+  "files": {
+    "build-pose295-r03.mjs": "1679e7185d087f4a3b1e7557ac731e155d8adf7aaf5a2984341ed25285352da7",
+    "pose-r03.json": "7dbe146074531e20e5405b021b9de091f5260bd010e6dd5fa3b367400387dac8",
+    "analyze-source295.mjs": "7dd9d346152a6e8a139ba17c8580c30a11e28e086276e5625131c09685da2274",
+    "source-analysis-r01.json": "de12928247cbe55836d6bcc9508c89ac59cc75003c2185e1e2d05028b06185a9"
+  },
+  "reviewed": "Complete changes against fully reviewed R02 writer plus complete R03 config; unchanged helper/data retain prior Root review.",
+  "allowedCommand": "UV_THREADPOOL_SIZE=1 node --v8-pool-size=3 authoring/build-pose295-r03.mjs pose-r03.json",
+  "scope": "Exclusive existing CPU authoring lock, maximum four threads. Move real elbow, bounded chest pin/cuff arc, retain original wrist volume. No image sampling/render/export/bake/GPU.",
+  "guards": "All R02 original source/protected P N/UV/index/CM07/output preservation and lock ownership guards retained.",
+  "requiresReview": [
+    "Same actual source-control local crossing probe",
+    "Native palm/leg bearing, wrist and shoulder to elbow continuity",
+    "Do not infer no intersection from unchanged topology"
+  ],
+  "photographicAccepted": false
+}

@@ -1,0 +1,84 @@
+{
+  "revision": "r02",
+  "elbowSource": [
+    0.6367751359939575,
+    1.0051466226577759,
+    -0.2058418095111847
+  ],
+  "wristSource": [
+    0.56286480292494,
+    1.3800000000000008,
+    0.2709803826966819
+  ],
+  "forearmTargetDirection": [
+    -0.14,
+    -0.49,
+    0.37
+  ],
+  "sourceFingerAxis": [
+    0.08,
+    0.98,
+    0.16
+  ],
+  "sourcePalmNormal": [
+    0.0,
+    -0.16,
+    0.98
+  ],
+  "targetFingerAxis": [
+    -0.993,
+    -0.08,
+    0.089
+  ],
+  "targetPalmNormal": [
+    0,
+    0.96,
+    0.28
+  ],
+  "envelope": {
+    "frontStart": -0.44,
+    "frontFull": 0.025,
+    "sideStart": 0.4,
+    "sideFull": 0.5,
+    "frontSideRelease": 0.15,
+    "frontSideStart": -0.08,
+    "frontSideFull": 0.15,
+    "bottomStart": 0.72,
+    "bottomFull": 0.94,
+    "topFull": 1.95,
+    "topEnd": 2.08
+  },
+  "wristBlend": {
+    "startY": 1.28,
+    "fullY": 1.48,
+    "startZ": -0.02,
+    "fullZ": 0.19
+  },
+  "protected": {
+    "headAtOrAboveY": 2.1,
+    "rightAtOrBelowX": 0.0,
+    "legsAtOrBelowY": 0.7
+  },
+  "notes": "R02 actual-image repair after R01 full/native arm/front/3q: hold upper sleeve near source, narrow only original wrist/cuff through a local smooth cage, lower original palm toward lap and tilt normal slightly forward. Fingers and all topology retained. No reference raster/depth sampling. Exact unchanged-leg roof study selects direction [-.14,-.49,.37] and 4.6-degree downward finger axis: predicted minimum real original-hand/leg vertical clearance .003081884 source units, 0/7840 hand samples below roof. Wrist target [.500943,.529734,.153143] retains original elbow-wrist length. Actual DQ mesh and native verification remain required.",
+  "sourceAnalysis": "source-analysis-r01.json",
+  "sourcePalmSeedVertex": 141564,
+  "jointGuideScope": "Elbow pivot is an original source surface anchor; wrist center is the length-weighted centroid of the exact source closed triangle-plane section at Y1.38. Neither is claimed an original rig.",
+  "upperSleeveHold": {
+    "startY": 1.3,
+    "fullY": 1.78,
+    "frontStart": -0.1,
+    "frontFull": 0.12
+  },
+  "wristCage": {
+    "radialScale": 0.88,
+    "startS": -0.16,
+    "fullStartS": -0.06,
+    "fullEndS": 0.03,
+    "endS": 0.12,
+    "radiusFull": 0.2,
+    "radiusEnd": 0.34,
+    "frontStart": 0.02,
+    "frontFull": 0.12
+  },
+  "forearmOrientation": "Minimum change from complete source-hand frame under target elbow-wrist-axis constraint; forearm carries supination, wrist carries the remaining anatomical bend."
+}

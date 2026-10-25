@@ -1,0 +1,122 @@
+--- root-reviewed-r02/build-pose295-r02.mjs
++++ r03/build-pose295-r03.mjs
+@@ -8,3 +8,3 @@
+ const LANE=resolve(import.meta.dirname,'..'),ROOT=resolve(LANE,'../..');
+-const configFile=resolve(import.meta.dirname,process.argv[2]??'pose-r02.json');
++const configFile=resolve(import.meta.dirname,process.argv[2]??'pose-r03.json');
+ const config=JSON.parse(await readFile(configFile,'utf8'));
+@@ -38,3 +38,3 @@
+ function mapFrames(source,target){const m=Array.from({length:3},(_,r)=>Array.from({length:3},(_,c)=>source.reduce((s,a,k)=>s+target[k][r]*a[c],0)));return qMatrix(m);}
+-const E=config.elbowSource,W=config.wristSource;
++const E=config.elbowSource,Et=config.elbowTarget??E,W=config.wristSource;
+ const qH=mapFrames(frame(config.sourceFingerAxis,config.sourcePalmNormal),frame(config.targetFingerAxis,config.targetPalmNormal));
+@@ -44,5 +44,5 @@
+ // the short wrist blend. Joint endpoints and original source length stay exact.
+-const qF=qMul(qBetween(rotate(qH,sub(W,E)),config.forearmTargetDirection),qH),W1=add(E,rotate(qF,sub(W,E)));
++const qF=qMul(qBetween(rotate(qH,sub(W,E)),config.forearmTargetDirection),qH),W1=add(Et,rotate(qF,sub(W,E)));
+ const wristRelativeDegrees=2*Math.acos(Math.max(-1,Math.min(1,Math.abs(dot(qF,qH)))))*180/Math.PI;
+-const tF=sub(E,rotate(qF,E)),tH=sub(W1,rotate(qH,W));
++const tF=sub(Et,rotate(qF,E)),tH=sub(W1,rotate(qH,W));
+ const dq=(q,t)=>[...q,...mul(qMul([0,...t],q),.5)];
+@@ -57,3 +57,6 @@
+  const upper=config.upperSleeveHold,upperHold=upper?1-smooth(y,upper.startY,upper.fullY)*(1-smooth(z,upper.frontStart,upper.frontFull)):1;
+- const arm=upperHold*smooth(x,env.sideStart-release,env.sideFull-release)*smooth(z,env.frontStart,env.frontFull)*smooth(y,env.bottomStart,env.bottomFull)*(1-smooth(y,env.topFull,env.topEnd));
++ let arm=upperHold*smooth(x,env.sideStart-release,env.sideFull-release)*smooth(z,env.frontStart,env.frontFull)*smooth(y,env.bottomStart,env.bottomFull)*(1-smooth(y,env.topFull,env.topEnd));
++ const pin=config.sourceBodyPin,bodyRelease=pin?smooth(z,pin.frontStart,pin.frontFull)+(1-smooth(z,pin.frontStart,pin.frontFull))*smooth(x,pin.sideStart,pin.sideFull):1;
++ const joint=config.elbowInfluence;if(joint){const d=Math.hypot(x-E[0],y-E[1],z-E[2]),jw=(1-smooth(d,joint.radiusFull,joint.radiusEnd))*smooth(z,joint.frontStart,joint.frontFull)*smooth(x,joint.sideStart,joint.sideFull);arm=Math.max(arm,jw*upperHold);}
++ arm*=bodyRelease;
+  const hand=smooth(y,wb.startY,wb.fullY)*smooth(z,wb.startZ,wb.fullZ);
+@@ -84,2 +87,3 @@
+   const d=blendDQ(arm,hand),q=d.slice(0,4),t=mul(qMul(d.slice(4),qConj(q)).slice(1),2),p=add(rotate(q,sourcePoint),t);
++  if(config.cuffArc){const a=config.cuffArc,bone=sub(W,E),s=dot(sub(Array.from(P0.subarray(k,k+3)),E),bone)/dot(bone,bone),aw=arm*(1-hand)*smooth(s,a.sourceStart,a.sourceFullStart)*(1-smooth(s,a.sourceFullEnd,a.sourceEnd));for(let j=0;j<3;j++)p[j]+=a.offset[j]*aw;}
+   P.set(p,k);moved[v]=1;count++;maxDelta=Math.max(maxDelta,Math.hypot(P[k]-P0[k],P[k+1]-P0[k+1],P[k+2]-P0[k+2]));
+@@ -114,6 +118,6 @@
+  for(const license of['LICENSE-DONOR173-CC-BY-4.0-ATTRIBUTION.txt','LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt'])await copyFile(resolve(SOURCE,license),resolve(OUT,license));
+- const audit={sourceVertices:n,sourceTriangles:ni/3,authoredVertices:n,authoredTriangles:ni/3,indicesAndTriangleOrderByteExact:true,uvByteExact:true,vertexAndTriangleIdentityMapping:'output vertex v = R08a vertex v; output triangle t = R08a triangle t. All original R08a ancestor/midpoint/donor barycentric traces remain valid as ancestry, not unchanged-position claims.',changedPositions:positionChangesExact,selectedPoseVertices:count,sourceConnectedRegion:{palmSeedVertex:palmSeed,palmSeedSourcePosition:Array.from(P0.subarray(palmSeed*3,palmSeed*3+3)),allowedEnvelopeVertices:allowedVertices,connectedVertices:count,disconnectedExcluded,originalSourceBounds:movedBounds,selection:'Triangle-index connected component containing the measured original-source palm seed, inside a local left-arm/sleeve envelope. Not a whole positive-X selection.'},changedNormals:normalsChanged,maximumPositionDelta:maxDelta,headAtOrAboveY:config.protected.headAtOrAboveY,headHeldVertices:headCount,rightSideHeldVertices:rightCount,legsHeldVertices:legCount,protectedPositionOrNormalChanges:protectedChanges,scalpCoverageByteExact:true,sourceHandFingersRetained:true,forearmFrameMethod:config.forearmOrientation,wristRelativeDegrees,localOriginalWristCage:config.wristCage??null,upperSleeveHold:config.upperSleeveHold??null,localTriangleCount,localMinimumTwiceArea:minArea,localDegenerateTriangles:degenerate,localAreaRatioPercentiles:{minimum:localAreaRatios[0],p01:localAreaRatios[Math.floor(localAreaRatios.length*.01)],median:localAreaRatios[Math.floor(localAreaRatios.length*.5)],p99:localAreaRatios[Math.floor(localAreaRatios.length*.99)],maximum:localAreaRatios.at(-1)},selfIntersectionsChecked:false,visualAccepted:false};
+- const attribution='Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0. Preserved R08a connected-head derivative additionally incorporates source-supported geometry from Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; donor culture/period unspecified. The R08a head/ear/scalp authorship and all original source mappings are retained unchanged. POSE295 '+config.revision+': declared real 3D left-arm/hand pose derivative of R08a. R02 chooses the forearm axial orientation from the complete original source-hand frame with only the minimum remaining elbow-wrist-axis rotation, spreading supination into the forearm instead of forcing an axial flip at the wrist. It additionally holds the original upper sleeve behind the forearm, applies a bounded local C2 radial cage to the original wrist/cuff, and lowers/tilts the original palm based on actual R01 native full/detail/three-quarter review. No original finger triangles are removed or replaced. The original +X/figure-left forearm is dual-quaternion posed around its elbow, the original palm and all source fingers rotate upward over the lap, and connected left sleeve/side garments deform continuously through the authored joint weights. Head/ears/curls at Y>=2.10, all -X/figure-right geometry, legs at Y<=0.70, bearing/contact band, all UVs, indices and vertex identity stay exact from R08a. Body and left palm positions/normals are intentionally changed. No reference/depth/image is sampled, no projected plane or replacement frame is used. Original source, licenses, ancestor mappings and all earlier failed candidates are retained. CC BY-NC-SA4.0 personal noncommercial-only adaptation; no endorsement implied.';
++ const audit={sourceVertices:n,sourceTriangles:ni/3,authoredVertices:n,authoredTriangles:ni/3,indicesAndTriangleOrderByteExact:true,uvByteExact:true,vertexAndTriangleIdentityMapping:'output vertex v = R08a vertex v; output triangle t = R08a triangle t. All original R08a ancestor/midpoint/donor barycentric traces remain valid as ancestry, not unchanged-position claims.',changedPositions:positionChangesExact,selectedPoseVertices:count,sourceConnectedRegion:{palmSeedVertex:palmSeed,palmSeedSourcePosition:Array.from(P0.subarray(palmSeed*3,palmSeed*3+3)),allowedEnvelopeVertices:allowedVertices,connectedVertices:count,disconnectedExcluded,originalSourceBounds:movedBounds,selection:'Triangle-index connected component containing the measured original-source palm seed, inside a local left-arm/sleeve envelope. Not a whole positive-X selection.'},changedNormals:normalsChanged,maximumPositionDelta:maxDelta,headAtOrAboveY:config.protected.headAtOrAboveY,headHeldVertices:headCount,rightSideHeldVertices:rightCount,legsHeldVertices:legCount,protectedPositionOrNormalChanges:protectedChanges,scalpCoverageByteExact:true,sourceHandFingersRetained:true,forearmFrameMethod:config.forearmOrientation,wristRelativeDegrees,elbowTarget:Et,actualPosedElbowAnchor:Array.from(P.subarray(sourceAnalysis.sourceLandmarks.elbowSurface.vertex*3,sourceAnalysis.sourceLandmarks.elbowSurface.vertex*3+3)),sourceBodyPin:config.sourceBodyPin??null,forearmCuffArc:config.cuffArc??null,localOriginalWristCage:config.wristCage??null,upperSleeveHold:config.upperSleeveHold??null,localTriangleCount,localMinimumTwiceArea:minArea,localDegenerateTriangles:degenerate,localAreaRatioPercentiles:{minimum:localAreaRatios[0],p01:localAreaRatios[Math.floor(localAreaRatios.length*.01)],median:localAreaRatios[Math.floor(localAreaRatios.length*.5)],p99:localAreaRatios[Math.floor(localAreaRatios.length*.99)],maximum:localAreaRatios.at(-1)},selfIntersectionsChecked:false,visualAccepted:false};
++ const attribution='Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0. Preserved R08a connected-head derivative additionally incorporates source-supported geometry from Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0; donor culture/period unspecified. The R08a head/ear/scalp authorship and all original source mappings are retained unchanged. POSE295 '+config.revision+': declared real 3D left-arm/hand pose derivative of R08a. R03 retains the complete original source-hand frame and moves the measured original elbow outward/forward/down with an explicitly pinned chest and large sleeve. A bounded outward/front cuff trajectory follows the source elbow-wrist coordinate to create actual limb space. The original wrist radial volume is restored; this round does not squeeze the wrist to mask collisions. The original palm/fingers retain the guided lap pose. Actual R01/R02 native full/detail/front/three-quarter images and classified source-control triangle crossings motivated this repair. No original finger triangles are removed or replaced. The original +X/figure-left forearm is dual-quaternion posed around its elbow, the original palm and all source fingers rotate upward over the lap, and connected left sleeve/side garments deform continuously through the authored joint weights. Head/ears/curls at Y>=2.10, all -X/figure-right geometry, legs at Y<=0.70, bearing/contact band, all UVs, indices and vertex identity stay exact from R08a. Body and left palm positions/normals are intentionally changed. No reference/depth/image is sampled, no projected plane or replacement frame is used. Original source, licenses, ancestor mappings and all earlier failed candidates are retained. CC BY-NC-SA4.0 personal noncommercial-only adaptation; no endorsement implied.';
+  const mesh={...definition,file,sha256:hash,uncompressedSha256:sha(out),effectiveGeometrySha256:sha(out),bytes:packed.length,uncompressedBytes:out.length,topology:{...definition.topology,poseDerivative:true,sourceIndexOrderExact:true}};
+- const manifest={...sourceManifest,revision:'scene06-centralpose295-'+config.revision+'-left-arm-lap-pose',attribution,visualAccepted:false,photographicFidelityAccepted:false,productionIntegrated:false,variants:{central:[mesh]},sourceContactBearing:{...sourceManifest.sourceContactBearing,bodyUnchangedFrom199R05:false,bodyUnchangedFromR08a:false,contactBandPositionsUnchanged:true,method:sourceManifest.sourceContactBearing.method.replace('below the unchanged body','below the contact-band-preserved posed body')},poseDerivative:{sourceRevision:sourceManifest.revision,sourceGeometrySha256:definition.uncompressedSha256,sourceManifest:'../sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json',inputHistoricalAttribution:sourceManifest.attribution,sourceAnalysis,sourceAnalysisFile:basename(sourceAnalysisFile),sourceBodyAndLeftPalmChanged:true,sourceIndexMapping:'identity',config,elbowSource:E,wristSource:W,wristTarget:W1,forearmQuaternionWXYZ:qF,handQuaternionWXYZ:qH,influence:{file:influenceFile,sha256:sha(influence),format:'PW29 header sourceVertices,records,recordBytes12,version1; records uint32 original vertex ID, float32 arm influence, float32 hand blend. Unlisted source vertices have arm weight 0.'},audit},nativeMaterialStudyChange:'Source color, metalness, roughness and rooted-scalp vertex coverage retained. Pose changes only real left-arm/sleeve positions and corresponding physical surface normals.'};
++ const manifest={...sourceManifest,revision:'scene06-centralpose295-'+config.revision+'-left-arm-lap-pose',attribution,visualAccepted:false,photographicFidelityAccepted:false,productionIntegrated:false,variants:{central:[mesh]},sourceContactBearing:{...sourceManifest.sourceContactBearing,bodyUnchangedFrom199R05:false,bodyUnchangedFromR08a:false,contactBandPositionsUnchanged:true,method:sourceManifest.sourceContactBearing.method.replace('below the unchanged body','below the contact-band-preserved posed body')},poseDerivative:{sourceRevision:sourceManifest.revision,sourceGeometrySha256:definition.uncompressedSha256,sourceManifest:'../sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json',inputHistoricalAttribution:sourceManifest.attribution,sourceAnalysis,sourceAnalysisFile:basename(sourceAnalysisFile),sourceBodyAndLeftPalmChanged:true,sourceIndexMapping:'identity',config,elbowSource:E,elbowTarget:Et,wristSource:W,wristTarget:W1,forearmQuaternionWXYZ:qF,handQuaternionWXYZ:qH,influence:{file:influenceFile,sha256:sha(influence),format:'PW29 header sourceVertices,records,recordBytes12,version1; records uint32 original vertex ID, float32 arm influence, float32 hand blend. Unlisted source vertices have arm weight 0.'},audit},nativeMaterialStudyChange:'Source color, metalness, roughness and rooted-scalp vertex coverage retained. Pose changes only real left-arm/sleeve positions and corresponding physical surface normals.'};
+  const provenance={revision:manifest.revision,license:manifest.license,licenseUrl:manifest.licenseUrl,attribution,sourceLicenses:manifest.sourceLicenses,source:definition,sourceManifestHash:sourceHashes[resolve(SOURCE,'manifest.json')],builder:{file:import.meta.filename,sourceHashes},poseDerivative:manifest.poseDerivative,geometry:mesh,visualAccepted:false,photographicFidelityAccepted:false,limits:['Native full/front arm detail and three-quarter images must be personally reviewed.','Identical closed topology and finite nondegenerate triangles do not establish absence of self intersections or photographic fidelity.']};
+
+--- pose-r02.json
++++ pose-r03.json
+@@ -1,3 +1,3 @@
+ {
+-  "revision": "r02",
++  "revision": "r03",
+   "elbowSource": [
+@@ -13,5 +13,5 @@
+   "forearmTargetDirection": [
+-    -0.14,
+-    -0.49,
+-    0.37
++    -0.48,
++    -0.3,
++    0.2
+   ],
+@@ -51,3 +51,3 @@
+   "wristBlend": {
+-    "startY": 1.28,
++    "startY": 1.22,
+     "fullY": 1.48,
+@@ -61,3 +61,3 @@
+   },
+-  "notes": "R02 actual-image repair after R01 full/native arm/front/3q: hold upper sleeve near source, narrow only original wrist/cuff through a local smooth cage, lower original palm toward lap and tilt normal slightly forward. Fingers and all topology retained. No reference raster/depth sampling. Exact unchanged-leg roof study selects direction [-.14,-.49,.37] and 4.6-degree downward finger axis: predicted minimum real original-hand/leg vertical clearance .003081884 source units, 0/7840 hand samples below roof. Wrist target [.500943,.529734,.153143] retains original elbow-wrist length. Actual DQ mesh and native verification remain required.",
++  "notes": "R03 after actual R02 full/crop/front/3q and classified strict crossings: move actual source elbow outward/forward/down to create real limb space, explicitly pin source chest/large sleeve, curve cuff/forearm outward and forward in its original bone parameter, remove radial wrist squeezing. Original hand frame remains, true elbow-wrist length retained. Hand-only original-leg roof prediction for final direction gives min clearance .007571585 source units (~5.8mm world), not a full cuff/body collision proof. Full actual mesh source-control crossing probe and native views required.",
+   "sourceAnalysis": "source-analysis-r01.json",
+@@ -67,18 +67,38 @@
+     "startY": 1.3,
+-    "fullY": 1.78,
+-    "frontStart": -0.1,
+-    "frontFull": 0.12
++    "fullY": 1.65,
++    "frontStart": -0.05,
++    "frontFull": 0.13
+   },
+-  "wristCage": {
+-    "radialScale": 0.88,
+-    "startS": -0.16,
+-    "fullStartS": -0.06,
+-    "fullEndS": 0.03,
+-    "endS": 0.12,
+-    "radiusFull": 0.2,
+-    "radiusEnd": 0.34,
+-    "frontStart": 0.02,
+-    "frontFull": 0.12
++  "wristCage": null,
++  "forearmOrientation": "Minimum change from complete source-hand frame under target elbow-wrist-axis constraint; forearm carries supination, wrist carries the remaining anatomical bend.",
++  "elbowTarget": [
++    0.9,
++    0.835,
++    -0.04
++  ],
++  "sourceBodyPin": {
++    "frontStart": -0.03,
++    "frontFull": 0.13,
++    "sideStart": 0.48,
++    "sideFull": 0.58
+   },
+-  "forearmOrientation": "Minimum change from complete source-hand frame under target elbow-wrist-axis constraint; forearm carries supination, wrist carries the remaining anatomical bend."
++  "elbowInfluence": {
++    "radiusFull": 0.08,
++    "radiusEnd": 0.25,
++    "frontStart": -0.38,
++    "frontFull": -0.22,
++    "sideStart": 0.48,
++    "sideFull": 0.58
++  },
++  "cuffArc": {
++    "sourceStart": 0.1,
++    "sourceFullStart": 0.3,
++    "sourceFullEnd": 0.7,
++    "sourceEnd": 0.94,
++    "offset": [
++      0.06,
++      0,
++      0.075
++    ]
++  }
+ }

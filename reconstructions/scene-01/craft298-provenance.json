@@ -1,0 +1,71 @@
+{
+  "revision": 298,
+  "status": "candidate-not-photographically-accepted",
+  "scope": "Native Three.js source-authored closed hardware and actual rafter housings within unchanged scene01 camera and site geometry",
+  "construction": [
+    "Closed transverse ceiling beams with 75mm-deep individual receiving housings matching all retained rafter bottom faces and1mm lateral clearance",
+    "Downward-facing embossed U-cuffs and returned beam cheek caps on retained actual timbers; seated decorative elbows and continuous raised vegetal fascia",
+    "Closed cast hexagonal plate, straight developed borders, chased convex leaves and veins all continuously fitted to the actual tapered foreground column surface plus2mm",
+    "Closed elliptical bronze bridge fascia medallions with raised five-leaf flower and scrolling tendrils"
+  ],
+  "imagesUsedForModelSurface": false,
+  "newImages": false,
+  "photographRole": "HD01 visual comparison only, no sampled RGB, depth or masks",
+  "existingMaterialSource": "Clones of repository hardware131 micro-pitting/roughness with independently adjusted partly oxidized gilt BRDF; inherited CC0 timber unchanged",
+  "lightsChanged": true,
+  "cameraChanged": false,
+  "newMeshesAndShadersOnly": true,
+  "structuralOrHistoricalCertification": false,
+  "limitations": [
+    "Does not address overall HD01 illumination, sky radiance, tree morphology or all main-hall/pagoda massing differences",
+    "Cast ornament is independently authored visual interpretation, not artifact reconstruction",
+    "Native finite lighting is an approximation without solved diffuse GI",
+    "All photographic acceptance remains false"
+  ],
+  "lightingR05": {
+    "mainSunAndSkyUnchanged": true,
+    "courtyardReflectedDirectionalIntensityUnchanged": 1.92,
+    "oldFillPosition": [
+      -22,
+      19,
+      12
+    ],
+    "oldFillTarget": [
+      2,
+      6,
+      -10
+    ],
+    "newFillPosition": [
+      -22,
+      6.3,
+      12
+    ],
+    "newFillTarget": [
+      1,
+      6.4,
+      -10
+    ],
+    "reason": "The photograph-anchored sun is behind both visible facades. The old high-elevation fill is itself blocked by the very deep real eaves. A shadow-casting low-horizon reflected-daylight approximation admits light through the actual open galleries; it is not solved GI.",
+    "leafEnergy": "Remove the old32-percent unshadowed transmission floor; direct leaf backlighting now follows actual retained shadow maps.",
+    "modelAndReferenceCameraHeld": true
+  },
+  "lightingR06": {
+    "mainSunAndSkyUnchanged": true,
+    "modelAndReferenceCameraHeld": true,
+    "environmentIntensity": [
+      0.34,
+      0.66
+    ],
+    "hemisphereIntensity": [
+      0.42,
+      0.68
+    ],
+    "hemisphereGround": [
+      "#a9713b",
+      "#bf9159"
+    ],
+    "reason": "Expose genuinely reflected sky/court radiance on the front roof slopes and deep actual eave/column faces. No exposure, tone-mapping, architecture albedo or water shader changes. Holds R05 shadow-casting low fill and zero unshadowed leaf-transmission floor.",
+    "limitation": "Manually authored finite/hemispheric radiance approximation, not measured luminance or solved diffuse GI"
+  },
+  "geometryR07": "Native R06 detail review found raised leaf backs offset above the carrier. Back surfaces now seat on actual plate front surfaces; convex relief, closed capped ribs and central bosses meet their solid carriers. R06 lighting and all macro geometry/camera held."
+}

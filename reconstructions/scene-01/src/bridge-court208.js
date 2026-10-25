@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {layout124 as L} from './layout124.js';
 import {prism124} from './layout-components124.js';
+import {bridgeMedallion298} from './foreground-craft298.js';
 
 // Actual bridge/court recovery208. The original reference and low cameras
 // remain. Bridge placement and connected routes are physical 3D construction.
@@ -92,12 +93,10 @@ export function buildBridge208(B){
     B.emit(ties[side>0?1:0],headMaterial,x,y);
     // Oval crown plate and the lower rectangular clasp sit on the real
     // outer girder faces, at the deck edge seen in the supplied reference.
-    B.emit(new T.CylinderGeometry(1,1,1,36).rotateX(Math.PI/2),'goldDark',x,y-.055,side*1.137,.162,.069,.009);
-    B.emit(new T.TorusGeometry(1,.075,6,36),'gold',x,y-.055,side*1.143,.143,.050,.013);
+    bridgeMedallion298(B,x,y-.055,side);
     B.box(x,y-.274,side*1.102,.121,.198,.012,'goldDark');
     for(const dx of[-.047,.047])B.box(x+dx,y-.274,side*1.111,.008,.172,.006,'gold');
     for(const yy of[-.354,-.194])B.box(x,y+yy,side*1.111,.100,.008,.006,'gold');
-    for(let leaf=0;leaf<4;leaf++){const a=leaf*Math.PI/2;B.sphere(x+Math.cos(a)*.039,y-.055+Math.sin(a)*.022,side*1.151,.025,.012,.007,'gold',[0,0,a]);}
     for(const [yy,zz]of[[.13,1.179],[-.31,1.111]])B.emit(new T.CylinderGeometry(.017,.017,.009,16).rotateX(Math.PI/2),headMaterial,x,y+yy,side*zz);
     if(major){B.box(x,y+.967,z,.204,.025,.204,headMaterial);B.emit(cap,headMaterial,x,y+.979,z);B.emit(new T.TorusGeometry(.072,.004,6,32),'goldDark',x,y+1.045,z,1,1,1,[Math.PI/2,0,0]);}
    }

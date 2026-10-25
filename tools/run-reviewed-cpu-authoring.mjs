@@ -187,6 +187,15 @@ reviewed['scene06-capital254-r03']={
   "receipt": "lookdev/scene06-table-scan254/authored-r03-cpu-receipt.json",
   "scope": "Root read complete earlier sculpt script/helpers, entire R03 code diff and changed guide objects. Actual rounded radial-contour fan front/back/return, depth-curled rim, two real asymmetric turnback leaf solids, physical valley channels and normal chisel paths; same CPU closed-volume voxel union/output. Original R02 and all failed candidates retained. Four-thread exclusive CPU-authoring lock, no render/scene export/viewport/image sampling/bake/GPU. Native whole-table/capital/low-side image comparison remains required; topology is not photographic acceptance."
 };
+reviewed['scene06-centralpose295-r04']={
+  "script": "lookdev/scene06-centralpose295/authoring/build-pose295-r04.py",
+  "files": {
+    "lookdev/scene06-centralpose295/authoring/build-pose295-r04.py": "e02390dbcc3a34fb2eec409b5bf90862e055ba1fae1fe554651825471d473756",
+    "lookdev/scene06-centralpose295/authoring/pose-r04.json": "545d03f356ee122cd921eb843d271ab6a98baf4a2c27ebda7ea76e96afa64891"
+  },
+  "receipt": "lookdev/scene06-centralpose295/r04-reviewed-blender-cpu-receipt.json",
+  "scope": "Root read complete266-line self-contained CPU Blender Laplacian solver and whole pinned config. Broad real source left-arm/cloth patch, fixed body/shoulder/two-ring boundary, source-index hand/elbow anchors, CPU bind/depsgraph evaluation and compact SC07/JSON output only. Original UV/index/head/right/leg/CM07 held. Four threads under exclusive CPU lock. No render, viewport draw, export, UV bake, Blend save or GPU. Solver is not collision-constrained; actual crossing and native shape reviews mandatory."
+};
 if(!Object.hasOwn(reviewed,recipe))throw Error('An exact root-reviewed CPU authoring recipe is required.');
 const spec=reviewed[recipe],digest=b=>createHash('sha256').update(b).digest('hex');
 async function verify(){for(const [name,expected]of Object.entries(spec.files))if(digest(await readFile(resolve(root,name)))!==expected)throw Error('Reviewed CPU source changed: '+name);}

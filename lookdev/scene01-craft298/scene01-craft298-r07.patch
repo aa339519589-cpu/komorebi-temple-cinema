@@ -1,0 +1,363 @@
+--- /dev/null
++++ b/reconstructions/scene-01/src/foreground-craft298.js
+@@ -0,0 +1,182 @@
++import * as T from 'three';
++import {layout124 as L} from './layout124.js';
++import {Builder} from './kernel.js';
++
++// Original closed metalwork and housed timber, authored from construction
++// proportions. Reference HD01 is visual comparison only, never sampled.
++const TAU=Math.PI*2;
++export function installCraftMaterials298(m){
++ m.craft298Brass=m.hardwareGold131.clone();Object.assign(m.craft298Brass,{name:'craft298-chased-partly-oxidized-gilt-brass',metalness:.72,roughness:.44});m.craft298Brass.color.setHex(0xc3a05b);
++ m.craft298Recess=m.hardwareBronze131.clone();Object.assign(m.craft298Recess,{name:'craft298-oxidized-cast-bronze-recesses',metalness:.54,roughness:.58});m.craft298Recess.color.setHex(0x876731);
++}
++export function housedCeilingBeam298(B,lo,hi,z){
++ // The cross beam receives every continuous rafter in an open top housing.
++ // The matching rafter bottoms are Y-.345; 1mm lateral clearance is real.
++ const cuts=[{x:lo,y:-.27}],half=.096;
++ for(let x=lo+.10;x<hi;x+=.62){const a=Math.max(lo,x-half),b=Math.min(hi,x+half);if(a>lo)cuts.push({x:a,y:-.27});cuts.push({x:a,y:-.345},{x:b,y:-.345});if(b<hi)cuts.push({x:b,y:-.27});}
++ cuts.push({x:hi,y:-.27});
++ const profile=[[lo,-.55],[hi,-.55],...cuts.reverse().map(p=>[p.x,p.y])],g=extrude(profile,.29,.0006);g.translate(0,0,z-.145);g.name='craft298-closed-cross-beam-with-actual-rafter-housings';B.emit(g,'redLight');
++}
++
++function extrude(points,depth=.006,bevel=.001){
++ const s=new T.Shape();s.moveTo(...points[0]);for(const p of points.slice(1))s.lineTo(...p);s.closePath();
++ const g=new T.ExtrudeGeometry(s,{depth,bevelEnabled:true,bevelSize:bevel,bevelThickness:bevel*.7,bevelSegments:2,steps:1,curveSegments:12});
++ g.name='craft298-closed-solid-cast-metal';return g;
++}
++function polygon(n,r,phase=0){return Array.from({length:n},(_,i)=>[Math.cos(phase+TAU*i/n)*r,Math.sin(phase+TAU*i/n)*r]);}
++function curve(points,n=25){return new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))).getPoints(n).map(p=>p.toArray());}
++function wire(B,points,r=.0025,ma='craft298Brass',closed=false){
++ const p=points;
++ let path;
++ if(closed){path=new T.CurvePath();for(let i=0;i<p.length;i++)path.add(new T.LineCurve3(new T.Vector3(...p[i]),new T.Vector3(...p[(i+1)%p.length])));}
++ else path=new T.CatmullRomCurve3(p.map(p=>new T.Vector3(...p)),false,'centripetal',.28);
++ const segments=Math.max(12,p.length*5),radial=6,g=new T.TubeGeometry(path,segments,r,radial,closed);
++ if(!closed){
++  const positions=Array.from(g.attributes.position.array),uv=Array.from(g.attributes.uv.array),ix=Array.from(g.index.array);
++  for(const end of[0,1]){
++   const center=path.getPointAt(end),normal=path.getTangentAt(end).multiplyScalar(end?1:-1),ci=positions.length/3,row=end?segments*(radial+1):0;positions.push(...center.toArray());uv.push(.5,.5);
++   for(let k=0;k<radial;k++){
++    const a=row+k,b=row+k+1,pa=new T.Vector3(...positions.slice(a*3,a*3+3)),pb=new T.Vector3(...positions.slice(b*3,b*3+3)),cross=pa.clone().sub(center).cross(pb.clone().sub(center));
++    if(cross.dot(normal)>0)ix.push(ci,a,b);else ix.push(ci,b,a);
++   }
++  }
++  g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.deleteAttribute('normal');g.computeVertexNormals();
++ }
++ g.name='craft298-raised-cast-vegetal-rib';B.emit(g,ma);
++}
++function leaf(B,x,y,z,angle,length,width,ma='craft298Brass'){
++ // A lenticular, closed leaf has varying thickness and an actual center rib.
++ const p=[],ix=[],N=16;
++ for(let shell=0;shell<2;shell++)for(let j=0;j<=N;j++){
++  const t=j/N,half=width*Math.sin(Math.PI*t),yy=length*t;
++  for(let k=0;k<3;k++)p.push((k-1)*half,yy,shell?0:.002+.012*Math.sin(Math.PI*t)*(k===1?1:.25));
++ }
++ const at=(s,j,k)=>s*(N+1)*3+j*3+k;
++ for(let s=0;s<2;s++)for(let j=0;j<N;j++)for(let k=0;k<2;k++){const a=at(s,j,k),b=at(s,j,k+1),c=at(s,j+1,k),d=at(s,j+1,k+1);s?ix.push(a,b,c,b,d,c):ix.push(a,c,b,b,c,d);}
++ for(let j=0;j<N;j++)for(const k of[0,2]){const a=at(0,j,k),b=at(0,j+1,k),c=at(1,j,k),d=at(1,j+1,k);k?ix.push(a,b,c,b,d,c):ix.push(a,c,b,b,c,d);}
++ for(const j of[0,N]){const a=at(0,j,0),b=at(0,j,2),c=at(1,j,0),d=at(1,j,2);j?ix.push(a,b,c,b,d,c):ix.push(a,c,b,b,c,d);}
++ for(let k=0;k<ix.length;k+=3)[ix[k+1],ix[k+2]]=[ix[k+2],ix[k+1]];
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.computeVertexNormals();g.name='craft298-closed-convex-chased-lotus-leaf';
++ B.emit(g,ma,x,y,z,1,1,1,[0,0,angle]);
++}
++function rose(B,x,y,z,r,petals=6){
++ B.with(x,y,z,0,()=>{
++  for(let i=0;i<petals;i++){const a=i*TAU/petals;leaf(B,Math.sin(a)*r*.10,Math.cos(a)*r*.10,0,-a,r*.85,r*.24);}
++  B.sphere(0,0,.007,r*.23,r*.23,.008,'craft298Brass');
++  for(let i=0;i<petals;i++){const a=(i+.5)*TAU/petals;B.sphere(Math.sin(a)*r*.26,Math.cos(a)*r*.26,.014,.0027,.0027,.002,'craft298Recess');}
++ });
++}
++export function castHex298(B,width=.28,height=.34){
++ const sx=width/.28,sy=height/.34;
++ B.with(0,0,0,0,()=>{
++  const outline=polygon(6,1,Math.PI/6).map(p=>[p[0]*.159,p[1]*.17]);
++  B.emit(extrude(outline,.009,.002),'craft298Recess',0,0,-.004);
++  wire(B,outline.map(p=>[p[0]*.94,p[1]*.94,.009]),.004,'craft298Brass',true);
++  wire(B,outline.map(p=>[p[0]*.79,p[1]*.79,.011]),.0023,'craft298Brass',true);
++  // Two interlaced chased scrolls leave a real recessed dark field.
++  for(let i=0;i<6;i++){
++   const a=i*TAU/6;
++   B.with(0,0,.006,0,()=>{
++    const rot=p=>[p[0]*Math.cos(a)-p[1]*Math.sin(a),p[0]*Math.sin(a)+p[1]*Math.cos(a),p[2]];
++    wire(B,curve([[.018,.024,0],[.051,.052,.002],[.047,.105,.001],[.009,.116,.002],[-.018,.092,.001],[-.004,.065,.003],[.019,.080,.003]]).map(rot),.0032);
++   });
++  }
++  for(let i=0;i<6;i++){
++   const a=i*TAU/6,turn=(x,y)=>[x*Math.cos(a)-y*Math.sin(a),x*Math.sin(a)+y*Math.cos(a)];
++   for(const [x,y,angle,len]of[[.030,.052,-.95,.056],[-.016,.087,.80,.045],[.015,.115,.35,.032]]){
++    const q=turn(x,y);leaf(B,q[0],q[1],.005,angle+a,len,len*.30);
++    const end=turn(x-Math.sin(angle)*len*.76,y+Math.cos(angle)*len*.76);wire(B,[[q[0],q[1],.0078],[(q[0]+end[0])/2,(q[1]+end[1])/2,.019],[end[0],end[1],.016]],.0014);
++   }
++  }
++  rose(B,0,0,.005,.056,6);
++  for(let i=0;i<6;i++){const a=Math.PI/6+i*TAU/6;B.sphere(Math.cos(a)*.142,Math.sin(a)*.152,.011,.0055,.0055,.003,'craft298Brass');}
++ },[sx,sy,1]);
++}
++export function beamCast298(B,width,height,depth){
++ // Returned cheek caps wrap a timber end; the decorated face is a closed
++ // sheet with a 5mm folded lip and peened heads on both returns.
++ const w=width,h=height,d=depth;
++ B.box(0,0,.003,w,h,.006,'craft298Recess');
++ for(const x of[-1,1])B.box(x*(w/2-.003),0,-d/2,.006,h,d,'craft298Recess');
++ for(const y of[-1,1])B.box(0,y*(h/2-.003),-d/2,w,.006,d,'craft298Recess');
++ const outline=[[-w*.43,-h*.43],[w*.43,-h*.43],[w*.43,h*.43],[-w*.43,h*.43]];
++ wire(B,outline.map(p=>[...p,.009]),.0028,'craft298Brass',true);
++ rose(B,0,0,.006,Math.min(w,h)*.32,5);
++ for(const x of[-1,1])for(const y of[-1,1])B.sphere(x*w*.39,y*h*.37,.012,.004,.004,.0025,'craft298Brass');
++}
++export function buildCeilingCraft298(B,{width:w,colLocal}){
++ B.label('craft298-seated-veranda-elbows-and-returned-metal-caps',()=>{
++  // Exposed ends of real continuous rafters. Four-sided folded caps return
++  // 70mm along each member; they never cover a detached decorative plane.
++  for(let x=-w/2+.10;x<w/2;x+=.62)B.with(x,-.18,-.001,Math.PI,()=>beamCast298(B,.194,.333,.070));
++  // Underface cuffs have their decorated normal facing the actual low eye.
++  // The folded cheeks return upward onto existing rafter side surfaces.
++  for(let x=-w/2+.10;x<w/2;x+=1.24){
++   B.with(x,-.347,1.11,0,()=>{
++    B.stack.push(B.stack.at(-1).clone().multiply(new T.Matrix4().makeRotationX(Math.PI/2)));
++    try{
++     beamCast298(B,.194,.66,.072);
++     for(const sign of[-1,1]){wire(B,curve([[0,sign*.07,.010],[-.047,sign*.13,.014],[-.037,sign*.24,.012],[.033,sign*.25,.015],[.044,sign*.16,.014],[.007,sign*.17,.016]]),.0033);leaf(B,0,sign*.12,.006,sign>0?0:Math.PI,.12,.035);}
++    }finally{B.stack.pop();}
++   });
++  }
++  // Shallow diagonal elbows stiffen actual perimeter/rafter intersections.
++  const shape=[[0,0],[.21,0],[.21,-.20],[.19,-.26],[.13,-.30],[.02,-.39],[-.20,-.48],[-.33,-.48],[-.33,-.35],[-.21,-.31],[-.08,-.19],[0,-.08]];
++  const elbow=extrude(shape,.17,.008);elbow.rotateY(Math.PI/2);elbow.translate(-.085,0,.20);
++  for(let x=-w/2+.10;x<w/2;x+=1.86){
++   B.emit(elbow,'wood',x,-.43,.06);
++   B.with(x,-.56,.435,0,()=>castHex298(B,.19,.20));
++  }
++  // A folded U cuff at the second cross beam wraps the actual housed joint.
++  // The long lower field reads as an embossed beam fitting in the held view.
++  const jointX=-w/2+.10+13*.62,jointZ=1.95;
++  for(const side of[-1,1])B.with(jointX,-.41,jointZ+side*.147,side>0?0:Math.PI,()=>{
++   B.box(0,0,0,.48,.280,.008,'craft298Recess');
++   wire(B,[[-.225,-.124,.008],[.225,-.124,.008],[.225,.124,.008],[-.225,.124,.008]],.004,'craft298Brass',true);
++   castHex298(B,.26,.236);
++   for(const sign of[-1,1]){leaf(B,sign*.142,-.065,.004,sign*.70,.135,.036);B.sphere(sign*.202,.088,.015,.006,.006,.003,'craft298Brass');}
++  });
++  for(const sign of[-1,1])B.box(jointX+sign*.234,-.41,jointZ,.010,.280,.302,'craft298Recess');
++  // Three relief cassettes fill the long beam's visible field. Their real
++  // bent side lips and pegs remain legible from an independent low camera.
++  for(const x of[.48,2.34,4.20])B.with(x,-.37,.283,0,()=>{
++   B.box(0,0,-.007,1.16,.225,.018,'craft298Recess');
++   for(const s of[-1,1])B.box(0,s*.104,.005,1.16,.010,.010,'craft298Brass');
++   for(let k=0;k<4;k++){const xx=(k-1.5)*.268;rose(B,xx,0,.002,.066,6);wire(B,curve([[xx-.115,-.04,.0052],[xx-.095,.035,.0112],[xx-.050,.067,.0052],[xx-.015,.02,.0082]]),.0032);wire(B,curve([[xx+.115,.04,.0052],[xx+.095,-.035,.0112],[xx+.050,-.067,.0052],[xx+.015,-.02,.0082]]),.0032);}
++  });
++ });
++}
++export function buildColumnCraft298(B){
++ const F=L.foreground,p=new T.Vector3(...F.columnPosition),r=F.columnRadius,cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.fromArray(L.camera.position);cam.lookAt(...L.camera.target);cam.updateMatrixWorld(true);
++ const d=new T.Vector3(110/627-1,1-158/627,.5).unproject(cam).sub(cam.position).normalize(),o=cam.position.clone().sub(p),aa=d.x*d.x+d.z*d.z,bb=2*(o.x*d.x+o.z*d.z),cc=o.x*o.x+o.z*o.z-r*r,disc=bb*bb-4*aa*cc;
++ if(disc<0)throw Error('Craft298 fitting misses its real column');
++ const q=cam.position.clone().addScaledVector(d,(-bb-Math.sqrt(disc))/(2*aa)),theta=Math.atan2(q.x-p.x,q.z-p.z)-.28,cy=q.y-.047;
++ // Each solid plate, border, cast leaf and fastener is bent onto the actual
++ // cylinder. Back radius is the timber radius plus 2mm; no hidden half plate
++ // or floating flat saddle remains. The hexagonal edge is kept straight in
++ // its own developed metal sheet before physical cylindrical bending.
++ const radiusAt=y=>y<=.15?r*(.96+.04*y/.15):y<=3.8?r:y<=8.2?r*(1-.05*(y-3.8)/4.4):r*(.95-.05*(y-8.2)/(F.columnTop-8.2));
++ const temp=new Builder(B.m);castHex298(temp,.253,.254);let pieces=0;
++ B.label('craft298-continuous-concave-cast-hexagon-fitted-to-column',()=>{
++  for(const bucket of temp.buckets.values())for(const item of bucket.items){
++   const g=bucket.g.clone();g.applyMatrix4(item.m);const positions=g.attributes.position;
++   for(let i=0;i<positions.count;i++){const y=positions.getY(i),rr0=radiusAt(cy+y),a=theta+positions.getX(i)/rr0,rr=rr0+.0074+positions.getZ(i);positions.setXYZ(i,p.x+Math.sin(a)*rr,cy+y,p.z+Math.cos(a)*rr);}
++   g.computeVertexNormals();g.name='craft298-closed-metalwork-cylindrically-fitted-to-real-timber';B.emit(g,bucket.m);pieces++;
++  }
++ });
++ for(const g of temp.resources)g.dispose();for(const g of temp.metricTimberGeometries.values())g.dispose();
++ B.layout124.craft298={revision:298,closedColumnFitting:true,columnSaddleContact:'All cast metal parts conform continuously to actual tapered column surface plus2mm',columnFittingPieces:pieces,ceilingBeamHousingDepth:.075,ceilingHousingSideClearance:.001,ceilingCuffUnderfaceVisible:true,newReferencePixels:false,photographicAccepted:false};
++}
++export function bridgeMedallion298(B,x,y,side){
++ B.with(x,y,side*1.150,side>0?0:Math.PI,()=>{
++  const shape=Array.from({length:64},(_,i)=>[Math.cos(i*TAU/64)*.188,Math.sin(i*TAU/64)*.065]);
++  B.emit(extrude(shape,.007,.0015),'craft298Recess');
++  wire(B,shape.map(p=>[p[0]*.93,p[1]*.90,.010]),.0035,'craft298Brass',true);
++  rose(B,0,0,.007,.046,5);
++  for(const sign of[-1,1]){
++   wire(B,curve([[sign*.045,-.020,.010],[sign*.090,-.035,.015],[sign*.142,-.012,.014],[sign*.127,.025,.016],[sign*.092,.020,.015],[sign*.100,-.002,.017]]),.0038);
++   leaf(B,sign*.055,-.025,.007,sign*1.15,.068,.020);
++   B.sphere(sign*.163,0,.012,.005,.005,.003,'craft298Brass');
++  }
++ });
++}
+--- a/reconstructions/scene-01/src/layout-components124.js
++++ b/reconstructions/scene-01/src/layout-components124.js
+@@ -2,6 +2,7 @@
+ import {V,lin,surface} from './kernel.js';
+ import {layout124 as L} from './layout124.js';
+ import {buildBalustradeFinial131} from './foreground-hardware131.js';
++import {buildCeilingCraft298,buildColumnCraft298,housedCeilingBeam298} from './foreground-craft298.js';
+ 
+ export function verandaEdge124(z){const a=L.foreground.postL,b=L.foreground.postN,t=(z-a[2])/(b[2]-a[2]);return[a[0]+(b[0]-a[0])*t,L.foreground.deckY,z];}
+ export function solidTerrain124(grid,bottom=-.35){const g=surface(grid,.72),p=g.attributes.position,n=grid.length*grid[0].length;for(let i=n;i<p.count;i++)p.setY(i,bottom);g.computeVertexNormals();return g;}
+@@ -52,11 +53,7 @@
+  });
+  B.label('foreground124-measured-column-and-bearing',()=>{
+   const p=F.columnPosition,r=F.columnRadius,h=F.columnTop,col=new T.LatheGeometry([[0,0],[r*.96,0],[r,.15],[r,3.8],[r*.95,8.2],[r*.90,h],[0,h]].map(p=>new T.Vector2(...p)),64);B.emit(col,'red',...p);
+-  // The existing fitting is bolted to an actual cylinder intersection. Its
+-  // height is recovered with this closer column rather than left at an old
+-  // world height that would now place it entirely above the photograph.
+-  const cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.fromArray(L.camera.position);cam.lookAt(...L.camera.target);cam.updateMatrixWorld(true);const d=new T.Vector3(110/627-1,1-158/627,.5).unproject(cam).sub(cam.position).normalize(),ox=cam.position.x-p[0],oz=cam.position.z-p[2],aa=d.x*d.x+d.z*d.z,bb=2*(ox*d.x+oz*d.z),cc=ox*ox+oz*oz-r*r,dis=bb*bb-4*aa*cc;
+-  if(dis>=0){const t=(-bb-Math.sqrt(dis))/(2*aa),q=cam.position.clone().addScaledVector(d,t),n=V([q.x-p[0],0,q.z-p[2]]).normalize();B.with(q.x,q.y,q.z,Math.atan2(n.x,n.z),()=>carvedFitting(0,0,.007,.17,.22));}
++
+  });
+  B.label('foreground124-continuous-ceiling-load-path',()=>{
+   const cam=new T.PerspectiveCamera(59,1,.1,260);cam.position.fromArray(L.camera.position);cam.lookAt(...L.camera.target);cam.updateMatrixWorld(true);
+@@ -69,12 +66,13 @@
+    for(const [lo,hi,z0,z1]of[[-w/2,w/2,0,12],[w/2,9.2,4,12]]){
+     B.box((lo+hi)/2,.05,(z0+z1)/2,hi-lo,.16,z1-z0,'darkwood');
+     for(let x=lo+.10;x<hi;x+=.62)B.box(x,-.18,(z0+z1)/2,.19,.33,z1-z0,'wood');
+-    for(let z=z0+.15;z<z1;z+=1.8)B.box((lo+hi)/2,-.41,z,hi-lo,.28,.29,'redLight');
++    for(let z=z0+.15;z<z1;z+=1.8)housedCeilingBeam298(B,lo,hi,z);
+    }
+    B.box(0,-.37,.10,w,.27,.32,'wood');for(const y of[-.47,-.26])B.box(0,y,.275,w,.024,.018,'hardwareGold131');for(let i=0;i<=Math.ceil(w/.32);i++){const x=-w/2+w*i/Math.ceil(w/.32);B.box(x,-.35,.04,.24,.12,.35,'redLight');if(B.joineryKit)B.emit(B.joineryKit.relief,'hardwareRelief131',x,-.365,.276,.23,.16,.10);}
+    // This beam's lower face is exactly the column top (Y9.595), while its
+    // upper face bears against the rafters at Y9.955. No suspended column.
+    B.box((9.2-w/2)/2,-.525,colLocal.z,9.2+w/2,.36,.34,'wood');
++   buildCeilingCraft298(B,{width:w,colLocal});
+   });
+  });
+  B.label('foreground124-joined-panel-balustrade',()=>{
+@@ -89,6 +87,7 @@
+    for(let i=0;i<n;i++){const p=pa.clone().lerp(pb,(i+.5)/n),span=pa.distanceTo(pb)/n-.11;B.with(p.x,0,p.z,yaw,()=>{B.box(0,2.025,0,.055,.23,span,'darkwood');B.with(-.042,2.025,0,-Math.PI/2,()=>squareGold(0,0,0,Math.min(.26,span*.65),.18));});}
+   }
+  });
++ buildColumnCraft298(B);
+  B.layout124??={};B.layout124.foreground={postHeadY:F.postHeadY,deckY:F.deckY,columnTop:F.columnTop,ceilingBearingBottom:F.columnTop,columnDeckHole:true,structuralRails:4,postCentres:[a,b],mainVisibleSpan:length};
+ }
+ 
+--- a/reconstructions/scene-01/src/bridge-court208.js
++++ b/reconstructions/scene-01/src/bridge-court208.js
+@@ -1,6 +1,7 @@
+ import * as T from 'three';
+ import {layout124 as L} from './layout124.js';
+ import {prism124} from './layout-components124.js';
++import {bridgeMedallion298} from './foreground-craft298.js';
+ 
+ // Actual bridge/court recovery208. The original reference and low cameras
+ // remain. Bridge placement and connected routes are physical 3D construction.
+@@ -92,12 +93,10 @@
+     B.emit(ties[side>0?1:0],headMaterial,x,y);
+     // Oval crown plate and the lower rectangular clasp sit on the real
+     // outer girder faces, at the deck edge seen in the supplied reference.
+-    B.emit(new T.CylinderGeometry(1,1,1,36).rotateX(Math.PI/2),'goldDark',x,y-.055,side*1.137,.162,.069,.009);
+-    B.emit(new T.TorusGeometry(1,.075,6,36),'gold',x,y-.055,side*1.143,.143,.050,.013);
++    bridgeMedallion298(B,x,y-.055,side);
+     B.box(x,y-.274,side*1.102,.121,.198,.012,'goldDark');
+     for(const dx of[-.047,.047])B.box(x+dx,y-.274,side*1.111,.008,.172,.006,'gold');
+     for(const yy of[-.354,-.194])B.box(x,y+yy,side*1.111,.100,.008,.006,'gold');
+-    for(let leaf=0;leaf<4;leaf++){const a=leaf*Math.PI/2;B.sphere(x+Math.cos(a)*.039,y-.055+Math.sin(a)*.022,side*1.151,.025,.012,.007,'gold',[0,0,a]);}
+     for(const [yy,zz]of[[.13,1.179],[-.31,1.111]])B.emit(new T.CylinderGeometry(.017,.017,.009,16).rotateX(Math.PI/2),headMaterial,x,y+yy,side*zz);
+     if(major){B.box(x,y+.967,z,.204,.025,.204,headMaterial);B.emit(cap,headMaterial,x,y+.979,z);B.emit(new T.TorusGeometry(.072,.004,6,32),'goldDark',x,y+1.045,z,1,1,1,[Math.PI/2,0,0]);}
+    }
+--- a/reconstructions/scene-01/src/scene.js
++++ b/reconstructions/scene-01/src/scene.js
+@@ -1,4 +1,5 @@
+ import * as T from 'three';
++import {installCraftMaterials298} from './foreground-craft298.js';
+ import {installScannedTimber} from './scanned-timber.js';
+ import {loadBlenderJoinery} from './blender-joinery.js';
+ import {loadScannedGardenStones} from './scanned-garden-stones.js';
+@@ -130,11 +131,11 @@
+ vAgedPosition=(modelMatrix*ageWorld).xyz;`);shader.fragmentShader='varying vec3 vAgedPosition;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+ float age=wf(vAgedPosition*vec3(3.1,.32,3.1));float chip=wf(vAgedPosition*38.);diffuseColor.rgb*=.73+.40*age;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.084,.031),smoothstep(.72,.83,chip)*.16);`);};mats[key].customProgramCacheKey=()=>key+'-old-painted-wood-v3';}
+ for(const key of['leaf','leafLight','leafDark','lotusLeaf','mapleLeaf','mapleLight','mapleDark','pineLeaf','vineLeaf']){mats[key].onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <shadowmap_pars_fragment>','#include <shadowmap_pars_fragment>\n#include <shadowmask_pars_fragment>');shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+-vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*vec3(1.5,.93,.18)*transmitted*mix(.32,1.,getShadowMask())*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-v7';}
++vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*vec3(1.5,.93,.18)*transmitted*getShadowMask()*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-shadow-energy298-v8';}
+ mats.bark.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vBarkField;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvBarkField=position;');shader.fragmentShader='varying vec3 vBarkField;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+ float lichen=wf(vBarkField*vec3(9.,12.,9.));float islands=smoothstep(.62,.78,lichen);diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.165,.115),islands*.85);`);};mats.bark.customProgramCacheKey=()=> 'scene01-132-bark-lichen-field';
+ const timber=await installScannedTimber(mats);
+-const hardware=installHardwareMaterials131(mats);
++const hardware=installHardwareMaterials131(mats);installCraftMaterials298(mats);
+ const joineryKit=await loadBlenderJoinery();
+ const scannedStones=await loadScannedGardenStones();
+ const carvedSources185=await loadCarvedSources185();
+@@ -167,9 +168,9 @@
+  diffuseColor.a*=edge*(.035+.18*foam);`);
+ };fallMat.customProgramCacheKey=()=> 'scene01-deterministic-flowing-clear-water-v1';const falls=new T.Mesh(fgeom,fallMat);falls.name='individual-falling-water-ribbons';scene.add(falls);
+ const foam=new Builder(mats);for(let k=0;k<130;k++){const s=.013+rand()*.035;foam.sphere(L.waterfall.x+(rand()-.5)*1.4,.15+rand()*.06,L.waterfall.z[1]+.57+(rand()-.5)*.35,s,s*.3,s*1.3,'stoneLight',0,.8+rand()*.3);}scene.add(foam.finish());
+-const sun=new T.DirectionalLight(0xffbd70,8.2);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xaec9ed,0xa9713b,.42);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,1.92);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,19,12);fill.target.position.set(2,6,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
++const sun=new T.DirectionalLight(0xffbd70,8.2);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xaec9ed,0xbf9159,.68);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,1.92);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,6.3,12);fill.target.position.set(1,6.4,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
+ const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
+ for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,1.5,2.6,2);lamp.position.copy(local);scene.add(lamp);}
+  RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,2.0,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
+- let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.34;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-carried-roofs-and-weathered-cut-stone-route219-r15',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#a9713b',courtyardFill:fill.intensity,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
++ let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.66;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt','craft298Brass','craft298Recess']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-craft298-closed-cast-fittings-and-seated-cast-relief-and-courtyard-radiance-r07',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Low sunlit courtyard horizon bounce approximation with actual shadowing; main sun and sky held',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
+ }
+--- /dev/null
++++ b/reconstructions/scene-01/craft298-provenance.json
+@@ -0,0 +1,71 @@
++{
++  "revision": 298,
++  "status": "candidate-not-photographically-accepted",
++  "scope": "Native Three.js source-authored closed hardware and actual rafter housings within unchanged scene01 camera and site geometry",
++  "construction": [
++    "Closed transverse ceiling beams with 75mm-deep individual receiving housings matching all retained rafter bottom faces and1mm lateral clearance",
++    "Downward-facing embossed U-cuffs and returned beam cheek caps on retained actual timbers; seated decorative elbows and continuous raised vegetal fascia",
++    "Closed cast hexagonal plate, straight developed borders, chased convex leaves and veins all continuously fitted to the actual tapered foreground column surface plus2mm",
++    "Closed elliptical bronze bridge fascia medallions with raised five-leaf flower and scrolling tendrils"
++  ],
++  "imagesUsedForModelSurface": false,
++  "newImages": false,
++  "photographRole": "HD01 visual comparison only, no sampled RGB, depth or masks",
++  "existingMaterialSource": "Clones of repository hardware131 micro-pitting/roughness with independently adjusted partly oxidized gilt BRDF; inherited CC0 timber unchanged",
++  "lightsChanged": true,
++  "cameraChanged": false,
++  "newMeshesAndShadersOnly": true,
++  "structuralOrHistoricalCertification": false,
++  "limitations": [
++    "Does not address overall HD01 illumination, sky radiance, tree morphology or all main-hall/pagoda massing differences",
++    "Cast ornament is independently authored visual interpretation, not artifact reconstruction",
++    "Native finite lighting is an approximation without solved diffuse GI",
++    "All photographic acceptance remains false"
++  ],
++  "lightingR05": {
++    "mainSunAndSkyUnchanged": true,
++    "courtyardReflectedDirectionalIntensityUnchanged": 1.92,
++    "oldFillPosition": [
++      -22,
++      19,
++      12
++    ],
++    "oldFillTarget": [
++      2,
++      6,
++      -10
++    ],
++    "newFillPosition": [
++      -22,
++      6.3,
++      12
++    ],
++    "newFillTarget": [
++      1,
++      6.4,
++      -10
++    ],
++    "reason": "The photograph-anchored sun is behind both visible facades. The old high-elevation fill is itself blocked by the very deep real eaves. A shadow-casting low-horizon reflected-daylight approximation admits light through the actual open galleries; it is not solved GI.",
++    "leafEnergy": "Remove the old32-percent unshadowed transmission floor; direct leaf backlighting now follows actual retained shadow maps.",
++    "modelAndReferenceCameraHeld": true
++  },
++  "lightingR06": {
++    "mainSunAndSkyUnchanged": true,
++    "modelAndReferenceCameraHeld": true,
++    "environmentIntensity": [
++      0.34,
++      0.66
++    ],
++    "hemisphereIntensity": [
++      0.42,
++      0.68
++    ],
++    "hemisphereGround": [
++      "#a9713b",
++      "#bf9159"
++    ],
++    "reason": "Expose genuinely reflected sky/court radiance on the front roof slopes and deep actual eave/column faces. No exposure, tone-mapping, architecture albedo or water shader changes. Holds R05 shadow-casting low fill and zero unshadowed leaf-transmission floor.",
++    "limitation": "Manually authored finite/hemispheric radiance approximation, not measured luminance or solved diffuse GI"
++  },
++  "geometryR07": "Native R06 detail review found raised leaf backs offset above the carrier. Back surfaces now seat on actual plate front surfaces; convex relief, closed capped ribs and central bosses meet their solid carriers. R06 lighting and all macro geometry/camera held."
++}

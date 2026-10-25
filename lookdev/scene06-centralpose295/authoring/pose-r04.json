@@ -1,0 +1,93 @@
+{
+  "revision": "r04",
+  "recipe": "scene06-centralpose295-r04",
+  "sourceAsset": "sculpture199-r08a-continuous-source-fit-mixed-licenses",
+  "sourceManifestSha256": "495e04c16b0061ee62c76377b52a36fc1cc0d17e1d9f3da10fec6eb72a64544e",
+  "sourceRawSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+  "handControlAsset": "authored-r03",
+  "handControlPackedSha256": "a8ee518f43e6d612a29d63190f367755a98b8a02561b0d4347b2171cd752088f",
+  "handControlRawSha256": "0f755281d7ba885b77a40fa0b87099d44228d773343abf91e68f22d548828c0f",
+  "handControlScope": "Only original source hand vertices X>.36,Y>1.48,Z>.10 use the R03 rigid original-hand targets. All R03 cuff/body coordinates are rejected and never copied.",
+  "elbowSource": [
+    0.6367751359939575,
+    1.0051466226577759,
+    -0.2058418095111847
+  ],
+  "elbowTarget": [
+    0.9,
+    0.835,
+    -0.04
+  ],
+  "wristSource": [
+    0.56286480292494,
+    1.3800000000000008,
+    0.2709803826966819
+  ],
+  "wristTarget": [
+    0.41146073329445115,
+    0.5296629583090319,
+    0.16355802779397896
+  ],
+  "handQuaternionWXYZ": [
+    0.465187630346821,
+    -0.4358069438751233,
+    0.39511268819857864,
+    0.6614822294415984
+  ],
+  "forearmQuaternionWXYZ": [
+    0.21278634041663308,
+    -0.48674263888833197,
+    -0.04322221379772373,
+    0.8461296691728426
+  ],
+  "patch": {
+    "minX": 0.2,
+    "minY": 0.68,
+    "maxY": 2.1
+  },
+  "bodyPins": {
+    "chestMaxX": 0.34,
+    "chestMaxZ": 0.1,
+    "rearMaxZ": -0.67,
+    "upperMinY": 1.9,
+    "upperMaxZ": 0.13,
+    "lowMaxY": 0.72,
+    "boundaryRings": 2
+  },
+  "handAnchors": {
+    "minX": 0.36,
+    "minY": 1.48,
+    "minZ": 0.1
+  },
+  "elbowAnchorRadius": 0.04,
+  "shoulderAnchor": {
+    "point": [
+      0.7452741265296936,
+      1.9490439891815186,
+      -0.4849640727043152
+    ],
+    "radius": 0.1
+  },
+  "solver": {
+    "iterations": 25,
+    "continuationSteps": 12,
+    "handPathFrontArc": 0.35,
+    "handPathOuterArc": 0.12,
+    "elbowPathFrontArc": 0.1
+  },
+  "protected": {
+    "headAtOrAboveY": 2.1,
+    "rightAtOrBelowX": 0,
+    "legsAtOrBelowY": 0.7
+  },
+  "method": "CPU Blender Laplacian Deform differential-coordinate solve on a broad source-left arm and neighboring garment patch, fixed source body/boundary anchors plus real original-hand and original-elbow controls. Original source vertex/triangle/UV identities retained. No pointwise DQ weight blend on free skin/cloth.",
+  "limitations": [
+    "Laplacian Deform is not a collision solver. Same actual source-control crossing probe and native full/detail/front/3q required.",
+    "Hand-only lap contact does not establish cuff/forearm clearance."
+  ],
+  "officialApi": "https://docs.blender.org/api/main/bpy.types.LaplacianDeformModifier.html",
+  "officialManual": "https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html",
+  "elbowSourceVertex": 174886,
+  "shoulderSourceVertex": 165913,
+  "handControlManifestSha256": "46dd54e4bd548caefcbd7aa2014de8b100e28839ed990e7c117a528714e01168"
+}

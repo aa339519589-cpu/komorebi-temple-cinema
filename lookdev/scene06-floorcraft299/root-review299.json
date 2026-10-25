@@ -1,0 +1,32 @@
+{
+  "status": "selected-floor-construction-r01-after-actual-full-detail-and-low-oblique",
+  "baseSourceHash": "12a4a4093f336d75365294021794685345f9e702d00ce54421fb6c4e6330d4f9",
+  "selectedSourceHash": "c85f7579e790a6103e8ad0372dff2c7f74d12467fb878cecaf04cfba96438f7e",
+  "files": {
+    "reconstructions/scene-06/src/reference6-scene.js": "e9d4f3016847a36be832fff349c64121f0dbd9ead691d645b2f57e8506af4298",
+    "reconstructions/scene-06/src/prayer-mats299.js": "9dc640f79cf07ca6ebb2932bfbb7c74b8392cf125e6ddc469864dacb932c2697"
+  },
+  "rootPersonallyViewed": [
+    "R01 full",
+    "R01 true detail subfrustum",
+    "R01 low floor oblique",
+    "unchanged284 same detail control",
+    "R02 room material response",
+    "R03 sky/solar balance"
+  ],
+  "selectedChanges": [
+    "Closed compressed mat core and rounded rush face",
+    "Physical wrapped cloth border replaces raised lacquered timber edging",
+    "Metric authored rush/weft textures with mipmapped PBR detail; original band layout retained"
+  ],
+  "notSelected": {
+    "r02": "No material improvement: current Three renderer overrides material envMapIntensity when inheriting scene.environment (vendor/build/three.module.js:18775). Preserve experiment, do not promote as a room improvement.",
+    "r03": "Changed solar/sky balance and exposure did not resolve the scene-wide photographic lighting mismatch. Preserve candidate only."
+  },
+  "limits": [
+    "Mat hidden construction and thickness inferred from reference, not measured",
+    "Illumination and cloth texture still visibly synthetic",
+    "Native aliasing and shimmer not fully eliminated; no whole-film claim"
+  ],
+  "photographicAccepted": false
+}
