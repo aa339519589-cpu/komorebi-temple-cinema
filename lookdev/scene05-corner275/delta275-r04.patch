@@ -1,0 +1,410 @@
+--- a/reconstructions/scene-05/src/architecture.js
++++ b/reconstructions/scene-05/src/architecture.js
+@@ -1739,9 +1739,15 @@
+         q.setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
+       }
+       const tip=end.clone().addScaledVector(tangent,.014);
+-      draw('box','oldgold',tip.toArray(),[.186,.226,.012],q);
+-      const flowerPoint=tip.clone().addScaledVector(tangent,.012);
+-      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.078,'gold',q);
++      if(ctx.carpenteredBearing220&&ctx.joineryKit?.fittingParts){
++        // The visible upper hip cut receives the same real closed chased
++        // cup as the lower strut; its old flat star box is removed.
++        for(const part of ctx.joineryKit.fittingParts)draw(part.geometry,part.material,tip.toArray(),[.186,.226,.186],q);
++      }else{
++        draw('box','oldgold',tip.toArray(),[.186,.226,.012],q);
++        const flowerPoint=tip.clone().addScaledVector(tangent,.012);
++        flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.078,'gold',q);
++      }
+     }
+   }
+ 
+@@ -2876,7 +2882,7 @@
+           if(ctx.joineryKit?.cornerMask){
+             const cs=ctx.cornerCeramicScale??.62,mount=ctx.handlaidCeramics&&ctx.joineryKit.cornerMaskMount190;
+             if(mount)for(const part of mount)draw(part.geometry,'cornerCeramic',[0,0,0],[cs,cs,cs]);
+-            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='terminalInlay204'?'terminalInlay204':part.material==='oldgold'?'oldgold':'cornerCeramic',mount?[0,.145,.23]:[0,.005,.012],[cs,cs,cs]);
++            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material.startsWith('terminal')?part.material:part.material==='oldgold'?'oldgold':'cornerCeramic',mount?[0,.145,.23]:[0,.005,.012],[cs,cs,cs]);
+           }else{
+             const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
+             draw(crest,'slate',[0,.005,0],[.78,.78,.82]);draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
+--- /dev/null
++++ b/reconstructions/scene-05/src/corner-craft275.js
+@@ -0,0 +1,51 @@
++import * as T from 'three';
++import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
++import {closedWire190,finishSolid190} from './detail190-solids.js';
++export {closedWire190};
++
++export function cast275(shape,depth=.008,bevel=.0012){
++ const data=shape.extractPoints(12),outer=data.shape;if(!T.ShapeUtils.isClockWise(outer))outer.reverse();const normalized=new T.Shape(outer);for(const points of data.holes){if(T.ShapeUtils.isClockWise(points))points.reverse();const hole=new T.Path(points);hole.closePath();normalized.holes.push(hole);}
++ const g=new T.ExtrudeGeometry(normalized,{depth,steps:1,curveSegments:12,bevelEnabled:bevel>0,bevelSize:bevel,bevelThickness:bevel,bevelSegments:2});g.translate(0,0,-depth/2);return g;
++}
++export function ring275(rx,ry,cy=0,z=0,r=.006,N=64){
++ const points=Array.from({length:N},(_,j)=>{const a=j/N*Math.PI*2;return new T.Vector3(rx*Math.cos(a),cy+ry*Math.sin(a),z);});
++ return new T.TubeGeometry(new T.CatmullRomCurve3(points,true),N,r,8,true);
++}
++export function lathe275(profile,segments=6,name='scene05-closed-cast-profile275'){
++ const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),segments,-Math.PI/6);const result=finishSolid190(Array.from(g.attributes.position.array),Array.from(g.attributes.uv.array),Array.from(g.index.array),name);g.dispose();return result;
++}
++export function ribbon275(points,width=.015,depth=.007,{segments=36,taper=.38,ridge=.65}={}){
++ const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),N=7,p=[],uv=[],ix=[];
++ for(let j=0;j<=segments;j++){
++  const t=j/segments,c=curve.getPoint(t),tangent=curve.getTangent(t),side=new T.Vector3(-tangent.y,tangent.x,0).normalize(),w=width*(taper+(1-taper)*Math.sin(Math.PI*t)**.65),d=depth,
++   section=[[-w/2,-d/2],[w/2,-d/2],[w/2,d*.08],[w*.28,d*.45],[0,d*ridge],[-w*.28,d*.45],[-w/2,d*.08]];
++  for(const[x,z]of section){const q=c.clone().addScaledVector(side,x);q.z+=z;p.push(...q.toArray());uv.push(t,x/width);}
++ }
++ for(let j=0;j<segments;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N,c=a+N,d=b+N;ix.push(a,b,c,b,d,c);}
++ const ci=p.length/3;p.push(...curve.getPoint(0).toArray(),...curve.getPoint(1).toArray());uv.push(0,0,1,0);
++ for(let k=0;k<N;k++)ix.push(ci,(k+1)%N,k,ci+1,segments*N+k,segments*N+(k+1)%N);
++ return finishSolid190(p,uv,ix,'scene05-closed-folded-cast-ribbon275');
++}
++export function leaf275(length=.12,width=.040,{hole=true,depth=.006,fold=.009}={}){
++ const s=new T.Shape();s.moveTo(0,0);s.bezierCurveTo(-width*.5,length*.12,-width*.57,length*.31,-width*.32,length*.40);s.lineTo(-width*.48,length*.50);s.bezierCurveTo(-width*.52,length*.63,-width*.17,length*.88,0,length);s.bezierCurveTo(width*.12,length*.85,width*.52,length*.64,width*.40,length*.50);s.lineTo(width*.24,length*.43);s.bezierCurveTo(width*.54,length*.30,width*.42,length*.13,0,0);s.closePath();
++ if(hole){const h=new T.Path();h.moveTo(0,length*.22);h.bezierCurveTo(width*.18,length*.35,width*.19,length*.57,0,length*.79);h.bezierCurveTo(-width*.16,length*.58,-width*.20,length*.36,0,length*.22);h.closePath();s.holes.push(h);}
++ const g=cast275(s,depth,.0011),p=g.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i);p.setZ(i,z+fold*Math.sin(Math.PI*y/length)*(1-Math.min(1,Math.abs(x)/width)));}g.computeVertexNormals();g.userData.closedCastLeaf275=true;return g;
++}
++export function craftCollector275(label){
++ const bins=new Map(),owned=[],audit=[];let pieces=0;
++ const add=(g,material,p=[0,0,0],rot=[0,0,0],scale=[1,1,1])=>{g.applyMatrix4(new T.Matrix4().compose(new T.Vector3(...p),rot.isQuaternion?rot:new T.Quaternion().setFromEuler(new T.Euler(...rot)),new T.Vector3(...scale)));if(!g.attributes.normal)g.computeVertexNormals();if(!g.attributes.uv)g.setAttribute('uv',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*2),2));if(!g.attributes.color)g.setAttribute('color',new T.Float32BufferAttribute(new Float32Array(g.attributes.position.count*3).fill(1),3));for(const key of Object.keys(g.attributes))if(!['position','normal','uv','color'].includes(key))g.deleteAttribute(key);owned.push(g);if(!bins.has(material))bins.set(material,[]);bins.get(material).push(g);pieces++;return g;};
++ function finish(){
++  // Validate each source solid before sharing the cast prototypes. This runs
++  // in the same official queued native construction job; no mesh is exported.
++  for(const g of owned){const p=g.attributes.position,ix=g.index,count=ix?.count??p.count,index=i=>ix?ix.getX(i):i,V=i=>new T.Vector3().fromBufferAttribute(p,i);let volume=0;for(let i=0;i<count;i+=3)volume+=V(index(i)).dot(V(index(i+1)).cross(V(index(i+2))))/6;
++   if(volume<0&&ix){for(let i=0;i<ix.count;i+=3){const q=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,q);}g.computeVertexNormals();volume=-volume;}
++   const edges=new Map(),key=i=>[p.getX(i),p.getY(i),p.getZ(i)].map(v=>Math.round(v*1e7)).join(':'),finite=Array.from(p.array).every(Number.isFinite);let degenerate=0;
++   for(let i=0;i<count;i+=3){const v=[index(i),index(i+1),index(i+2)],k=v.map(key);if(new Set(k).size<3){degenerate++;continue;}for(let j=0;j<3;j++){const a=k[j],b=k[(j+1)%3],q=a<b?a+'|'+b:b+'|'+a;if(!edges.has(q))edges.set(q,{count:0,orientation:0});const e=edges.get(q);e.count++;e.orientation+=a<b?1:-1;}}
++   const boundary=Array.from(edges.values()).filter(e=>e.count!==2).length,inconsistent=Array.from(edges.values()).filter(e=>e.orientation!==0).length;
++   audit.push({name:g.name||g.type,vertices:p.count,triangles:count/3,finite,volume,boundary,inconsistent,collapsedDegenerate:degenerate});if(!finite||volume<=0)throw Error('Invalid new cast solid '+label);
++  }
++  const parts=[];for(const[material,list]of bins){const expanded=list.map(g=>g.index?g.toNonIndexed():g.clone()),geometry=mergeGeometries(expanded,false);expanded.forEach(g=>g.dispose());geometry.userData.ornament275Shared=true;geometry.name=label+'-'+material;owned.push(geometry);parts.push({geometry,material});}
++  return{parts,pieces,audit,dispose(){owned.forEach(g=>g.dispose());}};
++ }
++ return{add,finish};
++}
+--- a/reconstructions/scene-05/src/courtyard-reflection220.js
++++ b/reconstructions/scene-05/src/courtyard-reflection220.js
+@@ -21,7 +21,7 @@
+   scene.background=skyBackground;scene.backgroundIntensity=scene.environmentIntensity;scene.backgroundRotation.copy(scene.environmentRotation);renderer.toneMapping=T.NoToneMapping;camera.update(renderer,scene);
+  }finally{scene.background=saved.background;scene.backgroundIntensity=saved.intensity;scene.backgroundRotation.copy(saved.rotation);renderer.toneMapping=saved.toneMapping;}
+  const probeFiltered=pmrem.fromCubemap(target.texture);pmrem.dispose();
+- const names=['gold','oldgold','architecture_gold','architecture_oldgold','kit_gilt','fittingCopper','fittingEdge','fittingPatina','rafterCopper220','rafterEdge220','rafterPatina220','lanternBronze','terminalInlay204','scannedGilt220'];
++ const names=['gold','oldgold','architecture_gold','architecture_oldgold','kit_gilt','fittingCopper','fittingEdge','fittingPatina','rafterCopper220','rafterEdge220','rafterPatina220','lanternBronze','terminalInlay204','scannedGilt220','lanternGilt275','lanternEdge275','lanternFrame275','lanternRecess275','terminalClay275','terminalLip275','terminalRecess275','terminalGold275'];
+  for(const name of names){const m=mats[name];if(!m)continue;m.envMap=probeFiltered.texture;m.envMapRotation?.set(0,0,0);m.envMapIntensity=name.includes('Patina')?.38:name.startsWith('rafter')?.46:.66;m.needsUpdate=true;}
+  // Diffuse wood also sees the actual finite court/temple/sky radiance. Use
+  // the same restrained .22 gain as the former scene-wide IBL, with local
+--- /dev/null
++++ b/reconstructions/scene-05/src/hip-boot275.js
+@@ -0,0 +1,32 @@
++import * as T from 'three';
++import {cast275,ribbon275,craftCollector275,ring275} from './corner-craft275.js';
++
++// Worked square metal end cup. The narrow folded sleeve, coffered field,
++// three raised flower ranks and return chasing are independent solids.
++export function createHipBoot275(){
++ const c=craftCollector275('scene05-chased-hip-end-cup275'),add=c.add,bright='fittingEdge',metal='fittingCopper',dark='fittingPatina';
++ function rect(w,h,r=.015){const a=w/2,b=h/2,s=new T.Shape();s.moveTo(-a+r,-b);s.lineTo(a-r,-b);s.quadraticCurveTo(a,-b,a,-b+r);s.lineTo(a,b-r);s.quadraticCurveTo(a,b,a-r,b);s.lineTo(-a+r,b);s.quadraticCurveTo(-a,b,-a,b-r);s.lineTo(-a,-b+r);s.quadraticCurveTo(-a,-b,-a+r,-b);s.closePath();return s;}
++ function squareRing(w,h,b,depth,z,m=bright){const s=rect(w,h);s.holes.push(new T.Path(rect(w-2*b,h-2*b,.009).getPoints(12)));add(cast275(s,depth,.001),m,[0,0,z]);}
++ squareRing(1,1,.011,.282,-.131,metal);
++ add(cast275(rect(.970,.970),.011,.001),dark,[0,0,.007]);
++ squareRing(.998,.998,.012,.009,.020,bright);squareRing(.946,.946,.009,.008,.018,metal);squareRing(.900,.900,.007,.007,.024,bright);
++ const coffer=rect(.877,.877,.014),hole=new T.Path();hole.absarc(0,0,.355,0,Math.PI*2,true);coffer.holes.push(hole);add(cast275(coffer,.007,.0008),metal,[0,0,.021]);
++ add(ring275(.359,.359,0,.025,.0045,112),bright);add(ring275(.345,.345,0,.026,.003,112),metal);
++ function petal(length,width,front=.040){
++  const N=14,K=12,p=[0,.046,.022],uv=[0,0],ix=[];
++  for(let j=1;j<N;j++)for(let k=0;k<K;k++){const t=j/N,a=k/K*Math.PI*2,shape=Math.sin(Math.PI*t),x=Math.sin(a)*width*shape**.7,z=.022+Math.cos(a)*(.003+(front-.025)*shape)-.004*shape*Math.exp(-Math.pow(x/.005,2))*Math.max(0,Math.cos(a));p.push(x,.046+length*t,z);uv.push(k/K,t);}
++  const end=p.length/3;p.push(0,.046+length,.023);uv.push(0,1);for(let k=0;k<K;k++)ix.push(0,1+(k+1)%K,1+k);for(let j=0;j<N-2;j++)for(let k=0;k<K;k++){const a=1+j*K+k,b=1+j*K+(k+1)%K,d=a+K,e=b+K;ix.push(a,b,d,b,e,d);}const last=1+(N-2)*K;for(let k=0;k<K;k++)ix.push(end,last+k,last+(k+1)%K);
++  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();return g;
++ }
++ for(let k=0;k<32;k++){const g=petal(k%2?.278:.301,k%2?.023:.025,.039);g.rotateZ(k*Math.PI/16);add(g,bright);}
++ for(let k=0;k<16;k++){const g=petal(.160,.023,.046);g.rotateZ((k+.5)*Math.PI/8);g.translate(0,0,.006);add(g,metal);}
++ const boss=new T.SphereGeometry(1,20,12);boss.scale(.041,.041,.014);add(boss,bright,[0,0,.039]);
++ for(let q=0;q<4;q++){
++  const a=q*Math.PI/2,points=[[-.050,-.035,.027],[-.080,.008,.032],[-.038,.068,.033],[.025,.052,.029],[.042,.008,.031],[.003,-.012,.033]].map(([x,y,z])=>[x+.365,y+.365,z]);const g=ribbon275(points,.018,.008,{segments:32});g.rotateZ(a);add(g,bright);
++  // Six shallow incised-looking bands are raised metal with real narrow
++  // channels over the finite dark floor, and turn onto the actual sleeve.
++  for(let k=0;k<4;k++){const g=ribbon275([[-.30+k*.20,.055,.003],[-.26+k*.20,.115,.007],[-.30+k*.20,.175,.004]],.012,.006,{segments:20});g.rotateX(-Math.PI/2);g.translate(0,.498,0);g.rotateZ(a);add(g,metal);}
++  for(const x of[-.435,0,.435]){const stud=new T.SphereGeometry(1,10,6);stud.scale(.0075,.008,.004);stud.translate(x,.467,.029);stud.rotateZ(a);add(stud,bright);}
++ }
++ const r=c.finish();return{...r,info:{revision:'corner275-r04-seated-return-chasing',solidAudit:r.audit,construction:'Closed thin282mm-normalized folded sleeve with stepped coffer, dark continuous floor,32 narrow outer repousse petals and16 inner petals, genuine recessed centre veins, double beaded round moulding, corner curled chasing, worked returns and struck fasteners',normalizedFace:[1,1],returnDepth:.282,referencePhotographRuntimeUse:false,visualAccepted:false}};
++}
+--- /dev/null
++++ b/reconstructions/scene-05/src/lantern275.js
+@@ -0,0 +1,96 @@
++import * as T from 'three';
++import {cast275,ring275,lathe275,ribbon275,leaf275,craftCollector275,closedWire190} from './corner-craft275.js';
++
++// A complete six-sided hanging lantern. Every window, folded sheet, cast
++// aperture and link is geometry; the reference is only a visual comparison.
++export function createLantern275(){
++ const craft=craftCollector275('scene05-six-sided-carved-lantern275'),add=craft.add,
++  gold='lanternGilt275',edge='lanternEdge275',bronze='lanternFrame275',dark='lanternRecess275',paper='lanternPaper275';
++ const box=(p,s,m=bronze,rot=[0,0,0])=>add(new T.BoxGeometry(...s),m,p,rot);
++ const wire=(pts,r=.004,m=gold)=>add(closedWire190(pts,r,Math.max(24,pts.length*8),8),m);
++ const lathe=(profile,m=bronze,n=6)=>add(lathe275(profile,n),m);
++ const band=(y,r,h=.012,m=gold,n=6)=>lathe([[r-.009,y-h/2],[r+.009,y-h/2],[r+.009,y+h/2],[r-.009,y+h/2],[r-.009,y-h/2]],m,n);
++ // Long narrow chamber. Six real 22mm rebated corner posts carry independent
++ // sheet frames; thin ivory panels sit 17mm behind the pierced flower grids.
++ const a=.226,half=a*Math.tan(Math.PI/6),bodyTop=.455,bodyBottom=-.465;
++ for(let f=0;f<6;f++){
++  const angle=f*Math.PI/3,face=(g,m,p=[0,0,0],rz=0)=>{g.rotateZ(rz);g.translate(...p);g.rotateY(angle);return add(g,m);};
++  const crown=(g,m,p=[0,0,0],rz=0)=>{g.rotateZ(rz);g.translate(...p);const v=g.attributes.position;for(let i=0;i<v.count;i++){const y=v.getY(i),t=T.MathUtils.clamp((y-.797)/.416,0,1),gain=1+.060*Math.sin(t*Math.PI)-.060*t;v.setXYZ(i,v.getX(i)*gain,1.213-(1.213-y)*1.20,v.getZ(i)*gain);}g.computeVertexNormals();g.rotateY(angle);return add(g,m);};
++  face(new T.BoxGeometry(half*2-.030,.875,.0016),paper,[0,-.005,a-.017]);
++  for(const side of[-1,1]){
++   face(new T.BoxGeometry(.022,.948,.028),bronze,[side*half,-.005,a]);
++   face(new T.BoxGeometry(.0045,.930,.006),gold,[side*(half-.007),-.005,a+.018]);
++   for(const y of[-.418,-.235,.004,.239,.418]){const pin=new T.SphereGeometry(1,10,6);pin.scale(.0055,.0055,.003);face(pin,edge,[side*half,y,a+.018]);}
++  }
++  for(const y of[bodyBottom,bodyTop]){face(new T.BoxGeometry(half*2,.022,.032),bronze,[0,y,a]);face(new T.BoxGeometry(half*2-.008,.004,.004),gold,[0,y+(y>0?-.005:.005),a+.020]);}
++  for(const y of[-.358,-.245,-.124,.126,.247,.360])face(new T.BoxGeometry(half*2-.030,.0058,.009),bronze,[0,y,a+.008]);
++  for(const x of[-.062,.062])face(new T.BoxGeometry(.0048,.882,.009),bronze,[x,-.005,a+.009]);
++  // Six-lobed pierced flower windows replace the repeated heart diamonds.
++  // Actual thin petal rings and seated radial veins leave the paper visible.
++  for(const y of[-.300,0,.302]){
++   const shape=new T.Shape(),hole=new T.Path(),size=y===0?.061:.052;
++   for(let k=0;k<=72;k++){const q=k/72*Math.PI*2,r=size*(1+.17*Math.cos(q*6)),x=Math.sin(q)*r,yy=Math.cos(q)*r;k?shape.lineTo(x,yy):shape.moveTo(x,yy);}
++   for(let k=0;k<=72;k++){const q=k/72*Math.PI*2,r=(size-.005)*(1+.17*Math.cos(q*6)),x=Math.sin(q)*r,yy=Math.cos(q)*r;k?hole.lineTo(x,yy):hole.moveTo(x,yy);}shape.closePath();hole.closePath();shape.holes.push(hole);face(cast275(shape,.005,.0006),gold,[0,y,a+.014]);
++   const loop=ring275(.012,.012,y,a+.017,.0026,40);loop.rotateY(angle);add(loop,edge);
++   for(let k=0;k<6;k++){const q=k*Math.PI/3,pts=[[Math.sin(q)*.012,y+Math.cos(q)*.012,a+.017],[Math.sin(q+.16)*size*.48,y+Math.cos(q+.16)*size*.48,a+.022],[Math.sin(q)*size*.99,y+Math.cos(q)*size*.99,a+.018]],rib=ribbon275(pts,.0052,.0035,{segments:24});rib.rotateY(angle);add(rib,gold);}
++  }
++  // Upper cage: full pierced panels sit in six shouldered corner pillars.
++  // Broad S-scrolls and folded acanthus leaves grow into the panel border.
++  const ca=.245,ch=.405,cy=1.005,cw=2*ca*Math.tan(Math.PI/6);
++  for(const side of[-1,1]){
++   crown(closedWire190([[side*cw/2,.797,ca],[side*cw/2,.90,ca],[side*cw/2,1.01,ca],[side*cw/2,1.12,ca],[side*cw/2,1.213,ca]],.010,60,8),bronze);
++   crown(closedWire190([[side*(cw/2-.002),.802,ca+.015],[side*(cw/2-.002),1.005,ca+.015],[side*(cw/2-.002),1.208,ca+.015]],.0028,48,8),edge);
++  }
++  for(const y of[cy-ch/2,cy+ch/2])crown(new T.BoxGeometry(cw,.018,.027),bronze,[0,y,ca]);
++  // A separate light receiver lies behind the cage; it does not fill the
++  // metal apertures, whose thickness and shadow remain visible at the sides.
++  crown(new T.BoxGeometry(cw-.029,ch-.020,.0015,1,16,1),paper,[0,cy,ca-.036]);
++  for(const side of[-1,1]){
++   const pts=[[side*.119,.815,.257],[side*.052,.858,.267],[side*.024,.941,.272],[side*.104,1.005,.265],[side*.111,1.090,.259],[side*.035,1.161,.269],[side*.106,1.195,.258]],r=ribbon275(pts,.026,.009,{segments:62,taper:.48});crown(r,gold);
++   for(const [x,y,rz,l,w]of[[side*.060,.850,-side*.66,.134,.050],[side*.082,1.012,side*1.03,.129,.057],[side*.044,1.100,-side*.89,.112,.046]]){
++    crown(leaf275(l,w,{hole:true,depth:.008,fold:.012}),gold,[x,y,.260],rz);
++    crown(closedWire190([[0,.008,.270],[0,l*.37,.277],[0,l*.76,.274]],.0027,26,8),edge,[x,y,0],rz);
++   }
++   const curl=ring275(.030,.034,.968,.269,.0045,40);curl.translate(side*.064,0,0);crown(curl,edge);
++  }
++  const flower=new T.Shape();for(let k=0;k<=48;k++){const q=k/48*Math.PI*2,r=.040+.010*Math.cos(q*6);const x=Math.sin(q)*r,y=1.015+Math.cos(q)*r;k?flower.lineTo(x,y):flower.moveTo(x,y);}flower.closePath();const h=new T.Path();h.absarc(0,1.015,.013,0,Math.PI*2,true);flower.holes.push(h);crown(cast275(flower,.009,.001),edge,[0,0,.276]);
++ }
++ for(const y of[-.482,.470,.714,1.213]){band(y,y>.7?.281:.263,.020,bronze);band(y+.009,y>.7?.284:.266,.005,edge);}
++ lathe([[0,.474],[.263,.474],[.263,.489],[0,.489]],bronze,6);
++ for(let k=0;k<6;k++){const a=(k+.5)*Math.PI/3,r=.263;wire([[Math.sin(a)*r,.477,Math.cos(a)*r],[Math.sin(a)*r,.612,Math.cos(a)*r]],.010,bronze);}
++ // Six individually closed 9mm hood panels. Real 1.6mm seams, folded corner
++ // caps and rolled eaves replace the former one-piece broad polygon cone.
++ const roofCurve=new T.CatmullRomCurve3([[.045,.724,0],[.145,.695,0],[.228,.610,0],[.303,.564,0],[.347,.575,0]].map(p=>new T.Vector3(...p))),rows=22,cols=12;
++ for(let f=0;f<6;f++){
++  const p=[],uv=[],ix=[],stride=(rows+1)*(cols+1),angle=f*Math.PI/3;
++  for(let side=0;side<2;side++)for(let j=0;j<=rows;j++)for(let k=0;k<=cols;k++){
++   const q=roofCurve.getPoint(j/rows),u=-1+2*k/cols,x=u*(q.x*Math.tan(Math.PI/6)-.0008),v=new T.Vector3(x,q.y-(side?.009:0),q.x).applyAxisAngle(new T.Vector3(0,1,0),angle);p.push(...v.toArray());uv.push(k/cols,j/rows);
++  }
++  for(let j=0;j<rows;j++)for(let k=0;k<cols;k++){const a=j*(cols+1)+k,b=a+1,c=a+cols+1,d=c+1;ix.push(a,c,b,b,c,d,a+stride,b+stride,c+stride,b+stride,d+stride,c+stride);}
++  const rim=[...Array.from({length:cols},(_,k)=>k),...Array.from({length:rows},(_,j)=>j*(cols+1)+cols),...Array.from({length:cols},(_,k)=>rows*(cols+1)+cols-k),...Array.from({length:rows},(_,j)=>(rows-j)*(cols+1))];for(let j=0;j<rim.length;j++){const a=rim[j],b=rim[(j+1)%rim.length];ix.push(a,b,a+stride,b,b+stride,a+stride);}
++  const panel=new T.BufferGeometry();panel.setAttribute('position',new T.Float32BufferAttribute(p,3));panel.setAttribute('uv',new T.Float32BufferAttribute(uv,2));panel.setIndex(ix);panel.computeVertexNormals();add(panel,bronze);
++  const edgePath=Array.from({length:23},(_,j)=>{const q=roofCurve.getPoint(j/22);return new T.Vector3(q.x*Math.tan(Math.PI/6),q.y+.008,q.x).applyAxisAngle(new T.Vector3(0,1,0),angle).toArray();});wire(edgePath,.0055,gold);
++  const eavePath=Array.from({length:17},(_,j)=>new T.Vector3((-1+2*j/16)*.347*Math.tan(Math.PI/6),.573,.347).applyAxisAngle(new T.Vector3(0,1,0),angle).toArray());wire(eavePath,.006,edge);
++  // Short corners carry a pierced cast pendant, rather than a thick teardrop.
++  const corner=new T.Vector3(.347*Math.tan(Math.PI/6),.550,.347).applyAxisAngle(new T.Vector3(0,1,0),angle);
++  for(let j=0;j<3;j++){const g=ring275(.009,.013,0,0,.0028,32);g.rotateY(angle+(j%2?Math.PI/2:0));add(g,gold,[corner.x,corner.y-j*.025,corner.z]);}
++  const leaf=leaf275(.066,.027,{hole:true,depth:.004,fold:.003});leaf.rotateZ(Math.PI);leaf.rotateY(angle);add(leaf,edge,[corner.x,corner.y-.061,corner.z]);
++ }
++ // Rolled lower basket and twelve hollowed lotus tongues. The bowl has
++ // depth and real seams, rather than one blank faceted triangular point.
++ lathe([[0,-.725],[.050,-.725],[.090,-.686],[.168,-.620],[.244,-.548],[.268,-.491],[.268,-.477],[.245,-.477],[.224,-.534],[.152,-.599],[.076,-.671],[.040,-.697],[0,-.697]],bronze,12);
++ const bowl=[[-.725,.050],[-.686,.090],[-.620,.168],[-.548,.244],[-.491,.268]],bowlRadius=y=>{let k=0;while(k<bowl.length-2&&y>bowl[k+1][0])k++;const a=bowl[k],b=bowl[k+1],t=(y-a[0])/(b[0]-a[0]);return a[1]+(b[1]-a[1])*t;};
++ for(let k=0;k<12;k++){
++  const g=leaf275(.159,.046,{hole:true,depth:.007,fold:.010}),p=g.attributes.position;for(let i=0;i<p.count;i++){const y=-.697+.170*p.getY(i)/.159;p.setXYZ(i,p.getX(i),y,bowlRadius(y)+p.getZ(i)+.0005);}g.computeVertexNormals();g.rotateY(k*Math.PI/6);add(g,gold);
++  const vein=closedWire190(Array.from({length:12},(_,j)=>{const y=-.690+.155*j/11;return[0,y,bowlRadius(y)+.010];}),.0028,36,8);vein.rotateY(k*Math.PI/6);add(vein,edge);
++ }
++ band(-.507,.252,.012,edge,12);band(-.702,.060,.012,gold,12);
++ // Scalloped crown dome and a true five-link oval chain retain the existing
++ // beam anchor at1.64m while narrowing the light chamber/hood proportions.
++ lathe([[0,1.274],[.050,1.274],[.123,1.255],[.202,1.224],[.275,1.215],[.280,1.229],[.252,1.248],[.175,1.277],[.085,1.296],[.033,1.305],[0,1.305]],gold,12);
++ for(let f=0;f<6;f++){const q=f*Math.PI/3;wire([[0,1.303,.035],[Math.sin(q)*.10,1.285,Math.cos(q)*.10],[Math.sin(q)*.22,1.248,Math.cos(q)*.22],[Math.sin(q)*.275,1.230,Math.cos(q)*.275]],.004,edge);}
++ for(let j=0;j<5;j++){const g=ring275(.022,.043,0,0,.005,48);g.rotateY(j%2?Math.PI/2:0);add(g,bronze,[0,1.315+j*.0675,0]);}
++ for(let j=0;j<3;j++){const g=ring275(.015,.023,0,0,.004,36);g.rotateY(j%2?Math.PI/2:0);add(g,bronze,[0,-.742-j*.037,0]);}
++ lathe([[0,-.990],[.014,-.986],[.034,-.961],[.049,-.925],[.041,-.884],[.020,-.861],[0,-.861]],gold,12);
++ const result=craft.finish();return{...result,info:{revision:'corner275-r02',solidAudit:result.audit,construction:'Six independently closed folded hood sheets with rolled seams/eaves; deep shouldered corner posts, rebated long paper chamber and folded pierced grille; tall barrel-shaped acanthus upper cage with curved rebated pillars and actual leaf veins over a set-back shade; hollowed lotus leaves conformed to the actual bowl, scalloped dome, real oval links and corner pendant chains',bodyAcrossFlats:.452,bodyHeight:.920,crownAcrossFlats:.490,hoodAcrossFlats:.694,topLinkY:1.633,pendantBottomY:-.990,referencePhotographRuntimeUse:false,historicalIdentityClaimed:false,visualAccepted:false}};
++}
+--- a/reconstructions/scene-05/src/scene.js
++++ b/reconstructions/scene-05/src/scene.js
+@@ -12,8 +12,9 @@
+ import {createAgedPier05} from './aged-pier.js';
+ import {assignTimberPathUV05} from './timber-path-uv.js';
+ import {createHipTimber190,closedWire190} from './detail190-solids.js';
+-import {createLantern190} from './lantern190.js';
+-import {createTempleTerminal204} from './terminal204.js';
++import {createLantern275} from './lantern275.js';
++import {createHipBoot275} from './hip-boot275.js';
++import {createTempleTerminal275} from './terminal275.js';
+ import {createFittedBearingCopper196} from './bearing-ends196.js';
+ import {installDaylight196} from './daylight196.js';
+ import {installScannedTimber,assignMetricTimberUV} from './scanned-timber.js';
+@@ -36,7 +37,7 @@
+  mats.cornerCeramic=mats.slate.clone();mats.cornerCeramic.name='scene05-aged-charcoal-ceramic-corner-carving';mats.cornerCeramic.color.set('#535b60');mats.cornerCeramic.roughness=.68;mats.cornerCeramic.bumpScale=.00035;mats.cornerCeramic.metalness=.025;mats.cornerCeramic.vertexColors=true;
+  mats.terminalInlay204=mats.oldgold.clone();mats.terminalInlay204.name='scene05-thin-weathered-terminal-inlay204';mats.terminalInlay204.color.set('#aa8747');mats.terminalInlay204.roughness=.64;mats.terminalInlay204.metalness=.64;
+ 
+- const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createChasedEndBoot220({type:'hip'}),endCopperSmall=createChasedEndBoot220({type:'small'}),armCopper=createChasedEndBoot220({type:'arm'}),secondary190=createChasedEndBoot220({type:'lower'}),secondary220=createChasedEndBoot220({type:'lower',variant:1}),chasedStrap=createPiercedStrap220(),lantern190=createLantern190(),mask190=await createTempleTerminal204(),primary196=createFittedBearingCopper196(armCopper.parts),secondary196=createFittedBearingCopper196(secondary190.parts),secondaryFitted220=createFittedBearingCopper196(secondary220.parts),licensedCloud=await loadLicensedCloud220();
++ const baseJoineryKit=await loadBlenderJoinery(),sculptedJoinery=createSculptedJoinery(),endCopper=createHipBoot275(),endCopperSmall=createChasedEndBoot220({type:'small'}),armCopper=createChasedEndBoot220({type:'arm'}),secondary190=createChasedEndBoot220({type:'lower'}),secondary220=createChasedEndBoot220({type:'lower',variant:1}),chasedStrap=createPiercedStrap220(),lantern190=createLantern275(),mask190=await createTempleTerminal275(),primary196=createFittedBearingCopper196(armCopper.parts),secondary196=createFittedBearingCopper196(secondary190.parts),secondaryFitted220=createFittedBearingCopper196(secondary220.parts),licensedCloud=await loadLicensedCloud220();
+  const joineryKit={...baseJoineryKit,bracket:sculptedJoinery.bracket,cornerFan:sculptedJoinery.cornerFan,bracketFittings:sculptedJoinery.bracketFittings,cornerFanFittings:sculptedJoinery.cornerFanFittings,waistBearing:sculptedJoinery.waistBearing,waistFittings:sculptedJoinery.waistFittings,relief:chasedStrap.geometry,fittingParts:endCopper.parts,fittingPartsSmall:endCopperSmall.parts,secondaryFittingParts:secondary190.parts,primaryBearingFitting196:primary196.parts,secondaryBearingFitting196:secondary196.parts,secondaryBearingFitting220:[secondary196.parts,secondaryFitted220.parts],cornerMask:mask190.parts,cornerMaskMount190:mask190.mountParts,sculpted:true,info:{...sculptedJoinery.info,endFitting:endCopper.info,armFitting:armCopper.info,piercedStrap:chasedStrap.info,secondary190:secondary190.info,secondary220:secondary220.info,bearingCut196:primary196.info,lantern190:lantern190.info,mask190:mask190.info},dispose(){baseJoineryKit.dispose();sculptedJoinery.dispose();endCopper.dispose();endCopperSmall.dispose();armCopper.dispose();secondary190.dispose();secondary220.dispose();chasedStrap.dispose();lantern190.dispose();mask190.dispose();primary196.dispose();secondary196.dispose();secondaryFitted220.dispose();}};Object.assign(mats,joineryKit.materials);
+  const copperPixels=new Uint8Array(128*128*4);for(let y=0;y<128;y++)for(let x=0;x<128;x++){
+    const hash=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
+@@ -52,6 +53,16 @@
+  mats.rafterCopper220=mats.fittingCopper.clone();mats.rafterCopper220.name='scene05-small-rafter-worked-brass';mats.rafterCopper220.color.set('#bd9147');mats.rafterCopper220.roughness=.55;mats.rafterCopper220.envMapIntensity=.90;
+  mats.rafterEdge220=mats.fittingEdge.clone();mats.rafterEdge220.name='scene05-small-rafter-cast-edges';mats.rafterEdge220.color.set('#cba052');mats.rafterEdge220.roughness=.48;mats.rafterEdge220.envMapIntensity=.95;
+  mats.rafterPatina220=mats.fittingPatina.clone();mats.rafterPatina220.name='scene05-small-rafter-oxidised-recess';
++ // Private castwork and kiln surfaces retain the real local reflection probe.
++ mats.lanternGilt275=new T.MeshStandardMaterial({name:'scene05-lantern-worn-cast-gilt275',color:'#bba06a',metalness:.89,roughness:.46,map:copperAlbedo,roughnessMap:copperFinish,bumpMap:copperFinish,bumpScale:.00022,vertexColors:true});
++ mats.lanternEdge275=mats.lanternGilt275.clone();mats.lanternEdge275.name='scene05-lantern-worked-edge275';mats.lanternEdge275.color.set('#d7bc83');mats.lanternEdge275.roughness=.38;
++ mats.lanternFrame275=mats.lanternGilt275.clone();mats.lanternFrame275.name='scene05-lantern-oxidised-bronze-frame275';mats.lanternFrame275.color.set('#78613c');mats.lanternFrame275.roughness=.55;mats.lanternFrame275.metalness=.78;
++ mats.lanternRecess275=new T.MeshStandardMaterial({name:'scene05-lantern-deep-cast-recess275',color:'#40392b',roughness:.73,metalness:.56,vertexColors:true});
++ mats.lanternPaper275=new T.MeshStandardMaterial({name:'scene05-recessed-ivory-lantern-shade275',color:'#e1d5b6',roughness:.95,metalness:0,emissive:'#f0d6a0',emissiveIntensity:.022,vertexColors:true});
++ mats.terminalClay275=new T.MeshPhysicalMaterial({name:'scene05-sculpted-blue-charcoal-glazed-clay275',color:'#35434b',roughness:.57,metalness:.018,clearcoat:.20,clearcoatRoughness:.44,vertexColors:true});
++ mats.terminalLip275=mats.terminalClay275.clone();mats.terminalLip275.name='scene05-rolled-grey-blue-glazed-clay-edge275';mats.terminalLip275.color.set('#6e808b');mats.terminalLip275.roughness=.51;mats.terminalLip275.clearcoat=.24;
++ mats.terminalRecess275=mats.terminalClay275.clone();mats.terminalRecess275.name='scene05-recessed-glazed-orbital-clay275';mats.terminalRecess275.color.set('#273943');mats.terminalRecess275.roughness=.46;
++ mats.terminalGold275=mats.fittingEdge.clone();mats.terminalGold275.name='scene05-worn-seated-ceramic-inlay275';mats.terminalGold275.color.set('#ac925e');mats.terminalGold275.roughness=.53;
+  // Solid code-built geometry and the user-authorized image-assisted relief.
+  const stack=[new T.Matrix4()],bucket=new Map(),geometryCache=new Map(),columns=[];
+  const primitive={box:new T.BoxGeometry(1,1,1),sphere:new T.SphereGeometry(1,16,10),cone:new T.ConeGeometry(1,1,16)};
+@@ -241,7 +252,7 @@
+    });
+    for(const sx of[-1,1])for(const sz of[-1,1]){
+      const angle=Math.atan2(sx,sz),corner=new T.Vector3(sx*outer,y+.19*s,sz*outer);
+-     group(...corner.toArray(),angle,()=>{for(const part of joineryKit.cornerMask)instance(part.geometry,part.material==='oldgold'?'oldgold':'cornerCeramic',0,.005,.012,.72,.72,.72);});
++     group(...corner.toArray(),angle,()=>{for(const part of joineryKit.cornerMask)instance(part.geometry,part.material.startsWith('terminal')?part.material:part.material==='oldgold'?'oldgold':'cornerCeramic',0,.005,.012,.72,.72,.72);});
+      const path=new T.CatmullRomCurve3([new T.Vector3(sx*inner,y+.37*s,sz*inner),new T.Vector3(sx*(inner+outer)/2,y+.24*s,sz*(inner+outer)/2),corner.clone().add(new T.Vector3(0,.025,0))]);
+      instance(closedWire190(path.getPoints(16).map(p=>p.toArray()),.065*s,16,10),'cornerCeramic');
+      const start=new T.Vector3(sx*(inner-.10),y+.20*s,sz*(inner-.10)),end=new T.Vector3(sx*(outer+.11),y-.12*s,sz*(outer+.11)),direction=end.clone().sub(start),normal=direction.clone().normalize(),mid=start.clone().add(end).multiplyScalar(.5),q=new T.Quaternion().setFromUnitVectors(new T.Vector3(0,0,1),normal);
+@@ -284,6 +295,12 @@
+      for(const[geometry,placements]of batches){const mesh=new T.InstancedMesh(geometry,material,placements.length);mesh.name='scene05-source-preserving-wood-carving220-'+material.name;for(const[i,r]of placements.entries()){mesh.setMatrixAt(i,r.matrix);mesh.setColorAt(i,new T.Color().setRGB(r.tint,r.tint,r.tint));}mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;mesh.computeBoundingSphere();mesh.castShadow=mesh.receiveShadow=true;scene.add(mesh);triangles+=(geometry.index?.count??geometry.attributes.position.count)/3*placements.length;parts+=placements.length;}
+      records=records.filter(r=>!r.geo.userData.licensedCarving220Shared);if(!records.length)continue;
+    }
++   const craft275=records.filter(r=>r.geo.userData.ornament275Shared);
++   if(craft275.length){
++     const batches=new Map();for(const r of craft275){if(!batches.has(r.geo))batches.set(r.geo,[]);batches.get(r.geo).push(r);}
++     for(const[geometry,placements]of batches){const mesh=new T.InstancedMesh(geometry,material,placements.length);mesh.name='scene05-shared-solid-castwork275-'+material.name;for(const[i,r]of placements.entries()){mesh.setMatrixAt(i,r.matrix);mesh.setColorAt(i,new T.Color().setRGB(r.tint,r.tint,r.tint));}mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor.needsUpdate=true;mesh.computeBoundingSphere();mesh.castShadow=mesh.receiveShadow=true;scene.add(mesh);triangles+=(geometry.index?.count??geometry.attributes.position.count)/3*placements.length;parts+=placements.length;}
++     records=records.filter(r=>!r.geo.userData.ornament275Shared);if(!records.length)continue;
++   }
+    const terminals=records.filter(r=>r.geo.userData.terminal204Shared);
+    if(terminals.length){
+      const batches=new Map();for(const r of terminals){if(!batches.has(r.geo))batches.set(r.geo,[]);batches.get(r.geo).push(r);}
+@@ -320,5 +337,5 @@
+    const mesh=new T.Mesh(geo,material);mesh.castShadow=true;mesh.receiveShadow=true;scene.add(mesh);triangles+=geo.attributes.position.count/3;parts+=records.length;
+  }
+  const courtyardReflection220=installCourtyardReflection220(scene,renderer,mats);
+- return {scene,info:()=>({reference:5,revision:'scene05-rebuild272-r02-deep-bellied-eave-and-waist-ceramics-broader-outer-curl',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,licensedCarving220:{...licensedCloud.info,mounts:licensedMounts220},detail272:{eaves:'Closed18.5mm eave rain pans now have90mm concave front bellies behind the cap front plane and closed7.5mm raised lips. The waist roof uses120mm deep physical pans instead of the shallow applied scroll fascia; its hip ridges are closed. Constant-depth corner mitres meet exactly on the shared hip. Broader outer corner curvature changes only t>.82, retaining centre/hip endpoint and inner structural datums. Flying rafters begin at t=.70 as finite wedges on retained main-rafter tops, gaining90mm depth by t=.84; closed deck follows that upper plane.',finish:'Oxide-red and red-brown timber pigments reduce broad orange bias; retained scanned tissue, lights, exposure, tier axes and camera.',limits:'Authored carpentry/ceramic interpretation; photographic fidelity unaccepted'},detail220:{solidRepairR12:{geometry:'Reverse inherited inward branch end caps and leaf edge-strip triangles. All686 branch and3 leaf prototypes are closed, positive-volume and consistently wound after repair; no primary centreline or lamina position changes from R11.',sourceBoundary:'Only foliage cap/rim indices and this scene revision note differ from R11; no new light/material/camera/exposure change.'},repairR11:{finish:'Bearing cheeks use a distinct browner stain from roof rafters. Member-aligned scan tissue retains moderated47–98% variation; role-specific satin reflectance separates weathered posts, raw cuts, stained timber and94% metallic gilt faces. Probe, direct key, courtyard proxy powers and exposure retained.',canopy:'Primary rooted limb endpoints retained; five-point curves have length-scaled bow and rise with real variable taper/ridged sections. Broader overlapping seven-lobed closed leaf meshes replace the narrow radial arrow-like contour.',limits:'Authored canopy and finish interpretation; no claim of reference-specific botanical or historic surface recovery.'},carpentryR10:{arms:'Carved face skins now share the core9mm inset contour, revealing four actual quarter-round edge bands instead of covering the old chamfer with sharp full-profile skins. Original23 arm prototype bounding envelopes and cut positions retained; real4mm carving recesses retained.',wood:'CC0 scan luminance modulation narrowed from.22–.94 to.62–.98 under role-specific translucent stains. Fine fibres, checks, latewood cuts and scanned normal/roughness remain.',prefiltering:'Both sunless measured sky and actual local6-face cube explicitly PMREM-filtered outside material draws; hardware active samplers are recorded in every native report.'},carpentryR09:{window:'Closed264mm-deep annular rebated surround,152mm-deep eased/crowned vertical bones with26mm shoulder tenons, actual53mm rear half-laps and seated transverse bones; backing front recessed from100mm to222mm. Existing window and carving centres retained.',head:'Real eased and crowned continuous header with24mm raised free heads; obsolete full-face applied red strip removed. Individually recessed vertical transom boarding and eased intermediate stiles.',light:'Actual solid-angle-integrated measured low-sky sectors cast2 near geometry shadow maps; original sun, courtyard spot positions/powers and exposure retained. Same6-face local radiance capture now supplies restrained.22 wood irradiance as well as metal reflections. Screen AO contact radius reduced from.38m to.16m.',limits:'Finite2-sector near sky and one local raster probe are approximations, not measured recovered GI. New timber anatomy is authored from visible reference contours.'},handworkR07:{eaves:'Main/flying widths and eased arrises vary by member; both layers share the same gentle lateral hand bow and endpoint mounts. Primary heights and bearing planes retained.',ceramics:'Cover and rain-pan seams are independently phased, overlapped and staggered. Finite skewed cut ends, pressed radius/width/thickness variations and worn kiln pigment replace coincident uniform checker seams.',reflection:'An actual finite stone courtyard and existing temple/foliage are captured to a128px6-face linear HDR local probe inside the native render. Explicit material envMap is required because this renderer replaces envMapIntensity with scene.environmentIntensity when material.envMap is null.',limits:'One bounded local reflection capture, not physical GI or cross-renderer/Cycles material equivalence.'},sculptingR05:{arms:'Broad-cheek ogee free lengths are hollowed up to70mm locally; actual4mm cut channels in closed timber skins expose a darker solid wood core. Applied generic gold hooks are removed.',longHip:'Recurved free length after t=.34 and actual double-cove cross sections; original endpoints and lantern anchor seats retained.',metal:'R06 repairs R05 flat etching and coarse six-hole collar: low ribbed repousse petals and real chased gaps form the large coffered rosette; fine open curled ribbons form each wider narrow strap, with incised veins, thin border and struck fasteners. Main hip boots now fit the actual timber section and have longer worked returns.',wood:'Independent deep cinnabar/red-brown/raw-end stains, muted weathered red-gray piers, per-member ageing tones and roughness, eccentric latewood endgrain and radial checks.',historicalStatus:'Visible anatomical reconstruction from HD05, not recovered historic carving or a scan attribution.'},capitalTransform:{previousVertical:1.62954148,currentVertical:TIER_SPEC.bearingVerticalScale,purlinRoofAndTierAnchorsRetained:true,shaftAndWindowHeadRecomputedFromBearing:true},cornerDiagonal:'Independent closed hip kneeler rotated toward each actual corner with two real seats under crossing upper arms',bayGirts:'Two closed small-section lengths between each pair of bearing-block cheek faces',secondaryMetal:[secondary190.info,secondary220.info],eaveSections:'Closed finite-end sweeps, exact section-edge normals, narrow arrises and actual shallow side chases; no rounded-box lighting substitute',roofStack:{mainSection:[.100,.170],upperSection:[.074,.090],upperCentreNormalOffset:.130,boardBottomNormalOffset:.175,boardTopNormalOffset:.202,boardNormalThickness:.027,boardSeamM:.0018,primaryCentresAndPurlinAnchorsRetained:true,actualPurlinBirdsmouth:true,ringPurlins:'All three continuous ring sections derive their upper centre curve from the actual main-rafter lower plane; previous54–130mm buried intersections removed, with submillimetre sampled bed error before native review.',construction:'Closed upper narrow rafters have a long real overlap on the main rafter top and continue beyond its outer cut. Individual closed27mm roof boards sit on their upper plane. Inner hidden construction remains a bounded hypothesis.'},windowSurfaces:'Metric scanned tissue aligned to actual gray-green bars, subtle independent bar staining, brighter recessed receiver and private matte warm narrow-rafter cuts; no new scanned or photograph assets.',windowHeads:'Applied14mm frieze follows frame.windowHeaderY at the actual front face; central carved panel and split bars share frame.windowCenterY. The r02 hard-coded tie regression is retained in its source/render receipt.',limits:'Hypothesised joinery and metal motifs; photographic fidelity remains unaccepted'},terminal204:mask190.info,detail196:{bearing:primary196.info,lighting:daylight196.info,contactDatumsUnchanged:false,changedDatums204:{rafterEndCaps:'Flying cut centre +10mm and main cut centre +20mm now match actual generated timber centreline',postSection:'Square nominal width increased .47 to .56m about retained post axes',windowHead:'Roofed-room head now follows actual shaftTop minus .21m; occupied lower room retains its explicit floor-bearing datum',ceramicMounts:mask190.info.changedMounts}},detail190:{hip:'Closed double-cove loft with a free-length recurve after t=.34; original endpoint cut planes and lantern seats retained; thin pierced straps on two actual ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; exposed narrow-foot free noses and fitted copper196; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{localReflection220:courtyardReflection220.info,sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#fff0d8',hierarchy196:daylight196.info,courtyardBounce:groundBounce.intensity,courtyardBounceType:'unequal finite inverse-square shadow-casting courtyard patches',courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();licensedCloud.dispose();courtyardReflection220.dispose();copperFinish.dispose();copperAlbedo.dispose();}};
++ return {scene,info:()=>({reference:5,revision:'scene05-corner275-r04-complete-castwork-seated-returns-and-volumetric-oni',levels,tierSpec:TIER_SPEC,landmarkWorlds,triangles,parts,licensedCarving220:{...licensedCloud.info,mounts:licensedMounts220},detail275:{lantern:lantern190.info,terminal:mask190.info,hipMetal:endCopper.info,geometry:'Complete castwork/ceramic reconstruction, not changed tessellation or roughness alone. Retains exact lamp/hip attachment transforms, accepted272 roof/apron and camera/DOLLY.',limits:'Visible anatomy interpreted fromHD05; no identity or photographic fidelity acceptance.'},detail272:{eaves:'Closed18.5mm eave rain pans now have90mm concave front bellies behind the cap front plane and closed7.5mm raised lips. The waist roof uses120mm deep physical pans instead of the shallow applied scroll fascia; its hip ridges are closed. Constant-depth corner mitres meet exactly on the shared hip. Broader outer corner curvature changes only t>.82, retaining centre/hip endpoint and inner structural datums. Flying rafters begin at t=.70 as finite wedges on retained main-rafter tops, gaining90mm depth by t=.84; closed deck follows that upper plane.',finish:'Oxide-red and red-brown timber pigments reduce broad orange bias; retained scanned tissue, lights, exposure, tier axes and camera.',limits:'Authored carpentry/ceramic interpretation; photographic fidelity unaccepted'},detail220:{solidRepairR12:{geometry:'Reverse inherited inward branch end caps and leaf edge-strip triangles. All686 branch and3 leaf prototypes are closed, positive-volume and consistently wound after repair; no primary centreline or lamina position changes from R11.',sourceBoundary:'Only foliage cap/rim indices and this scene revision note differ from R11; no new light/material/camera/exposure change.'},repairR11:{finish:'Bearing cheeks use a distinct browner stain from roof rafters. Member-aligned scan tissue retains moderated47–98% variation; role-specific satin reflectance separates weathered posts, raw cuts, stained timber and94% metallic gilt faces. Probe, direct key, courtyard proxy powers and exposure retained.',canopy:'Primary rooted limb endpoints retained; five-point curves have length-scaled bow and rise with real variable taper/ridged sections. Broader overlapping seven-lobed closed leaf meshes replace the narrow radial arrow-like contour.',limits:'Authored canopy and finish interpretation; no claim of reference-specific botanical or historic surface recovery.'},carpentryR10:{arms:'Carved face skins now share the core9mm inset contour, revealing four actual quarter-round edge bands instead of covering the old chamfer with sharp full-profile skins. Original23 arm prototype bounding envelopes and cut positions retained; real4mm carving recesses retained.',wood:'CC0 scan luminance modulation narrowed from.22–.94 to.62–.98 under role-specific translucent stains. Fine fibres, checks, latewood cuts and scanned normal/roughness remain.',prefiltering:'Both sunless measured sky and actual local6-face cube explicitly PMREM-filtered outside material draws; hardware active samplers are recorded in every native report.'},carpentryR09:{window:'Closed264mm-deep annular rebated surround,152mm-deep eased/crowned vertical bones with26mm shoulder tenons, actual53mm rear half-laps and seated transverse bones; backing front recessed from100mm to222mm. Existing window and carving centres retained.',head:'Real eased and crowned continuous header with24mm raised free heads; obsolete full-face applied red strip removed. Individually recessed vertical transom boarding and eased intermediate stiles.',light:'Actual solid-angle-integrated measured low-sky sectors cast2 near geometry shadow maps; original sun, courtyard spot positions/powers and exposure retained. Same6-face local radiance capture now supplies restrained.22 wood irradiance as well as metal reflections. Screen AO contact radius reduced from.38m to.16m.',limits:'Finite2-sector near sky and one local raster probe are approximations, not measured recovered GI. New timber anatomy is authored from visible reference contours.'},handworkR07:{eaves:'Main/flying widths and eased arrises vary by member; both layers share the same gentle lateral hand bow and endpoint mounts. Primary heights and bearing planes retained.',ceramics:'Cover and rain-pan seams are independently phased, overlapped and staggered. Finite skewed cut ends, pressed radius/width/thickness variations and worn kiln pigment replace coincident uniform checker seams.',reflection:'An actual finite stone courtyard and existing temple/foliage are captured to a128px6-face linear HDR local probe inside the native render. Explicit material envMap is required because this renderer replaces envMapIntensity with scene.environmentIntensity when material.envMap is null.',limits:'One bounded local reflection capture, not physical GI or cross-renderer/Cycles material equivalence.'},sculptingR05:{arms:'Broad-cheek ogee free lengths are hollowed up to70mm locally; actual4mm cut channels in closed timber skins expose a darker solid wood core. Applied generic gold hooks are removed.',longHip:'Recurved free length after t=.34 and actual double-cove cross sections; original endpoints and lantern anchor seats retained.',metal:'R06 repairs R05 flat etching and coarse six-hole collar: low ribbed repousse petals and real chased gaps form the large coffered rosette; fine open curled ribbons form each wider narrow strap, with incised veins, thin border and struck fasteners. Main hip boots now fit the actual timber section and have longer worked returns.',wood:'Independent deep cinnabar/red-brown/raw-end stains, muted weathered red-gray piers, per-member ageing tones and roughness, eccentric latewood endgrain and radial checks.',historicalStatus:'Visible anatomical reconstruction from HD05, not recovered historic carving or a scan attribution.'},capitalTransform:{previousVertical:1.62954148,currentVertical:TIER_SPEC.bearingVerticalScale,purlinRoofAndTierAnchorsRetained:true,shaftAndWindowHeadRecomputedFromBearing:true},cornerDiagonal:'Independent closed hip kneeler rotated toward each actual corner with two real seats under crossing upper arms',bayGirts:'Two closed small-section lengths between each pair of bearing-block cheek faces',secondaryMetal:[secondary190.info,secondary220.info],eaveSections:'Closed finite-end sweeps, exact section-edge normals, narrow arrises and actual shallow side chases; no rounded-box lighting substitute',roofStack:{mainSection:[.100,.170],upperSection:[.074,.090],upperCentreNormalOffset:.130,boardBottomNormalOffset:.175,boardTopNormalOffset:.202,boardNormalThickness:.027,boardSeamM:.0018,primaryCentresAndPurlinAnchorsRetained:true,actualPurlinBirdsmouth:true,ringPurlins:'All three continuous ring sections derive their upper centre curve from the actual main-rafter lower plane; previous54–130mm buried intersections removed, with submillimetre sampled bed error before native review.',construction:'Closed upper narrow rafters have a long real overlap on the main rafter top and continue beyond its outer cut. Individual closed27mm roof boards sit on their upper plane. Inner hidden construction remains a bounded hypothesis.'},windowSurfaces:'Metric scanned tissue aligned to actual gray-green bars, subtle independent bar staining, brighter recessed receiver and private matte warm narrow-rafter cuts; no new scanned or photograph assets.',windowHeads:'Applied14mm frieze follows frame.windowHeaderY at the actual front face; central carved panel and split bars share frame.windowCenterY. The r02 hard-coded tie regression is retained in its source/render receipt.',limits:'Hypothesised joinery and metal motifs; photographic fidelity remains unaccepted'},terminal204:mask190.info,detail196:{bearing:primary196.info,lighting:daylight196.info,contactDatumsUnchanged:false,changedDatums204:{rafterEndCaps:'Flying cut centre +10mm and main cut centre +20mm now match actual generated timber centreline',postSection:'Square nominal width increased .47 to .56m about retained post axes',windowHead:'Roofed-room head now follows actual shaftTop minus .21m; occupied lower room retains its explicit floor-bearing datum',ceramicMounts:mask190.info.changedMounts}},detail190:{hip:'Closed double-cove loft with a free-length recurve after t=.34; original endpoint cut planes and lantern seats retained; thin pierced straps on two actual ranks',lantern:lantern190.info,mask:mask190.info,secondaryCopper:secondary190.info,contactDatumsUnchanged:true},geometry:'Retained measured concentric storeys and compact same-story waist; concave-neck closed receivers preserve flat bearing datums; exposed narrow-foot free noses and fitted copper196; inset arm arrises; folded chrysanthemum sleeves and worked returns; pierced acanthus collars; shallow checks in closed piers; darker raked hip members with actual 3D path arclength grain; one physical low frustum',joineryKit:joineryKit.info,timber:scannedTimber.info,lighting:{localReflection220:courtyardReflection220.info,sunPosition:sun.position.toArray(),sunIntensity:sun.intensity,sunColor:'#fff0d8',hierarchy196:daylight196.info,courtyardBounce:groundBounce.intensity,courtyardBounceType:'unequal finite inverse-square shadow-casting courtyard patches',courtyardBounceCastsShadows:true,hemisphere:hemi.intensity,environmentIntensity:scene.environmentIntensity,measuredSky:measuredSky.info,limits:'Measured CC0 sky/metal radiance with inferred native direct key and finite shadow-casting inverse-square courtyard proxy; not measured GI'},canopy,cameraHeightRange:[.72,.80]}),dispose(){scene.traverse(o=>{o.geometry?.dispose();});Object.values(mats).forEach(m=>m.dispose());joineryKit.dispose();scannedTimber.dispose();measuredSky.dispose();licensedCloud.dispose();courtyardReflection220.dispose();copperFinish.dispose();copperAlbedo.dispose();}};
+ }
+--- /dev/null
++++ b/reconstructions/scene-05/src/terminal275.js
+@@ -0,0 +1,109 @@
++import * as T from 'three';
++import {finishSolid190} from './detail190-solids.js';
++import {createCornerMask190} from './corner-mask190.js';
++import {cast275,ring275,ribbon275,craftCollector275,closedWire190} from './corner-craft275.js';
++
++const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
++const smoothUnion=(a,b,k)=>{const h=clamp(.5+.5*(b-a)/k,0,1);return b+(a-b)*h-k*h*(1-h);};
++function ell(x,y,z,cx,cy,cz,rx,ry,rz,angle=0){x-=cx;y-=cy;z-=cz;const c=Math.cos(angle),s=Math.sin(angle),u=x*c+y*s;y=-x*s+y*c;x=u;const a=Math.sqrt((x/rx)**2+(y/ry)**2+(z/rz)**2),b=Math.sqrt((x/(rx*rx))**2+(y/(ry*ry))**2+(z/(rz*rz))**2);return b>1e-10?a*(a-1)/b:-Math.min(rx,ry,rz);}
++function segment(p,a,b,r){const d=b.map((v,i)=>v-a[i]),v=p.map((q,i)=>q-a[i]),t=clamp((v[0]*d[0]+v[1]*d[1]+v[2]*d[2])/(d[0]*d[0]+d[1]*d[1]+d[2]*d[2]),0,1);return Math.hypot(v[0]-d[0]*t,v[1]-d[1]*t,v[2]-d[2]*t)-r;}
++function fold(points,r){const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),p=curve.getPoints(12).map(p=>p.toArray());return{p,r,min:[0,1,2].map(k=>Math.min(...p.map(q=>q[k]))-r*1.4),max:[0,1,2].map(k=>Math.max(...p.map(q=>q[k]))+r*1.4)};}
++
++// A genuine signed-volume sculpture: deep eye sockets, alar nostril bores and
++// an open mouth cut into the clay mass. This is hand-authored anatomy, with
++// no photograph/depth sampling, and is extracted inside the official job.
++export function createTerminalFace275(){
++ const folds=[];for(const s of[-1,1]){
++  const m=p=>p.map(([x,y,z])=>[s*x,y+(s<0?-.0015:0),z]);
++  folds.push(fold(m([[.020,.267,.116],[.070,.311,.119],[.147,.325,.085],[.205,.351,.026]]),.011));
++  folds.push(fold(m([[.030,.294,.103],[.078,.337,.094],[.153,.351,.058],[.205,.366,.017]]),.009));
++  folds.push(fold(m([[.041,.248,.090],[.080,.226,.092],[.143,.229,.068],[.179,.261,.047]]),.012));
++  folds.push(fold(m([[.041,.176,.119],[.082,.164,.110],[.146,.183,.073],[.193,.217,.036]]),.0095));
++  folds.push(fold(m([[.038,.154,.111],[.085,.132,.103],[.155,.148,.068],[.192,.172,.029]]),.0085));
++  folds.push(fold(m([[.034,.131,.098],[.081,.094,.090],[.143,.087,.056],[.172,.111,.023]]),.0075));
++  folds.push(fold(m([[.027,.373,.062],[.069,.391,.059],[.125,.379,.042],[.160,.361,.025]]),.0065));
++  folds.push(fold(m([[.031,.353,.074],[.072,.368,.070],[.107,.355,.052],[.137,.340,.038]]),.005));
++ }
++ const mouthLip=fold([[-.037,.120,.083],[-.021,.096,.092],[.022,.096,.093],[.038,.121,.081]],.0068);
++ function field(x,y,z){
++  let d=ell(x,y,z,0,.208,-.020,.220,.231,.084);
++  for(const s of[-1,1])d=smoothUnion(d,ell(x,y,z,s*.117,.176,.020,.080,.087,.045,s*.27),.018);
++  d=smoothUnion(d,ell(x,y,z,0,.346,.018,.160,.083,.061),.018);
++  for(const s of[-1,1])d=smoothUnion(d,ell(x,y,z,s*.106,.311,.066,.103,.025,.035,s*.27),.010);
++  d=smoothUnion(d,ell(x,y,z,0,.252,.073,.026,.057,.040),.012);
++  d=smoothUnion(d,ell(x,y,z,0,.190,.105,.039,.027,.035),.012);
++  for(const s of[-1,1])d=smoothUnion(d,ell(x,y,z,s*.027,.174,.093,.029,.020,.029,s*.15),.013);
++  d=smoothUnion(d,ell(x,y,z,0,.074,.018,.055,.026,.036),.014);
++  const p=[x,y,z];for(const f of[...folds,mouthLip])if(p.every((v,i)=>v>=f.min[i]&&v<=f.max[i])){let q=1;for(let i=0;i<f.p.length-1;i++)q=Math.min(q,segment(p,f.p[i],f.p[i+1],f.r));d=smoothUnion(d,q,.007);}
++  for(const s of[-1,1]){
++   d=Math.max(d,-ell(x,y,z,s*.105,.267,.105,.063,.034,.058,s*.23));
++   d=Math.max(d,-ell(x,y,z,s*.023,.179,.129,.0075,.0055,.014,s*.18));
++  }
++  // An actual42mm-deep mouth exposes rear clay and seated teeth, with a
++  // substantial lower jaw; it is not a black painted mouth on a round disk.
++  d=Math.max(d,-ell(x,y,z,0,.115,.082,.038,.020,.035));return d;
++ }
++ const low=[-.280,-.070,-.125],high=[.280,.482,.195],step=.0058,dim=low.map((v,k)=>Math.ceil((high[k]-v)/step)+1),[nx,ny,nz]=dim,N=nx*ny*nz,values=new Float32Array(N),P=i=>{const x=i%nx,y=Math.floor(i/nx)%ny,z=Math.floor(i/(nx*ny));return[low[0]+x*step,low[1]+y*step,low[2]+z*step];};
++ for(let i=0;i<N;i++){const p=P(i);values[i]=field(...p);}
++ const positions=[],uv=[],ids=[],cache=new Map(),tetra=[[0,5,1,6],[0,1,2,6],[0,2,3,6],[0,3,7,6],[0,7,4,6],[0,4,5,6]];
++ function vertex(a,b){if(a>b)[a,b]=[b,a];const key=a+':'+b;if(cache.has(key))return cache.get(key);const pa=P(a),pb=P(b),t=values[a]/(values[a]-values[b]),i=positions.length/3,p=pa.map((v,k)=>v+(pb[k]-v)*t);positions.push(...p);uv.push(p[0],p[1]);cache.set(key,i);return i;}
++ const V=i=>new T.Vector3().fromArray(positions,i*3),tri=(a,b,c,out)=>{const n=V(b).sub(V(a)).cross(V(c).sub(V(a)));if(n.lengthSq()<1e-32)return;if(n.dot(out)<0)ids.push(a,c,b);else ids.push(a,b,c);};
++ for(let z=0;z<nz-1;z++)for(let y=0;y<ny-1;y++)for(let x=0;x<nx-1;x++){
++  const i=x+nx*(y+ny*z),corners=[i,i+1,i+1+nx,i+nx,i+nx*ny,i+nx*ny+1,i+nx*ny+nx+1,i+nx*ny+nx];
++  const min=Math.min(...corners.map(i=>values[i])),max=Math.max(...corners.map(i=>values[i]));if(min>=0||max<=0)continue;
++  for(const t of tetra){const a=t.map(k=>corners[k]),inside=a.filter(i=>values[i]<0),outside=a.filter(i=>values[i]>=0);if(!inside.length||!outside.length)continue;
++   const average=list=>list.reduce((v,i)=>v.add(new T.Vector3(...P(i))),new T.Vector3()).multiplyScalar(1/list.length),out=average(outside).sub(average(inside));
++   if(inside.length===1){const v=outside.map(i=>vertex(inside[0],i));tri(...v,out);}
++   else if(inside.length===3){const v=inside.map(i=>vertex(outside[0],i));tri(...v,out);}
++   else{const[a,b]=inside,[c,d]=outside,v=[vertex(a,c),vertex(a,d),vertex(b,d),vertex(b,c)];tri(v[0],v[1],v[2],out);tri(v[0],v[2],v[3],out);}
++  }
++ }
++ // Weld the actual float vertices at0.1micron before topology review.
++ // Numerically collapsed tetrahedra are removed; only microscopic closed
++ // boundary loops may be capped. The exact repair counts remain in info.
++ const canonical=[],remap=[],weld=new Map();for(let i=0;i<positions.length;i+=3){const p=positions.slice(i,i+3).map(Math.fround),key=p.map(v=>Math.round(v*1e7)).join(':');if(!weld.has(key)){weld.set(key,canonical.length/3);canonical.push(...p);}remap.push(weld.get(key));}
++ const clean=[],duplicates=new Set();let removedCollapsed=0;for(let i=0;i<ids.length;i+=3){const f=ids.slice(i,i+3).map(v=>remap[v]),key=[...f].sort((a,b)=>a-b).join(':');if(new Set(f).size<3||duplicates.has(key)){removedCollapsed++;continue;}duplicates.add(key);clean.push(...f);}
++ const E=new Map();for(let i=0;i<clean.length;i+=3)for(let j=0;j<3;j++){const a=clean[i+j],b=clean[i+(j+1)%3],key=a<b?a+':'+b:b+':'+a;if(!E.has(key))E.set(key,[]);E.get(key).push([a,b]);}
++ const border=Array.from(E.values()).filter(e=>e.length===1).map(e=>e[0]),successors=new Map(),used=new Set();for(const[a,b]of border){if(!successors.has(a))successors.set(a,[]);successors.get(a).push(b);}let repairLoops=0,maxRepairDiameter=0;
++ const point=i=>new T.Vector3().fromArray(canonical,i*3);for(const[a,b]of border){if(used.has(a+':'+b))continue;const loop=[a];let from=a,to=b;for(let n=0;n<=border.length;n++){used.add(from+':'+to);if(to===a)break;loop.push(to);const next=(successors.get(to)||[]).find(v=>!used.has(to+':'+v));if(next===undefined)throw Error('Open authored terminal boundary');from=to;to=next;}
++  const centre=loop.reduce((p,i)=>p.add(point(i)),new T.Vector3()).multiplyScalar(1/loop.length),diam=2*Math.max(...loop.map(i=>point(i).distanceTo(centre)));if(diam>.003)throw Error('Non-microscopic terminal boundary '+diam);maxRepairDiameter=Math.max(maxRepairDiameter,diam);const ci=canonical.length/3;canonical.push(...centre.toArray());uv.push(centre.x,centre.y);for(let j=0;j<loop.length;j++)clean.push(ci,loop[(j+1)%loop.length],loop[j]);repairLoops++;
++ }
++ const canonicalUV=[];for(let i=0;i<canonical.length;i+=3)canonicalUV.push(canonical[i],canonical[i+1]);
++ const g=new T.BufferGeometry();g.name='scene05-closed-volumetric-open-mouthed-terminal275';g.setAttribute('position',new T.Float32BufferAttribute(canonical,3));g.setAttribute('uv',new T.Float32BufferAttribute(canonicalUV,2));g.setIndex(clean);g.computeVertexNormals();const colors=new Float32Array(g.attributes.position.count*3);for(let i=0;i<g.attributes.position.count;i++){const[x,y,z]=canonical.slice(i*3,i*3+3),v=.91+.035*Math.sin(x*71+y*43+z*37)+.020*Math.sin(x*139-y*93);colors.set([v*.97,v,v*1.025],i*3);}g.setAttribute('color',new T.Float32BufferAttribute(colors,3));
++ const frontAt=(x,y)=>{let hi=.20,lo=hi;for(let z=.199;z>-.12;z-=.001){if(field(x,y,z)<=0){lo=z;break;}hi=z;}for(let k=0;k<16;k++){const m=(lo+hi)/2;if(field(x,y,m)<=0)lo=m;else hi=m;}return(lo+hi)/2;};
++ return{geometry:g,frontAt,info:{signedVolume:true,gridStep:step,gridCells:dim,triangles:clean.length/3,microRepairs:{weldTolerance:1e-7,removedCollapsed,repairLoops,maxRepairDiameter},mouthCutDepth:.035,orbitalCutDepth:.058,noseProjection:.140,photoInput:false}};
++}
++
++export function createTempleTerminal275(){
++ const craft=craftCollector275('scene05-ceramic-ridge-terminal275'),add=craft.add,clay='terminalClay275',lip='terminalLip275',inlay='terminalGold275',dark='terminalRecess275',face=createTerminalFace275();add(face.geometry,clay);
++ // A full rolled annular clay rim, with two physical blue-grey glaze edges.
++ add(ring275(.236,.246,.205,.015,.014,112),clay);add(ring275(.223,.232,.205,.050,.0055,112),lip);add(ring275(.246,.255,.205,-.010,.0045,112),lip);
++ for(const s of[-1,1]){
++  add(new T.BoxGeometry(.012,.012,.060),clay,[s*.104,.263,.065]);const eye=new T.SphereGeometry(1,20,12);eye.scale(.014,.011,.009);eye.rotateZ(s*.27);add(eye,dark,[s*.104,.263,.095]);const pin=new T.SphereGeometry(1,12,8);pin.scale(.0057,.0051,.0018);add(pin,inlay,[s*.104,.264,.1055]);
++  // Five outward-folded cheek incisions remain actual ceramic strips, not
++  // a radiating texture. They meet the signed facial mass with positive lap.
++  for(let k=0;k<3;k++)add(ribbon275([[s*.045,.181-k*.023,.116-k*.010],[s*.110,.161-k*.025,.095-k*.009],[s*.179,.192-k*.035,.053-k*.004]],.0045-k*.0004,.0026,{segments:28}),lip);
++ }
++ // Small nonuniform teeth seat in the actual mouth hollow and remain dark
++ // grey glazed clay. Two retain tiny traces of worn inlaid metal.
++ for(let k=0;k<2;k++){const x=(k?1:-1)*.023,s=new T.Shape();s.moveTo(-.0065,.028);s.lineTo(.0065,.028);s.lineTo(.0030,-.010);s.quadraticCurveTo(0,-.016,-.0030,-.010);s.closePath();add(cast275(s,.010,.0011),clay,[x,.129,.065]);}
++ const nose=new T.Shape();nose.moveTo(-.030,.183);nose.quadraticCurveTo(-.020,.201,0,.203);nose.quadraticCurveTo(.021,.201,.030,.183);nose.quadraticCurveTo(.014,.176,0,.180);nose.quadraticCurveTo(-.016,.176,-.030,.183);nose.closePath();const noseMetal=cast275(nose,.0022,.0005),np=noseMetal.attributes.position;for(let i=0;i<np.count;i++)np.setZ(i,face.frontAt(np.getX(i),np.getY(i))+np.getZ(i)+.0013);noseMetal.computeVertexNormals();add(noseMetal,inlay);
++ const crest=new T.Shape();crest.moveTo(-.193,.329);crest.lineTo(-.161,.408);crest.quadraticCurveTo(-.092,.427,-.047,.459);crest.quadraticCurveTo(-.013,.478,0,.476);crest.quadraticCurveTo(.013,.478,.047,.459);crest.quadraticCurveTo(.092,.427,.161,.408);crest.lineTo(.193,.329);crest.closePath();add(cast275(crest,.085,.0035),clay,[0,0,-.062]);
++ add(closedWire190([[-.163,.412,-.012],[-.086,.440,-.012],[0,.477,-.012],[.086,.440,-.012],[.163,.412,-.012]],.006,64,8),lip);
++ // Deep ridge-vault body: separate inner and outer curved surfaces meet on
++ // the actual annular cut faces. The rear shell, ribs and neck are closed.
++ function vault(stations,wall){const N=80,p=[],uv=[],ix=[],stride=2*N;for(const[z,rx,ry,cy]of stations)for(const w of[0,wall])for(let k=0;k<N;k++){const a=k/N*Math.PI*2,sy=Math.sin(a);p.push((rx-w)*Math.cos(a),cy+(ry-w)*(sy<0?sy*.83:sy),z);uv.push(k/N,-z);}for(let j=0;j<stations.length-1;j++)for(let k=0;k<N;k++){const a=j*stride+k,b=j*stride+(k+1)%N,c=a+N,d=b+N;ix.push(a,a+stride,b,b,a+stride,b+stride,c,d,c+stride,d,d+stride,c+stride);}for(const j of[0,stations.length-1])for(let k=0;k<N;k++){const a=j*stride+k,b=j*stride+(k+1)%N,c=a+N,d=b+N;j?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}return finishSolid190(p,uv,ix,'scene05-closed-deep-ridge-vault275');}
++ const stations=[[-.035,.240,.240,.205],[-.142,.226,.222,.193],[-.255,.204,.201,.183],[-.365,.172,.182,.169]];add(vault(stations,.020),clay);
++ for(const z of[-.108,-.220,-.327]){const t=(-z-.035)/.330,rx=.240+(.172-.240)*t,ry=.240+(.182-.240)*t,cy=.205+(.169-.205)*t;add(vault([[z+.005,rx+.005,ry+.005,cy],[z-.005,rx+.005,ry+.005,cy]],.010),lip);}
++ // Lower folded frieze has a load-bearing thick body, narrow rolled lips
++ // and turned scroll ears, rather than a single broad flat horizontal bar.
++ const beam=[[-.331,.011,.012],[-.188,-.028,.038],[0,-.066,.052],[.191,-.026,.038],[.334,.012,.012]];
++ add(ribbon275(beam,.072,.073,{segments:72,taper:1,ridge:.5}),clay);
++ for(const y of[.006,-.017,-.040])add(closedWire190(beam.map(([x,q,z])=>[x,q+y,z+.040]),.0052,72,8),lip);
++ for(const s of[-1,1]){
++  const points=[[s*.329,.015,.024],[s*.359,-.015,.021],[s*.358,-.070,.004],[s*.324,-.106,-.015]];add(ribbon275(points,.035,.077,{segments:40,taper:.74,ridge:.5}),clay);add(closedWire190(points.map(([x,y,z])=>[x,y,z+.041]),.005,48,8),lip);
++ }
++ const old=createCornerMask190(),mountParts=old.mountParts.map(p=>({geometry:p.geometry.clone(),material:p.material}));old.dispose();
++ const neck=new T.BoxGeometry(.185,.155,.095);add(neck,clay,[0,.022,-.075]);const keel=new T.BoxGeometry(.125,.110,.270);add(keel,clay,[0,0,-.210]);
++ const result=craft.finish();return{...result,mountParts,info:{revision:'corner275-r03',solidAudit:result.audit,source:'Hand-authored closed signed3D facial volume and finite ceramic ridge shell; no photograph, depth field or scan input',face:face.info,construction:'Deep angry orbital cuts, wide alar nose with real nostril bores, actual open mouth and seated irregular teeth, full curved cheek folds, double rolled blue-grey clay rim, deep tapered20mm ridge-vault, three standing returns and folded thick lower frieze/scroll ears',mainHipMountOffset:[0,.145,.23],mountDatumsRetained:true,referencePhotographRuntimeUse:false,visualAccepted:false},dispose(){result.dispose();mountParts.forEach(p=>p.geometry.dispose());}};
++}

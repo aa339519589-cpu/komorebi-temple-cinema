@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {buildPendantPiercing283,buildPendantHeader283} from './pendant-filigree283.js';
 import {withAltarTier260,withAltarAccents260,buildPanelFrame260,buildPanelDivider260,buildTierEdge260,buildUprightCapital260,buildAltarUpright260} from './altar260.js';
 import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
@@ -1930,9 +1931,7 @@ function buildPendantStandard(b,x,y,z,length=3.20,width=.78,headerDrop=.23,heade
         b.box(side*.227,-length/2,.060,.009,length,.015,'oldgold');
       }
       for(const yy of [-.01,-length])b.box(0,yy,.046,.53,.023,.025,'gold');
-      const fieldData=REF6_RECOVERED_BANNER_FIELD,fieldKey='recovered-original-banner:'+length;
-      const carving=b.geometry(fieldKey,()=>ref6SweptPhotoCastingGeometry(fieldData,.46/(fieldData.bounds[2]-fieldData.bounds[0]),length*.97/(fieldData.bounds[3]-fieldData.bounds[1]),-length/2,1));
-      b.add(carving,'gold',0,0,.064);
+      buildPendantPiercing283(b,{length,hand:x<0?-1:1});
       // Five long open metal frames, visible against the red columns in the
       // original, are not solid sticks with copied acanthus leaves. Preserve
       // the five axes; expose the paired fine rails and their open centers.
@@ -1982,24 +1981,8 @@ function buildPendantStandard(b,x,y,z,length=3.20,width=.78,headerDrop=.23,heade
     // The short, wide scalloped plaque on the inner side of each long banner
     // is visible in the supplied photograph beside the supporting beam.
     const inward=-Math.sign(x),cx=inward*(width/2+.61);
-    const plaque=b.geometry('banner-scalloped-header',()=>{
-      const q=new T.Shape();q.moveTo(-.55,.32);q.lineTo(.55,.32);q.lineTo(.55,.02);
-      q.bezierCurveTo(.55,-.13,.39,-.18,.34,-.08);q.bezierCurveTo(.22,-.29,.10,-.29,0,-.16);
-      q.bezierCurveTo(-.10,-.29,-.22,-.29,-.34,-.08);q.bezierCurveTo(-.39,-.18,-.55,-.13,-.55,.02);q.closePath();
-      return new T.ExtrudeGeometry(q,{depth:.026,bevelEnabled:true,bevelSize:.010,bevelThickness:.009,bevelSegments:2,curveSegments:9});
-    });
     b.withTransform(0,-headerDrop,0,1,()=>{
-    b.add(plaque,'oldgold',cx,.02,.01);
-    b.box(cx,.343,.055,1.13,.022,.030,'gold');
-    // Existing raised flowers bear on the plaque face, not an empty gap.
-    // Retain all original outlines and move only their casting depth.
-    for(let row=0;row<3;row++)for(let col=-4;col<=4;col++){
-      if((row===0&&Math.abs(col)===4)||(row===2&&Math.abs(col)===3))continue;
-      const xx=cx+col*.112,yy=.24-row*.105;
-      ref6Scroll(b,xx,yy-.05,.050,.105+.015*Math.abs(col),.12+.012*row,(col%2)*.20+row*.18,'gold',col<0?-1:1);
-      ref6Leaf(b,xx,yy-.045,.065,.070,.100,-col*.09,'gold',.26);
-    }
-    for(const xx of [-.34,0,.34])ref6Rosette(b,cx+xx,.10,.070,.098,0,'gold');
+      buildPendantHeader283(b,{cx,hand:inward});
     });
     const lowerY=.343-headerDrop,bearingY=headerCeiling[0]-y;
     if(!(bearingY>lowerY))throw new RangeError('Short plaque must hang below its actual ceiling bearing.');

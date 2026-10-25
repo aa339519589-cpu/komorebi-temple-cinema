@@ -21,7 +21,7 @@ export function installCourtyardReflection220(scene,renderer,mats){
   scene.background=skyBackground;scene.backgroundIntensity=scene.environmentIntensity;scene.backgroundRotation.copy(scene.environmentRotation);renderer.toneMapping=T.NoToneMapping;camera.update(renderer,scene);
  }finally{scene.background=saved.background;scene.backgroundIntensity=saved.intensity;scene.backgroundRotation.copy(saved.rotation);renderer.toneMapping=saved.toneMapping;}
  const probeFiltered=pmrem.fromCubemap(target.texture);pmrem.dispose();
- const names=['gold','oldgold','architecture_gold','architecture_oldgold','kit_gilt','fittingCopper','fittingEdge','fittingPatina','rafterCopper220','rafterEdge220','rafterPatina220','lanternBronze','terminalInlay204','scannedGilt220'];
+ const names=['gold','oldgold','architecture_gold','architecture_oldgold','kit_gilt','fittingCopper','fittingEdge','fittingPatina','rafterCopper220','rafterEdge220','rafterPatina220','lanternBronze','terminalInlay204','scannedGilt220','lanternGilt275','lanternEdge275','lanternFrame275','lanternRecess275','terminalClay275','terminalLip275','terminalRecess275','terminalGold275'];
  for(const name of names){const m=mats[name];if(!m)continue;m.envMap=probeFiltered.texture;m.envMapRotation?.set(0,0,0);m.envMapIntensity=name.includes('Patina')?.38:name.startsWith('rafter')?.46:.66;m.needsUpdate=true;}
  // Diffuse wood also sees the actual finite court/temple/sky radiance. Use
  // the same restrained .22 gain as the former scene-wide IBL, with local

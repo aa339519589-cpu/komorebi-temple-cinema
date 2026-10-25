@@ -1,0 +1,228 @@
+{
+  "status": "Four actual native modeling iterations; independent corner-detail candidate ready for root visual review",
+  "createdAt": "2026-10-25T07:12:02.825Z",
+  "owner": "sol61_scene05_resume275; SOL6.1 Max; no further delegation",
+  "canonical": {
+    "root": "/Users/mima1234/temple-cinema-live-sync",
+    "sourceHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+    "unchanged": true
+  },
+  "candidate": {
+    "root": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root",
+    "sourceHash": "b45872abec4a2f3f1c75cbc4a6c4cc139dbaceaf1813b3760a4a24055c5ac28e",
+    "parentHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+    "identity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/source275-r04-identity.json",
+    "delta": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/delta275-r04.json",
+    "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/delta275-r04.patch",
+    "patchSha256": "019dcf7bc93d5d8991888818c253d9638ac657850ca11a84fef0f76d0f715599",
+    "sourceSnapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/r04-delta",
+    "changedFiles": 7,
+    "newModules": 4,
+    "visualAccepted": false
+  },
+  "native": [
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-20261025/report.json",
+      "sourceHash": "b45872abec4a2f3f1c75cbc4a6c4cc139dbaceaf1813b3760a4a24055c5ac28e",
+      "status": "rendered-review",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "detailCrop": {
+        "pixels": [
+          700,
+          250,
+          500,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "inspectionView": null,
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-20261025/reference.png",
+          "pngSha256": "dd83a34da153ade39d5827f70152a2b3dfa87951b6cfbf1415ebe53225964bdc",
+          "rgbaSha256": "6f1582c78aa4101b19d080b6ea18ab4c4270d4db6382b078a8e8fd1413f86d3b",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "allProgramsLinked": true,
+          "personallyViewed": true
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-20261025/detail-native.png",
+          "pngSha256": "70a4a07a19d41267bb7afa1d5b567fcc087e6db5b33d22d68de3f422061a1bc3",
+          "rgbaSha256": "e72efc4f310175df9b902e57137a243a1aa2a5ff806fef725044fd1695c5c057",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "allProgramsLinked": true,
+          "personallyViewed": true
+        }
+      ],
+      "visualAccepted": false
+    },
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-lowclose-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-lowclose-20261025/report.json",
+      "sourceHash": "b45872abec4a2f3f1c75cbc4a6c4cc139dbaceaf1813b3760a4a24055c5ac28e",
+      "status": "rendered-review",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "detailCrop": null,
+      "inspectionView": {
+        "position": [
+          9.6,
+          0.9,
+          9.2
+        ],
+        "target": [
+          -7.147391535615851,
+          24.690323189539647,
+          1.8825278073617033
+        ],
+        "fov": 28,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/candidate-root/qa/ten-reference/05/iteration-scene05-corner275-r04-lowclose-20261025/inspection-view.png",
+          "pngSha256": "27445bbc864e0baba9502a818820ad889068a1bb67ba427ab961ab7e4d35d139",
+          "rgbaSha256": "461c9007b46f82d32a81199f9d5193e2fa60e138a0758700ca011016a030ed39",
+          "pixels": [
+            1254,
+            1254
+          ],
+          "valid": true,
+          "glError": 0,
+          "allProgramsLinked": true,
+          "personallyViewed": true
+        }
+      ],
+      "visualAccepted": false
+    }
+  ],
+  "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/review275-r04.json",
+  "geometryAudit": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/geometry275-r04-native-audit.json",
+    "families": {
+      "lantern": {
+        "solids": 550,
+        "allFinite": true,
+        "allPositive": true,
+        "boundary": 0,
+        "inconsistent": 0,
+        "degenerate": 0
+      },
+      "terminal": {
+        "solids": 35,
+        "allFinite": true,
+        "allPositive": true,
+        "boundary": 0,
+        "inconsistent": 0,
+        "degenerate": 0
+      },
+      "hipMetal": {
+        "solids": 89,
+        "allFinite": true,
+        "allPositive": true,
+        "boundary": 0,
+        "inconsistent": 0,
+        "degenerate": 0
+      }
+    },
+    "prototypeSolids": 674,
+    "executed": "Within each official FIFO native scene construction; no separate CPU sculpt authoring job/export",
+    "face": {
+      "signedVolume": true,
+      "gridStep": 0.0058,
+      "gridCells": [
+        98,
+        97,
+        57
+      ],
+      "triangles": 152882,
+      "microRepairs": {
+        "weldTolerance": 1e-7,
+        "removedCollapsed": 6,
+        "repairLoops": 0,
+        "maxRepairDiameter": 0
+      },
+      "mouthCutDepth": 0.035,
+      "orbitalCutDepth": 0.058,
+      "noseProjection": 0.14,
+      "photoInput": false
+    }
+  },
+  "protectedSourceUnchanged": {
+    "reconstructions/scene-05/src/tier-layout.js": true,
+    "reconstructions/scene-05/src/main.js": true,
+    "reconstructions/camera-dolly.js": true,
+    "reconstructions/scene-05/src/eave-finish272.js": true,
+    "reconstructions/scene-05/src/roof-stack220.js": true,
+    "reconstructions/scene-05/src/handlaid-ceramics.js": true,
+    "reconstructions/scene-05/src/daylight196.js": true,
+    "reconstructions/scene-05/src/measured-sky.js": true
+  },
+  "sourceScope": "Ordinary JS runtime construction of finite true3D solids. Hand-authored signed-volume face, cast/extruded pierced flowers, closed curved hood sheets, actual folded sleeves and relief petals. No photograph/depth texture or scene-facing plate was used.",
+  "assets": "No new external assets. Existing licensed/CC0 dependencies retained; reference crops are comparison-only outside candidate runtime.",
+  "rejectedOrRepairedRounds": [
+    {
+      "round": "r01",
+      "hash": "30e63103a1d4255ce88ab6f6a9689e5aab1f13b086ed05e5f251b5fd8e65f996",
+      "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/review275-r01.json",
+      "reason": "Square crown, flaring lotus fringe, human-like chin/teeth, six inconsistent hole outlines and microscopic face boundary triangles."
+    },
+    {
+      "round": "r02",
+      "hash": "7cbfe9ec84cbbf45cc769d00bbf133bc4ebb122af27b1bebc85f7512892c4cb9",
+      "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/review275-r02.json",
+      "reason": "Geometry closed; exposed pupils/cheek proportions and un-replaced actual upper hip fitting still needed work."
+    },
+    {
+      "round": "r03",
+      "hash": "f7b2a1186d9815747beba0d4c8fdf4bad18f4a1f97a702b277c5964dfb99b0d3",
+      "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-corner275/review275-r03.json",
+      "reason": "Upper new cup exposed wrong-side return chasing; repaired by seating actual return geometry without deleting it."
+    }
+  ],
+  "constraints": {
+    "canonicalModified": false,
+    "otherSceneOrFilmSourceModified": false,
+    "gitCommitCreated": false,
+    "blenderOrExportOrUvJobs": false,
+    "cpuSculptBypass": false,
+    "officialGpuFifoOnly": true,
+    "sourceFrozenDuringQueuedJobs": true,
+    "serverActualCopy": true,
+    "copyMethod": "Only required hash inputs APFS-cloned, immutable vendor symlink; no .blend/node_modules copy",
+    "ourActiveGpuJobs": []
+  },
+  "validation": {
+    "syntax": "Changed JS modules pass node --check",
+    "native": "R04 three actual1254 GPU frames valid with zeroGL errors and linked programs",
+    "patch": "Read-only git apply --check passes against current canonical803d source"
+  },
+  "remaining": [
+    "The actual flower/arabesque motifs, oni expression and facial fan planes remain authored interpretations and do not match HD05 carving closely enough for photographic acceptance.",
+    "The cast crown retains a six-sided regular frame and its botanical openings are more schematic than the reference. The paper grille remains too uniform and geometric.",
+    "Some gilt still looks brighter/more even than the worn reference; the scene native shadow/direct/indirect-light hierarchy remains different.",
+    "The new facial eyes/nostrils/mouth are real volumes and forward pupil beds are visible, but exact historically specific rim, brows, teeth, glaze wear and deep carving have not been recovered.",
+    "All broader inherited mismatches in timber regularity, canopy/sky and camera-to-reference calibration remain beyond this corner-detail change.",
+    "Only new source solids are audited. This is not a whole-scene joinery/collision or photographic certificate; no new complete film or Cycles claim."
+  ],
+  "visualAccepted": false,
+  "photographicAcceptance": false
+}

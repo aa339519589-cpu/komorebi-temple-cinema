@@ -1739,9 +1739,15 @@ export function createRestorationArchitecture(ctx) {
         q.setFromRotationMatrix(new T.Matrix4().makeBasis(side,up,tangent));
       }
       const tip=end.clone().addScaledVector(tangent,.014);
-      draw('box','oldgold',tip.toArray(),[.186,.226,.012],q);
-      const flowerPoint=tip.clone().addScaledVector(tangent,.012);
-      flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.078,'gold',q);
+      if(ctx.carpenteredBearing220&&ctx.joineryKit?.fittingParts){
+        // The visible upper hip cut receives the same real closed chased
+        // cup as the lower strut; its old flat star box is removed.
+        for(const part of ctx.joineryKit.fittingParts)draw(part.geometry,part.material,tip.toArray(),[.186,.226,.186],q);
+      }else{
+        draw('box','oldgold',tip.toArray(),[.186,.226,.012],q);
+        const flowerPoint=tip.clone().addScaledVector(tangent,.012);
+        flower(flowerPoint.x,flowerPoint.y,flowerPoint.z,.078,'gold',q);
+      }
     }
   }
 
@@ -2876,7 +2882,7 @@ export function createRestorationArchitecture(ctx) {
           if(ctx.joineryKit?.cornerMask){
             const cs=ctx.cornerCeramicScale??.62,mount=ctx.handlaidCeramics&&ctx.joineryKit.cornerMaskMount190;
             if(mount)for(const part of mount)draw(part.geometry,'cornerCeramic',[0,0,0],[cs,cs,cs]);
-            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material==='terminalInlay204'?'terminalInlay204':part.material==='oldgold'?'oldgold':'cornerCeramic',mount?[0,.145,.23]:[0,.005,.012],[cs,cs,cs]);
+            for(const part of ctx.joineryKit.cornerMask)draw(part.geometry,part.material.startsWith('terminal')?part.material:part.material==='oldgold'?'oldgold':'cornerCeramic',mount?[0,.145,.23]:[0,.005,.012],[cs,cs,cs]);
           }else{
             const crest=extrudedProfile([[-.22,-.10],[-.24,.11],[-.18,.29],[-.05,.39],[.12,.36],[.23,.20],[.17,.06],[.08,-.10]],.15,.012);
             draw(crest,'slate',[0,.005,0],[.78,.78,.82]);draw(g.tileSeal,'slate',[0,.17,.084],[.145,.145,.11]);
