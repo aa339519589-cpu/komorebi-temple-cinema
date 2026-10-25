@@ -1,0 +1,152 @@
+{
+  "revision": "capital254-authored-r02",
+  "status": "cpu-sculpted-component-awaiting-actual-native-review",
+  "coordinateSystem": "+Y up / +Z front / +X right; x structural axis0, highest bearing topY0, rearMountZ0",
+  "units": "Authored metres, inferred from table247 installation envelope. Not scanned/surveyed historic object dimensions.",
+  "origin": "X structural axis0 / highest bearing topY0 / rear mountZ0",
+  "format": "SC07 20-byte header, float32 position/normal/neutral authored UV, uint32 triangles; material group ranges in manifest",
+  "components": [
+    {
+      "variant": "inner",
+      "file": "capital254-inner-649765e774cf0f91.sc07.bin",
+      "sha256": "649765e774cf0f91289460e3b03d42eca9d8a1439959ba6569f2d357fcc7e889",
+      "bytes": 19005252,
+      "vertices": 339434,
+      "triangles": 678612,
+      "bounds": {
+        "min": [
+          -0.13700011372566223,
+          -0.13264910876750946,
+          0.0
+        ],
+        "max": [
+          0.13700011372566223,
+          0.0,
+          0.06161310896277428
+        ],
+        "size": [
+          0.27400022745132446,
+          0.13264910876750946,
+          0.06161310896277428
+        ]
+      },
+      "materialGroups": [
+        {
+          "start": 0,
+          "count": 1706637,
+          "role": "authored-gilt-carved-wood"
+        },
+        {
+          "start": 1706637,
+          "count": 329199,
+          "role": "authored-rear-cut-and-mount-wood"
+        }
+      ],
+      "normalCornerSplits": 148,
+      "chasing": {
+        "projectedGuideSamples": 4392,
+        "surfaceVerticesCarved": 41490,
+        "method": "Actual authored-mesh ray intersections followed by local normal incisions; no source-image sampling."
+      },
+      "originCorrectionRigidTranslation": [
+        0,
+        -1.0000076855476436e-07,
+        1.0000076855476436e-07
+      ],
+      "topology": {
+        "vertices": 339286,
+        "faces": 339306,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "components": [
+          339286
+        ],
+        "signedVolume": 0.0008154040692814192
+      },
+      "discardedAuthoredRemeshDustVertices": 8
+    },
+    {
+      "variant": "outer",
+      "file": "capital254-outer-499375b7d9b1bb86.sc07.bin",
+      "sha256": "499375b7d9b1bb863d665bf1b09ae75d909b88731104b2485e83745260774a93",
+      "bytes": 14138004,
+      "vertices": 252692,
+      "triangles": 504320,
+      "bounds": {
+        "min": [
+          -0.07700010389089584,
+          -0.0643143430352211,
+          0.0
+        ],
+        "max": [
+          0.07700010389089584,
+          0.0,
+          0.059688765555620193
+        ],
+        "size": [
+          0.1540002077817917,
+          0.0643143430352211,
+          0.059688765555620193
+        ]
+      },
+      "materialGroups": [
+        {
+          "start": 0,
+          "count": 1310358,
+          "role": "authored-gilt-carved-wood"
+        },
+        {
+          "start": 1310358,
+          "count": 202602,
+          "role": "authored-rear-cut-and-mount-wood"
+        }
+      ],
+      "normalCornerSplits": 555,
+      "chasing": {
+        "projectedGuideSamples": 4391,
+        "surfaceVerticesCarved": 31905,
+        "method": "Actual authored-mesh ray intersections followed by local normal incisions; no source-image sampling."
+      },
+      "originCorrectionRigidTranslation": [
+        0,
+        -1.0000076855476436e-07,
+        1.0000076855476436e-07
+      ],
+      "topology": {
+        "vertices": 252138,
+        "faces": 252160,
+        "boundaryEdges": 0,
+        "nonmanifoldEdges": 0,
+        "components": [
+          252138
+        ],
+        "signedVolume": 0.00021823533023631776
+      },
+      "discardedAuthoredRemeshDustVertices": 0
+    }
+  ],
+  "source": "Original authored broad-bottom cloud/palmette sculpture, manual HD05 contour/flow guides, independent complete depth and rear construction. No third-party scan geometry in these authored meshes.",
+  "inputGuides": "capital254-guides-r02.json",
+  "guideSHA256": "804ddd3c590ef93aacb97b1aa2de2ce83df5432bd530d9f01544982d296dba51",
+  "scriptSHA256": "b9b5ba0d705b5ce1decd3113dd2e2f1f57040c82623eff4606dd3ce7edbbdbc5",
+  "referenceRasterRead": false,
+  "sourceImageBrightnessToZ": false,
+  "sourceImageTexture": false,
+  "operations": "Thick scalloped front/back fan-shell loft with actual radial flutes and rolled rim + changing-section shoulder leaves -> CPU voxel union -> small surface relaxation -> geometry-projected chisel paths carved along actual normals -> closed-volume/topology validation -> compact mesh buffers.",
+  "materialRoles": [
+    "authored-gilt-carved-wood",
+    "authored-rear-cut-and-mount-wood"
+  ],
+  "materialPolicy": "No bright-yellow finish baked or assigned. Gilt/body and rear-cut wood are semantic roles; host chooses physical materials.",
+  "mirrorPolicy": "Geometry X reflection with normalX reflection and triangle-winding reversal; positive instance determinant.",
+  "recommendedWorldTopY": 0.604,
+  "recommendedWorldRearZ": 3.0,
+  "maximumWorldFrontZ": 3.07,
+  "completeParentScaleToCompensate": [
+    0.6216,
+    0.8,
+    0.74
+  ],
+  "license": "Original authored project geometry/code under the repository MIT license; third-party comparison is separately CC BY4.0.",
+  "photographicAcceptance": false
+}

@@ -1,4 +1,6 @@
 import * as T from 'three';
+import {loadAuthoredCapitals254} from './capital-authored254.mjs';
+import {buildKneelingSeat255,loadCushionSurface255} from './cushion255.js';
 import {loadShortOrnament224,addCompactShort224} from './ornament-short224.js';
 import {loadOrnamentFamilies224,tryRemainingAltarFamilies224} from './ornament-family224.js';
 import {buildOfferingJoinery247} from './offering-table247.js';
@@ -22,6 +24,7 @@ export async function loadAltarCarvings198(){
   loadOrnament224(),
   loadShortOrnament224(),
   loadOrnamentFamilies224(),
+  loadCushionSurface255(),
  ]);
  if(!response.ok||!mountResponse.ok)throw Error('altar198 source carving failed');
  const buffer=await response.arrayBuffer(),header=new DataView(buffer),n=header.getUint32(4,true),ni=header.getUint32(8,true);
@@ -61,6 +64,7 @@ export async function loadAltarCarvings198(){
  const peony=cropActualPeony198(flowers);flowers.dispose();
  peony.userData={...peony.userData,finalSurfaceNormalsOutward:true,actualSource157:true,license:'CC-BY-4.0',sourceSurfaceUnchangedExceptDocumentedSpatialCuts:true};carvings.floral=peony;
  carvings.brocade=brocade;
+ carvings.capital254=await loadAuthoredCapitals254({baseURL:new URL('../assets/table-scan254-r03/',import.meta.url)});
  return {revision:'altar198-r06',source:'SCANOLOGY_3D Wood Carving of Dragon',license:'CC-BY-4.0',photographicAcceptance:false};
 }
 
@@ -169,7 +173,7 @@ function sourceCloud(b,key,x,y,z,s,side=1,tableScale=[.74,.80,.74]){
 }
 
 export function buildOfferingJoinery198(b,layout,z,floorY){
- return buildOfferingJoinery247(b,layout,z,floorY,{cloud:carvings.cloud,cloudCaps:carvings.cloudCaps,floral:carvings.floral,frieze:carvings.frieze});
+ return buildOfferingJoinery247(b,layout,z,floorY,{capital254:carvings.capital254,cloud:carvings.cloud,cloudCaps:carvings.cloudCaps,floral:carvings.floral,frieze:carvings.frieze});
 }
 // Retained only as a source checkpoint. The current table247 build above is
 // independent of these rejected slender shafts and their thin apron.
@@ -230,6 +234,9 @@ function buildOfferingJoinery198Legacy(b,layout,z,floorY){
 }
 
 export function buildKneelingSeat198(b,layout,floorY){
+ return buildKneelingSeat255(b,layout,floorY);
+}
+function buildKneelingSeat198Legacy(b,layout,floorY){
  materials(b);installBrocade201(b,carvings.brocade);const cx=0,cy=.325,cz=3.28,rx=.85,ry=.228,rz=.435,px=.60,py=.78,pz=.62;
  const signed=(x,p)=>Math.sign(x)*Math.pow(Math.abs(x),p),contact=.097;
  const cloth=b.geometry('198-closed-shaped-indigo-brocade',()=>{

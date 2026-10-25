@@ -1,4 +1,5 @@
 import {createHandlaidRoof05} from './handlaid-ceramics.js';
+import {createDripPan272,flyingThickness272} from './eave-finish272.js';
 import * as T from 'three';
 import {timberSweep} from './natural-forms.js';
 import {shapeSeatedHip190,finishSolid190} from './detail190-solids.js';
@@ -283,7 +284,7 @@ function rafterSectionSweep(frames,width,height,{capEnd=false,capStart=false,bev
     [hw-b,hh],[-hw+b,hh],[-hw,hh-b],[-hw,-hh+b]];
   const p=[],n=[],uv=[];
   const emit=(j,k,nn)=>{
-    const f=frames[j],r=rim[k],point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]);
+    const f=frames[j],r=rim[k],point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]*(f.height??height)/height);
     const normal=f.side.clone().multiplyScalar(nn[0]).addScaledVector(f.up,nn[1]).normalize();
     p.push(...point.toArray());n.push(...normal.toArray());uv.push(k/8,j/segments);
   };
@@ -297,7 +298,7 @@ function rafterSectionSweep(frames,width,height,{capEnd=false,capStart=false,bev
     const f=frames[segments];
     for(let k=1;k<7;k++)for(const corner of [0,k,k+1]) {
       const r=rim[corner];
-      const point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]);
+      const point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]*(f.height??height)/height);
       p.push(...point.toArray());n.push(...f.tangent.toArray());
       uv.push(r[0]/width+.5,r[1]/height+.5);
     }
@@ -305,7 +306,7 @@ function rafterSectionSweep(frames,width,height,{capEnd=false,capStart=false,bev
   if(capStart) {
     const f=frames[0];
     for(let k=1;k<7;k++)for(const corner of [0,k+1,k]) {
-      const r=rim[corner],point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]);
+      const r=rim[corner],point=f.centre.clone().addScaledVector(f.side,r[0]).addScaledVector(f.up,r[1]*(f.height??height)/height);
       p.push(...point.toArray());n.push(...f.tangent.clone().negate().toArray());uv.push(r[0]/width+.5,r[1]/height+.5);
     }
   }
@@ -542,7 +543,7 @@ function layeredRafterSweep(evalP,face,u,main,closed=false) {
 function pagodaRoofSampler(w,d,rise) {
   return (face,t,u,extra=0)=>{
     const yy=rise*Math.pow(Math.max(0,1-t),1.43)
-      +.48*Math.pow(t,9)*(.25+Math.pow(Math.abs(u),7))+extra;
+      +.48*Math.pow(t,9)*(.25+Math.pow(Math.abs(u),7)+T.MathUtils.smoothstep(t,.82,.96)*(Math.pow(Math.abs(u),4.7)-Math.pow(Math.abs(u),7)))+extra;
     if(face<2)return new T.Vector3(u*w*.5*t,yy,(face===0?1:-1)*d*.5*t);
     return new T.Vector3((face===2?1:-1)*w*.5*t,yy,u*d*.5*t);
   };
@@ -1612,7 +1613,7 @@ export function createRestorationArchitecture(ctx) {
       if(Array.isArray(opening))geometry.userData.architectureMember='gallery-eave-timber';
       let pieces=roofTimberOutsideOpening(geometry,opening);
       for(const seat of timberSeats)pieces=pieces.flatMap(piece=>architectureTimberOutsideSeat(piece,seat));
-      for(const piece of pieces)draw(tierClip?conformTierTimber(piece):piece,material,[0,0,0],[1,1,1],null,shade);
+      for(const piece of pieces)draw(tierClip&&!piece.userData.closedCeramic?conformTierTimber(piece):piece,material,[0,0,0],[1,1,1],null,shade);
     };
     for(let face=0;face<4;face++) {
       stats.roofFaces++;
@@ -1626,7 +1627,7 @@ export function createRestorationArchitecture(ctx) {
         // they do not point radially at the roof apex.
         const sample=(t,extra=0)=>evalP(face,t,Math.max(-1,Math.min(1,u/t)),extra);
         const makeRafter=(main)=>{
-          const tierStart=ctx.carpenteredBearing220?.30:(main?.30:.63),
+          const tierStart=ctx.carpenteredBearing220?(main?.30:.70):(main?.30:.63),
             lo=Math.max(separateTiers?tierStart:(main?.705:.875),Math.abs(u)+.022),hi=main?.993:1.024;
           if(lo>=hi)return null;
           const frames=[];
@@ -1636,10 +1637,10 @@ export function createRestorationArchitecture(ctx) {
             const side=new T.Vector3(tangent.z,0,-tangent.x).normalize();
             const up=new T.Vector3().crossVectors(tangent,side).normalize();
             const centre=sample(t);
-            if(ctx.carpenteredBearing220){centre.y-=.340;if(!main)centre.addScaledVector(up,.130);}
+            if(ctx.carpenteredBearing220){centre.y-=.340;if(!main)centre.addScaledVector(up,.085+flyingThickness272(t)/2);}
             else centre.y-=main?.34:.195;
             if(ctx.carpenteredBearing220)centre.addScaledVector(side,bowAt(t));
-            frames.push({centre,tangent,side,up});
+            frames.push({centre,tangent,side,up,...(ctx.carpenteredBearing220&&!main?{height:flyingThickness272(t)}:{})});
           }
           let geometry=rafterSectionSweep(frames,ctx.carpenteredBearing220?(main?mainWidth:flyingWidth):(main?.100:.074),main?.170:.090,{capStart:true,capEnd:true,bevel:ctx.carpenteredBearing220?.002+.003*hand(i+19):.003});
           if(ctx.carpenteredBearing220&&main&&hipSeat){
@@ -1692,6 +1693,19 @@ export function createRestorationArchitecture(ctx) {
       for(let i=0;i<=tiles;i++) {
         const edgeT=ctx.handlaidCeramics?1.030:1.014,u=-1+2*i/tiles;const p=evalP(face,edgeT,ctx.handlaidCeramics?u/edgeT:u);p.y+=ctx.handlaidCeramics?.028:-.006;
         if(opening?.woodOnly||!inOpening(p,.11)){tileEnd(p,angle,.102,detail,i+face*19); stats.tileEnds++;}
+      }
+      if(ctx.handlaidCeramics&&ctx.carpenteredBearing220){
+        // The rain-pan lips descend continuously between the round covers.
+        // Each is a closed clay shell; the final two pieces meet at the hip.
+        for(let i=0;i<tiles;i++){
+          const left=-1+2*i/tiles,right=-1+2*(i+1)/tiles,
+            pan=createDripPan272(evalP,face,left,right,{variant:i+face*19});
+          wood(pan.body,'eaveCeramic272');wood(pan.lip,'eaveCeramicLip272');
+        }
+        for(const cornerSign of[-1,1]){
+          const pan=createDripPan272(evalP,face,0,0,{variant:face*19+cornerSign,cornerSign});
+          wood(pan.body,'eaveCeramic272');wood(pan.lip,'eaveCeramicLip272');
+        }
       }
     }
     // Four uninterrupted diagonal hip-support timbers meet the fascia corners.

@@ -1,0 +1,112 @@
+import * as T from 'three';
+
+// Original solid carving authored from the sparse visible apron contours in
+// references/hd/4-照片-5.jpg. No RGB sampling, image displacement or alpha card.
+// Back, thickness, chasing and turnbacks are independently inferred geometry.
+const TAU=Math.PI*2;
+
+function protectNormals248(g){
+ const p=g.attributes.position,n=g.attributes.normal,indices=Array.from(g.index.array),arrays=Object.fromEntries(Object.entries(g.attributes).map(([key,a])=>[key,Array.from(a.array)]));let splits=0;
+ for(let t=0;t<indices.length;t+=3){
+  const ids=indices.slice(t,t+3),v=ids.map(i=>new T.Vector3().fromBufferAttribute(p,i)),face=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();
+  for(let k=0;k<3;k++)if(face.dot(new T.Vector3().fromBufferAttribute(n,ids[k]))<=1e-6){
+   const next=arrays.position.length/3;indices[t+k]=next;splits++;
+   for(const [key,a]of Object.entries(g.attributes))if(key==='normal')arrays.normal.push(...face.toArray());else for(let j=0;j<a.itemSize;j++)arrays[key].push(a.array[ids[k]*a.itemSize+j]);
+  }
+ }
+ for(const [key,a]of Object.entries(g.attributes))g.setAttribute(key,new T.Float32BufferAttribute(arrays[key],a.itemSize));g.setIndex(indices);
+ g.userData={...g.userData,coincidentNormalsSmoothed:true,finalSurfaceNormalsOutward:true,sourceNormalProtection248:true,allAttributesExtendedTogether:true,normalCornerSplits:splits};return g;
+}
+
+function closeSweep248(p,uv,ix,rows,cols){
+ for(const j of [0,rows]){
+  const start=j*cols,c=p.length/3,v=new T.Vector3();
+  for(let k=0;k<cols;k++)v.add(new T.Vector3(...p.slice((start+k)*3,(start+k)*3+3)));
+  v.multiplyScalar(1/cols);p.push(...v.toArray());uv.push(.5,j/rows);
+  for(let k=0;k<cols;k++){const a=start+k,n=start+(k+1)%cols;j===0?ix.push(c,n,a):ix.push(c,a,n);}
+ }
+ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.computeBoundingBox();g.computeBoundingSphere();
+ g.userData={closedCarvedShell:true,table247:true,apron248:true,actualClosedVolume:true,physicalBackAndCutEdges:true,construction:'closed curved carved wood; independent front/back relief, actual chased grooves and bent tip'};
+ return g;
+}
+
+function rolledLeaf248({length,width,bend,curl,phase},face){
+ const rows=40,cols=24,p=[],uv=[],ix=[];
+ for(let j=0;j<=rows;j++){
+  const t=j/rows,s=Math.max(0,Math.sin(Math.PI*t)),turn=t**5;
+  // A continuous spoon blade, with a gently asymmetric silhouette and an
+  // independently cupped cross-section. The old three periodic edge lobes
+  // made paired leaves read as stars in the genuine native closeup.
+  const x=length*(t-.07*turn),y=bend*length*(.65*Math.sin(Math.PI*t)+.35*t);
+  const dx=length*(1-.35*t**4),dy=bend*length*(.65*Math.PI*Math.cos(Math.PI*t)+.35),norm=Math.hypot(dx,dy),nx=-dy/norm,ny=dx/norm;
+  const softEdge=.94+.055*Math.sin(2*Math.PI*t+phase)+.025*Math.sin(5*Math.PI*t+phase);
+  const halfWidth=.00028+width*.5*s**.72*softEdge,thickness=.00065+.00165*s**.7;
+  const rise=.0015+.0045*s+curl*t**7;
+  for(let k=0;k<cols;k++){
+   const a=k/cols*TAU,u=Math.cos(a),front=Math.max(0,Math.sin(a));
+   const chased=.0011*s*Math.exp(-(((Math.abs(u)-(.21+.47*t))/.10)**2));
+   const rib=.00125*s*(1-Math.abs(u))**2,cup=.0028*s*Math.abs(u)**4;
+   const lateral=u*halfWidth*(1+.10*s*Math.sin(2*Math.PI*t+phase)*Math.sign(u));
+   p.push(x+nx*lateral,y+ny*lateral,face*(rise+Math.sin(a)*thickness+front*(rib+cup-chased)));
+   uv.push(k/cols,t);
+   if(j<rows){const q=j*cols+k,n=j*cols+(k+1)%cols;ix.push(q,n,q+cols,n,n+cols,q+cols);}
+  }
+ }
+ const g=closeSweep248(p,uv,ix,rows,cols);
+ if(face<0){const ix=g.index;for(let i=0;i<ix.count;i+=3){const a=ix.getX(i+1);ix.setX(i+1,ix.getX(i+2));ix.setX(i+2,a);}g.computeVertexNormals();}
+ return protectNormals248(g);
+}
+
+function branch248(points,width,depth){
+ const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),rows=56,cols=16,p=[],uv=[],ix=[];
+ for(let j=0;j<=rows;j++){
+  const t=j/rows,c=curve.getPoint(t),d=curve.getTangent(t),l=Math.hypot(d.x,d.y)||1,nx=-d.y/l,ny=d.x/l;
+  const envelope=.34+.66*Math.sin(Math.PI*t)**.42;
+  for(let k=0;k<cols;k++){
+   const a=k/cols*TAU,u=Math.cos(a),f=Math.sin(a),w=width*.5*envelope;
+   p.push(c.x+nx*u*w,c.y+ny*u*w,c.z+f*depth*.5*envelope+.00055*Math.max(0,f)*(1-Math.abs(u)));
+   uv.push(k/cols,t);
+   if(j<rows){const q=j*cols+k,n=j*cols+(k+1)%cols;ix.push(q,n,q+cols,n,n+cols,q+cols);}
+  }
+ }
+ return protectNormals248(closeSweep248(p,uv,ix,rows,cols));
+}
+
+const SPRIGS248=[
+ {stem:[[-1.617,.681],[-1.566,.676],[-1.473,.683],[-1.374,.678],[-1.271,.683]],
+  leaves:[[-1.594,.680,.069,.024,.18,.18,.007,0],[-1.530,.679,.081,.025,-.18,-.16,.007,1.2],[-1.455,.681,.073,.024,.24,.16,.006,2.7],[-1.378,.680,.067,.023,-.23,-.13,.006,4.6],[-1.306,.685,.048,.022,2.74,.12,.007,5.8]],
+  terminal:[[-1.297,.682],[-1.264,.684],[-1.251,.696],[-1.261,.704],[-1.275,.699],[-1.271,.690]]},
+ {stem:[[-.866,.682],[-.804,.678],[-.696,.682],[-.573,.677],[-.453,.685],[-.391,.682]],
+  leaves:[[-.850,.680,.072,.025,.19,.17,.007,.3],[-.780,.680,.082,.027,-.23,-.15,.006,1.8],[-.696,.681,.076,.024,.23,.16,.007,2.7],[-.614,.679,.086,.027,-.18,-.16,.007,3.5],[-.524,.681,.075,.025,.22,.17,.007,4.9],[-.450,.684,.052,.023,2.76,.12,.007,6.0]],
+  terminal:[[-.425,.684],[-.391,.688],[-.378,.699],[-.389,.707],[-.405,.703],[-.403,.694]]},
+];
+
+export function buildApronFoliage248(b,z,face=1){
+ const material=face>0?'table247Gold':'table247Recess',base=z+face*.463;
+ let leaves=0,branches=0;
+ const branch=(key,route,width,depth=.007)=>{
+  const points=route.map(([x,y,offset=0])=>[x,y,base+face*offset]);
+  const g=b.geometry('248-apron-branch-'+face+'-'+key,()=>branch248(points,width,depth));
+  b.add(g,material);branches++;
+ };
+ const leaf=(key,x,y,length,width,angle,bend,curl,phase)=>{
+  const recipe={length,width,bend,curl,phase},g=b.geometry('248-apron-rolled-leaf-'+face+'-'+JSON.stringify(recipe),()=>rolledLeaf248(recipe,face));
+  b.add(g,material,x,y,base+face*.001,1,1,1,0,0,angle);leaves++;
+ };
+ for(const hand of [-1,1])for(const [index,sprig]of SPRIGS248.entries()){
+  branch('main-'+hand+'-'+index,sprig.stem.map(([x,y],i)=>[hand*x,y,.0015*Math.sin(i*1.8)]),.0083,.0074);
+  branch('turned-terminal-'+hand+'-'+index,sprig.terminal.map(([x,y],i)=>[hand*x,y,.003+.002*Math.sin(i*.9)]),.0058,.0062);
+  for(const [i,[x,y,length,width,angle,bend,curl,phase]]of sprig.leaves.entries())
+   leaf('sprig-'+hand+'-'+index+'-'+i,hand*x,y,length,width,hand>0?angle:Math.PI-angle,hand*bend,curl,phase);
+ }
+ // The low central crest is a compact cluster of overlapping rolled lobes,
+ // rooted in a continuous carved stem; no flat diamond or floating badge.
+ branch('crest',[[ -.151,.680],[-.100,.682],[-.052,.678],[0,.686],[.052,.678],[.100,.682],[.151,.680]],.0092,.008);
+ for(const hand of [-1,1])for(const [i,a]of [[0,[-.142,.680,.094,.030,.06,.20,.008,1.1]],[1,[-.070,.682,.073,.026,-.14,-.16,.007,4.2]]]){
+  const [x,y,length,width,angle,bend,curl,phase]=a;
+  leaf('crest-'+hand+'-'+i,hand*x,y,length,width,hand>0?angle:Math.PI-angle,hand*bend,curl,phase);
+ }
+ b.root.userData.apron248??={revision:'apron248-r03-soft-rolled-spoon-blades',reference:'references/hd/4-照片-5.jpg',visibleContourBasis:'Sparse front foliate groups on table band between retained capitals; no image sampling',faces:[],photographicAcceptance:false};
+ b.root.userData.apron248.faces.push({face,leaves,branches,carving:'closed long spoon blades; continuous cupped cross-section, turned tips and incised curved veins; staggered roots; positive transform scales',inferredDepth:true});
+ return b.root.userData.apron248;
+}

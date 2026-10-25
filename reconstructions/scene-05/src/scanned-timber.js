@@ -38,12 +38,12 @@ export async function installScannedTimber(mats){
  // supplied scan is a very dark table: measured linear maxima .0666/.0452/
  // .0222. These gains keep every sampled albedo channel below one.
  const colors={red:[6.0,3.8,3.0],cedar:[6.8,4.6,3.5],endwood:[7.6,5.8,4.2],darkwood:[2.2,1.9,1.65]};
- const pigments={red:'#9f4d38',cedar:'#a36541',endwood:'#9d6f47',darkwood:'#685344'};
+ const pigments={red:'#a24838',cedar:'#98553d',endwood:'#9b6b49',darkwood:'#685344'};
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
   const painted=true;mat.map=pigmentMap;mat.normalMap=normal;mat.normalScale.set(kind==='endwood'?.13:.085,kind==='endwood'?.13:.085);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=kind==='darkwood'?.90:kind==='endwood'?.88:kind==='cedar'?.81:.76;
-  if(painted)mat.color.set(key==='kit_cedar'?'#9b5b3e':key==='kit_endwood'?'#95633f':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
+  if(painted)mat.color.set(key==='kit_cedar'?'#92503b':key==='kit_endwood'?'#916044':pigments[kind]);else mat.color.setRGB(...colors[kind]);mat.metalness=0;
   if(mat.isMeshPhysicalMaterial){mat.clearcoat=kind==='red'?.080:.050;mat.clearcoatRoughness=.47;mat.specularIntensity=kind==='red'?.62:kind==='cedar'?.50:kind==='endwood'?.34:.38;}
   mat.onBeforeCompile=shader=>{
    shader.vertexShader='attribute float woodCut190;attribute vec2 woodEndUv190;varying float vWoodCut190;varying vec2 vWoodEndUv190;\n'+shader.vertexShader;

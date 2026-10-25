@@ -1,0 +1,63 @@
+{
+  "revision": "brocade255-r02",
+  "method": "Built-in imagegen new independent swatch, then built-in imagegen targeted gold-yarn diffuse reflectance edit",
+  "role": "Diffuse/albedo only on actual sewn3D cushion; no baked scene image, photo projection, depth proxy or geometry substitution",
+  "originalSource": "/Users/mima1234/.codex/generated_images/01a16c6b-41f5-7b41-b199-f3ee95359d97/exec-cf3116bb-6a25-4508-9778-757d4733ab8c.png",
+  "file": "brocade255-flat-albedo-r02.png",
+  "sha256": "1f817aa190c951a0b28cff0e59efc57515f6ddc0bfa9d766710567913da52e8f",
+  "pixels": [
+    1254,
+    1254
+  ],
+  "prompt": "Use case: photorealistic-natural.\nAsset type: seamless square PBR diffuse/albedo material swatch only, for a genuine modeled ceremonial kneeling cushion.\nPrimary request: A flat orthographic digital textile swatch filling the frame edge to edge, ideally2048 square. Predominantly blue-black/midnight indigo woven silk jacquard, very fine irregular subdued antique brass/gold thread. Small intricate asymmetric cloud-peony, chrysanthemum and interlaced foliate knots, occasional loose floral diamond-like clusters, with about10–12 miniature motif clusters across each edge. Dense fine vine interstices, broken segmented woven yarn edges, quiet navy gaps. The motifs should feel subtly irregular and interwoven, with varied sizes, never a grid of large flower icons or large round medallions.\nColor palette: about85–90 percent very dark blue-black/indigo ground. Gold is low-reflectance tarnished ochre/brass in the albedo, mostly dark muted tan/bronze, not pale cream, luminous yellow or white. Very fine blue-grey warp/weft visible only up close.\nLighting: completely uniform neutral diffuse illumination, flat focus and flat color response. This is an unlit-looking base-color texture, without any painted light, specular highlights, shadows, ambient occlusion or bright center vignette.\nConstraints: Seamless at all four edges. No cushion, pillow, furniture, room, temple, perspective, border, labels, words, logos, watermark, folds, drape, raised sculptural embroidery, cast shadows or studio gradient. No large high-contrast bloom. Only the fabric pattern and microscopic woven yarn structure.\n",
+  "colorSpace": "sRGB",
+  "wrapping": "MirroredRepeat on both axes; strict generated seamlessness is not asserted.",
+  "roughness": 0.86,
+  "metalness": 0,
+  "sheen": 0.16,
+  "bump": "independently authored procedural fine warp/weft, no photo-height conversion",
+  "bumpScale": 0.000065,
+  "photographicAcceptance": false,
+  "limits": [
+    "Generated motif family/palette approximate the reference textile; exact original textile is not recovered.",
+    "Pattern scale and diffuse gain require actual full/crop/low-side material review."
+  ],
+  "materialMountHistory": {
+    "r01": {
+      "periodWorldMetres": 0.65,
+      "roughness": 0.86,
+      "envMapIntensity": 0.32,
+      "tint": "#d2d4d5"
+    },
+    "r02": {
+      "periodWorldMetres": 0.95,
+      "roughness": 0.83,
+      "envMapIntensity": 0.32,
+      "tint": "#ffffff"
+    },
+    "r03": {
+      "periodWorldMetres": 0.95,
+      "roughness": 0.8,
+      "envMapIntensity": 1,
+      "tint": "#ffffff",
+      "specularIntensity": 0.45,
+      "sheen": 0.18
+    },
+    "r04": {
+      "periodWorldMetres": 1.2,
+      "frontUV": "front center.50 within one tile, no central mirror seam",
+      "roughness": 0.84,
+      "metalness": 0,
+      "specularIntensity": 0.25,
+      "sheen": 0.3,
+      "sheenColor": "#9aa7ba",
+      "sheenRoughness": 0.94,
+      "envMapIntensity": 1,
+      "bumpScale": 0.00005,
+      "emissive": 0
+    }
+  },
+  "currentMount": "r04; ordinary PBR cloth with blue-grey rough sheen, no emissive field and no room light changes",
+  "parentAlbedo": "brocade255-flat-albedo-r01.png",
+  "editPrompt": "Use case: precise-object-edit. Edit target: the supplied flat textile diffuse/albedo swatch only.\nPreserve the dark indigo/blue-black ground, all motif locations and sizes, the cloud/floral/vine pattern family, fine broken woven thread edges, and the flat orthographic seamless material-only presentation. Do not add a scene, pillow, fold, object, shadow, highlight or lighting gradient.\nChange only the gold yarn's base color so it is legible on the dark ground in an actual shadowed3D cushion. Lift the gold/brass thread's average diffuse reflectance by roughly1.6–1.8 times. Make it muted aged pale brass/ochre rather than brown: midtone threads roughly sRGB160/137/91, occasional lighter yarn sRGB185/161/113. Retain dark little gaps and tarnished broken yarn; avoid luminous yellow, white, shiny glitter, or a flat uniform gold fill. The dark ground must remain unchanged in brightness, with subtle blue-grey weft.\nKeep the entire output evenly and neutrally illuminated with no baked illumination or specular response. No text, border, logo or watermark. Output only the revised square cloth albedo map.\n"
+}

@@ -1,0 +1,297 @@
+{
+  "status": "Two actual modeling/material iterations plus independent7s low-camera pullback ready for root review",
+  "createdAt": "2026-10-25T05:53:55.356Z",
+  "owner": "sol61_scene05_resume275; SOL6.1 Max; no spawned agents",
+  "canonical": {
+    "root": "/Users/mima1234/temple-cinema-live-sync",
+    "sourceHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+    "unchanged": true
+  },
+  "geometry": {
+    "root": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root",
+    "sourceHash": "9fa185aa7386aa5f9e830c22e4b24b2b8d8334f3c4b7ed0edcb79bd1169b1268",
+    "baseHash": "8af62a28a99dba8f9513999e0424925d7775673611b42e924a63f0d2ea2135e5",
+    "deltaManifest": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/delta272-r02.json",
+    "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/delta272-r02.patch",
+    "patchSha256": "1ae39c4e1203330216f469f857bb447ee9e58d2ebaa8f60692a8833b10bb8a3f",
+    "changedFiles": 6,
+    "identity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/source272-r02-identity.json",
+    "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/review272-r02.json",
+    "geometryReceipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/geometry272-r02.json",
+    "sourceSnapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/r02-delta",
+    "visualAccepted": false
+  },
+  "optionalCamera": {
+    "root": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root",
+    "sourceHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+    "baseHash": "9fa185aa7386aa5f9e830c22e4b24b2b8d8334f3c4b7ed0edcb79bd1169b1268",
+    "deltaManifest": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/delta272-motion01.json",
+    "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/delta272-motion01.patch",
+    "patchSha256": "b57ddb617a22f0f4e4a0db4a3b1cf1e6108c2bbf9503b9f1da1fd7c561c05921",
+    "changedFiles": 1,
+    "identity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/source272-motion01-identity.json",
+    "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/review272-motion01.json",
+    "video": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/motion-review.mp4",
+    "visualAccepted": false
+  },
+  "native": [
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-20261025/report.json",
+      "sourceHash": "9fa185aa7386aa5f9e830c22e4b24b2b8d8334f3c4b7ed0edcb79bd1169b1268",
+      "status": "rendered-review",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "inspectionView": null,
+      "detailCrop": {
+        "pixels": [
+          500,
+          280,
+          600,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "allFramesValid": true,
+      "glErrorMaximum": 0,
+      "allProgramsLinked": true,
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-20261025/reference.png",
+          "rgbaSha256": "b1ea5363ea1d1387f7a654c4f2159b40b9ee72fc8cb8cd3a2f3500a1bea7e92f",
+          "pngSha256": "3a345230a1aaa43bb53bee574af5e6c60606e8295745427d4a3db5bc329e37ab",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-20261025/detail-native.png",
+          "rgbaSha256": "e0046c9aa7bc6ee4669eb54f331a044d44902b27f57ff829eb3ac12505667dbb",
+          "pngSha256": "f054358420f2b5919413e735430c7e35994c3e6a3fe88e80276feb6d17132625",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        }
+      ],
+      "motion": null,
+      "visualAccepted": false
+    },
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-groundside-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-groundside-20261025/report.json",
+      "sourceHash": "9fa185aa7386aa5f9e830c22e4b24b2b8d8334f3c4b7ed0edcb79bd1169b1268",
+      "status": "rendered-review",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "inspectionView": {
+        "position": [
+          7.8,
+          0.9,
+          9.2
+        ],
+        "target": [
+          3.0661131395308274,
+          5.982164935397807,
+          4.6487831047877854
+        ],
+        "fov": 34,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "detailCrop": null,
+      "allFramesValid": true,
+      "glErrorMaximum": 0,
+      "allProgramsLinked": true,
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-r02-groundside-20261025/inspection-view.png",
+          "rgbaSha256": "e663443155309f1a560aafd18528b9e70eee08431551ec6dcae31e524407e47f",
+          "pngSha256": "820b9432a00a3480f571deee0af68b95ddbfaf6e9eb7312bd7dbdf35f1fb0ae7",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        }
+      ],
+      "motion": null,
+      "visualAccepted": false
+    },
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-keys-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-keys-20261025/report.json",
+      "sourceHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+      "status": "rendered-review",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "inspectionView": null,
+      "detailCrop": null,
+      "allFramesValid": true,
+      "glErrorMaximum": 0,
+      "allProgramsLinked": true,
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-keys-20261025/shot-0.png",
+          "rgbaSha256": "dab09a919d40d618d672b661d4383658701145807efc883498fa10698f96d866",
+          "pngSha256": "453feb4ba534615f44027921280a59c0422ab6fcda64eabe6a9dd8a9de6d2ca6",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-keys-20261025/shot-3p5.png",
+          "rgbaSha256": "1f5d6009b9df29530eea4562f25286385432034bef8597078381d7ffbe1bd2ae",
+          "pngSha256": "f0bd5ada7f562a8788c236e5c83bd382dc07c7f5b22f0cbe065681bd1f7f4a2f",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-keys-20261025/shot-7.png",
+          "rgbaSha256": "9dbb584c4132e0af760126d9df50919b43751a5cea2ed61deaef53e8bd39f9b6",
+          "pngSha256": "4f133b7dbbc7849a029f937c676da5aa50d30f2cbd1cb78ba4f2cbfc859fdd92",
+          "nativePixels": [
+            1254,
+            1254
+          ],
+          "personallyViewed": true
+        }
+      ],
+      "motion": null,
+      "visualAccepted": false
+    },
+    {
+      "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/report.json",
+      "sourceHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+      "status": "motion-review-rendered",
+      "driver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+      },
+      "backend": "metal",
+      "inspectionView": null,
+      "detailCrop": null,
+      "allFramesValid": true,
+      "glErrorMaximum": 0,
+      "allProgramsLinked": true,
+      "frames": [
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/frame-0000.png",
+          "rgbaSha256": "c7c92bfe4e0e243b7f8af3a6f444d7a52cd535e9e72350ad018274e87ac8a442",
+          "pngSha256": "43a9c739dd1502ef7ae7cb9c94ddf1c9971de62294c1e2a63578910954b35646",
+          "nativePixels": [
+            768,
+            768
+          ],
+          "personallyViewed": false
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/frame-0084.png",
+          "rgbaSha256": "2c1053807e097dfcab5792734c39f6a6ee65a1f6716bf2341ee13d21330e2a90",
+          "pngSha256": "32df7ed36c2e4ad288f8ac32d6f43d34fe7b6941f3cc41e3089254444b18e0ae",
+          "nativePixels": [
+            768,
+            768
+          ],
+          "personallyViewed": false
+        },
+        {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/frame-0167.png",
+          "rgbaSha256": "18a76dc7ca93c9f068819c60af248931ad19a08a81654543065bf60e89a5755f",
+          "pngSha256": "7ef34663baecccf07aade5005b47bb812ee71eb31ffd1f24d520aba4c97b7ce1",
+          "nativePixels": [
+            768,
+            768
+          ],
+          "personallyViewed": false
+        }
+      ],
+      "motion": {
+        "duration": 7,
+        "fps": 24,
+        "expectedFrames": 168,
+        "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/motion-review.mp4",
+        "scope": "One actual seven-second native-camera shot; not the complete film.",
+        "audio": false,
+        "visualAccepted": false,
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 768,
+              "height": 768,
+              "color_space": "bt709",
+              "r_frame_rate": "24/1",
+              "nb_read_frames": "168"
+            }
+          ],
+          "format": {
+            "duration": "7.000000"
+          }
+        },
+        "decodeErrors": 0
+      },
+      "visualAccepted": false
+    }
+  ],
+  "modeling": [
+    "Runtime-built closed18.5mm concave rain-pan bodies and closed7.5mm rolled lips. Main fronts retracted behind circular caps; finite paired corner mitres share exact hip endpoints.",
+    "Outer roof curl broadens only beyond t=.82, retaining exact hip endpoints and inner structural datums. Wedge flying rafters begin at t=.70 and gain90mm depth by.84; real closed boards follow that same upper plane.",
+    "Waist roof applied pale scroll fascia removed in favour of120mm-deep physical ceramic pans; round cap faces remain visible and hip ridge sweeps are closed.",
+    "Existing independent CC0 wood tissue retained under red/brown stains that reduce orange bias; lights/exposure/reference camera unchanged."
+  ],
+  "rejectedRound": {
+    "sourceHash": "7a4f160f6ba642d28e5b153abb30710b692e63ff11b6ec4e960d1eb83fff0daa",
+    "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/review272-r01.json",
+    "delta": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/r01-delta",
+    "reason": "True low native renders showed front ceramic sheets hiding round caps and rising as oversized corner points. Preserved and corrected after personally inspecting all three frames.",
+    "visualAccepted": false
+  },
+  "constraints": {
+    "canonicalModified": false,
+    "otherScenesModified": false,
+    "gitCommitCreated": false,
+    "blenderOrExportOrUVJobStarted": false,
+    "cpuScultAuthoringBypass": false,
+    "referenceRGBOrDepthRuntimeUse": false,
+    "sourceFrozenDuringEveryQueuedJob": true,
+    "serverActualCopies": true,
+    "copyMethod": "Only hash inputs via APFS per-file clone; no .blend or node_modules copy; immutable vendor linked",
+    "ourActiveGpuJobs": []
+  },
+  "remaining": [
+    "Whole-scene photographic acceptance is still false. Rafter and capital rhythm remains overly regular against HD05; some cap faces and thin ceramic lips remain too bright/schematic.",
+    "The inherited onigawara/lantern and numerous simplified chased end motifs remain unlike the reference.",
+    "Canopy placement, leaf density, sky structure, hard shadow cuts and indirect timber colour remain substantially different from HD05.",
+    "The new waist front is better separated from the cap row but its lower lip is partly occluded by the real broad timber fascia from the lowest side view.",
+    "No new Cycles or complete-film acceptance in this lane."
+  ],
+  "visualAccepted": false,
+  "photographicAcceptance": false,
+  "validation": {
+    "syntax": "All changed runtime JS passed node --check",
+    "geometry": "72 main/waist ceramic prototypes closed, positive volume, finite and consistently wound; common hip endpoint residual0",
+    "native": "R02 full1254+truecrop+0.90m side,1254 motion keys and168 real7s GPU frames passed; all source identities unchanged during capture",
+    "motion": "All168 actual GPU camera positions exactly match the source trajectory;7.000s24fps168frames768square; decodeErrors0",
+    "patches": "Read-only git apply --check passed geometry delta against canonical220-r12 and camera-only delta against R02 candidate"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "status": "Actual seven-second native-camera pullback inspected at1254 keyframes and seven native-size video decodes; hold for root review",
+  "sourceHash": "803d8492f140aa8a46f5c011e4c2d47b301da37630350757f8ac3c5350b67beb",
+  "geometryParentHash": "9fa185aa7386aa5f9e830c22e4b24b2b8d8334f3c4b7ed0edcb79bd1169b1268",
+  "officialRender": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/report.json",
+  "video": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-candidate-root/qa/ten-reference/05/iteration-scene05-rebuild272-motion01-7s-20261025/motion-review.mp4",
+  "videoSha256": "f7bcf071516f417f24bc779429653647be42e8479f7231e467a03ed72a9831fa",
+  "videoBytes": 11753722,
+  "frames": 168,
+  "allFramesValid": true,
+  "allProgramsLinked": true,
+  "glErrors": 0,
+  "decodeErrors": 0,
+  "duration": 7,
+  "fps": 24,
+  "nativePixels": [
+    768,
+    768
+  ],
+  "maximumCameraSourceError": 0,
+  "decodedFrames": [
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-01.png",
+      "nativeSourceFrame": 0,
+      "cameraTime": 0.020833333333333332,
+      "sha256": "0766484002c44470b65f03a91b3afd25d532aee24d6da1c4f60238490c240378",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-02.png",
+      "nativeSourceFrame": 24,
+      "cameraTime": 1.0208333333333333,
+      "sha256": "bc344915e8db061504d09e280267518e7e5f51a2573763e8d30e2da333533880",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-03.png",
+      "nativeSourceFrame": 48,
+      "cameraTime": 2.0208333333333335,
+      "sha256": "dcc50f271235efd073fa0a178c318e27733d02ec2e903fe92a051ccd51a7614e",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-04.png",
+      "nativeSourceFrame": 72,
+      "cameraTime": 3.0208333333333335,
+      "sha256": "aa63867c900960d5981d1cd732726cff89395e9839d11caca031aeff941a93f9",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-05.png",
+      "nativeSourceFrame": 96,
+      "cameraTime": 4.020833333333333,
+      "sha256": "cce991898a0798c0317f950156a885b49c0bec4a56cd6a74d1aa350475abf19d",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-06.png",
+      "nativeSourceFrame": 120,
+      "cameraTime": 5.020833333333333,
+      "sha256": "f70e56233f985ecb61ad1f84bf26825f1208c1be51d8e9a5183938c68dbe8c2b",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion-decoded-review/decoded-frame-07.png",
+      "nativeSourceFrame": 144,
+      "cameraTime": 6.020833333333333,
+      "sha256": "8a2ea7ba545c988b4152643bcd24bbae52de505c2782a710601e56d5003b787f",
+      "personallyViewed": true,
+      "kind": "Actual H264 decode at native768px; not a new native render or photo replacement"
+    }
+  ],
+  "pathAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-rebuild272/motion272-path-audit.json",
+  "observed": [
+    "The actual near frame is a low external courtyard view under the nearest eave/lantern; camera is not placed inside the roof.",
+    "The seven decoded sequence samples expose progressively more tower framing and storeys; no discontinuous pose change or camera-through-geometry appears in the viewed samples.",
+    "The actual source trajectory is monotone outward with fixed FOV and smooth independent attitude; all168 recorded GPU camera positions match that source path.",
+    "Fine CGI regularity, foliage/sky and shallow PBR differences remain visible; this is an engineering/motion review, not photographic acceptance."
+  ],
+  "visualAccepted": false,
+  "scope": "Only Scene05 seven-second native review shot; no film rendering or publishing"
+}

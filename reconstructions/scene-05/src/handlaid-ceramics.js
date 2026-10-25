@@ -36,7 +36,7 @@ export function createHandlaidRoof05(sample,w,d,opening=null){
    for(const [j,[a,b]]of segments(lo,hi,courses,phase).entries()){
     const ts=Array.from({length:5},(_,k)=>mix(a,b,k/4));pieces.push(createClayTile05(ts.map(t=>P(t,u+laneShift)),.182*(.96+.07*hash(i*7.13+j)),{cover:true,variant:i*1.37+j*.71+face*19}));
    }
-   if(i<lanes){const uu=u+1/lanes;for(const [j,[a,b]]of segments(lo,hi,courses,(phase+.48)%1).entries())if(Math.abs(uu)<a+.02){const ts=Array.from({length:5},(_,k)=>mix(a,b,k/4));pieces.push(createClayTile05(ts.map(t=>P(t,uu)),.270*(.98+.04*hash(j*3.71+i)),{cover:false,variant:i*.93+j*1.27+face*11}));}}
+   if(i<lanes&&lo<.980){const uu=u+1/lanes;for(const [j,[a,b]]of segments(lo,Math.min(hi,.980),courses,(phase+.48)%1).entries())if(Math.abs(uu)<a+.02){const ts=Array.from({length:5},(_,k)=>mix(a,b,k/4));pieces.push(createClayTile05(ts.map(t=>P(t,uu)),.270*(.98+.04*hash(j*3.71+i)),{cover:false,variant:i*.93+j*1.27+face*11}));}}
   }
  }
  const merged=mergeGeometries(pieces,false);pieces.forEach(g=>g.dispose());merged.name='scene05-closed-short-handlaid-ceramic-courses';return merged;

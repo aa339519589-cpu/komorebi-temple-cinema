@@ -1,9 +1,12 @@
+import {attachAuthoredCapital254} from './capital-authored254.mjs';
+import {buildApronFoliage248} from './table-apron248.js';
+let CAPITAL254=null;
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {TABLE247_REFERENCE_TRACES as TRACE} from './table247-reference-traces.js';
 
 const TAU=Math.PI*2;
-export const TABLE247=Object.freeze({revision:'table247-r08-traced-solid-craft',topY:.733,topWidth:3.72,topDepth:.96,outerX:1.73,innerX:1.075,legDepth:.34,photographicAcceptance:false});
+export const TABLE247=Object.freeze({revision:'table247-r09c-248-soft-rolled-apron',topY:.733,topWidth:3.72,topDepth:.96,outerX:1.73,innerX:1.075,legDepth:.34,photographicAcceptance:false});
 function mats(b){
  if(b.materials.table247Gold)return;
  Object.assign(b.materials,{
@@ -74,30 +77,13 @@ function carvedLeaf(b,key,x,y,z,len=.044,w=.022,angle=0,hand=1,mat='table247Gold
  const g=b.geometry('247r07-leaf-'+len+'-'+w+'-'+hand,()=>{const g=reliefGeometry(pts,.009,.004),p=g.attributes.position;for(let i=0;i<p.count;i++){const xx=p.getX(i),yy=p.getY(i),zz=p.getZ(i);p.setZ(i,zz-T.MathUtils.smoothstep(zz,0,.009)*.0016*Math.exp(-Math.pow(xx/(w*.09),2))*Math.sin(Math.max(0,Math.min(1,yy/len))*Math.PI));}g.computeVertexNormals();return g;});b.add(g,mat,x,y,z,1,1,1,0,face<0?Math.PI:0,angle);
 }
 function capital(b,key,x,z,inner){
- const pts=inner?TRACE.innerCapital.contour:TRACE.outerCapital.contour,dep=.152;
- // One load-bearing body runs back around the post; its sculpted front is
- // inseparable from a real lower bearing and side returns.
- const holes=inner?[TRACE.innerCapital.upperSlot,...TRACE.innerCapital.lowerVoids]:[TRACE.outerCapital.upperSlot];
- relief(b,'capital-'+key,pts,dep,x,0,z-.016,'table247Gold',0,.006,holes);
+ // Original R08 real rear bearing/rebate retained exactly. Only old gold
+ // shell and its three-void/leaf ornament are replaced by source254.
  box(b,'capital-real-timber-bearing-'+key,x,inner?.649:.678,z-.004,inner?.185:.177,inner?.135:.060,.148,'table247Black',.007);
  box(b,'capital-upper-black-rebate-'+key,x,.715,z+.027,inner?.428:.231,.014,.122,'table247Black',.003);
- // R07's front field sat behind the apron and was physically occluded.
- // The deep capital now wraps forward to the real lid edge; its intact
- // rear timber bearing stays fixed. All front carving follows the face.
- b.withTransform(0,0,inner?.047:.037,1,()=>{
- for(const sy of[-1,1])box(b,'capital-front-border-'+key+'-'+sy,x,.682+sy*.024,z+(inner?.094:.104),inner?.418:.218,.004,.008,'table247Edge',.001);
- if(inner){
-  for(const side of[-1,1]){
-   scroll(b,'capital-lower-scroll-'+key+'-'+side,[[x+side*.025,.625,z+.088],[x+side*.053,.589,z+.090],[x+side*.100,.579,z+.092],[x+side*.135,.598,z+.090],[x+side*.109,.616,z+.089],[x+side*.089,.602,z+.089]],.016,.011);
-   carvedLeaf(b,'capital-leaf-'+key+'-'+side,x+side*.051,.647,z+.087,.035,.023,-side*1.18,side);
-  }
-  scroll(b,'capital-top-sculpted-vine-'+key,[[x-.205,.683,z+.088],[x-.10,.679,z+.090],[x,.686,z+.091],[x+.10,.679,z+.090],[x+.205,.683,z+.088]],.011,.010);
-  for(const j of[-1,0,1])for(const sg of[-1,1])carvedLeaf(b,'capital-top-frond-'+key+'-'+j+'-'+sg,x+j*.128,.683,z+.090,.036,.019,sg>0?-1.13:-2.0,j<0?-1:1);
- }else{
-  scroll(b,'capital-outer-field-vine-'+key,[[x-.102,.682,z+.099],[x-.045,.678,z+.102],[x,.686,z+.102],[x+.045,.678,z+.102],[x+.102,.682,z+.099]],.010,.009);
-  for(const side of[-1,1])for(const sg of[-1,1])carvedLeaf(b,'capital-outer-field-leaf-'+key+'-'+side+'-'+sg,x+side*.035,.682,z+.101,.026,.016,sg>0?-side*1.1:-side*2.0,side);
- }
- });
+ if(!CAPITAL254)throw Error('254 authored source not loaded');
+ const mount=attachAuthoredCapital254(b,CAPITAL254,{variant:inner?'inner':'outer',x,postLocalZ:z,hand:x<0?-1:1,materialKeys:{'authored-gilt-carved-wood':'table247Gold','authored-rear-cut-and-mount-wood':'table247Black'}});
+ b.root.userData.capital254Mounts??=[];b.root.userData.capital254Mounts.push({key,...mount});
 }
 function foot(b,key,x,z,floorY,inner=false){
  const w=inner?.222:.236,d=inner?.210:.222;
@@ -153,15 +139,7 @@ function apron(b,z,side=1){
  box(b,'under-apron-rail-'+side,0,.605,front,3.51,.024,.080,'table247Black',.005);
  box(b,'apron-fine-top-bead-'+side,0,.712,front+side*.056,3.60,.004,.007,'table247Gold',.001);
  box(b,'apron-fine-bottom-bead-'+side,0,.595,front+side*.044,3.51,.004,.007,'table247Recess',.001);
- for(const hand of[-1,1])for(const [j,pts]of TRACE.apron.principalBranches.slice(0,2).entries()){
-  const p=pts.map(([u,y],i)=>[hand<0?u:-u,y,z+side*(.463+.003*Math.sin(i*Math.PI/3))]);scroll(b,'apron-traced-main-'+side+'-'+hand+'-'+j,p,.012,.012);
-  for(let k=0;k<6;k++){
-   const u=pts[0][0]+(pts.at(-1)[0]-pts[0][0])*[.06,.22,.40,.58,.73,.91][k],yy=.681+.003*Math.sin(k*1.7),length=[.032,.045,.036,.043,.034,.040][k];
-   for(const leafSide of[-1,1])carvedLeaf(b,'apron-leaf-'+side+'-'+hand+'-'+j+'-'+k+'-'+leafSide,(hand<0?u:-u)+(leafSide<0?hand*.010:0),yy+(leafSide<0?-.002:.002),z+side*.465,length,.019,hand*(leafSide>0?-1.20:-1.97),leafSide,side>0?'table247Gold':'table247Recess',side);
-  }
- }
- const crest=TRACE.apron.centralCrest;
- relief(b,'center-traced-crest-'+side,crest,.018,0,0,z+side*.455,side>0?'table247Gold':'table247Recess',side<0?Math.PI:0,.004);
+ buildApronFoliage248(b,z,side);
  // Solid curving angle braces enter both the post and the real end aprons.
  for(const hand of[-1,1]){
   const outline=[[0,.685],[-hand*.16,.685],[-hand*.15,.646],[-hand*.115,.623],[-hand*.081,.578],[-hand*.055,.548],[0,.548]];
@@ -169,7 +147,7 @@ function apron(b,z,side=1){
  }
 }
 export function buildOfferingJoinery247(b,layout,z,floorY,sources){
- mats(b);
+ mats(b);CAPITAL254=sources.capital254;
  // Thinner actual rim exposes the deep carved apron instead of a wide plain
  // fascia. The6.6mm lower top is table-only; no retained ritual axis moves.
  box(b,'closed-lid',0,.715,z,3.72,.028,.958,'table247Black',.007);
@@ -185,6 +163,6 @@ export function buildOfferingJoinery247(b,layout,z,floorY,sources){
   box(b,'low-front-side-stretcher-'+side,side*1.40,.142,z+.34,.65,.045,.056,'table247Red',.005);
  }
  box(b,'rear-lower-brace',0,.180,z-.34,3.46,.052,.067,'table247Black',.006);
- b.root.userData.offeringTable247={...TABLE247,traceSource:TRACE.source,depthAuthoring:TRACE.uncertainty,localFloor:floorY,structure:'closed thin lid, inset waist, photo-traced fine carved leaf groups, deeply slotted capitals around true rear timber bearing and curving angle blocks, two visible full chased bulb heads, four real outer posts, tiered dark-red turned inner cores and returned 3D carved scrolls, large round recessed chased foot fields and layered cuffs, six floor-bearing feet',headIsSolid:true,rearHeadInference:TRACE.outerHead.scope,coffeeBeanRingsRemoved:true,compressedDragonFriezeRemoved:true,footCentersUnchanged:true,ritualGeometryAndAnchorsUnchanged:true,cushion:'retained to isolate table; its shape/textile still differs from reference and needs Root follow-up',closedAuthoredGeometry:true,photographicAcceptance:false};
+ b.root.userData.offeringTable247={...TABLE247,traceSource:TRACE.source,depthAuthoring:TRACE.uncertainty,localFloor:floorY,structure:'closed thin lid, inset waist, sparse curved foliate groups with rolled edges and closed actual chased surfaces; retained 254 capitals and true timber bearings, two visible full chased bulb heads, four real outer posts, tiered dark-red turned inner cores, returned carved scrolls and six floor-bearing feet',apronRefinement248:b.root.userData.apron248,headIsSolid:true,rearHeadInference:TRACE.outerHead.scope,coffeeBeanRingsRemoved:true,compressedDragonFriezeRemoved:true,footCentersUnchanged:true,ritualGeometryAndAnchorsUnchanged:true,cushion:'255R06 unchanged to isolate apron carving; generated textile remains approximate',closedAuthoredGeometry:true,photographicAcceptance:false};
  b.root.userData.offeringJoinery198=b.root.userData.offeringTable247;
 }

@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {withAltarTier260,withAltarAccents260,buildPanelFrame260,buildPanelDivider260,buildTierEdge260,buildUprightCapital260,buildAltarUpright260} from './altar260.js';
 import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
@@ -45,7 +46,7 @@ export function buildRestorationAltar(options = {}) {
   layout.outerRitualLotusSupportY ??= 2.85-layout.sideThroneHeight;
   const root = b.root;
   root.name = 'restoration-reference6-altar';
-  if (options.terraces !== false) {buildTerraces(b,layout);buildMonumentalAltarAccents(b,layout);}
+  if (options.terraces !== false) {buildTerraces(b,layout);withAltarAccents260(b,layout,()=>buildMonumentalAltarAccents(b,layout));}
   if (options.mandorlas !== false) {
     const mainZ=layout.mainMandorlaZ??-.79;
     buildMandorla(b, 0, 1.40, mainZ, .75,layout.headHaloCenters[0],layout.mandorlaApexY[0],layout.mandorlaWidthScales[0],layout.mainSeatY-layout.mainThroneHeight,true);
@@ -472,6 +473,7 @@ function buildTerraces(b,layout) {
   ];
   tiers.forEach((t,level)=>{
     t.w=layout.terraceWidths[level];
+    return withAltarTier260(b,layout,t,level,()=>{
     const stepped=level>0&&level<4,frontWidth=stepped?layout.carvedFrontWidths[level-1]:t.w;
     const wingWidth=(t.w-frontWidth)/2,wingInset=.34;
     const carcassTop=t.y+t.h/2,carcassBottom=level===0?Math.min(t.y-t.h/2,layout.floorContactY):t.y-t.h/2;
@@ -560,8 +562,7 @@ function buildTerraces(b,layout) {
         framedScrollPanel(b,x,t.y,front+.018,pw,t.h-.083,(level+i)%2,t.d/2,singleDirection);
         cursor+=pw+gap;
         if(i<weights.length-1){
-          b.box(cursor-gap/2,t.y,front+.022,.052,t.h-.045,.098,'trim');
-          for(const yy of [-1,1])b.box(cursor-gap/2,t.y+yy*(t.h*.38),front+.063,.080,.038,.040,'trim');
+          buildPanelDivider260(b,cursor-gap/2,t.y,front+.022,t.h-.045);
         }
       });
     }
@@ -570,21 +571,18 @@ function buildTerraces(b,layout) {
       addCornice198(b,t.y+t.h/2+.037,front+.008,frontWidth+.14,t.d+.03);
       b.box(0,t.y-t.h/2-.012,front-.008,frontWidth+.09,.024,.088,'lacquer');
     }
-    // Gilt corner caps visibly wrap the depth of the cabinet.
-    for(const s of [-1,1])for(const [width,depthOffset] of stepped?[[frontWidth,0],[t.w,wingInset]]:[[t.w,0]]){
-      b.box(s*(width/2-.06),t.y,front+.035-depthOffset,.042,t.h-.042,.018,'trim');
-      b.box(s*(width/2+.006),t.y,front-.10-depthOffset,.013,t.h-.042,.25,'trim');
-    }
+    //260: thin pressed returns and actual small carved corner mounts.
+    buildTierEdge260(b,t,level,front,frontWidth,wingInset,stepped);
+    });
   });
   for(const xx of [-2.14,-1.68,1.68,2.14]){
-    b.lathe('altar-slender-tier-upright',[[0,0],[.06,.01],[.045,.06],[.028,.11],[.027,1.01],[.050,1.05],[.041,1.11],[0,1.12]],xx,.77,1.56,1,1,'lacquer',16);
+    buildAltarUpright260(b,xx);
     for(const [yy,row,isLedge] of [[.81,1,false],[1.09,1,true],[1.45,2,true],[1.82,3,true]]){
-      b.torus(xx,yy,1.56,.045,.009,'gold',Math.PI/2);
       // Capitals return to the actual recessed stair, rather than float in
       // front of it. Outer posts bridge the side-wing setback as required.
       const inset=Math.abs(xx)>layout.carvedFrontWidths[row-1]/2?.34:0;
       const bearingZ=tiers[row].d/2-inset+(isLedge?(row===3?.08:.04):0);
-      b.box(xx,yy,(1.56+bearingZ)/2,.12,.035,Math.abs(1.56-bearingZ)+.10,'trim');
+      buildUprightCapital260(b,xx,yy,1.56,bearingZ,row);
     }
     b.ball(xx,1.91,1.56,.048,.064,.048,'trim');
   }
@@ -661,16 +659,7 @@ const REF6_CAST_PANEL_FIELDS={"middleLeft":{"bounds":[395,716,537,739],"axis":[4
 
 function framedScrollPanel(b,x,y,z,w,h,variant=0,bearingZ,singleDirection=0) {
   const back=Number.isFinite(bearingZ)?Math.min(z-.082,bearingZ-.008):z-.082;
-  b.box(x,y,(z+.006+back)/2,w+.018,h+.035,z+.006-back,'lacquer');
-  // A substantial lacquer frame carries one gilded inner bead. It does not
-  // repeat four bright rails at the same edge of each shallow drawer.
-  for(const side of[-1,1]){
-    b.box(x+side*w/2,y,z+.010,.050,h+.061,.065,'lacquer');
-    b.box(x,y+side*h/2,z+.010,w+.058,.041,.065,'lacquer');
-    b.box(x+side*(w/2-.013),y,z+.043,.0065,h+.024,.014,'oldgold');
-    b.box(x,y+side*(h/2-.010),z+.043,w+.010,.0065,.014,'oldgold');
-    b.box(x+side*w/2,y+side*h/2,z+.046,.061,.040,.022,'oldgold');
-  }
+  buildPanelFrame260(b,x,y,z,w,h,back);
   if(tryCompactShortOrnament198(b,x,y,z,w,h))return;
   // Only the two broad middle fields receive the original complete dragon
   // scan: equal world scale on all axes, continuous backing and actual depth.

@@ -15,4 +15,4 @@ export const POSE=Object.freeze({position:[12.38431455,.8,14.60021708],target:[-
 export function tierPlacement(level){const t=STORIES[level];if(!t)throw new RangeError('Unknown pagoda storey');return{level,...TIER_SPEC,...t};}
 export function tierWorldPoint(level,p){const t=tierPlacement(level);return[p[0]*t.scale,t.baseY+p[1]*t.scale,p[2]*t.scale];}
 const nearLanternRadius=(TIER_SPEC.width+TIER_SPEC.roofAddition)/2*1.025;
-export const DOLLY=Object.freeze({points:[[11.1,.72,13.7],[11.6,.75,14.0],[12.0,.79,14.4],POSE.position],nearTarget:[-16.4,14.65,-5.5],farTarget:POSE.target,fov:POSE.fov});
+export const DOLLY=Object.freeze({"points":[[8.1,0.72,10],[9.55,0.74,11.55],[11.05,0.78,13.2],[12.38431455,0.8,14.60021708]],"nearTarget":[-13.080656879175743,31.031739780932924,-0.4702753920168554],"farTarget":[-17.09887615,15,-5.55294464],"fov":38.94129879});

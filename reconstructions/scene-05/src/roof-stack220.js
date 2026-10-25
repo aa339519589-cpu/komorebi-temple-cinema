@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {flyingThickness272} from './eave-finish272.js';
 
 // Authored section planes for the third pass. The main rafter
 // retains its inherited centre; flying rafters and boarding meet that real
@@ -6,7 +7,7 @@ import * as T from 'three';
 export function roofFrame220(sample,face,t,fixedU){
  const point=q=>sample(face,q,T.MathUtils.clamp(fixedU/q,-1,1)),surface=point(t),tangent=point(t+.0001).sub(point(t-.0001)).normalize(),
   side=new T.Vector3(tangent.z,0,-tangent.x).normalize(),up=new T.Vector3().crossVectors(tangent,side).normalize(),main=surface.clone();main.y-=.340;
- return{surface,tangent,side,up,main,flying:main.clone().addScaledVector(up,.130),boardBottom:main.clone().addScaledVector(up,.175),boardTop:main.clone().addScaledVector(up,.202)};
+ return{surface,tangent,side,up,main,flying:main.clone().addScaledVector(up,.085+flyingThickness272(t)/2),boardBottom:main.clone().addScaledVector(up,.085+flyingThickness272(t)),boardTop:main.clone().addScaledVector(up,.112+flyingThickness272(t))};
 }
 
 export function seatedPurlinPoints220(sample,face,t,height){

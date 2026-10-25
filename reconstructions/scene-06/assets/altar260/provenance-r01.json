@@ -1,0 +1,72 @@
+{
+  "component": "altar260 small capped actual cloud-scan tip",
+  "file": "cloud-tip260-r01.bin",
+  "sha256": "2722b86d9d9c7cbf628289f0b02bc277170e51878223cf2094927cfd3061603d",
+  "sourcePath": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-room248/combined-prototype-root/reconstructions/scene-06/assets/carving176-altar198-CC-BY-4.0/cloud-scroll-sc07.bin",
+  "sourceSha256": "6b88a3785d280d79b41c518dc1357cd4d6526b69164fc23a32f30f98c19b2fb3",
+  "sourceTriangles": 354787,
+  "float32RootSliverRepair": {
+    "edgeCollapses": 2,
+    "removedTriangles": 4,
+    "maxSourceUnitDisplacement": 0.000012653337994782259,
+    "scope": "Only near-zero root/cap slivers afterFloat32 encoding; no normal texture or photogrammetric pixel operation"
+  },
+  "retainedTriangles": 2524,
+  "retainedVertices": 1266,
+  "cuts": [
+    {
+      "axis": 0,
+      "value": 0.4,
+      "loops": 1,
+      "capTriangles": 398,
+      "droppedDegenerate": 0
+    },
+    {
+      "axis": 2,
+      "value": 0.1,
+      "loops": 1,
+      "capTriangles": 224,
+      "droppedDegenerate": 1
+    }
+  ],
+  "discardedClosedComponents": [],
+  "sourceBounds": [
+    [
+      0.4,
+      0.017999596531956465,
+      0.1
+    ],
+    [
+      0.4893498706387518,
+      0.20962705765298267,
+      0.13240673901596664
+    ]
+  ],
+  "templateBounds": [
+    [
+      -0.044674936681985855,
+      -0.09581372886896133,
+      0
+    ],
+    [
+      0.044674936681985855,
+      0.09581372886896133,
+      0.03240673989057541
+    ]
+  ],
+  "normalMethod": "Recomputed from actual clipped geometry; no RGB, normal texture, remap image or added virtual light",
+  "topology": {
+    "boundaryOrNonmanifoldOrWindingConflictEdges": 0,
+    "signedSourceVolume": 0.00015554186007083186,
+    "closedOutward": true
+  },
+  "sourceUID": "1336fa1889cf4eba829594fa30edd6ff",
+  "author": "3dscantech",
+  "sourceURL": "https://sketchfab.com/3d-models/wood-carving-of-dragon-1336fa1889cf4eba829594fa30edd6ff",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "scope": "Tiny actual3D spatial subset with two exact planar root/back cuts and caps, uniform physical fitting only. Not the original reference artifact; creator did not specify Japanese culture/period.",
+  "recipeSha256": "485d1f8ee382ba70a17f1f952bb698f8d65feb6c436636091dc8db1ae738ab29",
+  "visualAccepted": false,
+  "photographicAccepted": false
+}
