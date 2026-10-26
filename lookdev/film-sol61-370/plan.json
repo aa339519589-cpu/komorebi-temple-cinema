@@ -1,0 +1,52 @@
+{
+  "revision": "film-sol61-370-h",
+  "status": "prepared-awaiting-reviewed-and-pushed-source-commit",
+  "iteration": "sol61-rebuild-20261027-h",
+  "snapshotNamePrefix": "temple-cinema-film-h-sol61-370",
+  "releaseTag": "working-film-2026-10-27-h",
+  "sourceMode": "one-explicit-pushed-public-commit-independent-APFS-runtime-snapshot",
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ],
+    "output": [
+      1080,
+      1080
+    ],
+    "native": [
+      1620,
+      1620
+    ],
+    "requireMainSceneMsaa": true
+  },
+  "reuseFilmBuilds": [],
+  "music": {
+    "file": "music/PerituneMaterial_Oboro.mp3",
+    "attribution": "music/ATTRIBUTION.json",
+    "offsetSeconds": 25
+  },
+  "scope": "Ten real3D seven-second close-to-wide shots; a70s original edit and exact60s overlap edit. New working reconstruction, no photographic acceptance.",
+  "sourceSelection": "Root will provide a full pushed SHA after current reviewed model changes. No HEAD fallback, no capture started.",
+  "knownRuntimeRepair": "345 completed-motion info compaction and unconditional graphics cleanup; actual next motion will exercise it.",
+  "photographicAccepted": false,
+  "originalGoalComplete": false
+}

@@ -4,7 +4,7 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
-2026-10-27 工作检查点：[十景参考／实际模型对照](qa/ten-reference/working-model-review-20261027-u/all-ten-reference-left-render-right.jpg)与[各图实际源码](qa/ten-reference/working-model-review-20261027-u/frames.json)已更新第一景叠层拱梁与台阶、第五景瓦端斗拱和包角、第六景连续佛像腕部与三层莲座、第七景塔身承托和抬高接入侧门的连廊。佛堂用合并后的真实源码重新渲染。各景仍有明显造型、光照和材质差距，均未达到参考精度；旧影片G及物理图354保持各自冻结版本。[具体合入范围与未解决问题](lookdev/integration365/integration365.json)。
+2026-10-27 工作检查点：[十景参考／实际模型对照](qa/ten-reference/working-model-review-20261027-v/all-ten-reference-left-render-right.jpg)与[各图实际源码](qa/ten-reference/working-model-review-20261027-v/frames.json)新增第二景深山墙、承重构件和搭接筒瓦，以及第五景按构件区分的木材表面。第五景斜视白线缺陷已通过调整材质响应消除；此前桥梯、莲座和连廊修改保留。各景仍有明显造型、光照与材质差距，均未达到参考精度。[本轮实际合入及限制](lookdev/integration369/integration369.json)。新一轮十景运镜已准备独立输出配置，尚未启动；旧影片G及物理图354保持冻结版本。
 
 2026-10-26 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261026-s/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261026-s/frames.json)。此固定对照新增第三景真实尺度荷花与近景距离、第八景有厚度的廊柱栏杆、连续廊面及栏外植被；同时保留第二景檐枋与庭院返回光、第四景粗凿石灯、第七景岛岸与自然林木、第九景实体灯组和根植石岸。十张均为各独立参考机位的实际原生三维画面。十景的布局、材质、雕刻和光影仍明显未达到参考；此模型对照更新于下面的冻结影片 G。
 

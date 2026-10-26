@@ -1,0 +1,11 @@
+{
+  "appliedAt": "2026-10-26T17:36:36.655555+00:00",
+  "beforeSha256": "b611a069c5a73b88201dc99c1f2a76d62c801f5c39fd0746dc74f351d54429f4",
+  "afterSha256": "658c263f65f24e0d135eba878da35a2147e43d1c7130b6131b0d3dea3f29f73c",
+  "actualDriversBeforeMutation": [],
+  "captureAndEncoderPrefixByteExact": true,
+  "scope": "Only completed capture receipt serialization and cleanup changed. Keep complete frame0 info; subsequent frame.info hashes + live frame/camera/renderer summaries. All native pose, program, GL/MSAA, pixel hash and journal observations unchanged.",
+  "historicalFailure": "G07 completed168 native frames/video, final report exceeded V8 string limit. This change avoids repeated static scene diagnostics in final report.",
+  "notImageFidelityEvidence": true,
+  "newMotionValidation": "Must verify on next actual motion job; no duplicate G recapture"
+}

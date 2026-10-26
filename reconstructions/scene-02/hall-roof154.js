@@ -7,7 +7,7 @@ import {T,V,mix,gridGeometry} from './kernel.js';
 export function buildHallRoof154({b,mats,roof}){
  const {gableCenterX:cx,gableWidth:gW,gableFront:gF,gableBack:gB,gableEave:gE,gableRise:gR,roofWidth:W,roofFront:F,roofBack:B,roofEave:E,roofCurl:curl}=roof;
  const footY=gE+.38,peakY=gE+gR,halfW=W/2,halfG=gW/2,merged=new Map();
- const stats={construction:'One common ridge and seated gable, four joined shallow hip aprons, closed ceramic courses, supported cantilever rafters',bearingAxisLocalX:cx,gableFaceLocalZ:gF,gableRearLocalZ:gB,innerHipSeatLocalY:footY,ridgeLocalY:peakY,ceramicCourses:0,closedCeramicUnits:0,rafters:0,facePhotoTexture:false};
+ const stats={construction:'One common ridge and seated gable, four joined hip aprons, separate closed overlapping pan and half-round cover courses, supported cantilever rafters',bearingAxisLocalX:cx,gableFaceLocalZ:gF,gableRearLocalZ:gB,innerHipSeatLocalY:footY,ridgeLocalY:peakY,ceramicCourses:0,closedCeramicUnits:0,closedCoverUnits368:0,rafters:0,facePhotoTexture:false};
  for(let i=0;i<5;i++){
   const m=mats[`ceramic160${i}`].clone();m.name=`scene02-hall-fired-blue-tile154-${i}`;m.roughness=.78+i*.012;m.side=T.FrontSide;mats[`hallTile154${i}`]=m;
  }
@@ -20,6 +20,21 @@ export function buildHallRoof154({b,mats,roof}){
   const ring=[];for(let i=0;i<nx;i++)ring.push(i);for(let j=1;j<ny;j++)ring.push(j*nx+nx-1);for(let i=nx-2;i>=0;i--)ring.push((ny-1)*nx+i);for(let j=ny-2;j>0;j--)ring.push(j*nx);if(normalY<0)ring.reverse();
   for(let i=0;i<ring.length;i++){const a=ring[i],c=ring[(i+1)%ring.length];ids.push(a,c,a+N,c,c+N,a+N);}
   let dst=merged.get(material);if(!dst){dst={positions:[],uv:[],indices:[]};merged.set(material,dst);}const off=dst.positions.length/3;for(const n of ids)dst.indices.push(n+off);dst.positions.push(...p);dst.uv.push(...uv);g.dispose();
+ }
+ function closedCover368(P,ta,tb,u,material){
+  const p=[],uv=[],ix=[],N=10,R=4,row=N+1,layer=(R+1)*row;
+  for(let side=0;side<2;side++)for(let j=0;j<=R;j++){
+   const t=mix(ta,tb,j/R),centre=V(P(t,u)),across=V(P(t,u+.0001)).sub(V(P(t,u-.0001))).normalize(),along=V(P(Math.min(1,t+.0001),u)).sub(V(P(Math.max(0,t-.0001),u))).normalize(),up=across.clone().cross(along).normalize();if(up.y<0)up.negate();
+   const radius=side?.049:.066;
+   for(let k=0;k<=N;k++){const a=k/N*Math.PI,q=centre.clone().addScaledVector(across,Math.cos(a)*radius).addScaledVector(up,.032+Math.sin(a)*radius);p.push(...q.toArray());uv.push(k/N,j/R);}
+  }
+  const id=(l,j,k)=>l*layer+j*row+k;
+  for(let j=0;j<R;j++)for(let k=0;k<N;k++)for(const l of[0,1]){const a=id(l,j,k),b=id(l,j,k+1),c=id(l,j+1,k),d=id(l,j+1,k+1);l?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}
+  for(const j of[0,R])for(let k=0;k<N;k++){const a=id(0,j,k),b=id(0,j,k+1),c=id(1,j,k),d=id(1,j,k+1);j?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}
+  for(const k of[0,N])for(let j=0;j<R;j++){const a=id(0,j,k),b=id(0,j+1,k),c=id(1,j,k),d=id(1,j+1,k);k?ix.push(a,b,c,b,d,c):ix.push(a,c,b,b,c,d);}
+  // Orient this actual thin closed shell consistently on every hip face.
+  let volume=0;for(let i=0;i<ix.length;i+=3){const a=V(p.slice(ix[i]*3,ix[i]*3+3)),b=V(p.slice(ix[i+1]*3,ix[i+1]*3+3)),c=V(p.slice(ix[i+2]*3,ix[i+2]*3+3));volume+=a.dot(b.cross(c))/6;}if(volume<0)for(let i=0;i<ix.length;i+=3)[ix[i+1],ix[i+2]]=[ix[i+2],ix[i+1]];
+  let dst=merged.get(material);if(!dst){dst={positions:[],uv:[],indices:[]};merged.set(material,dst);}const off=dst.positions.length/3;dst.positions.push(...p);dst.uv.push(...uv);for(const i of ix)dst.indices.push(off+i);stats.closedCoverUnits368++;
  }
  function tileField(P,width,length,offset=0){
   // Width and course pitch describe real roof units rather than an arbitrary
@@ -37,10 +52,11 @@ export function buildHallRoof154({b,mats,roof}){
     }
     shell(rows,.032,`hallTile154${(run*13+course*7+offset)%5}`);stats.closedCeramicUnits++;
    }
-   // Half-round cover tiles seat over the adjoining trough edges.
+   // Short, overlapping hollow ceramic covers follow the actual curved
+   // bedding and close at both ends. Full cylindrical rods are removed.
    const edge=-1+2*run/runs;
    for(let j=0;j<courses;j++){
-    const a=P(j/courses,edge),c=P((j+1)/courses,edge);a[1]+=.061;c[1]+=.061;b.line(a,c,.047,`hallTile154${(run+offset+1)%5}`);
+    closedCover368(P,j/courses,Math.min(1,(j+1.06)/courses),edge,`hallTile154${(run+offset+1)%5}`);
    }
   }
  }

@@ -1,0 +1,163 @@
+{
+  "status": "Selected bounded architectural geometry improvement for root review/integration; photographic fidelity unaccepted.",
+  "baselineSource": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+  "sourceIdentity": "91b7e2da1edfa270fca6451f2d1a12d8d7a2482814d8f7962676d809ad9d2b70",
+  "selectedCandidate": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04",
+  "integrationPatch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/scene02-hall368-r04-over-342r06.patch",
+  "patchSha256": "555899ee17bc4b349b3d7bd61c559505255e9d522e1276f46bcad345f4b6d1af",
+  "changedFiles": [
+    {
+      "path": "reconstructions/scene-02/carved-timber157.js",
+      "before": "4af73f8ae46e83e518c93c3bdb861e778a36de276b815f854ea585e4b9d81b89",
+      "sha256": "9a002f857fb46fcb75404da2071c0170b12875e789483371c54daf9540fe8874"
+    },
+    {
+      "path": "reconstructions/scene-02/curved-rafter368.js",
+      "before": null,
+      "sha256": "8b095d52a21c1d2e91c6b4018d8cc890c9750c9e7da9788308e529fd37e6deb5"
+    },
+    {
+      "path": "reconstructions/scene-02/deep-bearing368.js",
+      "before": null,
+      "sha256": "1fa626be5dca0457d5419e447ff269d25eb9d6c3c82dbabb1fe47f10440483eb"
+    },
+    {
+      "path": "reconstructions/scene-02/gable-hierarchy368.js",
+      "before": null,
+      "sha256": "7d683a8e65547b68ce23a43f44f6cbe8f36761b0b2ab639beb6cdb828ff6537a"
+    },
+    {
+      "path": "reconstructions/scene-02/gable170.js",
+      "before": "1c9fb0889bb519e027a7538e08af84182e5f0fd8549ffa0d0f6abe2f7e619120",
+      "sha256": "0ab6de9c7d52b410da257b949d859f7b62d759c3c6de4ce0a208210d05a5296e"
+    },
+    {
+      "path": "reconstructions/scene-02/hall-roof154.js",
+      "before": "785d81a58a2d771c10a73f97cbd1ce81388824f293f9b8429c26636072f6725c",
+      "sha256": "d6fa60c3c6e040af8bd009f94281fa0cc2485bae4df5c11e52da977187bd9c4d"
+    },
+    {
+      "path": "reconstructions/scene-02/hall368-provenance.json",
+      "before": null,
+      "sha256": "2ea323912e0ade425c7dfc12296c9104271fb3ced40538fc577e47b720da93fc"
+    },
+    {
+      "path": "reconstructions/scene-02/main.js",
+      "before": "00ff5d3f9350df5cc4375db2d7ca10283668546b63c8ad9a8ce39258719672fd",
+      "sha256": "6f159dbd7ede419f2483556649b9e3607729ebb841a260686ab13b4efd2ae925"
+    }
+  ],
+  "nativeImages": [
+    {
+      "name": "reference",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04/qa/ten-reference/02/iteration-scene02-hall368-r04-full-detail/reference.png",
+      "source": "91b7e2da1edfa270fca6451f2d1a12d8d7a2482814d8f7962676d809ad9d2b70",
+      "pngSha256": "a7f7e938c4877940b9d5170e8b729f4ba8a5517e1dd5a61b761a2f551b99a031",
+      "rgbaSha256": "bc05ebfb2b342936f5484b27230e9addf22b2f71be42724016368412bcacdd23",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": null,
+      "valid": true,
+      "personallyInspected": true
+    },
+    {
+      "name": "detail-native",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04/qa/ten-reference/02/iteration-scene02-hall368-r04-full-detail/detail-native.png",
+      "source": "91b7e2da1edfa270fca6451f2d1a12d8d7a2482814d8f7962676d809ad9d2b70",
+      "pngSha256": "f072e897d1eb0414cf615b6f18f408de098550f8ae05c6daa4e3901bb83fa1e9",
+      "rgbaSha256": "897eb20f4e9fc0fe836ba31a18de25891b0a7164950a33375dd109e5130203a4",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": [
+        520,
+        190,
+        630,
+        1254
+      ],
+      "valid": true,
+      "personallyInspected": true
+    },
+    {
+      "name": "inspection-view",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04/qa/ten-reference/02/iteration-scene02-hall368-r04-oblique/inspection-view.png",
+      "source": "91b7e2da1edfa270fca6451f2d1a12d8d7a2482814d8f7962676d809ad9d2b70",
+      "pngSha256": "1a06985e02eddf07125eb6e2eed2201c99d21f327e27ced3e1bcacde05d5d46b",
+      "rgbaSha256": "af93829a823891b082c4d6dd3bafbce9c25eb6173c64ef2a928d17898e2335b1",
+      "width": 1000,
+      "height": 1000,
+      "detailCrop": null,
+      "valid": true,
+      "personallyInspected": true
+    }
+  ],
+  "renderReports": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04/qa/ten-reference/02/iteration-scene02-hall368-r04-full-detail/report.json",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/candidate-r04/qa/ten-reference/02/iteration-scene02-hall368-r04-oblique/report.json"
+  ],
+  "implementation": [
+    "Rebuild the attic as one enclosed deep pediment with0.84-local-metre rakes, separate pierced bronze facings, smaller closed foliate relief, carried pendents, deep coffers and slimmer full-depth inner trusses.",
+    "Replace six primary and five intermediate front eave heads with complementary half-lapped crossed arms, flared bearing cups, continuous raking tails and fitted receiving blocks; full assembly clearances query the retained physical hip apron.",
+    "Replace4,736 cylindrical roof rods with4,736 individual overlapping closed half-round ceramic covers, seated on the same original curved tile/boarding profile.",
+    "Keep the existing CC BY cloud source component, exact donor buffers, uniform world fit and attribution, all material pigment/map settings,342R06 source lights, cameras, column/floor/roof/bridge/rail envelopes and garden roots."
+  ],
+  "evidence": {
+    "officialRenderer": "tools/render-one-reconstruction.mjs",
+    "allActualCapturesThroughSharedGpuFifo": true,
+    "finalSourceRevalidated": true,
+    "allNativeFramesValid": true,
+    "glError": [
+      0,
+      0,
+      0
+    ],
+    "allProgramsLinked": true,
+    "preservationAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/preservation-audit-r04.json",
+    "retainedNativeInfoChecks": 19,
+    "protectedExactSourceChecks": 16,
+    "mainSourceOnlyRevisionChanged": true,
+    "cpuAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-hall368/cpu-authored-audit-r04.json",
+    "cpuScope": "Pure CPU construction of the actual authored hall roof/gable/front-head source, without browser/GPU, donor GLB or garden. Not a full-scene fidelity test.",
+    "finiteUniqueAuthoredVertices": 908067,
+    "newMemberKinds": 32,
+    "newPiercedBandsClosed": true,
+    "negativeVolumeNewMemberKinds": 0,
+    "baselineGeometry": {
+      "meshes": 1745,
+      "instances": 163858,
+      "triangles": 195266945
+    },
+    "finalGeometry": {
+      "meshes": 1762,
+      "instances": 158220,
+      "triangles": 195481501
+    }
+  },
+  "review": {
+    "reference": "references/hd/1-照片-2.jpg",
+    "full": "Full and true subfrustum compared with unchanged HD and canonical342R06. Pediment/frame and under-eave load paths now form a stronger continuous architectural assembly.",
+    "oblique": "Unobscured actual elevated three-quarter view confirms the deep rakes, roof shells and receiving/tail layers form real3D geometry across the front/return transition. The original side/rear bracket vocabulary remains coarser.",
+    "earlierCandidates": {
+      "r01": "Superseded: broad gilt facing looked flat and too bright despite real pierced cells.",
+      "r02": "Superseded: regular twining rake motif read as a chain; oblique view was partly blocked by retained near canopy.",
+      "r03": "Superseded: organic volutes remained oversized and visibly repetitive; retained source/images/CPU evidence available."
+    },
+    "visualAccepted": false
+  },
+  "remainingGaps": [
+    "The main roof ceramic remains darker, smoother and less varied than HD under the held342R06 illumination/material setup.",
+    "The pediment carving and beam-end patterns remain authored/repetitive approximations; exact cultural motif and photographic carving fidelity are not recovered.",
+    "The retained side/rear heads, tower, garden/lotus/stone surfaces, sky and scene-wide warm atmosphere still differ substantially from the photograph.",
+    "Hidden joinery dimensions are inferred; this is not a historical structural survey or full-GI reconstruction."
+  ],
+  "boundary": {
+    "canonicalWrites": false,
+    "gitOperations": false,
+    "agentsSpawned": 0,
+    "newExternalMedia": false,
+    "sourcePhotoProjection": false,
+    "copyMethod": "APFS cp-cR COW scene/asset snapshots, real server.mjs, original immutable vendor snapshot; no mutable hardlinks",
+    "lastObservedFreeSpace": "2.7GiB"
+  },
+  "completedAt": "2026-10-26T17:42:42.322Z",
+  "visualAccepted": false
+}

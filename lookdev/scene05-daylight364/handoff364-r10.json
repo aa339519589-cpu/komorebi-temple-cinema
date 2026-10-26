@@ -1,0 +1,1350 @@
+{
+  "status": "Root-reviewed_working_point_for_integration_not_photographic_acceptance",
+  "photographicFidelityAccepted": false,
+  "canonicalUntouched": true,
+  "gitEdits": false,
+  "candidate": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10",
+  "source": "015292ed103f010476b835faad085052144682e0643a643c10011b8ffe0ad9cb",
+  "baselineSource": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+  "reference": "/Users/mima1234/temple-cinema-live-sync/references/hd/5-照片-6.jpg",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/runtime364-r10.patch",
+  "patchSHA256": "bc8c0a738a3b2e9d3acfe351b2296537ba1ca4fd7a589c50657255c84aed4b8a",
+  "runtimeFiles": [
+    {
+      "path": "reconstructions/scene-05/src/scene.js",
+      "beforeSHA256": "f8d7367d9c730ba00dc58fd3b5fbc7ab218a5132e37f7100b83d1c9635237449",
+      "afterSHA256": "330ecca538ffd7c4b7afe694bb2e465243f8d34d8ea4a9ff1e463c26b11eb8ff",
+      "bytes": 51034
+    },
+    {
+      "path": "reconstructions/scene-05/src/daylight196.js",
+      "beforeSHA256": "e0504b3d154e7bccf55a21842fea1af4401d278ec46e92aa8c670b7532cf6e3d",
+      "afterSHA256": "b44f63b54dfb105558a7172f204c5735438a038142c0e550c601e5d750d423ef",
+      "bytes": 3011
+    },
+    {
+      "path": "reconstructions/scene-05/src/timber-response364.js",
+      "beforeSHA256": null,
+      "afterSHA256": "06a20f09d64f2380c8f40d96ed14d77d643b86ebd917f29319e0e8ee87742102",
+      "bytes": 8915
+    }
+  ],
+  "frames": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10/qa/ten-reference/05/iteration-scene05-daylight364-r10-native-detail/reference.png",
+      "kind": "reference",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "6d9fd020983d26532f6db61384cd81b2eb408456906a80449d946fdd926a2df2",
+      "actualNative": true,
+      "source": "015292ed103f010476b835faad085052144682e0643a643c10011b8ffe0ad9cb"
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10/qa/ten-reference/05/iteration-scene05-daylight364-r10-native-detail/detail-native.png",
+      "kind": "detail-native",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "d2215751156219c1ddf0e8a8b2fc91af8f4e1ca28226355ca7c2b45645b26538",
+      "actualNative": true,
+      "source": "015292ed103f010476b835faad085052144682e0643a643c10011b8ffe0ad9cb"
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10/qa/ten-reference/05/iteration-scene05-daylight364-r10-oblique/inspection-view.png",
+      "kind": "inspection-view",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "rgbaSha256": "939c9380a856385dfedfbf43778e103ccbe96404b60856742546c100f23fb822",
+      "actualNative": true,
+      "source": "015292ed103f010476b835faad085052144682e0643a643c10011b8ffe0ad9cb"
+    }
+  ],
+  "reports": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10/qa/ten-reference/05/iteration-scene05-daylight364-r10-native-detail/report.json",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/candidate-r10/qa/ten-reference/05/iteration-scene05-daylight364-r10-oblique/report.json"
+  ],
+  "sourceIdentity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r10-source-identity.json",
+  "boundaryProof": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r10-source-boundary-proof.json",
+  "materialPatchDiagnostic": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r09-native-material-patches.json",
+  "officialHipRayDiagnostic": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r05-official-hip-picks.json",
+  "response": {
+    "revision": 364,
+    "assignments": [
+      {
+        "material": "cedar",
+        "role": "beam",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#7d3d28",
+        "substrate": "#8f5d37",
+        "rough": [
+          0.46,
+          0.8
+        ],
+        "normal": 0.21,
+        "coat": 0.025,
+        "coatRough": 0.58,
+        "specular": 0.37,
+        "anisotropy": 0,
+        "variation": 0.4,
+        "raw": 0,
+        "endExposure": 0.26
+      },
+      {
+        "material": "red",
+        "role": "lacquer",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#a5442c",
+        "substrate": "#8c5433",
+        "rough": [
+          0.38,
+          0.68
+        ],
+        "normal": 0.13,
+        "coat": 0.11,
+        "coatRough": 0.46,
+        "specular": 0.46,
+        "anisotropy": 0,
+        "variation": 0.22,
+        "raw": 0,
+        "endExposure": 0.08
+      },
+      {
+        "material": "endwood",
+        "role": "raw",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#a9794d",
+        "substrate": "#a9794d",
+        "rough": [
+          0.75,
+          0.95
+        ],
+        "normal": 0.2,
+        "coat": 0,
+        "coatRough": 0.8,
+        "specular": 0.25,
+        "anisotropy": 0,
+        "variation": 0.26,
+        "raw": 0.72,
+        "endExposure": 1
+      },
+      {
+        "material": "darkwood",
+        "role": "dark",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#594332",
+        "substrate": "#705438",
+        "rough": [
+          0.67,
+          0.93
+        ],
+        "normal": 0.18,
+        "coat": 0.012,
+        "coatRough": 0.73,
+        "specular": 0.28,
+        "anisotropy": 0,
+        "variation": 0.32,
+        "raw": 0,
+        "endExposure": 0.18
+      },
+      {
+        "material": "kit_cedar",
+        "role": "bracket",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#843e29",
+        "substrate": "#935533",
+        "rough": [
+          0.51,
+          0.83
+        ],
+        "normal": 0.19,
+        "coat": 0.035,
+        "coatRough": 0.6,
+        "specular": 0.36,
+        "anisotropy": 0,
+        "variation": 0.29,
+        "raw": 0,
+        "endExposure": 0.12
+      },
+      {
+        "material": "kit_endwood",
+        "role": "dou",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#8b452e",
+        "substrate": "#9e633b",
+        "rough": [
+          0.54,
+          0.85
+        ],
+        "normal": 0.17,
+        "coat": 0.025,
+        "coatRough": 0.65,
+        "specular": 0.33,
+        "anisotropy": 0,
+        "variation": 0.3,
+        "raw": 0,
+        "endExposure": 0.08
+      },
+      {
+        "material": "architecture_cedar",
+        "role": "beam",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#7d3d28",
+        "substrate": "#8f5d37",
+        "rough": [
+          0.46,
+          0.8
+        ],
+        "normal": 0.21,
+        "coat": 0.025,
+        "coatRough": 0.58,
+        "specular": 0.37,
+        "anisotropy": 0,
+        "variation": 0.4,
+        "raw": 0,
+        "endExposure": 0.26
+      },
+      {
+        "material": "architecture_red",
+        "role": "lacquer",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#a5442c",
+        "substrate": "#8c5433",
+        "rough": [
+          0.38,
+          0.68
+        ],
+        "normal": 0.13,
+        "coat": 0.11,
+        "coatRough": 0.46,
+        "specular": 0.46,
+        "anisotropy": 0,
+        "variation": 0.22,
+        "raw": 0,
+        "endExposure": 0.08
+      },
+      {
+        "material": "architecture_endwood",
+        "role": "raw",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#a9794d",
+        "substrate": "#a9794d",
+        "rough": [
+          0.75,
+          0.95
+        ],
+        "normal": 0.2,
+        "coat": 0,
+        "coatRough": 0.8,
+        "specular": 0.25,
+        "anisotropy": 0,
+        "variation": 0.26,
+        "raw": 0.72,
+        "endExposure": 1
+      },
+      {
+        "material": "architecture_darkwood",
+        "role": "dark",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#594332",
+        "substrate": "#705438",
+        "rough": [
+          0.67,
+          0.93
+        ],
+        "normal": 0.18,
+        "coat": 0.012,
+        "coatRough": 0.73,
+        "specular": 0.28,
+        "anisotropy": 0,
+        "variation": 0.32,
+        "raw": 0,
+        "endExposure": 0.18
+      },
+      {
+        "material": "windowBars",
+        "role": "sash",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#858a7d",
+        "substrate": "#7b755c",
+        "rough": [
+          0.65,
+          0.91
+        ],
+        "normal": 0.15,
+        "coat": 0.015,
+        "coatRough": 0.71,
+        "specular": 0.28,
+        "anisotropy": 0,
+        "variation": 0.21,
+        "raw": 0,
+        "endExposure": 0.05
+      },
+      {
+        "material": "rafterCut220",
+        "role": "rafterCut",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#a96848",
+        "substrate": "#aa744a",
+        "rough": [
+          0.78,
+          0.96
+        ],
+        "normal": 0.22,
+        "coat": 0,
+        "coatRough": 0.8,
+        "specular": 0.24,
+        "anisotropy": 0,
+        "variation": 0.23,
+        "raw": 0.82,
+        "endExposure": 1
+      },
+      {
+        "material": "hipwood",
+        "role": "hip",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Retained361R05 fibre/normal shader, darker pigment and diffuse weathered-hip BRDF364",
+        "color": "#774325",
+        "substrate": "#8e5635",
+        "rough": [
+          0.9,
+          0.9
+        ],
+        "normal": 0.085,
+        "coat": 0.005,
+        "coatRough": 0.7,
+        "specular": 0.12,
+        "anisotropy": 0,
+        "variation": 0,
+        "raw": 0,
+        "endExposure": 0.16
+      },
+      {
+        "material": "postwood",
+        "role": "pier",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#6c554c",
+        "substrate": "#806747",
+        "rough": [
+          0.63,
+          0.92
+        ],
+        "normal": 0.27,
+        "coat": 0.012,
+        "coatRough": 0.72,
+        "specular": 0.28,
+        "anisotropy": 0,
+        "variation": 0.36,
+        "raw": 0,
+        "endExposure": 0.08
+      },
+      {
+        "material": "transomwood220",
+        "role": "transom",
+        "type": "MeshPhysicalMaterial",
+        "upgradedFrom": null,
+        "shader": "Role-specific364 substrate/coat response",
+        "color": "#76432c",
+        "substrate": "#865d39",
+        "rough": [
+          0.61,
+          0.88
+        ],
+        "normal": 0.17,
+        "coat": 0.025,
+        "coatRough": 0.64,
+        "specular": 0.31,
+        "anisotropy": 0,
+        "variation": 0.29,
+        "raw": 0,
+        "endExposure": 0.12
+      }
+    ],
+    "method": "Separate physical lacquer, old structural timber, stained bracket/dou, gray weathered pier, sash and dry crosscut responses. Continuous pigment/roughness variation follows metre-scale member UV and original CC0 scan; Isotropic dielectric microfacets avoid singular anisotropic tangent frames on finite closed edges; member-aligned fibres remain in albedo/normal/roughness. No image-coordinate or light-dependent colour, no reference photograph texture, no exposure edit.",
+    "incidentRadiance": "Original361R05 shared physical court/temple/sky probe and common.22 wood gain retained exactly; no extra role-specific illumination",
+    "limits": "Inferred finish roles and native reflection response, not recovered temple coating measurements."
+  },
+  "physicalLightBoundary": {
+    "sun": {
+      "position": [
+        -18,
+        36,
+        30
+      ],
+      "intensityBefore": 8,
+      "intensityAfter": 6.8,
+      "color": "#fff0d8",
+      "shadowUnchanged": true
+    },
+    "measuredSky": {
+      "provider": "Poly Haven",
+      "asset": "kloofendal_48d_partly_cloudy_puresky",
+      "license": "CC0-1.0",
+      "path": "/reconstructions/scene-05/assets/kloofendal-48d-sky/sky-2k.exr",
+      "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky",
+      "authors": [
+        "Greg Zaal",
+        "Jarod Guest"
+      ],
+      "sourceSunPixel": [
+        1218,
+        784
+      ],
+      "maximumLuma": 72870.25335625,
+      "meanLuma": 0.6762980197300532,
+      "sourceDirectionYUp": [
+        0.5545620062863689,
+        0.741980411720831,
+        0.37673073913104493
+      ],
+      "targetDirectionYUp": [
+        -0.40730653998127836,
+        0.6109598099719176,
+        0.6788442333021306
+      ],
+      "rotationXYZ": [
+        1.1181197707635133,
+        -1.4594669702652538,
+        0.9673187755123099,
+        "XYZ"
+      ],
+      "nativeEnvironmentIntensity": 0.14,
+      "backgroundIntensity": 1.6,
+      "shadowedSky220": {
+        "gain": 0.9,
+        "elevationSineRange": [
+          0.025,
+          0.5
+        ],
+        "method": "Two near measured low-sky solid-angle sectors with actual static geometry shadows; far sectors remain in restrained environment. Not uniform ambient or traced GI",
+        "sectors": [
+          {
+            "sector": 2,
+            "direction": [
+              0.6079123506245082,
+              0.28334823553301725,
+              0.7417252532970079
+            ],
+            "integratedLinearRGB": [
+              0.2277324265593844,
+              0.2808339487311499,
+              0.4291632593818969
+            ],
+            "solidAngle": 0.7460994991415965,
+            "intensity": 0.38624693344370725,
+            "colorLinear": [
+              0.5306428767629745,
+              0.654375561262214,
+              1
+            ],
+            "castsActualShadows": true,
+            "mapSize": 2048
+          },
+          {
+            "sector": 3,
+            "direction": [
+              -0.619107480386327,
+              0.27199805005851724,
+              0.7366973520341025
+            ],
+            "integratedLinearRGB": [
+              0.33075001058864884,
+              0.4438562907684234,
+              0.7406577023887282
+            ],
+            "solidAngle": 0.7457837330940332,
+            "intensity": 0.6665919321498553,
+            "colorLinear": [
+              0.4465625747520511,
+              0.5992731721238066,
+              1
+            ],
+            "castsActualShadows": true,
+            "mapSize": 2048
+          }
+        ]
+      },
+      "solarSeparation": {
+        "coneDegrees": 2.3,
+        "fillRadianceCeiling": 3,
+        "pixels": 803
+      },
+      "scope": "Original measured CC0 sky is the background. Sunless near low-sky quadrature has geometry occlusion; far sky IBL and courtyard-bounce proxy remain approximations. Cycles uses full measured sky and traced GI. No reference RGB, scene plate or depth mesh."
+    },
+    "pointCourtyard": {
+      "type": "SpotLight",
+      "position": [
+        2,
+        0.35,
+        15
+      ],
+      "target": [
+        0,
+        12,
+        0
+      ],
+      "intensity": 440,
+      "color": "f2d5ad",
+      "decay": 2,
+      "cone": 0.92,
+      "penumbra": 0.7,
+      "castsShadows": true,
+      "shadowNear": 4,
+      "shadowFar": 45,
+      "normalBias": 0.006,
+      "shadowBias": -0.00006,
+      "shadowRadius": 0.75,
+      "shadowMap": [
+        4096,
+        4096
+      ]
+    },
+    "pointAdjacentCourtyard": {
+      "type": "SpotLight",
+      "position": [
+        15,
+        0.35,
+        2
+      ],
+      "target": [
+        0,
+        12,
+        0
+      ],
+      "intensity": 180,
+      "color": "d7d8ca",
+      "decay": 2,
+      "cone": 0.92,
+      "penumbra": 0.7,
+      "castsShadows": true,
+      "shadowNear": 4,
+      "shadowFar": 45,
+      "normalBias": 0.006,
+      "shadowBias": -0.00006,
+      "shadowRadius": 0.75,
+      "shadowMap": [
+        2048,
+        2048
+      ]
+    },
+    "localProbeCodeAndCommonWoodGainUnchanged": true
+  },
+  "retained": [
+    "Exact361R05 geometry, tier/roof/hip/lantern joints and all raw assets",
+    "Exact camera, asymmetric frustum, dolly, native exposure and tone mapping",
+    "Exact source sky bytes, solar registration, two measured shadowed sky sectors, original two court-proxy locations/powers/colours/filtering and hemisphere",
+    "Exact local probe constructor, location, finite floor and shared.22 wood incident-radiance gain"
+  ],
+  "changed": [
+    "Independent material roles for lacquer rails, structural beams, painted brackets/dou, old piers, raw cut wood, sash and transom",
+    "OriginalCC0 scan remains the substrate; bounded continuous metre-UV pigment/roughness response and stable isotropic dielectric microfacets",
+    "Inherited Standard bearing wood explicitly upgraded to Physical so real coat/specular controls apply; wood metalness texture removed",
+    "Dry cut exposure is role-specific; opaque painted dou/cheeks no longer treated as bare wood merely because a face normal points across a member",
+    "Near coved hip retains its verified361R05 fibre/normal shader, with warm brown pigment, nonzero diffuse weathered-dielectric BRDF and low coat; parallel strips removed",
+    "Directional sun strength8→6.8 under unchanged measured sky, sensor and exposure",
+    "R10 disables unsupported anisotropic wood lobes at collapsed finite-edge UV charts; physically shaded colour/normal/roughness remains intact."
+  ],
+  "history": {
+    "r01": "Intermediate: new material roles + sparse6-sample court area; overly bright terracotta and incorrect bare-cut dou",
+    "r02": "Deeper wood and opaque finish classification; sparse court highlights/shadows remain problematic",
+    "r03": "Rejected: radius3.5 court PCF gives stippled/blurred occlusion and does not remove hip strips",
+    "r04": "Original2-point court boundary restored; inherited Standard bearing wood made Physical. Hip still strips under generic new tissue response",
+    "r05": "Official ray picks identify true hip material; retained361R05 hip shader removes parallel strips",
+    "r06": "Low-coat weathered hip dielectric response; exact full/detail/oblique retained",
+    "r07": "Diagnostic only: zero hip specular/coating isolates old pale wash; not proposed",
+    "r08": "Nonzero weathered hip specular and warmer brown pigment, no parallel strips",
+    "r09": "Rejected after Root actual oblique review: anisotropic grazing-edge white/dotted line regression.",
+    "r10": "All wood lobes isotropic; actual full/native-detail/oblique clean of the reported white-line regression. Root-reviewed working point; three runtime files."
+  },
+  "limits": [
+    "Overall remains clearlyCG and photographic fidelity is unaccepted",
+    "Sheltered roof slots remain too dark/simple relative to the complex observed diffuse return; sparse native area-source attempt was rejected rather than accepted with false parallel bands",
+    "Inferred coating pigments and native key balance are not recovered conservation or measured temple-light data",
+    "One bounded raster probe and two point court proxies remain approximations, with no path-traced multi-bounce GI",
+    "Foreground foliage and several broad timber surfaces remain more regular than HD05",
+    "Anisotropic wood sheen is intentionally disabled until independent tangent directions on every closed end/edge chart are rebuilt and reviewed; current isotropic wood response remains an inferred finish."
+  ],
+  "newExternalAssets": false,
+  "referencePhotographRuntimeUse": false,
+  "previousMaterialPatchDiagnosticScope": "R09 warm-hip diagnostic retained as historical evidence; final R10 actual files are the three frames listed here.",
+  "edgeComparison": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r10-oblique-edge-comparison.json",
+  "r09ToR10Delta": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-daylight364/r09-to-r10-edge-artifact-fix.patch",
+  "r09Rejection": {
+    "source": "a49e1d81b147e06af13de941b0871ff97e0492e109e4a53dce5c0f30a989216d",
+    "status": "Rejected by Root after actual same-pose oblique review",
+    "defect": "Conspicuous clipped white/dotted lines under the outer tile fascia and along the upper/back edges of near rafters; baseline361R05 did not show these white lines.",
+    "cause": "A/B native render confirms the newly enabled anisotropic wood lobe caused the regression. Source review finds degenerate finite-edge/end-face UV derivative frames: anisotropic GGX consumes a collapsed or missing independent tangent direction. The exact per-sample GPU basis was not separately instrumented.",
+    "sourceEvidence": [
+      "src/roof-stack220.js:createSoffitBoard220 stores identicalUVs for top/bottom layers on the finite edge faces.",
+      "vendor ShaderChunk.normal_pars_fragment derives tangent directions fromUV gradients; collapsed charts can provide zero/collinear tangent directions.",
+      "vendor ShaderChunk.lights_physical_fragment and lights_physical_pars_fragment consume that basis for anisotropic GGX."
+    ],
+    "fix": "Use isotropic dielectric wood microfacets, retaining role colours, raw/opaque finish classification, source scan, normals, roughness, coat/specular levels and all geometry/light/camera data. No mask, paintover, cover geometry or changed shadow field.",
+    "picks": [
+      {
+        "pixel": [
+          0.4784689,
+          0.1738437
+        ],
+        "hits": [
+          {
+            "distance": 5.674264477426556,
+            "point": [
+              6.656079649556827,
+              8.361238511843977,
+              5.498746721153601
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-blue-charcoal-concave-eave-pan272",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.806660175323486,
+                -0.5700185298919678,
+                -6.806660175323486
+              ],
+              [
+                6.806660175323486,
+                22.804651260375977,
+                6.806660175323486
+              ]
+            ]
+          },
+          {
+            "distance": 5.684485475543345,
+            "point": [
+              6.64861524562104,
+              8.366572562340448,
+              5.494241237640381
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-blue-charcoal-concave-eave-pan272",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.806660175323486,
+                -0.5700185298919678,
+                -6.806660175323486
+              ],
+              [
+                6.806660175323486,
+                22.804651260375977,
+                6.806660175323486
+              ]
+            ]
+          },
+          {
+            "distance": 5.754035827317566,
+            "point": [
+              6.597822562402934,
+              8.402868928328576,
+              5.4635829829692675
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-handformed-grey-fired-clay",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.786166667938232,
+                -0.4770169258117676,
+                -6.7860283851623535
+              ],
+              [
+                6.7860636711120605,
+                24.08124542236328,
+                6.786162853240967
+              ]
+            ]
+          },
+          {
+            "distance": 9.350412212847317,
+            "point": [
+              3.9713857173919678,
+              10.279716279784232,
+              3.878276506322316
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          },
+          {
+            "distance": 11.58801910413919,
+            "point": [
+              2.3372594319493114,
+              11.447460174560547,
+              2.891924601881053
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "reference4_darkwood",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -4.650000095367432,
+                -0.8999999761581421,
+                -4.650000095367432
+              ],
+              [
+                4.650000095367432,
+                20.787099838256836,
+                4.650000095367432
+              ]
+            ]
+          },
+          {
+            "distance": 18.568147503176604,
+            "point": [
+              -2.7603344917297363,
+              15.09019221764286,
+              -0.18496212314156857
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          0.3508772,
+          0.3157895
+        ],
+        "hits": [
+          {
+            "distance": 5.889423436578807,
+            "point": [
+              5.997584059672041,
+              7.989911333553939,
+              5.783139870055734
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          },
+          {
+            "distance": 6.145100073844473,
+            "point": [
+              5.7890975122881505,
+              8.102346757447313,
+              5.686899660905188
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-carved-aged-raked-hip-timber",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.910411834716797,
+                6.5721540451049805,
+                -6.910411834716797
+              ],
+              [
+                6.910411834716797,
+                23.391952514648438,
+                6.910411834716797
+              ]
+            ]
+          },
+          {
+            "distance": 6.168686612009879,
+            "point": [
+              5.769864327905589,
+              8.112719087297885,
+              5.678021362948627
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-carved-aged-raked-hip-timber",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.910411834716797,
+                6.5721540451049805,
+                -6.910411834716797
+              ],
+              [
+                6.910411834716797,
+                23.391952514648438,
+                6.910411834716797
+              ]
+            ]
+          },
+          {
+            "distance": 6.524277493218917,
+            "point": [
+              5.47990465111496,
+              8.269092434072677,
+              5.544172055692502
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          },
+          {
+            "distance": 6.734656458483006,
+            "point": [
+              5.308355210465321,
+              8.361607919220969,
+              5.464982514424976
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_slate",
+                "type": "MeshStandardMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.688278675079346,
+                8.098876953125,
+                -6.688278675079346
+              ],
+              [
+                6.688278675079346,
+                24.174604415893555,
+                6.688278675079346
+              ]
+            ]
+          },
+          {
+            "distance": 6.905887824294717,
+            "point": [
+              5.168727919353786,
+              8.436907999059223,
+              5.4005286689931395
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-handformed-grey-fired-clay",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.786166667938232,
+                -0.4770169258117676,
+                -6.7860283851623535
+              ],
+              [
+                6.7860636711120605,
+                24.08124542236328,
+                6.786162853240967
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          0.5119617,
+          0.3644338
+        ],
+        "hits": [
+          {
+            "distance": 6.283568518274273,
+            "point": [
+              5.9533512902588495,
+              7.928445810415086,
+              4.901582437435785
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          },
+          {
+            "distance": 6.639406401858898,
+            "point": [
+              5.678886037857002,
+              8.071631454578892,
+              4.726119347518356
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          },
+          {
+            "distance": 6.774860526096326,
+            "point": [
+              5.574407419607647,
+              8.126136854167601,
+              4.659327136016497
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          },
+          {
+            "distance": 7.025318245643224,
+            "point": [
+              5.3812241066929545,
+              8.226918562814966,
+              4.535826836040931
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          },
+          {
+            "distance": 7.155837142656223,
+            "point": [
+              5.280552133121699,
+              8.279438075791193,
+              4.471468177171298
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          },
+          {
+            "distance": 7.177823553852245,
+            "point": [
+              5.263593551203615,
+              8.288285190151921,
+              4.4606267130590815
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_cedar",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.59977912902832,
+                3.8594908714294434,
+                -6.59977912902832
+              ],
+              [
+                6.59977912902832,
+                24.027729034423828,
+                6.59977912902832
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "pixel": [
+          0.676236,
+          0.2607656
+        ],
+        "hits": [
+          {
+            "distance": 6.061541566115056,
+            "point": [
+              6.689268589019775,
+              8.16889880017036,
+              4.510390729761248
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          },
+          {
+            "distance": 6.069496715754497,
+            "point": [
+              6.683873676992,
+              8.172532694956294,
+              4.505810976636546
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_darkwood",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.687012195587158,
+                -0.47999998927116394,
+                -6.687012195587158
+              ],
+              [
+                6.687012195587158,
+                22.71980094909668,
+                6.687012195587158
+              ]
+            ]
+          },
+          {
+            "distance": 6.1573146964834296,
+            "point": [
+              6.624318508080958,
+              8.212647754602676,
+              4.455254457918859
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-blue-charcoal-concave-eave-pan272",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.806660175323486,
+                -0.5700185298919678,
+                -6.806660175323486
+              ],
+              [
+                6.806660175323486,
+                22.804651260375977,
+                6.806660175323486
+              ]
+            ]
+          },
+          {
+            "distance": 6.30732699591219,
+            "point": [
+              6.5225852666985356,
+              8.281173041671739,
+              4.368892877283532
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "scene05-handformed-grey-fired-clay",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.786166667938232,
+                -0.4770169258117676,
+                -6.7860283851623535
+              ],
+              [
+                6.7860636711120605,
+                24.08124542236328,
+                6.786162853240967
+              ]
+            ]
+          },
+          {
+            "distance": 10.069237119806234,
+            "point": [
+              3.9713857173919678,
+              9.999605277891636,
+              2.20317376128655
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "architecture_red",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -6.7667317390441895,
+                -0.4300000071525574,
+                -6.7667317390441895
+              ],
+              [
+                6.7667317390441895,
+                22.69378089904785,
+                6.7667317390441895
+              ]
+            ]
+          },
+          {
+            "distance": 13.238812200456294,
+            "point": [
+              1.821887656317207,
+              11.447460174560547,
+              0.3784599548211256
+            ],
+            "name": "",
+            "geometry": "BufferGeometry",
+            "material": [
+              {
+                "name": "reference4_darkwood",
+                "type": "MeshPhysicalMaterial",
+                "opacity": 1
+              }
+            ],
+            "bounds": [
+              [
+                -4.650000095367432,
+                -0.8999999761581421,
+                -4.650000095367432
+              ],
+              [
+                4.650000095367432,
+                20.787099838256836,
+                4.650000095367432
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "deltaChanges": "Only anisotropy values and explanatory metadata/cache/revision strings differ from frozenR09."
+  },
+  "workingPointReview": {
+    "reviewer": "Root",
+    "scope": "Root personally viewedR10full/detail/oblique and accepted as a working point for integration, explicitly not photographic acceptance"
+  }
+}

@@ -1,0 +1,31 @@
+--- a/tools/render-one-reconstruction.mjs
++++ b/tools/render-one-reconstruction.mjs
+@@ -141,8 +141,25 @@
+ }catch(e){report.status='failed';report.error=String(e.stack||e);process.exitCode=1;}
+ finally{
+  if(encoder&&!encoder.stdin.writableEnded){encoder.stdin.destroy();encoder.kill('SIGTERM');await encoded.catch(()=>{});}
+- report.completedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));
+- await journal?.finish(report.status,{reportFile:resolve(out,'report.json'),error:report.error??null,capturedFrames:report.frames?.length??0});
+- if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');releaseGpu();
++ report.completedAt=new Date().toISOString();
++ try{
++  // Retain one complete scene description. The native per-frame pose, pixels,
++  // GL/MSAA/program observations and geometry counters remain recorded.
++  // Serializing hundreds of copies of a dense static mesh diagnostic exceeded
++  // V8's string limit in G07 after all168 frames had already been encoded.
++  if(motionFps){
++   report.frameInformationPolicy={revision:'motion-info345',completeSceneDescriptionFrame:0,subsequentFrames:'Full information SHA256 plus observed frame/camera/renderer counters; complete native pose/GL/pixel hash remain in every frame.'};
++   for(let i=0;i<report.frames.length;i++){
++    const frame=report.frames[i];if(!frame.info)continue;
++    frame.infoSha256=createHash('sha256').update(JSON.stringify(frame.info)).digest('hex');
++    if(i>0){const info=frame.info;frame.infoSummary={frames:info.frames,camera:info.camera,renderer:info.renderer,shadowCache:info.shadowCache};delete frame.info;}
++   }
++  }
++  await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));
++  await journal?.finish(report.status,{reportFile:resolve(out,'report.json'),error:report.error??null,capturedFrames:report.frames?.length??0});
++ }finally{
++  // Receipt failure must not strand this exact job's server/browser or GPU slot.
++  if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');releaseGpu();
++ }
+  console.log(JSON.stringify({reference,status:report.status,error:report.error,out,errors:report.errors}));
+ }

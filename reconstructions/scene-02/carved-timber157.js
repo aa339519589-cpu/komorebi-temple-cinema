@@ -2,6 +2,7 @@ import {T,V} from './kernel.js';
 import {layout} from './layout117.js';
 import {revolveProfile} from './sorin-solids.js';
 import {createCarvedRosette170} from './carved-rosette170.js';
+import {createBearing174} from './deep-bearing368.js';
 
 // Scene02 authored closed carving/support vocabulary. No raster or photographed
 // relief is used. The same reproducible meshes serve the load-bearing heads,
@@ -62,7 +63,27 @@ export function createCarvedTimber157({b,mats}){
   b.put(wrappedCapitalLeaves,'carvingGold157');stats.sculptedLeafInstances+=14;
   stats.carvedCapitals++;
  }
+ const deepFits368=[];
+ const deep368=createBearing174(T,{emit(g,material,x=0,y=0,z=0,sx=1,sy=1,sz=1,yaw=0){const ma=material==='bearingGilt'?'carvingGold157':material==='cedar'?'hallBearing':'hallOxide';b.put(g,ma,[x,y,z],[sx,sy,sz],Array.isArray(yaw)?yaw:[0,yaw,0]);},grouped(x,y,z,yaw,fn){b.at([x,y,z],yaw,fn);},keep(g){prototypes.push(g);stats.closedPrototypeKinds++;return g;}});
+ function roofBed368(x,z){
+  const q=layout.hall,xx=Math.abs(x-q.gableCenterX),halfG=q.gableWidth/2,halfW=q.roofWidth/2,foot=q.gableEave+.38,values=[];
+  if(xx<=halfG&&z>=q.gableBack&&z<=q.gableFront)values.push(q.gableEave+q.gableRise*Math.pow(Math.max(0,1-xx/halfG),1.28)+.38*Math.pow(xx/halfG,8));
+  for(const edge of[1,-1]){const inner=edge>0?q.gableFront:q.gableBack,outer=edge>0?q.roofFront:q.roofBack,t=(z-inner)/(outer-inner),span=T.MathUtils.lerp(halfG,halfW,t);if(t>=0&&t<=1&&xx<=span+.001){const u=xx/span;values.push(T.MathUtils.lerp(foot,q.roofEave,t)-.96*t*(1-t)+q.roofCurl*Math.pow(t,8)*(.22+.78*Math.pow(u,6)));}}
+  const t=(xx-halfG)/(halfW-halfG),back=T.MathUtils.lerp(q.gableBack,q.roofBack,t),front=T.MathUtils.lerp(q.gableFront,q.roofFront,t);
+  if(t>=0&&t<=1&&z>=back-.001&&z<=front+.001){const u=(z-back)/(front-back)*2-1;values.push(T.MathUtils.lerp(foot,q.roofEave,t)-.96*t*(1-t)+q.roofCurl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6)));}
+  if(!values.length)throw Error('Scene02 bearing368 escaped the closed roof footprint');return Math.min(...values)-.40;
+ }
  function head(x,y,z,s=1,kind='primary',yaw=0){
+  if(kind==='primary'||kind==='intermediate'){
+   const width=(kind==='primary'?1.10:.79)*s,depth=(kind==='primary'?1.60:1.20)*s,c=Math.cos(yaw),sn=Math.sin(yaw),at=(xx,zz)=>roofBed368(x+c*xx+sn*zz,z-sn*xx+c*zz),top=Math.min(...[-1.06*width,0,1.06*width].flatMap(xx=>[-.30*depth,.60*depth,1.51*depth].map(zz=>at(xx,zz)))),gap=top-y;
+   if(gap<.25)throw Error('Scene02 bearing368 has no positive occupied interval');
+   b.at([x,y,z],yaw,()=>{
+    if(kind==='primary'){capital();flower170.stamp([0,-.06,.43],.40);}
+    deep368.cluster(0,0,0,gap,width,true,depth);
+    for(const xx of[-.86*width,0,.86*width]){const zz=1.43*depth,bodyTop=gap-.018*(gap/2.08),target=Math.min(...[-.10,0,.10].flatMap(dx=>[-.12,0,.12].map(dz=>at(xx+dx,zz+dz)))),h=target-y-bodyTop;if(h>.003)b.box(xx,bodyTop+h/2,zz,.20,h+.003,.24,'hallBearing');}
+   });
+   deepFits368.push({kind,axis:[x,z],columnHead:y,roofReceiver:top,occupiedHeight:gap,width,depth});stats.deepBearing368={construction:deep368.construction,instances:deep368.instances,fits:deepFits368,roofSharedWithCeramic:true,source:'Existing authored closed deep-bearing319 vocabulary reused locally; no external mesh or material change'};stats.heads++;return;
+  }
   const stages=kind==='inner'?2:kind==='intermediate'?3:kind==='side'||kind==='rear'||kind==='tower'?4:5,primary=kind==='primary';
   b.at([x,y,z],yaw,()=>{
    if(primary){capital();flower170.stamp([0,-.06,.43],.40);}

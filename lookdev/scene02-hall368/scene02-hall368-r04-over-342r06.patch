@@ -1,0 +1,432 @@
+--- a/reconstructions/scene-02/carved-timber157.js
++++ b/reconstructions/scene-02/carved-timber157.js
+@@ -2,6 +2,7 @@
+ import {layout} from './layout117.js';
+ import {revolveProfile} from './sorin-solids.js';
+ import {createCarvedRosette170} from './carved-rosette170.js';
++import {createBearing174} from './deep-bearing368.js';
+ 
+ // Scene02 authored closed carving/support vocabulary. No raster or photographed
+ // relief is used. The same reproducible meshes serve the load-bearing heads,
+@@ -62,7 +63,27 @@
+   b.put(wrappedCapitalLeaves,'carvingGold157');stats.sculptedLeafInstances+=14;
+   stats.carvedCapitals++;
+  }
++ const deepFits368=[];
++ const deep368=createBearing174(T,{emit(g,material,x=0,y=0,z=0,sx=1,sy=1,sz=1,yaw=0){const ma=material==='bearingGilt'?'carvingGold157':material==='cedar'?'hallBearing':'hallOxide';b.put(g,ma,[x,y,z],[sx,sy,sz],Array.isArray(yaw)?yaw:[0,yaw,0]);},grouped(x,y,z,yaw,fn){b.at([x,y,z],yaw,fn);},keep(g){prototypes.push(g);stats.closedPrototypeKinds++;return g;}});
++ function roofBed368(x,z){
++  const q=layout.hall,xx=Math.abs(x-q.gableCenterX),halfG=q.gableWidth/2,halfW=q.roofWidth/2,foot=q.gableEave+.38,values=[];
++  if(xx<=halfG&&z>=q.gableBack&&z<=q.gableFront)values.push(q.gableEave+q.gableRise*Math.pow(Math.max(0,1-xx/halfG),1.28)+.38*Math.pow(xx/halfG,8));
++  for(const edge of[1,-1]){const inner=edge>0?q.gableFront:q.gableBack,outer=edge>0?q.roofFront:q.roofBack,t=(z-inner)/(outer-inner),span=T.MathUtils.lerp(halfG,halfW,t);if(t>=0&&t<=1&&xx<=span+.001){const u=xx/span;values.push(T.MathUtils.lerp(foot,q.roofEave,t)-.96*t*(1-t)+q.roofCurl*Math.pow(t,8)*(.22+.78*Math.pow(u,6)));}}
++  const t=(xx-halfG)/(halfW-halfG),back=T.MathUtils.lerp(q.gableBack,q.roofBack,t),front=T.MathUtils.lerp(q.gableFront,q.roofFront,t);
++  if(t>=0&&t<=1&&z>=back-.001&&z<=front+.001){const u=(z-back)/(front-back)*2-1;values.push(T.MathUtils.lerp(foot,q.roofEave,t)-.96*t*(1-t)+q.roofCurl*Math.pow(t,8)*(.22+.78*Math.pow(Math.abs(u),6)));}
++  if(!values.length)throw Error('Scene02 bearing368 escaped the closed roof footprint');return Math.min(...values)-.40;
++ }
+  function head(x,y,z,s=1,kind='primary',yaw=0){
++  if(kind==='primary'||kind==='intermediate'){
++   const width=(kind==='primary'?1.10:.79)*s,depth=(kind==='primary'?1.60:1.20)*s,c=Math.cos(yaw),sn=Math.sin(yaw),at=(xx,zz)=>roofBed368(x+c*xx+sn*zz,z-sn*xx+c*zz),top=Math.min(...[-1.06*width,0,1.06*width].flatMap(xx=>[-.30*depth,.60*depth,1.51*depth].map(zz=>at(xx,zz)))),gap=top-y;
++   if(gap<.25)throw Error('Scene02 bearing368 has no positive occupied interval');
++   b.at([x,y,z],yaw,()=>{
++    if(kind==='primary'){capital();flower170.stamp([0,-.06,.43],.40);}
++    deep368.cluster(0,0,0,gap,width,true,depth);
++    for(const xx of[-.86*width,0,.86*width]){const zz=1.43*depth,bodyTop=gap-.018*(gap/2.08),target=Math.min(...[-.10,0,.10].flatMap(dx=>[-.12,0,.12].map(dz=>at(xx+dx,zz+dz)))),h=target-y-bodyTop;if(h>.003)b.box(xx,bodyTop+h/2,zz,.20,h+.003,.24,'hallBearing');}
++   });
++   deepFits368.push({kind,axis:[x,z],columnHead:y,roofReceiver:top,occupiedHeight:gap,width,depth});stats.deepBearing368={construction:deep368.construction,instances:deep368.instances,fits:deepFits368,roofSharedWithCeramic:true,source:'Existing authored closed deep-bearing319 vocabulary reused locally; no external mesh or material change'};stats.heads++;return;
++  }
+   const stages=kind==='inner'?2:kind==='intermediate'?3:kind==='side'||kind==='rear'||kind==='tower'?4:5,primary=kind==='primary';
+   b.at([x,y,z],yaw,()=>{
+    if(primary){capital();flower170.stamp([0,-.06,.43],.40);}
+--- /dev/null
++++ b/reconstructions/scene-02/curved-rafter368.js
+@@ -0,0 +1,14 @@
++import * as T from 'three';
++
++// Closed rounded-square timber swept along its actual roof bearing curve.
++export function createCurvedEaveRafter(points,width=.105,height=.16){
++ const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),rows=32,sides=32,p=[],uv=[],idx=[];
++ for(let j=0;j<=rows;j++){
++  const t=j/rows,c=curve.getPoint(t),tangent=curve.getTangent(t).normalize(),across=new T.Vector3(0,1,0).cross(tangent).normalize(),up=tangent.clone().cross(across).normalize();
++  for(let k=0;k<sides;k++){const a=k/sides*Math.PI*2,ca=Math.cos(a),sa=Math.sin(a),x=width*.5*Math.sign(ca)*Math.pow(Math.abs(ca),.32),y=height*.5*Math.sign(sa)*Math.pow(Math.abs(sa),.32),q=c.clone().addScaledVector(across,x).addScaledVector(up,y);p.push(...q.toArray());uv.push(k/sides,t*curve.getLength());}
++ }
++ for(let j=0;j<rows;j++)for(let k=0;k<sides;k++){const a=j*sides+k,b=j*sides+(k+1)%sides,c=a+sides,d=b+sides;idx.push(a,b,c,b,d,c);}
++ const base=p.length/3;p.push(...curve.getPoint(0).toArray(),...curve.getPoint(1).toArray());uv.push(.5,0,.5,1);
++ for(let k=0;k<sides;k++){idx.push(base,(k+1)%sides,k);idx.push(base+1,rows*sides+k,rows*sides+(k+1)%sides);}
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(idx);g.computeVertexNormals();g.name='closed-curve-swept-eave-rafter';g.userData={solidTimber:true,photoTexture:false,bearingCurve:points,sectionMetres:[width,height]};return g;
++}
+--- /dev/null
++++ b/reconstructions/scene-02/deep-bearing368.js
+@@ -0,0 +1,123 @@
++import {createCurvedEaveRafter} from './curved-rafter368.js';
++
++// A load assembly, not a stack of ornamental beam-end plates. The two
++// lowest arms have complementary half laps. Successive cups sit on real
++// shoulders; two deep raking tails carry the forward purlin into the column.
++// Dimensions are local building metres before the explicit bearing-gap fit.
++export function createBearing174(T,{emit,grouped,keep=g=>g}){
++ const prototypes=[],seats=[];let instances=0;
++ const own=g=>{prototypes.push(g);return keep(g);};
++ function finish(g,name){
++  const p=g.attributes.position,ids=g.index?Array.from(g.index.array):Array.from({length:p.count},(_,i)=>i);let volume=0;
++  for(let i=0;i<ids.length;i+=3){const a=new T.Vector3().fromBufferAttribute(p,ids[i]),b=new T.Vector3().fromBufferAttribute(p,ids[i+1]),c=new T.Vector3().fromBufferAttribute(p,ids[i+2]);volume+=a.dot(b.cross(c))/6;}
++  if(volume<0){for(let i=0;i<ids.length;i+=3)[ids[i+1],ids[i+2]]=[ids[i+2],ids[i+1]];g.setIndex(ids);}
++  g.name=name;g.userData={authoredClosedTimber174:true,photoTexture:false,signedVolumeMetres3:Math.abs(volume)};g.computeVertexNormals();g.computeBoundingBox();g.computeBoundingSphere();return own(g);
++ }
++ function arm(length,depth,{lap='',rank=0}={}){
++  const a=length/2,s=new T.Shape(),top=x=>.17+.055*(Math.abs(x)/a)**7,bottom=x=>-.205+.065*(Math.abs(x)/a)**1.8-.047*Math.exp(-(((Math.abs(x)/a-.70)/.17)**2));
++  const xs=Array.from({length:49},(_,i)=>-a+length*i/48),cut=.225;
++  const topXs=[...new Set([...xs,-cut,cut])].sort((x,y)=>x-y);
++  s.moveTo(-a,top(-a));
++  for(const x of topXs.slice(1)){
++   if(lap==='top'&&x===-cut){s.lineTo(x,top(x));s.lineTo(x,.005);}
++   else if(lap==='top'&&x===cut){s.lineTo(x,.005);s.lineTo(x,top(x));}
++   else s.lineTo(x,lap==='top'&&Math.abs(x)<cut?.005:top(x));
++  }
++  s.lineTo(a,bottom(a));
++  for(const x of topXs.slice(0,-1).reverse()){
++   if(lap==='bottom'&&x===cut){s.lineTo(x,bottom(x));s.lineTo(x,.005);}
++   else if(lap==='bottom'&&x===-cut){s.lineTo(x,.005);s.lineTo(x,bottom(x));}
++   else s.lineTo(x,lap==='bottom'&&Math.abs(x)<cut?.005:bottom(x));
++  }
++  s.closePath();
++  const g=new T.ExtrudeGeometry(s,{depth,steps:6,bevelEnabled:true,bevelSize:.008,bevelThickness:.008,bevelSegments:3,curveSegments:24}),p=g.attributes.position;
++  for(let i=0;i<p.count;i++){
++   const x=p.getX(i),y=p.getY(i),u=Math.min(1,Math.abs(x)/a),v=T.MathUtils.clamp((y+.22)/.45,0,1),z=p.getZ(i)-depth/2;
++   // The belly is canted, the throats waisted, and the noses swell again.
++   const cheek=(.88+.12*v)*(1-.18*Math.exp(-(((u-.62)/.19)**2)));
++   p.setZ(i,z*cheek+.0035*Math.sin(x*14+rank*.73)*Math.sin(v*Math.PI));
++  }
++  return finish(g,'scene03-notched-canted-load-arm174-'+rank+'-'+lap);
++ }
++ function noseArm(length,depth,rank,lap=''){
++  const R=56,N=48,K=16,p=[],uv=[],ids=[];
++  function section(e,a){
++   const top=.19+.05*e**8,raw=-.245+.10*e**1.65-.035*Math.exp(-(((e-.62)/.18)**2)),cut=.225/(length/2),bottom=lap==='bottom'?T.MathUtils.lerp(.005,raw,T.MathUtils.smoothstep(e,cut-.018,cut+.018)):raw,mid=(top+bottom)/2,hh=(top-bottom)/2,ca=Math.cos(a),sa=Math.sin(a),v=Math.sign(sa)*Math.abs(sa)**.43;
++   return{y:mid+hh*v,z:depth*.5*(1-.15*Math.exp(-(((e-.64)/.18)**2)))*Math.sign(ca)*Math.abs(ca)**.49*(.94+.06*v),mid,hh};
++  }
++  for(let j=0;j<=R;j++){const u=-1+2*j/R,e=Math.abs(u);for(let k=0;k<N;k++){const q=section(e,k/N*Math.PI*2);p.push(u*length/2,q.y,q.z);uv.push(u*length/2,k/N*depth);}}
++  for(let j=0;j<R;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N;ids.push(a,b,a+N,b,b+N,a+N);}
++  const spiral=[];for(const sign of[-1,1])for(let j=0;j<80;j++){const t=j/79,a=t*Math.PI*3.35+rank*.12,r=.43*(1-.80*t);spiral.push([sign*(.25+Math.cos(a)*r),.04+Math.sin(a)*r*.78]);}
++  function faceDepth(z,y,r){let d=4;for(const q of spiral)d=Math.min(d,Math.hypot(z-q[0],y-q[1]));return (.040*(1-r*r)-.028*Math.exp(-((d/.055)**2))+.009*Math.exp(-(((d-.090)/.038)**2)))*(1-r**8);}
++  for(const sign of[-1,1]){
++   const q=section(1,0),centre=p.length/3;p.push(sign*(length/2+.040),q.mid,0);uv.push(.5,.5);const rings=[];
++   for(let j=1;j<=K;j++){
++    const r=j/K,ring=[];
++    for(let k=0;k<N;k++){
++     if(j===K){ring.push((sign<0?0:R*N)+k);continue;}
++     const e=section(1,k/N*Math.PI*2),y=q.mid+(e.y-q.mid)*r,z=e.z*r,x=sign*(length/2+faceDepth(z/(depth*.5),(y-q.mid)/q.hh,r));ring.push(p.length/3);p.push(x,y,z);uv.push(z,y);
++    }rings.push(ring);
++   }
++   for(let k=0;k<N;k++)sign>0?ids.push(centre,rings[0][k],rings[0][(k+1)%N]):ids.push(centre,rings[0][(k+1)%N],rings[0][k]);
++   for(let j=0;j<K-1;j++)for(let k=0;k<N;k++){const a=rings[j][k],b=rings[j][(k+1)%N],c=rings[j+1][k],d=rings[j+1][(k+1)%N];sign>0?ids.push(a,c,b,b,c,d):ids.push(a,b,c,b,d,c);}
++  }
++  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);return finish(g,'scene03-continuous-waisted-carved-nose-arm174-'+rank+'-'+lap);
++ }
++ function cup(width,height){
++  const N=48,R=12,p=[],uv=[],ids=[];
++  for(let j=0;j<=R;j++){const t=j/R,r=width/2*(.63+.37*Math.sin(t*Math.PI/2));for(let k=0;k<N;k++){const a=k/N*Math.PI*2,c=Math.cos(a),s=Math.sin(a);p.push(r*Math.sign(c)*Math.abs(c)**.34,height*t,r*Math.sign(s)*Math.abs(s)**.34);uv.push(k/N,t);}}
++  for(let j=0;j<R;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N;ids.push(a,b,a+N,b,b+N,a+N);}
++  const c=p.length/3;p.push(0,0,0,0,height,0);uv.push(.5,0,.5,1);for(let k=0;k<N;k++)ids.push(c,(k+1)%N,k,c+1,R*N+k,R*N+(k+1)%N);
++  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);return finish(g,'scene03-flared-bearing-cup174-'+width);
++ }
++ function tail(){
++  const curve=new T.CatmullRomCurve3([[0,.29,-.34],[0,.49,-.04],[0,.91,.48],[0,1.46,1.02],[0,1.83,1.49]].map(p=>new T.Vector3(...p))),R=48,N=32,p=[],uv=[],ids=[];
++  for(let j=0;j<=R;j++){
++   const t=j/R,c=curve.getPoint(t),tan=curve.getTangent(t).normalize(),side=new T.Vector3(1,0,0),up=tan.clone().cross(side).normalize();
++   const w=.31*(.82+.18*Math.sin(Math.PI*t)),h=.32*(1-.30*t)+.055*Math.sin(Math.PI*t);
++   for(let k=0;k<N;k++){const a=k/N*Math.PI*2,ca=Math.cos(a),sa=Math.sin(a),q=c.clone().addScaledVector(side,w/2*Math.sign(ca)*Math.abs(ca)**.37).addScaledVector(up,h/2*Math.sign(sa)*Math.abs(sa)**.37);p.push(...q.toArray());uv.push(k/N,t*curve.getLength());}
++  }
++  for(let j=0;j<R;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N;ids.push(a,b,a+N,b,b+N,a+N);}
++  const c=p.length/3;p.push(...curve.getPoint(0).toArray(),...curve.getPoint(1).toArray());uv.push(.5,0,.5,1);for(let k=0;k<N;k++)ids.push(c,(k+1)%N,k,c+1,R*N+k,R*N+(k+1)%N);
++  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);return finish(g,'scene03-closed-raking-cantilever-tail174');
++ }
++ const faceSkins308=new Map();
++ function fittedEndSkins308(g,half){
++  const pos=g.attributes.position,ids=g.index.array,out=[];
++  for(const sign of[-1,1]){
++   const chosen=[];for(let k=0;k<ids.length;k+=3){const t=[ids[k],ids[k+1],ids[k+2]];if(t.every(i=>sign*pos.getX(i)>=half-.00001))chosen.push(t);}if(!chosen.length)throw Error('308 cut face selection empty');
++   const map=new Map(),p=[],uv=[],edges=new Map(),ix=[];for(const t of chosen)for(const id of t)if(!map.has(id)){map.set(id,map.size);p.push(pos.getX(id)+sign*.0025,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
++   const count=map.size;for(const id of map.keys()){p.push(pos.getX(id)-sign*.0003,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
++   for(const t of chosen){const a=t.map(id=>map.get(id));ix.push(...a,a[0]+count,a[2]+count,a[1]+count);for(let k=0;k<3;k++){const j=a[k],l=a[(k+1)%3],key=Math.min(j,l)+','+Math.max(j,l);if(edges.has(key))edges.get(key).n++;else edges.set(key,{a:j,b:l,n:1});}}
++   for(const {a,b,n}of edges.values())if(n===1)ix.push(a+count,b,a,a+count,b+count,b);
++   const skin=new T.BufferGeometry();skin.setAttribute('position',new T.Float32BufferAttribute(p,3));skin.setAttribute('uv',new T.Float32BufferAttribute(uv,2));skin.setIndex(ix);out.push(finish(skin,'scene03-308-closed-thin-gilt-following-actual-carved-cut-'+sign));
++  }
++  faceSkins308.set(g,out);
++ }
++ const cups=[cup(.88,.26),cup(.47,.22),cup(.42,.20)],arms=[arm(1.39,.47,{lap:'top',rank:0}),noseArm(1.39,.47,1,'bottom'),arm(1.80,.43,{rank:2}),noseArm(1.66,.42,3),arm(2.10,.46,{rank:4}),noseArm(1.47,.39,5)],raking=tail();
++ const receiver=finish(createCurvedEaveRafter([[-1.12,1.97,1.43],[0,1.95,1.43],[1.12,1.97,1.43]],.43,.22),'scene03-continuous-cambered-roof-receiver174');
++ for(const [g,length]of[[arms[1],1.39],[arms[3],1.66],[arms[5],1.47]])fittedEndSkins308(g,length/2);
++ function cluster(x,base,z,top,scale=1,major=true,depthScale=scale){
++  const sy=(top-base)/2.08;if(!(sy>0))throw Error('174 requires a positive occupied bearing gap');
++  const carvedBeam308=(g,ma,...a)=>{emit(g,ma,...a);for(const skin of faceSkins308.get(g)??[])emit(skin,'bearingGilt',...a);};
++  grouped(x,base,z,0,()=>{
++   emit(cups[0],'red',0,0,0,scale,sy,depthScale);
++   // The equal contact plane .455 is shared by the complementary laps.
++   emit(arms[0],'cedar',0,.45*sy,0,scale,sy,depthScale);
++   carvedBeam308(arms[1],'red',0,.45*sy,0,depthScale,sy,scale,Math.PI/2);
++   for(const sign of[-1,1]){
++    emit(cups[1],'red',sign*.36*scale,.615*sy,.35*depthScale,scale,sy,depthScale);
++    carvedBeam308(arms[3],'cedar',sign*.36*scale,.99*sy,.39*depthScale,depthScale,sy,scale,Math.PI/2);
++    emit(cups[2],'cedar',sign*.53*scale,1.205*sy,.84*depthScale,scale,sy,depthScale);
++    carvedBeam308(arms[5],'cedar',sign*.53*scale,1.76*sy,.96*depthScale,depthScale,sy,scale,Math.PI/2);
++    // Tail bodies have continuous belly, cheeks, rounded section and caps.
++    if(major)emit(raking,'red',sign*.26*scale,0,0,scale,sy,depthScale);
++   }
++   emit(arms[2],'red',0,1.015*sy,.36*depthScale,scale,sy,depthScale);
++   emit(arms[4],'red',0,1.57*sy,.88*depthScale,scale,sy,depthScale);
++   emit(receiver,'cedar',0,0,0,scale,sy,depthScale);
++  });
++  instances++;seats.push({column:[x,base,z],roofReceiverY:top,normalizedGap:top-base,major,sectionScale:[scale,sy,depthScale],normalizedReceiverOverrun:0});
++ }
++ return{cluster,prototypes,seats,get instances(){return instances;},construction:'Complementary half-lapped crossed arms, flared dou, waisted canted cheeks, two continuous raking tails and one cambered purlin seat; thin fitted metal follows the actual curved carved cut faces without flat decorative badges'};
++}
+--- /dev/null
++++ b/reconstructions/scene-02/gable-hierarchy368.js
+@@ -0,0 +1,62 @@
++import {T} from './kernel.js';
++import {buildGableCarrying186} from './spatial186.js';
++
++// Closed attic and one carried, deep, layered rake in retained hall metres.
++// No camera/image coordinates, source-photo surface, or new material/light.
++export function buildGableHierarchy368({b,mats,carved:C,roof,sculpture186=null}){
++ const {gableWidth:w,gableEave:e,gableRise:r,gableFront:z,gableBack:back,gableCenterX:cx}=roof;
++ const profile=t=>e+r*Math.pow(Math.max(0,1-t),1.28)+.38*Math.pow(t,8),stats={revision:'scene02-fine-carved-pediment-and-real-bearing368-r04',closedLoft:true,rakeDepth:.84,piercedRakeCells:0,carriedPendents:0,coffers:0,referencePixelsSampled:false};
++ const sweep=(p,width,depth,name,ma)=>b.put(C.sweep(p,width,depth,name),ma);
++ function band(sign){
++  const s=new T.Shape(),N=96;s.moveTo(0,profile(0)-.18);
++  for(let j=1;j<=N;j++){const t=j/N;s.lineTo(sign*w*.5*t,profile(t)-.18);}
++  for(let j=N;j>=0;j--){const t=j/N;s.lineTo(sign*w*.5*t,profile(t)-.73);}s.closePath();
++  for(let j=0;j<16;j++){
++   const t=.045+j*.059,x=sign*w*.5*t,y=profile(t)-.455,dx=sign*w*.5,dy=(profile(t+.001)-profile(t-.001))/.002,L=Math.hypot(dx,dy),a=new T.Vector2(dx/L,dy/L),n=new T.Vector2(-a.y,a.x),p=[];
++   for(let k=0;k<28;k++){const angle=k/28*Math.PI*2;p.push(new T.Vector2(x+a.x*Math.cos(angle)*.125+n.x*Math.sin(angle)*.083,y+a.y*Math.cos(angle)*.125+n.y*Math.sin(angle)*.083));}
++   if(T.ShapeUtils.isClockWise(p)===T.ShapeUtils.isClockWise(s.getPoints(128)))p.reverse();const hole=new T.Path(p);hole.closePath();s.holes.push(hole);stats.piercedRakeCells++;
++  }
++  const g=new T.ExtrudeGeometry(s,{depth:.075,bevelEnabled:true,bevelSize:.006,bevelThickness:.006,bevelSegments:2,steps:1,curveSegments:8});g.translate(0,0,z+.59);g.name='scene02-368-closed-pierced-rake-facing-'+sign;g.userData={authoredClosedSolid:true,photographicSurface:false};return g;
++ }
++ b.at([cx,0,0],0,()=>{
++  for(const [plane,ma]of[[z-.77,'carvingRecess157'],[back+.10,'hallBearing']])for(let x=-w*.48;x<=w*.481;x+=.29){const top=profile(Math.abs(x)/(w/2))-.19,base=e+.29;if(top>base)b.box(x,(top+base)/2,plane,.288,top-base,.18,ma,0,.92+.06*Math.sin(x*5.1)**2);}
++  b.box(0,e+r*.47,z-.16,.31,r*.94,.83,'hallOxide');b.box(0,e+.54,z-.12,w*.86,.34,.86,'hallOxide');b.box(0,e+1.64,z-.13,w*.49,.24,.71,'hallBearing');
++  for(const sign of[-1,1]){
++   const rake=Array.from({length:65},(_,j)=>{const t=j/64;return[sign*w*.5*t,profile(t)-.40,z+.12];});
++   sweep(rake,.74,.84,'scene02-368-deep-continuous-bargeboard-'+sign,'hallOxide');
++   sweep(rake.map(p=>[p[0],p[1]-.40,p[2]+.28]),.19,.29,'scene02-368-inner-rake-shoulder-'+sign,'hallBearing');b.put(band(sign),'carvingBronze157');
++   for(const drop of[.16,.76])sweep(Array.from({length:65},(_,j)=>{const t=j/64;return[sign*w*.5*t,profile(t)-drop,z+.705];}),.045,.042,'scene02-368-rake-moulding-'+sign+'-'+drop,'carvingBronze157');
++   // Separate deep volutes and paired fluted leaves follow the timber's
++   // changing tangent. The bronze backing remains recessed between them.
++   for(let j=0;j<22;j++){
++    const t=.042+j*.0435,dy=(profile(t+.001)-profile(t-.001))/.002,theta=Math.atan2(dy,sign*w*.5),x=sign*w*.5*t,y=profile(t)-.455;
++    C.scroll([x,y,z+.705],.46,0,theta,'carvingGold157');
++    for(const side of[-1,1])C.leaf([x,y,z+.715],.20,.30,0,theta-Math.PI/2+side*.68,'carvingGold157',.31);
++   }
++   for(const [j,t]of[.14,.38,.65,.88].entries()){
++    const y=profile(t)-.84,x=sign*w*.5*t,size=j===1?.68:.54;
++    b.box(x,y+.13,z+.29,.22,.30,.61,'hallBearing');C.bearing(x,y+.06,z+.27,.44,.65,'hallOxide',false);
++    for(const side of[-1,1])C.leaf([x+side*.09,y+.03,z+.63],size,.61,0,Math.PI-side*.35,'carvingGold157',.55);
++    C.scroll([x,y-.12,z+.65],.48,0,sign<0?Math.PI:0,'carvingBronze157');stats.carriedPendents++;
++   }
++   sweep([[sign*w*.34,e+.64,z-.02],[sign*w*.225,e+1.32,z-.02],[sign*w*.11,e+r*.64,z-.02],[0,e+r-.72,z-.02]],.245,.83,'scene02-368-deep-inner-curved-truss-'+sign,'hallBearing');
++  }
++  for(const [i,x]of[-w*.245,0,w*.245].entries()){
++   const pw=w*.19,py=e+1.14,ph=.58;b.box(x,py,z-.31,pw,ph,.18,'carvingRecess157');
++   for(const side of[-1,1]){b.box(x+side*pw/2,py,z-.04,.105,ph+.12,.52,'hallOxide');b.box(x,py+side*ph/2,z-.04,pw+.10,.09,.52,'hallBearing');}
++   sweep(Array.from({length:33},(_,j)=>{const u=-1+2*j/32;return[x+u*pw*.44,py+.06*Math.sin(u*Math.PI*2),z+.24];}),.030,.030,'scene02-368-coffer-stem-'+i,'carvingBronze157');
++   for(let j=0;j<6;j++){const u=-.84+j*1.68/5,xx=x+u*pw*.44;C.scroll([xx,py,z+.26],.48,0,j%2?Math.PI:0,'carvingGold157');for(const side of[-1,1])C.leaf([xx+side*.045,py-.03,z+.28],.19,.28,0,side*.85,'carvingBronze157',.31);}C.rosette([x,py,z+.22],.30);stats.coffers++;
++  }
++  for(const sign of[-1,1]){
++   const x=sign*w*.102,py=e+r*.443,pw=w*.105,ph=r*.19;b.box(x,py,z-.51,pw,ph,.14,'carvingRecess157');
++   for(const side of[-1,1]){b.box(x+side*pw/2,py,z-.12,.10,ph+.10,.49,'hallBearing');b.box(x,py+side*ph/2,z-.12,pw+.10,.10,.49,'hallOxide');}
++   for(let j=0;j<9;j++)b.box(x+(j-4)*pw/9,py,z-.24,.031,ph,.15,'hallBearing');
++  }
++  const crest=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose157');if(!crest)throw Error('Missing existing closed crest');
++  b.put(crest,'hallTile1542',[0,e+r+.18,z+.22],[.9,1,1],[0,0,-.26]);C.scroll([0,e+r+.20,z+.43],.78,0,-.25,'carvingBronze157');
++  for(const y of[e+.62,e+r*.55]){C.facePlate(0,y,z+.34,.35,.34);C.leaf([0,y-.17,z+.37],.34,.51,0,Math.PI,'carvingBronze157',.50);}
++ });
++ const nose=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose157'),left=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose-left157');
++ for(const sign of[-1,1]){const p=[cx+sign*roof.roofWidth/2,roof.roofEave+roof.roofCurl,roof.roofFront];b.at(p,0,()=>{b.put(sign<0?left:nose,'hallTile1542',[0,.30,0],[.80,1.25,1.25],[0,0,sign*.12]);b.put(sign<0?left:nose,'hallTile1542',[-sign*.12,.64,-.15],[.44,.74,.80],[0,0,-sign*.35]);C.scroll([-sign*.03,.29,.20],.70,0,sign<0?Math.PI:0,'carvingBronze157');C.leaf([-sign*.21,.09,.25],.45,.61,0,-sign*.35,'carvingBronze157',.7);});}
++ stats.retainedCarrier186=buildGableCarrying186({b,C,roof,sculpture186});C.stats.gableBuilt=true;return stats;
++}
+--- a/reconstructions/scene-02/gable170.js
++++ b/reconstructions/scene-02/gable170.js
+@@ -1,93 +1,3 @@
+-import {T} from './kernel.js';
+-import {buildGableCarrying186} from './spatial186.js';
+-
+-// A real recessed gable loft, held to the recovered ridge and rake contour.
+-// Strong curved timbers stand in front of an opaque boarded volume. Motifs
+-// are closed sculpted meshes from the existing authored157 vocabulary.
+-export function buildMonumentalGable170({b,mats,carved:C,roof,sculpture186=null}){
+- const {gableWidth:w,gableEave:e,gableRise:r,gableFront:z,gableBack:back,gableCenterX:cx}=roof;
+- const stats={revision:'scene02-deep-carried-gable170-r05',closedLoft:true,curvedTrusses:4,bargeboardDepth:.58,referencePixelsSampled:false};
+- const profile=t=>e+r*Math.pow(Math.max(0,1-t),1.28)+.38*Math.pow(t,8);
+- const sweep=(p,width,depth,name,ma)=>b.put(C.sweep(p,width,depth,name),ma);
+- b.at([cx,0,0],0,()=>{
+-  // Front reveals are almost a metre deep; the rear loft is enclosed too.
+-  for(const [plane,ma]of[[z-.68,'carvingRecess157'],[back+.10,'hallBearing']]){
+-   for(let x=-w*.48;x<=w*.481;x+=.29){const top=profile(Math.abs(x)/(w/2))-.17,base=e+.31;if(top>base)b.box(x,(top+base)/2,plane,.288,top-base,.16,ma,0,.92+.06*Math.sin(x*5.1)**2);}
+-  }
+-  // A king post and two independent deep transfer beams carry the upper
+-  // truss. They are not the former flat applied grid on a triangle panel.
+-  b.box(0,e+r*.48,z-.12,.38,r*.98,.72,'hallOxide');
+-  b.box(0,e+.55,z-.10,w*.86,.36,.70,'hallOxide');
+-  b.box(0,e+1.66,z-.08,w*.49,.29,.60,'hallBearing');
+-  for(const sign of[-1,1]){
+-   const rake=Array.from({length:57},(_,j)=>{const t=j/56;return[sign*w*.5*t,profile(t)-.24,z+.10];});
+-   sweep(rake,.64,.58,'scene02-170-deep-continuous-rake-'+sign,'hallOxide');
+-   // A second timber arris gives the rake a carved shoulder and a shadow
+-   // reveal behind restrained fitted metal rather than a flat gold stripe.
+-   sweep(rake.map(p=>[p[0],p[1]-.12,p[2]+.28]),.17,.16,'scene02-170-rake-carved-shoulder-'+sign,'hallBearing');
+-   const truss=[[0,e+r-.66,z-.02],[sign*w*.075,e+r*.66,z+.02],[sign*w*.21,e+1.47,z+.045],[sign*w*.34,e+.64,z+.06]];
+-   sweep(truss,.42,.62,'scene02-170-main-curved-raking-truss-'+sign,'hallBearing');
+-   sweep([[sign*w*.075,e+.72,z+.045],[sign*w*.14,e+1.12,z+.06],[sign*w*.21,e+1.72,z+.07],[sign*w*.27,profile(.54)-.42,z+.06]],.25,.43,'scene02-170-curved-transfer-knee-'+sign,'hallOxide');
+-   // An actual raised branching frieze follows the deep rake. Its stem and
+-   // paired fluted leaves are individually closed solids seated on timber.
+-   const vine=[];
+-   for(let j=0;j<=96;j++){
+-    const t=.035+.91*j/96,dy=(profile(t+.001)-profile(t-.001))/.002,dx=sign*w*.5,L=Math.hypot(dx,dy),wave=.055*Math.sin(t*Math.PI*18);
+-    vine.push([sign*w*.5*t-dy/L*wave,profile(t)-.24+dx/L*wave,z+.438]);
+-   }
+-   sweep(vine,.075,.070,'scene02-170-closed-rake-foliage-stem-'+sign,'hallBearing');
+-   for(const [j,t]of[.065,.112,.191,.265,.315,.412,.474,.548,.647,.715,.81,.87,.94].entries()){
+-    const dy=(profile(t+.001)-profile(t-.001))/.002,dx=sign*w*.5,L=Math.hypot(dx,dy),theta=Math.atan2(dy,dx)-Math.PI/2;
+-    for(const side of[-1,1])C.leaf([sign*w*.5*t-dy/L*side*.025,profile(t)-.24+dx/L*side*.025,z+.454],.28+(j%3)*.025,.50,0,theta+side*.78,j===2||j===7||j===11?'carvingBronze157':'hallBearing',.85);
+-   }
+-   for(const [boss,t]of[.16,.39,.66,.87].entries()){
+-    const x=sign*w*.5*t,y=profile(t)-.24,dt=.003,dy=profile(t+dt)-profile(t-dt),roll=Math.atan2(-sign*w*dt,dy);
+-    b.at([x,y-.10,z+.425],0,()=>{
+-     b.stack.push(b.stack.at(-1).clone().multiply(new T.Matrix4().makeRotationZ(roll)));
+-     C.rosette([0,-.035,-.07],boss%2?.68:.60);
+-     b.stack.pop();
+-    });
+-   }
+-  }
+-  // Three deeply framed lower coffers occupy the collar beam. Different
+-  // recessed fields keep the loft readable as a volume from the low view.
+-  for(const [i,x]of[-w*.245,0,w*.245].entries()){
+-   const pw=w*.19,py=e+1.20,ph=.70;
+-   b.box(x,py,z-.34,pw,ph,.16,'carvingRecess157');
+-   for(const side of[-1,1]){b.box(x+side*pw/2,py,z-.10,.15,ph+.17,.46,'hallOxide');b.box(x,py+side*ph/2,z-.10,pw+.14,.12,.46,'hallBearing');}
+-   for(const side of[-1,1]){
+-    C.scroll([x+side*pw*.20,py,z+.15],.70,0,side<0?Math.PI:0,'carvingBronze157');
+-    C.leaf([x+side*pw*.28,py-.12,z+.16],.41,.66,0,-side*.74,'carvingGold157',.60);
+-    C.leaf([x+side*pw*.07,py-.20,z+.18],.46,.62,0,side*.55,'hallBearing',.72);
+-   }
+-   C.rosette([x,py,z+.11],.44);
+-  }
+-  // Paired upper vent bays are real slats and recessed lime cells between
+-  // the curved truss and king post, not embossed floral stickers.
+-  for(const sign of[-1,1]){
+-   const x=sign*w*.103,py=e+r*.435,pw=w*.115,ph=r*.24;
+-   b.box(x,py,z-.43,pw,ph,.13,'carvingRecess157');
+-   for(const side of[-1,1]){b.box(x+side*pw/2,py,z-.06,.14,ph+.12,.45,'hallBearing');b.box(x,py+side*ph/2,z-.06,pw+.12,.12,.45,'hallOxide');}
+-   for(let j=0;j<9;j++)b.box(x+(j-4)*pw/9,py,z-.18,.041,ph,.19,'hallBearing');
+-   C.rosette([x,py-ph*.47,z+.05],.40);
+-  }
+-  C.rosette([0,e+r-.93,z+.15],.86);
+-  const crest=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose157');
+-  if(!crest)throw new Error('Closed ceramic crest vocabulary missing');
+-  b.put(crest,'hallTile1542',[0,e+r+.18,z+.22],[.9,1,1],[0,0,-.26]);
+-  C.scroll([0,e+r+.20,z+.43],.78,0,-.25,'carvingBronze157');
+-  // Cast pendants bear on the heavy king-post joints; wood stays visible.
+-  for(const y of[e+.62,e+r*.55]){
+-   C.facePlate(0,y,z+.31,.44,.43);
+-   C.leaf([0,y-.17,z+.34],.43,.62,0,Math.PI,'carvingBronze157',.64);
+-  }
+- });
+- // These closed ceramic crest calls belonged to the former gable builder;
+- // retain their original roof-seat coordinates with the rebuilt deep loft.
+- const nose=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose157'),left=C.prototypes.find(g=>g.name==='scene02-closed-carved-cloud-nose-left157');
+- for(const sign of[-1,1]){
+-  const p=[cx+sign*roof.roofWidth/2,roof.roofEave+roof.roofCurl,roof.roofFront];
+-  b.at(p,0,()=>{b.put(sign<0?left:nose,'hallTile1542',[0,.30,0],[.80,1.25,1.25],[0,0,sign*.12]);b.put(sign<0?left:nose,'hallTile1542',[-sign*.12,.64,-.15],[.44,.74,.80],[0,0,-sign*.35]);C.scroll([-sign*.03,.29,.20],.70,0,sign<0?Math.PI:0,'carvingBronze157');C.leaf([-sign*.21,.09,.25],.45,.61,0,-sign*.35,'carvingBronze157',.7);});
+- }
+- stats.spatial186=buildGableCarrying186({b,C,roof,sculpture186});C.stats.gableBuilt=true;return stats;
+-}
++import {buildGableHierarchy368} from './gable-hierarchy368.js';
++// Retained shared roof/ridge/column frame, with one enclosed deep pediment.
++export const buildMonumentalGable170=buildGableHierarchy368;
+--- a/reconstructions/scene-02/hall-roof154.js
++++ b/reconstructions/scene-02/hall-roof154.js
+@@ -7,7 +7,7 @@
+ export function buildHallRoof154({b,mats,roof}){
+  const {gableCenterX:cx,gableWidth:gW,gableFront:gF,gableBack:gB,gableEave:gE,gableRise:gR,roofWidth:W,roofFront:F,roofBack:B,roofEave:E,roofCurl:curl}=roof;
+  const footY=gE+.38,peakY=gE+gR,halfW=W/2,halfG=gW/2,merged=new Map();
+- const stats={construction:'One common ridge and seated gable, four joined shallow hip aprons, closed ceramic courses, supported cantilever rafters',bearingAxisLocalX:cx,gableFaceLocalZ:gF,gableRearLocalZ:gB,innerHipSeatLocalY:footY,ridgeLocalY:peakY,ceramicCourses:0,closedCeramicUnits:0,rafters:0,facePhotoTexture:false};
++ const stats={construction:'One common ridge and seated gable, four joined hip aprons, separate closed overlapping pan and half-round cover courses, supported cantilever rafters',bearingAxisLocalX:cx,gableFaceLocalZ:gF,gableRearLocalZ:gB,innerHipSeatLocalY:footY,ridgeLocalY:peakY,ceramicCourses:0,closedCeramicUnits:0,closedCoverUnits368:0,rafters:0,facePhotoTexture:false};
+  for(let i=0;i<5;i++){
+   const m=mats[`ceramic160${i}`].clone();m.name=`scene02-hall-fired-blue-tile154-${i}`;m.roughness=.78+i*.012;m.side=T.FrontSide;mats[`hallTile154${i}`]=m;
+  }
+@@ -20,6 +20,21 @@
+   const ring=[];for(let i=0;i<nx;i++)ring.push(i);for(let j=1;j<ny;j++)ring.push(j*nx+nx-1);for(let i=nx-2;i>=0;i--)ring.push((ny-1)*nx+i);for(let j=ny-2;j>0;j--)ring.push(j*nx);if(normalY<0)ring.reverse();
+   for(let i=0;i<ring.length;i++){const a=ring[i],c=ring[(i+1)%ring.length];ids.push(a,c,a+N,c,c+N,a+N);}
+   let dst=merged.get(material);if(!dst){dst={positions:[],uv:[],indices:[]};merged.set(material,dst);}const off=dst.positions.length/3;for(const n of ids)dst.indices.push(n+off);dst.positions.push(...p);dst.uv.push(...uv);g.dispose();
++ }
++ function closedCover368(P,ta,tb,u,material){
++  const p=[],uv=[],ix=[],N=10,R=4,row=N+1,layer=(R+1)*row;
++  for(let side=0;side<2;side++)for(let j=0;j<=R;j++){
++   const t=mix(ta,tb,j/R),centre=V(P(t,u)),across=V(P(t,u+.0001)).sub(V(P(t,u-.0001))).normalize(),along=V(P(Math.min(1,t+.0001),u)).sub(V(P(Math.max(0,t-.0001),u))).normalize(),up=across.clone().cross(along).normalize();if(up.y<0)up.negate();
++   const radius=side?.049:.066;
++   for(let k=0;k<=N;k++){const a=k/N*Math.PI,q=centre.clone().addScaledVector(across,Math.cos(a)*radius).addScaledVector(up,.032+Math.sin(a)*radius);p.push(...q.toArray());uv.push(k/N,j/R);}
++  }
++  const id=(l,j,k)=>l*layer+j*row+k;
++  for(let j=0;j<R;j++)for(let k=0;k<N;k++)for(const l of[0,1]){const a=id(l,j,k),b=id(l,j,k+1),c=id(l,j+1,k),d=id(l,j+1,k+1);l?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}
++  for(const j of[0,R])for(let k=0;k<N;k++){const a=id(0,j,k),b=id(0,j,k+1),c=id(1,j,k),d=id(1,j,k+1);j?ix.push(a,c,b,b,c,d):ix.push(a,b,c,b,d,c);}
++  for(const k of[0,N])for(let j=0;j<R;j++){const a=id(0,j,k),b=id(0,j+1,k),c=id(1,j,k),d=id(1,j+1,k);k?ix.push(a,b,c,b,d,c):ix.push(a,c,b,b,c,d);}
++  // Orient this actual thin closed shell consistently on every hip face.
++  let volume=0;for(let i=0;i<ix.length;i+=3){const a=V(p.slice(ix[i]*3,ix[i]*3+3)),b=V(p.slice(ix[i+1]*3,ix[i+1]*3+3)),c=V(p.slice(ix[i+2]*3,ix[i+2]*3+3));volume+=a.dot(b.cross(c))/6;}if(volume<0)for(let i=0;i<ix.length;i+=3)[ix[i+1],ix[i+2]]=[ix[i+2],ix[i+1]];
++  let dst=merged.get(material);if(!dst){dst={positions:[],uv:[],indices:[]};merged.set(material,dst);}const off=dst.positions.length/3;dst.positions.push(...p);dst.uv.push(...uv);for(const i of ix)dst.indices.push(off+i);stats.closedCoverUnits368++;
+  }
+  function tileField(P,width,length,offset=0){
+   // Width and course pitch describe real roof units rather than an arbitrary
+@@ -37,10 +52,11 @@
+     }
+     shell(rows,.032,`hallTile154${(run*13+course*7+offset)%5}`);stats.closedCeramicUnits++;
+    }
+-   // Half-round cover tiles seat over the adjoining trough edges.
++   // Short, overlapping hollow ceramic covers follow the actual curved
++   // bedding and close at both ends. Full cylindrical rods are removed.
+    const edge=-1+2*run/runs;
+    for(let j=0;j<courses;j++){
+-    const a=P(j/courses,edge),c=P((j+1)/courses,edge);a[1]+=.061;c[1]+=.061;b.line(a,c,.047,`hallTile154${(run+offset+1)%5}`);
++    closedCover368(P,j/courses,Math.min(1,(j+1.06)/courses),edge,`hallTile154${(run+offset+1)%5}`);
+    }
+   }
+  }
+--- /dev/null
++++ b/reconstructions/scene-02/hall368-provenance.json
+@@ -0,0 +1,27 @@
++{
++  "revision": "scene02-hall368-r04",
++  "comparisonReference": "references/hd/1-照片-2.jpg",
++  "baselineSource": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
++  "referencePixelsOrProjection": false,
++  "externalAssetsAdded": [],
++  "geometry": [
++    "Enclosed attic with deep continuous rakes, a recessed pierced cast facing, solid raised volutes/paired fluted leaves, carried pendents, separate coffers and slimmer full-depth inner trusses.",
++    "Six primary and five intermediate front eave heads use complementary half-lapped crossed arms, flared dou, two continuous raking tails and fitted purlin seats, each bounded by the shared physical hip-apron roof equation.",
++    "4,736 separate overlapping closed half-round cover shells replace full cylindrical roof rods; existing closed pan tiles, ridge/eave envelope and original material maps remain."
++  ],
++  "reusedAuthoredCode": {
++    "deep-bearing368.js": "Local copy/adaptation of existing scene07/src/deep-bearing319.js originally authored in the project; no external mesh.",
++    "curved-rafter368.js": "Local copy of existing authored scene07/src/curved-rafter319.js."
++  },
++  "existingDeclaredAsset": "The original CC BY4.0 SCANOLOGY_3D gable cloud component and its retained attribution remain mounted with unchanged source buffers and uniform world fit.",
++  "preserved": [
++    "Reference/motion camera",
++    "Hall/tower position, scale and column/bay grid",
++    "Hall roof ridge, eave, gable and hip-ring envelopes",
++    "Foreground veranda, rail, bridge/stair and garden geometry/rooting",
++    "342R06 wood pigment/maps/coating roles and complete original lighting source configuration"
++  ],
++  "inference": "Original source-led architectural reconstruction; hidden dimensions and carving motifs remain authored inferences, not surveyed historical recovery.",
++  "visualAccepted": false,
++  "finalRepair": "Reduce the oversized regular R03 volutes into smaller closed foliate groups while retaining the deep pierced bronze facing, structural rakes and existing gold/wood material parameters."
++}
+--- a/reconstructions/scene-02/main.js
++++ b/reconstructions/scene-02/main.js
+@@ -125,6 +125,6 @@
+ // rail/deck edge on its walkable side; the photographic endpoint is unchanged.
+ const dolly=createDollyPath({points:[[15.85,2.25,24.0],[15.95,2.35,24.4],[16.1,2.6,24.85],reference.position],nearTarget:[15.193872543879204,2.43,23.368270846691118],farTarget:reference.target,fov:reference.fov});
+ function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
+-function info(){hallEnvironment342.snapshot?.();return{reference:2,revision:'scene02-craft342-r06-veranda-purlin-material-role-corrected',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,finishes:architecturalFinishes160.info,sky210:{...sky210.info,worldSkyGain:.65,worldEnvironmentIntensity:.55},wetBoard210:wetBoard210.info(),timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,water210:{pondLevelMetres:pondLevel210,actualSceneReflection:true,subfrustumReflectionCaptureFixed:true,additiveStripeGeometryRemoved:true,waveModel:'Analytic normals of four metric millimetre/submillimetre wave heights perturb the genuine reflected scene; dielectricF0.0204 Schlick response, no painted glints',bridgeBounce:{position:bridgeBounce210.position.toArray(),intensity:bridgeBounce210.intensity,width:bridgeBounce210.width,height:bridgeBounce210.height},solvedDiffuseGI:false},sourceGeometry342,lighting342:{timberCoat:timberCoat342,courtyardBoundary:courtyardBoundary342,hallEnvironment:hallEnvironment342.info,exposureHeld:.94,sunDirectionHeld:true,sourceRGBAndEnergyInferredNotMeasured:true},lighting170:{sun:sun.intensity,exposure:renderer.toneMappingExposure,courtyardArea:{intensity:courtArea.intensity,width:courtArea.width,height:courtArea.height,position:courtArea.position.toArray()},westArea:{intensity:westArea.intensity,width:westArea.width,height:westArea.height,position:westArea.position.toArray()},nativeAreaContact:"LTC area light plus geometry-derived GTAO; shadowed direct sun retained"},renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
++function info(){hallEnvironment342.snapshot?.();return{reference:2,revision:'scene02-hall368-r04-closed-carved-pediment-and-fitted-bearing',ready:true,frames,source:'Authored three-dimensional architecture and plants with declared CC0 timber and eroded stone scans; no reference-image scene surface',architecture:architecture.stats,finishes:architecturalFinishes160.info,sky210:{...sky210.info,worldSkyGain:.65,worldEnvironmentIntensity:.55},wetBoard210:wetBoard210.info(),timber:scannedTimber.info,garden:garden.stats,grounding:grounding.stats,camera:reference,water210:{pondLevelMetres:pondLevel210,actualSceneReflection:true,subfrustumReflectionCaptureFixed:true,additiveStripeGeometryRemoved:true,waveModel:'Analytic normals of four metric millimetre/submillimetre wave heights perturb the genuine reflected scene; dielectricF0.0204 Schlick response, no painted glints',bridgeBounce:{position:bridgeBounce210.position.toArray(),intensity:bridgeBounce210.intensity,width:bridgeBounce210.width,height:bridgeBounce210.height},solvedDiffuseGI:false},sourceGeometry342,lighting342:{timberCoat:timberCoat342,courtyardBoundary:courtyardBoundary342,hallEnvironment:hallEnvironment342.info,exposureHeld:.94,sunDirectionHeld:true,sourceRGBAndEnergyInferredNotMeasured:true},lighting170:{sun:sun.intensity,exposure:renderer.toneMappingExposure,courtyardArea:{intensity:courtArea.intensity,width:courtArea.width,height:courtArea.height,position:courtArea.position.toArray()},westArea:{intensity:westArea.intensity,width:westArea.width,height:westArea.height,position:westArea.position.toArray()},nativeAreaContact:"LTC area light plus geometry-derived GTAO; shadowed direct sun retained"},renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},limits:['Visual acceptance pending independent reference comparison.','CC0 scanned timber maps with tracked provenance; no photograph or generated replacement frame is used.','Layout is recovered from visible native contours; source perspective and partly occluded geometry retain uncertainty.','Veranda board end joints and concealed framing are inferred where the source photo does not resolve them.'],visualAcceptance:false};}
+ function dispose(){disposed=true;hallEnvironment342.dispose();wetBoard210.dispose();garden.dispose?.();scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});new Set([...Object.values(mats),...scene.children.filter(o=>o.material).map(o=>o.material)]).forEach(m=>m.dispose());textures.forEach(t=>t.dispose());reflectors.forEach(r=>r.getRenderTarget().dispose());envTarget.dispose();skyTarget.dispose();ao.dispose();composer.dispose();renderer.dispose();}
+ window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading')?.remove();setView(reference.position,reference.target,reference.fov);if(!query.has('defer'))renderReference(2);
