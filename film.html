@@ -9,13 +9,13 @@
 </head>
 <body><main>
 <header><h1>寺院十景</h1><nav><a href="compare-ten.html?reference=1">实时 3D 对照</a><a href="https://github.com/aa339519589-cpu/komorebi-temple-cinema/tree/work/ten-view-reconstruction-20261018">公开源码</a></nav></header>
-<p>十景真实 3D 制作预览 · 供桌与房间结构正在继续重建</p>
+<p>十景真实 3D 制作预览 · 所有场景的结构、材质与光影继续重建</p>
 <div class="status" id="status" role="status">正在读取本轮视频进度…</div>
 <video id="film" playsinline preload="metadata" poster="qa/ten-reference/film-review-sol61-rebuild-20261024-f-resume1/scene-01-end.png"></video>
 <div class="edits"><button data-duration="60" aria-pressed="true" disabled>60 秒叠化剪辑</button><button data-duration="70" aria-pressed="false" disabled>70 秒完整镜头</button><button id="compare">视频画面对照</button><button id="latest-compare" disabled>建模对照</button><span id="caption">模型与画面仍在修正</span></div>
 <div id="shots" aria-label="十个独立场景"></div>
-<p>佛堂最新建模片段 · 7 秒低机位拉远 · 主佛手势、柜面、背光雕刻与地垫已更新。袖口、两侧像与光影仍在重建，尚未纳入上方十景工作影片。</p>
-<video id="latest-altar" controls playsinline preload="none" poster="qa/ten-reference/06/iteration-scene06-integrated314-published/full.png" src="qa/ten-reference/06/iteration-scene06-integrated314-published/motion-review.mp4" aria-label="佛堂最新真实三维工作片段"></video>
+<p>此前佛堂工作片段 · 7 秒低机位拉远。新的胁侍手部与窗光见“建模对照”；包含本轮修改的十景影片正在录制。</p>
+<video id="latest-altar" controls playsinline preload="none" poster="qa/ten-reference/06/iteration-scene06-integrated314-published/full.png" src="qa/ten-reference/06/iteration-scene06-integrated314-published/motion-review.mp4" aria-label="此前佛堂真实三维工作片段"></video>
 <p class="credit">配乐：PeriTune / Sei Mutsuki — <a href="https://peritune.com/blog/2019/04/08/oboro/">Oboro</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。本片使用经剪辑、淡入淡出的片段。</p>
 <p class="credit">雕塑及其衍生画面：Scan-the-World / Sainsbury Centre Seated Amida · <a href="https://doi.org/10.5281/zenodo.21353739">原始来源</a> · <a href="reconstructions/scene-06/ATTRIBUTION-AND-ASSET-LICENSES.md">修改与素材许可</a> · CC BY-NC-SA 4.0，个人非商用欣赏。</p>
 <dialog id="comparison"><div class="dialog-head"><strong id="pair-title">原图与当前画面</strong><select id="pair-scene" aria-label="选择对照场景"></select><button id="close">关闭</button></div><div class="pair"><figure><figcaption>参考图</figcaption><img id="reference" alt="参考图"></figure><figure><figcaption id="native-caption">视频所用原生 3D 静帧</figcaption><img id="native" alt="当前原生 3D 渲染"></figure></div></dialog>
