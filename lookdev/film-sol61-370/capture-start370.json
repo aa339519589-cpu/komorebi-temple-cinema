@@ -1,0 +1,45 @@
+{
+  "observedAt": "2026-10-26T19:31:35.405434+00:00",
+  "status": "actualnativecapture-in-progress",
+  "sourceCommit": "4dfc441cdaf852e9701c110472fbef95ef024d3e",
+  "snapshotRoot": "/Users/mima1234/temple-cinema-film-h-sol61-370-4dfc441c",
+  "sourceProof": "snapshot-proof.json",
+  "sourceAuthorization": "source-authorization.json",
+  "snapshotMaterialized": true,
+  "snapshotContainsTenExactCanonicalSources": true,
+  "controllerPid": 6618,
+  "controllerConfirmedLive": true,
+  "observedProgress": {
+    "status": "capturing-native-motion",
+    "graphicsStarted": true,
+    "updatedAt": "2026-10-26T19:31:31.250Z",
+    "photographicAccepted": false,
+    "originalGoalComplete": false,
+    "sourceCommit": "4dfc441cdaf852e9701c110472fbef95ef024d3e",
+    "snapshotRoot": "/Users/mima1234/temple-cinema-film-h-sol61-370-4dfc441c",
+    "completedShots": 1,
+    "activeScene": 2,
+    "capturedFrames": 96,
+    "childPid": 6903,
+    "lastCompletedScene": 1
+  },
+  "rootActualNativeReview": [
+    {
+      "scene": 1,
+      "frames": [
+        0,
+        84
+      ],
+      "source": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87",
+      "scope": "Actual native rendered near/middle views opened and visually reviewed; display resized1620to1600 by viewer. Limited sampledreview, not allframefidelity."
+    }
+  ],
+  "pendingPrivateCandidatesNotIncluded": [
+    "367ground",
+    "372nightreflection",
+    "374corridor",
+    "376altar"
+  ],
+  "photographicAccepted": false,
+  "originalGoalComplete": false
+}

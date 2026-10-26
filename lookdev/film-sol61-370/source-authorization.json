@@ -1,0 +1,58 @@
+{
+  "commit": "4dfc441cdaf852e9701c110472fbef95ef024d3e",
+  "sourceRoot": "/Users/mima1234/temple-cinema-live-sync",
+  "snapshotRoot": "/Users/mima1234/temple-cinema-film-h-sol61-370-4dfc441c",
+  "iteration": "sol61-rebuild-20261027-h",
+  "releaseTag": "working-film-2026-10-27-h",
+  "publicCommit": {
+    "commit": "4dfc441cdaf852e9701c110472fbef95ef024d3e",
+    "remote": "origin",
+    "ref": "refs/heads/work/ten-view-reconstruction-20261018",
+    "tip": "4dfc441cdaf852e9701c110472fbef95ef024d3e",
+    "verifiedAt": "2026-10-26T19:19:11.870Z",
+    "method": "remote ref equals exact requested commit"
+  },
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ]
+  },
+  "requestedAt": "2026-10-26T19:19:12.045Z",
+  "driverSha256": "658c263f65f24e0d135eba878da35a2147e43d1c7130b6131b0d3dea3f29f73c",
+  "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+  "snapshotProofSha256": "84ac03e8164fb5810052d91fd662595747d5d2481180b8f753559860718fb040",
+  "musicSha256": "202587393bef469e0e90ed337a26368b14ee9a42ccef6e8ab8d1b292231a2cec",
+  "musicAttribution": {
+    "title": "Oboro",
+    "artist": "PeriTune / Sei Mutsuki",
+    "published": "2019-04-08",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "download": "https://peritune.com/music/PerituneMaterial_Oboro.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseConfirmation": "https://peritune.com/blog/2026/03/01/terms-update/",
+    "instrumentation": "Shakuhachi, koto, piano",
+    "use": "Background music for the procedural temple film; a trimmed, normalized excerpt with fades. Not a standalone music compilation.",
+    "status": "Replacement for the rejected Western score; testing against the new low-angle cinematography."
+  },
+  "authorizedAt": "2026-10-26T19:20:11.193Z"
+}
