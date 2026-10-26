@@ -7,12 +7,14 @@ import {launchRenderBrowser} from './render-runtime.mjs';
 import {encodeWebglPng} from './encode-webgl-png.mjs';
 import {acquireGpuRenderSlot} from './gpu-render-slot.mjs';
 import {reconstructionSourceIdentity} from './reconstruction-source-identity.mjs';
+import {createMotionJournal,NATIVE_CAPTURE_CONTRACT} from './native-motion-journal.mjs';
 
 const reference=Number(process.env.REFERENCE),id=String(reference).padStart(2,'0');
 if(!Number.isInteger(reference)||reference<1||reference>10)throw Error('REFERENCE must be 1..10.');
 const worktree=resolve(process.env.WORKTREE||process.cwd()),size=Number(process.env.SIZE||768);
 const iteration=process.env.ITERATION||'01',port=Number(process.env.PORT||4500);
 const motionFps=Number(process.env.MOTION_FPS||0),motionDuration=7;
+const requireMsaa=process.env.FILM_REQUIRE_MSAA==='1';
 const renderScale=Number(process.env.MOTION_RENDER_SCALE||1);
 if(![1,1.5,2].includes(renderScale)||(!motionFps&&renderScale!==1))throw Error('MOTION_RENDER_SCALE must be1,1.5or2 and applies only to motion.');
 const renderSize=Math.round(size*renderScale);
@@ -30,12 +32,15 @@ if(!/^[a-z0-9-]+$/i.test(iteration))throw Error('Invalid iteration name.');
 await access(resolve(worktree,entry));await mkdir(out,{recursive:true});
 const videoFile=resolve(out,'motion-review.mp4');
 if(motionFps&&existsSync(videoFile))throw Error('Motion output exists; use a new ITERATION to retain previous evidence.');
+const journal=motionFps?await createMotionJournal(out,{reference,iteration,worktree,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),driverSha256:renderDriverSha256,outputSize:size,requestedNativeSize:renderSize,fps:motionFps,expectedFrames:motionFps*motionDuration,videoFile,requireMsaa}):null;
 async function sourceIdentity(){
  return reconstructionSourceIdentity(worktree,id);
 }
 const releaseGpu=await acquireGpuRenderSlot(`reference-${id}-${iteration}`);
 const identity=await sourceIdentity(),startedAt=new Date().toISOString();
 const report={reference,entry,worktree,size,startedAt,source:identity,sourceCommit:execFileSync('git',['rev-parse','HEAD'],{cwd:worktree,encoding:'utf8'}).trim(),status:'building',visualAccepted:false,errors:[],requests:[],renderDriver:{path:'tools/render-one-reconstruction.mjs',sha256:renderDriverSha256},renderSampling:{nativeWidth:renderSize,nativeHeight:renderSize,outputWidth:size,outputHeight:size,scale:renderScale,downsampling:renderScale===1?'none':'Lanczos from genuine higher-resolution native frames'}};
+report.captureContract={id:NATIVE_CAPTURE_CONTRACT,observabilityVersion:'motion-journal-msaa334-v1',captureCallsAndEncoderUnchanged:true};
+await journal?.started({...report,backend:process.env.RENDER_BACKEND||(process.platform==='darwin'?'metal':'swiftshader')});
 if(viewPose)report.inspectionView={...viewPose,scope:'Actual existing renderView API, explicit model-review camera, not the photographic reference pose.'};
 if(detailCrop)report.detailCrop={pixels:detailCrop,scope:'A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot.'};
 const server=spawn(process.execPath,[resolve(worktree,'tools/server.mjs')],{cwd:worktree,env:{...process.env,PORT:String(port)},stdio:['ignore','pipe','pipe']});
@@ -73,10 +78,18 @@ try{
  for(const localTime of frames){
   if(encoderError)throw encoderError;
   const crop=detailCrop&&report.frames.length===1?detailCrop:null;
-  const result=await Promise.race([page.evaluate(async({reference,localTime,crop,viewPose,pickPixels})=>{
+  const result=await Promise.race([page.evaluate(async({reference,localTime,crop,viewPose,pickPixels,captureMsaa})=>{
    const t=window.temple,r=t.renderer,gl=r.getContext();
    if(crop)t.camera.setViewOffset(crop[3],crop[3],crop[0],crop[1],crop[2],crop[2]);else t.camera.clearViewOffset();
-   const pose=viewPose?t.renderView(viewPose.position,viewPose.target,0,viewPose.fov??t.camera.fov):localTime===null?t.renderReference(reference):t.renderShot(localTime);gl.finish();
+   const mainPasses=[],originalRender=r.render;
+   if(captureMsaa)r.render=function(scene,camera){
+    if(scene===t.scene&&camera===t.camera){const target=this.getRenderTarget();mainPasses.push({override:!!scene.overrideMaterial,width:target?.width??gl.drawingBufferWidth,height:target?.height??gl.drawingBufferHeight,declaredSamples:target?.samples??0,actualSamples:Number(gl.getParameter(gl.SAMPLES)||0),defaultFramebuffer:!target});}
+    return originalRender.apply(this,arguments);
+   };
+   let pose;
+   try{pose=viewPose?t.renderView(viewPose.position,viewPose.target,0,viewPose.fov??t.camera.fov):localTime===null?t.renderReference(reference):t.renderShot(localTime);}
+   finally{if(captureMsaa)r.render=originalRender;}
+   gl.finish();
    const width=gl.drawingBufferWidth,height=gl.drawingBufferHeight,bytes=new Uint8Array(width*height*4);
    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,bytes);
    const glError=gl.getError(),programs=r.info.programs.map(p=>({linked:gl.getProgramParameter(p.program,gl.LINK_STATUS),log:gl.getProgramInfoLog(p.program)}));let binary='';
@@ -95,16 +108,18 @@ try{
      })});
     }
    }
-   return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),rgbaBase64:btoa(binary),info:t.info(),...(picked.length?{picked}:{} )};
-  },{reference,localTime,crop,viewPose,pickPixels}),fatal]);
+   return{pose,width,height,glError,programs,contextLost:gl.isContextLost(),msaaEvidence:{contextAntialias:!!gl.getContextAttributes()?.antialias,maxSamples:r.capabilities.maxSamples,mainPasses},rgbaBase64:btoa(binary),info:t.info(),...(picked.length?{picked}:{} )};
+  },{reference,localTime,crop,viewPose,pickPixels,captureMsaa:!!motionFps}),fatal]);
   const bytes=Buffer.from(result.rgbaBase64,'base64');delete result.rgbaBase64;
   let nonblack=0,opaque=0;for(let i=0;i<bytes.length;i+=4){if(Math.max(bytes[i],bytes[i+1],bytes[i+2])>3)nonblack++;if(bytes[i+3]===255)opaque++;}
-  const valid=result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>result.width*result.height*.05&&report.errors.length===0;
+  const msaaValid=!requireMsaa||result.msaaEvidence.mainPasses.some(p=>!p.override&&p.width>=renderSize&&p.height>=renderSize&&p.actualSamples>=2);
+  const valid=msaaValid&&result.glError===0&&!result.contextLost&&result.programs.every(p=>p.linked)&&nonblack>result.width*result.height*.05&&report.errors.length===0;
   const index=report.frames.length,name=viewPose?'inspection-view':crop?'detail-native':motionFps?`frame-${String(index).padStart(4,'0')}`:localTime===null?'reference':`shot-${String(localTime).replace('.','p')}`;
   const savePixels=!motionFps||index===0||index===Math.floor(frames.length/2)||index===frames.length-1;
   if(valid&&savePixels)await writeFile(resolve(out,name+'.png'),encodeWebglPng(result.width,result.height,bytes));
   report.frames.push({...result,name,localTime,detailCrop:crop,valid,pngSaved:savePixels,nonblackFraction:nonblack/(result.width*result.height),opaqueFraction:opaque/(result.width*result.height),rgbaSha256:createHash('sha256').update(bytes).digest('hex')});
-  if(!valid)throw Error('Actual GPU frame failed: '+name);
+  await journal?.frame(report.frames[report.frames.length-1],index);
+  if(!valid)throw Error('Actual GPU frame failed: '+name+(msaaValid?'':' (main-scene MSAA evidence missing)'));
   if(motionFps){
    if(!encoder)startEncoder(result.width,result.height);
    if(result.width!==report.renderSampling.nativeWidth||result.height!==report.renderSampling.nativeHeight||bytes.length!==result.width*result.height*4)throw Error('Native framebuffer dimensions changed during capture.');
@@ -113,6 +128,7 @@ try{
   }
  }
  if(motionFps){
+  await journal.encoding();
   encoder.stdin.end();await encoded;
   const probe=JSON.parse(execFileSync('ffprobe',['-v','error','-count_frames','-select_streams','v:0','-show_entries','stream=width,height,nb_read_frames,r_frame_rate,codec_name,color_space,color_transfer:format=duration','-of','json',videoFile],{encoding:'utf8'}));
   const stream=probe.streams[0];
@@ -126,6 +142,7 @@ try{
 finally{
  if(encoder&&!encoder.stdin.writableEnded){encoder.stdin.destroy();encoder.kill('SIGTERM');await encoded.catch(()=>{});}
  report.completedAt=new Date().toISOString();await writeFile(resolve(out,'report.json'),JSON.stringify(report,null,2));
+ await journal?.finish(report.status,{reportFile:resolve(out,'report.json'),error:report.error??null,capturedFrames:report.frames?.length??0});
  if(browser)await browser.close().catch(()=>{});server.kill('SIGTERM');releaseGpu();
  console.log(JSON.stringify({reference,status:report.status,error:report.error,out,errors:report.errors}));
 }

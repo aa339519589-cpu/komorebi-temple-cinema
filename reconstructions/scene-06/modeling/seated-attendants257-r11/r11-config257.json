@@ -1,0 +1,649 @@
+{
+  "revision": "r11",
+  "candidateRootName": "candidate-r11",
+  "parentCanonicalSourceHash": "12a4a4093f336d75365294021794685345f9e702d00ce54421fb6c4e6330d4f9",
+  "originalV4ManifestSha256": "ddd9c616fd0145148e32dfe7f2d0d11f9a6b6afb94272a6a656e78a2a559824b",
+  "headReuseManifestSha256": "0b8e37b5f7bc713f8f5e70f3a3ccef1ed01fda28f34572c8f573eb8a907c75a0",
+  "headRawTranslationY": -0.28,
+  "worldScale": [
+    0.46711656441717797,
+    0.4969325153374234,
+    0.5068711656441719
+  ],
+  "bodyVoxelSize": 0.009,
+  "handVoxelSize": 0.0035,
+  "bearingBandHeight": 0.1,
+  "neckDerivative": {
+    "mode": "authored-bridge-source-ancestry",
+    "protectedScanVertices": 92164,
+    "ringCount": 35,
+    "ringSize": 256,
+    "baseVertices": 408,
+    "fixedUpperRings": 1,
+    "bottomRadialScale": 0.78,
+    "centerZ": -0.05,
+    "maximumDisplacement": 0.1,
+    "meaning": "Original source contains an intact92164vertex scan prefix, then35regular authored neck rings of256vertices, then408original base vertices. Protect every prefix XYZ+normal byte. Retain allsourceY/UV/index/header bytes. Preserve the upper1neck-ring positions, smoothly refit only authored lower rings to tapered original base; NP25 records every position or normal change. No actual scanned face/ear vertex is modified.",
+    "profileEase": 0.1
+  },
+  "giltMaterial": {
+    "baseColorLinear": [
+      0.5583403706550598,
+      0.35153260827064514,
+      0.07227185368537903,
+      1
+    ],
+    "metalness": 0.92,
+    "roughness": 0.4
+  },
+  "torsoRows": [
+    [
+      0.88,
+      0.48,
+      0.25,
+      0.0
+    ],
+    [
+      1.1,
+      0.41,
+      0.23,
+      -0.01
+    ],
+    [
+      1.4,
+      0.4,
+      0.245,
+      0
+    ],
+    [
+      1.7,
+      0.44,
+      0.26,
+      0
+    ],
+    [
+      1.94,
+      0.46,
+      0.255,
+      0
+    ],
+    [
+      2.05,
+      0.46,
+      0.245,
+      -0.01
+    ],
+    [
+      2.14,
+      0.37,
+      0.225,
+      -0.02
+    ],
+    [
+      2.23,
+      0.21,
+      0.17,
+      -0.03
+    ],
+    [
+      2.28,
+      0.19,
+      0.15,
+      -0.04
+    ],
+    [
+      2.31,
+      0.2,
+      0.18,
+      -0.04
+    ],
+    [
+      2.34,
+      0.215,
+      0.207,
+      -0.04
+    ]
+  ],
+  "hipRows": [
+    [
+      0.23,
+      0.38,
+      0.28,
+      -0.1
+    ],
+    [
+      0.4,
+      0.48,
+      0.29,
+      -0.07
+    ],
+    [
+      0.65,
+      0.53,
+      0.28,
+      -0.04
+    ],
+    [
+      0.9,
+      0.52,
+      0.27,
+      0
+    ],
+    [
+      1.02,
+      0.51,
+      0.26,
+      0
+    ],
+    [
+      1.22,
+      0.46,
+      0.24,
+      -0.01
+    ],
+    [
+      1.36,
+      0.39,
+      0.23,
+      -0.01
+    ]
+  ],
+  "foldedLegPositivePath": [
+    [
+      0.25,
+      1.17,
+      0
+    ],
+    [
+      0.48,
+      1.05,
+      0.08
+    ],
+    [
+      0.73,
+      0.82,
+      0.25
+    ],
+    [
+      0.7,
+      0.61,
+      0.2
+    ],
+    [
+      0.48,
+      0.46,
+      0.08
+    ],
+    [
+      0.18,
+      0.42,
+      0.12
+    ],
+    [
+      -0.18,
+      0.4,
+      0.16
+    ]
+  ],
+  "nearBareArm": [
+    [
+      -0.33,
+      2.02,
+      -0.025
+    ],
+    [
+      -0.48,
+      1.96,
+      -0.005
+    ],
+    [
+      -0.58,
+      1.76,
+      0.02
+    ],
+    [
+      -0.63,
+      1.5,
+      0.1
+    ],
+    [
+      -0.6,
+      1.3,
+      0.25
+    ],
+    [
+      -0.52,
+      1.3,
+      0.42
+    ],
+    [
+      -0.53,
+      1.35,
+      0.55
+    ]
+  ],
+  "outerBareArm": [
+    [
+      0.33,
+      2.02,
+      -0.025
+    ],
+    [
+      0.48,
+      1.96,
+      -0.005
+    ],
+    [
+      0.6,
+      1.75,
+      0.02
+    ],
+    [
+      0.68,
+      1.49,
+      0.1
+    ],
+    [
+      0.76,
+      1.19,
+      0.3
+    ],
+    [
+      0.83,
+      1.2,
+      0.48
+    ],
+    [
+      0.85,
+      1.27,
+      0.55
+    ]
+  ],
+  "kneeDrapeRows": [
+    [
+      0.24,
+      0.16,
+      0.13,
+      0.12,
+      0.52
+    ],
+    [
+      0.3,
+      0.2,
+      0.18,
+      0.16,
+      0.57
+    ],
+    [
+      0.53,
+      0.22,
+      0.22,
+      0.25,
+      0.7
+    ],
+    [
+      0.72,
+      0.24,
+      0.25,
+      0.31,
+      0.75
+    ],
+    [
+      0.9,
+      0.25,
+      0.27,
+      0.26,
+      0.67
+    ],
+    [
+      1.1,
+      0.23,
+      0.25,
+      0.16,
+      0.47
+    ],
+    [
+      1.25,
+      0.19,
+      0.17,
+      0.03,
+      0.29
+    ],
+    [
+      1.33,
+      0.17,
+      0.16,
+      0.005,
+      0.22
+    ],
+    [
+      1.45,
+      0.14,
+      0.13,
+      -0.01,
+      0.16
+    ]
+  ],
+  "nearHandCenter": [
+    -0.53,
+    1.37,
+    0.58
+  ],
+  "outerHandCenter": [
+    0.85,
+    1.29,
+    0.56
+  ],
+  "rightNearHandYDelta": -0.04,
+  "rightOuterHandXDelta": -0.12,
+  "crownBandY": 2.925,
+  "crownLeafBaseY": 2.945,
+  "capRows": [
+    [
+      2.88,
+      0.253,
+      0.228,
+      -0.025
+    ],
+    [
+      2.915,
+      0.258,
+      0.231,
+      -0.025
+    ],
+    [
+      2.98,
+      0.235,
+      0.212,
+      -0.025
+    ],
+    [
+      3.05,
+      0.165,
+      0.149,
+      -0.025
+    ],
+    [
+      3.0949999999999998,
+      0.022,
+      0.02,
+      -0.025
+    ],
+    [
+      3.1,
+      0.008,
+      0.007,
+      -0.025
+    ]
+  ],
+  "poseMeaning": "Hand-only source-anatomy phase, exact R10 non-hand/body/head/cloth/crown/material/bearing reuse. Source palm/finger P/N/UV and original complete hand triangles have HA11 original-index replay; true oblique wrist clip and hidden adapter retained. No new rod fingers.",
+  "refitHeadBridge": false,
+  "weldActualScan": true,
+  "scanNeckWeld": {
+    "scanPrefixVertices": 92164,
+    "expectedScanCutLoopVertices": 724,
+    "bodyNeckCutRawY": 2.26,
+    "bridgeColumns": 256,
+    "bridgeRows": 24,
+    "meaning": "One closed actual scan/body skin, precise source/raw preserved. All actualscan positions/faces/UV remain exact underrigidplacement; only724cut normals editable. Newbridge contracts withoutoutwardovershoot. Full originalbodyinput and every microcut snap recorded.",
+    "bodyCutPlaneSnapDistance": 2e-06,
+    "bodyCutPlaneSnapMeaning": "Before bisect only authored-body vertices within2e-6model of the exact body cut plane snap onto that plane. Record every preweld vertex index/old/new coordinate; no scanned source vertex is in this stage. Prevent a measured~1e-6edge cut sliver, with all strict guards unchanged.",
+    "angularPositionSigmaColumns": 6,
+    "sourceCutResidualBlendFraction": 0.28,
+    "newBridgeFairingMeaning": "Only6144new bridgevertices change. Angular-faired linear controls replace cut-normal Hermite extrapolation. At every column radii monotonically contract between actual original724cut and bodycut about linearly interpolated centers. Originalcut residual retained at endpoint and decays over upper28percent. Serialized radius guard epsilon2e-7 plus independent cut-loop/radius/envelope replay; alloldstrict/source/parent protections unchanged.",
+    "bridgeMode": "monotone-radial-contraction"
+  },
+  "fairNewBridge": true,
+  "wideVSupportedPelvicDrape": true,
+  "bridgeFairingParent": {
+    "revision": "r08a",
+    "variants": {
+      "left": {
+        "file": "left-closed-seated-body-96c7ad39c2f4af00-gzip.bin",
+        "sha256": "96c7ad39c2f4af0000a8e3d7c54164a7d89c33e1880362529690c9a0aa21e5d6"
+      },
+      "right": {
+        "file": "right-closed-seated-body-7191f1baadf2421c-gzip.bin",
+        "sha256": "7191f1baadf2421c510f938025180b88b7c04c09ba73fae2ae777404e0afc983"
+      }
+    }
+  },
+  "pelvicDrapeOutline": "Start halfwidth.34model, expand to.50 via smooth(v/.45),plus.02sin(pi*v). Same y/folds/hem, no fallback carrier plane. r09-pelvic-support-domain-audit257.json independently checks all9153XYsamplequeries per variant against immutable actual preweld triangle source:0misses on each. RejectedR09 oldoutline had43/27misses, failure retained.",
+  "monotoneNeckBridge": true,
+  "roundedPelvicFoldProfile": "Three nonuniform catenary curves use sqrt((u-center)^2+.22^2), heights .016/.020/.016 and widths .100/.110/.090model, instead of4sharpV ribs height.028 width.035. One shallow local gathering ridge height.011 width.090. Same supportedXYoutline/carrier/top/edge tucks; limbs/hands/crown held.",
+  "geometryReuseParent": {
+    "revision": "r10",
+    "manifestSha256": "3de369667bc1c040273eb1fa13b4755bad6793292f6508e4d75d0265d3c0fe8e",
+    "geometryReportSha256": "d99bff45fbff6167e1cf1fe2a13b88431fe7bf4f9a78374a04bb4c599e19c922",
+    "scope": "Every non-hand geometry descriptor/buffer, material and actual body/hem bearing reused exactly. Original R10/failedhistory remains."
+  },
+  "actualSourceHands11": {
+    "assetDirectory": "sculpture199-r08a-continuous-source-fit-mixed-licenses",
+    "manifestSha256": "495e04c16b0061ee62c76377b52a36fc1cc0d17e1d9f3da10fec6eb72a64544e",
+    "packedSha256": "e1f84c3e799b376fd6e9ac7fd90660711e43a97426055bdb56cb61fc37f12469",
+    "rawSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "licenseInputFile": "LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt",
+    "licenseInputSha256": "67a71a7d10db274cc4e07ae4ffe4381e739de67b0643c766fa34d3da25ddaf57",
+    "uniformScale": 0.78,
+    "components": {
+      "positive": {
+        "seedVertex": 141564,
+        "planeOrigin": [
+          0.56286480292494,
+          1.3800000000000008,
+          0.2709803826966819
+        ],
+        "planeNormal": [
+          -0.12096355153942599,
+          0.6134946758732943,
+          0.7803794601820899
+        ],
+        "offset": 0,
+        "roi": [
+          [
+            0.3,
+            1.25,
+            0.05
+          ],
+          [
+            0.8,
+            1.95,
+            0.55
+          ]
+        ],
+        "expectedCoreVertices": 9424,
+        "expectedCoreIndexSha256": "331e398a4193c07370e9d8f51fd8cbc001d1011c307e88470859966198892da5",
+        "expectedSourceTriangles": 18748,
+        "expectedSourceTriangleIndexSha256": "4386f7eba8a5b428a78a1279f9e3c298c074be30d574fec05154bf7fda90a284",
+        "expectedCutEdges": 208,
+        "cutCentroid": [
+          0.557479682325062,
+          1.376437336839174,
+          0.2729464410646328
+        ],
+        "fingerAxis": [
+          0.08,
+          0.98,
+          0.16
+        ],
+        "palmNormal": [
+          0,
+          -0.16,
+          0.98
+        ],
+        "meaning": "True anatomical wrist plane perpendicular to actual295measured forearm axis. ROI is an acceleration bound; complete global component/face index hashes pin every retained palm/finger vertex."
+      },
+      "negative": {
+        "seedVertex": 19182,
+        "planeOrigin": [
+          -0.56286480292494,
+          1.3800000000000008,
+          0.2709803826966819
+        ],
+        "planeNormal": [
+          0.12096355153942599,
+          0.6134946758732943,
+          0.7803794601820899
+        ],
+        "offset": 0,
+        "roi": [
+          [
+            -0.8,
+            1.25,
+            0.05
+          ],
+          [
+            -0.3,
+            1.95,
+            0.55
+          ]
+        ],
+        "expectedCoreVertices": 9424,
+        "expectedCoreIndexSha256": "003fb23872881ae3444941718296eded07a5f702b3b3186753a5b8a8eea65d2e",
+        "expectedSourceTriangles": 18748,
+        "expectedSourceTriangleIndexSha256": "694bd29b8774ae034f25bd1e54d8b2f8e9e44ac2789d0d7d5f4841dbb2f8c00c",
+        "expectedCutEdges": 208,
+        "cutCentroid": [
+          -0.557479682325062,
+          1.376437336839174,
+          0.2729464410646328
+        ],
+        "fingerAxis": [
+          -0.08,
+          0.98,
+          0.16
+        ],
+        "palmNormal": [
+          0,
+          -0.16,
+          0.98
+        ],
+        "meaning": "True anatomical wrist plane perpendicular to actual295measured forearm axis. ROI is an acceleration bound; complete global component/face index hashes pin every retained palm/finger vertex."
+      }
+    },
+    "placements": {
+      "left": {
+        "near": {
+          "sourceKind": "positive",
+          "bodyArmEnd": [
+            -0.53,
+            1.1647781640291215,
+            0.55
+          ],
+          "bodyArmPrevious": [
+            -0.52,
+            1.1147781640291214,
+            0.42
+          ],
+          "fingerAxis": [
+            0.09951412005957863,
+            0.9918218497273497,
+            0.0799146939691727
+          ],
+          "palmNormal": [
+            -0.007978156939228183,
+            -0.07951545336624556,
+            0.9968017063026194
+          ],
+          "wristInset": 0.02,
+          "innerRadiusX": 0.047,
+          "innerRadiusZ": 0.043,
+          "adapterRows": 4,
+          "meaning": "Whole source hand uses a proper rigid frame/uniform scale at the actual immutable parent forearm end. Only a short closed adapter reaches the real previous forearm station; its end ring is checked inside the actual parent body."
+        },
+        "outer": {
+          "sourceKind": "negative",
+          "bodyArmEnd": [
+            0.85,
+            1.0847781640291214,
+            0.55
+          ],
+          "bodyArmPrevious": [
+            0.83,
+            1.0147781640291214,
+            0.48
+          ],
+          "fingerAxis": [
+            -0.0953009487112549,
+            0.7903588700628522,
+            -0.6051864057360395
+          ],
+          "palmNormal": [
+            -0.07244820045190882,
+            0.6008342899161019,
+            0.7960837985490559
+          ],
+          "wristInset": 0.02,
+          "innerRadiusX": 0.047,
+          "innerRadiusZ": 0.043,
+          "adapterRows": 4,
+          "meaning": "Whole source hand uses a proper rigid frame/uniform scale at the actual immutable parent forearm end. Only a short closed adapter reaches the real previous forearm station; its end ring is checked inside the actual parent body."
+        }
+      },
+      "right": {
+        "near": {
+          "sourceKind": "negative",
+          "bodyArmEnd": [
+            0.53,
+            1.1647781640291215,
+            0.55
+          ],
+          "bodyArmPrevious": [
+            0.52,
+            1.1147781640291214,
+            0.42
+          ],
+          "fingerAxis": [
+            -0.09951412005957863,
+            0.9918218497273497,
+            0.0799146939691727
+          ],
+          "palmNormal": [
+            0.007978156939228183,
+            -0.07951545336624556,
+            0.9968017063026194
+          ],
+          "wristInset": 0.02,
+          "innerRadiusX": 0.047,
+          "innerRadiusZ": 0.043,
+          "adapterRows": 4,
+          "meaning": "Whole source hand uses a proper rigid frame/uniform scale at the actual immutable parent forearm end. Only a short closed adapter reaches the real previous forearm station; its end ring is checked inside the actual parent body."
+        },
+        "outer": {
+          "sourceKind": "positive",
+          "bodyArmEnd": [
+            -0.73,
+            1.0847781640291214,
+            0.55
+          ],
+          "bodyArmPrevious": [
+            -0.7466666666666666,
+            1.0147781640291214,
+            0.48
+          ],
+          "fingerAxis": [
+            0.0953009487112549,
+            0.7903588700628522,
+            -0.6051864057360395
+          ],
+          "palmNormal": [
+            0.07244820045190882,
+            0.6008342899161019,
+            0.7960837985490559
+          ],
+          "wristInset": 0.02,
+          "innerRadiusX": 0.047,
+          "innerRadiusZ": 0.043,
+          "adapterRows": 4,
+          "meaning": "Whole source hand uses a proper rigid frame/uniform scale at the actual immutable parent forearm end. Only a short closed adapter reaches the real previous forearm station; its end ring is checked inside the actual parent body."
+        }
+      }
+    },
+    "sourceSpaceEvidence": [
+      "r11-readonly-real-hand-source-analysis257.json",
+      "r11-readonly-wrist-boundary-analysis257.json",
+      "r11-readonly-anatomical-wrist-plane257.json"
+    ],
+    "purpose": "Actual retained existing NC source hand anatomy, no procedural phalanges; original complete source/ROIs/ancestry retained. Personal noncommercial NC-SA use authorized by Root."
+  }
+}

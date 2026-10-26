@@ -1,4 +1,6 @@
 import * as T from 'three';
+import {sitePoint214,hallLocalPoint214} from './site-transform214.js';
+import {createBearing174} from './deep-bearing319.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createGiltJoinery238} from './gilt-joinery238.js';
 
@@ -33,8 +35,17 @@ export async function createGrandFrame182({emit,box,group,mats}){
  const giltLeaf=new T.ExtrudeGeometry(leafShape,{depth:.014,bevelEnabled:true,bevelSize:.003,bevelThickness:.003,bevelSegments:2,curveSegments:10});
  const rb=.18/Math.sqrt(2),rt=.25/Math.sqrt(2),capFaceShape=new T.Shape([new T.Vector2(-rb,-.065),new T.Vector2(rb,-.065),new T.Vector2(rt,.065),new T.Vector2(-rt,.065)]),giltCapFace=new T.ExtrudeGeometry(capFaceShape,{depth:.009,bevelEnabled:false});
  for(let i=0,p=giltCapFace.attributes.position;i<p.count;i++)p.setZ(i,p.getZ(i)+rb+.003+(p.getY(i)+.065)/.13*(rt-rb));giltCapFace.computeVertexNormals();
+ const stationMaterials320=new Map(),stations320=[],finishClasses320=new Map();let activeStation320=null;
+ function material320(key){
+  const original=mats[key];if(!activeStation320)return original;const id=key+':'+activeStation320.key;
+  if(!stationMaterials320.has(id)){const copy=original.clone();copy.name='scene07-station320-'+activeStation320.key+'-'+key;copy.onBeforeCompile=original.onBeforeCompile;copy.customProgramCacheKey=original.customProgramCacheKey;copy.userData={...original.userData,hallFinish214:true,bearingStation320:activeStation320};stationMaterials320.set(id,copy);}return stationMaterials320.get(id);
+ }
+ const deep319=createBearing174(T,{emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0){const key=ma==='bearingGilt'?'gold':/flared-bearing-cup|roof-receiver/.test(g.name)?'wood':/load-arm|carved-nose-arm|cantilever-tail/.test(g.name)?'red':({cedar:'wood',red:'red'}[ma]||ma);finishClasses320.set(g.name,{sourceMaterial:ma,scene07Material:key});emit(g,material320(key)||key,x,y,z,sx,sy,sz,Array.isArray(rot)?rot:[0,rot,0]);},grouped(x,y,z,yaw,fn){group(x,y,z,yaw,1,fn);},keep:g=>g});
  function frame(x,z,bottom,roofBottom,radius,{front=1,upper=false,roofAt=null,roofContains=null,metricX=1,metricZ=1,carved=true}={}){
-  const capHeight=upper?.62:.84,head=roofBottom-capHeight,shaftBottom=bottom+.14,shaftTop=head-.075,height=shaftTop-shaftBottom;
+  const probes319=[-.80,0,.80].flatMap(dx=>[-.20,.81,.96,1.11].map(dz=>[dx,dz]));
+  const deepFits319=upper&&carved&&(!roofContains||probes319.every(([dx,dz])=>roofContains(x+front*dx,z+front*dz)));
+  if(deepFits319&&roofAt)roofBottom=Math.min(roofBottom,...probes319.map(([dx,dz])=>roofAt(x+front*dx,z+front*dz)));
+  const capHeight=deepFits319?Math.min(.98,roofBottom-bottom-.50):(upper?.62:.84),head=roofBottom-capHeight,shaftBottom=bottom+.14,shaftTop=head-.075,height=shaftTop-shaftBottom;
   if(height<.25)throw Error('182 frame has no occupied shaft interval');
   emit(shaft(radius,height),mats.red,x,shaftBottom,z,metricX,1,metricZ);
   emit(shoe,mats.terraceStone,x,bottom+.07,z,radius/.31*metricX,1,radius/.31*metricZ);
@@ -43,6 +54,15 @@ export async function createGrandFrame182({emit,box,group,mats}){
   box(x,head-.025,z,radius*2.35,.15,radius*2.35,'wood');
   const scaleY=capHeight/.92;
   group(x,head,z,front<0?Math.PI:0,1,()=>{
+   if(deepFits319){
+    const sampleZ=z+front*1.32,roofAtSample=roofAt?roofAt(x,sampleZ):roofBottom,sampleY=Math.min(head+capHeight*.55,roofAtSample-.14),key='upper-bearing320-'+(front>0?'front':'rear')+'-'+x.toFixed(2),localPoint=[x,sampleY,sampleZ],worldPoint=sitePoint214(hallLocalPoint214(localPoint,{upper:true})),normalPoint=sitePoint214(hallLocalPoint214([x,sampleY,sampleZ+front],{upper:true})),normalWorld=new T.Vector3(...normalPoint).sub(new T.Vector3(...worldPoint)).normalize().toArray(),record={key,upper:true,axis:[x,z],head,roofBottom,capHeight,front,localPoint,worldPoint,normalWorld,roofAtSample,roofClearance:roofAtSample-sampleY,cubeNear:.08,noseFrontOffset:1.135,probeForwardOffset:1.32,probeBeyondGalleryEdge:Math.abs(sampleZ)-3.95};stations320.push(record);const previousStation=activeStation320;activeStation320=record;
+    try{deep319.cluster(0,0,0,capHeight,.70,true,.67);
+    for(const xx of[-.66,0,.66]){
+     const zz=1.43*.67,bodyTop=capHeight-(.020*(1-(xx/.784)**2))*(capHeight/2.08),target=roofAt?Math.min(...[-.10,0,.10].flatMap(dx=>[-.12,0,.12].map(dz=>roofAt(x+front*(xx+dx),z+front*(zz+dz))))):roofBottom,h=target-head-bodyTop;
+     if(h>.002)box(xx,bodyTop+h/2,zz,.20,h+.003,.24,material320('wood'));
+    }}finally{activeStation320=previousStation;}
+    return;
+   }
    const inside=(xx,zz)=>!roofContains||roofContains(x+front*xx,z+front*zz);
    const beam=(xx,yy,zz,len,depth,angle=0)=>{
     if(roofContains){const dx=Math.cos(angle),dz=-Math.sin(angle),sample=Array.from({length:49},(_,i)=>-len/2+i*len/48).filter(t=>inside(xx+dx*t,zz+dz*t));if(sample.length<2)return;const a=sample[0],b=sample.at(-1),mid=(a+b)/2;xx+=dx*mid;zz+=dz*mid;len=b-a;}
@@ -75,7 +95,7 @@ export async function createGrandFrame182({emit,box,group,mats}){
    // entrance stays open; these are fitted ornaments over real timber seats.
    if(carved&&(front>0||Math.abs(x)>4.3)){const sc=upper?.28:.36;for(const g of carvedParts)emit(g,carvedWood,0,.055,.13,sc,sc/.88,sc);}
   });
-  contacts.push({axis:[x,z],floor:bottom,shaftBottom,shaftTop,clearShaftHeight:height,head,roofBottom,capHeight,upper});
+  contacts.push({axis:[x,z],floor:bottom,shaftBottom,shaftTop,clearShaftHeight:height,head,roofBottom,capHeight,upper,bearingKind319:deepFits319?'reviewed03-four-rank-closed-carved-kit':'retained182-clipped-three-rank'});
  }
- return{frame,info:()=>({revision:'scene07-fitted-neck-collars-and-pierced-curve-arm-inserts238-r26',contacts,fittedGilt238:fittedGilt238.info(),construction:'Entasis shafts on mineral shoes; three crossed closed curved arm tiers, interleaved splayed blocks, actual fitted neck collars, pierced cast arm inserts and queried roof seats. Existing CC BY carved cheeks retained on front and outer axes. Inferred construction, not measured historical joinery.',visualAccepted:false})};
+ return{frame,info:()=>({revision:'scene07-319-thick-correct-bearings-and-outside-station-captures320-r04',contacts,stationRadiance320:{stations:stations320,finishClasses:[...finishClasses320.entries()].map(([geometry,finish])=>({geometry,...finish})),materialCopies:stationMaterials320.size,outerSurfaceApproximation:true,cameraFollowing:false},deep319:{instances:deep319.instances,seats:deep319.seats,construction:deep319.construction},fittedGilt238:fittedGilt238.info(),construction:'Entasis shafts on mineral shoes; three crossed closed curved arm tiers, interleaved splayed blocks, actual fitted neck collars, pierced cast arm inserts and queried roof seats. Existing CC BY carved cheeks retained on front and outer axes. Inferred construction, not measured historical joinery.',visualAccepted:false})};
 }

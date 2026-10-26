@@ -1,0 +1,80 @@
+{
+  "revision": "scene06-attendants257-r11",
+  "changes": "R11 changes hands only. All R10 body/actual-scan head/cloth/crown/cap geometry buffers, native material values and measured body/hem bearing are reused exactly under SHA/read-only guards. Two measured true-wrist source-hand components are extracted from the existing NC Sainsbury Amida adaptation. Every retained source palm/finger vertex/normal/UV and every complete original hand triangle has an explicit original source index and uniform-scale/proper-rigid replay. Actual wrist edge-intersection fractions, clipped source triangle parents and hidden authored wrist adapters are recorded in HA11 ancestry. Adapter ends are tested inside actual immutable R10 forearms and all adapter interior lies below the original source wrist cut. Source raw/model and complete local input/failed buffers retained. No procedural finger rods, photograph/depth carrier, viewport/render/export/bake/GPU or Blend. Pure CPU max4threads/exclusive reviewed lock; actual appearance still requires official native review.",
+  "sourceLicenses": [
+    {
+      "creator": "beachmouse",
+      "title": "Buddha Head",
+      "license": "CC-BY-4.0",
+      "url": "https://sketchfab.com/3d-models/buddha-head-5feec372c644454fb9514db5b1834eab",
+      "licenseFile": "../ccby-beachmouse-japanese-head/LICENSE.md"
+    },
+    {
+      "source": "Scan-the-World Sainsbury Amida actual hand surfaces via retained R08a adaptation",
+      "license": "CC-BY-NC-SA-4.0",
+      "url": "https://doi.org/10.5281/zenodo.21353739",
+      "licenseFile": "LICENSE-source-hands-CC-BY-NC-SA-4.0.txt"
+    }
+  ],
+  "attribution": "\"Buddha Head by beachmouse, CC BY 4.0, via Sketchfab and Objaverse; rigidly cropped/placed and subdivided. New body, neck bridge and fine hair geometry authored for this reconstruction.\"; Real hand components retained from the existing R08a adaptation of Scan-the-World Sainsbury Amida, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0. The selected hands are below sourceY1.867 and do not include the donor-head derivative. Original source raw/indices are preserved; wrist cut, uniform scaling, proper rigid placement and hidden wrist adapters are declared derivatives. Different statue from the reference; personal noncommercial adaptation, no endorsement.",
+  "sourceInputHistoricalAttribution": "NC source/R05 body and retained skull/ears/neck: Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739 , CC BY-NC-SA4.0. Actual facial surface target: Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79 , CC BY4.0, https://creativecommons.org/licenses/by/4.0/ . Donor culture/period unspecified; not claimed Japanese. Modifications: real3D BVH ray-triangle surface retarget onto NC connected topology, 99% core donor hit plus1% source regularization, broad smooth neck/temple/scalp transition; knownR05 curl relief removed and bounded source cap cage. Originals retained unchanged. No endorsement implied. Combined adaptation/imagery retains NC-SA4.0; original donor remains CC BY4.0. R06f additionally fairs a measured 3D source scalp radial field, with compact anisotropic deformation of existing scalp and restrained Taubin fairing of actual head triangles; no synthetic head replacement. R06g fairs the actual inherited scalp ridge with 300 pinned-boundary Laplacian steps and reduces lower-cheek scan chatter with 60 Taubin pairs. R06h carves fine shallow spiral curl relief directly into the same continuous scalp; sampled original scalp vertex roots and tangent frames retained. R06j, after rejecting I for excessive ear/jaw smoothing, repositions the anterior ear attachment posteriorly and inward, preserves the ear bowl/rim through smooth anchors, and blends side-cheek/jaw curvature with gentler connected-mesh fairing. Actual donor eyelid/nose/lip cores and all body positions below Y2.15 remain exact. Ear attachment is a declared reshaped derivative. R08a rejects the R07 donor-cheek transplant and retains the entire uncut continuous J/NC face. Conforming refinement adds source-supported feature detail; actual saved donor triangle/barycentric targets and exact closest points on neighboring source triangles guide bounded eye/brow/nose/lip geometry, without transplanting the donors worn cheeks. Existing source ears turn coherently, with direct original-NC triangle/barycentric ancestry. Actual irregular coil roots and raised curls are sculpted on the connected scalp; standard aged-gold vertex color keeps the original metalness/roughness/roughnessMap. Original inputs and all rejected candidates remain.",
+  "geometryReuseParent": {
+    "revision": "r10",
+    "manifestSha256": "3de369667bc1c040273eb1fa13b4755bad6793292f6508e4d75d0265d3c0fe8e",
+    "geometryReportSha256": "d99bff45fbff6167e1cf1fe2a13b88431fe7bf4f9a78374a04bb4c599e19c922",
+    "scope": "Every non-hand geometry descriptor/buffer, material and actual body/hem bearing reused exactly. Original R10/failedhistory remains.",
+    "reusedParts": [
+      {
+        "variant": "left",
+        "file": "left-closed-seated-body-2a81f0cc1d8e9fd5-gzip.bin",
+        "sha256": "2a81f0cc1d8e9fd5cf6f545eb39d7f8dd76d617c4dd8e910d16c32f504ad27d6",
+        "material": "buddha"
+      },
+      {
+        "variant": "left",
+        "file": "left-closed-thin-layered-garments-f59c4d19fbd4e64f-gzip.bin",
+        "sha256": "f59c4d19fbd4e64f80d3f74b6d5756aaf5cbefdbbe08de714234876e147aa421",
+        "material": "cloth"
+      },
+      {
+        "variant": "left",
+        "file": "left-closed-crown-cap-9f095d76723aa656-gzip.bin",
+        "sha256": "9f095d76723aa656e3dd3ec47d2d09786b53765780a512314728828736d036d2",
+        "material": "oldgold"
+      },
+      {
+        "variant": "left",
+        "file": "left-closed-crown-jewelry-2fe33feba8ec262a-gzip.bin",
+        "sha256": "2fe33feba8ec262a79871dea501b4476e3660dfff7ed91654a853e3460427df7",
+        "material": "gold"
+      },
+      {
+        "variant": "right",
+        "file": "right-closed-seated-body-4b8a1457183c4046-gzip.bin",
+        "sha256": "4b8a1457183c404635134893e812d8f94d6d92caddc91b20d0c2e418de10a508",
+        "material": "buddha"
+      },
+      {
+        "variant": "right",
+        "file": "right-closed-thin-layered-garments-7fdbff6fb4bfc6fd-gzip.bin",
+        "sha256": "7fdbff6fb4bfc6fdf2e5f7a917a7b25fb1638db7603bef33dfedd58f58a126f9",
+        "material": "cloth"
+      },
+      {
+        "variant": "right",
+        "file": "right-closed-crown-cap-9f095d76723aa656-gzip.bin",
+        "sha256": "9f095d76723aa656e3dd3ec47d2d09786b53765780a512314728828736d036d2",
+        "material": "oldgold"
+      },
+      {
+        "variant": "right",
+        "file": "right-closed-crown-jewelry-2fe33feba8ec262a-gzip.bin",
+        "sha256": "2fe33feba8ec262a79871dea501b4476e3660dfff7ed91654a853e3460427df7",
+        "material": "gold"
+      }
+    ],
+    "bodyClothCrownCapBytesExact": true,
+    "bearingAndMaterialsExact": true
+  },
+  "photographicFidelityAccepted": false
+}

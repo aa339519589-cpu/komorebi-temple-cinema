@@ -32,7 +32,8 @@
     "assets/polyhaven/shrub-02/shrub_02.bin",
     "assets/polyhaven/shrub-02/textures/shrub_02_arm_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
-    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg"
+    "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
+    "assets/polyhaven/periwinkle-plant/periwinkle_plant_4k.gltf"
   ],
   "materialUse141": {
     "timber": "Existing Poly Haven Lacquered Cherry Wood CC0 normal and bounded roughness on authored painted carpentry; no color-photo projection.",
@@ -80,5 +81,29 @@
     "photographSampled": false,
     "visualAccepted": false,
     "use": "CPU-authored closed structural solids, triangle-safe circulation reservation, bounded creek geometry and an actual scene planar reflection. Existing declared CC0 granite/timber maps and natural193 botanical sources retained; original CC BY carving untouched."
+  },
+  "ground321": {
+    "scope": "Closed worn split paving, supported grit joints, actual bounded shallow water and open drainage; no new downloaded assets.",
+    "source": "src/ground321.js",
+    "materialSource": "Existing declared CC0 Poly Haven granite_tile_04 diffuse/normal/roughness, retained metre UV and3.151 repeats per metre.",
+    "reference": "references/hd/9-照片-10.jpg comparison only; no image/depth sampling",
+    "visualAccepted": false,
+    "revision": "ground321-r07",
+    "water": "Actual closed finite shallow water volumes clipped from real stone cap low spots, with submillimetre top-vertex corrugation and shore fade. MeshPhysicalMaterial IOR1.333/transmission.995; actual local-scene CubeCamera reflection. No screen-image reflection layer.",
+    "numericalLimits": "Water is clipped from actual cap topology. Exact native Float32 closure is enforced. A degenerate touching pond may settle up to0.8mm lower; every attempted actual level and diagnostic remains in its receipt. No mesh hole is hidden by an image.",
+    "contact": "Closed stone slabs overlap existing bedding; groove water overlaps the lowest supported grit, footstone runoff meets its grit collar, and channel water extends to the actual drain floor. Minimum stone film400microns with50micron numerical contact overlap.",
+    "reflectionR08": {
+      "source": "src/planar-ground321.js",
+      "method": "Current-camera clipped3D planar linearHDR radiance feeds actual water/base/clearcoat BRDF. Legacy floor overlay disabled; no screen-image layer.",
+      "planes": "Actual median pool height; joint/collar.0405m; actual channel water-.052m.",
+      "bounces": 1,
+      "kept": "ClosedR07 geometry,IOR/transmission,lights/exposure,reference camera/layout and deterministic scene RNG",
+      "visualAccepted": false,
+      "samplers": "Three actual height captures share one2048x1536 linearHDR atlas with64px gutters and.76 projection overscan. One fragment reflection sampler; existing granite base normal and independent analytic water-film slope retained, duplicate wet bump/clearcoat-normal samplers removed.",
+      "metricNormal": "The existing analytic wet-grain height uses unnormalized surface derivatives, retaining world-metre slopes through a genuine subfrustum render; mineral scan normal is separate from the film normal.",
+      "prefilter": "Actual local cube explicitly PMREM-filtered outside complex draws; planar roughness LOD accounts for physical projection scale/crop.",
+      "energy": "Main valid planar reflection uses actual captured visible-source radiance. Keep only bounded unresolved analytical proxy residual:water8%,wet-mineral18%; direct diffuse lighting/all source light parameters remain held. This hybrid photometric approximation is explicit; real IOR/Fresnel/refraction remain active.",
+      "roughness": "Planar mip radius follows GGX alpha=roughness squared and current projected angular scale, withLOD6 cap/gutter limits. Wet mineral clearcoat is rougher than actual shallow water."
+    }
   }
 }

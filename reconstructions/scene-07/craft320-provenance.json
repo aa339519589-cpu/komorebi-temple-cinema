@@ -1,0 +1,49 @@
+{
+  "revision": "craft320-r09",
+  "status": "unaccepted-candidate-with-retained-thick-geometry",
+  "baselineSourceHash": "03d6518169955ddc68cdd222234946576641aad3e4d9777087dcaaa3a9dbce97",
+  "geometryDecision": "Keep reviewed03 deep four-rank bearing geometry from R02. Its plan width is close to original182, while actual world cap height increases from about.76m to1.08\u20131.21m, closer to the reference upper bearing silhouettes. Darkness is assessed separately from dimensional fidelity.",
+  "diagnosis": "The old upper-porch capture at local[.45,9.40,3.12] is inside the upper gallery floor boundary aroundz3.78 and near the lower bearing arms, while carved nose faces extend toz\u22484.535. Its downward hemisphere is floor-occluded and is not the radiance field at the exterior carving faces.",
+  "radianceChange": "Each complete principal bearing station gets an independent, fixed actual-scene cube capture beyond its own nose front, outside the gallery edge, with roof/near-plane clearance derived from the actual station height and roof function. Material keys bind to those station fields; intensities remain1.",
+  "validation": "Actual linear HDR capture data integrate incoming radiance against real facade and downward normals. No exposure/global fill/new light is introduced in this round.",
+  "held": [
+    "R03 roof, bridge, stairs, garden and reference camera",
+    "Existing sun/sky and all light intensities",
+    "Exposure and PBR material source pixels"
+  ],
+  "newImageAssets": false,
+  "referenceRGBUsed": false,
+  "photographicAccepted": false,
+  "limits": [
+    "Fixed local IBL is still an authored native one-bounce approximation, not solved diffuse GI",
+    "Reference joinery/carpentry remains an interpretation"
+  ],
+  "normalRepair": "Directed-edge audit found96 inconsistent boundary sidewall edges on each of six fitted metal skins, despite positive global volume. The sidewall triangle order is corrected; source front/back surfaces and dimensions are unchanged.",
+  "finishRepair": "R02 cedar->wood adaptation changed many formerly red-lacquered07 arms into bare dark wood. R05 restores existing07 finish classes by actual member role: load arms/raking tails use unchanged red lacquer; flared dou/receiver use unchanged wood; worked skins use unchanged gilt. No pigment, roughness, exposure or light scalar is raised.",
+  "waterReturnRepair": "All old local captures disabled the real pond. R06 includes the existing actual Reflector only in exterior bearing-station fields, using its bounded self-hide reflection render. The solar disk stays excluded from direct sky IBL, but is present within the water-reflected scene. Per-station faces increase128->256 to resolve the actual opening and reflective details. No added light, energy gain or exposure change.",
+  "skyEnergyRepair": {
+    "derivation": "The source removes solar/aureole radiance from the HDRI, then replaces its key with fixed total24*RGB[1,.40,.085] while multiplying the retained sky by unrelated.55. R08 integrates the same removed component over exact equirectangular pixel solid angles and cosine to its measured centroid, and dynamically reconciles its luminance to the held key.",
+    "integrand": "(rawRGB-clampedRGB)*max(dot(direction,solarCentroid),0)*cos(latitude)*(2pi/width)*(pi/height)",
+    "luminanceWeights": [
+      0.2126,
+      0.7152,
+      0.0722
+    ],
+    "achromaticOnly": true,
+    "fullSpectrumMatched": false,
+    "absoluteSitePhotometryClaimed": false,
+    "newHardcodedBrightnessNumber": false,
+    "cameraExposureAndSolarPowerHeld": true,
+    "sameWorldSkyInCameraReflectionAndAllProbes": false,
+    "complexFiniteResidualR07Included": false
+  },
+  "nativeDomain320": {
+    "reason": "Native R08 confirmed global unit reconciliation washes the legacy-tuned outdoor surfaces. It is retained as a radiometric boundary, not accepted visually.",
+    "implementation": "The dynamically sun-normalized sky/environment is used while rendering actual fixed upper-exterior and bearing-station cubes. All ordinary fields and final visible sky/reflection return to the legacy source. Geometry/shadows/materials are actually rendered in each domain; final upper materials bind those completed calibrated probes at intensity1.",
+    "exposureChanged": false,
+    "materialColourMultiplied": false,
+    "newLights": 0,
+    "globalRadiometricConsistencyClaimed": false,
+    "limit": "This is explicitly a hybrid staged native return approximation. It cannot be cited as one globally calibrated physical light field."
+  }
+}

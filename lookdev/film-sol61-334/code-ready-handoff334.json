@@ -1,0 +1,171 @@
+{
+  "status": "G-code-ready-for-root-review-and-final-pushed-commit",
+  "at": "2026-10-26T07:33:34.746Z",
+  "graphicsStarted": false,
+  "snapshotStarted": false,
+  "sourceCommit": null,
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ]
+  },
+  "runtimeArtifacts": [
+    {
+      "file": "tools/film-snapshot-workflow.mjs",
+      "sha256": "f85995b7c7d122d1cbafe19079e8a281bb62df6dff2b5d1da8eb7e516bd67618",
+      "bytes": 27602
+    },
+    {
+      "file": "tools/film-snapshot-contract.mjs",
+      "sha256": "a9a1d4cc6924bca562ffe982d0d552871949cf3c4d9ba6e27b348d01bb4f0e9a",
+      "bytes": 9382
+    },
+    {
+      "file": "tools/native-motion-journal.mjs",
+      "sha256": "807b1113bf11acf4765f40ee2d3b32eb10b03d965bf94d90d42f015b93dfa635",
+      "bytes": 2233
+    },
+    {
+      "file": "tools/film-media-review.mjs",
+      "sha256": "c282626fb70adf766962dd27e1ba03a577b97ce16b52841f6d6e4a9b4efe5d47",
+      "bytes": 6112
+    },
+    {
+      "file": "tools/compress-owned-film-report334.py",
+      "sha256": "ae3ea2cca9f29aa719053be3993afff244a12b003e1c42818ad1c8370d89a71a",
+      "bytes": 4597
+    },
+    {
+      "file": "lookdev/film-sol61-334/render-one-reconstruction-observability334.patch",
+      "sha256": "71bdae5d2e9f94b26adfce7cd179f4832e63fcc79078510ce73163241da3452f",
+      "bytes": 8754
+    },
+    {
+      "file": "lookdev/film-sol61-334/render-one-reconstruction.proposed334.mjs",
+      "sha256": "b611a069c5a73b88201dc99c1f2a76d62c801f5c39fd0746dc74f351d54429f4",
+      "bytes": 15232
+    },
+    {
+      "file": "lookdev/film-sol61-334/test-contract334.mjs",
+      "sha256": "16649587e5df0d3669b95973e2c28c89e565b7f0b950040387c73179c3e02ec2",
+      "bytes": 3148
+    },
+    {
+      "file": "lookdev/film-sol61-334/test-durability334.mjs",
+      "sha256": "58e45a744dbe0b005257918ac0d8516f5b8e23d9a6b214c165eb3f4007ca7723",
+      "bytes": 3536
+    }
+  ],
+  "protectedFiles": [
+    {
+      "file": "qa/depth-field-film-v02/assets.json",
+      "bytesUnchanged": true,
+      "indexUnchanged": true
+    },
+    {
+      "file": "lookdev/scene06-statue-foundation-v2/README.md",
+      "bytesUnchanged": true,
+      "indexUnchanged": true
+    },
+    {
+      "file": "reconstructions/scene-08/README.md",
+      "bytesUnchanged": true,
+      "indexUnchanged": true
+    },
+    {
+      "file": "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json",
+      "bytesUnchanged": true,
+      "indexUnchanged": true
+    }
+  ],
+  "liveOfficialDriverUnchanged": true,
+  "validation": {
+    "contractCases": 7,
+    "durabilityCases": 5,
+    "artifacts": [
+      "preparation-validation.json",
+      "durability-validation.json"
+    ],
+    "sourceScope": "CPU-only checks; no new G media or 3D browser was created"
+  },
+  "cacheCandidates": [
+    {
+      "reference": 2,
+      "currentLiveSourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "completedFSourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "identicalNow": true,
+      "completedFVideoSha256": "9c6a1bc9aba35d5a70def09fa3b54cb2b0194582b2c0c32ebf4f65f2aa5d08f5",
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/02/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "scope": "Read-only precommit cache candidate analysis. Recheck against the final immutable G snapshot; live bytes are not an authorized film source."
+    },
+    {
+      "reference": 9,
+      "currentLiveSourceHash": "4757862cf5799582aefaef4e6fe8d88b20945ce0cfcabc7bff38a5b3c8f2590f",
+      "completedFSourceHash": "4757862cf5799582aefaef4e6fe8d88b20945ce0cfcabc7bff38a5b3c8f2590f",
+      "identicalNow": true,
+      "completedFVideoSha256": "30faddb4c0cefbcc06eff1b5aab16b149ccb04ea7e7cfb12f1de923f3490f098",
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/09/iteration-sol61-rebuild-20261024-f-resume1/motion-review.mp4",
+      "scope": "Read-only precommit cache candidate analysis. Recheck against the final immutable G snapshot; live bytes are not an authorized film source."
+    }
+  ],
+  "rootApply": "Apply the independent official-driver patch only at a safe FIFO interval, then commit the five new runtime helpers plus driver change with the selected scene sources. Provide the exact pushed 40-hex G commit.",
+  "commands": {
+    "prepare": "node tools/film-snapshot-workflow.mjs prepare --lane=/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-334 --commit=<ROOT_FINAL_PUSHED_40_HEX>",
+    "capture": "node tools/film-snapshot-workflow.mjs capture --lane=/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-334",
+    "assemble": "node tools/film-snapshot-workflow.mjs assemble --lane=/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-334",
+    "review": "node tools/film-snapshot-workflow.mjs review --lane=/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-334",
+    "status": "node tools/film-snapshot-workflow.mjs status --lane=/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-334"
+  },
+  "artifactPaths": {
+    "snapshot": "/Users/mima1234/temple-cinema-film-g-sol61-334-<commit8>",
+    "rawClips": "<snapshot>/qa/ten-reference/{01..10}/iteration-sol61-rebuild-20261026-g/motion-review.mp4 (reused clips keep their original F paths)",
+    "full70": "<snapshot>/output/sol61-rebuild-20261026-g/temple-ten-scenes-70s.mp4",
+    "minute60": "<snapshot>/output/sol61-rebuild-20261026-g/temple-ten-scenes-60s.mp4",
+    "reviewRequest": "<snapshot>/output/sol61-rebuild-20261026-g/frame-review-request.json"
+  },
+  "resumePolicy": {
+    "liveChild": "Attach/poll actual PID and journal, never timeout-restart.",
+    "completed": "Verify source/sampling/driver/MSAA/encoded SHA/certificate, skip unchanged completed shots.",
+    "orphanComplete": "Only recover from all168 successful native journal records plus probed/decoded168-frame existing bitstream; preserve original receipt.",
+    "partial": "Preserve and mark attention; no automatic re-render/overwrite.",
+    "failedSnapshot": "Preserve partial materialization; do not silently delete/recreate snapshot."
+  },
+  "fairness": "Every new source shot is one independent official render-one FIFO child; no global GPU lock spans the film.",
+  "storage": {
+    "journal": "Minimal per-frame pose/GL/MSAA/hash records, no repeated giant scene info.",
+    "reportCompression": "Only current-process newly generated terminal G reports before completion publication, using ditto --hfsCompression --noclone with exact raw SHA/path/mode/mtime checks. Reused F and uncertain resumed/shared reports are excluded.",
+    "largeMedia": "Do not git-add MP4s over100MB; publish concrete final artifacts via a new GitHub release.",
+    "automaticCompressionGate": "Freshly launched and terminal G-only official child, before completion publication; lsof closed/single link/untracked snapshot file/exact raw SHA/path/mode/mtime checks. No reused F or uncertain resumed reports."
+  },
+  "knownReviewLimits": [
+    "Legacy F02/09 numeric per-pass MSAA was not recorded; reuse carries explicit exact-source/vendor/runtime multisample-contract evidence, not a forged numeric observation.",
+    "The proposed observer/journal patch leaves renderShot sample times/readPixels/encoding pixel paths unchanged; actual new main framebuffer MSAA is measured during authorized capture.",
+    "Full bitstream decode is technical validation; sampled frame review does not establish every-frame photographic fidelity or absence of every flicker."
+  ],
+  "photographicAccepted": false,
+  "originalGoalComplete": false,
+  "finalOutputsAlsoInclude": [
+    "media-receipt.json",
+    "release-upload-plan.json",
+    "frame-review-request.json"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "revision": "craft319-r03",
+  "status": "native-3D-candidate-unaccepted",
+  "baselineSourceHash": "af2e6143fa9df3e3b83fad2622000c51ec846f4ddb5b611cc51e3ef4acec8b2c",
+  "fundamentalIssue": "The main roof has closed tiles, but every lane has aligned course joints and a repeated cross section; a straight block ridge and incomplete terminal tile profiles make the wide roof read as a uniform rigid sheet.",
+  "geometry": [
+    "Shared C1 main roof ogee section controls ceramic bedding, all rafters, gable enclosure and actual bearing queries; center ridge/eave anchors held and17cm ridge-end camber authored",
+    "Retained reviewed Scene05 closed fired-clay pan/cover profile laid at Scene07 metric pitch with staggered overlaps, independent cut/radius/wear and per-tile kiln variation",
+    "Actual closed eave discs, raised ceramic flowers and concave pan drip mouths replace the open-ended roof-edge reading",
+    "Segmented curved crowned ridge covers seat on retained ridge bedding; no new gold strip or image texture"
+  ],
+  "reusedSource": {
+    "from": "reconstructions/scene-05/src/handlaid-ceramics.js",
+    "to": "src/handlaid-ceramic319.js",
+    "sha256": "0b43ade7460ce4adaa4df198e42d4c4f3f8196877fd1ceefe3ff17ac9b2bce4d",
+    "scope": "Original reviewed repository-native closed pan/cover cross-section geometry only; Scene07 layout and sampling are independent"
+  },
+  "held": [
+    "Reference camera",
+    "Bridge/stair/garden and foreground roof",
+    "Main roof eave footprint, center ridge height and overall hall anchors",
+    "Lighting/exposure and existing image assets"
+  ],
+  "newImageAssets": false,
+  "referenceScenePixelsUsed": false,
+  "structuralOrHistoricalCertification": false,
+  "photographicAccepted": false,
+  "r03": [
+    "R01 full/detail exposed unsupported ridge cover edges; the bed height now receives the actual cover edge with a small overlap, and exposed ridge bedding has an exterior fired-clay finish",
+    "The side-face camber uses actual side-plane X so the shared height query and generated side skin remain coherent",
+    "The R02 reused thick upper-bearing experiment is retained separately but excluded because native full/detail became a darker less readable strip. R03 retains the original07 bearing geometry, with its real roof queries following the new common section."
+  ],
+  "limitations": [
+    "Reference07 main cornice carving density, exact roof proportions, and photographed weathering remain unmatched",
+    "Retained upper/lower timber is still simplified and unevenly readable under current native lighting",
+    "No photographic or structural/historical certification"
+  ]
+}

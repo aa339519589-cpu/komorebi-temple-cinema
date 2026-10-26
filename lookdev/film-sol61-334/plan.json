@@ -1,0 +1,67 @@
+{
+  "revision": "film-sol61-334-g",
+  "status": "code-preparation-awaiting-root-pushed-commit",
+  "sourceCommit": null,
+  "snapshotRoot": null,
+  "sourceMode": "one-root-provided-public-Git-commit-independent-APFS-clonefile-snapshot",
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ],
+    "output": [
+      1080,
+      1080
+    ],
+    "native": [
+      1620,
+      1620
+    ],
+    "requireMainSceneMsaa": true
+  },
+  "reuseFilmBuilds": [
+    "/Users/mima1234/temple-cinema-film-f-sol61-232/output/sol61-rebuild-20261024-f-resume1/film-build.json"
+  ],
+  "music": {
+    "file": "music/PerituneMaterial_Oboro.mp3",
+    "attribution": "music/ATTRIBUTION.json",
+    "offsetSeconds": 25
+  },
+  "sourceDriverBeforeSha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645",
+  "protectedPaths": [
+    "qa/depth-field-film-v02/assets.json",
+    "lookdev/scene06-statue-foundation-v2/README.md",
+    "reconstructions/scene-08/README.md",
+    "qa/ten-reference/07/iteration-scene07-rebuild214-r11/report.json"
+  ],
+  "noSnapshotOrCaptureStarted": true,
+  "photographicAccepted": false,
+  "originalGoalComplete": false,
+  "runtimeTools": [
+    "tools/film-snapshot-workflow.mjs",
+    "tools/film-snapshot-contract.mjs",
+    "tools/native-motion-journal.mjs",
+    "tools/film-media-review.mjs",
+    "tools/compress-owned-film-report334.py"
+  ],
+  "officialDriverPatch": "lookdev/film-sol61-334/render-one-reconstruction-observability334.patch",
+  "officialLiveDriverSha256Observed": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645"
+}

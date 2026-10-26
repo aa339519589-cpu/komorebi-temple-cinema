@@ -15,7 +15,7 @@ export function createNearSurfaceReflectionMask(T){
     // An authored shallow spill level for this existing worn stone. Only
     // locations below it receive the pore-water optical response; highs keep
     // the original grain normal. This never raises the stone or adds a plane.
-    const waterLevel=record.topYRange[1]-Math.max(.0025,record.profile.basin[4]*.65);
+    const waterLevel=record.spillWaterY??record.topYRange[1]-Math.max(.0025,record.profile.basin[4]*.65);
     minWaterLevel=Math.min(minWaterLevel,waterLevel);maxWaterLevel=Math.max(maxWaterLevel,waterLevel);
     for(let i=0;i<p.count;i+=3){
      const ax=p.getX(i),az=p.getZ(i),ay=p.getY(i),bx=p.getX(i+1),bz=p.getZ(i+1),by=p.getY(i+1),cx=p.getX(i+2),cz=p.getZ(i+2),cy=p.getY(i+2);

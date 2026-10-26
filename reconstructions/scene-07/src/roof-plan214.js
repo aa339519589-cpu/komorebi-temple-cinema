@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {inverseRoofRise319,ridgeCamber319} from './roof-section319.js';
 
 // A fixed inferred skew ridge over the retained eave perimeter. This changes
 // actual roof/rafter/gable geometry. There is no camera or image coordinate
@@ -29,8 +30,8 @@ export function createRoofDetailAPI214(api,spec){
  if(!spec.ridgeSkew)return api;
  const exponent=spec.gabled?1.72:1.49;
  const mapPoint=p=>{
-  const ty=1-Math.pow(T.MathUtils.clamp((p[1]-spec.e)/spec.rise,0,1),1/exponent),t=Math.max(Math.abs(p[2])/(spec.d/2),ty),w=Math.pow(Math.max(0,1-t),1.5);
-  return[p[0],p[1],p[2]+spec.ridgeSkew*p[0]*w];
+  const ordinate=T.MathUtils.clamp((p[1]-spec.e)/spec.rise,0,1),ty=spec.profile319?inverseRoofRise319(ordinate):(1-Math.pow(ordinate,1/exponent)),t=Math.max(Math.abs(p[2])/(spec.d/2),ty),w=Math.pow(Math.max(0,1-t),1.5);
+  return[p[0],p[1]+(spec.profile319?ridgeCamber319(spec,p[0],t):0),p[2]+spec.ridgeSkew*p[0]*w];
  };
  function geometry(g,matrix=new T.Matrix4()){
   g=g.clone().applyMatrix4(matrix);const p=g.attributes.position;

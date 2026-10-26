@@ -89,7 +89,7 @@ export function createBearing174(T,{emit,grouped,keep=g=>g}){
    const map=new Map(),p=[],uv=[],edges=new Map(),ix=[];for(const t of chosen)for(const id of t)if(!map.has(id)){map.set(id,map.size);p.push(pos.getX(id)+sign*.0025,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
    const count=map.size;for(const id of map.keys()){p.push(pos.getX(id)-sign*.0003,pos.getY(id),pos.getZ(id));uv.push(pos.getZ(id),pos.getY(id));}
    for(const t of chosen){const a=t.map(id=>map.get(id));ix.push(...a,a[0]+count,a[2]+count,a[1]+count);for(let k=0;k<3;k++){const j=a[k],l=a[(k+1)%3],key=Math.min(j,l)+','+Math.max(j,l);if(edges.has(key))edges.get(key).n++;else edges.set(key,{a:j,b:l,n:1});}}
-   for(const {a,b,n}of edges.values())if(n===1)ix.push(a+count,a,b,a+count,b,b+count);
+   for(const {a,b,n}of edges.values())if(n===1)ix.push(a+count,b,a,a+count,b+count,b);
    const skin=new T.BufferGeometry();skin.setAttribute('position',new T.Float32BufferAttribute(p,3));skin.setAttribute('uv',new T.Float32BufferAttribute(uv,2));skin.setIndex(ix);out.push(finish(skin,'scene03-308-closed-thin-gilt-following-actual-carved-cut-'+sign));
   }
   faceSkins308.set(g,out);

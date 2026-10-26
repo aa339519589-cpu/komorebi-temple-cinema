@@ -3,6 +3,8 @@ import {mergeGeometries,mergeVertices} from 'three/addons/utils/BufferGeometryUt
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {createPavingWetMask,createWetStoneGrain,clipPavingAtDrain} from './paving-mask.js';
 import {createWornFlagstone} from './worn-flagstone.js';
+import {createGroundPlanarReflection321} from './planar-ground321.js';
+import {createLaidRainStones321,createJointBed321,createJointWater321,createVerandaReceiver321,buildDrain321,emitJointGrit321,buildColumnCollar321,groundGritAudits321} from './ground321.js';
 import {nearRainStoneProfiles,createNearRainFlagstone,createNearJointBed} from './near-rain-stones.js';
 import {createNearSurfaceReflectionMask,installNearSurfacePlaneExclusion,installNearSurfaceWaterResponse} from './near-surface-reflection.js';
 import {Reflector} from 'three/addons/objects/Reflector.js';
@@ -151,11 +153,12 @@ for(const [i,variant,scale]of[[0,0,.72],[1,4,.80]]){
  if(bounds.max.z>=nearBridgeFoot125[2]+1.1||bounds.min.x<=nearBridgeFoot125[0]-1.1||bounds.max.y>=nearBridgeFoot125[1]+.24)throw Error('Bridge bank stone leaves its bounded support envelope');
  emit(scan.geometry,scan.wet,nearBridgeFoot125[0],y,nearBridgeFoot125[2],scale,scale,scale,yaw);footingTop=bounds.max.y;bridgeAbutment125.push({variant,scale,yaw,position:[nearBridgeFoot125[0],y,nearBridgeFoot125[2]],bounds:[bounds.min.toArray(),bounds.max.toArray()],source:'Existing CC0 scan, positions/normals/UVs retained'});
 }
+const receiver321=createVerandaReceiver321(),ground321={revision:'scene10-ground321-r07-closed-wet-stones-drainage-and-supported-water',stoneRecords:[],waterAudits:[],bedAudits:[],gritFragments:0,splitStones:0,receiver:{...receiver321.userData.receiver321,audit:receiver321.userData.ground321Audit},source:'True runtime geometry with existing declared CC0 metric granite; no photo/depth read',visualAccepted:false};
 // Sheltered foreground is one supported column and a rotated veranda roof.
 group(...L.veranda.column,0,()=>{
  const v=L.veranda,shaftTop=v.ceilingY-.165;
  emit(cyl,'nearLacquer',0,shaftTop/2,0,v.radius,shaftTop,v.radius);emit(cyl,'black',0,v.shoeHeight/2,0,v.radius+.015,v.shoeHeight,v.radius+.015);
- emit(createVerandaFootstone142(T),'granite');
+ emit(receiver321,'granite');
  group(0,0,0,v.ceilingYaw,()=>{
   const [cx,cz]=v.ceilingCenter;box(cx,v.ceilingY,cz,4.5,.33,8.2,'cedar');
   for(let i=0;i<17;i++){const z=cz-3.2+i*.47;box(cx,v.ceilingY-.25,z,4.7,.17,.17,'red');for(let j=0;j<5;j++)box(cx-1.9+j*.96,v.ceilingY-.37,z,.28,.22,.29,'darkwood');}
@@ -180,6 +183,12 @@ const wetBump=noiseTexture(),wetStone=new T.MeshPhysicalMaterial({color:'#171814
 wetStone.clearcoat=.55;wetStone.clearcoatNormalMap=wetNormal;wetStone.clearcoatNormalScale=new T.Vector2(.30,.30);const lacquerNormal=wetNormal.clone();lacquerNormal.repeat.set(6,5);lacquerNormal.needsUpdate=true;m.nearLacquer.clearcoatNormalMap=lacquerNormal;m.nearLacquer.clearcoatNormalScale=new T.Vector2(.20,.20);
 wetStone.map=graniteMaps[0];wetStone.normalMap=graniteMaps[1];wetStone.normalScale.set(.36,.36);wetStone.roughnessMap=graniteMaps[2];wetStone.bumpMap=wetBump;wetStone.bumpScale=.0015;wetStone.color.set('#b9d2e8');wetStone.roughness=.48;wetStone.specularIntensity=.36;wetStone.clearcoat=.60;wetStone.envMapIntensity=.88;wetStone.name='scene10-warm-rain-granite-face-141';m.wet=wetStone;installSurfaceDetail(wetStone,'wet');
 m.wetNear=wetStone.clone();m.wetNear.name='twelve-real-stone-surfaces-with-existing-actual-scene-probe';m.wetNear.envMapIntensity=.88;installSurfaceDetail(m.wetNear,'wet');
+m.groundStone321=wetStone.clone();m.groundStone321.name='scene10-metric-split-settled-rain-stone321';m.groundStone321.color.set('#74796f');m.groundStone321.roughness=.52;m.groundStone321.clearcoat=.72;m.groundStone321.clearcoatRoughness=.080;installSurfaceDetail(m.groundStone321,'wet');
+m.groundBed321=new T.MeshStandardMaterial({name:'scene10-supported-granite-grit-bed321',color:'#514d40',map:graniteMaps[0],normalMap:graniteMaps[1],normalScale:new T.Vector2(.25,.25),roughness:.95,roughnessMap:graniteMaps[2]});
+m.groundGrit321=new T.MeshStandardMaterial({name:'scene10-loose-wet-mineral-fragments321',color:'#56594c',roughness:.88,metalness:0});
+m.groundWater321=new T.MeshPhysicalMaterial({name:'scene10-closed-stone-basin-and-joint-water321',color:'#fafcf8',ior:1.333,roughness:.080,metalness:0,clearcoat:0,specularIntensity:1,transmission:.995,thickness:.004,attenuationColor:'#c1c9bd',attenuationDistance:4,transparent:false,opacity:1,depthWrite:true,envMapIntensity:1.10});
+m.groundDrain321=new T.MeshStandardMaterial({name:'scene10-open-drain-channel321',color:'#242e2c',roughness:.88,metalness:.08});
+m.groundIron321=new T.MeshStandardMaterial({name:'scene10-recessed-cast-iron-modular-grate321',color:'#38433f',roughness:.58,metalness:.82});
 const nearSurfaceBuilder=createNearSurfaceReflectionMask(T);
 // Continuous stone bedding meets every slab underside; the real drainage slot stays open.
 for(const outline of clipPavingAtDrain([[-4.6,-2.1],[4.6,-2.1],[4.6,19.5],[-4.6,19.5]]))solidFootprint125(outline,-.28,-.080,'granite');
@@ -188,7 +197,7 @@ const paveHash=(a,b)=>{const q=Math.sin((a*127.1+b*311.7+1037)*12.9898)*43758.54
 const foreWeights=Array.from({length:rows-14},(_,i)=>.70+.52*paveHash(i,141)),foreSum=foreWeights.reduce((a,b)=>a+b,0),courseZ=[];
 for(let j=0;j<=rows;j++)courseZ.push(j<=14?-2+j*courseDepth+(j>0&&j<14?(paveHash(j,239)-.5)*.07:0):-2+14*courseDepth+foreWeights.slice(0,j-14).reduce((a,b)=>a+b,0)/foreSum*(21.32-14*courseDepth));
 function courseCuts(j){
- const base=j>=14?[[0,.27,.63,1],[0,.14,.49,.79,1],[0,.38,.71,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
+ const base=j>=14?[[0,.16,.35,.52,.73,.86,1],[0,.12,.28,.47,.65,.83,1],[0,.20,.38,.58,.76,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
  return base.map((f,k)=>k===0||k===base.length-1?f:f+(paveHash(j,k)-.5)*(j>=14?.040:.018));
 }
 // Preserve the later garden/rain RNG stream while replacing the old 8-column vertex grid.
@@ -207,10 +216,23 @@ for(let j=0;j<rows;j++){
    // A narrow independent inset leaves a 1–3 px real joint at the review size.
    x+=(cx-x)*(j>=14?.008:.006)+R(j>=14?-.009:-.003,j>=14?.009:.003);z+=(cz-z)*(j>=14?.008:.006)+R(j>=14?-.009:-.003,j>=14?.009:.003);chipped.push([x,z]);
   }});
-  const id=j+':'+i,near=!!nearRainStoneProfiles[id],g=near?createNearRainFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037,id}):createWornFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037});
+  const id=j+':'+i;
+  if(j>=14){
+   const authored=createLaidRainStones321({points,topOffset,seed:j*97+i*37+1037,id});if(authored.split)ground321.splitStones++;
+   const bed=createJointBed321(points,j*97+i*37+1037);emit(bed,'groundBed321');ground321.bedAudits.push(bed.userData.ground321Audit);
+   for(const f of authored.fragments){
+    emit(f.geometry,'groundStone321',0,0,0,1,1,1,0,.91+.09*paveHash(j,i));nearSurfaceBuilder.add(f.geometry,f.record.id);nearStoneRecords.push(f.record);ground321.stoneRecords.push(f.record);
+    floorPolygons.push({points:f.points,wetness:.91,topY:(f.record.topYRange[0]+f.record.topYRange[1])*.5,heightAt:f.heightAt,topYMax:f.record.topYRange[1],waterY:f.waterY,edgeFadeMetres:[.001,.005]});
+    if(f.water){emit(f.water,'groundWater321');ground321.waterAudits.push({id:f.record.id,kind:'actual-stone-puddle',...f.water.userData.ground321Audit,water:f.water.userData.water321});}
+    const jointWater=createJointWater321(f.points);if(jointWater){emit(jointWater,'groundWater321');ground321.waterAudits.push({id:f.record.id,kind:'recessed-joint-water',...jointWater.userData.ground321Audit});}
+    ground321.gritFragments+=emitJointGrit321({points:f.points,seed:f.record.seed,bedSeed:j*97+i*37+1037,emit});
+   }
+  }else{
+  const near=!!nearRainStoneProfiles[id],g=near?createNearRainFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037,id}):createWornFlagstone(T,{points:chipped,topOffset,seed:j*97+i*37+1037});
   floorPolygons.push({points:g.userData.rainStoneFootprint||chipped,wetness,topY:near?(g.userData.nearRainStone.topYRange[0]+g.userData.nearRainStone.topYRange[1])*.5:.044+topOffset,heightAt:g.userData.heightAt,topYMax:g.userData.topYMax,...(near?{edgeFadeMetres:[.001,.007]}:{})});
   if(near){nearSurfaceBuilder.add(g,id);nearStoneRecords.push(g.userData.nearRainStone);for(const bedPoints of clipPavingAtDrain(original)){const bed=createNearJointBed(T,{points:bedPoints,seed:j*97+i*37+1037});emit(bed,'nearJointGrit');}}
   emit(g,near?'wetNear':'wet',0,0,0,1,1,1,0,tint);
+  }
  }
  // Keep the next tile's material and edge variation deterministic.
  seed=slabSeed;for(let k=0;k<42;k++)rand();
@@ -218,17 +240,19 @@ for(let j=0;j<rows;j++){
 }
 // The rest of the scene keeps its exact pre-rebuild random sequence.
 seed=pavingRngStart;for(let k=0;k<(rows+1)*7+(rows-1)*9+rows*8*42;k++)rand();
+ground321.gritPrototypeAudits=groundGritAudits321();
 // Closed worn curb stones carry the curved path edge into the veranda apron.
 const pathCurbRecords125=[];
 for(let i=0;i<31;i++){
  const a=-2+i*.70,b=a+.688,x0=rightPathEdge125(a),x1=rightPathEdge125(b),points=[[x0+.012,a],[x0+.22,a],[x1+.22,b],[x1+.012,b]],g=createWornFlagstone(T,{points,topOffset:.035,seed:12591+i*31});
  emit(g,'granite');pathCurbRecords125.push({points,closed:true});
 }
-const floorWetMap=createPavingWetMask(T,floorPolygons,{filmY:wetFilmY});wetStone.userData.floorWetMap=floorWetMap;m.wetNear.userData.floorWetMap=floorWetMap;
+const floorWetMap=createPavingWetMask(T,floorPolygons,{filmY:wetFilmY});wetStone.userData.floorWetMap=floorWetMap;m.wetNear.userData.floorWetMap=floorWetMap;m.groundStone321.userData.floorWetMap=floorWetMap;
 const nearSurface=nearSurfaceBuilder.finish();
 installNearSurfaceWaterResponse(T,m.wetNear,nearSurface);
 // Narrow iron drainage grille crosses the lower frame diagonally.
-group(...L.drain.position,L.drain.yaw,()=>{const half=L.drain.halfWidth;box(0,-.105,0,half*2,.025,13,'black');for(const side of[-1,1])box(side*(half-.018),0,0,.016,.027,13,'black');for(let i=0;i<215;i++)box(0,0,-6.4+i*.060,half*2-.025,.014,.019,'black');});
+ground321.drain=buildDrain321({emit,box,group,materials:m});
+group(...L.veranda.column,0,()=>{ground321.columnCollar=buildColumnCollar321({receiver:receiver321,emit});});
 // Rain-film reflection uses actual geometry and a bounded physical plane.
 const mirror=new Reflector(new T.PlaneGeometry(8.9,22),{clipBias:.002,textureWidth:1536,textureHeight:1536,color:0x808080,multisample:2});mirror.rotation.x=-Math.PI/2;mirror.position.set(-.1,wetFilmY,8.5);mirror.material.transparent=true;mirror.material.depthWrite=false;mirror.material.uniforms.floorWetMap={value:floorWetMap};
 mirror.material.vertexShader='varying vec3 vFilmPosition;\n'+mirror.material.vertexShader.replace('vUv = textureMatrix * vec4( position, 1.0 );','vUv = textureMatrix * vec4( position, 1.0 );vFilmPosition=(modelMatrix*vec4(position,1.0)).xyz;');
@@ -514,18 +538,27 @@ rainMaterial.onBeforeCompile=shader=>{shader.uniforms.rainTime=rainTime;shader.v
 float fallingBase=mod(rainBaseHeight-rainTime*6.5+270.,27.);transformed.y+=fallingBase-rainBaseHeight;vRainFade=smoothstep(0.,.22,fallingBase)*(1.-smoothstep(26.5,27.,fallingBase));`);shader.fragmentShader='varying float vRainFade;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.a*=vRainFade;');};rainMaterial.customProgramCacheKey=()=> 'independently-phased-continuous-rain-v1';
 const rain=new T.LineSegments(rainGeo,rainMaterial);scene.add(rain);
 function update(time){waterRipples135.update(time);rainTime.value=time;creekMirror207.material.uniforms.creekTime207.value=time;}
-const nearEnvironmentTarget=new T.WebGLCubeRenderTarget(512,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),nearCubeCamera=new T.CubeCamera(.08,220,nearEnvironmentTarget);nearCubeCamera.position.set(0,2.3,7);let nearEnvironmentReady=false;
+const nearEnvironmentTarget=new T.WebGLCubeRenderTarget(512,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),nearCubeCamera=new T.CubeCamera(.08,220,nearEnvironmentTarget);nearCubeCamera.position.set(0,2.3,7);let nearEnvironmentReady=false,nearEnvironmentFiltered321=null;
 function captureNearEnvironment(){
  if(nearEnvironmentReady)return;nearEnvironmentReady=true;if(!renderer.capabilities)return;
  // All real geometry, including gilt surfaces, stays visible to the probe.
  // Its texture is assigned only after capture, so no self-feedback occurs.
  const wasMirror=mirror.visible,wasCreek=creekMirror207.visible;mirror.visible=false;creekMirror207.visible=false;nearCubeCamera.update(renderer,scene);mirror.visible=wasMirror;creekMirror207.visible=wasCreek;renderer.shadowMap.needsUpdate=true;
- for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentTarget.texture;mat.needsUpdate=true;}
- waterRipples135.setEnvironment(nearEnvironmentTarget.texture);
+ // Filter the real local cube before any complex material draw, avoiding
+ // nested PMREM texture allocations/target changes during sampler upload.
+ const groundEnvironmentFilter321=new T.PMREMGenerator(renderer);try{nearEnvironmentFiltered321=groundEnvironmentFilter321.fromCubemap(nearEnvironmentTarget.texture);}finally{groundEnvironmentFilter321.dispose();}
+ for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.groundStone321,m.groundWater321,m.groundIron321,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentFiltered321.texture;mat.needsUpdate=true;}
+ waterRipples135.setEnvironment(nearEnvironmentFiltered321.texture);
 }
-function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();renderer.info.reset();optics.render(scene,camera);return {position,target,time,fov,width:W,height:H};}
+const groundPlanar321=createGroundPlanarReflection321({renderer,scene,legacyMirror:mirror,creek:creekMirror207,
+ waterMaterials:[m.groundWater321,waterRipples135.reflectionMaterial],
+ wetMaterials:[{material:m.groundStone321,underActualWater:true},{material:m.wetNear,underActualWater:false},{material:m.wet,underActualWater:false}],
+ poolLevels:ground321.waterAudits.filter(w=>w.water).map(w=>w.water.level),collarLevel:ground321.columnCollar.waterTop,jointLevel:.0405,drainLevel:ground321.drain.waterY,
+ landmarks:[{name:'near-hanging-lantern',point:L.veranda.hangingLamp},{name:'near-column-midshaft',point:[L.veranda.column[0],3.5,L.veranda.column[2]]},{name:'near-column-low-red-shaft',point:[L.veranda.column[0],1.2,L.veranda.column[2]]},{name:'hero-stone-lantern-window',point:[L.heroStoneLantern.position[0],L.heroStoneLantern.position[1]+2.28*L.heroStoneLantern.scale[1],L.heroStoneLantern.position[2]]}]
+});
+function renderView(position,target,time=0,fov=65){camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.updateProjectionMatrix();camera.lookAt(...target);camera.updateMatrixWorld(true);update(time);scene.updateMatrixWorld(true);captureNearEnvironment();groundPlanar321.capture(camera);renderer.info.reset();optics.render(scene,camera);return {position,target,time,fov,width:W,height:H};}
 function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');return renderView(fixed.position,fixed.target,0,fixed.fov);}
 const dolly=createDollyPath({points:[[.25,.24,8.1],[.30,.28,9.8],[-.2,.74,12.8],fixed.position],nearTarget:[0,4.0,-14],farTarget:fixed.target,fov:fixed.fov});
 // Negative values are bounded structural QA poses only; positive film timing is unchanged.
 function renderShot(localTime=0){if(localTime===-1250)return renderReference(10);if(localTime===-125)return renderView(L.inspection.position,L.inspection.target,0,L.inspection.fov);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:HALL132_REVISION,layout:L,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentTarget.texture,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-ground321-r08f-positioned-planar-radiance-bounded-proxy',ground321,groundPlanarReflection321:groundPlanar321.info(),layout:L,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentFiltered321?.texture,probeExplicitlyPrefiltered:!!nearEnvironmentFiltered321,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture&&value!==nearEnvironmentFiltered321?.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();groundPlanar321.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentFiltered321?.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();

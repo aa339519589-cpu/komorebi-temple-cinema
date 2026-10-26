@@ -22,10 +22,10 @@ export function createSolarDisk214(scene){
 // exactly this world-oriented radiance, using the same texture/uniform data.
 export const WORLD_ATMOSPHERE_GLSL214=`
  const float radianceScale214=.166666666667;
- uniform sampler2D clouds;uniform sampler2D measured;uniform mat3 worldToSky;uniform vec4 cap;
+ uniform sampler2D clouds;uniform sampler2D measured;uniform float measuredSkyGain320;uniform mat3 worldToSky;uniform vec4 cap;
  uniform vec3 solarDirection;uniform vec3 solarColor214;uniform float solarPower214;
  float phase214(float cosine,float g){float g2=g*g;return(1.-g2)/(12.56637061436*pow(max(1.-2.*g*cosine+g2,.0001),1.5));}
- vec3 measuredSky214(vec3 w){vec3 d=normalize(worldToSky*w);vec2 uv=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);return texture2D(measured,uv).rgb*.55;}
+ vec3 measuredSky214(vec3 w){vec3 d=normalize(worldToSky*w);vec2 uv=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);return texture2D(measured,uv).rgb*measuredSkyGain320;}
  vec3 clearAir214(vec3 w){
   float cosine=clamp(dot(w,solarDirection),-1.,1.),rayleighPhase=.75*(1.+cosine*cosine),heightFactor=.55+.45*sqrt(max(w.y,0.));
   vec3 rayleigh=vec3(.00531429,.01062857,.02037143)*solarPower214*heightFactor*rayleighPhase;
@@ -61,7 +61,7 @@ export function installAerialPerspective214(material,uniforms){
  if(!material||material.isShaderMaterial||material.fog===false||material.userData.aerialPerspective214)return;
  const before=material.onBeforeCompile,key=material.customProgramCacheKey.bind(material);
  material.onBeforeCompile=shader=>{
-  before.call(material,shader);for(const [name,u]of Object.entries(uniforms))if(['clouds','measured','worldToSky','cap','solarDirection','solarColor214','solarPower214'].includes(name))shader.uniforms[name]=u;
+  before.call(material,shader);for(const [name,u]of Object.entries(uniforms))if(['clouds','measured','worldToSky','cap','solarDirection','solarColor214','solarPower214','measuredSkyGain320'].includes(name))shader.uniforms[name]=u;
   // Some authored material callbacks delegate to a parent callback. The
   // parent may already carry this exact world transport; install it once.
   if(shader.vertexShader.includes('varying vec3 vAirPoint214;'))return;
@@ -81,5 +81,5 @@ export function installAerialPerspective214(material,uniforms){
    gl_FragColor.rgb=gl_FragColor.rgb*airT214+airSource214*(1.-airT214);
    #include <tonemapping_fragment>`);
  };
- material.customProgramCacheKey=()=>key()+':shared-fixed-valley-air-transport214-r20';material.userData.aerialPerspective214={heightScaleMetres:180,extinctionRGB:[.00110,.00114,.00123],fixedWorldValleyZ:[-55,-210],courtyardDensityFraction:.055,integration:'Four-point Gauss quadrature along actual 3D camera-to-surface segment',linearTransportBeforeToneMapping:true,sameSolarAndClearSky:true,screenSpaceFilter:false};material.needsUpdate=true;
+ material.customProgramCacheKey=()=>key()+':shared-fixed-valley-air-transport320-solar-normalized-r08';material.userData.aerialPerspective214={heightScaleMetres:180,extinctionRGB:[.00110,.00114,.00123],fixedWorldValleyZ:[-55,-210],courtyardDensityFraction:.055,integration:'Four-point Gauss quadrature along actual 3D camera-to-surface segment',linearTransportBeforeToneMapping:true,sameSolarAndClearSky:true,screenSpaceFilter:false};material.needsUpdate=true;
 }

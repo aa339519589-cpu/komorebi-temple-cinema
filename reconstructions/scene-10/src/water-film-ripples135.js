@@ -36,7 +36,7 @@ export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,s
     // The existing bounded water film reflects at Y=.066 above the low
     // paving. Waves meet that measured surface; taller actual flagstones stay
     // above it rather than receiving an elevated scene-wide lid.
-    const top=Math.max(filmY,Number.isFinite(best.topY)?best.topY:.044);
+    const top=Number.isFinite(best.waterY)?best.waterY:Math.max(filmY,Number.isFinite(best.topY)?best.topY:.044);
     placements.push({x,z,top,phase:q.phase,shape:q.radius,wet,seed:i,maxRadius:.038+q.radius*1.20});
   }
   // Resolve every crest with multiple native-output vertices. A thinner band
@@ -83,7 +83,7 @@ export function createWaterFilmRipples135(T,{impacts,floorWetMap,floorPolygons,s
     geometry.attributes.position.needsUpdate=true;geometry.attributes.rippleCoverage.needsUpdate=true;geometry.computeVertexNormals();
   }
   return{
-    update,setEnvironment(texture){material.envMap=texture;material.envMapIntensity=1.4;material.needsUpdate=true;},dispose(){scene.remove(mesh);geometry.dispose();material.dispose();},
+    update,reflectionMaterial:material,reflectionMesh:mesh,setEnvironment(texture){material.envMap=texture;material.envMapIntensity=1.4;material.needsUpdate=true;},dispose(){scene.remove(mesh);geometry.dispose();material.dispose();},
     info:{revision:WATER_RIPPLE135_REVISION,seeds:impacts.length,additionalDistributedPositions:candidates.length-impacts.length,groundedImpacts:placements.length,generatedVertices:positions.length/3,generatedTriangles:indices.length/3,waterSurfaceY:filmY,ringWidthMetres:ringWidth,peakWaveMetres:.0009,staticRNGDraws:0,ringMaterial:'Dark water absorption color with IOR 1.333 specular reflection; no emissive pale ring',contact:'Impact centers and every ripple vertex are gated by real paving coverage, narrow seams, wetness and the geometry-derived low-spot pool mask; crest relief stays below about 0.9 mm.',surface:'Thin shallow film at the low-spot waterline over actual authored flagstone geometry; no replacement ground sheet.'}
   };
 }
