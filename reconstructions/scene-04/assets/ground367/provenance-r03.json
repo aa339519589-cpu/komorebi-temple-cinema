@@ -1,0 +1,72 @@
+{
+  "revision": "scene04-ground367-r03",
+  "scope": "Foreground approach flags, joint moss and physical bedding contact; accepted343 lanterns and architecture/camera retained.",
+  "method": "Reference-led shared 6-subcell paving graph packed into unequal broad flags with shared paired meandering boundaries and real staggered T-junctions; no image-based displacement.",
+  "visibleFlagCount": 41,
+  "geometry": {
+    "thicknessMetres": [
+      0.17,
+      0.215
+    ],
+    "bevelWidthMetres": [
+      0.0026,
+      0.01
+    ],
+    "bevelDropMetres": [
+      0.0039,
+      0.01625
+    ],
+    "topTriangleSpacingMetres": [
+      0.027,
+      0.039
+    ],
+    "rivenReliefEnvelopeMetres": [
+      -0.016,
+      0.009
+    ],
+    "continuousBeddingTopY": 0.028,
+    "nominalTopDatumY": 0.048,
+    "mossRootY": [
+      0.026,
+      0.027
+    ],
+    "mossPeakY": [
+      0.036,
+      0.047
+    ],
+    "edgeConstruction": "Narrow irregular chamfer planes, darker damp side reflectance; broad rounded rim removed."
+  },
+  "materials": {
+    "provider": "Poly Haven Granite Tile04",
+    "author": "Amal Kumar",
+    "license": "CC0-1.0",
+    "source": "https://polyhaven.com/a/granite_tile_04",
+    "retainedProvenance": "assets/granite-tile-04/provenance.json",
+    "retainedMaps": [
+      "assets/granite-tile-04/granite-face-diff.png",
+      "assets/granite-tile-04/granite-face-nor_gl.png",
+      "assets/granite-tile-04/granite-face-rough.png"
+    ],
+    "retainedMetricAggregate": "assets/granite-aggregate04/manifest.json",
+    "waterFilm": "Rough discontinuous water film under retained scene lighting and physical IOR1.333; physical hollow masks and authored dampness, no baked light.",
+    "additionalNormal": {
+      "asset": "Monastery Stone Floor",
+      "author": "Amal Kumar",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/monastery_stone_floor",
+      "file": "assets/monastery-stone-floor/individual-stone-nor_gl.png",
+      "physicalRepeatMetres": 0.225,
+      "provenance": "assets/monastery-stone-floor/provenance.json"
+    },
+    "coarseNormalStrength": 0.26,
+    "minimumWetRoughness": 0.34
+  },
+  "newExternalAssets": [],
+  "referenceRGBUsed": false,
+  "visualAccepted": false,
+  "limits": [
+    "Joint contours are a single-view numeric interpretation; thickness, fracture and weathering are authored inference.",
+    "Native actual render comparison is required; closed/finite geometry does not establish photographic fidelity."
+  ],
+  "revisionChange": "R02 shared paired T-joint graph retained exactly. Narrower flatter chamfers and restrained 2\u20134mm face relief replace pale bread-like rims and uniform crumpled normal response."
+}

@@ -1,0 +1,321 @@
+diff --git a/reconstructions/scene-04/asset-dependencies.json b/reconstructions/scene-04/asset-dependencies.json
+--- a/reconstructions/scene-04/asset-dependencies.json
++++ b/reconstructions/scene-04/asset-dependencies.json
+@@ -134,7 +134,6 @@
+     "Real solid lacquer/gilt collar and continuous supported cornice around the unchanged original source Amida plinth",
+     "120 actual small metal lattice rings seat on the two suspended lantern bodies; suspension rods meet the measured curved eave"
+   ],
+-  "retainedUnusedHistoricalAsset": "assets/monastery-stone-floor retains its original CC0 source and provenance; runtime paving now loads Granite Tile 04.",
+   "excludedRepresentations": [
+     "photo-projected albedo or background",
+     "photo-estimated depth surface",
+@@ -231,5 +230,21 @@
+     "visualAccepted": false,
+     "personalNoncommercialUseOnly": true,
+     "derivedImageryLicense": "CC-BY-NC-SA-4.0"
++  },
++  "retainedHistoricalAsset": "Monastery Stone Floor CC0 scan and original provenance retained. Ground367 reuses its existing single-face normal; the albedo/roughness and original full maps remain historical study assets.",
++  "ground367": {
++    "provenance": "assets/ground367/provenance-r03.json",
++    "source": "src/scene04-ground367.js",
++    "scope": "R02 unequal broad flags/shared paired T-junction graph retained; narrow broken damp chamfers, restrained riven relief and rooted moss. No reference-pixel albedo or displacement.",
++    "existingCC0NormalReuse": {
++      "asset": "Monastery Stone Floor",
++      "author": "Amal Kumar",
++      "license": "CC0",
++      "source": "https://polyhaven.com/a/monastery_stone_floor",
++      "file": "assets/monastery-stone-floor/individual-stone-nor_gl.png",
++      "originalProvenance": "assets/monastery-stone-floor/provenance.json"
++    },
++    "newExternalDownloads": [],
++    "visualAccepted": false
+   }
+-}
++}
+\ No newline at end of file
+diff --git a/reconstructions/scene-04/assets/ground367/provenance-r03.json b/reconstructions/scene-04/assets/ground367/provenance-r03.json
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-04/assets/ground367/provenance-r03.json
+@@ -0,0 +1,72 @@
++{
++  "revision": "scene04-ground367-r03",
++  "scope": "Foreground approach flags, joint moss and physical bedding contact; accepted343 lanterns and architecture/camera retained.",
++  "method": "Reference-led shared 6-subcell paving graph packed into unequal broad flags with shared paired meandering boundaries and real staggered T-junctions; no image-based displacement.",
++  "visibleFlagCount": 41,
++  "geometry": {
++    "thicknessMetres": [
++      0.17,
++      0.215
++    ],
++    "bevelWidthMetres": [
++      0.0026,
++      0.01
++    ],
++    "bevelDropMetres": [
++      0.0039,
++      0.01625
++    ],
++    "topTriangleSpacingMetres": [
++      0.027,
++      0.039
++    ],
++    "rivenReliefEnvelopeMetres": [
++      -0.016,
++      0.009
++    ],
++    "continuousBeddingTopY": 0.028,
++    "nominalTopDatumY": 0.048,
++    "mossRootY": [
++      0.026,
++      0.027
++    ],
++    "mossPeakY": [
++      0.036,
++      0.047
++    ],
++    "edgeConstruction": "Narrow irregular chamfer planes, darker damp side reflectance; broad rounded rim removed."
++  },
++  "materials": {
++    "provider": "Poly Haven Granite Tile04",
++    "author": "Amal Kumar",
++    "license": "CC0-1.0",
++    "source": "https://polyhaven.com/a/granite_tile_04",
++    "retainedProvenance": "assets/granite-tile-04/provenance.json",
++    "retainedMaps": [
++      "assets/granite-tile-04/granite-face-diff.png",
++      "assets/granite-tile-04/granite-face-nor_gl.png",
++      "assets/granite-tile-04/granite-face-rough.png"
++    ],
++    "retainedMetricAggregate": "assets/granite-aggregate04/manifest.json",
++    "waterFilm": "Rough discontinuous water film under retained scene lighting and physical IOR1.333; physical hollow masks and authored dampness, no baked light.",
++    "additionalNormal": {
++      "asset": "Monastery Stone Floor",
++      "author": "Amal Kumar",
++      "license": "CC0",
++      "source": "https://polyhaven.com/a/monastery_stone_floor",
++      "file": "assets/monastery-stone-floor/individual-stone-nor_gl.png",
++      "physicalRepeatMetres": 0.225,
++      "provenance": "assets/monastery-stone-floor/provenance.json"
++    },
++    "coarseNormalStrength": 0.26,
++    "minimumWetRoughness": 0.34
++  },
++  "newExternalAssets": [],
++  "referenceRGBUsed": false,
++  "visualAccepted": false,
++  "limits": [
++    "Joint contours are a single-view numeric interpretation; thickness, fracture and weathering are authored inference.",
++    "Native actual render comparison is required; closed/finite geometry does not establish photographic fidelity."
++  ],
++  "revisionChange": "R02 shared paired T-joint graph retained exactly. Narrower flatter chamfers and restrained 2\u20134mm face relief replace pale bread-like rims and uniform crumpled normal response."
++}
+\ No newline at end of file
+diff --git a/reconstructions/scene-04/src/reference4-garden.js b/reconstructions/scene-04/src/reference4-garden.js
+--- a/reconstructions/scene-04/src/reference4-garden.js
++++ b/reconstructions/scene-04/src/reference4-garden.js
+@@ -1,9 +1,10 @@
+ import {reference4Config as View212} from './reference4-config.js';
+-import {createPavingLayout212,createSeamGrass212,createJointMoss212} from './scene04-paving-layout212.js';
++import {createSeamGrass212} from './scene04-paving-layout212.js';
++import {createPavingLayout367,createFlagstoneGeometry367,createJointMoss367,installFlagstoneFinish367} from './scene04-ground367.js';
+ import {terrainBankHeight212,createWetKnoll212} from './scene04-wet-bank212.js';
+ import {applyStoneFinish212} from './scene04-stone-finish212.js';
+ import {unobservedContinuationMaterial04} from './traced-stone-material04.js';
+-import {createTracedPaving04,tracedSlabGeometry,observedCurbCuts04} from './traced-paving04.js';
++import {createTracedPaving04,observedCurbCuts04} from './traced-paving04.js';
+ import {stoneMaterial,polygonSlab,applyMetricUV} from './scene04-surfaces.js';
+ import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
+ import {stoneMaps,createWeatheredFlagstone} from './reference4-garden-stone.js';
+@@ -91,20 +92,20 @@
+   const waterIOR=1.333,waterF0=((waterIOR-1)/(waterIOR+1))**2;
+   mm.onBeforeCompile=shader=>{compile(shader);const worldVarying='varying vec3 ssWorldNormal;',normalAnchor='normal=normalize(mat3(viewMatrix)*normalize(ssAX*ssW.x+ssAY*ssW.y+ssAZ*ssW.z));',physicalChunk='#include <lights_physical_fragment>';if(!shader.vertexShader.includes(worldVarying)||!shader.fragmentShader.includes(worldVarying)||!shader.vertexShader.includes('#include <begin_vertex>')||!shader.fragmentShader.includes(broad)||!shader.fragmentShader.includes(normalAnchor)||!shader.fragmentShader.includes(physicalChunk))throw Error('Pinned granite fleck and wet-film shader boundaries changed');shader.vertexShader=shader.vertexShader.replace(worldVarying,`${worldVarying}\nattribute float r4Wetness;\nattribute float r4Dampness;\nvarying float vR4Wetness;\nvarying float vR4Dampness;`).replace('#include <begin_vertex>','#include <begin_vertex>\nvR4Wetness=r4Wetness;\nvR4Dampness=r4Dampness;');shader.fragmentShader=shader.fragmentShader.replace(worldVarying,`${worldVarying}\nvarying float vR4Wetness;\nvarying float vR4Dampness;`).replace(broad,mineral).replace(normalAnchor,`${normalAnchor}\nroughnessFactor=clamp(mix(roughnessFactor,.145,r4WetMask*.96),.14,1.0);`).replace(physicalChunk,`${T.ShaderChunk.lights_physical_fragment}\nmaterial.clearcoatF0=vec3(${waterF0.toFixed(8)});\nmaterial.clearcoat=mix(material.clearcoat,.96,r4WetMask*.92);\nmaterial.clearcoatRoughness=mix(material.clearcoatRoughness,.12,r4WetMask*.94);`);};mm.customProgramCacheKey=()=>`${key()}-scene04-granite-microflecks-water-ior133-worldfilm-diffuse14`;
+   const beforeDiffuse=mm.onBeforeCompile;mm.onBeforeCompile=shader=>{beforeDiffuse(shader);const maps=T.ShaderChunk.lights_fragment_maps,anchor='iblIrradiance += getIBLIrradiance( geometryNormal );';if(!maps.includes(anchor))throw Error('Pinned paving diffuse IBL boundary changed');shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_maps>',maps.replace(anchor,'iblIrradiance += .14 * getIBLIrradiance( geometryNormal );'));};mm.userData.diffuseProbeGain212=.14;
+-  mm.userData.surfaceFinish='neutral scanned granite with 4–9 mm pale mineral flecks; world-coherent water film blends per-stone damp propensity and physical hollows';mm.userData.waterFilmIOR=waterIOR;mm.userData.waterClearcoatF0=waterF0;for(const t of Object.values(mm.userData.maps))ownedT.add(t);applyStoneFinish212(mm);return mm;});
++  mm.userData.surfaceFinish='neutral scanned granite with 4–9 mm pale mineral flecks; world-coherent water film blends per-stone damp propensity and physical hollows';mm.userData.waterFilmIOR=waterIOR;mm.userData.waterClearcoatF0=waterF0;applyStoneFinish212(mm);installFlagstoneFinish367(mm);for(const t of Object.values(mm.userData.maps))ownedT.add(t);return mm;});
+  // Keep the pre-existing garden's random placement sequence while replacing
+  // its randomly laid paving with individually observed stone-joint geometry.
+  for(let k=0;k<266;k++)random();
+- const traced=createTracedPaving04();traced.records=createPavingLayout212(traced);
++ const traced=createTracedPaving04();traced.records=createPavingLayout367(traced);
+  const pavingMaterials=[...paving];
+  const pavingHash=(x,z,s)=>{const q=Math.sin(x*127.1+z*311.7+s*17.13)*43758.5453;return q-Math.floor(q);};
+  function observedFlagstone(record){
+   const seed=record.column*193+record.row*79+43;
+-  return {...record,source:'Rebuilt staggered stone joints and broken side fragments after HD04/R14 review; metric relief and wet state are authored'};
++  return {...record,source:'Ground367 irregular cut flags, closed chipped/riven bodies and embedded moss; metric relief and wet state are authored'};
+  }
+  for(const record of traced.records){
+   const materialIndex=Math.floor(pavingHash(record.row,record.column,607)*paving.length),mat=paving[materialIndex];
+-  const tile=observedFlagstone(record);mesh(tracedSlabGeometry(tile),mat,tile.id,subgroups.path);records.stoneSlabs.push({...tile,sourceRecordId:record.id,referenceBitmapUsed:false,materialProvider:'Poly Haven Granite Tile 04, CC0-1.0',materialVariant:materialIndex});
++  const tile=observedFlagstone(record);mesh(createFlagstoneGeometry367(tile),mat,tile.id,subgroups.path);records.stoneSlabs.push({...tile,sourceRecordId:record.id,referenceBitmapUsed:false,materialProvider:'Poly Haven Granite Tile04 and Monastery Stone Floor single-face normal, CC0-1.0',materialVariant:materialIndex});
+  }
+  // Continue the constructed path behind the supplied view, so its top and
+  // support remain complete when inspected from above. These slabs are authored
+@@ -116,28 +117,28 @@
+   const z0=T.MathUtils.lerp(rearStart,rearEnd,k/rearRows),z1=T.MathUtils.lerp(rearStart,rearEnd,(k+1)/rearRows);
+   for(let column=0;column<3;column++){
+    const record={id:'authored-rear-continuation-'+column+'-'+k,column,row:12+k,outline:[[rearX(column,z0),z0],[rearX(column+1,z0),z0],[rearX(column+1,z1),z1],[rearX(column,z1),z1]],top:traced.groundY,thickness:.14,source:'Authored unseen continuation, not observed photograph detail'};
+-   mesh(tracedSlabGeometry(record),rearMat,record.id,subgroups.path);records.stoneSlabs.push(record);
++   mesh(createFlagstoneGeometry367(record),rearMat,record.id,subgroups.path);records.stoneSlabs.push(record);
+   }
+   for(const side of[-1,1]){
+    const i=side<0?0:3,a=[rearX(i,z0),z0],b=[rearX(i,z1),z1],dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len;
+    const record={id:'authored-rear-curb-'+side+'-'+k,column:side+3,row:30+k,outline:[[a[0]+nx*.018,a[1]+nz*.018],[b[0]+nx*.018,b[1]+nz*.018],[b[0]+nx*.22,b[1]+nz*.22],[a[0]+nx*.22,a[1]+nz*.22]],top:.105,thickness:.22};
+-   mesh(tracedSlabGeometry(record),paving[(k+1)%4],record.id,subgroups.path);
++   mesh(createFlagstoneGeometry367(record),paving[(k+1)%4],record.id,subgroups.path);
+   }
+  }
+  // Curb joints follow individually observed cuts rather than equal screen rows.
+- for(const side of[-1,1]){const cuts=side<0?observedCurbCuts04.west:observedCurbCuts04.east;for(let k=0;k<cuts.length-1;k++){const a=traced.edgePoint(side,cuts[k]),b=traced.edgePoint(side,cuts[k+1]),dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len,inner=.018,outer=.22,outline=[[a[0]+nx*inner,a[1]+nz*inner],[b[0]+nx*inner,b[1]+nz*inner],[b[0]+nx*outer,b[1]+nz*outer],[a[0]+nx*outer,a[1]+nz*outer]];mesh(tracedSlabGeometry({id:'observed-curb-'+side+'-'+k,outline,top:.105+.004*Math.sin(k*1.79),thickness:.22,column:side+3,row:k}),paving[(k+1)%4],'observed-curb-'+side+'-'+k,subgroups.path);}}
++ for(const side of[-1,1]){const cuts=side<0?observedCurbCuts04.west:observedCurbCuts04.east;for(let k=0;k<cuts.length-1;k++){const a=traced.edgePoint(side,cuts[k]),b=traced.edgePoint(side,cuts[k+1]),dx=b[0]-a[0],dz=b[1]-a[1],len=Math.hypot(dx,dz),nx=side*dz/len,nz=-side*dx/len,inner=.018,outer=.22,outline=[[a[0]+nx*inner,a[1]+nz*inner],[b[0]+nx*inner,b[1]+nz*inner],[b[0]+nx*outer,b[1]+nz*outer],[a[0]+nx*outer,a[1]+nz*outer]];mesh(createFlagstoneGeometry367({id:'observed-curb-'+side+'-'+k,outline,top:.105+.004*Math.sin(k*1.79),thickness:.22,column:side+3,row:k}),paving[(k+1)%4],'observed-curb-'+side+'-'+k,subgroups.path);}}
+  // The inferred outside-curb shoulder paving was rejected against HD04.
+  // The observed path and its actual curb cuts remain; planted wet knolls and
+  // discrete stones now form the outside margin.
+  // Compact damp earth closes the bottom of the joints; colonies occupy only
+  // selected lips and interruptions, rather than continuous green ribbons.
+- const jointEarth=material('observed-paving-dark-mineral-earth','#2a2a20',{roughness:1}),mossMats=['#263019','#354022','#1d2818'].map((c,i)=>material('observed-joint-moss-'+i,c,{roughness:.98,side:T.DoubleSide}));
++ const jointEarth=material('observed-paving-dark-mineral-earth','#2a2a20',{roughness:1}),mossMats=['#465122','#59662b','#34401d'].map((c,i)=>material('observed-joint-moss-'+i,c,{roughness:.98,side:T.DoubleSide}));
+  group.traverse(o=>{if(o.isMesh&&(o.name==='flared-processional-causeway'||o.name.startsWith('dry-low-path-side-bank-')))o.material=jointEarth;});
+  const bedLeft=traced.edgePoint(-1,740),bedLeftNear=traced.edgePoint(-1,1350),bedRight=traced.edgePoint(1,740),bedRightNear=traced.edgePoint(1,1350);
+  const bedShape=new T.Shape();[bedLeft,bedRight,bedRightNear,bedLeftNear].forEach(([x,z],i)=>i?bedShape.lineTo(x,-z):bedShape.moveTo(x,-z));bedShape.closePath();const bed=new T.ExtrudeGeometry(bedShape,{depth:.828,bevelEnabled:false,steps:1});bed.rotateX(-Math.PI/2);bed.translate(0,-.8,0);mesh(bed,jointEarth,'observed-continuous-mineral-joint-bed',subgroups.path);
+  const rearBedShape=new T.Shape();rearOutline.forEach(([x,z],i)=>i?rearBedShape.lineTo(x,-z):rearBedShape.moveTo(x,-z));rearBedShape.closePath();const rearBed=new T.ExtrudeGeometry(rearBedShape,{depth:.828,bevelEnabled:false,steps:1});rearBed.rotateX(-Math.PI/2);rearBed.translate(0,-.8,0);mesh(rearBed,jointEarth,'authored-rear-paving-support-and-seam-bed',subgroups.path);
+- const mossG=ownG(createJointMoss212()),mossMatrices=[[],[],[]],grassMatrices=[],seen=new Set(),h=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
+- for(const r of traced.records)for(let e=0;e<r.outline.length;e++){const a=r.outline[e],b=r.outline[(e+1)%r.outline.length],key=[a,b].map(p=>p.map(q=>q.toFixed(3)).join(':')).sort().join('|');if(seen.has(key))continue;seen.add(key);const len=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let k=0;k<len/.017;k++){const t=(k+.5)*.017/len,seed=r.column*97+r.row*31+e*13;if(h(k,seed)>.20+.16*Math.sin(t*14+seed)||Math.sin(t*21+seed)*Math.sin(t*8+seed*.31)<-.15)continue;const o=new T.Object3D();o.position.set(T.MathUtils.lerp(a[0],b[0],t)+.003*(h(k,seed+3)-.5),.043+.003*h(k,seed+7),T.MathUtils.lerp(a[1],b[1],t)+.003*(h(k,seed+11)-.5));const radius=.008+.008*h(k,seed+17);o.scale.set(radius,.006+.006*h(k,seed+21),radius*(.65+.8*h(k,seed+27)));o.rotation.y=h(k,seed+33)*TAU;o.updateMatrix();mossMatrices[Math.floor(h(k,seed+41)*3)].push(o.matrix.clone());if(h(k,seed+97)<.055){const grass=new T.Object3D();grass.position.set(T.MathUtils.lerp(a[0],b[0],t),.027,T.MathUtils.lerp(a[1],b[1],t));grass.rotation.y=h(k,seed+101)*TAU;grass.scale.setScalar(.6+1.0*h(k,seed+107));grass.updateMatrix();grassMatrices.push(grass.matrix.clone());}}}
++ const mossG=ownG(createJointMoss367()),mossMatrices=[[],[],[]],grassMatrices=[],seen=new Set(),h=(a,b)=>{const q=Math.sin(a*127.1+b*311.7)*43758.5453;return q-Math.floor(q);};
++ for(const r of traced.records)for(let e=0;e<r.outline.length;e++){const a=r.outline[e],b=r.outline[(e+1)%r.outline.length],key=[a,b].map(p=>p.map(q=>q.toFixed(3)).join(':')).sort().join('|');if(seen.has(key))continue;seen.add(key);const len=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let k=0;k<len/.026;k++){const t=(k+.5)*.026/len,seed=r.column*97+r.row*31+e*13;if(h(k,seed)>.48+.27*Math.sin(t*14+seed)||Math.sin(t*21+seed)*Math.sin(t*8+seed*.31)<-.25)continue;const o=new T.Object3D();o.position.set(T.MathUtils.lerp(a[0],b[0],t)+.003*(h(k,seed+3)-.5),.026+.001*h(k,seed+7),T.MathUtils.lerp(a[1],b[1],t)+.003*(h(k,seed+11)-.5));const radius=.007+.006*h(k,seed+17);o.scale.set(radius,.010+.010*h(k,seed+21),.018+.025*h(k,seed+27));o.rotation.y=Math.atan2(b[0]-a[0],b[1]-a[1])+.15*(h(k,seed+33)-.5);o.updateMatrix();mossMatrices[Math.floor(h(k,seed+41)*3)].push(o.matrix.clone());if(h(k,seed+97)<.015){const grass=new T.Object3D();grass.position.set(T.MathUtils.lerp(a[0],b[0],t),.027,T.MathUtils.lerp(a[1],b[1],t));grass.rotation.y=h(k,seed+101)*TAU;grass.scale.setScalar(.35+.45*h(k,seed+107));grass.updateMatrix();grassMatrices.push(grass.matrix.clone());}}}
+  for(let j=0;j<3;j++){const mm=mossMatrices[j],o=new T.InstancedMesh(mossG,mossMats[j],mm.length);o.name='observed-discontinuous-moss-colonies-'+j;mm.forEach((mat,i)=>o.setMatrixAt(i,mat));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
+  {const g=ownG(createSeamGrass212()),mat=material('scene04-212-rooted-joint-grass','#334819',{roughness:.92,side:T.DoubleSide}),o=new T.InstancedMesh(g,mat,grassMatrices.length);o.name='scene04-212-rooted-stone-seam-grass';grassMatrices.forEach((q,i)=>o.setMatrixAt(i,q));o.castShadow=o.receiveShadow=true;o.computeBoundingBox();o.computeBoundingSphere();subgroups.path.add(o);}
+  const edgePebbles=[],edgeStone=ownG(new T.IcosahedronGeometry(1,2));
+@@ -266,7 +267,7 @@
+  for(const parent of[subgroups.shore,subgroups.plants])for(const o of parent.children)if(o.isMesh){if(o.isInstancedMesh){const matrix=new T.Matrix4();for(let i=0;i<o.count;i++){o.getMatrixAt(i,matrix);const x=matrix.elements[12],z=matrix.elements[14];if(z>=8){matrix.elements[12]=bankX(x,z);o.setMatrixAt(i,matrix);}}o.instanceMatrix.needsUpdate=true;o.computeBoundingBox();o.computeBoundingSphere();}else warpBankGeometry(o.geometry);}
+  for(const r of records.plantRoots)if(r.position?.[2]>=8)r.position[0]=bankX(r.position[0],r.position[2]);
+  group.updateMatrixWorld(true);pines.forEach(p=>p.syncNormalWorldMatrix());const bounds=new T.Box3().setFromObject(group),sockets={hall:{axisX:0,frontZ:0,platformY:plan.stairTopY,platformHalfWidth:7.6},stairs:{top:[0,plan.stairTopY,0],bottom:[0,0,plan.stairBottomZ],width:options.stairWidth??5.6},towerReserved:plan.towerExclusion,lanterns:lanternAsset.getEmitterMetadata(),pines:pines.map(p=>({root:p.group.position.toArray(),matrixWorld:p.group.matrixWorld.toArray()})),waterMeshes,bridge,cameraPolicy:'The complete enclosing scene owns the camera; no recovered-camera claim.'};
+- records.assumptions.push('This is newly reconstructed complete source after a workspace reset, not recovered a22f bytes.','Visible path joints and curb cuts are individually observed numeric contours; hidden shape, metric depth, wear and lamp/tree dimensions remain authored hypotheses.','The earlier31 broad paving records were rejected after HD04 whole-image review; staggered shorter stones and broken side fragments define the current actual solids, with inferred metric scale, wear and moisture.','Rock body planes and limited clipped moss replace rounded white bodies with complete green caps.','The broad lobed pine masses are physical foliage aggregates around the original bough anchors; inner fans near the stair reserve are pruned smaller rather than moving the roots.','No light, camera, renderer, background photograph or whole-tree billboard is created.','The unreferenced inherited bridge and outside-curb shoulder paving are removed; actual wet planting knolls close the natural margin.');
++ records.assumptions.push('This is newly reconstructed complete source after a workspace reset, not recovered a22f bytes.','Visible path joints and curb cuts are individually observed numeric contours; hidden shape, metric depth, wear and lamp/tree dimensions remain authored hypotheses.','Ground367 replaces the prior elongated smooth-panel layout with irregular staggered flags, closed chipped/riven bodies and rooted moss cushions; hidden thickness and weathering remain authored inference.','Rock body planes and limited clipped moss replace rounded white bodies with complete green caps.','The broad lobed pine masses are physical foliage aggregates around the original bough anchors; inner fans near the stair reserve are pruned smaller rather than moving the roots.','No light, camera, renderer, background photograph or whole-tree billboard is created.','The unreferenced inherited bridge and outside-curb shoulder paving are removed; actual wet planting knolls close the natural margin.');
+  let disposed=false;function dispose(){if(disposed)return;disposed=true;const errors=[];for(const fn of[...children.map(c=>()=>c.dispose()),...Array.from(ownedG,g=>()=>g.dispose()),...Array.from(ownedM,m=>()=>m.dispose()),...Array.from(ownedT,t=>()=>t.dispose()),()=>group.removeFromParent()])try{fn();}catch(e){errors.push(e);}if(errors.length)throw new AggregateError(errors,'Garden cleanup errors');}
+  return{group,subgroups,sockets,bounds,materials:m,waterMeshes,lanterns:lanternAsset,pines,lotusLeaves,lotusFlowers,records,plan,dispose};
+ }
+diff --git a/reconstructions/scene-04/src/reference4-main.js b/reconstructions/scene-04/src/reference4-main.js
+--- a/reconstructions/scene-04/src/reference4-main.js
++++ b/reconstructions/scene-04/src/reference4-main.js
+@@ -8,6 +8,7 @@
+ import {reference4Config as C} from './reference4-config.js';
+ import {loadSculptedCore212} from './scene04-sculpted-core212.js';
+ import {loadScannedStoneMaps} from './scene04-scanned-stone.js';
++import {loadGround367Maps} from './scene04-ground367.js';
+ import {loadTracedStoneMaps04} from './traced-stone-material04.js';
+ import {loadReference4ForegroundScans} from './reference4-foreground-scans.js';
+ import {loadReference4GeneratedMaps} from './reference4-materials.js';
+@@ -15,7 +16,7 @@
+ import {loadPorchRelief135} from './scene04-porch-sculpture135.js';
+ import {loadSpatial188Assets} from './licensed-carving188.js';
+ await loadReference4GeneratedMaps();
+-await Promise.all([loadScannedStoneMaps(),loadTracedStoneMaps04(),loadReference4ForegroundScans(),loadScene04Understory131(),loadPorchRelief135(),loadSpatial188Assets(),loadSculptedCore212()]);
++await Promise.all([loadGround367Maps(),loadScannedStoneMaps(),loadTracedStoneMaps04(),loadReference4ForegroundScans(),loadScene04Understory131(),loadPorchRelief135(),loadSpatial188Assets(),loadSculptedCore212()]);
+ const query=new URLSearchParams(location.search),size=k=>Math.min(2048,Math.max(64,Number(query.get(k))||960));
+ const width=size('w'),height=size('h');
+ const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});
+@@ -90,7 +91,7 @@
+  const inspections={[-104]:'floor',[-105]:'eaves',[-106]:'lantern',[-121]:'stairsSide'};if(inspections[localTime])return renderInspection(inspections[localTime]);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);
+ }
+ function surfaceAudit(){const seen=new Set(),out=[];world.scene.traverse(o=>{if(o.isMesh)for(const m of Array.isArray(o.material)?o.material:[o.material]){if(!m?.userData.maps||seen.has(m))continue;seen.add(m);const data=m.normalMap.image.data||[];let lo=data.length?255:null,hi=data.length?0:null;for(let i=0;i<data.length;i+=4){lo=Math.min(lo,data[i],data[i+1]);hi=Math.max(hi,data[i],data[i+1]);}out.push({name:m.name,albedoSize:[m.map.image.width,m.map.image.height],normalXYByteRange:[lo,hi],physicalRepeatMetres:m.userData.physicalTextureRepeatMetres??.25,materialMap:m.map.uuid,compiledUniformMap:m.userData.compiledShader?.uniforms.map?.value?.uuid??null,shaderCompiled:!!m.userData.compiledShader});}});return out;}
+-function info(){return{surfaceAudit:surfaceAudit(),...world.info(),camera:{position:camera.position.toArray(),fov:camera.fov,reference:C.camera},renderer:{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls},shadowCache:{scope:'Static geometry and fixed world-space directional light; camera motion only',frozen:shadowCacheFrozen,firstCompleteBeautyFrame:shadowCacheFirstBeautyFrame,autoUpdate:renderer.shadowMap.autoUpdate,needsUpdate:renderer.shadowMap.needsUpdate,lastProfile:shadowProfileLast},shot:{duration:7,eyeHeight:[.55,C.camera.position[1]],automaticAnimation:false},surfaceScale:{reconstructedPavers212:world.garden.records.stoneSlabs.filter(r=>r.layout212).length,projectedLayoutScope:"Staggered HD04 joint interpretation and broken side fragments; previous31 broad-panel hypothesis rejected",authoredRearSlabs:world.garden.records.stoneSlabs.filter(r=>r.id.startsWith("authored-rear-continuation-")).length,nominalFlagstoneSpanMetres:[.58,.76],paverThicknessRangeMetres:[.115,.160],paverRadialCornerInsetMetres:.015,paverEdgeBevelMetres:.006,authoredPoreDepthMetres:[.00025,.00105],hiddenContinuation:"Authored inference outside the reference view"},contactAO:{radiusMetres:.32,blend:.60,alphaCardsExcludedFromDepth:true}};}
++function info(){return{surfaceAudit:surfaceAudit(),...world.info(),camera:{position:camera.position.toArray(),fov:camera.fov,reference:C.camera},renderer:{triangles:renderer.info.render.triangles,calls:renderer.info.render.calls},shadowCache:{scope:'Static geometry and fixed world-space directional light; camera motion only',frozen:shadowCacheFrozen,firstCompleteBeautyFrame:shadowCacheFirstBeautyFrame,autoUpdate:renderer.shadowMap.autoUpdate,needsUpdate:renderer.shadowMap.needsUpdate,lastProfile:shadowProfileLast},shot:{duration:7,eyeHeight:[.55,C.camera.position[1]],automaticAnimation:false},surfaceScale:{reconstructedPavers367:world.garden.records.stoneSlabs.filter(r=>r.ground367).length,projectedLayoutScope:"Ground367 irregular staggered joints, complete chipped/riven flags and rooted moss; observed numeric plan, inferred hidden thickness/relief",authoredRearSlabs:world.garden.records.stoneSlabs.filter(r=>r.id.startsWith("authored-rear-continuation-")).length,paverThicknessRangeMetres:[.170,.215],paverEdgeBevelRangeMetres:[.0026,.010],rivenReliefRangeMetres:[-.016,.009],mossPeakYRange:[.036,.047],hiddenContinuation:"Authored inference outside the reference view"},contactAO:{radiusMetres:.32,blend:.60,alphaCardsExcludedFromDepth:true}};}
+ function dispose(){world.architecture.dispose();world.garden.dispose();world.scene.traverse(o=>{if(o.isMesh){o.geometry?.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m?.dispose();}});composer.dispose();contactAO.dispose();renderer.dispose();}
+ window.temple={ready:true,renderer,scene:world.scene,camera,renderReference,renderView,renderShot,renderInspection,info,dispose};
+ document.querySelector('#loading')?.remove();if(!query.has('defer'))renderReference(4);
+diff --git a/reconstructions/scene-04/src/scene04-ground367.js b/reconstructions/scene-04/src/scene04-ground367.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-04/src/scene04-ground367.js
+@@ -0,0 +1,89 @@
++import * as T from 'three';
++import {sampleAggregateRelief04} from './granite-aggregate04.js';
++
++// Scene04 approach367. Numeric joints are observed plan boundaries only.
++// Hidden thickness, fracture, weathering and moisture are authored inference.
++// No reference photograph is loaded, sampled or used as a height field.
++const hash=(a,b,s=367)=>{const q=Math.sin(a*127.1+b*311.7+s*17.13)*43758.5453;return q-Math.floor(q);};
++const noise=(x,z,s)=>{const i=Math.floor(x),j=Math.floor(z),a=x-i,b=z-j,u=a*a*(3-2*a),v=b*b*(3-2*b);return T.MathUtils.lerp(T.MathUtils.lerp(hash(i,j,s),hash(i+1,j,s),u),T.MathUtils.lerp(hash(i,j+1,s),hash(i+1,j+1,s),u),v);};
++const smooth=(a,b,x)=>T.MathUtils.smoothstep(x,a,b);
++const area=points=>points.reduce((s,p,i)=>{const q=points[(i+1)%points.length];return s+p[0]*q[1]-q[0]*p[1];},0)*.5;
++const at=(profile,y)=>{let k=0;while(k<profile.length-2&&y>profile[k+1][0])k++;const a=profile[k],b=profile[k+1];return T.MathUtils.lerp(a[1],b[1],(y-a[0])/(b[0]-a[0]));};
++const seamProfiles=[
++ [[740,586],[800,562],[850,545],[900,529],[950,512],[1000,494],[1050,477],[1100,456],[1150,438],[1200,416],[1254,397],[1370,352]],
++ [[740,674],[800,684],[850,692],[900,703],[950,720],[1000,738],[1050,756],[1100,772],[1150,785],[1200,797],[1254,816],[1370,851]]
++];
++export function createPavingLayout367(traced){
++ const ys=[744,756,766,778,788,799,811,824,838,852,867,885,904,925,948,982,1018,1047,1087,1127,1174,1231,1293,1350],W=6,H=ys.length-1,used=Array.from({length:H},()=>Array(W).fill(false)),records=[];
++ // Shared paired nodes form a physical paving graph. Rectangular quarry flags
++ // span unequal numbers of subcells; buried subdivision lines are omitted.
++ // This stops long seams and creates actual staggered T-junctions.
++ const nodes=ys.map((y,j)=>{const L=at(traced.edgeProfiles[0],y),A=at(seamProfiles[0],y),B=at(seamProfiles[1],y),R=at(traced.edgeProfiles[3],y),xs=[L,T.MathUtils.lerp(L,A,.51),A,T.MathUtils.lerp(A,B,.48),B,T.MathUtils.lerp(B,R,.52),R];return xs.map((x,i)=>[x+(i===0||i===6?0:(R-L)*.008*(2*hash(i,j,3673)-1)),y+(i===0||i===6?0:(1+3.5*(y-744)/626)*(2*hash(i,j,3677)-1))]);});
++ const free=(c,r,w,h)=>c+w<=W&&r+h<=H&&Array.from({length:h},(_,j)=>Array.from({length:w},(_,i)=>!used[r+j][c+i]).every(Boolean)).every(Boolean);
++ for(let row=0;row<H;row++)for(let column=0;column<W;column++){
++  if(used[row][column])continue;
++  const desiredW=[3,2,2,3,1,2][(row+column*3)%6],desiredH=hash(row,column,3683)<.22&&row<13?3:2,choices=[];
++  for(const w of[1,2,3,4])for(const h of[1,2,3])if((w>1||h<=2)&&free(column,row,w,h))choices.push({w,h,score:Math.abs(w-desiredW)*1.1+Math.abs(h-desiredH)*1.2+.30*hash(w+row,h+column,3689)+(w===1?.35:0)+(h===1?.45:0)});
++  choices.sort((a,b)=>a.score-b.score);const {w,h}=choices[0];for(let j=0;j<h;j++)for(let i=0;i<w;i++)used[row+j][column+i]=true;
++  const pixels=[];for(let i=0;i<=w;i++)pixels.push(nodes[row][column+i]);for(let j=1;j<=h;j++)pixels.push(nodes[row+j][column+w]);for(let i=w-1;i>=0;i--)pixels.push(nodes[row+h][column+i]);for(let j=h-1;j>0;j--)pixels.push(nodes[row+j][column]);
++  const original=pixels.map(traced.world),outline=[];for(let i=0;i<original.length;i++){const a=original[i],b=original[(i+1)%original.length],ia=a[1]>=8,ib=b[1]>=8;if(ia)outline.push(a);if(ia!==ib){const t=(8-a[1])/(b[1]-a[1]);outline.push([T.MathUtils.lerp(a[0],b[0],t),8]);}}
++  if(outline.length<3||Math.abs(area(outline))<.002)continue;
++  const seed=3671+column*491+row*79;
++  records.push({id:'ground367-r03-'+column+'-'+row,column,row,detailSeed:seed,pixels,outline,top:traced.groundY+.006*(hash(row,column,947)-.5),thickness:.170+.045*hash(row,column,953),jointGap:.007+.005*hash(row,column,959),edgeBevel:.004+.004*hash(row,column,967),edgeBevelDrop:.006+.007*hash(row,column,971),cornerRadius:.018+.024*hash(row,column,977),detailSpacing:row>12?.024:.036,dampPropensity:.17+.60*hash(row,column,983),ground367:true,pavingGraph:{column,row,widthUnits:w,depthUnits:h,sharedPairedBoundary:true,subcellLinesRemoved:true},source:'Shared reference-led paired paving graph; unequal broad cut flags and staggered T-junctions. Hidden thickness, riven relief and dampness are authored.'});
++ }
++ return records;
++}
++
++export function createFlagstoneGeometry367(record){
++ const isCurb=record.id.includes('curb'),outline=record.outline.map(p=>p.slice());if(area(outline)<0)outline.reverse();
++ const cx=outline.reduce((n,p)=>n+p[0],0)/outline.length,cz=outline.reduce((n,p)=>n+p[1],0)/outline.length,seed=record.detailSeed??(3677+(record.column??0)*197+(record.row??0)*61),top=record.top??.048,thickness=record.thickness??.185,gap=record.jointGap??.007,bevel=record.edgeBevel??(isCurb?.008:.006),drop=record.edgeBevelDrop??.009;
++ const points=outline.map(([x,z])=>{const d=Math.hypot(cx-x,cz-z);return[x+(cx-x)/d*gap,z+(cz-z)/d*gap];}),boundary=[];
++ for(let j=0;j<points.length;j++){
++  const prev=points[(j+points.length-1)%points.length],a=points[j],b=points[(j+1)%points.length],pl=Math.hypot(prev[0]-a[0],prev[1]-a[1]),len=Math.hypot(b[0]-a[0],b[1]-a[1]),corner=Math.min(record.cornerRadius??.045,pl*.19,len*.19)*(.75+.30*hash(j,13,seed)),enter=[a[0]+(prev[0]-a[0])*corner/pl,a[1]+(prev[1]-a[1])*corner/pl],leave=[a[0]+(b[0]-a[0])*corner/len,a[1]+(b[1]-a[1])*corner/len];
++  for(let k=0;k<4;k++){const t=k/4,q=1-t;boundary.push([q*q*enter[0]+2*q*t*a[0]+t*t*leave[0],q*q*enter[1]+2*q*t*a[1]+t*t*leave[1]]);}
++  const nr=Math.min(record.cornerRadius??.045,len*.19)*( .75+.30*hash((j+1)%points.length,13,seed)),end=[b[0]+(a[0]-b[0])*nr/len,b[1]+(a[1]-b[1])*nr/len],N=Math.max(2,Math.ceil(Math.hypot(end[0]-leave[0],end[1]-leave[1])/.030)),nx=-(b[1]-a[1])/len,nz=(b[0]-a[0])/len;
++  const chips=Array.from({length:Math.max(1,Math.floor(len/.18))},(_,k)=>({t:.06+.88*hash(k,j,seed+23),w:Math.min(.14,(.035+.045*hash(k,j,seed+31))/len),d:.005+.028*Math.pow(hash(k,j,seed+41),2)}));
++  for(let k=0;k<N;k++){const t=k/N;let chip=.0022*noise(t*19,j*3.7,seed+47);for(const c of chips)chip+=c.d*Math.max(0,1-Math.abs(t-c.t)/c.w)**1.3;chip*=Math.sin(Math.PI*t);boundary.push([T.MathUtils.lerp(leave[0],end[0],t)+nx*chip,T.MathUtils.lerp(leave[1],end[1],t)+nz*chip]);}
++ }
++ const clean=[];for(const p of boundary)if(!clean.length||Math.hypot(p[0]-clean.at(-1)[0],p[1]-clean.at(-1)[1])>1e-5)clean.push(p);if(Math.hypot(clean[0][0]-clean.at(-1)[0],clean[0][1]-clean.at(-1)[1])<1e-5)clean.pop();
++ let faces=[];const N=clean.length,vertices=[],rings=[],extX=Math.max(...outline.map(p=>Math.abs(p[0]-cx))),extZ=Math.max(...outline.map(p=>Math.abs(p[1]-cz)));
++ const ring=(inset,y)=>{const ids=[];for(let i=0;i<N;i++){const [x,z]=clean[i],d=Math.hypot(cx-x,cz-z),widthFactor=.65+.60*noise(x*19,z*17,seed+127),dropFactor=.65+.60*noise(x*23,z*21,seed+129),upper=y>=top-drop-.001,yy=upper?top-(top-y)*dropFactor:y,ripple=.0012*(noise(x*31,z*29,seed+53)-.5),id=vertices.length;vertices.push(new T.Vector3(x+(cx-x)/d*inset*widthFactor,yy+ripple,z+(cz-z)/d*inset*widthFactor));ids.push(id);}rings.push(ids);return ids;};
++ ring(.002,top-thickness);ring(.001,top-thickness*.52);ring(0,top-drop);
++ // Narrow broken chamfer planes replace the broad rounded reflective rim.
++ for(const t of[.25,.75,1])ring(bevel*t,top-drop*(1-t));
++ for(let j=0;j<rings.length-1;j++)for(let i=0;i<N;i++){const k=(i+1)%N,a=rings[j],b=rings[j+1];faces.push({v:[a[i],b[i],a[k]],top:false},{v:[a[k],b[i],b[k]],top:false});}
++ const topRing=rings.at(-1),tri=T.ShapeUtils.triangulateShape(topRing.map(i=>new T.Vector2(vertices[i].x,vertices[i].z)),[]),bottomTri=T.ShapeUtils.triangulateShape(rings[0].map(i=>new T.Vector2(vertices[i].x,vertices[i].z)),[]);
++ for(const [a,b,c]of tri)faces.push({v:[topRing[a],topRing[c],topRing[b]],top:true});for(const[a,b,c]of bottomTri)faces.push({v:[rings[0][a],rings[0][b],rings[0][c]],top:false});
++ const spacing=record.detailSpacing??(isCurb?.043:.037),key=(a,b)=>a<b?a+':'+b:b+':'+a;
++ for(let level=0;level<14;level++){
++  const split=new Map();for(const f of faces)if(f.top)for(let j=0;j<3;j++){const a=f.v[j],b=f.v[(j+1)%3];if(vertices[a].distanceToSquared(vertices[b])>spacing*spacing&&!split.has(key(a,b))){split.set(key(a,b),vertices.length);vertices.push(vertices[a].clone().add(vertices[b]).multiplyScalar(.5));}}
++  if(!split.size)break;const next=[];for(const f of faces){let[a,b,c]=f.v,ab=split.get(key(a,b)),bc=split.get(key(b,c)),ca=split.get(key(c,a)),count=Number(ab!==undefined)+Number(bc!==undefined)+Number(ca!==undefined);const add=(...v)=>next.push({v,top:f.top});if(!count){next.push(f);continue;}if(count===3){add(a,ab,ca);add(ab,b,bc);add(ca,bc,c);add(ab,bc,ca);}else if(count===1){if(bc!==undefined){[a,b,c]=[b,c,a];ab=bc;}else if(ca!==undefined){[a,b,c]=[c,a,b];ab=ca;}add(a,ab,c);add(ab,b,c);}else{if(ab===undefined){[a,b,c]=[b,c,a];[ab,bc]=[bc,ca];}else if(bc===undefined){[a,b,c]=[c,a,b];[ab,bc]=[ca,ab];}add(b,bc,ab);add(a,ab,c);add(ab,bc,c);}}faces=next;
++ }
++ const edge=(x,z)=>{let d=Infinity;for(let i=0;i<points.length;i++){const a=points[i],b=points[(i+1)%points.length],dx=b[0]-a[0],dz=b[1]-a[1],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[1])*dz)/(dx*dx+dz*dz),0,1);d=Math.min(d,Math.hypot(x-a[0]-t*dx,z-a[1]-t*dz));}return d;};
++ const hollows=Array.from({length:isCurb?0:1+Math.floor(hash(3,7,seed+59)*2)},(_,k)=>({x:cx+(hash(k,7,seed+61)-.5)*extX*.9,z:cz+(hash(k,9,seed+67)-.5)*extZ*.9,rx:Math.max(.06,extX*(.25+.23*hash(k,11,seed+71))),rz:Math.max(.06,extZ*(.25+.23*hash(k,13,seed+73))),depth:.003+.005*hash(k,17,seed+79)}));
++ const wetAt=(x,z)=>{let mask=0,depth=0;for(const h of hollows){const u=(x-h.x)/h.rx,v=(z-h.z)/h.rz,q=Math.sqrt(u*u+v*v),m=smooth(-.1,.35,1-q+.14*(noise(x*12,z*12,seed+83)-.5))*smooth(.02,.10,edge(x,z));mask=Math.max(mask,m*.72);depth=Math.max(depth,m*h.depth);}return{mask,depth};};
++ const tiltX=.004*(hash(2,3,seed+89)-.5),tiltZ=.004*(hash(5,7,seed+97)-.5),angle=hash(11,17,seed+101)*Math.PI*2,cc=Math.cos(angle),ss=Math.sin(angle);
++ const field=(x,z)=>{const e=edge(x,z),u=(x-cx)*cc+(z-cz)*ss,v=-(x-cx)*ss+(z-cz)*cc,w=wetAt(x,z),broad=.006*(noise(x*2.4,z*2.7,seed+103)-.5),riven=.0035*(noise(u*4.5,v*6.5,seed+107)-.5)+.0020*(noise(u*18,v*17,seed+109)-.5),crease=-.0025*Math.exp(-Math.pow((v+.055*Math.sin(u*9+seed)-.10)/.023,2))*smooth(.02,.10,e),edgeWear=-.0045*(1-smooth(.010,.048,e))*noise(x*29,z*27,seed+113),aggregate=(isCurb?.45:.80)*sampleAggregateRelief04(x,z,seed);return broad+riven+crease+edgeWear+aggregate-w.depth+tiltX*(x-cx)/Math.max(.1,extX)+tiltZ*(z-cz)/Math.max(.1,extZ);};
++ const p=[],uv=[],colors=[],wetness=[],dampness=[];for(const q of vertices){const blend=Math.pow(T.MathUtils.clamp((q.y-(top-thickness))/thickness,0,1),4),wet=wetAt(q.x,q.z);q.y+=field(q.x,q.z)*blend;const arris=1-smooth(top-.009,top-.002,q.y),edgeDamp=1-.25*arris*(.65+.35*noise(q.x*31,q.z*29,seed+149));const tone=edgeDamp*(.82+.28*hash(3,7,seed+131))*(.88+.18*noise(q.x*3.7,q.z*3.7,seed+137))*(1-.12*smooth(.55,.75,noise(q.x*12,q.z*12,seed+139)));colors.push(tone*.99,tone,tone*.975);p.push(q.x,q.y,q.z);uv.push(q.x,q.z);wetness.push(wet.mask*blend);dampness.push(isCurb?0:(record.dampPropensity??.25)*blend);}
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setAttribute('color',new T.Float32BufferAttribute(colors,3));g.setAttribute('r4Wetness',new T.Float32BufferAttribute(wetness,1));g.setAttribute('r4Dampness',new T.Float32BufferAttribute(dampness,1));g.setIndex(faces.flatMap(f=>f.v));g.computeVertexNormals();
++ g.userData.ground367={record:record.id,closedSolid:true,thicknessMetres:thickness,bevelWidthMetres:bevel,bevelDropMetres:drop,nominalJointHalfGapMetres:gap,topSpacingMetres:spacing,narrowBrokenChamfer:true,rivenReliefMetres:[-.016,.009],metricAggregate:'Existing authored granite-aggregate04, no photograph-derived height',beddingTopY:.028,referenceRGBUsed:false};return g;
++}
++
++export function createJointMoss367(){
++ const N=22,R=5,p=[0,1,0],uv=[.5,.5],ix=[];
++ for(let j=1;j<=R;j++)for(let k=0;k<N;k++){const t=j/R,a=k*Math.PI*2/N,r=t*(.94+.06*Math.sin(k*2.1)),y=Math.pow(Math.max(0,1-t*t),.65)*(.82+.18*Math.sin(k*2.7+j));p.push(Math.cos(a)*r,y,Math.sin(a)*r);uv.push(.5+.5*Math.cos(a)*t,.5+.5*Math.sin(a)*t);}
++ for(let k=0;k<N;k++)ix.push(0,1+(k+1)%N,1+k);for(let j=0;j<R-1;j++)for(let k=0;k<N;k++){const a=1+j*N+k,b=1+j*N+(k+1)%N,c=a+N,d=b+N;ix.push(a,b,c,b,d,c);}const base=p.length/3;p.push(0,-.08,0);uv.push(.5,.5);for(let k=0;k<N;k++)ix.push(base,1+(R-1)*N+k,1+(R-1)*N+(k+1)%N);
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.userData.ground367={closedRootedCushion:true,rootY:0,peakY:1};return g;
++}
++
++let coarseNormal367=null;
++export async function loadGround367Maps(){
++ coarseNormal367=await new T.TextureLoader().loadAsync(new URL('../assets/monastery-stone-floor/individual-stone-nor_gl.png',import.meta.url).href);coarseNormal367.name='CC0-MonasteryStoneFloor-single-face-normal-ground367';coarseNormal367.wrapS=coarseNormal367.wrapT=T.MirroredRepeatWrapping;coarseNormal367.anisotropy=8;return coarseNormal367;
++}
++export function installFlagstoneFinish367(material){
++ if(!coarseNormal367)throw Error('Ground367 CC0 coarse normal must load before paving');
++ const oldNormal=material.normalMap,normal=coarseNormal367.clone();normal.needsUpdate=true;material.normalMap=normal;material.normalScale.set(.26,.26);material.userData.maps.normalMap=normal;oldNormal.dispose();material.vertexColors=true;material.needsUpdate=true;
++ const inherited=material.onBeforeCompile,key=material.customProgramCacheKey.bind(material);
++ material.onBeforeCompile=shader=>{inherited(shader);const rules=[['roughnessFactor=clamp(mix(roughnessFactor,.145,r4WetMask*.96),.14,1.0);','roughnessFactor=clamp(mix(roughnessFactor,.36,r4WetMask*.80),.34,1.0);'],['material.clearcoat=mix(material.clearcoat,.96,r4WetMask*.92);','material.clearcoat=mix(material.clearcoat,.50,r4WetMask*.78);'],['material.clearcoatRoughness=mix(material.clearcoatRoughness,.12,r4WetMask*.94);','material.clearcoatRoughness=mix(material.clearcoatRoughness,.32,r4WetMask*.82);'],['diffuseColor.rgb*=1.0-.38*r4WetMask;','diffuseColor.rgb*=1.0-.30*r4WetMask;']];for(const[a,b]of rules){if(!shader.fragmentShader.includes(a))throw Error('367 wet granite boundary changed: '+a);shader.fragmentShader=shader.fragmentShader.replace(a,b);}for(const pair of['zy','xz','xy'])shader.fragmentShader=shader.fragmentShader.replace('texture2D(normalMap,ssP.'+pair+')','texture2D(normalMap,ssP.'+pair+'*1.4105902778)');};
++ material.customProgramCacheKey=()=>key()+'-ground367-r03-narrow-chamfer-restrained-riven';material.userData.ground367={surface:'Existing CC0 granite albedo/roughness and MonasteryStoneFloor single-face normal, real riven geometry, discontinuous water film and mineral-patina vertex reflectance',normalRepeatMetres:.225,waterIOR:1.333,minimumWetRoughness:.34,referencePixelsUsed:false};return material;
++}

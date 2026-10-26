@@ -1,0 +1,235 @@
+{
+  "id": "scene04-ground367-r03",
+  "status": "working-point-ready-for-root-low-view-review",
+  "createdAt": "2026-10-26T19:57:21.154523+00:00",
+  "source": {
+    "revision": "r03",
+    "parentSourceHash": "ae8efebc9dfaed1695519b6cdf5f90b8e3d7cd23be1598d18e7eb3b35cd888fc",
+    "sourceHash": "57972b32c0d44bd029f6545b924cb62ac07b5867e90514e364ef4050aaba4e26",
+    "changed": [
+      {
+        "path": "reconstructions/scene-04/asset-dependencies.json",
+        "sha256": "a338c021f15016762a2fa90de8e5bc7c9f146022744f65ecdf938090c29249a1",
+        "existedInBase": true
+      },
+      {
+        "path": "reconstructions/scene-04/assets/ground367/provenance-r03.json",
+        "sha256": "9eb32217bdce9aae6acf3f1bbff9e037b537cc4493a3971c4355ad500c1cf2be",
+        "existedInBase": false
+      },
+      {
+        "path": "reconstructions/scene-04/src/reference4-garden.js",
+        "sha256": "6202467d4b3c01c0a3e5aa50942fe8c2802c7ba1fefd8dd46a0ad7ca6a6715e7",
+        "existedInBase": true
+      },
+      {
+        "path": "reconstructions/scene-04/src/reference4-main.js",
+        "sha256": "a6206a2651f4fb2caf56579160c0a67e5637f99bc9110d75d917a1f49b8c1892",
+        "existedInBase": true
+      },
+      {
+        "path": "reconstructions/scene-04/src/scene04-ground367.js",
+        "sha256": "12b2e69b64369f7d509b3fc2a2d546581d7892971992aa525f5f18179ae7dd55",
+        "existedInBase": false
+      }
+    ],
+    "deleted": [],
+    "freeze": "Private COW candidate frozen before official shared GPU FIFO capture",
+    "photographicAccepted": false
+  },
+  "scope": {
+    "scene": "04",
+    "privateCandidate": "lookdev/scene04-ground367/candidate-r03",
+    "canonicalOrGitEditedByThisLane": false,
+    "preserved343Lanterns": true,
+    "cameraStairAndLightingConfigExactBase": true,
+    "pairedFlagPlanExactR02": true,
+    "pairedPlanSha256": "4c125affcfe891c7be68dd2ed92e7aec6b267f85dffb97e664c7311d343f143b",
+    "sourceRetentionAudit": "lookdev/scene04-ground367/candidate-r03-retained-audit.json"
+  },
+  "construction": {
+    "visibleFlags": 41,
+    "layout": "Unequal broad closed quarry flags packed across a shared six-subcell graph. Internal subcell edges disappear inside a flag, producing stopped/restarted seams and actual staggered T-junctions; paired boundaries retained exactly from R02.",
+    "physicalThicknessMetres": [
+      0.17,
+      0.215
+    ],
+    "chamferWidthMetres": [
+      0.0026,
+      0.01
+    ],
+    "chamferDropMetres": [
+      0.0039,
+      0.01625
+    ],
+    "edgeRepair": "Narrow irregular planar chamfers replace the broad rounded pale edge rims; damp mineral side reflectance darkens the joint-facing arris.",
+    "faceRepair": "Restrained 2\u20134mm riven patterns and shallow fissures replace the R02 uniformly wavy field; existing CC0 coarse-normal strength reduced .85 to .26.",
+    "rivenReliefEnvelopeMetres": [
+      -0.016,
+      0.009
+    ],
+    "beddingTopY": 0.028,
+    "nominalWalkingDatumY": 0.048,
+    "moss": "Rooted closed low cushions occupy selected paired seams; sparse short grass and continuous opaque bedding remain.",
+    "newExternalAssets": [],
+    "referenceRGBUsed": false,
+    "referenceHeightOrAlbedoProjectionUsed": false
+  },
+  "validation": {
+    "visibleFlagsReport": "lookdev/scene04-ground367/candidate-r03-geometry-validation.json",
+    "flagsValid": true,
+    "visibleFlagTriangles": 703470,
+    "allStoneReport": "lookdev/scene04-ground367/candidate-r03-all-stone-validation.json",
+    "allStoneValid": true,
+    "testedStoneSamples": 69,
+    "visibleFlags": 41,
+    "curbBlocks": 28,
+    "flagsAndCurbsTriangles": 848624,
+    "allTestedSolidsClosedFiniteNondegenerate": true,
+    "allTestedBottomsExtendIntoBedding": true,
+    "scope": "All41visible flags and28actual curb blocks; unseen rear continuation not included in the topology audit."
+  },
+  "nativeEvidence": [
+    {
+      "report": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-native/report.json",
+      "reportSha256": "2b9aa9614db3d9bc3a91f54e50ac3919daf0b0f4bcff68faf9f4499a2773f750",
+      "frame": "reference",
+      "file": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-native/reference.png",
+      "pngSha256": "28e7254d329b81d3f2340535f62a37d43aa41e93956800223e3d09605604d2d5",
+      "rgbaSha256": "2e65875262bd2209269725188c88e5fcee5d77c48f570969b03fb960fd5b00d1",
+      "width": 1254,
+      "height": 1254,
+      "sourceHash": "57972b32c0d44bd029f6545b924cb62ac07b5867e90514e364ef4050aaba4e26",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": null,
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "658c263f65f24e0d135eba878da35a2147e43d1c7130b6131b0d3dea3f29f73c"
+      },
+      "completedAt": "2026-10-26T19:34:28.310Z",
+      "personallyVisuallyReviewed": true
+    },
+    {
+      "report": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-native/report.json",
+      "reportSha256": "2b9aa9614db3d9bc3a91f54e50ac3919daf0b0f4bcff68faf9f4499a2773f750",
+      "frame": "detail-native",
+      "file": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-native/detail-native.png",
+      "pngSha256": "a55ab7327681088dedd66e3c28cef88e48b952b0614fd6d76cae5456f9598526",
+      "rgbaSha256": "af43a9e29324a052b2ed537496221e5895a352a283bbf00ecaa69953b056b626",
+      "width": 1254,
+      "height": 1254,
+      "sourceHash": "57972b32c0d44bd029f6545b924cb62ac07b5867e90514e364ef4050aaba4e26",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": [
+        250,
+        754,
+        500,
+        1254
+      ],
+      "inspectionView": null,
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "658c263f65f24e0d135eba878da35a2147e43d1c7130b6131b0d3dea3f29f73c"
+      },
+      "completedAt": "2026-10-26T19:34:28.310Z",
+      "personallyVisuallyReviewed": true
+    },
+    {
+      "report": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-low-floor/report.json",
+      "reportSha256": "34d43f4e54f746c538ca8f9dfb2f5957fc0fdced16ac256f0b014fd15e27c215",
+      "frame": "inspection-view",
+      "file": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-low-floor/inspection-view.png",
+      "pngSha256": "76a35ce65d8e2e2a8e96c0afe9d183f61aa9401f5ff8b0d309213dfcb98aca26",
+      "rgbaSha256": "4a85bcd0917e93982145a5107fee14ea22165d0c2c03bfe5454973cfbadf497c",
+      "width": 1254,
+      "height": 1254,
+      "sourceHash": "57972b32c0d44bd029f6545b924cb62ac07b5867e90514e364ef4050aaba4e26",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": null,
+      "inspectionView": {
+        "position": [
+          0,
+          0.65,
+          19.5
+        ],
+        "target": [
+          0.15,
+          0.045,
+          17.6
+        ],
+        "fov": 58,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "renderDriver": {
+        "path": "tools/render-one-reconstruction.mjs",
+        "sha256": "658c263f65f24e0d135eba878da35a2147e43d1c7130b6131b0d3dea3f29f73c"
+      },
+      "completedAt": "2026-10-26T19:54:15.288Z",
+      "personallyVisuallyReviewed": true
+    }
+  ],
+  "review": {
+    "reference": "references/hd/3-\u7167\u7247-4.jpg",
+    "baselineActual": "qa/ten-reference/working-model-review-20261027-t/scene-04.png",
+    "fullAndDetail": "T-joint plan materially improves on the original long rails. Narrowed chamfers and quieter face relief improve on R02 broad bread-like rims/crumpled-metal response.",
+    "centerlineLow": "Personally inspected clear unobstructed existing floor pose: visible slab edges are seated in the joint bed, curb run is continuous, and no visible pond water crosses the walking surface.",
+    "rootFullAndDetailReviewed": true,
+    "rootLowAcceptancePending": true,
+    "photographicAccepted": false,
+    "remainingLimits": [
+      "Stone surface remains cleaner and more uniform than the supplied worn/pitted reference.",
+      "Some pale worn edges and metric scan repetition remain visible; exact fracture/weathering is authored inference.",
+      "Shadow distribution and broader scene lighting/architecture mismatches are retained and remain outside this ground-only change.",
+      "These frames are the private367 source. Frozen H film source4dfc441c retains old canonical04ae8 and must not be relabeled as including this change."
+    ]
+  },
+  "failedInspectionPreserved": {
+    "report": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-low-oblique/report.json",
+    "file": "lookdev/scene04-ground367/candidate-r03/qa/ten-reference/04/iteration-scene04-ground367-r03-low-oblique/inspection-view.png",
+    "technicalCaptureValid": true,
+    "usableForContactReview": false,
+    "reason": "Outside-path low camera landed within planting and was leaf-occluded. Replaced by the established clear centerline floor pose without any source edits."
+  },
+  "patch": {
+    "file": "lookdev/scene04-ground367/ground367-r03-source.patch",
+    "sha256": "d5aef63b5b3d7e565305d44095115b48ad9a6255b006abee8a189b48b4f67527",
+    "bytes": 43193,
+    "gitApplyCheckPassedAtCreation": true,
+    "changedFiles": [
+      "reconstructions/scene-04/asset-dependencies.json",
+      "reconstructions/scene-04/assets/ground367/provenance-r03.json",
+      "reconstructions/scene-04/src/reference4-garden.js",
+      "reconstructions/scene-04/src/reference4-main.js",
+      "reconstructions/scene-04/src/scene04-ground367.js"
+    ],
+    "integration": "Apply only the five-file delta to canonical04ae8. Preserve343 lantern sources/assets and all unrelated scenes. Do not copy the complete frozen candidate tree. A combined/rebased source obtains a new identity and requires its own actual capture."
+  },
+  "analysisComparison": {
+    "file": "lookdev/scene04-ground367/reference-r02-r03-floor-analysis.png",
+    "provenance": "lookdev/scene04-ground367/reference-r02-r03-floor-analysis.json",
+    "scope": "Analysis-only same-pixel HD/R02/R03 floor crops; raw native frames remain unchanged."
+  },
+  "isolation": {
+    "serverIsRealCopy": true,
+    "serverAndModuleLinkCounts": [
+      1,
+      1
+    ],
+    "serverInodeIndependentOfR02": true,
+    "moduleInodeIndependentOfR02": true
+  },
+  "previousCandidates": {
+    "r01": "Preserved/rejected: better contact but three uninterrupted rail-like seams and broad smooth pale edge bands.",
+    "r02": "Preserved: meaningful shared T-joint plan improvement, but overly rounded bright rims and strong uniformly wavy/metallic normal response."
+  }
+}

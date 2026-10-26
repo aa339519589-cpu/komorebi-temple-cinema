@@ -134,7 +134,6 @@
     "Real solid lacquer/gilt collar and continuous supported cornice around the unchanged original source Amida plinth",
     "120 actual small metal lattice rings seat on the two suspended lantern bodies; suspension rods meet the measured curved eave"
   ],
-  "retainedUnusedHistoricalAsset": "assets/monastery-stone-floor retains its original CC0 source and provenance; runtime paving now loads Granite Tile 04.",
   "excludedRepresentations": [
     "photo-projected albedo or background",
     "photo-estimated depth surface",
@@ -231,5 +230,21 @@
     "visualAccepted": false,
     "personalNoncommercialUseOnly": true,
     "derivedImageryLicense": "CC-BY-NC-SA-4.0"
+  },
+  "retainedHistoricalAsset": "Monastery Stone Floor CC0 scan and original provenance retained. Ground367 reuses its existing single-face normal; the albedo/roughness and original full maps remain historical study assets.",
+  "ground367": {
+    "provenance": "assets/ground367/provenance-r03.json",
+    "source": "src/scene04-ground367.js",
+    "scope": "R02 unequal broad flags/shared paired T-junction graph retained; narrow broken damp chamfers, restrained riven relief and rooted moss. No reference-pixel albedo or displacement.",
+    "existingCC0NormalReuse": {
+      "asset": "Monastery Stone Floor",
+      "author": "Amal Kumar",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/monastery_stone_floor",
+      "file": "assets/monastery-stone-floor/individual-stone-nor_gl.png",
+      "originalProvenance": "assets/monastery-stone-floor/provenance.json"
+    },
+    "newExternalDownloads": [],
+    "visualAccepted": false
   }
 }
