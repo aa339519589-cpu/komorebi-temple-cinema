@@ -1,0 +1,26 @@
+{
+  "status": "working-botanical-solids-and-focus-integrated",
+  "before": "01aaa395e9859ccc9605470928b6a6c6f7c35318caf52ae3b62a6b48eebcbaca",
+  "after": "091a8dd21f22e098441677301546864b84ec27003d40f1ddbf41d8125ff1f9a5",
+  "files": [
+    "main.js",
+    "restoration-lotus-petal.js",
+    "lotus-material.js",
+    "scene03-foreground211.js"
+  ],
+  "actualReview": [
+    "R01 full/detail rejected as stacked open petals and post-lens contour artifacts",
+    "R02 full/detail: cupped petal tiers and contact occlusion before linear lens gather",
+    "R03 full/detail plus t0,3.5,6.99: stronger correlated closed leaf folds",
+    "R04 actual t0,3.5,6.99: starting focus and aim on flower; slower diopter rack toward architecture"
+  ],
+  "fixedReferenceEvidenceSource": "R03 has identical geometry/material/post passes and unchanged renderReference; R04 changes only dolly target/focus and revision text",
+  "motionReport": "candidate-r04/qa/ten-reference/03/iteration-scene03-botany344-r04-flower-focused-motion/report.json",
+  "filmGIncludesThis": false,
+  "photographicAccepted": false,
+  "limits": [
+    "Flower and leaf tissue remain visibly synthetic",
+    "Depth-of-field is a one-layer deterministic gather approximation",
+    "All scene architecture/light/layout remains under reconstruction; no every-frame fidelity certification"
+  ]
+}

@@ -2,7 +2,7 @@ import * as T from 'three';
 
 // Closed thin botanical solids: cupped upper/lower faces joined at a rolled rim.
 export function createRestorationLotusPetal(seed=1,layer=0){
- const rows=44,cols=24,p=[],uv=[],ids=[],extent=[.69,.50,.32][layer],rise=[.27,.47,.58][layer],width=[.245,.215,.155][layer];
+ const rows=52,cols=28,p=[],uv=[],ids=[],extent=[.67,.44,.23][layer],rise=[.29,.53,.67][layer],width=[.245,.215,.150][layer];
  const shape=(t,u)=>{
   const c=Math.max(0,Math.sin(Math.PI*t)),w=width*Math.pow(c,.46)*(.72+.30*Math.sqrt(t)),side=Math.pow(Math.abs(u),4);
   // Cubic longitudinal tissue bends flatten near the tip; the inherited
@@ -11,9 +11,11 @@ export function createRestorationLotusPetal(seed=1,layer=0){
    centerY=3*v*v*t*p1y+3*v*t*t*p2y+t*t*t*rise,
    centerZ=3*v*v*t*p1z+3*v*t*t*p2z+t*t*t*extent,
    reflex=(layer===0?-.024+.012*Math.sin(seed*1.37):.006*Math.sin(seed*1.71))*T.MathUtils.smoothstep(t,.74,1),
-   cup=[.045,.045,.035][layer]*u*u*c,twist=.020*Math.sin(seed*.71+t*3.1)*u*c,
-   fine=.00055*Math.cos(u*29+.25*Math.sin(t*6))*c*(1-u*u);
-  return new T.Vector3(u*w+.012*Math.sin(seed+t*4)*c,centerY*(1+.08*Math.sin(seed*1.13))+cup+twist+reflex+fine,
+   cup=[.075,.067,.048][layer]*u*u*c,twist=.024*Math.sin(seed*.71+t*3.1)*u*c,
+   fine=.00055*Math.cos(u*29+.25*Math.sin(t*6))*c*(1-u*u),
+   rim=.004*Math.sin(t*19+seed*.7)*Math.pow(Math.abs(u),8)*c,
+   shoulder=.019*Math.sin(t*7+seed*.9)*u*c*c;
+  return new T.Vector3(u*w+.012*Math.sin(seed+t*4)*c,centerY*(1+.08*Math.sin(seed*1.13))+cup+twist+reflex+fine+rim+shoulder,
    centerZ*(1+.055*Math.sin(seed*2.14))-.075*u*u*c-.018*side*c+.018*Math.sin(seed)*c);
  };
  function normalAt(t,u){const e=.0002,a=shape(Math.max(.0001,t-e),u),b=shape(Math.min(.9999,t+e),u),c=shape(t,Math.max(-1,u-e)),d=shape(t,Math.min(1,u+e));return b.sub(a).cross(d.sub(c)).normalize();}
@@ -26,7 +28,7 @@ export function createRestorationLotusPetal(seed=1,layer=0){
  const last=1+(rows-2)*(cols+1);for(let i=0;i<cols;i++)tri(last+i,tip,last+i+1);
  const edge=[0,...Array.from({length:rows-1},(_,j)=>1+j*(cols+1)),tip,...Array.from({length:rows-1},(_,j)=>1+(rows-2-j)*(cols+1)+cols)];
  for(let k=0;k<edge.length;k++){const a=edge[k],b=edge[(k+1)%edge.length];ids.push(b,a,a+count,b,a+count,b+count);}
- const g=new T.BufferGeometry();g.name=`closed-cubic-cupped-lotus-tissue211-r12-${layer}-${seed}`;g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();g.userData={botanicalSolid:true,thicknessMetres:[.001,.0024],features:['rounded ovate shoulder with flattened cubic tip tangent','unequal longitudinal rise','reflexed outer tips','compound cup and torsion','geometric fine pleats'],photoTexture:false};return g;
+ const g=new T.BufferGeometry();g.name=`closed-ovate-cupped-lotus-tissue344-r02-${layer}-${seed}`;g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ids);g.computeVertexNormals();g.userData={botanicalSolid:true,thicknessMetres:[.001,.0024],features:['broader overlapping ovate shoulder with flattened cubic tip tangent','unequal longitudinal rise','reflexed outer tips','compound cup and torsion','geometric fine pleats and asymmetric rolled margins'],photoTexture:false};return g;
 }
 
 export function createRestorationLotusBud(){

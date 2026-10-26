@@ -1,0 +1,16 @@
+import {readFile,writeFile,copyFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {reconstructionSourceIdentity} from '../../tools/reconstruction-source-identity.mjs';
+const lane=import.meta.dirname,repo=resolve(lane,'../..'),candidate=resolve(lane,'candidate-r04');
+const expected='01aaa395e9859ccc9605470928b6a6c6f7c35318caf52ae3b62a6b48eebcbaca';
+const before=await reconstructionSourceIdentity(repo,'03');
+if(before.hash!==expected)throw Error('Scene03 changed since the reviewed base');
+const report=JSON.parse(await readFile(resolve(candidate,'qa/ten-reference/03/iteration-scene03-botany344-r04-flower-focused-motion/report.json')));
+const selected=await reconstructionSourceIdentity(candidate,'03');
+if(selected.hash!==report.source.hash||report.status!=='rendered-review'||report.frames.length!==3||report.frames.some(f=>!f.valid))throw Error('Reviewed source/three actual moving camera frames differ');
+const files=['main.js','restoration-lotus-petal.js','lotus-material.js','scene03-foreground211.js'];
+for(const name of files)await copyFile(resolve(candidate,'reconstructions/scene-03/src',name),resolve(repo,'reconstructions/scene-03/src',name));
+const after=await reconstructionSourceIdentity(repo,'03');
+if(after.hash!==selected.hash)throw Error('Promoted source differs');
+await writeFile(resolve(lane,'integration344.json'),JSON.stringify({status:'working-botanical-solids-and-focus-integrated',before:before.hash,after:after.hash,files,actualReview:['R01 full/detail rejected as stacked open petals and post-lens contour artifacts','R02 full/detail: cupped petal tiers and contact occlusion before linear lens gather','R03 full/detail plus t0,3.5,6.99: stronger correlated closed leaf folds','R04 actual t0,3.5,6.99: starting focus and aim on flower; slower diopter rack toward architecture'],fixedReferenceEvidenceSource:'R03 has identical geometry/material/post passes and unchanged renderReference; R04 changes only dolly target/focus and revision text',motionReport:'candidate-r04/qa/ten-reference/03/iteration-scene03-botany344-r04-flower-focused-motion/report.json',filmGIncludesThis:false,photographicAccepted:false,limits:['Flower and leaf tissue remain visibly synthetic','Depth-of-field is a one-layer deterministic gather approximation','All scene architecture/light/layout remains under reconstruction; no every-frame fidelity certification']},null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({before:before.hash,after:after.hash,files}));
