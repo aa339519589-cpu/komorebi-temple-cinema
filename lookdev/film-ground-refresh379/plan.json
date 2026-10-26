@@ -1,0 +1,58 @@
+{
+  "revision": "film-ground-refresh379-h",
+  "status": "exact-source-snapshot-ready",
+  "iteration": "sol61-rebuild-20261027-h-ground",
+  "snapshotNamePrefix": "temple-cinema-film-h-ground379",
+  "releaseTag": "working-film-2026-10-27-h",
+  "sourceMode": "one-explicit-pushed-public-commit-independent-APFS-runtime-snapshot",
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ],
+    "output": [
+      1080,
+      1080
+    ],
+    "native": [
+      1620,
+      1620
+    ],
+    "requireMainSceneMsaa": true
+  },
+  "reuseFilmBuilds": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/film-sol61-370/completed-clips-for-reuse379.json"
+  ],
+  "music": {
+    "file": "music/PerituneMaterial_Oboro.mp3",
+    "attribution": "music/ATTRIBUTION.json",
+    "offsetSeconds": 25
+  },
+  "scope": "Ten real3D seven-second close-to-wide shots; a70s original edit and exact60s overlap edit. New working reconstruction, no photographic acceptance.",
+  "sourceSelection": "Exact pushed source285423ae, independently materialized and verified; H370 source clips continue separately. Guard must pass before capture379.",
+  "knownRuntimeRepair": "345 motion report repair exercised by completed H370 source clips; actual H01 retains168 frame hashes and4-sample MSAA.",
+  "photographicAccepted": false,
+  "originalGoalComplete": false,
+  "sourceCommit": "285423ae11a2b7e9d355a15fbeb40d15d8742877",
+  "snapshotRoot": "/Users/mima1234/temple-cinema-film-h-ground379-285423ae",
+  "reason": "Actual nine-frame encoded H04 review exposed raised/floating-looking old paver rims. Recapture04 with integrated367R03; retain other nine only after exact scene, runtime, media and sampling identity proof. Original H370 capture continues to completion; no restart.",
+  "requiredBeforeCapture": "All ten original H370 certificates complete, explicit cross-snapshot proof and completed-clips-for-reuse379.json created by prepare-reuse379.mjs. Do not call capture before that guard passes."
+}
