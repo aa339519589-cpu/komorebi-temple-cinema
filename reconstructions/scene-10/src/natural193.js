@@ -201,7 +201,7 @@ export function buildNatural193({emit,scene,scannedStones,shrubs,groundcover,pin
   const seam=fbm(x*1.9+51,z*1.9-7),relief=(seam-.46)*.54+Math.sin(y*15+fbm(x*.7,z*.7)*5)*.065;
   bp.setY(i,Math.max(-.13,y+relief*smooth(y,-.12,.25)));
  }
- bp.needsUpdate=true;fracturedBank.computeVertexNormals();fracturedBank.name=stairEmbankment.ownedBy207?'207-narrow-stair-bearing-core':'natural193-connected-fractured-mineral-stair-bank';emit(fracturedBank,stairEmbankment.ownedBy207?'supportCore207':mineral);
+ bp.needsUpdate=true;fracturedBank.computeVertexNormals();fracturedBank.name=stairEmbankment.ownedBy207?'207-narrow-stair-bearing-core':'natural193-connected-fractured-mineral-stair-bank';emit(fracturedBank,stairEmbankment.ownedBy366?mineral:stairEmbankment.ownedBy207?'supportCore207':mineral);
  // Match the exact diagonal convention of the rendered indexed field.
  function heightAt(x,z){const fx=(x-x0)/step,fz=(z-z0)/step,i=Math.max(0,Math.min(nx-1,Math.floor(fx))),j=Math.max(0,Math.min(nz-1,Math.floor(fz))),u=T.MathUtils.clamp(fx-i,0,1),v=T.MathUtils.clamp(fz-j,0,1),a=j*(nx+1)+i,A=heights[a],B=heights[a+1],C=heights[a+nx+1],D=heights[a+nx+2];return u+v<=1?A+(B-A)*u+(C-A)*v:D+(C-D)*(1-u)+(B-D)*(1-v);}
  const bankMesh=new T.Mesh(fracturedBank,mineral);bankMesh.updateMatrixWorld(true);const ray=new T.Raycaster(),rockSurfaces=[],bearingBounds207=bearingSurfaces207.map(mesh=>({mesh,bounds:new T.Box3().setFromObject(mesh)}));

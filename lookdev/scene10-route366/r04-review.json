@@ -1,0 +1,75 @@
+{
+  "status": "best-reviewed-private-candidate-ready-for-primary-review",
+  "source": "502d793bedd0521a62db961541cf182c51c4f75590d649cd6b5803ce3244a284",
+  "baseSource": "e076a1c236ab07c6a38d0636b8b575de913eff9fa748fab4e9fdc985b167b22f",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04",
+  "readyForPrimaryReview": true,
+  "visualAccepted": false,
+  "captures": [
+    {
+      "view": "full",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-full/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-full/report.json",
+      "width": 1254,
+      "height": 1254,
+      "source": "502d793bedd0521a62db961541cf182c51c4f75590d649cd6b5803ce3244a284",
+      "pngSha256": "4616862245c2938d30148089763a97895cafc89ab0214d5c4bf1324af5ba163f"
+    },
+    {
+      "view": "detail",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-detail/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-detail/report.json",
+      "width": 960,
+      "height": 960,
+      "source": "502d793bedd0521a62db961541cf182c51c4f75590d649cd6b5803ce3244a284",
+      "pngSha256": "feb3b22d1caaddfac76c10af5c086a08ce02690a1153d628e5f206a2d322d034"
+    },
+    {
+      "view": "low",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-low/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene10-route366/candidate-r04/qa/ten-reference/10/iteration-scene10-route366-r04-low/report.json",
+      "width": 960,
+      "height": 960,
+      "source": "502d793bedd0521a62db961541cf182c51c4f75590d649cd6b5803ce3244a284",
+      "pngSha256": "9cfc38665ee87dcbe96d222565b9e836cd4bc20c96b7a68d589dfda587f6aa95"
+    }
+  ],
+  "actualNativeFrames": 4,
+  "changedSource": [
+    "reconstructions/scene-10/src/layout125.js",
+    "reconstructions/scene-10/src/main.js",
+    "reconstructions/scene-10/src/natural193.js",
+    "reconstructions/scene-10/src/route366.js",
+    "reconstructions/scene-10/src/support-route207.js"
+  ],
+  "outsideFiveFilesByteIdentical": true,
+  "missingBaseFiles": [],
+  "mutableSourceHardlinks": false,
+  "copiedServer": true,
+  "reference": "/Users/mima1234/temple-cinema-live-sync/references/hd/9-照片-10.jpg",
+  "changes": [
+    "Scene10-specific asymmetric bridge profile: near deck1.32m retained, far end lowered from2.40m to1.90m, crest approximately retained.",
+    "Three continuous closed carrying girders,43 seated deck flags, flat closed rails replacing round tubes, lower cross ties and actual end bearing crossheads.",
+    "Original four-step near flight remains135mm per riser; compact foot landing0.38m sits behind the paving clearance edge.",
+    "Nine-step hall flight returns behind the bridge to the unchanged gallery floor through a complete narrow stone/timber gallery.",
+    "Closed riven tread flags with75mm seated thickness and39mm noses; compact stone-bearing core, inclined stringers and two short bank-seated timber bents.",
+    "Actual active mineral-course emission, closed far-bearing terrace and six return rocks embedded below the real riverbed bound.",
+    "Wider, fewer foreground flags generated with the original321 closed wear/puddle/joint geometry; existing rain, lights, camera, fog, exposure, reflection algorithms and declared texture pixels retained."
+  ],
+  "validation": {
+    "syntax": "passed",
+    "CPU": "445 emitted structural/dressing geometries using placeholder scan bounds; nonfinite0, invalidTransforms0;44 exact native-Float32 closure audits passed. Bank boundary0/inconsistent0 and positive volume.",
+    "native": "All3 jobs through official GPU FIFO;4 actual native frames valid, noGL/context/shader/resource errors, exact same frozen source. Full/detail/low visually reviewed againstHD10.",
+    "activeMineralEmission": true,
+    "farReturnRocks": 6,
+    "farReturnMaximumRecordedBottom": -0.2,
+    "footLandingRun": 0.38
+  },
+  "remainingGaps": [
+    "The near entry plinth and far terrace still expose straighter dressed faces than the reference’s densely planted water margins.",
+    "The mineral courses remain more visibly arranged and less organically planted thanHD10; this is a structural improvement, not photographic acceptance.",
+    "The returning gallery and partly occluded hall-stair routing are inferred complete3D circulation; the reference does not expose every connection.",
+    "Wet foreground flags are wider and fewer, with existing closed wear/water geometry retained; the inherited rain, reflection and surface response still differ from the photograph.",
+    "The inherited hall, pagoda, forest and overall illumination retain broader reference mismatches outside this structural lane."
+  ]
+}

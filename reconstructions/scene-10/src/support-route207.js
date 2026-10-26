@@ -4,6 +4,7 @@ import {bridgePoint125,bridgeToWorld125,hallToWorld125} from './layout125.js';
 import {installSurfaceDetail} from './surface-detail.js';
 import {createWornFlagstone} from './worn-flagstone.js';
 import {towerBenchHeight210} from './rain-banks210.js';
+import {buildStoneFlight366,createStairBearingBank366,buildReturningGallery366} from './route366.js';
 
 const V=p=>new T.Vector3(...p),U=new T.Vector3(0,1,0),hash=(a,b)=>{const x=Math.sin(a*127.1+b*311.7+207.17)*43758.5453;return x-Math.floor(x);};
 export const SUPPORT207_REVISION='scene10-rain210-garden-island-entry-and-open-front-creek-r14';
@@ -51,7 +52,7 @@ export function createApproachPlan207(L){
  const landingEnd=[start[0]-axis[0]*.33,start[1],start[2]-axis[1]*.33],route=[[-3.165,-7.71],[-4.4,-6.3],[-4.6,-4.7],[-4.2,-3.2],[-3.1,-2.85],[landingEnd[0],landingEnd[2]]];
  const towerTop=towerBenchHeight210(-3.165,-8.04,.5634)+.086,frontRoute=ribbonRoute207(route,towerTop,start[1],.90),rearRoute={enabled:false,points:[],outline:[],samples:[],width:0,topRange:[],source:'The duplicate fork and direct raised front-court ramp are retired; one actual garden-side route remains'};
  const lamp=L.heroStoneLantern,cw=lamp.plinthCourseWidths||[1.65,1.44,1.23],clip=cw.map(w=>lamp.position[0]+w/2+.035);
- return{revision:SUPPORT207_REVISION,start,end,bridgeNear,entryT,guardHalfWidth,axis,run,width,count,rise,riser:rise/count,tread:run/count,stepClipX:[clip[0],clip[1],clip[2],clip[2]],guardClearX:lamp.position[0]+(lamp.bearingPadWidth||1.22)/2+.10,guardBridgeStations:[L.bridge.entryFirstPostT||0,L.bridge.entryFlatT],steps,bottomLanding:{center:landingEnd,along:[-.66,0],width:1.40,top:start[1]},island:{lanternCenter:L.heroStoneLantern.position,terrainCrest:.20,lanternSoilCrest:.20,closedStonePlinthTop:.65+(L.heroStoneLantern.plinthBaseOffset||0),stoneSupportTop:L.heroStoneLantern.supportTop,source:'Projected lamp/outer-step relationship with actual mineral support and diagonal side-entry steps; historical anchors explicitly released'},route:{...frontRoute,source:'Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired'},rearRoute};
+ return{revision:SUPPORT207_REVISION,start,end,bridgeNear,entryT,guardHalfWidth,axis,run,width,count,rise,riser:rise/count,tread:run/count,stepClipX:[clip[0],clip[1],clip[2],clip[2]],guardClearX:lamp.position[0]+(lamp.bearingPadWidth||1.22)/2+.10,guardBridgeStations:[L.bridge.entryFirstPostT||0,L.bridge.entryFlatT],steps,bottomLanding:{center:landingEnd,along:[-.38,0],width:1.40,top:start[1]},island:{lanternCenter:L.heroStoneLantern.position,terrainCrest:.20,lanternSoilCrest:.20,closedStonePlinthTop:.65+(L.heroStoneLantern.plinthBaseOffset||0),stoneSupportTop:L.heroStoneLantern.supportTop,source:'Projected lamp/outer-step relationship with actual mineral support and diagonal side-entry steps; historical anchors explicitly released'},route:{...frontRoute,source:'Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired'},rearRoute};
 }
 
 function nearestRoute207(x,z,approach){let best=null;for(const route of[approach.route,approach.rearRoute]){const p=route.samples;for(let i=0;i<p.length-1;i++){const a=p[i],b=p[i+1],dx=b[0]-a[0],dz=b[2]-a[2],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[2])*dz)/(dx*dx+dz*dz),0,1),distance=Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz);if(!best||distance<best.distance)best={distance,top:T.MathUtils.lerp(a[1],b[1],t),width:route.width};}}return best;}
@@ -60,14 +61,14 @@ export function nearRouteGround207(x,z,a){
  if(z>=-2.5)return -.22;
  const dx=x-a.start[0],dz=z-a.start[2],u=dx*a.axis[0]+dz*a.axis[1],v=-dx*a.axis[1]+dz*a.axis[0];
  const q=nearestRoute207(x,z,a);if(q.distance<Math.max(.12,q.width/2-.08))return q.top-.13;
- if(u>=-.85&&u<=a.run+.15&&Math.abs(v)<a.width/2+.35)return -.22;
+ if(u>=-.85&&u<=a.run+.15&&Math.abs(v)<a.width/2+.35)return a.start[1]+a.rise*T.MathUtils.clamp(u/a.run,0,1)-.38;
  return null;
 }
 
 export function nearIslandHeight207(x,z,a){
  if(x< -5.7||x>-.9||z< -8.8||z>-.9)return null;
  const h=a.island.lanternCenter,a0=Math.atan2((z-h[2])/1.3,(x-h[0])/1.2),a1=Math.atan2((z-a.start[2])/1.0,(x-a.start[0])/1.1),r0=Math.hypot((x-h[0])/1.2,(z-h[2])/1.3)/(1+.09*Math.sin(a0*5+.4)+.05*Math.sin(a0*9-1)),r1=Math.hypot((x-a.start[0])/1.1,(z-a.start[2])/1.0)/(1+.07*Math.sin(a1*7+.8));
- const lowLanternSoil=-.22+.42*(1-T.MathUtils.smoothstep(r0,.28,.85));const bed=nearRouteGround207(x,z,a);return Math.max(lowLanternSoil,bed??-.22);
+ const lowLanternSoil=-.22+.42*(1-T.MathUtils.smoothstep(r0,.28,.85)),dx=x-a.start[0],dz=z-a.start[2],u=dx*a.axis[0]+dz*a.axis[1],v=-dx*a.axis[1]+dz*a.axis[0],mask=T.MathUtils.smoothstep(u,-1.05,-.62)*(1-T.MathUtils.smoothstep(u,a.run+.16,a.run+.72))*(1-T.MathUtils.smoothstep(Math.abs(v),a.width/2-.05,a.width/2+1.02)),crest=a.start[1]+a.rise*T.MathUtils.clamp(u/a.run,0,1)-.36,shoulder=-.22+(crest+.22)*mask;const bed=nearRouteGround207(x,z,a);return Math.max(lowLanternSoil,bed??-.22,shoulder);
 }
 
 export function hallShoreHeight207(x,z,L){
@@ -86,6 +87,9 @@ export function routeReserved207(x,z,plan,approach){
 }
 
 function emitFlight(api,spec,key){
+ return buildStoneFlight366(api,spec,key);
+}
+function legacyEmitFlight207(api,spec,key){
  const {emit}=api,origin=spec.start,axis=spec.axis||spec.unit,records=[];
  for(const s of spec.steps){const a=s.along?s.along[0]:spec.run*s.index/spec.count,b=s.along?s.along[1]:spec.run*(s.index+1)/spec.count,top=s.top,bf=s.undersideFront,bb=s.undersideBack,left=t=>spec.stepClipX?Math.max(-spec.width/2,(spec.stepClipX[s.index]-origin[0]-axis[0]*t)/(-axis[1])):-spec.width/2;let g;
   if(spec.stepClipX){const af=a-.018,ring=[[af,left(af),bf],[af,spec.width/2,bf],[b,spec.width/2,bb],[b,left(b),bb]],v=[...ring,...ring.map(([x,z])=>[x,z,top])].map(([x,z,y])=>point(origin,axis,x,z,y)),ix=[0,2,1,0,3,2,4,5,6,4,6,7];for(let j=0;j<4;j++){const k=(j+1)%4;ix.push(j,k,k+4,j,k+4,j+4);}g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(v.flat(),3));g.setAttribute('uv',new T.Float32BufferAttribute(v.flatMap(p=>[p[0],-p[2]]),2));g.setIndex(ix);g.computeVertexNormals();}else{g=solidProfile([[a-.018,bf],[b,bb],[b,top],[a-.018,top]],spec.width);frameGeometry(g,[origin[0],0,origin[2]],axis);}g.name='207-'+key+'-closed-riser-tread-'+s.index;emit(g,'routeStone207');
@@ -115,6 +119,7 @@ function emitFlight(api,spec,key){
 
 function pier(api,center,top,seed,along=[1,0]){
  const {emit}=api,bottom=-.18,height=top-bottom,rows=Math.ceil(height/.27),q=new T.Quaternion().setFromAxisAngle(U,-Math.atan2(along[1],along[0]));
+ emit(coloredStone(.52,height-.08,.48,seed+177),'supportCore207',center[0],(bottom+top-.08)/2,center[1],1,1,1,q);
  for(let i=0;i<rows;i++){const y0=bottom+height*i/rows,y1=bottom+height*(i+1)/rows,flare=1-(i+.5)/rows,w=.63+.18*flare,d=.60+.16*flare,g=coloredStone(w,y1-y0-.007,d,seed+i);emit(g,'supportStone207',center[0],(y0+y1)/2,center[1],1,1,1,q);}
  const cap=coloredStone(.85,.16,.82,seed+91);emit(cap,'supportStone207',center[0],top-.08,center[1],1,1,1,q);
  const pad=coloredStone(.92,.16,.90,seed+131);emit(pad,'supportStone207',center[0],-.16,center[1],1,1,1,q);
@@ -123,19 +128,21 @@ function pier(api,center,top,seed,along=[1,0]){
 
 export function buildSupportRoute207(api,L,plan,approach,supports=[]){
  const {emit,box,between,tube}=api,A=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],B=[-A[1],A[0]],far=plan.bridgeEnd,near=approach.bridgeNear||approach.end;
- const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1,r06NearCount:9,r06NearRun:2.52,r06NearFootY:.067,r06BottomLandingRun:1.52},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread,nearFootY:approach.start[1],nearRun:approach.run,nearStepCount:approach.count,bottomLandingRun:.66},why:'Bridge and lantern datums held. The former long low flight/causeway is replaced by a raised physical island, compact foot landing, short four-step flight and narrow earth-bedded route around the lantern.'};
+ const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1,r06NearCount:9,r06NearRun:2.52,r06NearFootY:.067,r06BottomLandingRun:1.52},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread,nearFootY:approach.start[1],nearRun:approach.run,nearStepCount:approach.count,bottomLandingRun:.38},why:'Bridge and lantern datums held. The former long low flight/causeway is replaced by a raised physical island, compact foot landing, short four-step flight and narrow earth-bedded route around the lantern.'};
+ out.gallery366=buildReturningGallery366(api,L,plan);
  // Compact polygon turn, carried on two actual stone piers and a crosshead.
  emit(footprint(plan.turningLanding.outline,far[1]-.18,far[1]),'routeStone207');
  const upper=plan.upperLanding;emit(footprint(upper.outline,upper.top-.24,upper.top),'routeStone207');out.upperLanding={...upper,actualBottom:upper.top-.24,bearing:'Front edge on last actual wedge tread/bed; back corners lap the supported hall gallery floor'};
- for(const sign of[-1,1]){const p=[far[0]+B[0]*sign*.90+A[0]*.35,far[2]+B[1]*sign*.90+A[1]*.35],r=pier(api,p,far[1]-.42,207200+(sign+1)*29,A);supports.push(r);}
- const yaw=-Math.atan2(A[1],A[0]),cross=coloredStone(.38,.24,2.62,207271);emit(cross,'darkwood',far[0]+A[0]*.35,far[1]-.30,far[2]+A[1]*.35,1,1,1,[0,yaw,0]);
+ for(const sign of[-1,1]){const p=[far[0]+B[0]*sign*.90+A[0]*.35,far[2]+B[1]*sign*.90+A[1]*.35],r=pier(api,p,far[1]-.72,207200+(sign+1)*29,A);supports.push(r);}
+ const yaw=-Math.atan2(A[1],A[0]),cross=coloredStone(.38,.24,2.62,207271);emit(cross,'darkwood',far[0]+A[0]*.35,far[1]-.60,far[2]+A[1]*.35,1,1,1,[0,yaw,0]);
+ for(const side of[-1,0,1]){const p=point(far,A,.35,side*1.02,far[1]-.33);box(...p,1.30,.30,.18,'darkwood',yaw);}
  // Near bridge bearing is a real capped abutment, attached to the flight head.
- for(const sign of[-1,1])pier(api,[near[0]+B[0]*sign*.76-A[0]*.08,near[2]+B[1]*sign*.76-A[1]*.08],near[1]-.42,207401+(sign+1)*31,A);
- const nc=coloredStone(.30,.24,2.35,207491);emit(nc,'darkwood',near[0]-.08*A[0],near[1]-.30,near[2]-.08*A[1],1,1,1,[0,yaw,0]);
+ for(const sign of[-1,1])pier(api,[near[0]+B[0]*sign*.76-A[0]*.08,near[2]+B[1]*sign*.76-A[1]*.08],near[1]-.72,207401+(sign+1)*31,A);
+ const nc=coloredStone(.30,.24,2.35,207491);emit(nc,'darkwood',near[0]-.08*A[0],near[1]-.60,near[2]-.08*A[1],1,1,1,[0,yaw,0]);
  // Thin closed paving sits on the actual raised soil island. It no longer
  // forms a broad isolated solid platform down to the creek bed.
- const start=approach.start,w=approach.width/2+.03,lower=[point(start,approach.axis,-.66,-w,0),point(start,approach.axis,0,-w,0),point(start,approach.axis,0,w,0),point(start,approach.axis,-.66,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,start[1]-.13,start[1]),'routeStone207');
- const courses=4,bottom=-.24,bodyTop=start[1]-.12;for(let row=0;row<courses;row++){const low=T.MathUtils.lerp(bottom,bodyTop,row/courses),high=T.MathUtils.lerp(bottom,bodyTop,(row+1)/courses),sideWidth=w+.04*(1-row/(courses-1));for(const sign of[-1,1]){const g=coloredStone(.64,high-low-.009,sideWidth-.008,213701+row*7+sign,.80+.14*hash(row,sign)),p=point(start,approach.axis,-.33,sign*sideWidth/2,(low+high)/2);g.name='213-closed-compact-stair-foot-bearing-course-'+row+'-'+sign;emit(g,'supportStone207',...p,1,1,1,[0,-Math.atan2(approach.axis[1],approach.axis[0]),0]);}}
+ const start=approach.start,w=approach.width/2+.03,lower=[point(start,approach.axis,-.38,-w,0),point(start,approach.axis,0,-w,0),point(start,approach.axis,0,w,0),point(start,approach.axis,-.38,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,start[1]-.13,start[1]),'routeStone207');
+ const courses=4,bottom=-.24,bodyTop=start[1]-.12;for(let row=0;row<courses;row++){const low=T.MathUtils.lerp(bottom,bodyTop,row/courses),high=T.MathUtils.lerp(bottom,bodyTop,(row+1)/courses),sideWidth=w+.04*(1-row/(courses-1));for(const sign of[-1,1]){const g=coloredStone(.36,high-low-.009,sideWidth-.008,213701+row*7+sign,.80+.14*hash(row,sign)),p=point(start,approach.axis,-.19,sign*sideWidth/2,(low+high)/2);g.name='213-closed-compact-stair-foot-bearing-course-'+row+'-'+sign;emit(g,'supportStone207',...p,1,1,1,[0,-Math.atan2(approach.axis[1],approach.axis[0]),0]);}}
  const headSides=[-1,1].map(sign=>point(approach.end,approach.axis,0,sign*approach.width/2,approach.end[1]));headSides[0][0]=Math.max(headSides[0][0],approach.stepClipX.at(-1));const headOutline=[...headSides,point(near,A,0,1.20,near[1]),point(near,A,L.bridge.span*L.bridge.entryFlatT,1.20,near[1])].map(p=>[p[0],p[2]]),sorted=[...headOutline].sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross2=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]),lo=[],hi=[];for(const p of sorted){while(lo.length>1&&cross2(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}for(const p of [...sorted].reverse()){while(hi.length>1&&cross2(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}const headHull=[...lo.slice(0,-1),...hi.slice(0,-1)];emit(footprint(headHull,near[1]-.15,near[1]),'routeStone207');out.entryHeadLanding213={outline:headHull,top:near[1],bottom:near[1]-.15,scope:'Actual compact wedge between angled last tread and level bridge edge'};
  out.routePavers207=[];for(const [routeIndex,route]of[approach.route,approach.rearRoute].entries()){
   const samples=route.samples;
@@ -159,13 +166,15 @@ export function buildSupportRoute207(api,L,plan,approach,supports=[]){
   const points=[];for(let i=0;i<=8;i++){const t=i/8,p=point(plan.start,plan.unit,plan.run*t,side*(plan.width/2-.08),plan.start[1]+plan.rise*t+1.0);points.push(p);if(i%2===0){box(p[0],p[1]-.48,p[2],.13,1.04,.13,'red');}}
   for(const h of[0,-.40])tube(points.map(p=>[p[0],p[1]+h,p[2]]),.055,'red');
  }
- const farFront=point(far,A,.85,1.2,far[1]+1.0),endFront=point(far,A,0,1.1,far[1]+1.0),stairRight=point(plan.start,plan.unit,0,plan.width/2-.08,plan.start[1]+1.0),endBack=point(far,A,0,-1.1,far[1]+1.0),stairLeft=point(plan.start,plan.unit,0,-plan.width/2+.08,plan.start[1]+1.0);
- for(const pts of[[endFront,farFront,stairRight],[endBack,stairLeft]])for(const drop of[0,-.40])tube(pts.map(p=>[p[0],p[1]+drop,p[2]]),.055,'red');
- for(const p of[farFront,stairRight,stairLeft])box(p[0],p[1]-.48,p[2],.13,1.04,.13,'red');
+ // The returning gallery owns its actual fitted guards and corner posts.
+
  return out;
 }
 
 export function createNarrowStairCore207(plan){
+ return createStairBearingBank366(plan);
+}
+function legacyNarrowStairCore207(plan){
  const origin=plan.start,axis=plan.unit,width=plan.width-.58,bottom=-.18,g=solidProfile([[0,bottom],[plan.run,bottom],[plan.run,-.13],[0,-.13]],width);frameGeometry(g,[origin[0],0,origin[2]],axis);g.name='207-closed-submerged-stair-footing-bed';
  const at=(u,v)=>point(plan.bridgeEnd,axis,u,v,-.13);
  return{geometry:g,at,ownedBy207:true,info:{revision:SUPPORT207_REVISION,kind:'closed submerged footing bed; above-water hall flight is carried on real timber stringers/crossheads and stone piers on closed riverbed pads',width,waterline:bottom,topClearance:.36,oldSmoothConeRemoved:true}};

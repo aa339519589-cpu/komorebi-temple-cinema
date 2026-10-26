@@ -32,6 +32,7 @@ import {loadLicensedCloud183} from './licensed-cloud183.js';
 import {installSupportMaterials207,createApproachPlan207,routeReserved207,buildSupportRoute207,createNarrowStairCore207,createPond207,createPondReflectionFootprint207,buildPondEdges207,buildFoundationRocks207} from './support-route207.js';
 import {buildTowerMass183} from './tower-mass183.js';
 import {towerBenchHeight210} from './rain-banks210.js';
+import {buildRainBridge366,rail366,buildBankOutcrops366} from './route366.js';
 import {scene10Layout125 as L,bridgePoint125,bridgeToWorld125,hallToWorld125,createBridgeHallStairPlan125,rightPathEdge125,leftPathEdge125} from './layout125.js';
 const query=new URLSearchParams(location.search),W=Math.min(1800,+(query.get('w')||768)),H=Math.min(1800,+(query.get('h')||768));
 const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.info.autoReset=false;document.body.appendChild(renderer.domElement);
@@ -112,35 +113,8 @@ function solidFootprint125(outline,bottom,top,material='granite'){
  const geometry=new T.ExtrudeGeometry(shape,{depth:top-bottom,bevelEnabled:false,steps:1});geometry.rotateX(-Math.PI/2);geometry.translate(0,bottom,0);emit(geometry,material);return geometry;
 }
 const legacyBridgeRandomCalls=19+[.12,.5,.88].reduce((n,t)=>n+Math.ceil((1.4+.25+1.35*Math.sin(Math.PI*(t-.55*t*(1-t)))+.65*t-.13)/.30),0);
-group(...L.bridge.position,L.bridge.yaw,()=>{
- const b=L.bridge,n=40,P=bridgePoint125;
- const archProfile=new T.Shape(),ribStations=72;
- for(let i=0;i<=ribStations;i++){const p=P(i/ribStations);i?archProfile.lineTo(p[0],p[1]-.14):archProfile.moveTo(p[0],p[1]-.14);}
- for(let i=ribStations;i>=0;i--){const p=P(i/ribStations);archProfile.lineTo(p[0],p[1]-.42);}archProfile.closePath();
- const carryingArch=new T.ExtrudeGeometry(archProfile,{depth:.17,steps:1,bevelEnabled:true,bevelSize:.012,bevelThickness:.008,bevelSegments:2,curveSegments:1});
- for(const sign of[-1,1]){
-  emit(carryingArch,'red',0,0,sign*1.10-.085);
-  for(const [drop,r,ma]of[[-.41,.025,'darkwood'],[-.33,.012,'darkwood'],[-.17,.018,'cedar']])tube(Array.from({length:49},(_,i)=>P(i/48,sign*1.205,drop)),r,ma);
- }
- const crestRing=new T.TorusGeometry(.115,.012,7,32);
- for(const t of[.22,.50,.78]){
-  const p=P(t,1.218,-.33);emit(crestRing,'oldgold',...p);
-  for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(sphere,'oldgold',p[0]+Math.cos(a)*.068,p[1]+Math.sin(a)*.068,p[2]+.008,.040,.017,.012,[0,0,a]);}
-  emit(sphere,'gold',p[0],p[1],p[2]+.012,.025,.025,.012);
- }
- for(let i=0;i<n;i++){
-  const t0=i/n,t1=(i+1)/n,x0=-b.span/2+b.span*t0,x1=-b.span/2+b.span*t1,w=b.width/2+.20;
-  const g=solidFootprint125([[x0,-w],[x1,-w],[x1,w],[x0,w]],-b.deckThickness,0,'darkwood'),position=g.attributes.position;
-  for(let k=0;k<position.count;k++){const x=position.getX(k),t=(x+b.span/2)/b.span;position.setY(k,position.getY(k)+P(t,0)[1]);}position.needsUpdate=true;g.computeVertexNormals();
-  for(const side of[-w+.12,w-.12])between(P(t0,side,-.12),P(t1,side,-.12),.14,'cedar',true);
- }
- for(const side of[-b.width/2-.1,b.width/2+.1]){
-  const end=side<0?b.exitRailCutT:1,railStart=side>0?(b.entryFlatT||0):0,stations=Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8&&(t===0||t>=railStart));if(railStart>0)stations.push(railStart);stations.push(end);
-  for(const t of stations){const postT=side>0&&t===0?(b.entryFirstPostT||0):t,p=P(postT,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
-  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(railStart+(end-railStart)*i/40,side,h)),.065,'red');
- }
-});
-const support207=buildSupportRoute207({emit,box,between,tube},L,bridgeHallPlan,bridgeApproach207,bridgeEndSupports125);
+const bridge366=buildRainBridge366({emit,box,group,between});
+const support207=buildSupportRoute207({emit,box,between,tube:(points,r,ma)=>rail366(emit,points,r*1.65,r*1.35,ma)},L,bridgeHallPlan,bridgeApproach207,bridgeEndSupports125);
 const foundationRocks207=buildFoundationRocks207({emit},L,bridgeHallPlan,scannedStones);
 // Keep the established later garden RNG independent of this structural rewrite.
 m.red=retainedRed142;for(let k=0;k<legacyBridgeRandomCalls;k++)rand();
@@ -197,7 +171,7 @@ const paveHash=(a,b)=>{const q=Math.sin((a*127.1+b*311.7+1037)*12.9898)*43758.54
 const foreWeights=Array.from({length:rows-14},(_,i)=>.70+.52*paveHash(i,141)),foreSum=foreWeights.reduce((a,b)=>a+b,0),courseZ=[];
 for(let j=0;j<=rows;j++)courseZ.push(j<=14?-2+j*courseDepth+(j>0&&j<14?(paveHash(j,239)-.5)*.07:0):-2+14*courseDepth+foreWeights.slice(0,j-14).reduce((a,b)=>a+b,0)/foreSum*(21.32-14*courseDepth));
 function courseCuts(j){
- const base=j>=14?[[0,.16,.35,.52,.73,.86,1],[0,.12,.28,.47,.65,.83,1],[0,.20,.38,.58,.76,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
+ const base=j>=14?[[0,.27,.58,.80,1],[0,.19,.47,.74,1],[0,.35,.64,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
  return base.map((f,k)=>k===0||k===base.length-1?f:f+(paveHash(j,k)-.5)*(j>=14?.040:.018));
 }
 // Preserve the later garden/rain RNG stream while replacing the old 8-column vertex grid.
@@ -463,8 +437,9 @@ const hallShoreline125=[];
  }seed=shorelineSeed;}
 // Broad evergreen branches interrupt the right facade, as in the photograph.
 const stairEmbankment137=createNarrowStairCore207(bridgeHallPlan);
+
 m.embankmentSoil=m.moss.clone();m.embankmentSoil.name='rain-dark-stair-shore-soil';m.embankmentSoil.color.set('#1e2c1d');m.embankmentSoil.roughness=.98;installSurfaceDetail(m.embankmentSoil,'moss');
-emit(stairEmbankment137.geometry,'embankmentSoil');
+if(!stairEmbankment137.ownedBy366)emit(stairEmbankment137.geometry,'embankmentSoil');
 {const bankSeed=seed;seed=137031;let bankBoulders=0,rootedPlants=0;
  const placeBankRock=(u,v,index)=>{
   const p=stairEmbankment137.at(u,v),scan=scannedStones.variants[index%6],sx=.56+R(0,.26),sy=.40+R(0,.25),sz=.54+R(0,.27),yaw=R(0,6.28);
@@ -498,6 +473,9 @@ const solmaxRockBank141=[];
  }seed=saved;}
 
 suppressGeometry=retiredBankPrior193;
+if(suppressGeometry)throw Error('route366 bank authoring requires the active scene emitter');
+const bearingBank366=buildBankOutcrops366({emit},stairEmbankment137,scannedStones);foundationRocks207.surfaces.push(...bearingBank366.surfaces);
+bearingBank366.info.activeSceneEmitter=true;
 const natural193=buildNatural193({emit,scene,scannedStones,shrubs:shrubs193,groundcover:licensedGroundcover142,pines:licensedPines141,hillHeight,forestHeight:forestHeight141,reserved:circulationReserved125,channel:bridgeWaterChannel125,stairEmbankment:stairEmbankment137,layout:L,mineralMaterial:m.granite,ecologyAnchors207,bearingSurfaces207:foundationRocks207.surfaces});
 
 // Three broken airborne mist bands recede from the bridge toward the ridge.
@@ -547,7 +525,7 @@ function captureNearEnvironment(){
  // Filter the real local cube before any complex material draw, avoiding
  // nested PMREM texture allocations/target changes during sampler upload.
  const groundEnvironmentFilter321=new T.PMREMGenerator(renderer);try{nearEnvironmentFiltered321=groundEnvironmentFilter321.fromCubemap(nearEnvironmentTarget.texture);}finally{groundEnvironmentFilter321.dispose();}
- for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.groundStone321,m.groundWater321,m.groundIron321,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentFiltered321.texture;mat.needsUpdate=true;}
+ for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.groundStone321,m.groundWater321,m.groundIron321,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,...bearingBank366.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentFiltered321.texture;mat.needsUpdate=true;}
  waterRipples135.setEnvironment(nearEnvironmentFiltered321.texture);
 }
 const groundPlanar321=createGroundPlanarReflection321({renderer,scene,legacyMirror:mirror,creek:creekMirror207,
@@ -561,4 +539,4 @@ function renderReference(n=10){if(n!==10)throw Error('Only scene 10 exists');ret
 const dolly=createDollyPath({points:[[.25,.24,8.1],[.30,.28,9.8],[-.2,.74,12.8],fixed.position],nearTarget:[0,4.0,-14],farTarget:fixed.target,fov:fixed.fov});
 // Negative values are bounded structural QA poses only; positive film timing is unchanged.
 function renderShot(localTime=0){if(localTime===-1250)return renderReference(10);if(localTime===-125)return renderView(L.inspection.position,L.inspection.target,0,L.inspection.fov);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-ground321-r08f-positioned-planar-radiance-bounded-proxy',ground321,groundPlanarReflection321:groundPlanar321.info(),layout:L,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentFiltered321?.texture,probeExplicitlyPrefiltered:!!nearEnvironmentFiltered321,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture&&value!==nearEnvironmentFiltered321?.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();groundPlanar321.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentFiltered321?.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-ground321-r08f-positioned-planar-radiance-bounded-proxy',ground321,groundPlanarReflection321:groundPlanar321.info(),layout:L,bridge366,bearingBank366:bearingBank366.info,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentFiltered321?.texture,probeExplicitlyPrefiltered:!!nearEnvironmentFiltered321,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture&&value!==nearEnvironmentFiltered321?.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();groundPlanar321.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentFiltered321?.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();

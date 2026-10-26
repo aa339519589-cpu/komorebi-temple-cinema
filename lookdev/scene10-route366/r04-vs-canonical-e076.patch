@@ -1,0 +1,363 @@
+--- a/reconstructions/scene-10/src/layout125.js
++++ b/reconstructions/scene-10/src/layout125.js
+@@ -4,8 +4,8 @@
+  revision:'scene10-rain210-garden-entry-and-open-creek-r14',
+  camera:{position:[0,1,14],target:[0,4.65,-14],fov:60},
+  pagoda:{position:[-7.00,6.50,-20],yaw:-.10,scale:[.86,.70,.86],tierDecrement:.055,finialHeight:8.0},
+- hall:{position:[14,2.6,-14],yaw:-.58,scale:[1.12,.95,1.12],floorLocalY:1.3,entranceX:-2.85,upperLandingLocal:[-2.85,1.3,6.75]},
+- bridge:{position:[2.5064822373237057,1.07,-5.558258933768967],yaw:.09219438406608582,span:9.955243325862906,width:2.0,archRise:1.08,phaseSkew:.20,endRise:1.08,entryFlatT:.12,entryFirstPostT:.009,deckOffset:.25,deckThickness:.18,approachCount:4,approachRun:.28,approachGroundY:.78,railHeight:1.0,hallApproachLandingRun:1.31,turningHalfWidth:1.35,exitRailCutT:1.0},
++ hall:{position:[14,2.6,-14],yaw:-.58,scale:[1.12,.95,1.12],floorLocalY:1.3,entranceX:-2.85,upperLandingLocal:[-3.6,1.3,6.75]},
++ bridge:{position:[2.5064822373237057,1.07,-5.558258933768967],yaw:.09219438406608582,span:9.955243325862906,width:2.0,archRise:1.40,phaseSkew:.20,endRise:.58,entryFlatT:.12,entryFirstPostT:.009,deckOffset:.25,deckThickness:.18,approachCount:4,approachRun:.28,approachGroundY:.78,railHeight:1.0,hallApproachLandingRun:1.31,turningHalfWidth:1.35,exitRailCutT:1.0},
+  veranda:{column:[-3.35,0,7.9],radius:.42,shoeHeight:.80,ceilingY:7.1,ceilingYaw:.75,ceilingCenter:[.07,-1.4],hangingLamp:[-2.83,5.85,6.35],lampScale:.76},
+  foregroundRail:{position:[1.20,0,11.8],baseY:.10,postHeight:.87,postWidth:.39,capWidth:.48,finialBase:.925,finialHeightScale:.68,finialWidthScale:.58,returnEnd:[.72,0,14.2],levels:[.27,.52,.78]},
+  heroStoneLantern:{position:[-2.96,1.4538758854458425,-4.10],scale:[1.15,.877177980766595,1.15],supportTop:1.3838758854458424,bearingPadWidth:1.22,plinthCourseWidths:[1.65,1.44,1.23],plinthBaseOffset:.6838758854458423},
+@@ -34,16 +34,11 @@
+ }
+ 
+ export function createBridgeHallStairPlan125(){
+- const bridgeEnd=bridgeToWorld125(bridgePoint125(1)),hallLanding=hallToWorld125(scene10Layout125.hall.upperLandingLocal),dx=hallLanding[0]-bridgeEnd[0],dz=hallLanding[2]-bridgeEnd[2],distance=Math.hypot(dx,dz),ux=dx/distance,uz=dz/distance,landingRun=scene10Layout125.bridge.hallApproachLandingRun,count=8,width=2.20,start=[bridgeEnd[0]+ux*landingRun,bridgeEnd[1],bridgeEnd[2]+uz*landingRun],run=distance-landingRun,rise=hallLanding[1]-start[1],steps=[];
+- if(!(rise>0&&run>1.9&&count>0))throw Error('Invalid connected bridge/hall stair plan');
+- for(let i=0;i<count;i++){
+-  const a=run*i/count,b=run*(i+1)/count,top=start[1]+rise*(i+1)/count;
+-  const p=(t,side)=>[start[0]+ux*t-uz*side,start[2]+uz*t+ux*side];
+-  steps.push({index:i,top,bottom:start[1]+rise*i/count-.24,undersideFront:start[1]+rise*i/count-.24,undersideBack:top-.24,riser:rise/count,tread:run/count,outline:[p(a,-width/2),p(b,-width/2),p(b,width/2),p(a,width/2)]});
+- }
+- const hall=scene10Layout125.hall,last=steps.at(-1),backLeft=hallToWorld125([hall.entranceX-1.45,hall.floorLocalY,5.30]),backRight=hallToWorld125([hall.entranceX+1.45,hall.floorLocalY,5.30]),upperLanding={outline:[last.outline[1],last.outline[2],[backRight[0],backRight[2]],[backLeft[0],backLeft[2]]],top:hallLanding[1],bottom:hallLanding[1]-.24,scope:'Full slanted stair edge meets one closed wedge reaching into the hall floor'};
+- const A=[Math.cos(scene10Layout125.bridge.yaw),-Math.sin(scene10Layout125.bridge.yaw)],B=[-A[1],A[0]],pt=(a,b)=>[bridgeEnd[0]+A[0]*a+B[0]*b,bridgeEnd[2]+A[1]*a+B[1]*b],S=[-uz,ux],points=[pt(0,-1.20),pt(0,1.20),pt(.85,-1.20),pt(.85,1.20),[start[0]-S[0]*width/2,start[2]-S[1]*width/2],[start[0]+S[0]*width/2,start[2]+S[1]*width/2]],outline=convexHull207(points);
+- return{revision:'scene10-207-connected-stair-plan-r03',bridgeEnd,hallLanding,start,width,count,run,rise,unit:[ux,uz],steps,upperLanding,turningLanding:{center:bridgeEnd,halfWidth:scene10Layout125.bridge.turningHalfWidth,outline,top:bridgeEnd[1],bottom:bridgeEnd[1]-.18},bearing:{type:'closed wedge treads on narrow coursed stone cheeks, supported foot/head landings',riser:rise/count,tread:run/count,bedThickness:.24}};
++ const bridgeEnd=bridgeToWorld125(bridgePoint125(1)),hallLanding=hallToWorld125(scene10Layout125.hall.upperLandingLocal),start=[4.25,2.16,-9.10],dx=hallLanding[0]-start[0],dz=hallLanding[2]-start[2],run=Math.hypot(dx,dz),ux=dx/run,uz=dz/run,count=9,width=2.20,rise=hallLanding[1]-start[1],steps=[];
++ for(let i=0;i<count;i++){const a=run*i/count,b=run*(i+1)/count,top=start[1]+rise*(i+1)/count,p=(t,side)=>[start[0]+ux*t-uz*side,start[2]+uz*t+ux*side];steps.push({index:i,top,bottom:start[1]+rise*i/count-.24,undersideFront:start[1]+rise*i/count-.24,undersideBack:top-.24,riser:rise/count,tread:run/count,outline:[p(a,-width/2),p(b,-width/2),p(b,width/2),p(a,width/2)]});}
++ const hall=scene10Layout125.hall,last=steps.at(-1),centre=hall.upperLandingLocal[0],backLeft=hallToWorld125([centre-1.45,hall.floorLocalY,5.30]),backRight=hallToWorld125([centre+1.45,hall.floorLocalY,5.30]),upperLanding={outline:[last.outline[1],last.outline[2],[backRight[0],backRight[2]],[backLeft[0],backLeft[2]]],top:hallLanding[1],bottom:hallLanding[1]-.24,scope:'Closed stair head at left side of the existing hall gallery, connected to the unchanged floor'};
++ const A=[Math.cos(scene10Layout125.bridge.yaw),-Math.sin(scene10Layout125.bridge.yaw)],B=[-A[1],A[0]],pt=(a,b)=>[bridgeEnd[0]+A[0]*a+B[0]*b,bridgeEnd[2]+A[1]*a+B[1]*b],outline=[pt(0,-1.20),pt(.95,-1.20),pt(.95,1.20),pt(0,1.20)],galleryApproach={points:[bridgeEnd,[7.85,2.03,-8.25],start],width:1.12,scope:'Narrow returning stone gallery behind the bridge connects the far landing to the visible stair foot; no giant convex platform spans the creek'};
++ return{revision:'route366-r02-returning-hall-stair',bridgeEnd,hallLanding,start,width,count,run,rise,unit:[ux,uz],steps,upperLanding,galleryApproach,turningLanding:{center:bridgeEnd,halfWidth:scene10Layout125.bridge.turningHalfWidth,outline,top:bridgeEnd[1],bottom:bridgeEnd[1]-.18},bearing:{type:'Closed seated stone flight on a compact dressed mineral bearing bank; narrow returning gallery',riser:rise/count,tread:run/count,bedThickness:.075}};
+ }
+ 
+ function convexHull207(points){const p=[...points].sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]),lo=[],hi=[];for(const q of p){while(lo.length>1&&cross(lo.at(-2),lo.at(-1),q)<=0)lo.pop();lo.push(q);}for(const q of p.reverse()){while(hi.length>1&&cross(hi.at(-2),hi.at(-1),q)<=0)hi.pop();hi.push(q);}return lo.slice(0,-1).concat(hi.slice(0,-1));}
+--- a/reconstructions/scene-10/src/main.js
++++ b/reconstructions/scene-10/src/main.js
+@@ -32,6 +32,7 @@
+ import {installSupportMaterials207,createApproachPlan207,routeReserved207,buildSupportRoute207,createNarrowStairCore207,createPond207,createPondReflectionFootprint207,buildPondEdges207,buildFoundationRocks207} from './support-route207.js';
+ import {buildTowerMass183} from './tower-mass183.js';
+ import {towerBenchHeight210} from './rain-banks210.js';
++import {buildRainBridge366,rail366,buildBankOutcrops366} from './route366.js';
+ import {scene10Layout125 as L,bridgePoint125,bridgeToWorld125,hallToWorld125,createBridgeHallStairPlan125,rightPathEdge125,leftPathEdge125} from './layout125.js';
+ const query=new URLSearchParams(location.search),W=Math.min(1800,+(query.get('w')||768)),H=Math.min(1800,+(query.get('h')||768));
+ const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.info.autoReset=false;document.body.appendChild(renderer.domElement);
+@@ -112,35 +113,8 @@
+  const geometry=new T.ExtrudeGeometry(shape,{depth:top-bottom,bevelEnabled:false,steps:1});geometry.rotateX(-Math.PI/2);geometry.translate(0,bottom,0);emit(geometry,material);return geometry;
+ }
+ const legacyBridgeRandomCalls=19+[.12,.5,.88].reduce((n,t)=>n+Math.ceil((1.4+.25+1.35*Math.sin(Math.PI*(t-.55*t*(1-t)))+.65*t-.13)/.30),0);
+-group(...L.bridge.position,L.bridge.yaw,()=>{
+- const b=L.bridge,n=40,P=bridgePoint125;
+- const archProfile=new T.Shape(),ribStations=72;
+- for(let i=0;i<=ribStations;i++){const p=P(i/ribStations);i?archProfile.lineTo(p[0],p[1]-.14):archProfile.moveTo(p[0],p[1]-.14);}
+- for(let i=ribStations;i>=0;i--){const p=P(i/ribStations);archProfile.lineTo(p[0],p[1]-.42);}archProfile.closePath();
+- const carryingArch=new T.ExtrudeGeometry(archProfile,{depth:.17,steps:1,bevelEnabled:true,bevelSize:.012,bevelThickness:.008,bevelSegments:2,curveSegments:1});
+- for(const sign of[-1,1]){
+-  emit(carryingArch,'red',0,0,sign*1.10-.085);
+-  for(const [drop,r,ma]of[[-.41,.025,'darkwood'],[-.33,.012,'darkwood'],[-.17,.018,'cedar']])tube(Array.from({length:49},(_,i)=>P(i/48,sign*1.205,drop)),r,ma);
+- }
+- const crestRing=new T.TorusGeometry(.115,.012,7,32);
+- for(const t of[.22,.50,.78]){
+-  const p=P(t,1.218,-.33);emit(crestRing,'oldgold',...p);
+-  for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(sphere,'oldgold',p[0]+Math.cos(a)*.068,p[1]+Math.sin(a)*.068,p[2]+.008,.040,.017,.012,[0,0,a]);}
+-  emit(sphere,'gold',p[0],p[1],p[2]+.012,.025,.025,.012);
+- }
+- for(let i=0;i<n;i++){
+-  const t0=i/n,t1=(i+1)/n,x0=-b.span/2+b.span*t0,x1=-b.span/2+b.span*t1,w=b.width/2+.20;
+-  const g=solidFootprint125([[x0,-w],[x1,-w],[x1,w],[x0,w]],-b.deckThickness,0,'darkwood'),position=g.attributes.position;
+-  for(let k=0;k<position.count;k++){const x=position.getX(k),t=(x+b.span/2)/b.span;position.setY(k,position.getY(k)+P(t,0)[1]);}position.needsUpdate=true;g.computeVertexNormals();
+-  for(const side of[-w+.12,w-.12])between(P(t0,side,-.12),P(t1,side,-.12),.14,'cedar',true);
+- }
+- for(const side of[-b.width/2-.1,b.width/2+.1]){
+-  const end=side<0?b.exitRailCutT:1,railStart=side>0?(b.entryFlatT||0):0,stations=Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8&&(t===0||t>=railStart));if(railStart>0)stations.push(railStart);stations.push(end);
+-  for(const t of stations){const postT=side>0&&t===0?(b.entryFirstPostT||0):t,p=P(postT,side);box(p[0],p[1]+.52,side,.14,1.04,.14,'red');emit(sphere,'oldgold',p[0],p[1]+1.10,side,.075,.08,.075);}
+-  for(const h of[.25,.6,1.0])tube(Array.from({length:41},(_,i)=>P(railStart+(end-railStart)*i/40,side,h)),.065,'red');
+- }
+-});
+-const support207=buildSupportRoute207({emit,box,between,tube},L,bridgeHallPlan,bridgeApproach207,bridgeEndSupports125);
++const bridge366=buildRainBridge366({emit,box,group,between});
++const support207=buildSupportRoute207({emit,box,between,tube:(points,r,ma)=>rail366(emit,points,r*1.65,r*1.35,ma)},L,bridgeHallPlan,bridgeApproach207,bridgeEndSupports125);
+ const foundationRocks207=buildFoundationRocks207({emit},L,bridgeHallPlan,scannedStones);
+ // Keep the established later garden RNG independent of this structural rewrite.
+ m.red=retainedRed142;for(let k=0;k<legacyBridgeRandomCalls;k++)rand();
+@@ -197,7 +171,7 @@
+ const foreWeights=Array.from({length:rows-14},(_,i)=>.70+.52*paveHash(i,141)),foreSum=foreWeights.reduce((a,b)=>a+b,0),courseZ=[];
+ for(let j=0;j<=rows;j++)courseZ.push(j<=14?-2+j*courseDepth+(j>0&&j<14?(paveHash(j,239)-.5)*.07:0):-2+14*courseDepth+foreWeights.slice(0,j-14).reduce((a,b)=>a+b,0)/foreSum*(21.32-14*courseDepth));
+ function courseCuts(j){
+- const base=j>=14?[[0,.16,.35,.52,.73,.86,1],[0,.12,.28,.47,.65,.83,1],[0,.20,.38,.58,.76,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
++ const base=j>=14?[[0,.27,.58,.80,1],[0,.19,.47,.74,1],[0,.35,.64,1]][j%3]:j%2?[0,.08,.24,.40,.56,.72,.88,1]:[0,.14,.30,.46,.62,.78,1];
+  return base.map((f,k)=>k===0||k===base.length-1?f:f+(paveHash(j,k)-.5)*(j>=14?.040:.018));
+ }
+ // Preserve the later garden/rain RNG stream while replacing the old 8-column vertex grid.
+@@ -463,8 +437,9 @@
+  }seed=shorelineSeed;}
+ // Broad evergreen branches interrupt the right facade, as in the photograph.
+ const stairEmbankment137=createNarrowStairCore207(bridgeHallPlan);
++
+ m.embankmentSoil=m.moss.clone();m.embankmentSoil.name='rain-dark-stair-shore-soil';m.embankmentSoil.color.set('#1e2c1d');m.embankmentSoil.roughness=.98;installSurfaceDetail(m.embankmentSoil,'moss');
+-emit(stairEmbankment137.geometry,'embankmentSoil');
++if(!stairEmbankment137.ownedBy366)emit(stairEmbankment137.geometry,'embankmentSoil');
+ {const bankSeed=seed;seed=137031;let bankBoulders=0,rootedPlants=0;
+  const placeBankRock=(u,v,index)=>{
+   const p=stairEmbankment137.at(u,v),scan=scannedStones.variants[index%6],sx=.56+R(0,.26),sy=.40+R(0,.25),sz=.54+R(0,.27),yaw=R(0,6.28);
+@@ -498,6 +473,9 @@
+  }seed=saved;}
+ 
+ suppressGeometry=retiredBankPrior193;
++if(suppressGeometry)throw Error('route366 bank authoring requires the active scene emitter');
++const bearingBank366=buildBankOutcrops366({emit},stairEmbankment137,scannedStones);foundationRocks207.surfaces.push(...bearingBank366.surfaces);
++bearingBank366.info.activeSceneEmitter=true;
+ const natural193=buildNatural193({emit,scene,scannedStones,shrubs:shrubs193,groundcover:licensedGroundcover142,pines:licensedPines141,hillHeight,forestHeight:forestHeight141,reserved:circulationReserved125,channel:bridgeWaterChannel125,stairEmbankment:stairEmbankment137,layout:L,mineralMaterial:m.granite,ecologyAnchors207,bearingSurfaces207:foundationRocks207.surfaces});
+ 
+ // Three broken airborne mist bands recede from the bridge toward the ridge.
+@@ -547,7 +525,7 @@
+  // Filter the real local cube before any complex material draw, avoiding
+  // nested PMREM texture allocations/target changes during sampler upload.
+  const groundEnvironmentFilter321=new T.PMREMGenerator(renderer);try{nearEnvironmentFiltered321=groundEnvironmentFilter321.fromCubemap(nearEnvironmentTarget.texture);}finally{groundEnvironmentFilter321.dispose();}
+- for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.groundStone321,m.groundWater321,m.groundIron321,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentFiltered321.texture;mat.needsUpdate=true;}
++ for(const mat of[m.gold,m.oldgold,hall132Palette.gold,hall132Palette.oldgold,m.nearLacquer,m.bridgeRed142,m.wetNear,m.wet,m.groundStone321,m.groundWater321,m.groundIron321,m.water,m.farWalk142,m.leaf,...m.mapleAutumn,...scannedStones.variants.map(s=>s.wet),...natural193.materials,...foundationRocks207.materials,...bearingBank366.materials,m.supportStone207,m.supportRecess207,m.routeStone207,m.pathStone207]){mat.envMap=nearEnvironmentFiltered321.texture;mat.needsUpdate=true;}
+  waterRipples135.setEnvironment(nearEnvironmentFiltered321.texture);
+ }
+ const groundPlanar321=createGroundPlanarReflection321({renderer,scene,legacyMirror:mirror,creek:creekMirror207,
+@@ -561,4 +539,4 @@
+ const dolly=createDollyPath({points:[[.25,.24,8.1],[.30,.28,9.8],[-.2,.74,12.8],fixed.position],nearTarget:[0,4.0,-14],farTarget:fixed.target,fov:fixed.fov});
+ // Negative values are bounded structural QA poses only; positive film timing is unchanged.
+ function renderShot(localTime=0){if(localTime===-1250)return renderReference(10);if(localTime===-125)return renderView(L.inspection.position,L.inspection.target,0,L.inspection.fov);const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
+-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-ground321-r08f-positioned-planar-radiance-bounded-proxy',ground321,groundPlanarReflection321:groundPlanar321.info(),layout:L,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentFiltered321?.texture,probeExplicitlyPrefiltered:!!nearEnvironmentFiltered321,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture&&value!==nearEnvironmentFiltered321?.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();groundPlanar321.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentFiltered321?.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
++window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({reference:10,revision:'scene10-ground321-r08f-positioned-planar-radiance-bounded-proxy',ground321,groundPlanarReflection321:groundPlanar321.info(),layout:L,bridge366,bearingBank366:bearingBank366.info,hall132,towerMass183,carvedCloud183:carvedCloud183.info,natural193:natural193.info,support207,bridgeApproach207,pondEdges207,creekReflection207,foundationRocks207:foundationRocks207.info,towerHillPlantings142,fallenLeaves142,pagodaSources141,solmaxRockBank141,licensedForest141:{...licensedPines141.info,use:'Whole source saplings in natural193; old mature crown assembly retired',legacyPlacementRecordsSuppressed193:true,placements:licensedForestPlacements141},mapleCanopy136,waterRipples135:waterRipples135.info,bridgeHallPlan,bridgeEndSupports125,bridgeAbutment125,hallShoreline125,stairEmbankment137:stairEmbankment137.info,pathCurbRecords125,nearStoneRecords,nearBankOutcrop,nearSurfaceReflection:{...nearSurface.info,planeY:mirror.position.y,material:m.wetNear.name,probeReady:nearEnvironmentReady,probePosition:nearCubeCamera.position.toArray(),probeFacePixels:512,probeGeometryExclusions:['Planar reflector only; all physical gilt, wood, foliage and stone remain'],probeIntensity:m.wetNear.envMapIntensity,probeAssigned:m.wetNear.envMap===nearEnvironmentFiltered321?.texture,probeExplicitlyPrefiltered:!!nearEnvironmentFiltered321,roughness:m.wetNear.roughness,clearcoat:m.wetNear.clearcoat},licensedGroundcover142:{...licensedGroundcover142.info,placements:groundcoverPlacements142},scannedStone:scannedStones.info,objects,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,camera:fixed,features:['five-storey-pagoda','double-roof-hall','arched-red-bridge','open-arch-end-bearing-piers','closed-stair-treads-stringers-crossheads-and-bearing-pads','recessed-bonded-retaining-terrace','rooted-hall-shoreline-scans','dense-supported-eave-bracket-bays','palmate-autumn-maple-canopy','layered-rain-mist','wet-irregular-solid-slabs','actual-planar-reflections','near-column-and-lantern','gold-finial-near-railing','geometric-foliage-and-rain']}),dispose(){const usedGeometry=new Set(geos),usedMaterials=new Set(),usedTextures=new Set();scene.traverse(o=>{if(o.geometry)usedGeometry.add(o.geometry);for(const mat of(Array.isArray(o.material)?o.material:o.material?[o.material]:[])){usedMaterials.add(mat);for(const value of Object.values(mat))if(value?.isTexture&&value!==env.texture&&value!==nearEnvironmentTarget.texture&&value!==nearEnvironmentFiltered321?.texture)usedTextures.add(value);if(mat.userData.floorWetMap)usedTextures.add(mat.userData.floorWetMap);}});for(const g of usedGeometry)g.dispose();for(const mat of usedMaterials)mat.dispose();for(const texture of usedTextures)texture.dispose();groundPlanar321.dispose();optics.dispose();scannedStones.dispose();licensedPines141.dispose();licensedGroundcover142.dispose();nearSurface.texture.dispose();mirror.dispose();creekMirror207.dispose();skyLight.shadow.dispose();env.dispose();nearEnvironmentFiltered321?.dispose();nearEnvironmentTarget.dispose();renderer.dispose();renderer.domElement?.remove?.();window.temple.ready=false;}};document.querySelector('#loading').remove();if(!query.has('defer'))renderReference();
+--- a/reconstructions/scene-10/src/natural193.js
++++ b/reconstructions/scene-10/src/natural193.js
+@@ -201,7 +201,7 @@
+   const seam=fbm(x*1.9+51,z*1.9-7),relief=(seam-.46)*.54+Math.sin(y*15+fbm(x*.7,z*.7)*5)*.065;
+   bp.setY(i,Math.max(-.13,y+relief*smooth(y,-.12,.25)));
+  }
+- bp.needsUpdate=true;fracturedBank.computeVertexNormals();fracturedBank.name=stairEmbankment.ownedBy207?'207-narrow-stair-bearing-core':'natural193-connected-fractured-mineral-stair-bank';emit(fracturedBank,stairEmbankment.ownedBy207?'supportCore207':mineral);
++ bp.needsUpdate=true;fracturedBank.computeVertexNormals();fracturedBank.name=stairEmbankment.ownedBy207?'207-narrow-stair-bearing-core':'natural193-connected-fractured-mineral-stair-bank';emit(fracturedBank,stairEmbankment.ownedBy366?mineral:stairEmbankment.ownedBy207?'supportCore207':mineral);
+  // Match the exact diagonal convention of the rendered indexed field.
+  function heightAt(x,z){const fx=(x-x0)/step,fz=(z-z0)/step,i=Math.max(0,Math.min(nx-1,Math.floor(fx))),j=Math.max(0,Math.min(nz-1,Math.floor(fz))),u=T.MathUtils.clamp(fx-i,0,1),v=T.MathUtils.clamp(fz-j,0,1),a=j*(nx+1)+i,A=heights[a],B=heights[a+1],C=heights[a+nx+1],D=heights[a+nx+2];return u+v<=1?A+(B-A)*u+(C-A)*v:D+(C-D)*(1-u)+(B-D)*(1-v);}
+  const bankMesh=new T.Mesh(fracturedBank,mineral);bankMesh.updateMatrixWorld(true);const ray=new T.Raycaster(),rockSurfaces=[],bearingBounds207=bearingSurfaces207.map(mesh=>({mesh,bounds:new T.Box3().setFromObject(mesh)}));
+--- /dev/null
++++ b/reconstructions/scene-10/src/route366.js
+@@ -0,0 +1,119 @@
++import * as T from 'three';
++import {scene10Layout125 as L,bridgePoint125 as P,bridgeToWorld125} from './layout125.js';
++import {createLaidRainStones321,auditGround321} from './ground321.js';
++
++// RainHD10 construction only. Every plan coordinate is supplied by scene10;
++// none of the sunset scene01 layout, camera, materials or lighting is reused.
++const V=p=>new T.Vector3(...p),UP=V([0,1,0]),hash=(a,b)=>{const n=Math.sin(a*127.1+b*311.7+366.17)*43758.5453;return n-Math.floor(n);};
++const area=p=>p.reduce((s,a,i)=>{const b=p[(i+1)%p.length];return s+a[0]*b[1]-b[0]*a[1];},0)/2;
++function metric(g){const raw=g.index?g.toNonIndexed():g,p=raw.attributes.position,uv=[];for(let i=0;i<p.count;i+=3){const a=V([p.getX(i),p.getY(i),p.getZ(i)]),b=V([p.getX(i+1),p.getY(i+1),p.getZ(i+1)]),c=V([p.getX(i+2),p.getY(i+2),p.getZ(i+2)]),n=b.sub(a).cross(c.sub(a));for(let j=i;j<i+3;j++)if(Math.abs(n.y)>Math.max(Math.abs(n.x),Math.abs(n.z)))uv.push(p.getX(j),-p.getZ(j));else if(Math.abs(n.x)>Math.abs(n.z))uv.push(p.getZ(j),p.getY(j));else uv.push(p.getX(j),p.getY(j));}raw.setAttribute('uv',new T.Float32BufferAttribute(uv,2));raw.computeVertexNormals();if(raw!==g)g.dispose();return raw;}
++function solid(poly,lo,hi,name){
++ if(area(poly)<0)poly=[...poly].reverse();const p=[],ix=[],N=poly.length;
++ for(const y of[lo,hi])for(const q of poly)p.push(q[0],typeof y==='function'?y(q):y,q[1]);
++ const cap=T.ShapeUtils.triangulateShape(poly.map(p=>new T.Vector2(...p)),[]);
++ for(const[a,b,c]of cap)ix.push(a,c,b,a+N,b+N,c+N);
++ for(let i=0;i<N;i++){const j=(i+1)%N;ix.push(i,j,i+N,j,j+N,i+N);}
++ let volume=0;for(let i=0;i<ix.length;i+=3)volume+=V(p.slice(ix[i]*3,ix[i]*3+3)).dot(V(p.slice(ix[i+1]*3,ix[i+1]*3+3)).cross(V(p.slice(ix[i+2]*3,ix[i+2]*3+3))))/6;
++ if(volume<0)for(let i=0;i<ix.length;i+=3)[ix[i+1],ix[i+2]]=[ix[i+2],ix[i+1]];
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.name='366-closed-'+name;g.userData={route366:true,closedVolume:Math.abs(volume)};return metric(g);
++}
++const at=(o,a,u,v,y)=>[o[0]+a[0]*u-a[1]*v,y,o[2]+a[1]*u+a[0]*v];
++function clip(poly,k,value,sign){const out=[];for(let i=0;i<poly.length;i++){const p=poly[i],q=poly[(i+1)%poly.length],a=sign*(p[k]-value),b=sign*(q[k]-value);if(a>=0)out.push(p);if((a>=0)!==(b>=0)){const t=a/(a-b);out.push([p[0]+t*(q[0]-p[0]),p[1]+t*(q[1]-p[1])]);}}return out;}
++
++function arch(api,a,b,z,w,top,bottom,mat,name){
++ const n=Math.max(2,Math.ceil((b-a)*L.bridge.span/.09)),outline=[];
++ for(let i=0;i<=n;i++){const p=P(a+(b-a)*i/n);outline.push([p[0],p[1]+top]);}
++ for(let i=n;i>=0;i--){const p=P(a+(b-a)*i/n);outline.push([p[0],p[1]+bottom]);}
++ const shape=new T.Shape();outline.forEach((p,i)=>i?shape.lineTo(...p):shape.moveTo(...p));shape.closePath();
++ const g=new T.ExtrudeGeometry(shape,{depth:w-.004,steps:1,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:2});g.translate(0,0,z-w/2+.002);g.name='366-closed-'+name;g.userData={route366:true,physicalArch:true};api.emit(g,mat);
++}
++
++// A rectangular closed timber sweep replaces round pipes. Each real rail is
++// fitted between post centres; the deck remains a separately carried arch.
++export function rail366(emit,points,width=.10,height=.075,material='red'){
++ if(points.every(p=>V(p).distanceTo(V(points[0]))<.00001))return;
++ const curve=new T.CatmullRomCurve3(points.map(V),false,'centripetal'),N=Math.max(2,Math.ceil(curve.getLength()/.09)),p=[],ix=[];
++ for(let i=0;i<=N;i++){const q=curve.getPointAt(i/N),d=curve.getTangentAt(i/N).setY(0).normalize(),side=V([-d.z,0,d.x]);for(const[v,y]of[[-1,-1],[1,-1],[1,1],[-1,1]])p.push(...q.clone().addScaledVector(side,v*width/2).addScaledVector(UP,y*height/2).toArray());}
++ for(let i=0;i<N;i++)for(let k=0;k<4;k++){const a=i*4+k,b=i*4+(k+1)%4;ix.push(a,b,a+4,b,b+4,a+4);}const n=N*4;ix.push(0,2,1,0,3,2,n,n+1,n+2,n,n+2,n+3);
++ let volume=0;for(let i=0;i<ix.length;i+=3)volume+=V(p.slice(ix[i]*3,ix[i]*3+3)).dot(V(p.slice(ix[i+1]*3,ix[i+1]*3+3)).cross(V(p.slice(ix[i+2]*3,ix[i+2]*3+3))))/6;if(volume<0)for(let i=0;i<ix.length;i+=3)[ix[i+1],ix[i+2]]=[ix[i+2],ix[i+1]];
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setIndex(ix);g.name='366-closed-rectangular-housed-route-rail';g.userData={route366:true,physicalSection:[width,height]};emit(metric(g),material);
++}
++
++export function buildRainBridge366(api){
++ const {emit,box,group,between}=api,b=L.bridge;
++ group(...b.position,b.yaw,()=>{
++  for(const z of[-.98,0,.98])arch(api,0,1,z,.20,-.18,-.48,'darkwood','continuous-asymmetric-rain-bridge-girder');
++  for(let j=0;j<43;j++){const a=j/43+.00015,c=(j+1)/43-.00015;arch(api,a,c,0,2.35,0,-b.deckThickness,'cedar','seated-transverse-rain-deck-flag');}
++  for(const side of[-1,1]){
++   for(const[a,c]of[[0,1/3],[1/3,2/3],[2/3,1]]){arch(api,a+.00015,c-.00015,side*1.12,.08,-.13,-.36,'red','scarfed-upper-vermilion-arch-board');arch(api,a+.00015,c-.00015,side*1.115,.075,-.365,-.48,'darkwood','recessed-lower-arch-board');}
++   arch(api,0,1,side*1.17,.022,-.138,-.162,'cedar','continuous-arch-weather-edge');
++   const end=side<0?b.exitRailCutT:1,start=side>0?b.entryFlatT||0:0,stations=[...new Set([0,...Array.from({length:10},(_,i)=>i/9).filter(t=>t<end-1e-8&&(t===0||t>=start)),...(start>0?[start]:[]),end])].sort((a,b)=>a-b);
++   for(const t0 of stations){const t=side>0&&t0===0?b.entryFirstPostT||0:t0,p=P(t,side*1.10);box(p[0],p[1]+.50,p[2],.145,1.04,.145,'red');emit(new T.LatheGeometry([[0,0],[.08,0],[.085,.025],[.057,.05],[.057,.092],[.070,.13],[.051,.17],[0,.19]].map(p=>new T.Vector2(...p)),24),'oldgold',p[0],p[1]+1.02,p[2]);}
++   const actual=stations.filter(t=>t>=start-1e-8);for(let i=0;i<actual.length-1;i++)for(const[h,w,d]of[[.25,.085,.075],[.60,.095,.078],[1.0,.115,.085]])rail366(emit,Array.from({length:9},(_,k)=>P(actual[i]+(actual[i+1]-actual[i])*k/8,side*1.10,h)),w,d,'red');
++  }
++  // Lower cross ties bear against all three main arches, with visible short
++  // ends. They are timber assemblies, not extra columns in the water.
++  for(let i=1;i<8;i++){const t=i/8,p=P(t),g=new T.BoxGeometry(.13,.13,2.48);emit(g,'darkwood',p[0],p[1]-.48,0);}
++  for(const t of[.22,.50,.78]){const p=P(t,1.205,-.29);emit(new T.TorusGeometry(.105,.010,7,32),'oldgold',...p);for(let k=0;k<8;k++){const a=k*Math.PI/4;emit(new T.SphereGeometry(1,8,6),'oldgold',p[0]+Math.cos(a)*.061,p[1]+Math.sin(a)*.061,p[2]+.008,.034,.014,.010,[0,0,a]);}}
++ });
++ return{revision:'route366-r04',nearDeckY:b.position[1]+P(0)[1],farDeckY:b.position[1]+P(1)[1],actualScene10Curve:true,carryingGirders:3,deckFlags:43,rectangularRails:true,originalRainMaterialsRetained:true,photographicAccepted:false};
++}
++
++export function buildStoneFlight366(api,spec,key){
++ const {emit}=api,o=spec.start,a=spec.axis||spec.unit,floor=u=>o[1]+spec.rise*T.MathUtils.clamp(u/spec.run,0,1),world=poly=>poly.map(([u,v])=>{const p=at(o,a,u,v,0);return[p[0],p[2]];}),along=q=>(q[0]-o[0])*a[0]+(q[1]-o[2])*a[1],records=[];
++ const left=(u,i)=>spec.stepClipX?Math.max(-spec.width/2,(spec.stepClipX[i]-o[0]-a[0]*u)/(-a[1])):-spec.width/2;
++ for(const s of spec.steps){const u0=s.along?s.along[0]:spec.run*s.index/spec.count,u1=s.along?s.along[1]:spec.run*(s.index+1)/spec.count,top=s.top;
++  const body=world([[u0+.014,left(u0+.014,s.index)],[u1,left(u1,s.index)],[u1,spec.width/2],[u0+.014,spec.width/2]]);emit(solid(body,q=>floor(along(q))-.50,top-.075,key+'-seated-setback-riser-'+s.index),'supportStone207');
++  const bed=world([[u0,left(u0,s.index)],[u1,left(u1,s.index)],[u1,spec.width/2],[u0,spec.width/2]]);emit(solid(bed,q=>floor(along(q))-.53,q=>floor(along(q))-.50,key+'-continuous-mineral-bearing-bed-'+s.index),'supportCore207');
++  const cap=[[u0-.025,left(u0-.025,s.index)],[u1,left(u1,s.index)],[u1,spec.width/2],[u0-.025,spec.width/2]],N=spec.width>1.8?3:2,lo=Math.min(...cap.map(p=>p[1])),hi=spec.width/2;
++  for(let i=0;i<N;i++){let cell=clip(clip(cap,1,lo+(hi-lo)*i/N+.0015,1),1,lo+(hi-lo)*(i+1)/N-.0015,-1);if(cell.length<3||Math.abs(area(cell))<.01)continue;const laid=createLaidRainStones321({points:world(cell),seed:366071+s.index*37+i*83+(key==='hall-flight'?71:0),id:key+'-'+s.index+'-'+i});
++   for(const f of laid.fragments){const g=f.geometry,p=g.attributes.position;for(let j=0;j<p.count;j++)p.setY(j,top+(p.getY(j)-.0485)*(.075/.1405));g.computeVertexNormals();g.name='366-closed-individual-riven-'+key+'-tread-flag';g.userData={route366:true,ground321Audit:auditGround321(g),seatedFlagThickness:.075,noseProjection:.039,wearSource:'Existing scene10 closed cap, shared stone edges and sparse physical chips; no new material or reflection response'};emit(g,'routeStone207',0,0,0,1,1,1,0,.93+.11*hash(s.index,i));f.water?.dispose();}
++  }
++  records.push({index:s.index,top,front:at(o,a,u0,0,top),back:at(o,a,u1,0,top),closed:true,nosing:.039});
++ }
++ for(const side of[-1,1])for(let k=0;k<3;k++){const u0=spec.run*k/3+.002,u1=spec.run*(k+1)/3-.002,inner=side*(spec.width/2+.015),outer=side*(spec.width/2+.175),poly=world([[u0,inner],[u1,inner],[u1,outer],[u0,outer]]);emit(solid(poly,q=>floor(along(q))-.50,q=>floor(along(q))+.09,key+'-raking-bearing-cheek-'+k),'supportStone207');emit(solid(poly,q=>floor(along(q))+.09,q=>floor(along(q))+.16,key+'-riven-raking-coping-'+k),'routeStone207');}
++ if(key==='hall-flight'){
++  for(const v of[-.82,0,.82]){const poly=world([[0,v-.085],[spec.run,v-.085],[spec.run,v+.085],[0,v+.085]]);emit(solid(poly,q=>floor(along(q))-.70,q=>floor(along(q))-.53,'hall-flight-seated-inclined-timber-stringer'),'darkwood');}
++  for(const u of[0,spec.run]){const f=floor(u),cross=world([[u-.12,-1.16],[u+.12,-1.16],[u+.12,1.16],[u-.12,1.16]]);emit(solid(cross,f-.86,f-.70,'hall-flight-short-bent-crosshead'),'darkwood');for(const v of[-.82,.82]){const cap=world([[u-.32,v-.31],[u+.32,v-.31],[u+.32,v+.31],[u-.32,v+.31]]),post=world([[u-.12,v-.12],[u+.12,v-.12],[u+.12,v+.12],[u-.12,v+.12]]);emit(solid(cap,f-1.35,f-1.20,'hall-flight-bank-embedded-stone-shoe'),'supportStone207');emit(solid(post,f-1.20,f-.86,'hall-flight-short-stone-seated-timber-bent'),'darkwood');}}
++ }
++ return{revision:'route366-r04',steps:records,closed:true,individuallyClosedWornFlags:true,noseProjection:.039,flagThickness:.075,bankBedded:true,oldHallFlightTrestlesRemoved:key==='hall-flight',shortStoneSeatedBentCount:key==='hall-flight'?2:0};
++}
++
++export function createStairBearingBank366(plan){
++ const o=plan.start,a=plan.unit,front=-.52,back=plan.run+.62,width=1.68,ground=-.22;
++ const floor=u=>o[1]+plan.rise*T.MathUtils.clamp(u/plan.run,0,1),height=(u,v)=>{
++  const gate=T.MathUtils.smoothstep(u,front,-.12)*(1-T.MathUtils.smoothstep(u,back-.20,back)),edge=T.MathUtils.clamp((Math.abs(v)-1.10)/(width-1.10),0,1),terrace=1-.43*T.MathUtils.smoothstep(edge,.05,.40)-.57*T.MathUtils.smoothstep(edge,.52,1),ridge=floor(u)-1.25;
++  return ground+Math.max(0,ridge-ground)*gate*terrace+.022*Math.sin(u*7.3+v*4.1)*gate*terrace*T.MathUtils.smoothstep(Math.abs(v),1.10,1.22);
++ },atBank=(u,v)=>at(o,a,u,v,height(u,v)),p=[],uv=[],ix=[],N=56,M=42;
++ for(let j=0;j<=N;j++)for(let i=0;i<=M;i++){const u=front+(back-front)*j/N,v=-width+2*width*i/M;p.push(...atBank(u,v));uv.push(u,v);}
++ for(let j=0;j<N;j++)for(let i=0;i<M;i++){const n=j*(M+1)+i;ix.push(n,n+1,n+M+1,n+1,n+M+2,n+M+1);}
++ const edge=[...Array.from({length:M+1},(_,i)=>i),...Array.from({length:N},(_,j)=>(j+1)*(M+1)+M),...Array.from({length:M},(_,i)=>N*(M+1)+M-1-i),...Array.from({length:N-1},(_,j)=>(N-1-j)*(M+1))],bottom=[];
++ for(const n of edge){bottom.push(p.length/3);p.push(p[n*3],-.38,p[n*3+2]);uv.push(0,0);}for(let i=0;i<edge.length;i++){const j=(i+1)%edge.length;ix.push(edge[i],bottom[i],edge[j],edge[j],bottom[i],bottom[j]);}
++ const centre=p.length/3;p.push(o[0],-.38,o[2]);uv.push(0,0);for(let i=0;i<bottom.length;i++)ix.push(centre,bottom[(i+1)%bottom.length],bottom[i]);
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();g.name='366-closed-compact-mineral-stair-bearing-core';g.userData={route366:true,ground321Audit:auditGround321(g)};
++ return{geometry:g,at:atBank,heightAt:height,plan,ownedBy207:true,ownedBy366:true,info:{revision:'route366-r04',kind:'Compact closed stair bearing core, separately dressed with interlocked real mineral courses; no broad smooth soil cone',width:width*2,front,back,hallStairClearance:1.25,openCentralBridgeChannel:true,photographicAccepted:false}};
++}
++
++export function buildReturningGallery366(api,L,plan){
++ const {emit,box}=api,path=plan.galleryApproach.points,width=plan.galleryApproach.width,records=[];
++ for(let segment=0;segment<path.length-1;segment++){
++  const A=V(path[segment]),B=V(path[segment+1]),d=B.clone().sub(A),run=Math.hypot(d.x,d.z),axis=[d.x/run,d.z/run],floor=u=>A.y+(B.y-A.y)*u/run,poly=(a,b,v0,v1)=>[[a,v0],[b,v0],[b,v1],[a,v1]].map(([u,v])=>{const p=at(A.toArray(),axis,u,v,0);return[p[0],p[2]];}),along=q=>(q[0]-A.x)*axis[0]+(q[1]-A.z)*axis[1],count=Math.max(3,Math.ceil(run/.48));
++  for(let i=0;i<count;i++){const a=run*i/count+.002,b=run*(i+1)/count-.002;emit(solid(poly(a,b,-width/2,width/2),q=>floor(along(q))-.13,q=>floor(along(q)), 'returning-gallery-seated-flag-'+segment+'-'+i),'routeStone207');}
++  for(const side of[-1,1])emit(solid(poly(0,run,side*(width/2-.14)-.075,side*(width/2-.14)+.075),q=>floor(along(q))-.34,q=>floor(along(q))-.13,'returning-gallery-continuous-timber-stringer'),'darkwood');
++  records.push({from:A.toArray(),to:B.toArray(),width,closedFlags:count});
++ }
++ // The bend is carried by a real short bent on the far mineral terrace.
++ const elbow=path[1],top=elbow[1]-.34;for(const side of[-1,1]){const x=elbow[0]+side*.35,poly=[[x-.18,elbow[2]-.18],[x+.18,elbow[2]-.18],[x+.18,elbow[2]+.18],[x-.18,elbow[2]+.18]];emit(solid(poly,.72,top,'gallery-elbow-seated-stone-bearing'),'supportStone207');}box(elbow[0],elbow[1]-.25,elbow[2],1.02,.18,.25,'darkwood');
++ for(const side of[-1,1]){const points=path.map((p,i)=>{const prev=path[Math.max(0,i-1)],next=path[Math.min(path.length-1,i+1)],d=V(next).sub(V(prev)).setY(0).normalize(),w=i===0?1.10:i===path.length-1?plan.width/2-.08:width/2;return[p[0]-d.z*side*w,p[1]+1.0,p[2]+d.x*side*w];});for(const h of[0,-.40])rail366(emit,points.map(p=>[p[0],p[1]+h,p[2]]),.095,.075,'red');for(const p of points)box(p[0],p[1]-.48,p[2],.13,1.04,.13,'red');}
++ return{revision:'route366-r04',records,closed:true,narrowReturningRoute:true,photographicAccepted:false};
++}
++
++export function buildBankOutcrops366({emit},bank,scanned){
++ const surfaces=[],records=[],materials=scanned.variants.map((s,i)=>{const m=s.wet.clone();m.name='366-rooted-rain-dark-bank-mineral-'+i;m.color.multiplyScalar(.74);m.onBeforeCompile=s.wet.onBeforeCompile;m.customProgramCacheKey=s.wet.customProgramCacheKey;return m;}),plan=bank.plan,far=plan.bridgeEnd,A=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],B=[-A[1],A[0]],toFar=(u,v)=>[far[0]+A[0]*u+B[0]*v,far[2]+A[1]*u+B[1]*v];
++ const foot=[toFar(-.58,-2.65),toFar(1.18,-2.65),toFar(1.18,1.40),toFar(-.58,1.40)],top=[toFar(-.22,-2.42),toFar(.92,-2.42),toFar(.92,1.14),toFar(-.22,1.14)],core=solid(foot,-.25,.75,'separate-far-bridge-mineral-bearing-terrace'),cp=core.attributes.position;for(let i=0;i<cp.count;i++)if(cp.getY(i)>.74){let k=0;for(let j=1;j<foot.length;j++)if(Math.hypot(cp.getX(i)-foot[j][0],cp.getZ(i)-foot[j][1])<Math.hypot(cp.getX(i)-foot[k][0],cp.getZ(i)-foot[k][1]))k=j;cp.setX(i,top[k][0]);cp.setZ(i,top[k][1]);}core.computeVertexNormals();core.userData.ground321Audit=auditGround321(core);emit(core,'supportCore207');const coreMesh=new T.Mesh(core,new T.MeshBasicMaterial());coreMesh.updateMatrixWorld(true);surfaces.push(coreMesh);
++ function place(kind,u,v,top,size,variant,rotation,farLocal=false){const scan=scanned.variants[variant],q=new T.Quaternion().setFromEuler(new T.Euler(...rotation)),bounds=new T.Box3().setFromBufferAttribute(scan.geometry.attributes.position).applyMatrix4(new T.Matrix4().compose(V([0,0,0]),q,V([size,size,size]))),p=farLocal?toFar(u,v):[bank.at(u,v)[0],bank.at(u,v)[2]];let y=top-bounds.max.y;if(farLocal)y=Math.min(y,-.20-bounds.min.y);const material=materials[variant];emit(scan.geometry,material,p[0],y,p[1],size,size,size,rotation);const mesh=new T.Mesh(scan.geometry,material);mesh.position.set(p[0],y,p[1]);mesh.quaternion.copy(q);mesh.scale.setScalar(size);mesh.updateMatrixWorld(true);surfaces.push(mesh);records.push({kind,position:[p[0],y,p[1]],top:y+bounds.max.y,bottom:y+bounds.min.y,uniformScale:size,variant,source:'Unmodified existing CC0 wet mineral mesh, fully embedded in a closed bearing core or the preceding mineral course'});}
++ // Independent staggered geological courses cover both exposed stair sides.
++ for(const side of[-1,1])for(let j=0;j<4;j++){const u=.05+plan.run*j/3,crest=bank.heightAt(u,side*1.10)+.10,rows=Math.max(1,Math.ceil((crest+.18)/.56));for(let row=0;row<rows;row++){const cap=Math.min(crest,-.18+(row+1)*.56),v=side*(1.12+.19*(1-row/rows)),size=.78+.06*hash(j,row),variant=[0,1,4,5][(j+row+(side>0?1:0))%4];place('Interlocked mineral course at backed stair',u+(row%2?.15:-.08),v,cap,size,variant,[.025,j*.73+row*.34,-.025]);}}
++ for(const[i,u,v,cap,size]of[[0,-.20,1.14,.82,.82],[1,.64,1.24,.78,.84],[2,.75,-.64,.81,.86],[3,.65,-1.56,1.12,.88],[4,.44,-2.34,1.18,.86],[5,-.22,-1.60,.85,.80]])place('Rooted far-bridge abutment mineral return',u,v,cap,size,[0,4,1,5,0,4][i],[.025,i*.77,-.025],true);
++ return{surfaces,materials,info:{revision:'route366-r04',records,photographicAccepted:false}};
++}
+--- a/reconstructions/scene-10/src/support-route207.js
++++ b/reconstructions/scene-10/src/support-route207.js
+@@ -4,6 +4,7 @@
+ import {installSurfaceDetail} from './surface-detail.js';
+ import {createWornFlagstone} from './worn-flagstone.js';
+ import {towerBenchHeight210} from './rain-banks210.js';
++import {buildStoneFlight366,createStairBearingBank366,buildReturningGallery366} from './route366.js';
+ 
+ const V=p=>new T.Vector3(...p),U=new T.Vector3(0,1,0),hash=(a,b)=>{const x=Math.sin(a*127.1+b*311.7+207.17)*43758.5453;return x-Math.floor(x);};
+ export const SUPPORT207_REVISION='scene10-rain210-garden-island-entry-and-open-front-creek-r14';
+@@ -51,7 +52,7 @@
+  const landingEnd=[start[0]-axis[0]*.33,start[1],start[2]-axis[1]*.33],route=[[-3.165,-7.71],[-4.4,-6.3],[-4.6,-4.7],[-4.2,-3.2],[-3.1,-2.85],[landingEnd[0],landingEnd[2]]];
+  const towerTop=towerBenchHeight210(-3.165,-8.04,.5634)+.086,frontRoute=ribbonRoute207(route,towerTop,start[1],.90),rearRoute={enabled:false,points:[],outline:[],samples:[],width:0,topRange:[],source:'The duplicate fork and direct raised front-court ramp are retired; one actual garden-side route remains'};
+  const lamp=L.heroStoneLantern,cw=lamp.plinthCourseWidths||[1.65,1.44,1.23],clip=cw.map(w=>lamp.position[0]+w/2+.035);
+- return{revision:SUPPORT207_REVISION,start,end,bridgeNear,entryT,guardHalfWidth,axis,run,width,count,rise,riser:rise/count,tread:run/count,stepClipX:[clip[0],clip[1],clip[2],clip[2]],guardClearX:lamp.position[0]+(lamp.bearingPadWidth||1.22)/2+.10,guardBridgeStations:[L.bridge.entryFirstPostT||0,L.bridge.entryFlatT],steps,bottomLanding:{center:landingEnd,along:[-.66,0],width:1.40,top:start[1]},island:{lanternCenter:L.heroStoneLantern.position,terrainCrest:.20,lanternSoilCrest:.20,closedStonePlinthTop:.65+(L.heroStoneLantern.plinthBaseOffset||0),stoneSupportTop:L.heroStoneLantern.supportTop,source:'Projected lamp/outer-step relationship with actual mineral support and diagonal side-entry steps; historical anchors explicitly released'},route:{...frontRoute,source:'Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired'},rearRoute};
++ return{revision:SUPPORT207_REVISION,start,end,bridgeNear,entryT,guardHalfWidth,axis,run,width,count,rise,riser:rise/count,tread:run/count,stepClipX:[clip[0],clip[1],clip[2],clip[2]],guardClearX:lamp.position[0]+(lamp.bearingPadWidth||1.22)/2+.10,guardBridgeStations:[L.bridge.entryFirstPostT||0,L.bridge.entryFlatT],steps,bottomLanding:{center:landingEnd,along:[-.38,0],width:1.40,top:start[1]},island:{lanternCenter:L.heroStoneLantern.position,terrainCrest:.20,lanternSoilCrest:.20,closedStonePlinthTop:.65+(L.heroStoneLantern.plinthBaseOffset||0),stoneSupportTop:L.heroStoneLantern.supportTop,source:'Projected lamp/outer-step relationship with actual mineral support and diagonal side-entry steps; historical anchors explicitly released'},route:{...frontRoute,source:'Actual garden-side connection from surviving tower walk around the west of the lamp island into its stair foot; direct raised front-court connection explicitly retired'},rearRoute};
+ }
+ 
+ function nearestRoute207(x,z,approach){let best=null;for(const route of[approach.route,approach.rearRoute]){const p=route.samples;for(let i=0;i<p.length-1;i++){const a=p[i],b=p[i+1],dx=b[0]-a[0],dz=b[2]-a[2],t=T.MathUtils.clamp(((x-a[0])*dx+(z-a[2])*dz)/(dx*dx+dz*dz),0,1),distance=Math.hypot(x-a[0]-t*dx,z-a[2]-t*dz);if(!best||distance<best.distance)best={distance,top:T.MathUtils.lerp(a[1],b[1],t),width:route.width};}}return best;}
+@@ -60,14 +61,14 @@
+  if(z>=-2.5)return -.22;
+  const dx=x-a.start[0],dz=z-a.start[2],u=dx*a.axis[0]+dz*a.axis[1],v=-dx*a.axis[1]+dz*a.axis[0];
+  const q=nearestRoute207(x,z,a);if(q.distance<Math.max(.12,q.width/2-.08))return q.top-.13;
+- if(u>=-.85&&u<=a.run+.15&&Math.abs(v)<a.width/2+.35)return -.22;
++ if(u>=-.85&&u<=a.run+.15&&Math.abs(v)<a.width/2+.35)return a.start[1]+a.rise*T.MathUtils.clamp(u/a.run,0,1)-.38;
+  return null;
+ }
+ 
+ export function nearIslandHeight207(x,z,a){
+  if(x< -5.7||x>-.9||z< -8.8||z>-.9)return null;
+  const h=a.island.lanternCenter,a0=Math.atan2((z-h[2])/1.3,(x-h[0])/1.2),a1=Math.atan2((z-a.start[2])/1.0,(x-a.start[0])/1.1),r0=Math.hypot((x-h[0])/1.2,(z-h[2])/1.3)/(1+.09*Math.sin(a0*5+.4)+.05*Math.sin(a0*9-1)),r1=Math.hypot((x-a.start[0])/1.1,(z-a.start[2])/1.0)/(1+.07*Math.sin(a1*7+.8));
+- const lowLanternSoil=-.22+.42*(1-T.MathUtils.smoothstep(r0,.28,.85));const bed=nearRouteGround207(x,z,a);return Math.max(lowLanternSoil,bed??-.22);
++ const lowLanternSoil=-.22+.42*(1-T.MathUtils.smoothstep(r0,.28,.85)),dx=x-a.start[0],dz=z-a.start[2],u=dx*a.axis[0]+dz*a.axis[1],v=-dx*a.axis[1]+dz*a.axis[0],mask=T.MathUtils.smoothstep(u,-1.05,-.62)*(1-T.MathUtils.smoothstep(u,a.run+.16,a.run+.72))*(1-T.MathUtils.smoothstep(Math.abs(v),a.width/2-.05,a.width/2+1.02)),crest=a.start[1]+a.rise*T.MathUtils.clamp(u/a.run,0,1)-.36,shoulder=-.22+(crest+.22)*mask;const bed=nearRouteGround207(x,z,a);return Math.max(lowLanternSoil,bed??-.22,shoulder);
+ }
+ 
+ export function hallShoreHeight207(x,z,L){
+@@ -86,6 +87,9 @@
+ }
+ 
+ function emitFlight(api,spec,key){
++ return buildStoneFlight366(api,spec,key);
++}
++function legacyEmitFlight207(api,spec,key){
+  const {emit}=api,origin=spec.start,axis=spec.axis||spec.unit,records=[];
+  for(const s of spec.steps){const a=s.along?s.along[0]:spec.run*s.index/spec.count,b=s.along?s.along[1]:spec.run*(s.index+1)/spec.count,top=s.top,bf=s.undersideFront,bb=s.undersideBack,left=t=>spec.stepClipX?Math.max(-spec.width/2,(spec.stepClipX[s.index]-origin[0]-axis[0]*t)/(-axis[1])):-spec.width/2;let g;
+   if(spec.stepClipX){const af=a-.018,ring=[[af,left(af),bf],[af,spec.width/2,bf],[b,spec.width/2,bb],[b,left(b),bb]],v=[...ring,...ring.map(([x,z])=>[x,z,top])].map(([x,z,y])=>point(origin,axis,x,z,y)),ix=[0,2,1,0,3,2,4,5,6,4,6,7];for(let j=0;j<4;j++){const k=(j+1)%4;ix.push(j,k,k+4,j,k+4,j+4);}g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(v.flat(),3));g.setAttribute('uv',new T.Float32BufferAttribute(v.flatMap(p=>[p[0],-p[2]]),2));g.setIndex(ix);g.computeVertexNormals();}else{g=solidProfile([[a-.018,bf],[b,bb],[b,top],[a-.018,top]],spec.width);frameGeometry(g,[origin[0],0,origin[2]],axis);}g.name='207-'+key+'-closed-riser-tread-'+s.index;emit(g,'routeStone207');
+@@ -115,6 +119,7 @@
+ 
+ function pier(api,center,top,seed,along=[1,0]){
+  const {emit}=api,bottom=-.18,height=top-bottom,rows=Math.ceil(height/.27),q=new T.Quaternion().setFromAxisAngle(U,-Math.atan2(along[1],along[0]));
++ emit(coloredStone(.52,height-.08,.48,seed+177),'supportCore207',center[0],(bottom+top-.08)/2,center[1],1,1,1,q);
+  for(let i=0;i<rows;i++){const y0=bottom+height*i/rows,y1=bottom+height*(i+1)/rows,flare=1-(i+.5)/rows,w=.63+.18*flare,d=.60+.16*flare,g=coloredStone(w,y1-y0-.007,d,seed+i);emit(g,'supportStone207',center[0],(y0+y1)/2,center[1],1,1,1,q);}
+  const cap=coloredStone(.85,.16,.82,seed+91);emit(cap,'supportStone207',center[0],top-.08,center[1],1,1,1,q);
+  const pad=coloredStone(.92,.16,.90,seed+131);emit(pad,'supportStone207',center[0],-.16,center[1],1,1,1,q);
+@@ -123,19 +128,21 @@
+ 
+ export function buildSupportRoute207(api,L,plan,approach,supports=[]){
+  const {emit,box,between,tube}=api,A=[Math.cos(L.bridge.yaw),-Math.sin(L.bridge.yaw)],B=[-A[1],A[0]],far=plan.bridgeEnd,near=approach.bridgeNear||approach.end;
+- const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1,r06NearCount:9,r06NearRun:2.52,r06NearFootY:.067,r06BottomLandingRun:1.52},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread,nearFootY:approach.start[1],nearRun:approach.run,nearStepCount:approach.count,bottomLandingRun:.66},why:'Bridge and lantern datums held. The former long low flight/causeway is replaced by a raised physical island, compact foot landing, short four-step flight and narrow earth-bedded route around the lantern.'};
++ const out={revision:SUPPORT207_REVISION,bridgeEndSupports:supports,nearApproach:emitFlight(api,approach,'near-bridge-approach'),hallStair:emitFlight(api,{...plan,axis:plan.unit},'hall-flight'),before:{nearDeckY:1.47,farDeckY:2.0,span:10.3,turningArea:12.25,hallStairWidth:2.9,hallStepCount:12,hallTread:.20168934999,oldStepBottom:-.18,oldBankWidth:7.1,r06NearCount:9,r06NearRun:2.52,r06NearFootY:.067,r06BottomLandingRun:1.52},after:{nearDeckY:near[1],farDeckY:far[1],span:L.bridge.span,turningOutline:plan.turningLanding.outline,hallStairWidth:plan.width,hallRiser:plan.rise/plan.count,hallTread:plan.run/plan.count,nearRiser:approach.riser,nearTread:approach.tread,nearFootY:approach.start[1],nearRun:approach.run,nearStepCount:approach.count,bottomLandingRun:.38},why:'Bridge and lantern datums held. The former long low flight/causeway is replaced by a raised physical island, compact foot landing, short four-step flight and narrow earth-bedded route around the lantern.'};
++ out.gallery366=buildReturningGallery366(api,L,plan);
+  // Compact polygon turn, carried on two actual stone piers and a crosshead.
+  emit(footprint(plan.turningLanding.outline,far[1]-.18,far[1]),'routeStone207');
+  const upper=plan.upperLanding;emit(footprint(upper.outline,upper.top-.24,upper.top),'routeStone207');out.upperLanding={...upper,actualBottom:upper.top-.24,bearing:'Front edge on last actual wedge tread/bed; back corners lap the supported hall gallery floor'};
+- for(const sign of[-1,1]){const p=[far[0]+B[0]*sign*.90+A[0]*.35,far[2]+B[1]*sign*.90+A[1]*.35],r=pier(api,p,far[1]-.42,207200+(sign+1)*29,A);supports.push(r);}
+- const yaw=-Math.atan2(A[1],A[0]),cross=coloredStone(.38,.24,2.62,207271);emit(cross,'darkwood',far[0]+A[0]*.35,far[1]-.30,far[2]+A[1]*.35,1,1,1,[0,yaw,0]);
++ for(const sign of[-1,1]){const p=[far[0]+B[0]*sign*.90+A[0]*.35,far[2]+B[1]*sign*.90+A[1]*.35],r=pier(api,p,far[1]-.72,207200+(sign+1)*29,A);supports.push(r);}
++ const yaw=-Math.atan2(A[1],A[0]),cross=coloredStone(.38,.24,2.62,207271);emit(cross,'darkwood',far[0]+A[0]*.35,far[1]-.60,far[2]+A[1]*.35,1,1,1,[0,yaw,0]);
++ for(const side of[-1,0,1]){const p=point(far,A,.35,side*1.02,far[1]-.33);box(...p,1.30,.30,.18,'darkwood',yaw);}
+  // Near bridge bearing is a real capped abutment, attached to the flight head.
+- for(const sign of[-1,1])pier(api,[near[0]+B[0]*sign*.76-A[0]*.08,near[2]+B[1]*sign*.76-A[1]*.08],near[1]-.42,207401+(sign+1)*31,A);
+- const nc=coloredStone(.30,.24,2.35,207491);emit(nc,'darkwood',near[0]-.08*A[0],near[1]-.30,near[2]-.08*A[1],1,1,1,[0,yaw,0]);
++ for(const sign of[-1,1])pier(api,[near[0]+B[0]*sign*.76-A[0]*.08,near[2]+B[1]*sign*.76-A[1]*.08],near[1]-.72,207401+(sign+1)*31,A);
++ const nc=coloredStone(.30,.24,2.35,207491);emit(nc,'darkwood',near[0]-.08*A[0],near[1]-.60,near[2]-.08*A[1],1,1,1,[0,yaw,0]);
+  // Thin closed paving sits on the actual raised soil island. It no longer
+  // forms a broad isolated solid platform down to the creek bed.
+- const start=approach.start,w=approach.width/2+.03,lower=[point(start,approach.axis,-.66,-w,0),point(start,approach.axis,0,-w,0),point(start,approach.axis,0,w,0),point(start,approach.axis,-.66,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,start[1]-.13,start[1]),'routeStone207');
+- const courses=4,bottom=-.24,bodyTop=start[1]-.12;for(let row=0;row<courses;row++){const low=T.MathUtils.lerp(bottom,bodyTop,row/courses),high=T.MathUtils.lerp(bottom,bodyTop,(row+1)/courses),sideWidth=w+.04*(1-row/(courses-1));for(const sign of[-1,1]){const g=coloredStone(.64,high-low-.009,sideWidth-.008,213701+row*7+sign,.80+.14*hash(row,sign)),p=point(start,approach.axis,-.33,sign*sideWidth/2,(low+high)/2);g.name='213-closed-compact-stair-foot-bearing-course-'+row+'-'+sign;emit(g,'supportStone207',...p,1,1,1,[0,-Math.atan2(approach.axis[1],approach.axis[0]),0]);}}
++ const start=approach.start,w=approach.width/2+.03,lower=[point(start,approach.axis,-.38,-w,0),point(start,approach.axis,0,-w,0),point(start,approach.axis,0,w,0),point(start,approach.axis,-.38,w,0)].map(p=>[p[0],p[2]]);emit(footprint(lower,start[1]-.13,start[1]),'routeStone207');
++ const courses=4,bottom=-.24,bodyTop=start[1]-.12;for(let row=0;row<courses;row++){const low=T.MathUtils.lerp(bottom,bodyTop,row/courses),high=T.MathUtils.lerp(bottom,bodyTop,(row+1)/courses),sideWidth=w+.04*(1-row/(courses-1));for(const sign of[-1,1]){const g=coloredStone(.36,high-low-.009,sideWidth-.008,213701+row*7+sign,.80+.14*hash(row,sign)),p=point(start,approach.axis,-.19,sign*sideWidth/2,(low+high)/2);g.name='213-closed-compact-stair-foot-bearing-course-'+row+'-'+sign;emit(g,'supportStone207',...p,1,1,1,[0,-Math.atan2(approach.axis[1],approach.axis[0]),0]);}}
+  const headSides=[-1,1].map(sign=>point(approach.end,approach.axis,0,sign*approach.width/2,approach.end[1]));headSides[0][0]=Math.max(headSides[0][0],approach.stepClipX.at(-1));const headOutline=[...headSides,point(near,A,0,1.20,near[1]),point(near,A,L.bridge.span*L.bridge.entryFlatT,1.20,near[1])].map(p=>[p[0],p[2]]),sorted=[...headOutline].sort((a,b)=>a[0]-b[0]||a[1]-b[1]),cross2=(a,b,c)=>(b[0]-a[0])*(c[1]-a[1])-(b[1]-a[1])*(c[0]-a[0]),lo=[],hi=[];for(const p of sorted){while(lo.length>1&&cross2(lo.at(-2),lo.at(-1),p)<=0)lo.pop();lo.push(p);}for(const p of [...sorted].reverse()){while(hi.length>1&&cross2(hi.at(-2),hi.at(-1),p)<=0)hi.pop();hi.push(p);}const headHull=[...lo.slice(0,-1),...hi.slice(0,-1)];emit(footprint(headHull,near[1]-.15,near[1]),'routeStone207');out.entryHeadLanding213={outline:headHull,top:near[1],bottom:near[1]-.15,scope:'Actual compact wedge between angled last tread and level bridge edge'};
+  out.routePavers207=[];for(const [routeIndex,route]of[approach.route,approach.rearRoute].entries()){
+   const samples=route.samples;
+@@ -159,13 +166,15 @@
+   const points=[];for(let i=0;i<=8;i++){const t=i/8,p=point(plan.start,plan.unit,plan.run*t,side*(plan.width/2-.08),plan.start[1]+plan.rise*t+1.0);points.push(p);if(i%2===0){box(p[0],p[1]-.48,p[2],.13,1.04,.13,'red');}}
+   for(const h of[0,-.40])tube(points.map(p=>[p[0],p[1]+h,p[2]]),.055,'red');
+  }
+- const farFront=point(far,A,.85,1.2,far[1]+1.0),endFront=point(far,A,0,1.1,far[1]+1.0),stairRight=point(plan.start,plan.unit,0,plan.width/2-.08,plan.start[1]+1.0),endBack=point(far,A,0,-1.1,far[1]+1.0),stairLeft=point(plan.start,plan.unit,0,-plan.width/2+.08,plan.start[1]+1.0);
+- for(const pts of[[endFront,farFront,stairRight],[endBack,stairLeft]])for(const drop of[0,-.40])tube(pts.map(p=>[p[0],p[1]+drop,p[2]]),.055,'red');
+- for(const p of[farFront,stairRight,stairLeft])box(p[0],p[1]-.48,p[2],.13,1.04,.13,'red');
++ // The returning gallery owns its actual fitted guards and corner posts.
++
+  return out;
+ }
+ 
+ export function createNarrowStairCore207(plan){
++ return createStairBearingBank366(plan);
++}
++function legacyNarrowStairCore207(plan){
+  const origin=plan.start,axis=plan.unit,width=plan.width-.58,bottom=-.18,g=solidProfile([[0,bottom],[plan.run,bottom],[plan.run,-.13],[0,-.13]],width);frameGeometry(g,[origin[0],0,origin[2]],axis);g.name='207-closed-submerged-stair-footing-bed';
+  const at=(u,v)=>point(plan.bridgeEnd,axis,u,v,-.13);
+  return{geometry:g,at,ownedBy207:true,info:{revision:SUPPORT207_REVISION,kind:'closed submerged footing bed; above-water hall flight is carried on real timber stringers/crossheads and stone piers on closed riverbed pads',width,waterline:bottom,topClearance:.36,oldSmoothConeRemoved:true}};
