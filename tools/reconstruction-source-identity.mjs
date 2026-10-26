@@ -1,4 +1,5 @@
 import {readFile,readdir} from 'node:fs/promises';
+import {createReadStream} from 'node:fs';
 import {resolve,relative,sep} from 'node:path';
 import {createHash} from 'node:crypto';
 
@@ -14,6 +15,12 @@ export async function reconstructionSourceIdentity(worktree,id){
   files.push(path);
  }
  files.sort();const h=createHash('sha256'),hashes={};
- for(const file of new Set(files)){const name=relative(root,file),bytes=await readFile(file);hashes[name]=createHash('sha256').update(bytes).digest('hex');h.update(name+'\0');h.update(bytes);h.update('\0');}
+ for(const file of new Set(files)){
+  const name=relative(root,file),fileHash=createHash('sha256');h.update(name+'\0');
+  // Keep exact byte ordering and delimiters without retaining whole mesh
+  // buffers while a complete high-detail scene is about to be constructed.
+  for await(const chunk of createReadStream(file,{highWaterMark:1024*1024})){fileHash.update(chunk);h.update(chunk);}
+  hashes[name]=fileHash.digest('hex');h.update('\0');
+ }
  return {hash:h.digest('hex'),files:hashes};
 }

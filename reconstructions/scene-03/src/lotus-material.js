@@ -2,32 +2,34 @@ import * as T from 'three';
 import {attachLeafSun108} from './scene03-daylight108.js';
 
 export function createLotusPetalMaterials(){
- const width=128,height=512,bytes=new Uint8Array(width*height*4);
- const base=[249,232,207],middle=[246,193,210],tip=[224,105,151];
+ const width=128,height=512,bytes=new Uint8Array(width*height*4),heightBytes=new Uint8Array(bytes.length);
+ const base=[252,239,215],middle=[248,192,212],tip=[228,115,160];
  const smooth=x=>x*x*(3-2*x);
  for(let y=0;y<height;y++)for(let x=0;x<width;x++){
-  const t=y/(height-1),u=x/(width-1),a=t<.62?base:middle,b=t<.62?middle:tip;
-  const blend=smooth(t<.62?t/.62:(t-.62)/.38);
-  const vessel=Math.exp(-Math.pow(Math.sin((u*17+.10*Math.sin(t*5)+.04*Math.sin(t*19))*Math.PI),2)*120)*Math.sin(t*Math.PI)*4.6;
-  const fine=.45*Math.sin(x*12.81+y*1.17),at=(y*width+x)*4;
-  for(let c=0;c<3;c++)bytes[at+c]=Math.round(a[c]+(b[c]-a[c])*blend-vessel+fine);
-  bytes[at+3]=255;
+  const t=y/(height-1),u=x/(width-1),a=t<.60?base:middle,b=t<.60?middle:tip;
+  const blend=smooth(t<.60?t/.60:(t-.60)/.40),
+   vein=Math.exp(-Math.pow(Math.sin((u*21+.09*Math.sin(t*5)+.025*Math.sin(t*17))*Math.PI),2)*150)*Math.sin(t*Math.PI),
+   fine=.32*Math.sin(x*12.81+y*1.17),at=(y*width+x)*4;
+  for(let c=0;c<3;c++)bytes[at+c]=Math.round(a[c]+(b[c]-a[c])*blend-vein*2+fine);
+  heightBytes[at]=heightBytes[at+1]=heightBytes[at+2]=Math.round(128+vein*13+fine*2);
+  bytes[at+3]=heightBytes[at+3]=255;
  }
  const texture=new T.DataTexture(bytes,width,height,T.RGBAFormat);
- texture.name='procedural-warm-base-rose-petal-margins344';texture.flipY=false;
+ texture.name='procedural-ivory-base-rose-petal-margins355';texture.flipY=false;
  texture.colorSpace=T.SRGBColorSpace;texture.generateMipmaps=true;
  texture.minFilter=T.LinearMipmapLinearFilter;texture.magFilter=T.LinearFilter;
  texture.anisotropy=4;texture.needsUpdate=true;
- const materials=['#ffffff','#fff7fb','#fffafd'].map((color,i)=>new T.MeshPhysicalMaterial({
-  name:'curved lotus petal '+i,color,map:texture,bumpMap:texture,bumpScale:.00012,
-  roughness:.70,metalness:0,sheen:.08,sheenRoughness:.78,
-  sheenColor:new T.Color('#ffe5ed'),specularIntensity:.18,clearcoat:0,clearcoatRoughness:.68,side:T.FrontSide
+ const relief=new T.DataTexture(heightBytes,width,height,T.RGBAFormat);relief.name='lotus355-subtle-longitudinal-tissue-relief';relief.flipY=false;relief.generateMipmaps=true;relief.minFilter=T.LinearMipmapLinearFilter;relief.magFilter=T.LinearFilter;relief.needsUpdate=true;
+ const materials=['#ffffff','#fffafb','#fff6f8'].map((color,i)=>new T.MeshPhysicalMaterial({
+  name:'metric thin lotus petal355 '+i,color,map:texture,bumpMap:relief,bumpScale:.00007,
+  roughness:.59,metalness:0,sheen:.11,sheenRoughness:.78,
+  sheenColor:new T.Color('#ffe7ee'),specularIntensity:.24,clearcoat:0,clearcoatRoughness:.68,side:T.FrontSide
  }));
  for(const material of materials){material.onBeforeCompile=shader=>{attachLeafSun108(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <lights_fragment_end>',`#include <lights_fragment_end>
   vec3 petalSun=normalize((viewMatrix*vec4(scene03SunDirection108,0.)).xyz);
-  float transmittedPetalLight=pow(max(0.,dot(-normal,petalSun)),1.4)*.22;
-  reflectedLight.indirectDiffuse+=diffuseColor.rgb*transmittedPetalLight;`);};material.customProgramCacheKey=()=> 'reference03-closed-lotus-petal-light-mesh64';}
- return{materials,texture};
+  float transmittedPetalLight=pow(max(0.,dot(-normal,petalSun)),1.25)*.38;
+  reflectedLight.indirectDiffuse+=diffuseColor.rgb*transmittedPetalLight;`);};material.customProgramCacheKey=()=> 'reference03-closed-metric-lotus-petal355';}
+ return{materials,texture,relief};
 }
 
 export async function createLotusLeafMaterial(){

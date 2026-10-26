@@ -1,0 +1,342 @@
+{
+  "status": "ready-for-root-personal-review-local-planting-step",
+  "round": "r11",
+  "sourceHash": "ff64fd8227a02232421d6a123e6e22b3abef1c105543cd15e5a7eece4b356283",
+  "baseSource": "81abebd33b1d697a4611224257a4e37f80dba7dcd0f1e2ede9c2bae7838bc994",
+  "canonicalObserved": "81abebd33b1d697a4611224257a4e37f80dba7dcd0f1e2ede9c2bae7838bc994",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11",
+  "canonicalModified": false,
+  "photographicMatch": false,
+  "visualAccepted": false,
+  "sourceFiles": [
+    {
+      "path": "reconstructions/scene-08/src/courtyard-botany148.js",
+      "snapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source/reconstructions/scene-08/src/courtyard-botany148.js",
+      "sha256": "931588ef7891836b371189c07a97d0554b4bf819f41a0e939a63b4cdcbfe7a5d"
+    },
+    {
+      "path": "reconstructions/scene-08/src/foreground-joinery352.js",
+      "snapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source/reconstructions/scene-08/src/foreground-joinery352.js",
+      "sha256": "a48071a2256fe37f9cd49aa4cc92db5a62d38e135336ac1ccde386c19ecb900d"
+    },
+    {
+      "path": "reconstructions/scene-08/src/garden-depth213.js",
+      "snapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source/reconstructions/scene-08/src/garden-depth213.js",
+      "sha256": "df268284fc68efbf27e502218d41f8a1f474db0233599da72d5bd3c0cbfcf5cf"
+    },
+    {
+      "path": "reconstructions/scene-08/src/porch-ground352.js",
+      "snapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source/reconstructions/scene-08/src/porch-ground352.js",
+      "sha256": "194a74ef42ffaacbf4acb5785539f6e3f3b2c433f0a9be5a8416d6c8f6019eff"
+    },
+    {
+      "path": "reconstructions/scene-08/src/scene.js",
+      "snapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source/reconstructions/scene-08/src/scene.js",
+      "sha256": "7947882279bcad803dbff0dbc52d7db1a962a6e307c153846f26790fdb5b3cdd"
+    }
+  ],
+  "minimalPatch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-minimal352.patch",
+  "reviewDeltaFromRootSeenR08": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r08-to-r11-delta352.patch",
+  "patchCheck": "Cumulative81ab and R08 delta both apply --check passed on exact frozen baselines",
+  "sourceMap": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-source352.json",
+  "reports": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11/qa/ten-reference/08/iteration-scene08-foreground352-r11-full-detail/report.json",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11/qa/ten-reference/08/iteration-scene08-foreground352-r11-low/report.json"
+  ],
+  "personallyViewed": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11/qa/ten-reference/08/iteration-scene08-foreground352-r11-full-detail/reference.png",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11/qa/ten-reference/08/iteration-scene08-foreground352-r11-full-detail/detail-native.png",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/candidate-r11/qa/ten-reference/08/iteration-scene08-foreground352-r11-low/inspection-view.png"
+  ],
+  "nativeBackend": "metal",
+  "nativeSize": 1254,
+  "validation": {
+    "sourceExact": true,
+    "allFramesValid": true,
+    "errors": [],
+    "cpuPorchAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene08-foreground352/r11-porch-audit352.jsonlog",
+    "newClosedPorchSolids": 62,
+    "newClosedPorchBadEdges": 0,
+    "rootNeckPlacementsWithWalkViolations": 0,
+    "runnerSoilAnchors": {
+      "checked": 2184,
+      "redirectedToActualSoil": 66,
+      "insideWalkAfter": 0,
+      "minSoilClearance": 0.03641280063999863
+    },
+    "oldGroundcoverCountHeld": 374,
+    "oldShrubCount": 76,
+    "newShrubCount": 85,
+    "addedRootedBranchShrubs": 9,
+    "addedLowFlatEmbeddedOriginalScanStones": 3,
+    "originalWoodyClumpsHeldFromR08": true,
+    "leftOriginalFramingShrubHeldExactly": {
+      "x": -1.55,
+      "y": 0.7710524932857894,
+      "z": 9.45,
+      "h": 1.12,
+      "span": 1.2,
+      "kind": "framing",
+      "foreground": true,
+      "branches": 16
+    },
+    "sharedSceneRNG": 2591140803,
+    "heldSceneFields": [
+      "camera",
+      "rngFinalState",
+      "natural197",
+      "spatial191",
+      "finish191",
+      "grandFrame",
+      "grandMass171",
+      "scannedPeony",
+      "pine171",
+      "rightHall171",
+      "measuredSky"
+    ],
+    "nonBankRebuildHeld": true,
+    "readmeSha256": "1bd98979c432ee818f72100f5a578096fd5880df3cd0765a78aeb4b1d41b1519",
+    "protectedReadmeUnmodified": true,
+    "sourceFilesOutsideFiveHeld": true
+  },
+  "changesAfterRootR08Feedback": [
+    "Root necks use actual soil clearance; crowns no longer determine an empty exclusion strip",
+    "Existing creeping runners retain all leaves/segments; offending real soil-anchor nodes turn along soil outside porch, leaf tips may naturally overhang",
+    "Original low plants moved into the close outside shoulder; root-height sampling is the same physical triangle mesh as the soil",
+    "Nine new complete authored green shrubs use original independent scan blades and connected rooted/forked limbs; varied0.48-1.04m heights, actual branches fan toward garden so flowers and lower timber remain readable",
+    "Three broad source rocks use original height/width ratios below0.45, uniform fitting and52% nominal embedding behind the green layer",
+    "All current R04-derived post/metalwork and reviewed R08 rail axis, hoju, corrected fascia/gold flower height, porch geometry, soil shape and exposure remain held"
+  ],
+  "plantingBand": [
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.48,
+      "requestedWidth": 0.8,
+      "actual": {
+        "x": -1.8499823045771464,
+        "y": 0.2923985753887682,
+        "z": 5.635696147931291,
+        "width": 0.768,
+        "height": 0.48,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.2200000000000001
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.85,
+      "requestedWidth": 0.95,
+      "actual": {
+        "x": -1.3130432473587064,
+        "y": 0.2644119773932272,
+        "z": 5.816765026630455,
+        "width": 0.9119999999999999,
+        "height": 0.85,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.3099999999999996
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.66,
+      "requestedWidth": 0.8,
+      "actual": {
+        "x": -0.8832817808096132,
+        "y": 0.23308689178312095,
+        "z": 6.201335659765088,
+        "width": 0.768,
+        "height": 0.66,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.17000000000000015
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 1,
+      "requestedWidth": 1,
+      "actual": {
+        "x": -0.31838335211221314,
+        "y": 0.20741685265636794,
+        "z": 6.329317124263695,
+        "width": 0.96,
+        "height": 1,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.32000000000000045
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.58,
+      "requestedWidth": 0.75,
+      "actual": {
+        "x": 0.11603800968337347,
+        "y": 0.17436017968450623,
+        "z": 6.70503985503157,
+        "width": 0.72,
+        "height": 0.58,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.18999999999999972
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.87,
+      "requestedWidth": 0.9,
+      "actual": {
+        "x": 0.643657276408827,
+        "y": 0.14738388077074752,
+        "z": 6.903804538464253,
+        "width": 0.864,
+        "height": 0.87,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.26000000000000034
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.72,
+      "requestedWidth": 0.85,
+      "actual": {
+        "x": 1.10137811443688,
+        "y": 0.11464602330757558,
+        "z": 7.235287757398329,
+        "width": 0.816,
+        "height": 0.72,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.1799999999999999
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 1.04,
+      "requestedWidth": 1.05,
+      "actual": {
+        "x": 1.6709364383807737,
+        "y": 0.08839149971175289,
+        "z": 7.354421319530177,
+        "width": 1.008,
+        "height": 1.04,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.3400000000000001
+    },
+    {
+      "layer": "rooted-forked-green-middle-layer-with-original-scan-blades",
+      "heightLimit": 0.56,
+      "requestedWidth": 0.8,
+      "actual": {
+        "x": 2.0828578001763605,
+        "y": 0.05675887245564357,
+        "z": 7.71829405029805,
+        "width": 0.768,
+        "height": 0.56,
+        "rootedBranchHierarchy": true,
+        "sourceScanBlades": true
+      },
+      "growthBias": "Real branches fan outward into garden",
+      "rootWalkDistance": 0.20999999999999983
+    }
+  ],
+  "embeddedShoreStones": [
+    {
+      "x": -0.517411522885732,
+      "z": 5.3429307396564525,
+      "width": 1.15,
+      "limit": 0.55,
+      "index": 1,
+      "yaw": 1.47,
+      "sourceHeightToWidthBelow": 0.45,
+      "soil": 0.37486557134552095,
+      "base": 0.21363537066775956,
+      "estimatedHeight": 0.44467346284184883,
+      "embeddedFraction": 0.52
+    },
+    {
+      "x": 0.9598676390862146,
+      "z": 6.030547520722377,
+      "width": 0.94,
+      "limit": 0.45,
+      "index": 4,
+      "yaw": 0.51,
+      "sourceHeightToWidthBelow": 0.45,
+      "soil": 0.34009006364494865,
+      "base": 0.21359444044419607,
+      "estimatedHeight": 0.37787619846298576,
+      "embeddedFraction": 0.52
+    },
+    {
+      "x": 2.114289000881801,
+      "z": 6.785470251490251,
+      "width": 1.2,
+      "limit": 0.58,
+      "index": 0,
+      "yaw": 2.12,
+      "sourceHeightToWidthBelow": 0.45,
+      "soil": 0.20115360031138585,
+      "base": -0.0016326817489378254,
+      "estimatedHeight": 0.5245890039621609,
+      "embeddedFraction": 0.52
+    }
+  ],
+  "localCounts": {
+    "transplantRecords": 36,
+    "existingGroundcoversPreserved": 374,
+    "addedGreenShrubs": 9,
+    "sourceScanBladeInstancesAdded": 60750,
+    "stoneInstancesAdded": 3
+  },
+  "iterationsThisTask": [
+    {
+      "round": "r09",
+      "source": "5b7344734b0a25f92e90a9a8bc43d0825bb1de65d435c99b00a0bc8beaa08785",
+      "personallyViewedActual": 3,
+      "result": "Root-only/runner-anchor layout and flat stones established; whole-shrub scan too sparse"
+    },
+    {
+      "round": "r10",
+      "source": "4622def46a246e7ae8c228696f97b840d33c1816c9d55241379e212f724c5ff7",
+      "personallyViewedActual": 3,
+      "result": "Actual green branch hierarchy fills band; symmetrical crowns cover fascia flower"
+    },
+    {
+      "round": "r11",
+      "source": "ff64fd8227a02232421d6a123e6e22b3abef1c105543cd15e5a7eece4b356283",
+      "personallyViewedActual": 3,
+      "result": "Garden-directed real growth and taller uneven middle layer, flower and porch clear"
+    }
+  ],
+  "scopeAndProvenance": {
+    "scene08Only": true,
+    "newExternalAssets": false,
+    "newBlenderScripts": false,
+    "newRuntimeReferenceImages": false,
+    "sourcePhotoUsedAsSurfaceOrDepth": false,
+    "originalScanBladeAttributesRetained": true,
+    "source": "Existing licensed Poly Haven botany/rock scans; original authored metric branches, root-node terrain following and stone embedding",
+    "leftOriginalClumpUnchanged": true,
+    "viewAndLightChanges": false
+  },
+  "limits": [
+    "Photographic match remains false; this is a concrete rooted foreground planting and joinery improvement for Root personal review",
+    "Species/canopy rhythm and other courtyard geometry still differ from HD; no exact reference motif or surveyed dimensions are claimed",
+    "Some crown tips may naturally cross the planting border as requested; only root necks and actual creeping anchor nodes are excluded from the walking surface",
+    "Legacy base-terrain statistics describe the original sampler; modified near-soil sampler is reported under foreground352.porchGround"
+  ],
+  "updatedAt": "2026-10-26T13:15:33.871Z"
+}

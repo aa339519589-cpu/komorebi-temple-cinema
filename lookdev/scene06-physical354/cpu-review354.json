@@ -1,0 +1,56 @@
+{
+  "status": "complete-review-package-awaiting-root-review-not-run",
+  "sourceHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "recipeSha256": "3cd6a5c0b058b80b5866e2b4ef748eedf0faf836b0d04e65aa231addf440b822",
+  "files": [
+    {
+      "file": "render-physical252.py",
+      "sha256": "653f0b5ad86315a4f1ab23659634809c51a50a5f0e6ec559f4f0ad4c73acdd9b",
+      "bytes": 39045
+    },
+    {
+      "file": "pipeline252.mjs",
+      "sha256": "572ea2d02d731f58141a7f9d0e1ffb381dd5571ca3c3120e78d496774ce8df78",
+      "bytes": 26974
+    },
+    {
+      "file": "cpu-memory354.mjs",
+      "sha256": "56cf71746679dc2c1337e6ad78cdaed393a0079779efbeb0797ceef7e0bcf51b",
+      "bytes": 5189
+    },
+    {
+      "file": "materials252.py",
+      "sha256": "5225c26884f5aa1849868e8c89780b33dcb06de20b5198003c9754b0b5c1d4c3",
+      "bytes": 25203
+    },
+    {
+      "file": "geometry252.py",
+      "sha256": "5547515b0d8a2586f1ba6fc945432c560c784d7cbe52c2883fbc637507b33f08",
+      "bytes": 20374
+    },
+    {
+      "file": "physical252-settings.template.json",
+      "sha256": "44d6d657e5d37588d10f43060a19fdb2d0754875261411eed41495b68ca10df1",
+      "bytes": 4705
+    }
+  ],
+  "deltaFile": "cpu-review354.diff",
+  "deltaSha256": "4f673afbd756fcf860404672fd8fba37a1262d432127feaacf78952ab8bf1c7b",
+  "baseline": [
+    {
+      "file": "render-physical252.py",
+      "sha256": "c35106e9530ee17bd4ac35f3342c01e2388d8969bd52ef6d563ee7e289c74fcf"
+    },
+    {
+      "file": "pipeline252.mjs",
+      "sha256": "718fe45457d440b927a73d3959721c69f7ae417bb8c62500314df80dbb5c9baa"
+    }
+  ],
+  "unchangedNativeHDRAndMaterialGeometryHelpers": true,
+  "originalStrictCapBytes": 15032385536,
+  "originalOtherAvailableReserveBytes": 3221225472,
+  "officialQueue": "tools/run-blender-queued.mjs",
+  "blenderLaunched": false,
+  "microProbeRun": false,
+  "unexecutedProbeDraft": "probe-memory354.py is not part of the reviewed production recipe and must not be run"
+}

@@ -24,8 +24,9 @@ export function sculptForegroundLeaf211(source,seed=6){
  return g;
 }
 export const foregroundPlacement211=Object.freeze({
- shadeLeaf:{position:[-1.98,.04,15.33],size:1.55,rotation:[.14,-.30,.10],variant:3,tint:.82},
- mainFlower:{position:[-2.245,.43,14.70],size:.46},
+ shadeLeaf:{position:[-2.3037,.4144,17.1250],size:.651,rotation:[.14,-.30,.10],variant:3,tint:.82},
+ mainFlower:{position:[-2.305,.595,16.95],size:1,diameterMetres:.26},
+ nearLeaf:{position:[-2.7589,.7069,17.1344],size:.630,rotation:[.67,.55,-.28],variant:2,tint:.88},
  retainedCamera:true,referenceRGB:false,
- scope:'Authored foreground layout from the fixed low camera; projected bounds guide placement, not photographic acceptance'
+ scope:'26cm flower; 63–65cm foreground leaves moved along fixed architectural reference-camera rays. Inferred dimensions and projected bounds, not botanical measurement or photographic acceptance'
 });

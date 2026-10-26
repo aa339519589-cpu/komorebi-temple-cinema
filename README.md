@@ -4,11 +4,13 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
-2026-10-26 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261026-r/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261026-r/frames.json)。此固定对照新增第二景檐枋与庭院返回光、第三景花瓣/荷叶与对焦、第四景粗凿石灯、第七景连贯岛岸与自然林木、第九景实体灯组和根植石岸。第三景使用实际拉远6.99秒画面，其余为各独立参考机位实渲。十景的布局、材质、雕刻和光影仍明显未达到参考；此模型对照更新于下面的冻结影片 G。
+2026-10-26 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261026-s/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261026-s/frames.json)。此固定对照新增第三景真实尺度荷花与近景距离、第八景有厚度的廊柱栏杆、连续廊面及栏外植被；同时保留第二景檐枋与庭院返回光、第四景粗凿石灯、第七景岛岸与自然林木、第九景实体灯组和根植石岸。十张均为各独立参考机位的实际原生三维画面。十景的布局、材质、雕刻和光影仍明显未达到参考；此模型对照更新于下面的冻结影片 G。
 
 此前佛堂原生工作源 `0b049dcf` 已合入实体高窗、滑屏、前左太阳、供桌、织锦跪垫、分层柜面、连续背光雕刻，以及一手抬起、一手置于膝前的主佛姿态：[7 秒 1080×1080／24fps 实际拉远片段](qa/ten-reference/06/iteration-scene06-integrated314-published/motion-review.mp4)、[全幅](qa/ten-reference/06/iteration-scene06-integrated314-published/full.png)、[佛像局部](qa/ten-reference/06/iteration-scene06-integrated314-published/main-detail-native.png)与[精确媒体身份](qa/ten-reference/06/iteration-scene06-integrated314-published/media.json)。此片静音，早于最新 `10ebb530` 的胁侍手部及窗光，也尚未合入下方冻结十景影片；主佛袖缘/指节、局部自交和胁侍造型仍需继续修进。画面仍有明显的造型、明暗与材质差距。
 
-[完整几何的 Cycles 采光研究](lookdev/scene06-daylight284/publication/README.md)另保留可再生代码、材质参数和实际物理渲染；它与原生影片是两个明确区分的渲染检查点。
+[当前完整模型的物理采光工作图](lookdev/scene06-physical354/publication/r04-full.png)与[四轮实际图、可重建代码及说明](lookdev/scene06-physical354/publication/README.md)已保留。当前模型完整导入 Cycles CPU/Embree，1254×1254、128 samples；两处有限窗外照明和物理相机曝光均为明示推断。此单帧不等于原生Three.js影片，尚未通过参考精度验收。
+
+[此前完整几何的 Cycles 采光研究](lookdev/scene06-daylight284/publication/README.md)另保留可再生代码、材质参数和实际物理渲染；它与原生影片是两个明确区分的渲染检查点。
 
 佛堂整屋研究原型 `53b7228f` 已保存为[可复原的精确源码覆盖包](lookdev/scene06-combined256/public-source53/README.md)，基于公开提交 `62ba98d1`，含真实供桌、房间、独立雕刻/藻井材料、实体滑动纸屏和间接可见度着色。[实际全幅](lookdev/scene06-combined256/actual-source53/full.png)、[供桌真局部](lookdev/scene06-combined256/actual-source53/table-detail-native.png)和[低侧角](lookdev/scene06-combined256/actual-source53/low-oblique.png)均由同一源实际渲染。它仍有明显造型和光照差距，此后柱头、织锦、漆座、侧像和实体多次反弹照明继续重建。[莲座258两轮建模与实际检查](lookdev/scene06-lotus258/delivery-r02/handoff-r02.json)独立保留。
 

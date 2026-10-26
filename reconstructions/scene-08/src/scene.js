@@ -1,5 +1,7 @@
 import * as T from 'three';
 import {loadScannedPeony171} from './scanned-peony171.js';
+import {buildForeground352} from './foreground-joinery352.js';
+import {createPorchGround352} from './porch-ground352.js';
 import {buildGrandBearing171} from './grand-bearing171.js';
 import {createSpatialPortals191,SPATIAL191_REVISION} from './spatial-portals191.js';
 import {installMaterialHierarchy191,captureEntryCourt191} from './material-hierarchy191.js';
@@ -493,22 +495,10 @@ for(let i=0;i<25;i++){
  box(x,5.08,8.50,.13,.10,.035,'oldgold');
 }
 box(0,5.50,8.20,7.1,.34,.38,'foregroundSoffit');
-for(const x of[-2.30,2.25]){
- box(x,2.60,7.9,x<0?.61:.32,5.8,x<0?.64:.42,'red');
- for(const y of[.2,1.9,x<0?5.7:4.40])plaque(x,y,8.24,x<0?.47:.32,y===1.9?(x<0?1.35:1.05):.85);
- for(const part of createGateColumnShoe(x<0?.61:.32,x<0?.64:.42,.24))emit(part.geometry,part.material,x,.27,7.9);
- const facing=x<0?1:-1,innerHardware=x<0?[[3.30,.42,.58]]:[[4.10,.32,.68],[2.58,.32,.78]];
- for(const [py,pw,ph]of innerHardware){
-  const parts=createGatePlaque(pw,ph);
-  for(const part of parts)emit(part.geometry,part.material,x+facing*(x<0?.317:.175),py,7.9,1,1,1,[0,facing*Math.PI/2,0]);
- }
-}
+const foreground352=buildForeground352({emit,box,group,materials,mats,peony});
 lantern(-1.95,5.52,6.8,.40);
-const railBalusterG=new T.LatheGeometry([[.09,0],[.09,.09],[.065,.17],[.05,.30],[.05,.57],[.075,.67],[.10,.76],[.10,.84]].map(p=>new T.Vector2(...p)),8);function railing(a,b,y,near=false){const lift=0;const length=Math.hypot(b[0]-a[0],b[1]-a[1]),n=Math.ceil(length/(near?1.45:.9));for(let i=0;i<=n;i++){const t=i/n,x=a[0]+(b[0]-a[0])*t,z=a[1]+(b[1]-a[1])*t,yy=typeof y==='function'?y(t):y;if(near&&i!==n)emit(railBalusterG,'red',x,yy+.12,z,.76,.82+lift,.76,[0,Math.PI/8,0]);else box(x,yy+(near?.41+lift/2:.425),z,near?.11:.13,near?.82+lift:.85,near?.11:.14,'red');if(near?i===n:i%3===0){const ph=near?.82+lift:.94;box(x,yy+ph/2,z,.14,ph,.14,'red');emit(ballG,'gold',x,yy+ph+.04,z,.065,.065,.065);emit(cylG,'gold',x,yy+ph-.02,z,.075,.08,.075);}if(i<n){const tt=(i+1)/n,ny=typeof y==='function'?y(tt):y;for(const dy of(near?[.12,.57+lift,.76+lift]:[.13,.58,.77]))between([x,yy+dy,z],[a[0]+(b[0]-a[0])*tt,ny+dy,a[1]+(b[1]-a[1])*tt],near?.082:.095,'redlight',false,near?.105:.12);}}}
-railing([-2.20,5.70],[2.30,8.07],t=>.54-.27*t,'front');railing([-2.30,7.55],[-1.05,6.72],t=>1.18-.12*t,true);
 {
  const x=-1.05,z=6.72,base=.62;
- box(x,base+.58,z,.18,1.16,.18,'red');
  const finial=new T.LatheGeometry([[.11,0],[.13,.06],[.12,.15],[.20,.19],[.21,.27],[.18,.33],[.09,.38],[.055,.43],[0,.48]].map(p=>new T.Vector2(...p)),28);
  emit(finial,'gold',x,base+1.16,z,.83,.83,.83);
  rosette(x,base+.24,z+.103,.070);
@@ -559,13 +549,16 @@ role='garden-ground';
 const ground=z=>.50+Math.max(0,Math.min(3.50,(6-z)*.14));
 const stream213=createGardenStream213(),riverProfile=stream213.profile,riverXAt=stream213.xAt;
 const landHeight=(x,z)=>ground(z)-.08+.035*Math.sin(x*.43+z*.27)*Math.sin(z*.31-x*.22);
-const ground213=createGardenGround213(grandFrame),terrainHeight=ground213.sample;
+const ground213=createGardenGround213(grandFrame),porchGround352=createPorchGround352({baseHeight:ground213.sample,waterSection:ground213.waterSection}),terrainHeight=porchGround352.height,rootedBotany352=porchGround352.rootedBotany(botany);
 const earth=new T.MeshStandardMaterial({name:'scene08-rooted-warm-loam213-r10',color:'#6c624d',roughness:.98,metalness:0,map:stone,bumpMap:stone,bumpScale:.015});earth.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vEarthLocal;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvEarthLocal=transformed;');shader.fragmentShader='varying vec3 vEarthLocal;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>\nfloat earthMottle=sin(vEarthLocal.x*.63+sin(vEarthLocal.z*.29)*1.8)*sin(vEarthLocal.z*.47-vEarthLocal.x*.17);float earthPatch=sin(vEarthLocal.x*.19+vEarthLocal.z*.11)*sin(vEarthLocal.z*.16-vEarthLocal.x*.08);float earthSoft=sin(vEarthLocal.x*.075+sin(vEarthLocal.z*.095)*2.1)*sin(vEarthLocal.z*.064-vEarthLocal.x*.052);diffuseColor.rgb*=.80+.10*earthMottle+.12*earthPatch+.08*earthSoft;`);};materials.push(earth);
 const earthCompile213=earth.onBeforeCompile;earth.onBeforeCompile=shader=>{earthCompile213(shader);shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>','#include <color_fragment>\ndiffuseColor.rgb*=mix(.70,1.,smoothstep(.50,.78,vEarthLocal.y));').replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor*=mix(.44,1.,smoothstep(.50,.78,vEarthLocal.y));');};
 const nx=384,nz=384,pp=[],uv=[],ix=[];
 for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){const x=-28+i*56/nx,z=-42+j*60/nz,y=terrainHeight(x,z);pp.push(x,y,z);uv.push(x*.75,z*.75);}
 for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const a=j*(nx+1)+i,b=a+1,c=a+nx+1,d=c+1;ix.push(a,c,b,b,c,d);}
-const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(pp,3));terrain.setAttribute('uv',new T.Float32BufferAttribute(uv,2));terrain.setIndex(ix);terrain.computeVertexNormals();emit(terrain,earth);geometries.add(terrain);
+const terrain=new T.BufferGeometry();terrain.setAttribute('position',new T.Float32BufferAttribute(pp,3));terrain.setAttribute('uv',new T.Float32BufferAttribute(uv,2));terrain.setIndex(ix);terrain.computeVertexNormals();
+const soilIx352=[],courtIx352=[];for(let i=0;i<ix.length;i+=3){const x=(pp[ix[i]*3]+pp[ix[i+1]*3]+pp[ix[i+2]*3])/3,z=(pp[ix[i]*3+2]+pp[ix[i+1]*3+2]+pp[ix[i+2]*3+2])/3;(porchGround352.isSoilShoulder(x,z)?soilIx352:courtIx352).push(ix[i],ix[i+1],ix[i+2]);}
+terrain.setIndex(courtIx352);emit(terrain,earth);geometries.add(terrain);
+const soil352=new T.BufferGeometry();for(const [name,attribute]of Object.entries(terrain.attributes))soil352.setAttribute(name,attribute);soil352.setIndex(soilIx352);const soilMaterial352=porchGround352.soilMaterial();materials.push(soilMaterial352);emit(soil352,soilMaterial352);porchGround352.info.soilShoulder.actualTerrainTriangles=soilIx352.length/3;
 const waterYAt=z=>.52;const waterPath=riverProfile.map(([z,x])=>new T.Vector3(x,waterYAt(z),z)),waterCurve=new T.CatmullRomCurve3(waterPath,false,'centripetal');
 const waterFlatP=[],waterUv=[],waterIx=[],waterN=100,waterM=18;for(let j=0;j<=waterN;j++){const t=j/waterN,center=waterCurve.getPoint(t),tangent=waterCurve.getTangent(t).normalize(),across=new T.Vector3(-tangent.z,0,tangent.x).normalize(),width=stream213.halfWidth(t);for(let i=0;i<=waterM;i++){const u=i/waterM*2-1,edge=.035*Math.sin(t*79+u*4),p=center.clone().addScaledVector(across,u*width+edge);waterFlatP.push(p.x,-p.z,.003*Math.sin(p.z*14+p.x*9)+.0018*Math.sin(p.z*31-p.x*17));waterUv.push(t*8,i/waterM*2);}}
 for(let j=0;j<waterN;j++)for(let i=0;i<waterM;i++){const a=j*(waterM+1)+i,b=a+1,c=a+waterM+1,d=c+1;waterIx.push(a,b,c,b,d,c);}
@@ -664,7 +657,7 @@ function leafyTwig(a,b,spread,ma='leaf',count=100){between(a,b,count>3000?.068:s
 if(count>3000)for(let k=0;k<13;k++){const t=(k+.5)/13,q=a.map((v,c)=>v+(b[c]-v)*t),aa=k*2.39996;between(q,[q[0]+Math.cos(aa)*spread*.48,q[1]+Math.sin(k*.8)*spread*.22,q[2]+Math.sin(aa)*spread*.48],.015,'bark',true);}
 for(let j=0;j<count;j++){const cl=j%13,t=count>3000?T.MathUtils.clamp((cl+.5)/13+rr(-.045,.045),0,1):random(),pad=count>3000?spread*(.65+.28*Math.sin(cl*2.13)):spread,r=Math.sqrt(random())*pad,aa=rr(0,Math.PI*2),x=a[0]+(b[0]-a[0])*t+Math.cos(aa)*r,y=a[1]+(b[1]-a[1])*t+rr(-.35,.48)*pad,z=a[2]+(b[2]-a[2])*t+Math.sin(aa)*r;if(ma==='cherry'){if(j%3===0)leaf(x,y,z,rr(.075,.14),'leaf',aa);if(j%2===0)emit(bloomG,'flower',x,y,z,.70,.70,.70,[rr(-1,1),aa,rr(-1,1)],rr(.82,1.20));}else leaf(x,y,z,rr(.075,.17),ma,aa);if(ma==='maple'&&j%9===0)emit(bloomG,'flower',x,y+.03,z,rr(.8,1.5),1,rr(.8,1.5),[rr(-1,1),aa,rr(-1,1)],rr(.85,1.2));}}
 function shrub(x,y,z,r,h,ma='leaf',count=1000){
- void count;if(inGrandHallFootprint(x,z)||Math.hypot(x+3.55,z-.60)<.85)return;const channelDistance=Math.abs(x-riverXAt(z));if(z>-5.5&&z<7&&channelDistance<2.35)return;if(z>5.5){r=Math.min(r,1.05);h=Math.min(h,.90);}botany.shrub({emit,between,height:(xx,zz)=>Math.max(terrainHeight(xx,zz),waterYAt(zz)-.15)+y,x,z,r,h,kind:ma});
+ void count;if(inGrandHallFootprint(x,z)||Math.hypot(x+3.55,z-.60)<.85)return;const channelDistance=Math.abs(x-riverXAt(z));if(z>-5.5&&z<7&&channelDistance<2.35)return;if(z>5.5){r=Math.min(r,1.05);h=Math.min(h,.90);}rootedBotany352.shrub({emit,between,height:(xx,zz)=>Math.max(terrainHeight(xx,zz),waterYAt(zz)-.15)+y,x,z,r,h,kind:ma});
 }
 
 function tree(x,z,h,spread,ma='leaf'){const trunk=[[x,0,z],[x-.15,h*.36,z+.1],[x+.10,h*.71,z-.13],[x-.24,h,z]];for(let i=0;i<3;i++)between(trunk[i],trunk[i+1],.23*(1-i*.22),'bark',true);for(let j=0;j<15;j++){const f=.38+j*.041,a=j*2.39996,rad=spread*(.7+.3*Math.sin(j*3)),start=[x+.08,h*f,z],tip=[x+Math.cos(a)*rad,h*f+rr(.35,1.25),z+Math.sin(a)*rad];between(start,tip,.095*(1-f*.7),'bark',true);for(let k=0;k<5;k++){const b=[tip[0]+rr(-.65,.65),tip[1]+rr(-.1,.6),tip[2]+rr(-.65,.65)];leafyTwig(tip,b,spread*.32,ma,390);}}}
@@ -706,15 +699,15 @@ role='scanned-bank-understory';{
  for(let j=0;j<118;j++){
   const x=-7.4+r()*6.2,z=-10.6+r()*16.8;
   if(x>-1.8&&z<-4.7||inGrandHallFootprint(x,z,.28))continue;
-  botany.place({emit,height:terrainHeight,x,z,width:.18+r()*.15,flower:true,index:j,heightLimit:.20});
+  rootedBotany352.place({emit,height:terrainHeight,x,z,width:.18+r()*.15,flower:true,index:j,heightLimit:.20});
  }
 }
 role='fern-and-ground-cover';for(let j=0;j<180;j++){const z=rr(-18,6.5),side=j%2?1:-1,x=riverXAt(z)+side*rr(2.3,3.9),s=rr(.21,.40);for(let k=0;k<5;k++){const a=k*2.39996+j,h=s*.8;for(let n=1;n<8;n++){const t=n/8,r=s*t,yy=terrainHeight(x,z)+.06+h*Math.sin(t*Math.PI*.9);for(const side of[-1,1])leaf(x+Math.cos(a)*r-side*Math.sin(a)*s*.10,yy,z+Math.sin(a)*r+side*Math.cos(a)*s*.10,s*.20,'leaflight',a+side*.7);}}}
 role='garden-flowers';for(let j=0;j<64;j++){const z=rr(-12,4.5),x=riverXAt(z)+rr(4.1,5.9);const y=ground(z)+rr(.5,1.2);if(j%4===0)between([x,.1,z],[x,y,z],.013,'leaf',true);for(let i=0;i<5;i++){const a=i*1.256;leaf(x+Math.cos(a)*.04,y,z+Math.sin(a)*.04,.07,'flower',a);}}
 // A few small lotus leaves sit in the slow water, leaving the channel readable.
 role='stream-lotus';const lotus=new T.CircleGeometry(1,24,.12,6.04);lotus.rotateX(-Math.PI/2);for(let i=0;i<14;i++){const z=-16+rr(0,20),x=riverXAt(z)+rr(-.36,.36),y=waterYAt(z)+.045,s=rr(.10,.19);emit(lotus,'leaflight',x,y,z,s,1,s*.85,[0,rr(0,6.2),0]);if(i%5===0){const stem=rr(.12,.22);between([x,y,z],[x,y+stem,z],.010,'leaf',true);for(let p=0;p<5;p++)emit(bloomG,'flower',x+Math.cos(p*Math.PI*2/5)*.035,y+stem,z+Math.sin(p*Math.PI*2/5)*.035,.78,1,.78,[0,p*Math.PI*2/5,0],.92);}}
-role='layered-bank-details213';const bankDress213=dressLayeredBanks213({emit,scannedStones,botany,height:terrainHeight,riverXAt,materials,grandFrame,between});bankDress213.terrain=ground213.info;
-role='foreground-veranda';for(const x of[.05,.75])for(const z of[8.35,9.05,9.75,10.45])box(x,.70,z,.675,.065,.675,'stone');
+role='layered-bank-details213';const bankDress213=dressLayeredBanks213({emit,scannedStones,botany:rootedBotany352,height:terrainHeight,riverXAt,materials,grandFrame,between});bankDress213.terrain=ground213.info;
+role='foreground-veranda';porchGround352.build({emit,between,materials,mats,scannedStones,botany:rootedBotany352});foreground352.porchGround=porchGround352.info;
 const skyG=new T.SphereGeometry(120,48,32),skyM=new T.ShaderMaterial({side:T.BackSide,depthWrite:false,toneMapped:false,vertexShader:'varying vec3 direction;void main(){direction=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',fragmentShader:'varying vec3 direction;float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(hash(i),hash(i+vec2(1.0,0.0)),f.x),mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),f.x),f.y);}float fbm(vec2 p){float v=0.0,a=.52;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+vec2(13.7,8.1);a*=.48;}return v;}void main(){vec3 d=normalize(direction);float h=clamp(d.y,0.0,1.0);vec2 p=d.xz/(.10+abs(d.y))*2.65;float n=fbm(p+vec2(.0,.07*sin(p.x*1.6)));float cloud=smoothstep(.48,.65,n)*smoothstep(.0,.88,h);vec3 zenith=vec3(.25,.51,.83);vec3 horizon=vec3(.79,.87,.97);vec3 c=mix(horizon,zenith,smoothstep(.0,.42,h));float westGlow=exp(-pow((d.x+.43)*2.4,2.0))*exp(-h*2.2);c=mix(c,vec3(1.0,.85,.64),westGlow*.08);c=mix(c,vec3(1.0,.99,.96),cloud*.85);vec3 sunDir=normalize(vec3(-.36,.21,-.93));float sd=dot(d,sunDir);float halo=exp((sd-1.0)*70.0);float disk=smoothstep(.99935,.99978,sd);c=mix(c,vec3(1.0,.89,.64),clamp(halo*.66+disk,0.0,1.0));c=mix(c,vec3(.90,.93,.96),exp(-h*3.6)*.10);gl_FragColor=vec4(pow(c,vec3(2.2)),1.0);}'});
 const skyMesh=new T.Mesh(skyG,skyM);skyMesh.renderOrder=-10;scene.add(skyMesh);geometries.add(skyG);materials.push(skyM)
 const bounceMats=new Set(['red','redlight','wood','dark','gold','oldgold','wall','joinerygilt','hardwarebrass','hardwareRecess'].map(k=>mats[k]));
@@ -723,5 +716,5 @@ const natural197=installSun197(scene),sun=natural197.sun;
 skyMesh.visible=false;const measuredSky=await installCourtyardRadiance({renderer,scene,sun});
 scene.environmentIntensity=.80;measuredSky.info.environmentIntensity=.80;
 let hallCourt197,entryCourt191;measuredSky.beginIndirectCapture();try{hallCourt197=captureHallCourt197({renderer,scene,materials,stream,grandFrame});entryCourt191=captureEntryCourt191({renderer,scene,mats,stream});}finally{measuredSky.endIndirectCapture();}
-return {scene,setTime(time){void time;},stats:{instances,triangles,roles,seed:80247,rngFinalState:seed,revision:REBUILD213_REVISION,rebuild213:{toro:toro213.info,banks:bankDress213,joinery:galleryJoinery.info213,grandRoof:grandRoof191?.profile213,grandFineBearing:grandMass171?.joinery213,hallTimber:hallTimber213.info(),hallLattice:hallLattice213.info(),hallEave:grandRoof191?.timber213,originalPortalsHeld:true},natural197:{...natural197.info,hallCourt:hallCourt197.info,joinery:galleryJoinery.info197,skyEnvironmentIntensity:.80},spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){hallCourt197.dispose();entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
+return {scene,setTime(time){void time;},stats:{instances,triangles,roles,foreground352,seed:80247,rngFinalState:seed,revision:REBUILD213_REVISION,rebuild213:{toro:toro213.info,banks:bankDress213,joinery:galleryJoinery.info213,grandRoof:grandRoof191?.profile213,grandFineBearing:grandMass171?.joinery213,hallTimber:hallTimber213.info(),hallLattice:hallLattice213.info(),hallEave:grandRoof191?.timber213,originalPortalsHeld:true},natural197:{...natural197.info,hallCourt:hallCourt197.info,joinery:galleryJoinery.info197,skyEnvironmentIntensity:.80},spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){hallCourt197.dispose();entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
 }

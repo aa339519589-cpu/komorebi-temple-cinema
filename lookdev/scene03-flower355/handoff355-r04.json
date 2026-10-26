@@ -1,0 +1,95 @@
+{
+  "status": "reviewable-metric-botanical-rebuild-not-photographically-accepted",
+  "canonicalUnchanged": true,
+  "baseSource": "091a8dd21f22e098441677301546864b84ec27003d40f1ddbf41d8125ff1f9a5",
+  "candidateSource": "6144ae20e2f2b57d00bf8b546ea37df6d6bcdb024ed0d53f4543c84d70d7fc84",
+  "candidateRoot": "lookdev/scene03-flower355/candidate-r04",
+  "patch": "lookdev/scene03-flower355/scene03-flower355-r04.patch",
+  "patchAppliesCleanlyToCurrentCanonical": true,
+  "changedFiles": [
+    "reconstructions/scene-03/src/lotus-material.js",
+    "reconstructions/scene-03/src/main.js",
+    "reconstructions/scene-03/src/restoration-lotus-petal.js",
+    "reconstructions/scene-03/src/scene03-foreground211.js"
+  ],
+  "actualOfficialJobs": {
+    "full": {
+      "session": 44887,
+      "pid": 76464,
+      "status": "rendered-review",
+      "report": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-full/report.json"
+    },
+    "fiveSamples": {
+      "session": 94760,
+      "pid": 76502,
+      "status": "rendered-review",
+      "report": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/report.json"
+    }
+  },
+  "actualImagesPersonallyViewed": [
+    "R01 full/near/wide",
+    "R02 full/near/middle",
+    "R03 full/near/1.75/middle/wide/native detail",
+    "R04 full/near/middle/5.25/wide"
+  ],
+  "features": {
+    "independentClosedPetals": 27,
+    "greenSepals": 5,
+    "curvedStamens": 132,
+    "pairedAntherLobes": 264,
+    "flowerWorldExtentMetres": [
+      0.24882411738586097,
+      0.15484531803656187,
+      0.22869492334270092
+    ],
+    "rootY": -0.38,
+    "pondBedY": -0.3,
+    "physicalCameraPathMetres": 0.6605637895626322,
+    "cameraEndpointDisplacementMetres": 0.652412687573081,
+    "nearPlaneClearanceMetres": {
+      "nearLeaf": 0.3663435133909564,
+      "shadeLeaf": 0.3785118387590552,
+      "bud": 0.5375345748118918
+    },
+    "fovDegrees": [
+      52,
+      57.26005001579948
+    ],
+    "fixedReferenceCameraPreserved": true,
+    "AOStillBeforeDOF": true,
+    "photographPlanesOrDepthReplacements": false
+  },
+  "evidence": [
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-full/reference.png",
+      "sha256": "38475977011b1a72dd3e446321644746c5ffc4972c6f3ddd10596f8018220f15"
+    },
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/shot-0.png",
+      "sha256": "0ed529cdd2851e28a3a5b89bc53b98382ffad873fd2d0aef84e8e0c7dec8f690"
+    },
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/shot-1p75.png",
+      "sha256": "fcde39c0cff0c6078c386ae04c5afc46a7e805792c430d0eb96cd9288bacf189"
+    },
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/shot-3p5.png",
+      "sha256": "b1df19d4b20f2d0914b5e4ea68b7d010ef17042654e6ff94a146e5d986049545"
+    },
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/shot-5p25.png",
+      "sha256": "ca07a9faa0fc9bbbaac82f1b5d16f724b0d1a355313256ad354d977681fa65f0"
+    },
+    {
+      "path": "lookdev/scene03-flower355/candidate-r04/qa/ten-reference/03/iteration-scene03-flower355-r04-near-middle-wide/shot-6p99.png",
+      "sha256": "251f35d6677d47dbd0252b088f39a12741654c868ae0c0d762dfd68af0964f26"
+    }
+  ],
+  "remainingLimits": [
+    "Flower and leaf tissue still look authored; this is no botanical scan or exact photographed specimen.",
+    "Native thin-tissue backlighting is a bounded shader approximation; no physical subsurface transport claim.",
+    "Depth-of-field remains the inherited single-depth deterministic gather approximation.",
+    "All ten scenes remain photographically unaccepted; loading, positive volumes and finite pixels are structural validation only."
+  ],
+  "photographicAccepted": false
+}

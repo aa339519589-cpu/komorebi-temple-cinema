@@ -1,0 +1,51 @@
+{
+  "status": "working-complete-physical-frame-r04-selected-for-continuing-lookdev",
+  "personallyViewed": [
+    "R01 full",
+    "R02 full",
+    "R03 full",
+    "R04 full"
+  ],
+  "selected": "r04-full.png",
+  "sourceHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "recipeSha256": "cf300fe2ec71005ac0cd38980329b294ef75fbb56be4aa5c0af2f23e1c2df57a",
+  "findings": [
+    "R01 full-current native HDR/Sun boundary gave a dark room and weak facial illumination",
+    "R02 lower Sun reached robe but formed an overbright chest patch",
+    "R03 two finite exterior boundary emitters improved upper room and altar coupling, yet camera exposure remained low",
+    "R04 restored native Sun and exposed actual physical camera atEV1.2; floor reflections and room/gold detail are clearer, still not reference-matched"
+  ],
+  "geometry": {
+    "originalPrototypeCount": 3893,
+    "contentAndMaterialSharedMeshes": 2728,
+    "sourceInstances": 26645,
+    "linkedPositiveTRSInstances": 25575,
+    "bakedShearedReflectedOrSingularInstances": 1070,
+    "singularInstancesRetained": 0,
+    "reflectedInstancesRetained": 0,
+    "sourceTriangles": 57919560,
+    "importedTriangles": 57919560,
+    "allSourceTrianglesRetained": true,
+    "maximumTRSMatrixResidual": 4.68433672295987e-07,
+    "maximumBakedVertexResidualMetres": 3.7249483497703295e-09,
+    "fullWorldMatricesClassified": true,
+    "originalDataPreserved": "Actual co, full float3 custom_normal, complete source UV and colors/custom attributes; exact raw original buffers retained in immutable package",
+    "noRedundantPositionNormalUVDebugCopies": true,
+    "bufferCache": {
+      "limitBytes": 67108864,
+      "observedCachedBytesPeak": 67108832,
+      "payloadReads": 10632
+    },
+    "vertexAndInstanceColorDomainsSeparate": true,
+    "negativeDeterminantUVLoopsReorderedAfterFaceFlip": true,
+    "hiddenPrototypesRemainIdentity": true,
+    "exactImportedMaterialAliasesUsedForGeometrySharing": true,
+    "decimation": false,
+    "substituteModel": false,
+    "coordinateConversion": "One rigid +pi/2 X: Three (x,y,z) to Blender (x,-z,y)"
+  },
+  "illuminationInference": "Two physical window-boundary area emitters represent unobserved finite exterior illumination inferred from existing native315 source proxies; this is not a measured solar-only reconstruction. Full scene receives ray-traced occlusion/GI/reflection.",
+  "crossRendererLimit": "AgX and physical area transport differ from native Three.js captured-return approximations. Native filmG does not contain this physical frame.",
+  "photographicAccepted": false,
+  "originalGoalComplete": false
+}

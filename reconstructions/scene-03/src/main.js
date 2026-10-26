@@ -146,36 +146,48 @@ lotusUnder.vertexColors=true;
 function rootedLotusStem03(bottom,top,r){emit(createRootedLotusStem107(bottom,top,r),lotusUnder);}
 const lotusGeos=Array.from({length:6},(_,i)=>createRestorationLotusLeaf(i+3));
 const foregroundLeaf211=sculptForegroundLeaf211(lotusGeos[3],6),nearLeaf211=sculptForegroundLeaf211(lotusGeos[2],5);
-const petalMaterialSet=createLotusPetalMaterials(),pinks=petalMaterialSet.materials;textures.add(petalMaterialSet.texture);
-const pollen=mat('lotus golden pollen','#e7b933',.76);
-const filament211=mat('scene03-cream-fine-lotus-filaments211','#f5e5b7',.80),receptacle211=mat('scene03-pale-olive-lotus-receptacle211','#a7ad54',.86),pore211=mat('scene03-lotus-receptacle-recesses211','#768145',.92);
-const receptacleGeometry211=new T.LatheGeometry([[0,0],[.024,0],[.035,.10],[.075,.29],[.115,.36],[.115,.42],[0,.42]].map(([r,y])=>new T.Vector2(r,y)),32);
-const filamentGeometries211=Array.from({length:5},(_,i)=>new T.TubeGeometry(new T.QuadraticBezierCurve3(V([.13*.73,.35,0]),V([Math.cos(.09)*.13,.414,Math.sin(.09)*.13]),V([.13*1.05,.46+.032*Math.sin(i*2.1),0])),9,.0017,5,false));
-let petalGeos=Array.from({length:15},(_,i)=>createRestorationLotusPetal(i%5+5,Math.floor(i/5)));
+const petalMaterialSet=createLotusPetalMaterials(),pinks=petalMaterialSet.materials;textures.add(petalMaterialSet.texture);textures.add(petalMaterialSet.relief);
+const pollen=mat('lotus355 paired creamy yellow anthers','#efc14c',.69);
+const filament211=mat('scene03-ivory-132-curved-filaments355','#f7e8bb',.72),receptacle211=mat('scene03-compact-chartreuse-flower-receptacle355','#b6b76b',.77),pore211=mat('scene03-small-receptacle-recesses355','#798248',.90),sepal355=mat('scene03-five-olive-green-sepals355','#718542',.72);
+const receptacleGeometry211=new T.LatheGeometry([[0,-.008],[.006,-.008],[.008,.018],[.014,.038],[.017,.046],[.016,.052],[0,.052]].map(([r,y])=>new T.Vector2(r,y)),36);
+const filamentTips355=Array.from({length:13},(_,i)=>[.029+.005*Math.sin(i*2.1),.069+.007*Math.sin(i*1.73),.004*Math.sin(i*2.7)]);
+const filamentGeometries211=filamentTips355.map((tip,i)=>new T.TubeGeometry(new T.CubicBezierCurve3(V([.012,.017,0]),V([.026,.030,.003*Math.sin(i)]),V([tip[0]*1.12,tip[1]*.77,.006*Math.sin(i*.9)]),V(tip)),18,.00029,6,false));
+let petalGeos=Array.from({length:27},(_,i)=>createRestorationLotusPetal(i+5,i<10?0:i<19?1:2));
+const sepalGeos355=Array.from({length:5},(_,i)=>createRestorationLotusPetal(i+42,3));
 function lotus(x,z,y,size,bloom=false,pose=null){let stem=[x+range(-.12,.12),-.33,z+.1];
  if(!bloom){const g=pose?.geometry??lotusGeos[pose?.variant??Math.floor(rand()*6)],rot=pose?.rotation??[range(-.25,.40),range(0,6.28),range(-.25,.25)],tint=pose?.tint??range(.83,1.1),attachment=new T.Vector3(0,(g.userData.attachmentLocalY??-.0354)*size,0).applyEuler(new T.Euler(...rot)).add(V([x,y,z]));rootedLotusStem03(stem,attachment.toArray(),Math.min(.013,.018*size));emit(g,pose?.material??lotusLeaf,[x,y,z],[size,size,size],rot,tint);return;}
- rootedLotusStem03(stem,[x,y,z],.018*size);let old=root;root=root.clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationX(.16));emit(receptacleGeometry211,receptacle211,[0,0,0],[size,size,size]);for(let layer=0;layer<3;layer++){let count=[11,9,7][layer];for(let j=0;j<count;j++){let angle=j*Math.PI*2/count+layer*.47+.055*Math.sin(j*3.1+layer);let g=petalGeos[layer*5+j%5];emit(g,pinks[layer],[Math.sin(angle)*.045*size,layer*.035*size,Math.cos(angle)*.045*size],[size*(1+.10*Math.sin(j*7.3+layer)),size*(1+.14*Math.sin(j*4.7+layer)),size*(1+.08*Math.sin(j*5.7))],[(layer===0?.16+.06*Math.cos(angle):layer===1?.15+.09*Math.cos(angle):.30+.16*Math.cos(angle))+.07*Math.sin(j*3.1+layer),angle,.075*Math.cos(j*2.7),'YXZ']);}}const pollenSamples=Array.from({length:26},()=>range(.07,.16));
- for(let j=0;j<92;j++){
-  const a=j*2.39996,r=(.105+.42*pollenSamples[j%26])*size,h=(.46+.032*Math.sin((j%5)*2.1))*size,tip=[Math.cos(a)*r*1.05,h,Math.sin(a)*r*1.05];
-  emit(filamentGeometries211[j%5],filament211,[0,0,0],[r/.13,size,r/.13],[0,-a,0]);emit(unitSphere,pollen,tip,[.006*size,.012*size,.006*size],[.18*Math.sin(a),a,.22*Math.cos(a)]);
+ rootedLotusStem03(pose?.root??stem,[x,y,z],.0046*size);let old=root;root=root.clone().multiply(new T.Matrix4().makeTranslation(x,y,z)).multiply(new T.Matrix4().makeRotationX(.35));
+ emit(receptacleGeometry211,receptacle211,[0,0,0],[size,size,size]);
+ for(let j=0;j<5;j++){const a=j*Math.PI*2/5+.38;emit(sepalGeos355[j],sepal355,[0,-.004*size,0],[size,size,size],[.04*Math.sin(j),a,.04*Math.cos(j),'YXZ']);}
+ for(let layer=0,offset=0;layer<3;offset+=[10,9,8][layer++]){let count=[10,9,8][layer];for(let j=0;j<count;j++){
+  // Staggered insertions stay within the compact living torus. The angular
+  // gaps, height, twist and opening vary independently for all 27 blades.
+  const angle=j*Math.PI*2/count+layer*.43+.073*Math.sin(j*3.1+layer),s=size*(1+.045*Math.sin(j*7.3+layer)),insertion=(.0025+layer*.0008)*size;
+  emit(petalGeos[offset+j],pinks[layer],[Math.sin(angle)*insertion,layer*.002*size,Math.cos(angle)*insertion],[s,size*(1+.07*Math.sin(j*4.7+layer)),s],[.095*Math.cos(angle)+.13*Math.sin(j*3.1+layer)+[.03,.10,.20][layer]*Math.max(0,Math.cos(angle)),angle,.095*Math.cos(j*2.7),'YXZ']);
+ }}
+ for(let j=0;j<26;j++)rand(); // Retain canonical RNG progression outside the flower.
+ for(let j=0;j<132;j++){
+  const a=j*2.39996323,k=j%13,radial=.79+.27*((j*37%131)/131),h=.93+.12*Math.sin(j*1.73),tip=V(filamentTips355[k]).multiply(V([radial*size,h*size,radial*size])).applyAxisAngle(V([0,1,0]),-a);
+  emit(filamentGeometries211[k],filament211,[0,0,0],[radial*size,h*size,radial*size],[0,-a,0]);
+  for(const side of[-1,1]){const anther=tip.clone().add(V([0,0,side*.00052*size]).applyAxisAngle(V([0,1,0]),-a));emit(unitSphere,pollen,anther.toArray(),[.00072*size,.0022*size,.00055*size],[.12*Math.sin(a),-a,.20*Math.cos(a)]);}
  }
- for(let j=0;j<13;j++){const a=j*2.39996,r=.085*Math.sqrt((j+.5)/13)*size;ell([Math.cos(a)*r,.422*size,Math.sin(a)*r],[.010*size,.0022*size,.010*size],pore211);}
+ for(let j=0;j<15;j++){const a=j*2.39996,r=.013*Math.sqrt((j+.5)/15)*size;ell([Math.cos(a)*r,.0522*size,Math.sin(a)*r],[.00145*size,.00045*size,.00145*size],pore211);}
  root=old;}
-for(let i=0;i<114;i++){let z=range(9,19),x=range(-10,12);if(z>15.8&&Math.abs(x+2.4)<3)continue;if(Math.abs(x-1)<3.4&&z<17&&rand()<.90)continue;let bloom=i%13===0&&x>.8&&z<15.0;lotus(x,z,bloom?range(.55,.95):range(.01,.21),bloom?range(.15,.27):range(.43,.93),bloom);}
+for(let i=0;i<114;i++){let z=range(9,19),x=range(-10,12);if(z>15.8&&Math.abs(x+2.4)<3)continue;if(Math.abs(x-1)<3.4&&z<17&&rand()<.90)continue;let bloom=i%13===0&&x>.8&&z<15.0;lotus(x,z,bloom?range(.55,.95):range(.01,.21),bloom?range(.64,.94):range(.43,.93),bloom);}
 // One near flower is the main pond subject; the others stand among the bank
 // leaves at varied physical stem heights. The central water channel stays open.
-lotus(-3.35,15.35,.77,1.50,false,{rotation:[.67,.55,-.28],tint:.88,variant:2,geometry:nearLeaf211});
+{const p=foregroundPlacement211.nearLeaf;lotus(p.position[0],p.position[2],p.position[1],p.size,false,{...p,geometry:nearLeaf211});}
 lotus(-1.0,15.5,.06,.70,false,{rotation:[.10,-.30,-.10],tint:1.05,variant:2});
 {const p=foregroundPlacement211.shadeLeaf;lotus(p.position[0],p.position[2],p.position[1],p.size,false,{...p,geometry:foregroundLeaf211,material:lotusDeep});}
-{const p=foregroundPlacement211.mainFlower;lotus(p.position[0],p.position[2],p.position[1],p.size,true);}
-lotus(1.25,12.1,.78,.25,true);lotus(.20,13.3,.59,.24,true);lotus(3.15,10.4,.80,.21,true);
+{const p=foregroundPlacement211.mainFlower;lotus(p.position[0],p.position[2],p.position[1],p.size,true,{root:[p.position[0]-.06,-.38,p.position[2]+.05]});}
+lotus(1.25,12.1,.78,.92,true);lotus(.20,13.3,.59,.86,true);lotus(3.15,10.4,.80,.80,true);
 for(const [cx,cz,n]of[[.7,12.8,4],[2.45,11.5,4],[3.55,10.3,3],[2.8,13.1,2]])for(let j=0;j<n;j++){
  const a=j*2.39996+cx,r=range(.12,.70),x=cx+Math.cos(a)*r,z=cz+Math.sin(a)*r*.82,y=range(.07,.45)+(j%4===0?.18:0);
  lotus(x,z,y,range(.44,.87),false,{rotation:[range(-.42,.32),range(0,6.28),range(-.34,.38)],variant:j%6,tint:range(.79,1.04)});
 }
-lotus(-3.9,13.0,.30,.17,true);lotus(-1.65,15.3,.03,.68,false);lotus(-1.9,13.0,.04,.55,false);
+lotus(-3.9,13.0,.30,.72,true);lotus(-1.65,15.3,.03,.68,false);lotus(-1.9,13.0,.04,.55,false);
 // The left foreground reference is a closed bud, not another open flower.
-{const bud=createLotusBudMaterial98(),pose=foregroundBudPose98,[x,y,z]=pose.position;mats.lotusBud98=bud.material;for(const t of bud.textures)textures.add(t);emit(createRestorationLotusBud(),bud.material,pose.position,[pose.scale,pose.scale,pose.scale],pose.rotation);const neck=new T.Vector3(0,.05*pose.scale,0).applyEuler(new T.Euler(...pose.rotation)).add(V(pose.position));rootedLotusStem03([x-.15,-.33,z+.08],neck.toArray(),.0048);}
+{const bud=createLotusBudMaterial98(),pose=foregroundBudPose98,s=pose.scale*.44,p=V(referenceCamera.position).lerp(V(pose.position),.44),[x,y,z]=p.toArray();mats.lotusBud98=bud.material;for(const t of bud.textures)textures.add(t);emit(createRestorationLotusBud(),bud.material,p.toArray(),[s,s,s],pose.rotation);const neck=new T.Vector3(0,.05*s,0).applyEuler(new T.Euler(...pose.rotation)).add(p);rootedLotusStem03([x-.045,-.38,z+.025],neck.toArray(),.0038);}
 // Procedural cloud volume, beyond the architectural silhouette.
 
 // A low trained pine has a curved trunk, tiered branch fans and real needle
@@ -207,12 +219,13 @@ const contactMaterial344=new T.ShaderMaterial({depthTest:false,depthWrite:false,
 const contactScene344=new T.Scene();contactScene344.add(new T.Mesh(new T.PlaneGeometry(2,2),contactMaterial344));
 lens.uniforms.tColour.value=contactTarget344.texture;
 installCircleOfConfusion03(lens,{width:W,height:H,camera});
+lens.uniforms.fNumber.value=3.2;lens.userData.optics.fNumber=3.2;
 postScene.add(new T.Mesh(new T.PlaneGeometry(2,2),lens));
 const ref=referenceCamera;let frames=0,lastTarget=ref.target;
 function renderView(position,target,time=0,fov=58,focus=18){lens.uniforms.focusDistance.value=focus;water.material.uniforms.waterTime.value=time;camera.position.fromArray(position);camera.fov=fov;camera.lookAt(...target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);updateCircleOfConfusion03(lens,camera);lastTarget=[...target];renderer.setRenderTarget(colourTarget);renderer.render(scene,camera);geometryRender={calls:renderer.info.render.calls,triangles:renderer.info.render.triangles};renderer.setRenderTarget(contactTarget344);renderer.render(contactScene344,postCamera);renderer.setRenderTarget(null);renderer.render(postScene,postCamera);frames++;return{frame:frames,position:camera.position.toArray(),target,fov,time}}
 function renderReference(n=3){if(n!==3)throw Error('Reference 03 only');return renderView(ref.position,ref.target,0,ref.fov)}
-const dolly=createDollyPath({points:[[-2.65,.68,16.55],[-2.65,.64,17.2],[-1.1,.45,18.4],ref.position],nearTarget:[-2.245,.59,14.70],farTarget:ref.target,fov:ref.fov});
-function renderShot(localTime=0){const p=dolly(localTime),nearFocus=Math.hypot(.405,.09,1.85),rack=T.MathUtils.smoothstep(p.phase,.12,.58),focus=1/((1-rack)/nearFocus+rack/18);return renderView(p.position,p.target,localTime,p.fov,focus);}
-function info(){return{reference:3,revision:'scene03-botany344-r04-flower-focused-low-dolly',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,bridgeBearings107,towerGround106,fit106,foreground211:foregroundPlacement211,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),rootSurfaces108:rootSurfaces108.info,overhang108,daylight108,atmosphere109,reflectedLight174,timberMaterial211:scannedTimber.info,toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,floralScan109:floralScan109.info,carvedMount180:carvedMount180.info,lanternSupports180,hangingLanterns211,gablePigment180:{timber:architecture.materials.gableTimber180.color.toArray(),carvedTimber:architecture.materials.gableCarving.color.toArray(),recess:architecture.materials.gableRecess.color.toArray(),material:'CC0 wood scan multiplied by physically bounded lacquer pigment; gable-specific sun-facing calibration'},sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
+const dolly=createDollyPath({points:[[-2.05,.78,17.85],[-2.13,.78,18.04],[-2.34,.72,18.30],ref.position],nearTarget:[-2.305,.650,16.95],farTarget:ref.target,fov:ref.fov});
+function renderShot(localTime=0){const p=dolly(localTime),nearFocus=Math.hypot(.255,.130,.90),rack=T.MathUtils.smoothstep(p.phase,.12,.58),focus=1/((1-rack)/nearFocus+rack/18),fov=T.MathUtils.lerp(52,p.fov,T.MathUtils.smoothstep(p.phase,.02,.70));return renderView(p.position,p.target,localTime,fov,focus);}
+function info(){return{reference:3,revision:'scene03-flower355-r04-metric-pointed-unequal-open-petals',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,bridgeBearings107,towerGround106,fit106,foreground211:foregroundPlacement211,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),rootSurfaces108:rootSurfaces108.info,overhang108,daylight108,atmosphere109,reflectedLight174,timberMaterial211:scannedTimber.info,toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,floralScan109:floralScan109.info,carvedMount180:carvedMount180.info,lanternSupports180,hangingLanterns211,gablePigment180:{timber:architecture.materials.gableTimber180.color.toArray(),carvedTimber:architecture.materials.gableCarving.color.toArray(),recess:architecture.materials.gableRecess.color.toArray(),material:'CC0 wood scan multiplied by physically bounded lacquer pigment; gable-specific sun-facing calibration'},sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
 function dispose(){contactTarget344.dispose();contactMaterial344.dispose();contactScene344.children.forEach(o=>o.geometry.dispose());entryGranite.dispose();sanctuary.dispose();ranma.dispose();floralScan109.dispose();carvedMount180.dispose();scannedTimber.dispose();colourTarget.dispose();lens.dispose();water.dispose();water.geometry.dispose();waterBase.geometry.dispose();skyDome.geometry.dispose();skyDome.material.dispose();postScene.children.forEach(o=>o.geometry?.dispose());architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();pinks.forEach(m=>m.dispose());renderer.dispose()}
 window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading').remove();if(!q.has('defer'))renderReference();

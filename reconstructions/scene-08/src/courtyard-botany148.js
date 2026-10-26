@@ -80,10 +80,10 @@ export async function loadCourtyardBotany(){
   const choices=assets[flower?1:0].variants,variant=choices[index%choices.length],s=Math.min(width/variant.width,heightLimit/variant.height),y=height(x,z)+yOffset-.012;
   for(const part of variant.parts)emit(part.geometry,part.material,x,y,z,s,s,s,[0,yaw,0],rr(.92,1.05));stats[flower?'groundcover':'shrubs']++;return{x,y,z,width:variant.width*s,height:variant.height*s,variant:variant.name,flower};
  }
- function groundMat({emit,between,height,x,z,width,index=0}){
+ function groundMat({emit,between,height,x,z,width,index=0,rootNode352=null}){
   const radius=width*.50,root=height(x,z),material=leafMaterials.creeper;let count=0;
   for(let f=0;f<6;f++){const a=f*2.399963+index*.31,L=radius*(.78+.20*Math.sin(f*1.7+index));let previous=[x,root-.012,z];
-   for(let j=1;j<=7;j++){const t=j/7,xx=x+Math.cos(a)*L*t,zz=z+Math.sin(a)*L*t,soil=height(xx,zz),yy=soil+.025+.012*Math.sin(t*Math.PI),node=[xx,yy,zz];between(previous,node,.0011,'bark',true);if(j%2===1)between([xx,soil-.012,zz],node,.0008,'bark',true);
+   for(let j=1;j<=7;j++){const t=j/7,intended=[x+Math.cos(a)*L*t,z+Math.sin(a)*L*t],[xx,zz]=rootNode352?rootNode352(...intended):intended,soil=height(xx,zz),yy=soil+.025+.012*Math.sin(t*Math.PI),node=[xx,yy,zz];between(previous,node,.0011,'bark',true);if(j%2===1)between([xx,soil-.012,zz],node,.0008,'bark',true);
     for(const side of[-1,1]){const angle=a+side*(.85+.20*Math.sin(j*1.3+f)),tip=[xx+Math.cos(angle)*.016,yy+.010,zz+Math.sin(angle)*.016];between(node,tip,.00065,'bark',true);const blade=leaves[leafNumber++%leaves.length],length=rr(.055,.082),s=length/blade.length,eps=.045,dx=(height(xx+eps,zz)-height(xx-eps,zz))/(2*eps),dz=(height(xx,zz+eps)-height(xx,zz-eps))/(2*eps),soilNormal=new T.Vector3(-dx,1,-dz).normalize(),normal=new T.Vector3(0,1,0).lerp(soilNormal,.72).normalize(),forward=new T.Vector3(Math.cos(angle),0,Math.sin(angle));forward.addScaledVector(normal,-forward.dot(normal)).normalize();const across=new T.Vector3().crossVectors(normal,forward).normalize(),q=new T.Quaternion().setFromRotationMatrix(new T.Matrix4().makeBasis(across,normal,forward)).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(1,0,0),-rr(.08,.20))).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,0,1),rr(-.24,.24))),e=new T.Euler().setFromQuaternion(q);emit(blade.geometry,material,...tip,s*1.58,s,s,[e.x,e.y,e.z],rr(.80,1.12));count++;stats.scannedBlades++;}
     previous=node;
    }
@@ -101,18 +101,18 @@ export async function loadCourtyardBotany(){
    }
   }
  }
- function shrub({emit,between,height,x,z,r,h,kind='leaf'}){
-  const y=height(x,z),primary=h<.85?5:8,rootWidth=Math.min(.040,.006+h*.006),leafLength=(h<.85?rr(.055,.076):rr(.085,.120))*(z>7.5?.70:1);
+ function shrub({emit,between,height,x,z,r,h,kind='leaf',growthYaw352=null,leafLength352=null}){
+  const y=height(x,z),primary=h<.85?5:8,rootWidth=Math.min(.040,.006+h*.006),sourceLeafLength=(h<.85?rr(.055,.076):rr(.085,.120))*(z>7.5?.70:1),leafLength=leafLength352??sourceLeafLength;
   stats.shrubs++;
   // Limbs begin at the rooted crown, divide at several heights and keep their
   // lower lateral branches. No detached sphere or clipped leaf shell is used.
   for(let j=0;j<primary;j++){
-   const a=j*2.399963+rr(-.20,.20),crownRadius=r*rr(.46,.73),root=[x+rr(-.08,.08)*r,y,z+rr(-.08,.08)*r],elbow=[x+Math.cos(a)*r*.19,y+h*rr(.17,.32),z+Math.sin(a)*r*.19],fork=[x+Math.cos(a)*crownRadius,y+h*rr(.42,.69),z+Math.sin(a)*crownRadius];
+   const spread=rr(-.20,.20),a=growthYaw352===null?j*2.399963+spread:growthYaw352+(j-(primary-1)/2)*(primary===5?.40:.25)+spread*.55,crownRadius=r*rr(.46,.73),root=[x+rr(-.08,.08)*r,y,z+rr(-.08,.08)*r],elbow=[x+Math.cos(a)*r*.19,y+h*rr(.17,.32),z+Math.sin(a)*r*.19],fork=[x+Math.cos(a)*crownRadius,y+h*rr(.42,.69),z+Math.sin(a)*crownRadius];
    between(root,elbow,rootWidth*rr(.74,1.05),'bark',true);between(elbow,fork,rootWidth*.57,'bark',true);
    for(let k=0;k<5;k++){
-    const aa=a+(k-2)*.53+rr(-.16,.16),branchOrigin=elbow.map((v,c)=>v+(fork[c]-v)*(.15+k*.16)),tip=[fork[0]+Math.cos(aa)*r*rr(.28,.47),y+h*rr(.61,.98),fork[2]+Math.sin(aa)*r*rr(.28,.47)];between(branchOrigin,tip,rootWidth*.24,'bark',true);
+    const aa=a+(k-2)*(growthYaw352===null?.53:.34)+rr(-.16,.16),branchOrigin=elbow.map((v,c)=>v+(fork[c]-v)*(.15+k*.16)),tip=[fork[0]+Math.cos(aa)*r*rr(.28,.47),y+h*rr(.61,.98),fork[2]+Math.sin(aa)*r*rr(.28,.47)];between(branchOrigin,tip,rootWidth*.24,'bark',true);
     for(let n=0;n<5;n++){
-     const f=.10+n*.205,start=branchOrigin.map((v,c)=>v+(tip[c]-v)*f),angle=aa+(n-2)*.65+rr(-.30,.30),reach=r*rr(.19,.36),end=[start[0]+Math.cos(angle)*reach,start[1]+h*rr(.035,.17),start[2]+Math.sin(angle)*reach];
+     const f=.10+n*.205,start=branchOrigin.map((v,c)=>v+(tip[c]-v)*f),angle=aa+(n-2)*(growthYaw352===null?.65:.40)+rr(-.30,.30),reach=r*rr(.19,.36),end=[start[0]+Math.cos(angle)*reach,start[1]+h*rr(.035,.17),start[2]+Math.sin(angle)*reach];
      foliage({emit,between,start,end,kind,leafLength:leafLength*rr(.82,1.14),nodes:z>7.5?14:8});
     }
    }

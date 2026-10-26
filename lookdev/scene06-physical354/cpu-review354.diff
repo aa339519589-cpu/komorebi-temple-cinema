@@ -1,0 +1,133 @@
+--- cpu-review-base354/render-physical252.py
++++ render-physical252.py
+@@ -3,7 +3,7 @@
+ Root must first supply and approve the exact merged table/room source/export.
+ No old default package, selected Blend, substitute geometry or scene image.
+ """
+-import os, sys, json, math, hashlib, time, traceback, tempfile, subprocess, re, resource
++import os, sys, json, math, hashlib, time, traceback, tempfile, subprocess, re, resource, gc
+ from pathlib import Path
+ 
+ HERE = Path(__file__).resolve().parent
+@@ -50,6 +50,29 @@
+ if bpy.app.version<(5,2,0): raise RuntimeError('This full-float point custom_normal representation requires reviewed Blender5.2+ interface')
+ bpy.ops.wm.read_factory_settings(use_empty=True); scene = bpy.context.scene
+ 
++def configure_cycles_backend354(target):
++    requested = settings['render']['device']
++    if requested == 'CPU':
++        import _cycles
++        if verification['memory'].get('backend') != 'CPU_EMBREE_COMPACT' or not _cycles.with_embree:
++            raise RuntimeError('Reviewed CPU compact budget and an actual Embree-enabled build are required')
++        target.cycles.device = 'CPU'; target.cycles.debug_bvh_layout = 'EMBREE'; target.cycles.debug_use_compact_bvh = True; target.cycles.debug_use_spatial_splits = False
++        _cycles.debug_flags_update(target.as_pointer())
++        if target.cycles.device != 'CPU' or target.cycles.debug_bvh_layout != 'EMBREE' or not target.cycles.debug_use_compact_bvh:
++            raise RuntimeError('Actual CPU compact backend differs from the verified memory model')
++    elif requested == 'METAL':
++        if verification['memory'].get('backend', 'METAL') != 'METAL': raise RuntimeError('Metal render cannot use a CPU-only memory budget')
++        prefs = bpy.context.preferences.addons['cycles'].preferences; prefs.compute_device_type = 'METAL'; prefs.get_devices()
++        for device in prefs.devices: device.use = device.type == 'METAL'
++        if not any(d.use for d in prefs.devices): raise RuntimeError('No Metal device; no automatic backend fallback')
++        target.cycles.device = 'GPU'
++    else: raise RuntimeError('Unreviewed explicit render backend: '+str(requested))
++    target.render.use_persistent_data = False
++
++configure_cycles_backend354(scene)
++report['backend354'] = {'requested': settings['render']['device'], 'actualDevice': scene.cycles.device, 'bvhLayout': scene.cycles.debug_bvh_layout, 'compactBVH': scene.cycles.debug_use_compact_bvh, 'spatialSplits': scene.cycles.debug_use_spatial_splits, 'persistentData': scene.render.use_persistent_data, 'memoryBackend': verification['memory'].get('backend', 'METAL'), 'automaticFallback': False, 'officialSharedFifoStillHeld': True}
++save_report(); print('PHYSICAL354_BACKEND', json.dumps(report['backend354']), flush=True)
++
+ # API checks belong to this same official job, before large geometry imports.
+ test_material = bpy.data.materials.new('252 installed Principled interface guard'); test_material.use_nodes = True
+ test_bsdf = test_material.node_tree.nodes.get('Principled BSDF')
+@@ -116,10 +139,7 @@
+     if direction_residual > 2e-6: raise RuntimeError('Sky forward-mapped actual Sun direction differs from source')
+     links.new(sky.outputs['Color'], bg.inputs['Color']); links.new(bg.outputs[0], wo.inputs['Surface']); bg.inputs['Strength'].default_value = 1
+     meter = bpy.data.scenes.new('252 bounded daylight radiometer only, no source geometry'); meter.world = world
+-    meter.render.engine = 'CYCLES'; meter.cycles.device = 'GPU'; meter.cycles.samples = params['meterSamples']; meter.cycles.seed = 252; meter.cycles.use_adaptive_sampling = False; meter.cycles.use_denoising = False; meter.cycles.sample_clamp_direct = meter.cycles.sample_clamp_indirect = 0
+-    prefs = bpy.context.preferences.addons['cycles'].preferences; prefs.compute_device_type = 'METAL'; prefs.get_devices()
+-    for device in prefs.devices: device.use = device.type == 'METAL'
+-    if not any(d.use for d in prefs.devices): raise RuntimeError('No Metal device for official queued radiometry')
++    meter.render.engine = 'CYCLES'; configure_cycles_backend354(meter); meter.cycles.samples = params['meterSamples']; meter.cycles.seed = 252; meter.cycles.use_adaptive_sampling = False; meter.cycles.use_denoising = False; meter.cycles.sample_clamp_direct = meter.cycles.sample_clamp_indirect = 0
+     meter.render.threads_mode = 'FIXED'; meter.render.threads = settings['render']['threads']; meter.render.film_transparent = False
+     meter.render.image_settings.file_format = 'OPEN_EXR'; meter.render.image_settings.color_mode = 'RGB'; meter.render.image_settings.color_depth = '32'; meter.render.image_settings.exr_codec = 'ZIP'
+     meter.view_settings.view_transform = 'Raw'; meter.view_settings.look = 'None'; meter.view_settings.exposure = 0; meter.view_settings.gamma = 1
+@@ -273,10 +293,14 @@
+     output = nodes.new('ShaderNodeOutputMaterial'); links.new(pv.outputs['Volume'], output.inputs['Volume']); air.data.materials.append(material)
+     report['physicalVolume252'] = {'actualSourceBoundsYUp': bounds, 'boundsEvidence': settings['roomBoundsSourceEvidence'], 'extinctionPerMetre': density, 'originalNativeDensityPerMetre': float(native_scattering['density']), 'densityOverrideIsInferred': 'densityPerMetre' in volume, 'scatteringPerMetre': density*albedo, 'absorptionPerMetre': density*(1-albedo), 'anisotropy': volume['anisotropy'], 'nativeScatteringGainNotRepeated': native_scattering.get('gain'), 'singleScatterAlbedoIsInferred': albedo, 'emission': 0, 'nativeScreenSpaceBeamShaderOrCardsImported': False}
+ 
+-r = settings['render']; scene.render.engine = 'CYCLES'; prefs = bpy.context.preferences.addons['cycles'].preferences; prefs.compute_device_type = 'METAL'; prefs.get_devices()
+-for device in prefs.devices: device.use = device.type == 'METAL'
+-if not any(d.use for d in prefs.devices): raise RuntimeError('No Metal device; no unbounded CPU render fallback')
+-scene.cycles.device = 'GPU'; scene.cycles.samples = r['samples']; scene.cycles.use_adaptive_sampling = r['adaptiveSampling']; scene.cycles.time_limit = 0
++# Source geometry dicts have been released by import_geometry. Release the
++# bounded source payload cache before the full Cycles/Embree tables coexist.
++# Original immutable buffers remain on disk and retain their verified hashes.
++report['sourceBufferRelease354'] = {'cachedBytesBeforeRelease': buffers.cache_bytes, 'observedImportCachePeakBytes': buffers.cache_high_water, 'payloadCacheClearedBeforeCyclesSync': True}
++buffers.cache.clear(); buffers.cache_bytes = 0; gc.collect()
++report['importFinished354'] = {'peakProcessResidentBytes': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024), 'allSourceTrianglesRetained': report['geometry252']['allSourceTrianglesRetained']}
++r = settings['render']; scene.render.engine = 'CYCLES'; configure_cycles_backend354(scene)
++scene.cycles.samples = r['samples']; scene.cycles.use_adaptive_sampling = r['adaptiveSampling']; scene.cycles.time_limit = 0
+ scene.cycles.max_bounces = r['maxBounces']; scene.cycles.diffuse_bounces = r['diffuseBounces']; scene.cycles.glossy_bounces = r['glossyBounces']; scene.cycles.transmission_bounces = r['transmissionBounces']; scene.cycles.transparent_max_bounces = r['transparentBounces']; scene.cycles.volume_bounces = r['volumeBounces']; scene.cycles.sample_clamp_direct = r['directClamp']; scene.cycles.sample_clamp_indirect = r['indirectClamp']; scene.cycles.use_light_tree = True; scene.cycles.use_denoising = r['denoise']; scene.cycles.denoiser = 'OPENIMAGEDENOISE'
+ scene.render.threads_mode = 'FIXED'; scene.render.threads = r['threads']; scene.render.film_transparent = False
+ scene.view_settings.view_transform = r['viewTransform']; scene.view_settings.look = r['look']; scene.view_settings.exposure = float(r.get('exposureEV', math.log2(package['physical252']['nativeExposure']))); scene.view_settings.gamma = r['gamma']
+@@ -285,5 +309,5 @@
+ report['renderSettings252'] = {'resolution': [1254, 1254], 'samples': scene.cycles.samples, 'adaptive': scene.cycles.use_adaptive_sampling, 'OIDN': scene.cycles.use_denoising, 'bounceLimits': [scene.cycles.max_bounces, scene.cycles.diffuse_bounces, scene.cycles.glossy_bounces, scene.cycles.transmission_bounces, scene.cycles.volume_bounces], 'viewTransform': scene.view_settings.view_transform, 'look': scene.view_settings.look, 'exposureEV': scene.view_settings.exposure, 'nativeExposureMultiplier': package['physical252']['nativeExposure'], 'exposureOverrideIsInferred': 'exposureEV' in r, 'toneMapDifference': 'AgX is not Three ACESFilmic; declared scene-linear exposure, no post grade/bloom/AO', 'clampDirect': 0, 'clampIndirect': 0, 'savedBlend': False, 'actualFrames': 1, 'device': scene.cycles.device}
+ report['status'] = 'ready-for-one-actual-frame'; save_report(); print('PHYSICAL252_READY', json.dumps({'source': report['sourceHash'], 'triangles': report['geometry252']['importedTriangles'], 'output': scene.render.filepath}), flush=True)
+ started = time.time(); bpy.ops.render.render(write_still=True)
+-report['peakProcessResidentBytes']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024);report['MetalUnifiedAllocationMayNotBeFullyRepresentedByProcessRSS']=True
++report['peakProcessResidentBytes']=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*(1 if sys.platform=='darwin' else 1024);report['MetalUnifiedAllocationMayNotBeFullyRepresentedByProcessRSS']=scene.cycles.device=='GPU';report['CPUDeviceSharesHostPointers354']=scene.cycles.device=='CPU'
+ report['status'] = 'path-traced-review-not-photographically-accepted'; report['output'] = scene.render.filepath; report['pngSha256'] = digest(Path(scene.render.filepath).read_bytes()); report['renderSeconds'] = time.time()-started; report['completedAt'] = time.time(); save_report(); print('PHYSICAL252_COMPLETE', json.dumps({'source': report['sourceHash'], 'output': report['output'], 'sha256': report['pngSha256'], 'photographicAccepted': False}), flush=True)
+--- cpu-review-base354/pipeline252.mjs
++++ pipeline252.mjs
+@@ -6,6 +6,7 @@
+ import {resolve,relative} from 'node:path';
+ import * as T from '../../vendor/build/three.module.js';
+ import {reconstructionSourceIdentity} from '../../tools/reconstruction-source-identity.mjs';
++import {CPU_BACKEND_354,cpuMemoryBudget354} from './cpu-memory354.mjs';
+ const HERE=resolve(import.meta.dirname),REPO=resolve(HERE,'../..'),sha=b=>createHash('sha256').update(b).digest('hex');
+ const argv=process.argv.slice(2),mode=argv.shift(),args={};for(let i=0;i<argv.length;i+=2){if(!argv[i].startsWith('--')||argv[i+1]===undefined)throw Error('Use --name value arguments');args[argv[i].slice(2)]=argv[i+1];}
+ const json=async p=>JSON.parse(await readFile(p,'utf8')),safeOutput=p=>{const q=resolve(p);if(!q.startsWith(HERE+'/'))throw Error('All new outputs must remain inside scene06-physical252');return q;};
+@@ -31,7 +32,7 @@
+ }
+ 
+ if(mode==='catalog'){
+- const files=['export-source252.mjs','pipeline252.mjs',...core,'physical252-settings.template.json'];const records=await Promise.all(files.map(async file=>({file,sha256:sha(await readFile(resolve(HERE,file))),bytes:(await stat(resolve(HERE,file))).size})));const out={status:'complete-script-review-request-not-authorized-to-run-old-source',recipeSha256:await recipeHash(),files:records,exactNewSourcePending:true,officialFifo:'tools/run-blender-queued.mjs and shared acquireGpuRenderSlot for owned metadata-complete exporter',actualExportOrRenderRun:false,photographicAccepted:false};await writeFile(resolve(HERE,'review-request252.json'),JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out,null,2));
++ const files=['export-source252.mjs','pipeline252.mjs','cpu-memory354.mjs',...core,'physical252-settings.template.json'];const records=await Promise.all(files.map(async file=>({file,sha256:sha(await readFile(resolve(HERE,file))),bytes:(await stat(resolve(HERE,file))).size})));const out={status:'complete-script-review-request-not-authorized-to-run-old-source',recipeSha256:await recipeHash(),files:records,exactNewSourcePending:true,officialFifo:'tools/run-blender-queued.mjs and shared acquireGpuRenderSlot for owned metadata-complete exporter',actualExportOrRenderRun:false,photographicAccepted:false};await writeFile(resolve(HERE,'review-request252.json'),JSON.stringify(out,null,2)+'\n');console.log(JSON.stringify(out,null,2));
+ }else if(mode==='export'){
+  const pin=args.source;if(!/^[a-f0-9]{64}$/.test(pin??''))throw Error('Exact Root-provided NEW source hash required');
+  const driver=resolve(HERE,'export-source252.mjs'),driverSHA=sha(await readFile(driver));if(args['reviewed-exporter-sha']!==driverSHA)throw Error('Root review of the complete exporter hash is required first');
+@@ -47,6 +48,7 @@
+  if(!Array.isArray(bounds.boundsYUp)||bounds.boundsYUp.length!==2||!bounds.boundsYUp.every(v=>Array.isArray(v)&&v.length===3&&v.every(Number.isFinite))||!bounds.sourceEvidence)throw Error('Actual source room bounds and source evidence required; do not guess a volume');
+  for(let i=0;i<3;i++)if(bounds.boundsYUp[1][i]<=bounds.boundsYUp[0][i])throw Error('Invalid actual room bounds');
+  settings.expectedSourceHash=pin;settings.exportDirectory=root;settings.outputDirectory=safeOutput(args['render-output']??resolve(HERE,'r01'));settings.roomBoundsYUp=bounds.boundsYUp;settings.roomBoundsSourceEvidence=bounds.sourceEvidence;settings.rootReviewedRecipeSha256=args['reviewed-recipe-sha']??null;
++ if(verification.memory.backend===CPU_BACKEND_354){settings.render.device='CPU';settings.memory.schemaBudget=verification.memory.assumption;}
+  const output=safeOutput(args.output??resolve(HERE,'settings-r01.json'));await writeFile(output,JSON.stringify(settings,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({settings:output,sourceHash:pin,recipeSha256:await recipeHash(),reviewRecorded:settings.rootReviewedRecipeSha256!==null,actualGPUJobStarted:false},null,2));
+ }else if(mode==='verify'){
+  const root=resolve(args.package??''),pin=args.source;if(!/^[a-f0-9]{64}$/.test(pin??''))throw Error('Exact source hash required');
+@@ -83,18 +85,21 @@
+  if(effective!==scene.statistics.triangles||sourceInstances!==scene.statistics.instances)throw Error('All current source instances/triangles must be accounted for');
+  for(const m of scene.materials)if(m.hasDisplacementMap&&m.displacementScale!==0)throw Error('Undeformed displaced source is not an exact geometry package');
+  const textureKeys=new Set();let imagePixels=background354?background354.width*background354.height:0;for(const tex of scene.textures){const payload=tex.file??tex.data?.file;if(tex.sourceImageURI?.includes('/references/'))throw Error('Reference imagery is a comparison input, never a physical material');if(tex.premultiplyAlpha)throw Error('A source premultiplied texture needs an explicit reviewed RGB/alpha port');if(!payload||!report.exportedAssets[payload])throw Error('Original source PBR image absent');if(tex.wrapS===undefined||tex.wrapT===undefined)throw Error('Source wrapping metadata absent');const key=report.exportedAssets[payload].sha256+':'+tex.colorSpace+':'+tex.width+':'+tex.height+':'+(tex.storage??'png');if(!textureKeys.has(key)){textureKeys.add(key);imagePixels+=tex.width*tex.height;}}
+- const memoryParts={boundedSourceBufferWorkingSet:template.memory.sourceBufferCacheBytes+largestGeometryPayloadBytes,blenderMeshes:(vertices+bakedVertices)*64+(triangles+bakedTriangles)*144+(uvLoops+bakedUVLoops)*8+(uvPointVertices+bakedUVPointVertices)*12+retainedSourceAttributeBytes+bakedVertices*36,prototypeBVHAndDevice:(triangles+bakedTriangles)*144+(vertices+bakedVertices)*48,decodedImagesAndDeviceMipmaps:imagePixels*16*2.5,largestAttributeTransferTemporary:maxVertices*64,pointAndInstanceAttributes:sourceInstances*192,renderDenoisingAndApplication:2*1024**3};const estimatedResidentBytes=Math.ceil(Object.values(memoryParts).reduce((a,b)=>a+b,0)*1.25),memory=await availableMemory(),disk=await statfs(HERE);
+- const budgetPath=safeOutput(args['budget-output']??resolve(HERE,'resource-budget-'+pin.slice(0,12)+'-'+Date.now()+'.json')),budget={sourceHash:pin,allPayloadHashesVerified:true,sourceTriangles:effective,sourceInstances,sourceMaterialRecords:scene.materials.length,uniqueExactImportedAppearances:appearanceClasses.size,exactContentAndAppearancePrototypeVariants:prototypeKeys.size,geometryContributions:geometryContributions.sort((a,b)=>(b.prototypeMeshBytes+b.prototypeDeviceBytes)-(a.prototypeMeshBytes+a.prototypeDeviceBytes)),uniqueBytes,memory:{parts:memoryParts,estimatedResidentBytes,actualAvailable:memory},strictImporterCapBytes:template.memory.maximumEstimatedResidentBytes,actualReserveBytes:template.memory.minimumOtherAvailableReserveBytes,canImport:estimatedResidentBytes<=template.memory.maximumEstimatedResidentBytes&&memory.bytes>=estimatedResidentBytes+template.memory.minimumOtherAvailableReserveBytes,photographicAccepted:false};await writeFile(budgetPath,JSON.stringify(budget,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({event:'exact-content-appearance-resource-budget',budgetPath,canImport:budget.canImport,estimatedResidentBytes,prototypeVariants:prototypeKeys.size,uniqueAppearances:appearanceClasses.size}));
++ const backend=args.backend??'METAL';if(!['METAL',CPU_BACKEND_354].includes(backend))throw Error('Use an explicit reviewed backend');
++ const cpuBudget=backend===CPU_BACKEND_354?cpuMemoryBudget354({vertices,triangles,bakedVertices,bakedTriangles,uvLoops,bakedUVLoops,uvPointVertices,bakedUVPointVertices,retainedSourceAttributeBytes,imagePixels,sourceInstances,effective,maxVertices,largestGeometryPayloadBytes,sourceBufferCacheBytes:template.memory.sourceBufferCacheBytes}):null;
++ const memoryParts=cpuBudget?.parts??{boundedSourceBufferWorkingSet:template.memory.sourceBufferCacheBytes+largestGeometryPayloadBytes,blenderMeshes:(vertices+bakedVertices)*64+(triangles+bakedTriangles)*144+(uvLoops+bakedUVLoops)*8+(uvPointVertices+bakedUVPointVertices)*12+retainedSourceAttributeBytes+bakedVertices*36,prototypeBVHAndDevice:(triangles+bakedTriangles)*144+(vertices+bakedVertices)*48,decodedImagesAndDeviceMipmaps:imagePixels*16*2.5,largestAttributeTransferTemporary:maxVertices*64,pointAndInstanceAttributes:sourceInstances*192,renderDenoisingAndApplication:2*1024**3};const estimatedResidentBytes=cpuBudget?.estimatedResidentBytes??Math.ceil(Object.values(memoryParts).reduce((a,b)=>a+b,0)*1.25),memory=await availableMemory(),disk=await statfs(HERE);
++ const budgetPath=safeOutput(args['budget-output']??resolve(HERE,'resource-budget-'+pin.slice(0,12)+'-'+Date.now()+'.json')),budget={sourceHash:pin,allPayloadHashesVerified:true,sourceTriangles:effective,sourceInstances,sourceMaterialRecords:scene.materials.length,uniqueExactImportedAppearances:appearanceClasses.size,exactContentAndAppearancePrototypeVariants:prototypeKeys.size,geometryContributions:geometryContributions.sort((a,b)=>(b.prototypeMeshBytes+b.prototypeDeviceBytes)-(a.prototypeMeshBytes+a.prototypeDeviceBytes)),uniqueBytes,memory:{...(cpuBudget??{backend:'METAL'}),parts:memoryParts,estimatedResidentBytes,actualAvailable:memory},strictImporterCapBytes:template.memory.maximumEstimatedResidentBytes,actualReserveBytes:template.memory.minimumOtherAvailableReserveBytes,canImport:estimatedResidentBytes<=template.memory.maximumEstimatedResidentBytes&&memory.bytes>=estimatedResidentBytes+template.memory.minimumOtherAvailableReserveBytes,photographicAccepted:false};await writeFile(budgetPath,JSON.stringify(budget,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({event:'exact-content-appearance-resource-budget',budgetPath,canImport:budget.canImport,estimatedResidentBytes,prototypeVariants:prototypeKeys.size,uniqueAppearances:appearanceClasses.size}));
+  if(!budget.canImport)throw Error('Complete exact import exceeds strict actual budget; component contributions preserved at '+budgetPath+'; no model simplification or import submitted');
+  if(disk.bavail*disk.bsize<template.storage.minimumRenderStartFreeBytes)throw Error('Actual render disk start threshold not met');
+- const verification={status:'all-payloads-and-resource-budget-verified',sourceHash:pin,manifestSha256:sha(manifestBytes),exportReportSha256:sha(reportBytes),allPayloadsVerified:true,logicalBytes,uniqueBytes,verifiedPayloads:hashes,sourceTriangles:effective,sourceInstances,prototypeVariants:prototypeKeys.size,sourceMaterialRecords:scene.materials.length,uniqueExactImportedAppearances:appearanceClasses.size,geometryContributions:geometryContributions.sort((a,b)=>(b.prototypeMeshBytes+b.prototypeDeviceBytes)-(a.prototypeMeshBytes+a.prototypeDeviceBytes)),memory:{parts:memoryParts,estimatedResidentBytes,actualAvailable:memory,assumption:'Conservative mesh/attribute/BVH/texture/normal-temporary estimate; actual render RSS remains a measured result, not predicted certainty.'},actualFreeBytes:disk.bavail*disk.bsize,verifiedAt:new Date().toISOString(),nativePixelEquivalent:false};
++ const verification={status:'all-payloads-and-resource-budget-verified',sourceHash:pin,manifestSha256:sha(manifestBytes),exportReportSha256:sha(reportBytes),allPayloadsVerified:true,logicalBytes,uniqueBytes,verifiedPayloads:hashes,sourceTriangles:effective,sourceInstances,prototypeVariants:prototypeKeys.size,sourceMaterialRecords:scene.materials.length,uniqueExactImportedAppearances:appearanceClasses.size,geometryContributions:geometryContributions.sort((a,b)=>(b.prototypeMeshBytes+b.prototypeDeviceBytes)-(a.prototypeMeshBytes+a.prototypeDeviceBytes)),memory:{...(cpuBudget??{backend:'METAL'}),parts:memoryParts,estimatedResidentBytes,actualAvailable:memory,assumption:cpuBudget?.assumption??'Conservative mesh/attribute/BVH/texture/normal-temporary estimate; actual render RSS remains a measured result, not predicted certainty.'},actualFreeBytes:disk.bavail*disk.bsize,verifiedAt:new Date().toISOString(),nativePixelEquivalent:false};
+  const path=safeOutput(args.output??resolve(HERE,'verification-'+pin.slice(0,12)+'.json'));await writeFile(path,JSON.stringify(verification,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({path,sourceHash:pin,uniqueBytes,estimatedResidentBytes,actualAvailableBytes:memory.bytes,sourceTriangles:effective},null,2));
+ }else if(mode==='render'){
+  const settingsPath=safeOutput(args.settings??''),verificationPath=safeOutput(args.verification??''),settings=await json(settingsPath),verification=await json(verificationPath),hash=await recipeHash();
+  if(args['reviewed-recipe-sha']!==hash||settings.rootReviewedRecipeSha256!==hash)throw Error('Root review of the exact complete Python recipe is required first');
+  if(settings.expectedSourceHash!==verification.sourceHash||verification.status!=='all-payloads-and-resource-budget-verified')throw Error('Source/settings/verification differ');
++ const settingsBackend=settings.render.device==='CPU'?CPU_BACKEND_354:settings.render.device;if((verification.memory.backend??'METAL')!==settingsBackend)throw Error('Render backend differs from its verified full-scene memory budget');
+  const disk=await statfs(HERE),memory=await availableMemory();if(disk.bavail*disk.bsize<settings.storage.minimumRenderStartFreeBytes||memory.bytes<verification.memory.estimatedResidentBytes+settings.memory.minimumOtherAvailableReserveBytes)throw Error('Actual resource start gate changed while waiting');
+  if(settings.render.frames!==1||settings.render.saveBlend||settings.render.size!==1254)throw Error('One1254 no-Blend boundary changed');safeOutput(settings.outputDirectory);if(existsSync(settings.outputDirectory))throw Error('Fresh physical output required; do not overwrite evidence');
+- const attempt=safeOutput(args.receipt??resolve(HERE,'render-attempt-'+settings.expectedSourceHash.slice(0,12)+'-'+relative(HERE,settings.outputDirectory).replaceAll('/','-')+'.json')),receipt={status:'submitted-one-official-Cycles-frame',sourceHash:settings.expectedSourceHash,recipeSha256:hash,settingsSha256:sha(await readFile(settingsPath)),verificationSha256:sha(await readFile(verificationPath)),driver:'tools/run-blender-queued.mjs',driverSha256:sha(await readFile(resolve(REPO,'tools/run-blender-queued.mjs'))),submittedAt:new Date().toISOString(),actualFreeBytes:disk.bavail*disk.bsize,actualMemory:memory};await writeFile(attempt,JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
++ const attempt=safeOutput(args.receipt??resolve(HERE,'render-attempt-'+settings.expectedSourceHash.slice(0,12)+'-'+relative(HERE,settings.outputDirectory).replaceAll('/','-')+'.json')),receipt={status:'submitted-one-official-Cycles-frame',sourceHash:settings.expectedSourceHash,recipeSha256:hash,settingsSha256:sha(await readFile(settingsPath)),verificationSha256:sha(await readFile(verificationPath)),backend:settingsBackend,sourceTriangles:verification.sourceTriangles,driver:'tools/run-blender-queued.mjs',driverSha256:sha(await readFile(resolve(REPO,'tools/run-blender-queued.mjs'))),submittedAt:new Date().toISOString(),actualFreeBytes:disk.bavail*disk.bsize,actualMemory:memory};await writeFile(attempt,JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});
+  const child=spawn(process.execPath,[resolve(REPO,'tools/run-blender-queued.mjs'),resolve(HERE,'render-physical252.py')],{cwd:REPO,env:{...process.env,PHYSICAL252_SETTINGS:settingsPath,PHYSICAL252_VERIFICATION:verificationPath},stdio:'inherit'});await monitor(child,receipt,attempt,settings.storage.emergencyFreeBytes,settings.memory);
+-}else throw Error('Modes: catalog | export --native-root ROOT --source HASH --output OWN_EXPORT --reviewed-exporter-sha HASH | verify --package EXPORT --source HASH --output OWN_VERIFICATION | render --settings OWN_SETTINGS --verification OWN_VERIFICATION --reviewed-recipe-sha HASH');
++}else throw Error('Modes: catalog | export --native-root ROOT --source HASH --output OWN_EXPORT --reviewed-exporter-sha HASH | verify --package EXPORT --source HASH --output OWN_VERIFICATION [--backend CPU_EMBREE_COMPACT] | render --settings OWN_SETTINGS --verification OWN_VERIFICATION --reviewed-recipe-sha HASH');
