@@ -1,0 +1,223 @@
+{
+  "status": "Selected bounded deep-portal and ritual-fixture improvement for root review. Photographic acceptance remains false.",
+  "baselineSource": "6144ae20e2f2b57d00bf8b546ea37df6d6bcdb024ed0d53f4543c84d70d7fc84",
+  "sourceIdentity": "f7794290736f955fdb2ed84909ab58d80080b7f2fb0233b5f0fe60cf6ffdc3e1",
+  "canonicalSourceAtHandoff": "6144ae20e2f2b57d00bf8b546ea37df6d6bcdb024ed0d53f4543c84d70d7fc84",
+  "selectedCandidate": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04",
+  "integrationPatch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/scene03-portal371-r04-over-355r04.patch",
+  "patchSha256": "befdfbaa1b310e891e1c7358db8a99ae66eca1b68a5cc6ffb812181650641115",
+  "changedFiles": [
+    {
+      "path": "reconstructions/scene-03/portal371-provenance.json",
+      "before": null,
+      "sha256": "21f586bd1a93b3f5217e375c53942a74137b652951585fa127f5f21727db42a8"
+    },
+    {
+      "path": "reconstructions/scene-03/src/entrance-sanctuary.js",
+      "before": "4d986544aadaae0c407591fa3311606756a40dce37519b6abe3743711e606a1b",
+      "sha256": "f3b441d0509ea1f380bfd65337805ceb4bc5321e55cdd2cef9934bf11dd27c68"
+    },
+    {
+      "path": "reconstructions/scene-03/src/main.js",
+      "before": "d0892163f709a4f7b372fb098cc76737558921076081b93f86a77df55185feec",
+      "sha256": "5dc6ec28395ac1c674aa7306a6cfd3028997d3dc0078517e23e56d955f83780a"
+    },
+    {
+      "path": "reconstructions/scene-03/src/scene03-ritual-portal371.js",
+      "before": null,
+      "sha256": "e8960460ab3f9432497450dba53e4a60d4dbaed51dfffb53a4f8fc2a5e8ea998"
+    }
+  ],
+  "nativeImages": [
+    {
+      "name": "reference",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04/qa/ten-reference/03/iteration-scene03-portal371-r04-full-detail/reference.png",
+      "pngSha256": "5f4743dd1507f2344912b0ad7c98372a1f0ba0614f2bb0310c8ed7fba26d2074",
+      "rgbaSha256": "3f7064a691eb920ef8dab27ee4e31c2fc2d39724249fb761b601068786455692",
+      "source": "f7794290736f955fdb2ed84909ab58d80080b7f2fb0233b5f0fe60cf6ffdc3e1",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": null,
+      "valid": true,
+      "personallyViewed": true
+    },
+    {
+      "name": "detail-native",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04/qa/ten-reference/03/iteration-scene03-portal371-r04-full-detail/detail-native.png",
+      "pngSha256": "00db77eae72390c63807b55a26b7f18cfbe8362b851ac8b79b50ab8b68d1e09b",
+      "rgbaSha256": "99e9a0a0772e23b638a9b61a354438f996b53c7ad5b15685813e53e8a6e60757",
+      "source": "f7794290736f955fdb2ed84909ab58d80080b7f2fb0233b5f0fe60cf6ffdc3e1",
+      "width": 1254,
+      "height": 1254,
+      "detailCrop": [
+        565,
+        440,
+        610,
+        1254
+      ],
+      "valid": true,
+      "personallyViewed": true
+    },
+    {
+      "name": "inspection-view",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04/qa/ten-reference/03/iteration-scene03-portal371-r04-oblique/inspection-view.png",
+      "pngSha256": "bffc0e2c92061603bbd8d2a9a0bcf9035a4d0bb7f82dc149de75068fa2bdcba1",
+      "rgbaSha256": "6b48fd6c1d28f69b3c3d296426bdb6866a9626b69692b2d2315b15e0088d92b7",
+      "source": "f7794290736f955fdb2ed84909ab58d80080b7f2fb0233b5f0fe60cf6ffdc3e1",
+      "width": 1000,
+      "height": 1000,
+      "detailCrop": null,
+      "valid": true,
+      "personallyViewed": true
+    }
+  ],
+  "renderReports": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04/qa/ten-reference/03/iteration-scene03-portal371-r04-full-detail/report.json",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/candidate-r04/qa/ten-reference/03/iteration-scene03-portal371-r04-oblique/report.json"
+  ],
+  "implementation": [
+    "Replaced the small low wire cage with a world-fixed rounded central gilt lantern:16 closed warped copper panels,128 pierced floral cells,128 panel-seated closed repousse petals, cast crown/basin, recessed original paper core and a housed ceiling bearer/short suspension.",
+    "Observed HD approximate lamp centre[858,562]; previous physical source projected[890.584,611.323]. New hall-local centre[.70,6.84,-1] uses a chosen real portal depth, preserves2.04m floor clearance and has no camera-dependent deformation.",
+    "Added two receding inner portal frames, founded jambs, carried open foliate lintels, housed coffered ceiling ties and a low supported ritual screen with1.10m central aisle. Existing authored scene03-sculpted-timber109 geometry supplies the actual branching relief.",
+    "Shortened only the ivory central noren to1.40m at its retained top, and added closed rod/loops/suspensions plus two housed timber outreach arms. Side banners and four existing outer lantern bodies/supports stay exact."
+  ],
+  "validation": {
+    "officialRenderer": "tools/render-one-reconstruction.mjs",
+    "allGpuCapturesSharedFifo": true,
+    "allFinalFramesValid": true,
+    "finalSourceRevalidated": true,
+    "glErrors": [
+      0,
+      0,
+      0
+    ],
+    "allProgramsLinked": true,
+    "preservationAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/preservation-audit-r04.json",
+    "retainedNativeInfoDomains": 29,
+    "protectedExactModules": 19,
+    "botanicalDofPathSourceRegionExact": true,
+    "originalLightingArchitectureSetupRegionExact": true,
+    "originalShrineAndLightsRetainedApartFromAdditiveThresholdCall": true,
+    "lampCpuAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/cpu-ritual-audit-r04.json",
+    "lampClosedSolidInstances": 235,
+    "lampAuditedVertices": 325168,
+    "lampAllFiniteClosedManifoldPositiveVolume": true,
+    "thresholdCpuAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene03-portal371/cpu-threshold-audit-r04.json",
+    "newThresholdMeshes": 106,
+    "thresholdFinitePositiveVolume": true,
+    "norenStaffEmbedMetres": 0.01249999999999929
+  },
+  "review": {
+    "full": "Compared unchanged HD03, baseline355R04 and four actual candidate rounds. Lamp registration/roundness and the shadowed framed inner entry are closer; foreground355 remains held.",
+    "portal": "Genuine[565,440,610,1254]subfrustum inspected. The early pale rectangular fields were replaced by actual closed branching open relief, and the lamp received real small conforming repousse petals.",
+    "oblique": "Actual1000px elevated three-quarter inspection shows founded screen/jambs, receding framed thresholds, ceiling support and registered lamp. Existing private shrine icon/table remain in place.",
+    "earlierCandidates": {
+      "r01": "Superseded: pale rectangular applied-looking inner fields and overly visible paper core.",
+      "r02": "Superseded: improved open relief, but smooth/striped lantern panels still lacked surface carving and central cloth had no explicit suspension.",
+      "r03": "Superseded: repousse petals were oversized and noren staff needed its final12.5mm insertion into the timber arms."
+    },
+    "visualAccepted": false
+  },
+  "protected355": {
+    "cameraPathMetres": 0.6605637895626322,
+    "foreFlowerMetricSourceHeld": true,
+    "petalsLeavesBudPigmentAndRngHeld": true,
+    "depthOfFieldAndFocusRampHeld": true,
+    "completeMainProtectedRegionSha256": "3222f5acd9fafcfabb3ddd643b5b426b66e86613987d2a4c89d9b0cce8d45649",
+    "protectedModules": [
+      {
+        "path": "src/architecture-layout106.js",
+        "identical": true
+      },
+      {
+        "path": "src/hall-layout.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-foreground211.js",
+        "identical": true
+      },
+      {
+        "path": "src/restoration-lotus-petal.js",
+        "identical": true
+      },
+      {
+        "path": "src/restoration-lotus-leaf.js",
+        "identical": true
+      },
+      {
+        "path": "src/lotus-material.js",
+        "identical": true
+      },
+      {
+        "path": "src/lotus-bud98.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-lotus-stem107.js",
+        "identical": true
+      },
+      {
+        "path": "src/lens03-coc101.js",
+        "identical": true
+      },
+      {
+        "path": "src/reference4-architecture.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-facade308.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-lantern211.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-lantern-support180.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-noren211.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-daylight108.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-atmosphere109.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-living-banks.js",
+        "identical": true
+      },
+      {
+        "path": "src/water-surface.js",
+        "identical": true
+      },
+      {
+        "path": "src/scene03-sculpted-timber109.js",
+        "identical": true
+      }
+    ]
+  },
+  "remainingGaps": [
+    "The inner icon remains more conspicuous/brighter than the deeply shadowed reference entrance under the retained light setup.",
+    "The new lamp/foliate patterns are authored approximations and remain more regular than the photographed ornate casting.",
+    "Main roof/carpentry density, material integration, sky/garden and overall photographic fidelity remain unresolved outside this bounded portal repair.",
+    "Hidden joinery, ritual arrangement and lantern casting are inferred; no surveyed/historical certification or solved-GI claim."
+  ],
+  "boundary": {
+    "canonicalFilesEdited": false,
+    "gitOperations": false,
+    "extraAgents": false,
+    "newExternalMedia": false,
+    "referencePhotoplane": false,
+    "copyMethod": "APFS cp-cR COW scene/dependency snapshots, real server.mjs, frozen vendor snapshot; no mutable hardlinks",
+    "lastObservedFreeSpace": "2.4GiB"
+  },
+  "completedAt": "2026-10-26T18:30:32.548Z",
+  "visualAccepted": false
+}

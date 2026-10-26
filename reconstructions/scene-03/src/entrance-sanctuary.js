@@ -1,4 +1,6 @@
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+import {createSculptedTimber109} from './scene03-sculpted-timber109.js';
+import {buildInnerThreshold371} from './scene03-ritual-portal371.js';
 import {restoredBuddhaParts,RESTORED_BUDDHA_METRICS} from './scene03-sanctuary-buddha.js';
 
 // A local shrine behind the retained entrance, not a luminous panel. The
@@ -80,8 +82,9 @@ export function createEntranceSanctuary(T,architecture){
  for(const s of[-1,1])mesh(own(new T.TorusGeometry(.075,.012,10,32)),oldgold,[tableX+s*.185,burnerY+.16,tableZ+.10],[1,1,1],[0,Math.PI/2,0],'shrine-incense-burner-closed-handle');
  turned('shrine-small-offering-dish',[[0,0],[.065,0],[.07,.014],[.14,.035],[.145,.05],[.13,.056],[.065,.027],[0,.027]],[tableX+.37,tableTop+.022,tableZ+.13],gilt);
 
+ const ritualThreshold371=buildInnerThreshold371(T,{floor,box,mesh,own,timber,lacquer,endgrain,gilt,oldgold,carving:createSculptedTimber109(T,own)});
  architecture.group.add(root);root.updateMatrixWorld(true);
  let triangles=0;for(const object of parts){const g=object.geometry;triangles+=(g.index?.count??g.attributes.position.count)/3;}
- return {info:{scope:'One opened retained portal and a supported recessed inner shrine',floorY:floor,innerRoom:{width:4.44,frontZ:-1.06,backZ:-5.08},figure:{center:[iconX,seat,iconZ],scale:iconScale,crownY:seat+RESTORED_BUDDHA_METRICS.crownTop*iconScale,kneeWidth:RESTORED_BUDDHA_METRICS.kneeWidth*iconScale,fullAuthoredAnatomy:true,variant:'Reference06 central seated icon reused as an interpreted stand-in'},triangles,meshes:parts.length,visualAccepted:false},
+ return {info:{scope:'One opened retained portal and a supported recessed inner shrine',floorY:floor,ritualThreshold371,innerRoom:{width:4.44,frontZ:-1.06,backZ:-5.08},figure:{center:[iconX,seat,iconZ],scale:iconScale,crownY:seat+RESTORED_BUDDHA_METRICS.crownTop*iconScale,kneeWidth:RESTORED_BUDDHA_METRICS.kneeWidth*iconScale,fullAuthoredAnatomy:true,variant:'Reference06 central seated icon reused as an interpreted stand-in'},triangles,meshes:parts.length,visualAccepted:false},
   dispose(){architecture.group.remove(root);for(const g of geos)g.dispose();for(const m of materials)m.dispose();}};
 }

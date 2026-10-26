@@ -1,0 +1,210 @@
+--- /dev/null
++++ b/reconstructions/scene-03/portal371-provenance.json
+@@ -0,0 +1,40 @@
++{
++  "revision": "scene03-portal371-r04",
++  "baselineSource": "6144ae20e2f2b57d00bf8b546ea37df6d6bcdb024ed0d53f4543c84d70d7fc84",
++  "reference": "references/hd/2-照片-3.jpg comparison only",
++  "referencePixelsOrProjection": false,
++  "newExternalAssets": [],
++  "geometry": [
++    "A closed rounded central ritual lamp with16 warped pierced copper panels,128 floral apertures,128 panel-seated closed repousse petals, recessed original paper material, cast crown/basin and a continuous ceiling-fixed bearer/suspension.",
++    "Two receding inner portal frames with founded jambs, housed/coffered ceiling ties, separately carried open foliate lintel carvings and an actual low ritual screen with1.10m central aisle.",
++    "Existing authored scene03-sculpted-timber109 closed branching floral geometry is fitted onto solid real lintel/jamb/screen/coffer hosts. No new donor scan or bitmap.",
++    "Central ivory noren shortened from1.9674895 to1.40m while preserving its original top, with a closed support rod, housed timber outreach, suspensions and clips. Side noren and four outer lamps remain exact."
++  ],
++  "registeredLamp": {
++    "observedHDApproximateCentre": [
++      858,
++      562
++    ],
++    "previousActualCentre": [
++      890.584,
++      611.323
++    ],
++    "authoredHallCentre": [
++      0.7,
++      6.84,
++      -1.0
++    ],
++    "floorY": 4.0,
++    "minimumHeadClearance": 2.04,
++    "depthInference": "One world-fixed authored portal depth; no camera-dependent deformation."
++  },
++  "preserved": [
++    "355R04 metric flower/leaf/bud geometry, pigments, placements and RNG replay",
++    "355R04 depth-of-field, focus ramp and66cm true close-to-wide path",
++    "Reference camera, hall/tower/roof data, outer portal casing geometry, bridge/stair/garden geometry",
++    "All existing scene/shrine point/area/key/HDR lights, exposure and material parameter values"
++  ],
++  "inference": "Hidden room/joinery dimensions and ritual-lantern ornament remain authored spatial interpretations, not a survey, artifact identification or structural certification.",
++  "visualAccepted": false,
++  "finalContactRepair": "Noren suspensions enter the housed outreach solids by12.5mm; panel-seated repousse petals are finer than the oversized R03 relief while all body/portal/camera/light datums remain."
++}
+--- a/reconstructions/scene-03/src/entrance-sanctuary.js
++++ b/reconstructions/scene-03/src/entrance-sanctuary.js
+@@ -1,4 +1,6 @@
+ import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
++import {createSculptedTimber109} from './scene03-sculpted-timber109.js';
++import {buildInnerThreshold371} from './scene03-ritual-portal371.js';
+ import {restoredBuddhaParts,RESTORED_BUDDHA_METRICS} from './scene03-sanctuary-buddha.js';
+ 
+ // A local shrine behind the retained entrance, not a luminous panel. The
+@@ -80,8 +82,9 @@
+  for(const s of[-1,1])mesh(own(new T.TorusGeometry(.075,.012,10,32)),oldgold,[tableX+s*.185,burnerY+.16,tableZ+.10],[1,1,1],[0,Math.PI/2,0],'shrine-incense-burner-closed-handle');
+  turned('shrine-small-offering-dish',[[0,0],[.065,0],[.07,.014],[.14,.035],[.145,.05],[.13,.056],[.065,.027],[0,.027]],[tableX+.37,tableTop+.022,tableZ+.13],gilt);
+ 
++ const ritualThreshold371=buildInnerThreshold371(T,{floor,box,mesh,own,timber,lacquer,endgrain,gilt,oldgold,carving:createSculptedTimber109(T,own)});
+  architecture.group.add(root);root.updateMatrixWorld(true);
+  let triangles=0;for(const object of parts){const g=object.geometry;triangles+=(g.index?.count??g.attributes.position.count)/3;}
+- return {info:{scope:'One opened retained portal and a supported recessed inner shrine',floorY:floor,innerRoom:{width:4.44,frontZ:-1.06,backZ:-5.08},figure:{center:[iconX,seat,iconZ],scale:iconScale,crownY:seat+RESTORED_BUDDHA_METRICS.crownTop*iconScale,kneeWidth:RESTORED_BUDDHA_METRICS.kneeWidth*iconScale,fullAuthoredAnatomy:true,variant:'Reference06 central seated icon reused as an interpreted stand-in'},triangles,meshes:parts.length,visualAccepted:false},
++ return {info:{scope:'One opened retained portal and a supported recessed inner shrine',floorY:floor,ritualThreshold371,innerRoom:{width:4.44,frontZ:-1.06,backZ:-5.08},figure:{center:[iconX,seat,iconZ],scale:iconScale,crownY:seat+RESTORED_BUDDHA_METRICS.crownTop*iconScale,kneeWidth:RESTORED_BUDDHA_METRICS.kneeWidth*iconScale,fullAuthoredAnatomy:true,variant:'Reference06 central seated icon reused as an interpreted stand-in'},triangles,meshes:parts.length,visualAccepted:false},
+   dispose(){architecture.group.remove(root);for(const g of geos)g.dispose();for(const m of materials)m.dispose();}};
+ }
+--- a/reconstructions/scene-03/src/main.js
++++ b/reconstructions/scene-03/src/main.js
+@@ -18,6 +18,7 @@
+ import {buildLanternSupports180} from './scene03-lantern-support180.js';
+ import {buildHangingLantern211} from './scene03-lantern211.js';
+ import {buildNoren211} from './scene03-noren211.js';
++import {buildRitualLantern371} from './scene03-ritual-portal371.js';
+ import {sculptForegroundLeaf211,foregroundPlacement211} from './scene03-foreground211.js';
+ import {createEntranceSanctuary} from './entrance-sanctuary.js';
+ import {installEntryGranite} from './granite-entry-steps.js';
+@@ -115,12 +116,10 @@
+ // Gold hanging fixtures, door curtains and chrysanthemum crests animate the hall facade.
+ const curtain=mat('ivory woven noren','#e4dbc1');const norenGold211=gold.clone();norenGold211.name='scene03-gold-thread-family-crest211';norenGold211.roughness=.68;norenGold211.metalness=.38;mats.norenGold211=norenGold211;
+ root=hallFixtureMatrix(T);
+-for(let x of[1.6,5,8.4]){const centre=x===5,y=centre?fit106.facade.curtainY:6.60,xx=x+(centre?fit106.facade.curtainX:0),h=centre?fit106.facade.curtainHeight:1.80;buildNoren211(T,{emit,cloth:centre?curtain:architecture.materials.black,gold:norenGold211},[xx,y,-2.15],centre?1.16:1.22,h,x);}
++const ritualNoren371=[];for(let x of[1.6,5,8.4]){const centre=x===5,h=centre?1.40:1.80,y=centre?fit106.facade.curtainY+(fit106.facade.curtainHeight-h)/2:6.60,xx=x+(centre?fit106.facade.curtainX:0);ritualNoren371.push(buildNoren211(T,{emit,cloth:centre?curtain:architecture.materials.black,gold:norenGold211},[xx,y,-2.15],centre?1.16:1.22,h,x));}
+ const lanternSupports180=buildLanternSupports180(T,{emit,box,between,gold,bronze:black,wood:architecture.materials.cedar});
+ const hangingLanterns211=[];for(const x of[-.8,2.0,8.0,10.8])hangingLanterns211.push(buildHangingLantern211(T,{emit,gold,bronze:black,paper:warm},x,7.38,-.9));
+-// A substantial openwork gilt hanging lantern occupies the sanctuary, with
+-// actual radial ribs and rings revealing a warm paper core behind the metal.
+-at([6.3,5.25,-4.0],0,()=>{const profile=[[0,.15],[.12,.29],[.27,.40],[.46,.43],[.65,.38],[.82,.25],[.92,.13]],R=y=>{let k=Math.min(profile.length-2,Math.floor(y/.92*(profile.length-1))),t=(y-profile[k][0])/(profile[k+1][0]-profile[k][0]);return T.MathUtils.lerp(profile[k][1],profile[k+1][1],t);};emit(new T.CylinderGeometry(.27,.27,.65,24),warm,[0,.46,0]);for(let k=0;k<16;k++){let a=k*Math.PI*2/16;sweep(profile.map(([y,r])=>[Math.cos(a)*r,y,Math.sin(a)*r]),.022,gold);for(let j=0;j<5;j++){let y0=.12+j*.14,y1=y0+.14,a1=a+.16;between([Math.cos(a)*R(y0),y0,Math.sin(a)*R(y0)],[Math.cos(a1)*R(y1),y1,Math.sin(a1)*R(y1)],.011,gold);}}for(const [y,r]of profile)emit(new T.TorusGeometry(r,.025,8,32),gold,[0,y,0],[1,1,1],[Math.PI/2,0,0]);ell([0,-.07,0],[.13,.11,.13],gold);ell([0,-.22,0],[.04,.13,.04],gold);between([0,.93,0],[0,3.15,0],.013,gold);});
++const ritualLantern371=buildRitualLantern371(T,{emit,gold,bronze:black,paper:warm,wood:architecture.materials.cedar,noren:{centreX:5+fit106.facade.curtainX,topY:fit106.facade.curtainY+fit106.facade.curtainHeight/2,frontZ:-2.15,width:1.16}});
+ // The former isolated bowl/table is replaced by a supported inner shrine.
+ root.identity();
+ // Irregular flowering cherries, airy maples and angular pine branches: no crown spheres.
+@@ -226,6 +225,6 @@
+ function renderReference(n=3){if(n!==3)throw Error('Reference 03 only');return renderView(ref.position,ref.target,0,ref.fov)}
+ const dolly=createDollyPath({points:[[-2.05,.78,17.85],[-2.13,.78,18.04],[-2.34,.72,18.30],ref.position],nearTarget:[-2.305,.650,16.95],farTarget:ref.target,fov:ref.fov});
+ function renderShot(localTime=0){const p=dolly(localTime),nearFocus=Math.hypot(.255,.130,.90),rack=T.MathUtils.smoothstep(p.phase,.12,.58),focus=1/((1-rack)/nearFocus+rack/18),fov=T.MathUtils.lerp(52,p.fov,T.MathUtils.smoothstep(p.phase,.02,.70));return renderView(p.position,p.target,localTime,fov,focus);}
+-function info(){return{reference:3,revision:'scene03-flower355-r04-metric-pointed-unequal-open-petals',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,bridgeBearings107,towerGround106,fit106,foreground211:foregroundPlacement211,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),rootSurfaces108:rootSurfaces108.info,overhang108,daylight108,atmosphere109,reflectedLight174,timberMaterial211:scannedTimber.info,toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,floralScan109:floralScan109.info,carvedMount180:carvedMount180.info,lanternSupports180,hangingLanterns211,gablePigment180:{timber:architecture.materials.gableTimber180.color.toArray(),carvedTimber:architecture.materials.gableCarving.color.toArray(),recess:architecture.materials.gableRecess.color.toArray(),material:'CC0 wood scan multiplied by physically bounded lacquer pigment; gable-specific sun-facing calibration'},sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
++function info(){return{reference:3,revision:'scene03-portal371-r04-deep-threshold-and-rounded-ritual-lantern',ready:true,frames,camera:{position:camera.position.toArray(),target:lastTarget,fov:camera.fov},hallPlacement:{...hallPlacement},bridge:bridgeModel,bridgeBearings107,towerGround106,fit106,foreground211:foregroundPlacement211,stairPlacement:{...stairPlacement},livingGarden:livingGarden.info(),rootSurfaces108:rootSurfaces108.info,overhang108,daylight108,atmosphere109,reflectedLight174,timberMaterial211:scannedTimber.info,toros:toros.info(),optics:lens.userData.optics,water:{fresnelF0:((1.333-1)/(2.333))**2,phase:'world-space metres',opaqueMirror:false},geometryInstances:instances,architecture:architecture.stats,ranma:ranma.info,floralScan109:floralScan109.info,carvedMount180:carvedMount180.info,lanternSupports180,hangingLanterns211,ritualLantern371,ritualNoren371,gablePigment180:{timber:architecture.materials.gableTimber180.color.toArray(),carvedTimber:architecture.materials.gableCarving.color.toArray(),recess:architecture.materials.gableRecess.color.toArray(),material:'CC0 wood scan multiplied by physically bounded lacquer pigment; gable-specific sun-facing calibration'},sanctuary:sanctuary.info,entryGranite:entryGranite.info,renderer:{calls:geometryRender.calls,triangles:geometryRender.triangles,compositeCalls:renderer.info.render.calls},assets:'Authored closed hall/gallery/carpentry, bridge girders, folded lotus solids and carved granite toro; rooted CC0 garden understory on closed banks, retained shrine and 105 granite stair/cap stones; no reference scene image textures'}}
+ function dispose(){contactTarget344.dispose();contactMaterial344.dispose();contactScene344.children.forEach(o=>o.geometry.dispose());entryGranite.dispose();sanctuary.dispose();ranma.dispose();floralScan109.dispose();carvedMount180.dispose();scannedTimber.dispose();colourTarget.dispose();lens.dispose();water.dispose();water.geometry.dispose();waterBase.geometry.dispose();skyDome.geometry.dispose();skyDome.material.dispose();postScene.children.forEach(o=>o.geometry?.dispose());architecture.dispose();for(let g of geos)g.dispose();for(let t of textures)t.dispose();for(let m of Object.values(mats))m.dispose();pinks.forEach(m=>m.dispose());renderer.dispose()}
+ window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info,dispose};document.querySelector('#loading').remove();if(!q.has('defer'))renderReference();
+--- /dev/null
++++ b/reconstructions/scene-03/src/scene03-ritual-portal371.js
+@@ -0,0 +1,111 @@
++// Original scene03 ritual entrance solids. Reference03 is a comparison input;
++// no photograph, depth surface, new light, or camera-dependent geometry.
++export function buildRitualLantern371(T,{emit,gold,bronze,paper,wood,noren},pose=[5.70,6.84,-4.0]){
++ const stats={revision:'scene03-closed-rounded-pierced-ritual-lantern371-r04',poseFixture:pose,poseHall:[pose[0]-5,pose[1],pose[2]+3],panelCount:16,piercedCells:128,physicalMount:true,newLights:0,photographicAccepted:false};
++ const profile=[[-.48,.18],[-.42,.34],[-.28,.49],[-.08,.565],[.12,.56],[.30,.48],[.43,.30],[.48,.18]],radius=y=>{let i=0;while(i<profile.length-2&&y>profile[i+1][0])i++;const a=profile[i],b=profile[i+1];return T.MathUtils.lerp(a[1],b[1],(y-a[0])/(b[0]-a[0]));};
++ const at=(g,ma,p=[0,0,0],r=[0,0,0])=>emit(g,ma,[pose[0]+p[0],pose[1]+p[1],pose[2]+p[2]],[1,1,1],r);
++ function oriented(g,name){const p=g.attributes.position,ids=g.index?Array.from(g.index.array):Array.from({length:p.count},(_,i)=>i);let v=0;for(let i=0;i<ids.length;i+=3){const a=new T.Vector3().fromBufferAttribute(p,ids[i]),b=new T.Vector3().fromBufferAttribute(p,ids[i+1]),c=new T.Vector3().fromBufferAttribute(p,ids[i+2]);v+=a.dot(b.cross(c))/6;}if(v<0)for(let i=0;i<ids.length;i+=3)[ids[i+1],ids[i+2]]=[ids[i+2],ids[i+1]];g.setIndex(ids);g.computeVertexNormals();g.name=name;g.userData={closedRitualSolid371:true,signedVolume:Math.abs(v),photographicPixels:false};return g;}
++ function turned(points,ma,name,sides=64){return at(oriented(new T.LatheGeometry(points.map(p=>new T.Vector2(...p)),sides),name),ma);}
++ function ring(y,r,width=.025,height=.025,ma=gold){turned([[r-width,y-height],[r+width,y-height],[r+width,y+height],[r-width,y+height],[r-width,y-height]],ma,'scene03-371-closed-cast-annular-moulding');}
++ function cappedTube(points,r,ma,name){
++  const curve=new T.CatmullRomCurve3(points.map(p=>new T.Vector3(...p))),R=Math.max(24,points.length*5),N=10,frames=curve.computeFrenetFrames(R,false),p=[],uv=[],ix=[];
++  for(let j=0;j<=R;j++){const c=curve.getPointAt(j/R);for(let k=0;k<N;k++){const a=k/N*Math.PI*2,q=c.clone().addScaledVector(frames.normals[j],Math.cos(a)*r).addScaledVector(frames.binormals[j],Math.sin(a)*r);p.push(...q.toArray());uv.push(j/R,k/N);}}
++  for(let j=0;j<R;j++)for(let k=0;k<N;k++){const a=j*N+k,b=j*N+(k+1)%N;ix.push(a,b,a+N,b,b+N,a+N);}
++  const c=p.length/3;p.push(...curve.getPointAt(0).toArray(),...curve.getPointAt(1).toArray());uv.push(.5,0,.5,1);for(let k=0;k<N;k++)ix.push(c,(k+1)%N,k,c+1,R*N+k,R*N+(k+1)%N);
++  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);at(oriented(g,name),ma);
++ }
++ // A closed thin inner chamber sits behind the actual pierced copper shell.
++ turned([[0,-.405],[.18,-.405],...profile.filter(p=>p[0]>-.405&&p[0]<.405).map(([y,r])=>[r-.100,y]),[.22,.405],[0,.405]],paper,'scene03-371-closed-recessed-paper-chamber');
++ const panel=new T.Shape();panel.moveTo(-.183,-.405);panel.lineTo(.183,-.405);panel.lineTo(.183,.405);panel.lineTo(-.183,.405);panel.closePath();
++ for(const u of[-.082,.082])for(const y of[-.285,-.095,.095,.285]){
++  const pts=[];for(let k=0;k<40;k++){const a=k/40*Math.PI*2,f=.86+.14*Math.cos(a*4);pts.push(new T.Vector2(u+.036*Math.cos(a)*f,y+.061*Math.sin(a)*f));}
++  if(T.ShapeUtils.isClockWise(pts)===T.ShapeUtils.isClockWise(panel.getPoints()))pts.reverse();const hole=new T.Path(pts);hole.closePath();panel.holes.push(hole);
++ }
++ const base=new T.ExtrudeGeometry(panel,{depth:.013,bevelEnabled:true,bevelSize:.002,bevelThickness:.002,bevelSegments:2,curveSegments:12,steps:1});
++ for(let k=0;k<16;k++){
++  const a=k*Math.PI/8,g=base.clone(),p=g.attributes.position;
++  for(let j=0;j<p.count;j++){const angle=a+p.getX(j),y=p.getY(j),r=radius(y)+p.getZ(j);p.setXYZ(j,Math.sin(angle)*r,y,Math.cos(angle)*r);}
++  at(oriented(g,'scene03-371-closed-warped-pierced-globular-panel'),gold);
++  cappedTube(profile.map(([y,r])=>[Math.sin(a+Math.PI/16)*r,y,Math.cos(a+Math.PI/16)*r]),.021,bronze,'scene03-371-closed-continuous-body-rib');
++  for(const y of[-.29,.285])at(oriented(new T.SphereGeometry(.016,12,8),'scene03-371-real-panel-rivet'),gold,[Math.sin(a)*radius(y),y,Math.cos(a)*radius(y)]);
++ }
++ // Closed repousse petals are warped onto the panel surface, with their
++ // reverse faces seated in the metal. This breaks the long flat highlight
++ // without a texture, detached badge or change to light/material energy.
++ const petalShape=new T.Shape();petalShape.moveTo(0,0);petalShape.bezierCurveTo(-.028,.027,-.034,.077,0,.112);petalShape.bezierCurveTo(.034,.077,.028,.027,0,0);petalShape.closePath();
++ const petalBase=new T.ExtrudeGeometry(petalShape,{depth:.013,bevelEnabled:true,bevelSize:.0025,bevelThickness:.0025,bevelSegments:2,curveSegments:12});
++ for(let panel=0;panel<16;panel++)for(let petal=0;petal<8;petal++){
++  const az=panel*Math.PI/8,angle=petal*Math.PI/4,g=petalBase.clone(),p=g.attributes.position;
++  for(let j=0;j<p.count;j++){const xx=(p.getX(j)*Math.cos(angle)-p.getY(j)*Math.sin(angle))*.72,yy=.018+(p.getX(j)*Math.sin(angle)+p.getY(j)*Math.cos(angle))*.72,a=az+xx/.565,r=radius(yy)+.015+p.getZ(j);p.setXYZ(j,Math.sin(a)*r,yy,Math.cos(a)*r);}
++  at(oriented(g,'scene03-371-closed-panel-seated-repousse-petal'),gold);
++ }
++ petalBase.dispose();stats.panelSeatedRepoussePetals=128;
++ base.dispose();for(const [y,r]of[[-.42,.34],[-.28,.49],[.30,.48],[.43,.30]])ring(y,r,.019,.018);
++ // Closed cast basin, lotus neck/crown, suspension loops and one pendant.
++ turned([[0,-.57],[.12,-.57],[.26,-.52],[.36,-.43],[.34,-.40],[.28,-.42],[.17,-.49],[0,-.49]],gold,'scene03-371-closed-rounded-cast-basin');
++ turned([[0,.435],[.23,.435],[.27,.465],[.235,.505],[.16,.53],[.14,.61],[.095,.65],[0,.65]],bronze,'scene03-371-closed-lotus-crown-neck');
++ ring(.51,.175,.021,.018);ring(-.535,.17,.020,.014);
++ for(let k=0;k<12;k++){
++  const a=k*Math.PI/6,shape=new T.Shape();shape.moveTo(-.050,0);shape.bezierCurveTo(-.095,.09,-.065,.17,0,.24);shape.bezierCurveTo(.065,.17,.095,.09,.050,0);shape.closePath();
++  const g=new T.ExtrudeGeometry(shape,{depth:.018,bevelEnabled:true,bevelSize:.003,bevelThickness:.003,bevelSegments:2,curveSegments:12});g.translate(0,0,-.009);at(oriented(g,'scene03-371-closed-crown-lotus-petal'),gold,[Math.sin(a)*.185,.415,Math.cos(a)*.185],[0,a,0]);
++ }
++ turned([[0,-.80],[.023,-.78],[.042,-.71],[.070,-.66],[.045,-.61],[0,-.60]],gold,'scene03-371-closed-lotus-finial-pendant',32);
++ at(oriented(new T.TorusGeometry(.045,.012,10,32),'scene03-371-closed-upper-hanging-eye'),gold,[0,.692,0]);
++ const mountY=7.96-pose[1],linkTop=mountY-.11,linkBottom=.73;
++ cappedTube([[0,.73,0],[0,linkTop,0]],.010,bronze,'scene03-371-closed-short-suspension-staff');
++ for(let j=0;j<3;j++)at(oriented(new T.TorusGeometry(.026,.008,10,28),'scene03-371-closed-suspension-link'),gold,[0,linkBottom+(linkTop-linkBottom)*j/2,0],[0,j%2*Math.PI/2,0]);
++ const timber=new T.BoxGeometry(.16,.18,2.30);at(oriented(timber,'scene03-371-real-ceiling-lantern-bearer'),wood,[0,mountY,-.20]);
++ // The bearer enters the old front header and the added inner ceiling tie.
++ for(const dz of[-1.20,.80]){
++  at(oriented(new T.BoxGeometry(.23,.020,.22),'scene03-371-closed-bearer-upper-clamp'),bronze,[0,mountY+.104,dz]);
++  for(const sx of[-1,1])at(oriented(new T.BoxGeometry(.018,.21,.22),'scene03-371-closed-bearer-clamp-cheek'),bronze,[sx*.092,mountY,dz]);
++ }
++ if(noren){
++  const relative=(x,y,z)=>[x-pose[0],y-pose[1],z-pose[2]],top=noren.topY,rodY=top+.045;
++  cappedTube([relative(noren.centreX-.72,rodY,noren.frontZ),relative(noren.centreX+.72,rodY,noren.frontZ)],.018,bronze,'scene03-371-closed-noren-support-rod');
++  for(const side of[-1,1]){
++   const x=noren.centreX+side*.54;
++   at(oriented(new T.BoxGeometry(.055,.075,.79),'scene03-371-housed-noren-outreach'),wood,relative(x,7.82,noren.frontZ-.35));
++   cappedTube([relative(x,7.795,noren.frontZ),relative(x,rodY+.035,noren.frontZ)],.008,bronze,'scene03-371-closed-noren-suspension');
++  }
++  for(let j=0;j<4;j++)at(oriented(new T.TorusGeometry(.020,.005,8,24),'scene03-371-closed-noren-hanging-loop'),gold,relative(noren.centreX+(j-1.5)*noren.width/4,top+.020,noren.frontZ));
++  stats.norenMount={...noren,rodY,actualClosedHousedOutreach:true,originalTopHeld:true};
++ }
++ stats.radius=.565;stats.bodyHeight=.96;stats.lowestHallY=pose[1]-.80;stats.ceilingBearerHallY=7.96;stats.mountEndpointsHall=[[pose[0]-5,7.96,pose[2]+3+.95],[pose[0]-5,7.96,pose[2]+3-1.35]];return stats;
++}
++
++export function buildInnerThreshold371(T,{floor,box,mesh,own,timber,lacquer,endgrain,gilt,oldgold,carving}){
++ const info={revision:'scene03-receding-carved-threshold371-r04',floorY:floor,frames:[],newLights:0,photographicPixels:false};
++ for(const [z,half,height,depth]of[[-1.68,1.99,3.55,.25],[-3.05,1.76,3.30,.25]]){
++  for(const side of[-1,1]){
++   box('portal371-founded-inner-jamb',[side*half,floor+height/2,z],[.20,height,depth],timber,.012);
++   for(const y of[floor+.15,floor+height-.13])box('portal371-inner-jamb-collar',[side*half,y,z+.14],[.25,.10,.038],oldgold,.004);
++   for(let j=0;j<5;j++)mesh(carving.foliateStrut(),gilt,[side*half,floor+.29+j*(height-.76)/4,z+.132],[.080,.32,.28],[0,0,0],'portal371-embedded-open-foliate-jamb');
++  }
++  box('portal371-deep-carried-lintel',[0,floor+height,z],[half*2+.35,.26,.42],timber,.012);
++  box('portal371-lintel-recess',[0,floor+height-.025,z+.235],[half*2-.14,.16,.035],lacquer,.004);
++  for(let j=-3;j<=3;j++)mesh(carving.foliateStrut(),gilt,[j*(half*2-.40)/7,floor+height-.11,z+.25],[.205,.11,.35],[0,0,0],'portal371-seated-open-lintel-carving');
++  for(const side of[-1,1]){const low=floor+height+.13,high=floor+3.93;box('portal371-lintel-seat-upstand',[side*half,(low+high)/2,z],[.22,high-low,.28],endgrain,.009);}
++  info.frames.push({z,clearWidth:half*2-.20,clearHeight:height-.13,jambSection:[.20,depth],headDepth:.42});
++ }
++ // Ceiling ties enter both old side returns and lie below the real ceiling.
++ for(const z of[-1.68,-2.60,-3.05,-3.65,-4.70])box('portal371-housed-ceiling-tie',[0,floor+3.99,z],[4.52,.16,.21],timber,.008);
++ for(const x of[-1.45,-.48,.48,1.45])box('portal371-ceiling-coffer-longitudinal',[x,floor+3.94,-3.10],[.08,.14,3.30],endgrain,.006);
++ for(const x of[-1.0,0,1.0])for(const z of[-2.05,-3.10,-4.15]){
++  box('portal371-recessed-ceiling-coffer',[x,floor+4.035,z],[.87,.035,.86],lacquer,.003);
++  mesh(carving.foliateStrut(),oldgold,[x,floor+4.005,z],[.18,.18,.25],[-Math.PI/2,0,0],'portal371-open-coffer-relief-on-real-backing');
++ }
++ // A founded low ritual screen leaves a real1.10m central aisle. It frames
++ // the shrine instead of exposing the whole icon against an empty black box.
++ for(const side of[-1,1]){
++  const a=side*.55,b=side*1.91,c=(a+b)/2,w=Math.abs(b-a);
++  for(const x of[a,b]){
++   box('portal371-screen-foot',[x,floor+.04,-1.32],[.24,.08,.28],lacquer,.008);box('portal371-screen-post',[x,floor+.43,-1.32],[.11,.78,.11],timber,.008);box('portal371-screen-post-cap',[x,floor+.845,-1.32],[.16,.07,.17],oldgold,.006);
++  }
++  for(const y of[.24,.77])box('portal371-joined-screen-rail',[c,floor+y,-1.32],[w+.10,.085,.11],timber,.007);
++  box('portal371-screen-recess-backing',[c,floor+.48,-1.34],[w-.13,.37,.045],lacquer,.003);
++  for(let j=0;j<3;j++)mesh(carving.foliateStrut(),oldgold,[c+(j-1)*w*.27,floor+.35,-1.31],[.18,.22,.38],[0,0,0],'portal371-mounted-open-screen-relief');
++ }
++ box('portal371-low-closed-threshold-sill',[0,floor+.025,-.93],[4.05,.05,.24],endgrain,.006);
++ info.centralAisleWidth=1.10;info.ceilingContactY=floor+4.07;return info;
++}
