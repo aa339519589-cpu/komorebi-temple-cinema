@@ -1,0 +1,27 @@
+--- a/reconstructions/scene-06/src/sculptural-cast-assets.js
++++ b/reconstructions/scene-06/src/sculptural-cast-assets.js
+@@ -9,6 +9,6 @@
+  // Actual3D ray target: Buddha head by peel-3d.com (BY4), culture unspecified.
+  // User authorized personal noncommercial adoption; this declared sculpture199
+- // derivative retains the intact continuous J/NC face/body and conformingly
+- // refines actual donor-driven features, source ears and rooted scalp volumes.
++ // derivative keeps the R08a head/ears/scalp and original source indices;
++ // its real left arm, neighboring garments and original hand are posed in the lap.
+  // Original inputs retained. Both attributions in manifest. All
+  // live/reference/free-camera/film views use the same indexed3D surfaces.
+@@ -17,7 +17,7 @@
+  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
+  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
+- const foundationBase=new URL('../assets/sculpture199-r08a-continuous-source-fit-mixed-licenses/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
++ const foundationBase=new URL('../assets/centralpose295-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+  if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
+- const foundation=await foundationResponse.json();if(foundation.revision!=='scene06-sculpture199-r08a-continuous-source-fit')throw Error('Wrong NC actual-source revision');
++ const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-centralpose295-r06-differential-left-arm-lap-pose")throw Error('Wrong NC actual-source revision');
+  const sideBase=new URL('../assets/attendant-bearing-v4/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
+  if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
+@@ -44,4 +44,4 @@
+   }));
+  }
+- installRestoredBuddhaAssets(variants);return{revision:'scene06-sculpture199-r08a-continuous-source-fit-with-v4-attendants',foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
++ installRestoredBuddhaAssets(variants);return{revision:`${foundation.revision}-with-${sideManifest.revision}`,foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
+ }

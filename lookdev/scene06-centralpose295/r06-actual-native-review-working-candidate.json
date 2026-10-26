@@ -1,0 +1,116 @@
+{
+  "revision": "centralpose295-r06-personally-viewed-working-candidate",
+  "geometrySha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+  "personallyViewedAllFive": true,
+  "images": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/qa/ten-reference/06/iteration-centralpose295-r06-full-arm/reference.png",
+      "sha256": "2404be59ad296fb6a629944133a72c2bbe131dbd88e4c8576c036e026be0702b",
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "valid": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/qa/ten-reference/06/iteration-centralpose295-r06-full-arm/detail-native.png",
+      "sha256": "66849e94cd0fd2404091c8eac957440b3993fceec350d9d28f1df0b4e7bfb3b2",
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "valid": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/qa/ten-reference/06/iteration-centralpose295-r06-body-front/inspection-view.png",
+      "sha256": "2b75060198939df4491ab0e3eb8a0e00f7a067b5386a121d82f7772fdeee7276",
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "valid": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/qa/ten-reference/06/iteration-centralpose295-r06-arm-three-quarter/inspection-view.png",
+      "sha256": "02668578a0be9a1de4f13ebb79117d46c26f3a73793bd14a3546eecbb2e2ce4a",
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "valid": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/qa/ten-reference/06/iteration-centralpose295-r06-low-wrist-lap/inspection-view.png",
+      "sha256": "09c7a95328fdbc0a7d6c68afe81aad6da4183a616ef4de5c4872dccd8573081d",
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "valid": true
+    }
+  ],
+  "nativeSourceHashes": [
+    "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7"
+  ],
+  "allNativeImagesValid": true,
+  "nativeCentralPBRRoles": [
+    {
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "roleCount": 1,
+      "consumerCount": 1,
+      "name": "scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR",
+      "metalness": 0.98,
+      "roughness": 0.3,
+      "originalColorAndTexturePointersHeld": true
+    },
+    {
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "roleCount": 1,
+      "consumerCount": 1,
+      "name": "scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR",
+      "metalness": 0.98,
+      "roughness": 0.3,
+      "originalColorAndTexturePointersHeld": true
+    },
+    {
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "roleCount": 1,
+      "consumerCount": 1,
+      "name": "scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR",
+      "metalness": 0.98,
+      "roughness": 0.3,
+      "originalColorAndTexturePointersHeld": true
+    },
+    {
+      "sourceHash": "6776d6138f146d635cbb087ad5b42be29e25b83768ed77b7e6a6a50b0668b2d7",
+      "roleCount": 1,
+      "consumerCount": 1,
+      "name": "scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR",
+      "metalness": 0.98,
+      "roughness": 0.3,
+      "originalColorAndTexturePointersHeld": true
+    }
+  ],
+  "visibleJudgment": {
+    "gesture": "Reference-level large pose direction corrected: image-left/figure-right hand raised and image-right/figure-left real hand rests in lower belly/lap area.",
+    "structure": "Actual shoulder/sleeve/forearm/wrist form reads continuously in front and three-quarter views; low wrist/lap inspection shows volumetric original hand and natural separation above the thigh, without the R03 paper-thin fold.",
+    "remainingVisible": [
+      "Sleeve edge remains thick and dark at the back of the wrist; wrist transition is clearer than early candidates but still needs sculptural refinement.",
+      "The retained original source mudra makes the fingers claw-like; it is not an HD finger-gesture match.",
+      "Main torso/garment proportions and surface style remain different from the HD reference."
+    ]
+  },
+  "physicalLimits": {
+    "newStrictLocalSelfPairs": 304,
+    "newStrictLegPairs": 0,
+    "newStrictFixedTorsoPairs": 0,
+    "sourceInheritedStrictPairsInIndependentNeighborhood": 32,
+    "boundedHelperActionablePairs": 255,
+    "boundedHelperMicroscopicPairs": 49,
+    "boundedHelperBlockedPairs": 0,
+    "scope": "Noncoplanar strict crossings with shared-vertex pairs excluded; coplanar/tangential intersections and global injectivity are not proven.",
+    "handOnlyMinimumLegClearanceSource": 0.007571586968897592,
+    "handOnlyMinimumLegClearanceWorldMm": 5.806431724614718
+  },
+  "authoringSelection": {
+    "selectedContactIteration": 0,
+    "selectedActivePhysicalContactAnchors": 0,
+    "attemptedSeparationNewPairs": [
+      304,
+      379,
+      487,
+      744,
+      1078
+    ],
+    "note": "Four active-separation trials worsened contacts and were retained as failed local states. The selected mesh contains the successful actual whole-profile leg supports and broad differential solve, with zero selected active correction anchors. Do not claim the active-separation trials fixed self intersections."
+  },
+  "readyForRootVisualReview": true,
+  "finalProductionApproval": false,
+  "visualAccepted": false,
+  "photographicFidelityAccepted": false
+}

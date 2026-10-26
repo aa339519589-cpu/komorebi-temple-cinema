@@ -1,0 +1,202 @@
+{
+  "revision": "r06",
+  "status": "cpu-authored-local-differential-pose-awaiting-native-review",
+  "startedAt": 1792936138.529622,
+  "sourceHashes": {
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authoring/build-pose295-r06.py": "008976af0a6ad1df9466db124d2c6888ab5076becc2b3c68834d9a5e78eb2c83",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authoring/pose-r06.json": "95153c90a7c0097562ac250ddf614db984379855d5ccc44f47e5656019952a5d",
+    "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json": "495e04c16b0061ee62c76377b52a36fc1cc0d17e1d9f3da10fec6eb72a64544e",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authored-r03/manifest.json": "46dd54e4bd548caefcbd7aa2014de8b100e28839ed990e7c117a528714e01168",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authoring/support-constraints-r05.json": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authoring/build-support-constraints295-r05.mjs": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authoring/active-contact-helper295-r06.mjs": "3fed2051d9b06d229e59e2a2bd7a4b3156d103ac4ddad2e0add2eef655091b05"
+  },
+  "canonicalModified": false,
+  "visualAccepted": false,
+  "photographicFidelityAccepted": false,
+  "audit": {
+    "sourceVertices": 1631444,
+    "sourceTriangles": 3262892,
+    "authoredVertices": 1631444,
+    "authoredTriangles": 3262892,
+    "localVertices": 72178,
+    "localTriangles": 143408,
+    "freeClothAndSkinVertices": 37999,
+    "initialFreeClothAndSkinVertices": 37999,
+    "activePhysicalContactAnchors": 0,
+    "activeContactTargetMaxError": 0.0,
+    "boundedContactHistory": [
+      {
+        "newStrictCrossingPairs": 304,
+        "inheritedStrictCrossingPairs": 7,
+        "categories": {
+          "arm-self": 304
+        },
+        "actionablePairs": 255,
+        "microscopicPairsBelowActionDepth": 49,
+        "blockedHardConstraintPairs": 0,
+        "maximumProposedVertexStep": 0.006533814839513227,
+        "iteration": 0,
+        "positions": "contact-00-local-positions.bin",
+        "report": "contact-00-layer-proposals.json"
+      },
+      {
+        "newStrictCrossingPairs": 379,
+        "inheritedStrictCrossingPairs": 5,
+        "categories": {
+          "arm-self": 379
+        },
+        "actionablePairs": 330,
+        "microscopicPairsBelowActionDepth": 49,
+        "blockedHardConstraintPairs": 0,
+        "maximumProposedVertexStep": 0.004622409907506786,
+        "iteration": 1,
+        "positions": "contact-01-local-positions.bin",
+        "report": "contact-01-layer-proposals.json"
+      },
+      {
+        "newStrictCrossingPairs": 487,
+        "inheritedStrictCrossingPairs": 8,
+        "categories": {
+          "arm-self": 487
+        },
+        "actionablePairs": 422,
+        "microscopicPairsBelowActionDepth": 65,
+        "blockedHardConstraintPairs": 0,
+        "maximumProposedVertexStep": 0.010598322887590321,
+        "iteration": 2,
+        "positions": "contact-02-local-positions.bin",
+        "report": "contact-02-layer-proposals.json"
+      },
+      {
+        "newStrictCrossingPairs": 744,
+        "inheritedStrictCrossingPairs": 2,
+        "categories": {
+          "arm-self": 744
+        },
+        "actionablePairs": 668,
+        "microscopicPairsBelowActionDepth": 76,
+        "blockedHardConstraintPairs": 0,
+        "maximumProposedVertexStep": 0.007590493726646323,
+        "iteration": 3,
+        "positions": "contact-03-local-positions.bin",
+        "report": "contact-03-layer-proposals.json"
+      },
+      {
+        "newStrictCrossingPairs": 1078,
+        "inheritedStrictCrossingPairs": 2,
+        "categories": {
+          "arm-self": 1078
+        },
+        "actionablePairs": 957,
+        "microscopicPairsBelowActionDepth": 121,
+        "blockedHardConstraintPairs": 0,
+        "maximumProposedVertexStep": 0.006950488801879155,
+        "iteration": 4,
+        "positions": "contact-04-local-positions.bin",
+        "report": "contact-04-layer-proposals.json"
+      }
+    ],
+    "selectedBoundedContactIteration": 0,
+    "contactCorrectionPassMaximum": 4,
+    "boundedContactScope": "Only actual changed local original-source wrist/sleeve-root ROI triangles, including controlled ones for hard-conflict reporting, and related fixed neighbor triangles. Strict noncoplanar crossing; inherited original-source pairs excluded. Coplanar/tangential contact omitted. Bounded physical layer separation proposals, not a global no-intersection claim.",
+    "finalBoundedActionableCrossings": 255,
+    "finalBoundedRawStrictCrossings": 304,
+    "finalBoundedMicroscopicCrossings": 49,
+    "finalBlockedHardConstraintPairs": 0,
+    "fixedBodyAndBoundaryAnchors": 24893,
+    "realOriginalHandAnchors": 7840,
+    "originalElbowAnchors": 189,
+    "wholeCuffProfileSupportAnchors": 1257,
+    "fixedOriginalFoldPanelVertices": 0,
+    "wholeCuffTargetMaxError": 3.22164077577974e-08,
+    "wholeProfileTranslations": [
+      [
+        0.025,
+        0.06846154617095067,
+        -0.01
+      ],
+      [
+        0.025,
+        0.06711225617313508,
+        -0.01
+      ],
+      [
+        0.025,
+        0.020086141300979563,
+        -0.01
+      ]
+    ],
+    "boundaryPinnedRings": 2,
+    "sourceElbowVertex": 174886,
+    "actualPosedElbowAnchor": [
+      0.8999999761581421,
+      0.8349999785423279,
+      -0.03999999910593033
+    ],
+    "elbowTarget": [
+      0.9,
+      0.835,
+      -0.04
+    ],
+    "sourceShoulderPositionOrNormalChanges": 0,
+    "changedPositions": 47278,
+    "changedNormals": 48287,
+    "protectedPositionOrNormalChanges": 0,
+    "sourceHandTargetMaxError": 0.0,
+    "indicesAndTriangleOrderByteExact": true,
+    "uvByteExact": true,
+    "scalpCoverageByteExact": true,
+    "vertexAndTriangleIdentityMapping": "Output vertex v and triangle t retain R08a identity v/t, with no appended/reordered vertices or triangles.",
+    "localMinimumTwiceArea": 3.0351448181398013e-12,
+    "localDegenerateTriangles": 0,
+    "localAreaRatioPercentiles": {
+      "minimum": 0.017656381966358502,
+      "p01": 0.5184449587740467,
+      "median": 1.0157520338703125,
+      "p99": 1.6135610674459568,
+      "maximum": 3.2290997963706936
+    },
+    "triangleNormalsOpposedToLocalNeighborRotationField": 10,
+    "normalOrientationDiagnosticScope": "Source local one-ring closest proper rotations. Not a complete collision or injectivity proof.",
+    "selfIntersectionsChecked": false,
+    "solver": {
+      "iterations": 25,
+      "continuationSteps": 12,
+      "handPathFrontArc": 0.35,
+      "handPathOuterArc": 0.12,
+      "elbowPathFrontArc": 0.1,
+      "supportPathFrontArc": 0.2,
+      "supportPathOuterArc": 0.08
+    },
+    "visualAccepted": false
+  },
+  "geometry": {
+    "material": "central",
+    "file": "central-left-arm-pose295-r06-differential-53013207a565af90-gzip.bin",
+    "sha256": "53013207a565af90e0a72e88116bdc9138c108b8c0746c90267cc85cc7b0707f",
+    "compression": "gzip",
+    "uncompressedSha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+    "effectiveGeometrySha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "bytes": 50503886,
+    "uncompressedBytes": 91360932,
+    "topology": {
+      "vertices": 1631444,
+      "triangles": 3262892,
+      "edges": 4894338,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "degenerate": 0,
+      "minArea": 2.985125254554078e-12,
+      "euler": -2,
+      "unCutSourceFace": true,
+      "conformingRefinement": true,
+      "insertedDonorFacePatch": false,
+      "poseDerivative": true,
+      "sourceIndexOrderExact": true
+    }
+  },
+  "completedAt": 1792936348.408607
+}

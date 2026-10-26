@@ -8,17 +8,17 @@ export async function loadSculpturalCastAssets(){
  // Connected source body: Scan-the-World Sainsbury Amida (NC-SA4).
  // Actual3D ray target: Buddha head by peel-3d.com (BY4), culture unspecified.
  // User authorized personal noncommercial adoption; this declared sculpture199
- // derivative retains the intact continuous J/NC face/body and conformingly
- // refines actual donor-driven features, source ears and rooted scalp volumes.
+ // derivative keeps the R08a head/ears/scalp and original source indices;
+ // its real left arm, neighboring garments and original hand are posed in the lap.
  // Original inputs retained. Both attributions in manifest. All
  // live/reference/free-camera/film views use the same indexed3D surfaces.
  const revision='r11';
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
- const foundationBase=new URL('../assets/sculpture199-r08a-continuous-source-fit-mixed-licenses/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+ const foundationBase=new URL('../assets/centralpose295-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
  if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
- const foundation=await foundationResponse.json();if(foundation.revision!=='scene06-sculpture199-r08a-continuous-source-fit')throw Error('Wrong NC actual-source revision');
+ const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-centralpose295-r06-differential-left-arm-lap-pose")throw Error('Wrong NC actual-source revision');
  const sideBase=new URL('../assets/attendant-bearing-v4/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
  if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
  const sideManifest=await sideResponse.json();if(sideManifest.revision!=='scene06-attendant-bearing-v4')throw Error('Wrong attendant head revision');
@@ -43,5 +43,5 @@ export async function loadSculpturalCastAssets(){
   return{geometry:g,material:p.material};
   }));
  }
- installRestoredBuddhaAssets(variants);return{revision:'scene06-sculpture199-r08a-continuous-source-fit-with-v4-attendants',foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
+ installRestoredBuddhaAssets(variants);return{revision:`${foundation.revision}-with-${sideManifest.revision}`,foundation:foundation.revision,attendantFaces:sideManifest.revision,legacyAttendantBodies:manifest.revision,license:foundation.license,attribution:foundation.attribution,personalNoncommercialUseOnly:true,mainMetrics:{sourceContactProfiles:contactProfiles.profiles,sourceBearingOutline:foundation.sourceContactBearing?.outlineXZ,uniformWorldHeight:foundation.recommendedUniformWorldHeight,haloCenterModelY:foundation.recommendedCentralHaloCenterModelY,centralMandorlaZ:foundation.recommendedCentralMandorlaZ,mainLotusDepthAspect:foundation.recommendedMainLotusDepthAspect},visualAccepted:false};
 }

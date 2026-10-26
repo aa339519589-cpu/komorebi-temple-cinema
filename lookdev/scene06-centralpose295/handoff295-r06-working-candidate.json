@@ -1,0 +1,149 @@
+{
+  "status": "working-pose-candidate-for-primary-review-not-photographic-acceptance",
+  "revision": "scene06-centralpose295-r06-differential-left-arm-lap-pose",
+  "baseScene06SourceHash": "12a4a4093f336d75365294021794685345f9e702d00ce54421fb6c4e6330d4f9",
+  "selectedCandidate": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06",
+  "selectedAuthoredSource": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/authored-r06",
+  "selectedGeometry": {
+    "material": "central",
+    "file": "central-left-arm-pose295-r06-differential-53013207a565af90-gzip.bin",
+    "sha256": "53013207a565af90e0a72e88116bdc9138c108b8c0746c90267cc85cc7b0707f",
+    "compression": "gzip",
+    "uncompressedSha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+    "effectiveGeometrySha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "bytes": 50503886,
+    "uncompressedBytes": 91360932,
+    "topology": {
+      "vertices": 1631444,
+      "triangles": 3262892,
+      "edges": 4894338,
+      "openEdges": 0,
+      "nonmanifoldEdges": 0,
+      "degenerate": 0,
+      "minArea": 2.985125254554078e-12,
+      "euler": -2,
+      "unCutSourceFace": true,
+      "conformingRefinement": true,
+      "insertedDonorFacePatch": false,
+      "poseDerivative": true,
+      "sourceIndexOrderExact": true
+    }
+  },
+  "integrationRuntimeAssetDestination": "reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/",
+  "runtimeAndProvenanceFileList": [
+    {
+      "file": "manifest.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/manifest.json",
+      "sha256": "45227e342b1acb1f143ef321fc0464e13e8ed2aa2833ef47aa95bf367b445866",
+      "bytes": 27900
+    },
+    {
+      "file": "central-left-arm-pose295-r06-differential-53013207a565af90-gzip.bin",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/central-left-arm-pose295-r06-differential-53013207a565af90-gzip.bin",
+      "sha256": "53013207a565af90e0a72e88116bdc9138c108b8c0746c90267cc85cc7b0707f",
+      "bytes": 50503886
+    },
+    {
+      "file": "actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "sha256": "6131443d8f997b39c7d13c338164ae63eab3e21ae1836ed2c6e412212bddb10f",
+      "bytes": 3262908
+    },
+    {
+      "file": "provenance.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/provenance.json",
+      "sha256": "88f0eff07be1d899d788e01b870b96c5a33987bd66c4a4c339d476e11775714a",
+      "bytes": 21312
+    },
+    {
+      "file": "preflight.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/preflight.json",
+      "sha256": "b8b430ff00e0d8ecfb7a7410424a416ac89d995424bd05b80a6a74277e86a7e5",
+      "bytes": 5104
+    },
+    {
+      "file": "LICENSE-DONOR173-CC-BY-4.0-ATTRIBUTION.txt",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/LICENSE-DONOR173-CC-BY-4.0-ATTRIBUTION.txt",
+      "sha256": "a158e56f903c45f23f12daab882950284a3863dbde70d9bd2b49a027521ada85",
+      "bytes": 977
+    },
+    {
+      "file": "LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt",
+      "sha256": "67a71a7d10db274cc4e07ae4ffe4381e739de67b0643c766fa34d3da25ddaf57",
+      "bytes": 1126
+    },
+    {
+      "file": "pose-r06.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/pose-r06.json",
+      "sha256": "95153c90a7c0097562ac250ddf614db984379855d5ccc44f47e5656019952a5d",
+      "bytes": 4187
+    },
+    {
+      "file": "support-constraints-r05.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/support-constraints-r05.json",
+      "sha256": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+      "bytes": 562944
+    },
+    {
+      "file": "actual-source-local-vertex-anchor-identities295-r06.bin",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/actual-source-local-vertex-anchor-identities295-r06.bin",
+      "sha256": "f906150060854f7faa09dbbf099f0b4acc2642b30534ae8d9ca7a9aabd7fef30",
+      "bytes": 577444
+    },
+    {
+      "file": "author-result.json",
+      "source": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/candidate-r06/reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/author-result.json",
+      "sha256": "a3c18091c6dd038726109b15f03371d1add04807b6f74e0edfbb98acd3750859",
+      "bytes": 7972
+    }
+  ],
+  "smallPatches": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/r06-central-foundation-loader.patch",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/r06-central-native-pbr-role.patch"
+  ],
+  "manualOnlyScopeReplacement": {
+    "file": "reconstructions/scene-06/src/reference6-scene.js",
+    "findHistoricalSentence": "Original body/palms/garments/hem/seat positions and normals belowY2.15 stay exact from J/R05.",
+    "replaceWith": "POSE295 R06 keeps the R08a head/ears/scalp at original Y>=2.10, figure-right X<=0, legs Y<=.70, bearing/contact band, original vertex/triangle/UV identities and CM07 mask exact. Actual original left arm, adjacent garments and real palm/fingers are posed at the lap by a local differential solve with actual whole-profile leg supports. Local self-contact remains unresolved; selected active-contact correction count is zero, and all four failed trials are retained."
+  },
+  "sharedLoaderMergeBoundary": "Apply only the central foundation URL/guard/comment and compose collection revision from foundation.revision plus the current sideManifest.revision. Existing side asset URLs, revisions, mesh logic and side seat metrics belong to the Root/257 integration.",
+  "nativeCentralMaterialRole": "scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR",
+  "nativePBRConstraint": "Exactly one central role/consumer; retain Native284 metalness .98 and roughness .30 with original color, scalp vertex coverage and texture pointers.",
+  "sceneHeld": "No table/cabinet, hanging pendants283, daylight284, floor299, reference/free/shot camera, lotus bearing, statue seat position or attendant geometry is authored by this change. Candidate remains the immutable 12a4 base plus central delta; Root merges later canonical changes separately.",
+  "preservationProof": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/r06-independent-preservation.json",
+  "nativeReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295/r06-actual-native-review-working-candidate.json",
+  "poseCorrectedWorkingCandidate": true,
+  "newLocalSelfCrossingsRemain": 304,
+  "newLegAndFixedTorsoStrictCrossings": 0,
+  "activeContactTrialSelection": {
+    "selectedIteration": 0,
+    "selectedActiveControls": 0,
+    "failedTrialCounts": [
+      379,
+      487,
+      744,
+      1078
+    ]
+  },
+  "metadataNoteForCanonical": {
+    "suggestedSelectedStateSummary": "R06 selected state0 uses real hand and whole cuff-profile leg-support constraints; four active contact separation experiments worsened crossings and are retained but not selected. It is not an intersection-free or photographic match.",
+    "fieldToAdd": "poseDerivative.selectedStateSummary"
+  },
+  "retainedHistoryLocation": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-centralpose295",
+  "historyPolicy": "All original assets/licenses, failed R01-R05 authoring/candidates, failed R06 local states, reviewed recipes and actual native reports remain in this namespace and original source packages. No deleted source, large new export, Blend, rendered replacement frame, image/depth plane or reference projection.",
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "personalNoncommercialUseOnly": true,
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "仅个人欣赏，允许使用非商用雕像素材",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "photographicFidelityAccepted": false,
+  "visualAccepted": false,
+  "canonicalModified": false,
+  "gitCommittedByThisWorker": false
+}

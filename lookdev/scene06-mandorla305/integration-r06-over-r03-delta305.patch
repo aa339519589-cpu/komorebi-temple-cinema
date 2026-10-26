@@ -1,0 +1,83 @@
+--- a/reconstructions/scene-06/src/mandorla205.js
++++ b/reconstructions/scene-06/src/mandorla205.js
+@@ -1,6 +1,6 @@
+ import * as T from 'three';
+ 
+-// Scene 06 / 305 R03. Hand-authored 3D interpretation of the original photograph.
++// Scene 06 / 305 R06. Hand-authored 3D interpretation of the original photograph.
+ // Connected, fluted openwork in three carving scales. The openings are actual
+ // space between closed solids, and the palmette apertures have bevelled walls.
+ // No photo, projected mask, image texture, traced pixel skeleton or billboard.
+@@ -147,7 +147,7 @@
+ 
+ export function buildMandorla205(b,{height:H,halfWidth:W,headCenter:cy,isMain}) {
+   const s=H/4.52,R=(isMain?.665:.37)*s,fan=R*(isMain?1.52:1.43);
+-  const stats={revision:'mandorla305-r03-edge-aware-solid-rolls',height:H,halfWidth:W,headCenter:cy,isMain,triangles:0,primaryRibbons:0,secondaryRibbons:0,carvedGroups:0,connectedRootCount:0,visualAccepted:false};
++  const stats={revision:'mandorla305-r06-folded-front-and-rooted-back-head-foliation',height:H,halfWidth:W,headCenter:cy,isMain,triangles:0,primaryRibbons:0,secondaryRibbons:0,carvedGroups:0,connectedRootCount:0,layeredHeadCarvings:0,visualAccepted:false};
+   if(!b.materials.mandorla205Nimbus){const m=b.materials.haloLacquer.clone();m.name='scene06-mandorla205-carbon-indigo-lacquer';m.color.set('#02050a');m.metalness=0;m.roughness=.86;m.ior=1.22;m.specularIntensity=.03;m.clearcoat=0;m.envMapIntensity=.08;b.materials.mandorla205Nimbus=m;}
+   const add=(g,mat,...args)=>{stats.triangles+=g.index?g.index.count/3:g.attributes.position.count/3;b.add(g,mat,...args);};
+   const ribbon=(tag,points,w,d,mat='gold',options={})=>{const c=points instanceof T.Curve?points:path(options.closed?points.slice(0,-1):points,!!options.closed),g=b.geometry(`305r03:${isMain}:${tag}`,()=>carving205(c,w,d,options));add(g,mat);stats.secondaryRibbons++;stats.connectedRootCount++;return c;};
+@@ -251,19 +251,61 @@
+   // Its raised scales are real closed relief, not a wire clock face.
+   const chased=isMain?76:60,scale=b.geometry(`205r15-chased-band-${isMain}`,()=>chasedAnnularScale205(R,TAU/chased*.94,s));
+   for(let k=0;k<chased;k++)add(scale,k%7===0?'oldgold':'gold',0,cy,.025,1,1,1,0,0,k/chased*TAU);
+-  const rays=isMain?21:17;
++  const rays=isMain?21:17,headRays=[];
+   for(let k=0;k<rays;k++){
+     const a=-Math.PI*.59+k/(rays-1)*Math.PI*1.18,pol=(r,d=0,z=0)=>new T.Vector3(Math.sin(a+d)*r,cy+Math.cos(a+d)*r,z);
+     const c=ribbon(`head-ogival-ray-${k}`,[pol(R*.99,0,.015),pol(R*1.13,.026*Math.sin(k*1.57),.020),pol(fan*.88,.042*Math.sin(k*1.41),.007),pol(fan,0,-.014)],.006*s,.007*s,'gold',{steps:24,cols:8,root:.90,tip:.78,flute:.5});
++    headRays.push(c);
+     if(k>0&&k<rays-1){
+       const p=c.getPoint(.35),L=(isMain?.31:.225)*s*(.88+.14*Math.sin(k*1.13));
+       carvedGroup(`ray-flame-return-${k}`,p,a,L,(isMain?.17:.128)*s,k%2?1:-1,(k+2)%12,'gold');
+       if(k%2===0){const p2=c.getPoint(.13);carvedGroup(`ray-inner-carved-return-${k}`,p2,a+(k%4?.17:-.17),L*.53,(isMain?.12:.09)*s,k%2?-1:1,(k+7)%12,'oldgold');}
+     }
+   }
++
++  // The HD head field carries a second scale of foliate carving between the
++  // main rays. Each new carrier enters TWO existing cast rays; its leaves
++  // grow out of that carrier and rise into two physical relief levels.
++  // Nonuniform rooted forks replace the former single-plane radial voids.
++  // These are closed fluted solids, not instanced leaf cards or texture fill.
++  const rayStep=Math.PI*1.18/(rays-1),radial=(r,a,z)=>new T.Vector3(Math.sin(a)*r,cy+Math.cos(a)*r,z);
++  for(let k=0;k<rays-1;k++){
++    const a0=-Math.PI*.59+k*rayStep,midA=a0+rayStep*.5,hand=Math.sin(k*2.399+.41)>0?1:-1;
++    const first=hand>0?k:k+1,last=hand>0?k+1:k;
++    const root=headRays[first].getPoint(.17+.055*Math.sin(k*1.41+.27));
++    const seat=headRays[last].getPoint(.65+.105*Math.sin(k*1.73+.67));
++    const mid=root.clone().lerp(seat,.52).add(new T.Vector3(Math.sin(midA)*.016*s,Math.cos(midA)*.016*s,-.026*s));
++    const carrier=ribbon(`head-secondary-rooted-carrier-${k}`,[root,root.clone().lerp(mid,.52),mid,seat.clone().lerp(mid,.38),seat],.0050*s,.0055*s,'oldgold',{steps:24,cols:6,root:.84,tip:.82,flute:.55,phase:k*.79});
++    stats.layeredHeadCarvings++;
++    const count=k%5===2?2:3;
++    for(let j=0;j<count;j++){
++      const u=count===2?[.25,.55][j]:[.16,.35,.62][j],q=carrier.getPoint(u),r=Math.hypot(q.x,q.y-cy);
++      const length=(isMain?(j===1?.187:.135):(j===1?.104:.080))*s*(.90+.16*Math.sin(k*1.37+j*1.93));
++      const maxR=R+(fan-R)*(.86+.12*(.5+.5*Math.sin(k*1.61+j*2.07)));
++      const tipR=Math.min(maxR,r+length),tipA=a0+rayStep*(.51+.27*Math.sin(k*1.47+j*2.2));
++      const frontZ=(j===1?.082:.038)*s+.009*s*Math.sin(k*1.83+j);
++      const tip=radial(tipR,tipA,frontZ-(j===1?.014:.006)*s),direction=tip.clone().sub(q),l=Math.hypot(direction.x,direction.y)||1;
++      const bow=new T.Vector3(direction.y/l,-direction.x/l,.12).multiplyScalar(hand*((j===1?.026:.014)+.004*Math.sin(k+j))*s);
++      // A short lifted sheath opens into a curved leaf belly, then folds
++      // back at the tip. The former constant Z ramp made a flat dark wedge
++      // over most of each blade. This is an actual3D change in surface form.
++      const sheath=q.clone().lerp(tip,.27).addScaledVector(bow,.70),belly=q.clone().lerp(tip,.68).add(bow);
++      sheath.z=frontZ-.004*s;belly.z=frontZ+(j===1?.010:.006)*s;
++      const leaf=ribbon(`head-secondary-fluted-blade-${k}-${j}`,[q,sheath,belly,tip],(j===1?.024:.015)*s*(.90+.18*Math.sin(k*.79+j*1.6)),(j===1?.014:.009)*s,j!==1&&(k+j)%5===1?'oldgold':'gold',{steps:20,cols:8,root:.40,tip:.020,flute:1.10,phase:k*.53+j});
++      stats.layeredHeadCarvings++;
++      // Selected side buds split from an actual blade shoulder. Their short
++      // swept tips occupy a different depth and never form an annular row.
++      if(Math.sin(k*2.17+j*1.33)>.45){
++        const budRoot=leaf.getPoint(.48),budR=Math.hypot(budRoot.x,budRoot.y-cy),budA=Math.atan2(budRoot.x,budRoot.y-cy);
++        const budTip=radial(Math.min(fan*.98,budR+.056*s),budA-hand*rayStep*.31,budRoot.z+.016*s);
++        ribbon(`head-secondary-rooted-split-${k}-${j}`,[budRoot,budRoot.clone().lerp(budTip,.30).add(new T.Vector3(hand*.009*s,.007*s,.008*s)),budRoot.clone().lerp(budTip,.73),budTip],.0080*s,.0065*s,'gold',{steps:16,cols:6,root:.45,tip:.022,flute:.85,phase:k+j*.71});
++        stats.layeredHeadCarvings++;
++      }
++    }
++  }
+   b.root.userData.mandorla205??=[];b.root.userData.mandorla205.push(stats);
+   // Local, declared replacement budget only. Adaptive high-curvature solids
+-  // replace the nearly saturated historical 1,964,864-triangle R15 geometry.
++  // replace the nearly saturated historical 1,987,536-triangle R15 geometry.
+   // Scene captures still run under the unchanged official shared GPU FIFO.
+   if(b.root.userData.mandorla205.reduce((n,r)=>n+r.triangles,0)>10_000_000)throw Error('Mandorla305 exceeded ten-million adaptive replacement triangle budget');
+ }

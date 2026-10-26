@@ -1,0 +1,12 @@
+import {readFile,writeFile,copyFile,access} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
+import {createHash} from 'node:crypto';
+import {reconstructionSourceIdentity} from '../../tools/reconstruction-source-identity.mjs';
+const lane=import.meta.dirname,root=resolve(lane,'../..'),candidate=resolve(lane,'candidate-r01'),spec=JSON.parse(await readFile(resolve(lane,'combined-source314.json'))),sha=b=>createHash('sha256').update(b).digest('hex');
+const before=await reconstructionSourceIdentity(root,'06');if(before.hash!==spec.before)throw Error('Canonical changed');
+const frameDir=resolve(candidate,'qa/ten-reference/06/iteration-scene06-integrated314-pose-halo'),report=JSON.parse(await readFile(resolve(frameDir,'report.json')));if(report.status!=='rendered-review'||report.errors.length||report.source.hash!==spec.source.hash||report.frames.some(f=>!f.valid))throw Error('Actual combined evidence differs');
+const rel='reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0';try{await access(resolve(root,rel));throw Error('Preserve existing runtime pack');}catch(e){if(e.code!=='ENOENT')throw e;}execFileSync('/bin/cp',['-cR',resolve(candidate,rel),resolve(root,rel)]);
+const modules=['sculptural-cast-assets.js','reference6-main.js','reference6-scene.js','mandorla205.js'];for(const name of modules)await copyFile(resolve(candidate,'reconstructions/scene-06/src',name),resolve(root,'reconstructions/scene-06/src',name));
+const after=await reconstructionSourceIdentity(root,'06');if(after.hash!==spec.source.hash)throw Error('Promoted source differs');
+await writeFile(resolve(lane,'integration314.json'),JSON.stringify({status:'working-main-lap-pose-and-secondary-halo-integrated-with-known-limitations',before:before.hash,after:after.hash,modules,assetDirectory:rel,rootPersonallyViewed:['295 R06 full and low wrist/lap','305 R06 three-quarter','314 combined full and main/detail'],knownNewLocalSelfTrianglePairs:304,newLegAndFixedTorsoStrictPairs:0,scopeOfPairCounts:'Bounded noncoplanar changed local source region only, not global collision proof',photographicAccepted:false,side257NotIncluded:true,old309MotionDoesNotContainNewPose:true,fullSha256:sha(await readFile(resolve(frameDir,'reference.png'))),detailSha256:sha(await readFile(resolve(frameDir,'detail-native.png')))},null,2)+'\n',{flag:'wx'});console.log(after.hash);

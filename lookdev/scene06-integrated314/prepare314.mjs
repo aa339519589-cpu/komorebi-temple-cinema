@@ -1,0 +1,14 @@
+import {readFile,writeFile,mkdir,chmod,stat} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
+import {reconstructionSourceIdentity} from '../../tools/reconstruction-source-identity.mjs';
+const lane=import.meta.dirname,root=resolve(lane,'../..'),candidate=resolve(lane,'candidate-r01'),sha=b=>createHash('sha256').update(b).digest('hex');
+const before=await reconstructionSourceIdentity(candidate,'06');if(before.hash!=='19c197c53b2f9b25f26865d3161bc06a43aff1b5a2e8a244a8abccdc63bf127b')throw Error('Combined source changed');
+const handoff=JSON.parse(await readFile(resolve(root,'lookdev/scene06-centralpose295/handoff295-r06-working-candidate.json'))),dest=resolve(candidate,handoff.integrationRuntimeAssetDestination);await mkdir(dest,{recursive:true});const assets=[];
+for(const f of handoff.runtimeAndProvenanceFileList){if(sha(await readFile(f.source))!==f.sha256)throw Error('Original selected input changed');const target=resolve(dest,f.file);execFileSync('/bin/cp',['-c',f.source,target]);if((await stat(target)).ino===(await stat(f.source)).ino||sha(await readFile(target))!==f.sha256)throw Error('Not an independent identical clone');assets.push({file:handoff.integrationRuntimeAssetDestination+f.file,sourceSha256:f.sha256});}
+const manifestFile=resolve(dest,'manifest.json'),manifest=JSON.parse(await readFile(manifestFile));manifest.poseDerivative.selectedStateSummary=handoff.metadataNoteForCanonical.suggestedSelectedStateSummary;await chmod(manifestFile,0o644);await writeFile(manifestFile,JSON.stringify(manifest,null,2)+'\n');await chmod(manifestFile,0o444);
+const patchPaths=[...handoff.smallPatches,resolve(root,'lookdev/scene06-mandorla305/integration-r06-over-r03-delta305.patch')],patches=[];
+for(const file of patchPaths){const args=['--directory=lookdev/scene06-integrated314/candidate-r01',file];execFileSync('git',['apply','--check',...args],{cwd:root});execFileSync('git',['apply',...args],{cwd:root});patches.push({file,sha256:sha(await readFile(file))});}
+const edit=handoff.manualOnlyScopeReplacement,file=resolve(candidate,edit.file),source=await readFile(file,'utf8');if(source.split(edit.findHistoricalSentence).length!==2)throw Error('Exact source-limit sentence unavailable');await writeFile(file,source.replace(edit.findHistoricalSentence,edit.replaceWith));
+const after=await reconstructionSourceIdentity(candidate,'06');await writeFile(resolve(lane,'combined-source314.json'),JSON.stringify({status:'combined-working-pose-and-secondary-mandorla-awaiting-native-review',before:before.hash,source:after,patches,assets,manifestSelectedStateClarified:true,sourceGeometry:handoff.selectedGeometry.uncompressedSha256,knownNewLocalSelfPairs:304,photographicAccepted:false,side257NotIncluded:true},null,2)+'\n',{flag:'wx'});console.log(after.hash);

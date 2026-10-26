@@ -1,0 +1,67 @@
+{
+  "sourceHash": "0b049dcf0bd0cace860bfb84afe1cb5c796b349b4fc6ff1bf9bf7d5f3b5e7022",
+  "status": "working-native-3d-motion-not-final-film",
+  "durationSeconds": 7,
+  "fps": 24,
+  "frames": 168,
+  "dimensions": [
+    1080,
+    1080
+  ],
+  "nativeDimensions": [
+    1620,
+    1620
+  ],
+  "downsampling": "Lanczos",
+  "audio": false,
+  "allFramesDecodedWithoutErrors": true,
+  "rootVisualReview": "Full, main crop and motion first/middle/last native frames personally viewed. Not exhaustive temporal-fidelity or shimmer-free proof.",
+  "license": "CC-BY-NC-SA-4.0; component attribution retained",
+  "files": [
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/full.png",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-pose-halo/reference.png",
+      "sha256": "1e1d83d9b07fd05fb5961bfbae56d7b8e161f5dada692a52a0daade1a79c80a6",
+      "bytes": 2690522
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/main-detail-native.png",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-pose-halo/detail-native.png",
+      "sha256": "8ef2e58889b256ef5c38608442c8964a786075d15ba954fa45fac953460964b4",
+      "bytes": 2329601
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/motion-start-native.png",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-motion1080/frame-0000.png",
+      "sha256": "e5d2c7a60fc2b69a4cefc3d307cc36840a353e6867ca1aa50550ae3890f72e7a",
+      "bytes": 3531035
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/motion-middle-native.png",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-motion1080/frame-0084.png",
+      "sha256": "7be852f129b3a00640ffebee291623989749b866504737db5f29707f3443ea6d",
+      "bytes": 3740977
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/motion-end-native.png",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-motion1080/frame-0167.png",
+      "sha256": "d2b3294a2d8c5e06290bbb9252f675ec23f312aeed610f160f474bcf60bd531b",
+      "bytes": 4297452
+    },
+    {
+      "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/motion-review.mp4",
+      "original": "lookdev/scene06-integrated314/candidate-r01/qa/ten-reference/06/iteration-scene06-integrated314-motion1080/motion-review.mp4",
+      "sha256": "03d1aa763c3ee04ea4263be5ea876a0825b2a3ccef795e7c2bf78bdf8c17864f",
+      "bytes": 17765331
+    }
+  ],
+  "compressedOriginalReport": {
+    "file": "qa/ten-reference/06/iteration-scene06-integrated314-published/original-motion-report.json.gz",
+    "rawBytes": 101113674,
+    "rawSha256": "21844bdd0171793e881cc04766fa2316dffc9baf8aa0d2b08aaef9815b071a8f"
+  },
+  "photographicAccepted": false,
+  "mainPose295R06Included": true,
+  "knownBoundedNewSelfContactPairs": 304,
+  "side257NewPosesIncluded": false
+}

@@ -1,0 +1,157 @@
+{
+  "sourceVertices": 1631444,
+  "sourceTriangles": 3262892,
+  "authoredVertices": 1631444,
+  "authoredTriangles": 3262892,
+  "localVertices": 72178,
+  "localTriangles": 143408,
+  "freeClothAndSkinVertices": 37999,
+  "initialFreeClothAndSkinVertices": 37999,
+  "activePhysicalContactAnchors": 0,
+  "activeContactTargetMaxError": 0.0,
+  "boundedContactHistory": [
+    {
+      "newStrictCrossingPairs": 304,
+      "inheritedStrictCrossingPairs": 7,
+      "categories": {
+        "arm-self": 304
+      },
+      "actionablePairs": 255,
+      "microscopicPairsBelowActionDepth": 49,
+      "blockedHardConstraintPairs": 0,
+      "maximumProposedVertexStep": 0.006533814839513227,
+      "iteration": 0,
+      "positions": "contact-00-local-positions.bin",
+      "report": "contact-00-layer-proposals.json"
+    },
+    {
+      "newStrictCrossingPairs": 379,
+      "inheritedStrictCrossingPairs": 5,
+      "categories": {
+        "arm-self": 379
+      },
+      "actionablePairs": 330,
+      "microscopicPairsBelowActionDepth": 49,
+      "blockedHardConstraintPairs": 0,
+      "maximumProposedVertexStep": 0.004622409907506786,
+      "iteration": 1,
+      "positions": "contact-01-local-positions.bin",
+      "report": "contact-01-layer-proposals.json"
+    },
+    {
+      "newStrictCrossingPairs": 487,
+      "inheritedStrictCrossingPairs": 8,
+      "categories": {
+        "arm-self": 487
+      },
+      "actionablePairs": 422,
+      "microscopicPairsBelowActionDepth": 65,
+      "blockedHardConstraintPairs": 0,
+      "maximumProposedVertexStep": 0.010598322887590321,
+      "iteration": 2,
+      "positions": "contact-02-local-positions.bin",
+      "report": "contact-02-layer-proposals.json"
+    },
+    {
+      "newStrictCrossingPairs": 744,
+      "inheritedStrictCrossingPairs": 2,
+      "categories": {
+        "arm-self": 744
+      },
+      "actionablePairs": 668,
+      "microscopicPairsBelowActionDepth": 76,
+      "blockedHardConstraintPairs": 0,
+      "maximumProposedVertexStep": 0.007590493726646323,
+      "iteration": 3,
+      "positions": "contact-03-local-positions.bin",
+      "report": "contact-03-layer-proposals.json"
+    },
+    {
+      "newStrictCrossingPairs": 1078,
+      "inheritedStrictCrossingPairs": 2,
+      "categories": {
+        "arm-self": 1078
+      },
+      "actionablePairs": 957,
+      "microscopicPairsBelowActionDepth": 121,
+      "blockedHardConstraintPairs": 0,
+      "maximumProposedVertexStep": 0.006950488801879155,
+      "iteration": 4,
+      "positions": "contact-04-local-positions.bin",
+      "report": "contact-04-layer-proposals.json"
+    }
+  ],
+  "selectedBoundedContactIteration": 0,
+  "contactCorrectionPassMaximum": 4,
+  "boundedContactScope": "Only actual changed local original-source wrist/sleeve-root ROI triangles, including controlled ones for hard-conflict reporting, and related fixed neighbor triangles. Strict noncoplanar crossing; inherited original-source pairs excluded. Coplanar/tangential contact omitted. Bounded physical layer separation proposals, not a global no-intersection claim.",
+  "finalBoundedActionableCrossings": 255,
+  "finalBoundedRawStrictCrossings": 304,
+  "finalBoundedMicroscopicCrossings": 49,
+  "finalBlockedHardConstraintPairs": 0,
+  "fixedBodyAndBoundaryAnchors": 24893,
+  "realOriginalHandAnchors": 7840,
+  "originalElbowAnchors": 189,
+  "wholeCuffProfileSupportAnchors": 1257,
+  "fixedOriginalFoldPanelVertices": 0,
+  "wholeCuffTargetMaxError": 3.22164077577974e-08,
+  "wholeProfileTranslations": [
+    [
+      0.025,
+      0.06846154617095067,
+      -0.01
+    ],
+    [
+      0.025,
+      0.06711225617313508,
+      -0.01
+    ],
+    [
+      0.025,
+      0.020086141300979563,
+      -0.01
+    ]
+  ],
+  "boundaryPinnedRings": 2,
+  "sourceElbowVertex": 174886,
+  "actualPosedElbowAnchor": [
+    0.8999999761581421,
+    0.8349999785423279,
+    -0.03999999910593033
+  ],
+  "elbowTarget": [
+    0.9,
+    0.835,
+    -0.04
+  ],
+  "sourceShoulderPositionOrNormalChanges": 0,
+  "changedPositions": 47278,
+  "changedNormals": 48287,
+  "protectedPositionOrNormalChanges": 0,
+  "sourceHandTargetMaxError": 0.0,
+  "indicesAndTriangleOrderByteExact": true,
+  "uvByteExact": true,
+  "scalpCoverageByteExact": true,
+  "vertexAndTriangleIdentityMapping": "Output vertex v and triangle t retain R08a identity v/t, with no appended/reordered vertices or triangles.",
+  "localMinimumTwiceArea": 3.0351448181398013e-12,
+  "localDegenerateTriangles": 0,
+  "localAreaRatioPercentiles": {
+    "minimum": 0.017656381966358502,
+    "p01": 0.5184449587740467,
+    "median": 1.0157520338703125,
+    "p99": 1.6135610674459568,
+    "maximum": 3.2290997963706936
+  },
+  "triangleNormalsOpposedToLocalNeighborRotationField": 10,
+  "normalOrientationDiagnosticScope": "Source local one-ring closest proper rotations. Not a complete collision or injectivity proof.",
+  "selfIntersectionsChecked": false,
+  "solver": {
+    "iterations": 25,
+    "continuationSteps": 12,
+    "handPathFrontArc": 0.35,
+    "handPathOuterArc": 0.12,
+    "elbowPathFrontArc": 0.1,
+    "supportPathFrontArc": 0.2,
+    "supportPathOuterArc": 0.08
+  },
+  "visualAccepted": false
+}

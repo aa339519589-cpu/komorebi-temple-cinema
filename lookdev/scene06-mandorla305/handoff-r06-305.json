@@ -1,0 +1,133 @@
+{
+  "status": "proposed-independent-head-foliation-refinement-for-root-review",
+  "photographicAccepted": false,
+  "canonicalModified": false,
+  "pushed": false,
+  "requestedModel": "gpt-6.1-sol/max",
+  "baseSource": "fbb0b8a84bb45e35f9913a0e5c00ec028035e11d73361915d7e6d9141beeefa1",
+  "candidateSource": "45a86022db42ac7ac2ebd0d9d5f50c610a1d5850c71837e048692c9777caa96e",
+  "module": "reconstructions/scene-06/src/mandorla205.js",
+  "moduleSha256": "2a4c761e6497c3ae3c357d5610c2e6d6a8d456ea43cc6db96697280462629ba3",
+  "baseModuleSha256": "de8beca442ac15a51fc4933d50a9ffeec6b75270ce3398127963dad4890c4645",
+  "r03FrozenUnchanged": true,
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06",
+  "changedFiles": [
+    "reconstructions/scene-06/src/mandorla205.js"
+  ],
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/integration-r06-over-r03-delta305.patch",
+  "fullPatchFromC85": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/integration-r06-full305.patch",
+  "patchCheck": "git apply --check passed against current canonical R03 module and separately against frozen candidate-r01; no files applied",
+  "serverIsActualIndependentCopy": true,
+  "modeling": {
+    "trigger": "R03 has large radial voids between thin21/17 rays and single returns. HD shows rooted inner leaves, smaller flames and multiple carving depths.",
+    "newGeometry": "Carriers enter two original rays; unique fluted blades root on each carrier, with selected smaller buds branching off the actual blade shoulder. Swept front leaves lift through a short sheath, open into a belly and fold back at the tip. Back branches remain below the front leaf layer.",
+    "newClosedParts": 251,
+    "partCountsByFigure": [
+      95,
+      78,
+      78
+    ],
+    "antiRepetition": "Unequal rooted2/3-leaf forks, angular/radial phase variation, selected irregular side buds, staggered leaf heights and two relief depths; no instanced leaf card/stamp or annular repeated row.",
+    "blackCupMeshCodeUnchanged": true,
+    "preserved": "Same black cup geometry/material/transform, overall H/W/head-centre and all actor anchors; same original rays and outer carving; no camera, light, material or other source edit.",
+    "provenance": "Authored Three indexed3D closed surfaces. HD reference is visual evidence only; no new images/textures/planes, no Blender or big asset export."
+  },
+  "geometry": {
+    "audit": "r06-geometry305-exact.json",
+    "baseAudit": "r03-geometry305-exact.json",
+    "baseTriangles": 9313304,
+    "candidateTriangles": 9521472,
+    "addedTriangles": 208168,
+    "baseUniqueMiB": 143.5450897216797,
+    "candidateUniqueMiB": 146.66466522216797,
+    "addedUniqueMiB": 3.1195755004882812,
+    "cap": 10000000,
+    "bounds": [
+      [
+        -1.5401028907678793,
+        -0.0003946902654867329,
+        -0.13893606533262945
+      ],
+      [
+        1.5969156649791332,
+        4.4600419998168945,
+        0.11652021110057831
+      ]
+    ],
+    "closedAudit": {
+      "enabled": true,
+      "weldTolerance": 1e-8,
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0,
+      "geometriesWithBoundary": [],
+      "degenerateEdges": 0
+    },
+    "sampling": {
+      "solidStrips": 3738,
+      "minStations": 17,
+      "maxStations": 129,
+      "totalStations": 165885,
+      "curvatureNarrowedStations": 34311,
+      "unresolvedSegments": 0,
+      "maxRailChordError": 0.0029348829880241774,
+      "maxTangentTurn": 0.22998840815883054,
+      "maxRailChordErrorFractionOfTolerance": 0.9999824246250614
+    },
+    "finite": true,
+    "indexValid": true,
+    "nonUnitNormals": 0,
+    "memoryScope": "Unique authored geometry attribute/index buffers from the exact CPU constructor; not a hardware GPU allocation measurement."
+  },
+  "native": {
+    "driver": "tools/render-one-reconstruction.mjs",
+    "sharedGpuFifo": true,
+    "sourceFrozen": true,
+    "source": "45a86022db42ac7ac2ebd0d9d5f50c610a1d5850c71837e048692c9777caa96e",
+    "wholeSceneTriangles": 58266412,
+    "fullAndCropSeconds": 34.3,
+    "threeQuarterSeconds": 32.688,
+    "fullAndCropPeakDescendantRssMiB": 5585.90625,
+    "threeQuarterPeakDescendantRssMiB": 5438.96875,
+    "rssLimitation": "Sampled sum of RSS for official render-one driver and descendant server/browser processes; RSS can double-count shared pages and is not hardware GPU allocation. Official shared GPU FIFO is unchanged.",
+    "glErrors": 0,
+    "contextLost": false,
+    "programsLinked": true,
+    "guardValid": true,
+    "full": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06/qa/ten-reference/06/iteration-mandorla305-r06-full-crop/reference.png",
+    "crop": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06/qa/ten-reference/06/iteration-mandorla305-r06-full-crop/detail-native.png",
+    "cropSubfrustum": {
+      "pixels": [
+        485,
+        325,
+        160,
+        1254
+      ],
+      "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+    },
+    "threeQuarter": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06/qa/ten-reference/06/iteration-mandorla305-r06-three-quarter/inspection-view.png",
+    "fullReport": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06/qa/ten-reference/06/iteration-mandorla305-r06-full-crop/report.json",
+    "threeQuarterReport": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-mandorla305/candidate-r06/qa/ten-reference/06/iteration-mandorla305-r06-three-quarter/report.json"
+  },
+  "visualReview": {
+    "personallyViewed": [
+      "R04 full/true subfrustum/three-quarter",
+      "R05 full/true subfrustum/three-quarter",
+      "R06 full/true subfrustum/three-quarter",
+      "HD reference and halo crop"
+    ],
+    "r04": "Held: too needle-like, dark and partly hidden by existing leaves; insufficient change in radial empty field.",
+    "r05": "Held: more swept mass, but the continuous forward ramp keeps the left leaf belly dark; viewable as twigs in some intervals.",
+    "r06": "The lifted root/expanded belly/backward fold makes real leaf faces, rolled edges and front/back occlusion readable. More3D than R04/R05 and no strong new gear/grille pattern in the three reviewed views.",
+    "limits": "Some radial intervals remain open and the retained original primary returns are still coarse against the HD carving. Full-frame change is modest; this is a geometry refinement for Root review, not photographic acceptance or a film sign-off."
+  },
+  "history": [
+    "r04-parent305.json",
+    "candidate-r04",
+    "r04-visual-review305.json",
+    "r05-parent305.json",
+    "candidate-r05",
+    "r05-visual-review305.json",
+    "r06-parent305.json",
+    "candidate-r06"
+  ]
+}
