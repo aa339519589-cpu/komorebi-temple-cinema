@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {configureBaseSurfaces353,finishRuntimeSurfaces353,snapshotSurface353} from './surface-response353.js';
 import {installShoreMaterials298} from './shoreline-craft298.js';
 import {installCraftMaterials298} from './foreground-craft298.js';
 import {installScannedTimber} from './scanned-timber.js';
@@ -8,7 +9,9 @@ import {Reflector} from 'three/addons/objects/Reflector.js';
 import {Builder,materialSet,V,noise,rng,TAU} from './kernel.js';
 import {architecture} from './architecture.js';
 import {garden} from './garden.js';
-import {loadMeasuredSky} from './measured-sky.js';
+import {loadGoldenBoundary353 as loadMeasuredSky} from './authored-sky353.js';
+import {initializeLocalRadiance353} from './local-radiance353.js';
+import {installCourtReturn353} from './court-return353.js';
 import {createDistantLandscape} from './distant-landscape.js';
 import {layout124 as L} from './layout124.js';
 import {installHardwareMaterials131} from './foreground-hardware131.js';
@@ -18,7 +21,7 @@ export const CAMERA={position:[0,3.20,17],target:[0,6.20,-13],fov:59,near:.1,far
 // One fixed angular direction drives the sun, sky and leaf transmission.
 const sunCamera=new T.PerspectiveCamera(CAMERA.fov,1,CAMERA.near,CAMERA.far);sunCamera.position.fromArray(CAMERA.position);sunCamera.lookAt(...CAMERA.target);sunCamera.updateMatrixWorld(true);
 export const SUN_DIRECTION=new T.Vector3(185/1254*2-1,1-496/1254*2,.5).unproject(sunCamera).sub(sunCamera.position).normalize();
-const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0}},vertexShader:`uniform mat4 textureMatrix;
+const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0},sunDirection353:{value:SUN_DIRECTION.clone()},sunIntensity353:{value:12/8.2},sunColor353:{value:new T.Color().setRGB(1,.58,.25)}},vertexShader:`uniform mat4 textureMatrix;
 varying vec4 vUv;
 varying vec3 vWorld;
 void main(){
@@ -27,7 +30,7 @@ void main(){
   gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);
 }`,fragmentShader:`uniform sampler2D tDiffuse;
 uniform vec3 color;
-uniform float time;
+uniform float time;uniform vec3 sunDirection353,sunColor353;uniform float sunIntensity353;
 varying vec4 vUv;
 varying vec3 vWorld;
 
@@ -97,7 +100,7 @@ void main(){
   // painted sun path or emissive grid; only the ripple-normal GGX term below
   // contributes direct sun highlights.
   // Energy-limited GGX sun glints stay tied to the moving ripple normal.
-  vec3 sunDirection=normalize(vec3(-.373972,.114733,-.920316));
+  vec3 sunDirection=normalize(sunDirection353);
   vec3 halfVector=normalize(viewDirection+sunDirection);
   float nDotL=max(dot(rippleNormal,sunDirection),0.);
   float nDotH=max(dot(rippleNormal,halfVector),0.);
@@ -112,14 +115,14 @@ void main(){
   float directFresnel=.020+.98*pow(1.-vDotH,5.);
   float sunGlint=distribution*geometryV*geometryL*directFresnel
                 /max(4.*nDotV*nDotL,.06);
-  outc+=vec3(1.0,.58,.25)*min(sunGlint*.038,.28);
+  outc+=sunColor353*min(sunGlint*.038*sunIntensity353,.28);
 
   gl_FragColor=vec4(outc,1.);
 #include <tonemapping_fragment>
 #include <colorspace_fragment>
 }`};
 
-export async function buildScene({width=768,height=768}={}){const scene=new T.Scene();scene.name='Reference 01: sunset temple pond from low veranda';scene.fog=new T.FogExp2(0xc6a27a,.0048);const mats=materialSet();
+export async function buildScene({width=768,height=768}={}){const scene=new T.Scene();scene.name='Reference 01: sunset temple pond from low veranda';scene.fog=new T.FogExp2(0xc6a27a,.0048);const mats=materialSet();configureBaseSurfaces353(mats);
 // Continuous 3D weathering breaks the old flat-colored stone and painted wood.
 const weatherNoise=`float wh(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}float wn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(wh(i),wh(i+vec3(1,0,0)),f.x),mix(wh(i+vec3(0,1,0)),wh(i+vec3(1,1,0)),f.x),f.y),mix(mix(wh(i+vec3(0,0,1)),wh(i+vec3(1,0,1)),f.x),mix(wh(i+vec3(0,1,1)),wh(i+vec3(1,1,1)),f.x),f.y),f.z);}float wf(vec3 p){return .57*wn(p)+.28*wn(p*2.07+4.1)+.15*wn(p*4.17+7.2);}`;
 for(const key of['rock','rockWet','stone','stoneLight']){mats[key].onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vRockPosition;varying vec3 vRockNormal;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvRockPosition=position;vRockNormal=normal;');shader.fragmentShader='varying vec3 vRockPosition;varying vec3 vRockNormal;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
@@ -131,8 +134,16 @@ ageWorld=instanceMatrix*ageWorld;
 #endif
 vAgedPosition=(modelMatrix*ageWorld).xyz;`);shader.fragmentShader='varying vec3 vAgedPosition;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
 float age=wf(vAgedPosition*vec3(3.1,.32,3.1));float chip=wf(vAgedPosition*38.);diffuseColor.rgb*=.73+.40*age;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.084,.031),smoothstep(.72,.83,chip)*.16);`);};mats[key].customProgramCacheKey=()=>key+'-old-painted-wood-v3';}
-for(const key of['leaf','leafLight','leafDark','lotusLeaf','mapleLeaf','mapleLight','mapleDark','pineLeaf','vineLeaf']){mats[key].onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <shadowmap_pars_fragment>','#include <shadowmap_pars_fragment>\n#include <shadowmask_pars_fragment>');shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
-vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*vec3(1.5,.93,.18)*transmitted*getShadowMask()*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-shadow-energy298-v8';}
+for(const key of['leaf','leafLight','leafDark','lotusLeaf','mapleLeaf','mapleLight','mapleDark','pineLeaf','vineLeaf']){mats[key].onBeforeCompile=shader=>{shader.uniforms.leafSolar353={value:sun.color.clone().multiplyScalar(1.5*sun.intensity/8.2)};shader.fragmentShader='uniform vec3 leafSolar353;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <shadowmap_pars_fragment>',`#include <shadowmap_pars_fragment>
+#include <shadowmask_pars_fragment>
+float getSolarVisibility353(){
+ #if defined(USE_SHADOWMAP)&&(NUM_DIR_LIGHT_SHADOWS>0)
+ DirectionalLightShadow d=directionalLightShadows[0];return receiveShadow?getShadow(directionalShadowMap[0],d.shadowMapSize,d.shadowIntensity,d.shadowBias,d.shadowRadius,vDirectionalShadowCoord[0]):1.0;
+ #else
+ return 1.0;
+ #endif
+}`);shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*leafSolar353*transmitted*getSolarVisibility353()*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-shadow-energy298-v8';}
 mats.bark.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vBarkField;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvBarkField=position;');shader.fragmentShader='varying vec3 vBarkField;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
 float lichen=wf(vBarkField*vec3(9.,12.,9.));float islands=smoothstep(.62,.78,lichen);diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.165,.115),islands*.85);`);};mats.bark.customProgramCacheKey=()=> 'scene01-132-bark-lichen-field';
 const timber=await installScannedTimber(mats);
@@ -140,7 +151,7 @@ const hardware=installHardwareMaterials131(mats);installCraftMaterials298(mats);
 const joineryKit=await loadBlenderJoinery();
 const scannedStones=await loadScannedGardenStones();
 const carvedSources185=await loadCarvedSources185();
-const B=new Builder(mats);B.joineryKit=joineryKit;B.scannedStones=scannedStones;B.carvedSources185=carvedSources185;const A=architecture(B),G=garden(B,A);scene.add(B.finish());
+const B=new Builder(mats);B.joineryKit=joineryKit;B.scannedStones=scannedStones;B.carvedSources185=carvedSources185;const A=architecture(B),G=garden(B,A);scene.add(B.finish());const runtimeSurfaces353=finishRuntimeSurfaces353(scene);let renderer353=null;
 const measuredSky=await loadMeasuredSky(SUN_DIRECTION),sky=measuredSky.mesh;scene.add(sky);
 const rand=rng(12191),landscape=createDistantLandscape();scene.add(landscape.group);
 const water=new Reflector(new T.PlaneGeometry(34,31),{clipBias:.003,textureWidth:Math.min(1024,width),textureHeight:Math.min(1024,height),multisample:0,shader:waterShader});water.rotation.x=-Math.PI/2;water.position.set(0,.13,5.2);water.name='real-reflected-garden-pond-ripple-surface';scene.add(water);
@@ -169,9 +180,9 @@ fallMat.onBeforeCompile=shader=>{
  diffuseColor.a*=edge*(.035+.18*foam);`);
 };fallMat.customProgramCacheKey=()=> 'scene01-deterministic-flowing-clear-water-v1';const falls=new T.Mesh(fgeom,fallMat);falls.name='individual-falling-water-ribbons';scene.add(falls);
 const foam=new Builder(mats);for(let k=0;k<130;k++){const s=.013+rand()*.035;foam.sphere(L.waterfall.x+(rand()-.5)*1.4,.15+rand()*.06,L.waterfall.z[1]+.57+(rand()-.5)*.35,s,s*.3,s*1.3,'stoneLight',0,.8+rand()*.3);}scene.add(foam.finish());
-const sun=new T.DirectionalLight(0xffbd70,8.2);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xaec9ed,0xbf9159,.68);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,1.92);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,6.3,12);fill.target.position.set(1,6.4,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
-const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
-for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,1.5,2.6,2);lamp.position.copy(local);scene.add(lamp);}
- RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,2.0,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
- let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.66;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt','craft298Brass','craft298Recess']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-craft298-closed-cast-fittings-and-terraced-water-edge-scanned-rock-banks-and-buried-piers-r15',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Low sunlit courtyard horizon bounce approximation with actual shadowing; main sun and sky held',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
+const sun=new T.DirectionalLight(new T.Color().setRGB(...measuredSky.solar.colorLinear),measuredSky.solar.intensity);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);water.material.uniforms.sunColor353.value.copy(sun.color);water.material.uniforms.sunIntensity353.value=sun.intensity/8.2;const hemi=new T.HemisphereLight(0xaec9ed,0xbf9159,.08);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,.85);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,6.3,12);fill.target.position.set(1,6.4,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;fill.intensity=0;fill.castShadow=false;scene.add(fill,fill.target);const courtReturn353=installCourtReturn353(scene);
+const porchLight=new T.PointLight(0xffa83e,2,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
+for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,.30,2.6,2);lamp.position.copy(local);scene.add(lamp);}
+ RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,1.4,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
+ let field353=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){renderer353=renderer;field353=initializeLocalRadiance353({scene,renderer,sky:measuredSky,water,cells:B.envMaterialCells353});},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-surface353-r10-shared-spherical-cloudlet-boundary',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),surface353:{courtReturn:courtReturn353,inferredNotMeasured:true,photographicAccepted:false,exposureHeld:1.03,skyDisplayScale:measuredSky.mesh.material.uniforms.skyIntensity.value,skyIBLNormalization:1,allOriginalInstanceMatricesAndColorsHeldInCellSplit:true,localRadiance:field353?.info,solarBoundary:measuredSky.solar,singleSourceLeafTransmission:true,effectiveIBL:scene.environmentIntensity,metricBeveledPrototypeCount:B.metricEdgeGeometries353.size,rawRoughnessAndNormalPixelsHeld:true,hallNoLongerBakesDisplayRGBPaint:true,waterGGXDirectionSharesActualSun:true,runtimeSurfaces:runtimeSurfaces353,actualMaterials:snapshotSurface353(scene,renderer353),fullGI:false},spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:court185.intensity,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:sun.color.toArray(),sunColorEncoding:'linear-sRGB inferred golden-hour solar boundary',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Original parallel fill is inactive; four distant finite court-return samples use actual geometry shadows; Sun/sky/EV held fromR04',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.envMaterialCells353.values()].map(v=>v.material),...B.bridgeFinishMaterials353.values(),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();field353?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
 }

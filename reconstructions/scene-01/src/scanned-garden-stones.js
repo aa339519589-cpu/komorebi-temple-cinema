@@ -55,7 +55,7 @@ function addStoneSurfaceBreakup(material){
     float flecks=smoothstep(0.72,0.91,stoneValueNoise(vStoneFieldPosition*31.0+vec3(4.0,8.0,2.0)));
     float up=clamp(vStoneFieldNormal.y,0.,1.);float proceduralMoss=smoothstep(.65,.83,broad)*smoothstep(.30,.83,up);
     float mossMask=clamp(scanMoss*.48+proceduralMoss*.28,0.,.58);
-    vec3 charcoal=mix(vec3(stoneLuma*.95,stoneLuma*.98,stoneLuma*1.02),scannedStone,.22);
+    vec3 charcoal=mix(vec3(stoneLuma),scannedStone,.40);
     vec3 oliveMoss=mix(vec3(.026,.045,.006),vec3(.10,.14,.020),strata);
     float facetValue=0.82+broad*0.22+(strata-0.5)*0.08;
     diffuseColor.rgb=mix(charcoal,oliveMoss,mossMask)*facetValue;
@@ -81,16 +81,16 @@ export async function loadScannedGardenStones(){
   // Keep the scan's squat geological proportions. Stretching every axis to
   // the old unit sphere would turn flat weathered stones into tall pinnacles.
   const scale=2/Math.max(size.x,size.z);geometry.scale(scale,scale,scale);
-  const dry=o.material.clone();dry.name='scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.96;dry.color.setRGB(.76,.77,.77);
-  if(dry.normalScale)dry.normalScale.set(.85,.85);
+  const dry=o.material.clone();dry.name='scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.90;dry.color.setRGB(.76,.77,.77);
+  if(dry.normalScale)dry.normalScale.set(.65,.65);
   addStoneSurfaceBreakup(dry);
   const wet=new T.MeshPhysicalMaterial({
    name:dry.name+'-wet',color:dry.color,map:dry.map,normalMap:dry.normalMap,
    normalScale:dry.normalScale,roughnessMap:dry.roughnessMap,aoMap:dry.aoMap,
-   aoMapIntensity:dry.aoMapIntensity,roughness:.62,
-   metalness:0,clearcoat:.20,clearcoatRoughness:.35
+   aoMapIntensity:dry.aoMapIntensity,roughness:.36,
+   metalness:0,clearcoat:.55,clearcoatRoughness:.16
   });
-  wet.color.multiplyScalar(.90);
+  wet.color.multiplyScalar(.62);
   addStoneSurfaceBreakup(wet);
   for(const key of ['map','normalMap','roughnessMap','aoMap'])if(dry[key])textures.add(dry[key]);
   variants.push({geometry,dry,wet,mossGeometry:mossSkin132(geometry)});

@@ -4,17 +4,19 @@
 
 场景画面来自实际三维网格、独立材质、灯光与相机。参考照片用于并排比较；已被否决的照片深度／高斯影片不作为模型或成品依据。生成的天空与雕刻辅助图有独立来源记录，雕刻辅助值转换为实体浮雕网格，不用作画面替身。
 
+2026-10-27 工作检查点：[十景参考／实际模型对照](qa/ten-reference/working-model-review-20261027-t/all-ten-reference-left-render-right.jpg)与[各图实际源码](qa/ten-reference/working-model-review-20261027-t/frames.json)更新了第一景的实体木材倒角、曲面扶手和采光材质，以及第六景连续原始佛像网格的腕部与袖口。佛像仍有局部自交和手势差距；桥体、莲座、瓦檐正在独立重建。此版仍未达到参考精度。[合入范围与保留问题](lookdev/integration362/integration362.json)。
+
 2026-10-26 工作检查点：[十景保留实渲／参考对照](qa/ten-reference/working-model-review-20261026-s/all-ten-reference-left-render-right.jpg)有[各幅独立源码身份](qa/ten-reference/working-model-review-20261026-s/frames.json)。此固定对照新增第三景真实尺度荷花与近景距离、第八景有厚度的廊柱栏杆、连续廊面及栏外植被；同时保留第二景檐枋与庭院返回光、第四景粗凿石灯、第七景岛岸与自然林木、第九景实体灯组和根植石岸。十张均为各独立参考机位的实际原生三维画面。十景的布局、材质、雕刻和光影仍明显未达到参考；此模型对照更新于下面的冻结影片 G。
 
 此前佛堂原生工作源 `0b049dcf` 已合入实体高窗、滑屏、前左太阳、供桌、织锦跪垫、分层柜面、连续背光雕刻，以及一手抬起、一手置于膝前的主佛姿态：[7 秒 1080×1080／24fps 实际拉远片段](qa/ten-reference/06/iteration-scene06-integrated314-published/motion-review.mp4)、[全幅](qa/ten-reference/06/iteration-scene06-integrated314-published/full.png)、[佛像局部](qa/ten-reference/06/iteration-scene06-integrated314-published/main-detail-native.png)与[精确媒体身份](qa/ten-reference/06/iteration-scene06-integrated314-published/media.json)。此片静音，早于最新 `10ebb530` 的胁侍手部及窗光，也尚未合入下方冻结十景影片；主佛袖缘/指节、局部自交和胁侍造型仍需继续修进。画面仍有明显的造型、明暗与材质差距。
 
-[当前完整模型的物理采光工作图](lookdev/scene06-physical354/publication/r04-full.png)与[四轮实际图、可重建代码及说明](lookdev/scene06-physical354/publication/README.md)已保留。当前模型完整导入 Cycles CPU/Embree，1254×1254、128 samples；两处有限窗外照明和物理相机曝光均为明示推断。此单帧不等于原生Three.js影片，尚未通过参考精度验收。
+[冻结10ebb模型的物理采光工作图](lookdev/scene06-physical354/publication/r04-full.png)与[四轮实际图、可重建代码及说明](lookdev/scene06-physical354/publication/README.md)已保留。当前模型完整导入 Cycles CPU/Embree，1254×1254、128 samples；两处有限窗外照明和物理相机曝光均为明示推断。此单帧不等于原生Three.js影片，尚未通过参考精度验收。
 
 [此前完整几何的 Cycles 采光研究](lookdev/scene06-daylight284/publication/README.md)另保留可再生代码、材质参数和实际物理渲染；它与原生影片是两个明确区分的渲染检查点。
 
 佛堂整屋研究原型 `53b7228f` 已保存为[可复原的精确源码覆盖包](lookdev/scene06-combined256/public-source53/README.md)，基于公开提交 `62ba98d1`，含真实供桌、房间、独立雕刻/藻井材料、实体滑动纸屏和间接可见度着色。[实际全幅](lookdev/scene06-combined256/actual-source53/full.png)、[供桌真局部](lookdev/scene06-combined256/actual-source53/table-detail-native.png)和[低侧角](lookdev/scene06-combined256/actual-source53/low-oblique.png)均由同一源实际渲染。它仍有明显造型和光照差距，此后柱头、织锦、漆座、侧像和实体多次反弹照明继续重建。[莲座258两轮建模与实际检查](lookdev/scene06-lotus258/delivery-r02/handoff-r02.json)独立保留。
 
-十景工作影片 G 已输出：[60秒／70秒工作视频](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/working-film-2026-10-26-g)。源码固定于 `1a49002348cd4a2f78d62e278fce50d216526942`；1080×1080、24fps，由1620×1620真实原生帧缩小。十个7秒源镜头保留，60秒版含240帧叠化重叠。两版已完整解码，并人工抽看各镜头起中末及全部剪辑边界；这不证明逐帧照片精度或完全无闪烁。电影不包含其后344/340/341/342/343模型修进。[源快照](lookdev/film-sol61-334/snapshot-proof.json)、[媒体记录](output/sol61-rebuild-20261026-g/media-receipt.json)、[人工画面复看记录](output/sol61-rebuild-20261026-g/root-personal-review.json)保留。
+十景工作影片 G 已输出：[60秒／70秒工作视频](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/working-film-2026-10-26-g)。源码固定于 `1a49002348cd4a2f78d62e278fce50d216526942`；1080×1080、24fps，由1620×1620真实原生帧缩小。十个7秒源镜头保留，60秒版含240帧叠化重叠。两版已完整解码，并人工抽看各镜头起中末及全部剪辑边界；这不证明逐帧照片精度或完全无闪烁。电影不包含其后340/341/342/343/344/352/353/355/358模型修进。[源快照](lookdev/film-sol61-334/snapshot-proof.json)、[媒体记录](output/sol61-rebuild-20261026-g/media-receipt.json)、[人工画面复看记录](output/sol61-rebuild-20261026-g/root-personal-review.json)保留。
 
 上一轮十景工作影片F已完成媒体输出：[60秒／70秒及原生画面对照](https://github.com/aa339519589-cpu/komorebi-temple-cinema/releases/tag/working-film-2026-10-24-f)。影片固定于完整公开源码 `c355c5d4` 的独立快照，1080×1080、24fps，原生1620×1620采样后缩小。[快照核对](lookdev/film-sol61-232/snapshot-proof.json)、[重启恢复记录](lookdev/film-sol61-232/reboot-interruption242.json)与[实际媒体哈希／时长／帧数](output/sol61-rebuild-20261024-f-resume1/media-receipt.json)保留。两版均完整解码检查；抽样画面不证明逐帧照片精度或完全无闪烁。此片早于上面的供桌和整屋新模型，十景均未验收。
 
@@ -31,7 +33,7 @@ PORT=4318 node tools/server.mjs
 - [十景影片制作预览](http://127.0.0.1:4318/film.html)：60 秒叠化剪辑、70 秒完整源镜头、十景原图与实际渲染对照。
 - [左侧参考图／右侧实时 3D](http://127.0.0.1:4318/compare-ten.html)：十个独立场景入口。
 
-播放器当前指向 `sol61-rebuild-20261024-f-resume1` 冻结工作检查点，1080×1080、24fps。每个源镜头7秒、168帧，九处叠化得到60秒、1440帧剪辑。十景源文件逐镜头身份见 [影片记录](output/sol61-rebuild-20261024-f-resume1/film-build.json)；[原生源帧清单](qa/ten-reference/film-review-sol61-rebuild-20261024-f-resume1/frames.json)和[原图／实际影片源帧](output/sol61-rebuild-20261024-f-resume1/references-left-renders-right.jpg)保留。
+播放器当前指向 `sol61-rebuild-20261026-g` 冻结工作检查点，1080×1080、24fps。每个源镜头7秒、168帧，九处叠化得到60秒、1440帧剪辑。十景源文件逐镜头身份见 [影片记录](output/sol61-rebuild-20261024-f-resume1/film-build.json)；[原生源帧清单](qa/ten-reference/film-review-sol61-rebuild-20261024-f-resume1/frames.json)和[原图／实际影片源帧](output/sol61-rebuild-20261024-f-resume1/references-left-renders-right.jpg)保留。
 
 MP4超过Git单文件大小，存放在上述预发行资产。新检出仓库时，把两份 `temple-ten-scenes-60s.mp4`、`temple-ten-scenes-70s.mp4` 下载到 `output/sol61-rebuild-20261024-f-resume1/` 后即可本地播放；[下载地址与SHA-256](output/sol61-rebuild-20261024-f-resume1/public-media.json)明确保留。源代码许可不覆盖素材的独立非商用／署名条款。
 

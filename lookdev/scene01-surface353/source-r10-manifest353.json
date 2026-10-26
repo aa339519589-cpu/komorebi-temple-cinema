@@ -1,0 +1,115 @@
+{
+  "baseSource": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+  "candidateSource": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10",
+  "runtimeFiles": [
+    {
+      "path": "reconstructions/scene-01/asset-dependencies.json",
+      "before": "fefcea6fb3edf5b31f048c3931ec107e6c59a388f97535245890e796f37b4cee",
+      "after": "324a2cd0be225bf9ce6db7288f6f48fca3296372a43c9e39b41457d487e5458d",
+      "bytes": 6141,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/authored-sky353.js",
+      "before": null,
+      "after": "504e8f1df4a39e0e5d910a29df5c13e70f90d6e82ca9a2951169e800ba233ab3",
+      "bytes": 5692,
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-01/src/court-return353.js",
+      "before": null,
+      "after": "47a029c071049ba0629e83872bfd65736c75f6e11a3beb5c7c2aeab86fb51f5a",
+      "bytes": 1371,
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-01/src/hall-facade161.js",
+      "before": "cb864f84b21e982b6fdaf60a778d249f2b153224ea9f79eb3f90270a03632542",
+      "after": "3be35e5f00cc91f07a572ddad4c8dfcef9114639dc532f3013e44743ca2f02c8",
+      "bytes": 5572,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/indirect-visibility353.js",
+      "before": null,
+      "after": "c21f93c95b762e6de84ec0d25031b8bdcb439c2ac8b319bd4028218f973f420b",
+      "bytes": 2705,
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-01/src/kernel.js",
+      "before": "be96316a2d07c20483c68346bfb806174c8a093c55f53bcd4a6464bd56736419",
+      "after": "010b294647aea5366740ad56e36dd9cb58615f6bcee827108477d54c45b37b80",
+      "bytes": 15146,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/local-radiance353.js",
+      "before": null,
+      "after": "4e7052c13ede1336dea8fb223202bc9346047cd2f2379e0864367d03be51fbb8",
+      "bytes": 4212,
+      "added": true
+    },
+    {
+      "path": "reconstructions/scene-01/src/main.js",
+      "before": "0b5df1b1366bbe4c1d11741d543035a07c0ada1fd50227fce078d46c7177b7a8",
+      "after": "0133ca6c5f4156d3c3246ef075756f5c72a4e84eb1be60e3dfbc2b3fe4658744",
+      "bytes": 4561,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/optics.js",
+      "before": "6216f859c404a85bc6b2739384580330322beffb3b12a5381526e25470743313",
+      "after": "95f3f6b294fb10501427c9f0a4a1cd19d3bdb3c22ec84af0bbf99fb5fe927970",
+      "bytes": 4966,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/scanned-garden-stones.js",
+      "before": "c71b870d1b9217779b14854af1cac4cd035f7e8c5fd2b91344a567bdd17de0ec",
+      "after": "a77d18e62fa1ddfa8c13c6b9aa6ea99c11faea47d1c7ac72f175b045f2a6afc7",
+      "bytes": 5579,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/scanned-timber.js",
+      "before": "b6da7e924075bef13171dad39709e87af6e20b14368253e69c9005e19b9b1f78",
+      "after": "54c26a0a01451596906a8a878f0851fed26b93b95dea0e840042235fb37dcae2",
+      "bytes": 4711,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/scene.js",
+      "before": "4ac069f5b6043216d94d498d1e64a7cbf32da985c3dcfb1cd41851c8d29319b5",
+      "after": "edd2366ee209fc934528fb540a8a151e362d3508569d66f805f644da77f85020",
+      "bytes": 20254,
+      "added": false
+    },
+    {
+      "path": "reconstructions/scene-01/src/surface-response353.js",
+      "before": null,
+      "after": "8f8503bdf6768d933324580a80c4012f8b06fd4968f9b6d06b1ce74fd00db8c5",
+      "bytes": 5497,
+      "added": true
+    }
+  ],
+  "dependencyOnly": [
+    {
+      "path": "vendor/examples/jsm/geometries/RoundedBoxGeometry.js",
+      "sha256": "c5feab96123858ed8823c889b238dc8734adab7e760e3cfd21e7f3f2f3e348e3",
+      "existingUnmodifiedInputNewlyDeclared": true
+    }
+  ],
+  "runtimeFileCount": 13,
+  "patch": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/source-r10-353.patch",
+    "sha256": "a632f3aa8e0c1f99f85ee78da8f06e0d4d8fa427118a98aa69924bf742461b76",
+    "bytes": 71611
+  },
+  "canonicalModified": false,
+  "pushed": false,
+  "photographicAccepted": false,
+  "standaloneGeometryPatchAlternative": "geometry-only353.patch; exact 3 files; do not layer full patch over it without rebasing kernel/asset-dependencies"
+}

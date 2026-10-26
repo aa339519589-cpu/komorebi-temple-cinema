@@ -1,0 +1,25 @@
+--- a/reconstructions/scene-06/src/sculptural-cast-assets.js
++++ b/reconstructions/scene-06/src/sculptural-cast-assets.js
+@@ -16,9 +16,9 @@
+  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
+  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
+  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
+- const foundationBase=new URL('../assets/centralpose295-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
++ const foundationBase=new URL('../assets/sculpture358-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+  if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
+- const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-centralpose295-r06-differential-left-arm-lap-pose")throw Error('Wrong NC actual-source revision');
++ const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-sculpture358-r06-continuous-original-wrist-sleeve")throw Error('Wrong NC actual-source revision');
+  const sideBase=new URL('../assets/seated-attendants257-r11/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
+  if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
+  const sideManifest=await sideResponse.json();if(sideManifest.revision!=='scene06-attendants257-r11')throw Error('Wrong attendant head revision');
+--- a/reconstructions/scene-06/src/reference6-main.js
++++ b/reconstructions/scene-06/src/reference6-main.js
+@@ -24,7 +24,7 @@
+ function applyNativePBR284(room){
+  const consumers=new Map();room.scene.traverse(o=>{if(o.isMesh)for(const m of(Array.isArray(o.material)?o.material:[o.material])){if(!consumers.has(m))consumers.set(m,[]);consumers.get(m).push(o);}});
+  const floor=[...consumers].filter(([m])=>m.name==='reference6-varnished-red-brown-floor-body'&&m.userData.actualFloorSolidReflection===true);
+- const central=[...consumers].filter(([m])=>m.name==='scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR');
++ const central=[...consumers].filter(([m])=>m.name==='scene06-sculpture358-r06-continuous-original-wrist-sleeve:central-ordinary-PBR');
+  const floorNames=new Set(['scene06-jointed-polished-floorboard','scene06-observed-foreground-thick-wood-panel','room248-jointed-rear-floorboard']);
+  if(floor.length!==243||floor.some(([,objects])=>objects.length!==1||!floorNames.has(objects[0].name))||central.length!==1||central[0][1].length!==1)throw Error('Native315 exact material/consumer role changed');
+  const ancestry=[];for(let o=central[0][1][0];o;o=o.parent)if(o.name)ancestry.unshift(o.name);

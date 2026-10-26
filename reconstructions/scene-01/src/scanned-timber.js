@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {PIGMENT353} from './surface-response353.js';
 
 const directory='/assets/polyhaven/lacquered-cherry-wood/';
 export async function installScannedTimber(mats){
@@ -6,15 +7,9 @@ export async function installScannedTimber(mats){
  const [albedo,normal,rawRoughness]=await Promise.all([
   loader.loadAsync(directory+'diffuse-2k.jpg'),loader.loadAsync(directory+'normal-gl-2k.png'),loader.loadAsync(directory+'roughness-2k.jpg')
  ]);
- const canvas=document.createElement('canvas');canvas.width=rawRoughness.image.width;canvas.height=rawRoughness.image.height;
- const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(rawRoughness.image,0,0);
- const values=ctx.getImageData(0,0,canvas.width,canvas.height);
- // Warm-pixel probes on ref01 show chestnut timber at median RGB [106,50,21]
- // on the bridge and [89,39,15] on the members; the current frame reads cooler
- // at [106,57,37] and [135,81,54]. Keep the mapped grain and lower its
- // midrange roughness so the grain catches a restrained, readable highlight.
- for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.max(116,Math.min(244,values.data[i]*.76+82)));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
- ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
+ // Original CC0 roughness pixels remain unremapped; pigment is separated
+ // from the dark furniture scan's chroma by linear luminance grain below.
+ const roughness=rawRoughness;
  albedo.colorSpace=T.SRGBColorSpace;
  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
  for(const tex of [albedo,normal,roughness]){
@@ -22,21 +17,25 @@ export async function installScannedTimber(mats){
   tex.magFilter=T.LinearFilter;tex.generateMipmaps=true;tex.anisotropy=8;tex.needsUpdate=true;
  }
  const keys=['red','redLight','wood','endwood','darkwood'];
- // Linear gains shift the furniture scan toward the reference's red-brown
- // chroma. The sampled albedo peaks are .0666/.0452/.0222; these gains keep
- // all channels below .52 linear while cutting the excess green-blue cast.
- const colors={red:[5.7,2.65,1.45],redLight:[6.5,3.5,1.9],wood:[6.5,4.0,2.25],endwood:[7.6,5.2,3.1],darkwood:[2.4,1.5,.92]};
+ // Separate inferred paint reflectance from original linear scan luminance.
+ // The modern polished-table roughness mean is about.2475; the shader gives
+ // aged architectural paint its own roughness range while keeping variation.
+ const colors=PIGMENT353;
  for(const key of keys){
   const mat=mats[key];if(!mat)continue;
   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
-  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.24,.24);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
+  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.08,.08);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=key==='endwood'?.90:key==='wood'||key==='darkwood'?.78:.66;
   mat.color.setRGB(...colors[key]);mat.metalness=0;
-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.045:.025;mat.clearcoatRoughness=.48;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.25,.25);mat.specularIntensity=.48;}
+  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.18:key==='endwood'?.025:key==='darkwood'?.08:.12;mat.clearcoatRoughness=key==='endwood'?.50:key==='darkwood'?.34:['red','redLight'].includes(key)?.22:.28;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.06,.06);mat.specularIntensity=.55;}
   // Keep the world-space weathering installed by scene.js. Replacing the
   // image maps must not silently erase the physical member's ageing hook.
-  mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
+  const previous=mat.onBeforeCompile,cacheKey=mat.customProgramCacheKey.bind(mat);mat.onBeforeCompile=shader=>{previous.call(mat,shader);shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#ifdef USE_MAP
+ vec4 timber353=texture2D(map,vMapUv);float woodLuma353=dot(timber353.rgb,vec3(.2126,.7152,.0722));
+ diffuseColor.rgb*=clamp(pow(max(woodLuma353,.00005)/.01505120736,.40),.58,1.42);
+ #endif`);shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>\nroughnessFactor=${key==='endwood'?'clamp(.62+.35*roughnessFactor,.64,.94)':'clamp(.33+.56*roughnessFactor,.38,.86)'};`);};mat.customProgramCacheKey=()=>cacheKey()+':353-linear-pigment-with-original-scan-luminance';
+  mat.userData.metricTimberGrain=true;mat.userData.timberPaletteRole353=key;mat.userData.surface353={pigmentLinear:colors[key],rawRoughnessPixelsHeld:true,sourceLinearMeanY:.01505120736,inferredNotMeasured:true};mat.envMapIntensity=.7;mat.needsUpdate=true;
  }
- return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},
+ return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, original scan luminance/normal/roughness pixels; inferred linear paint pigment and varnish, not measured temple albedo'},
   dispose(){for(const tex of[albedo,normal,roughness])tex.dispose();}};
 }
 

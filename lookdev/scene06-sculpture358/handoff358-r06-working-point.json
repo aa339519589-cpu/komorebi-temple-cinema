@@ -1,0 +1,178 @@
+{
+  "status": "actual-original-mesh-sculpture-completed-this-round-working-point-for-Root-review",
+  "recommendedWorkingPoint": "358R06",
+  "reason": "Same-light original/R02/R05/R06 native comparisons show R06 softens the hard wrinkled wrist/cuff transition while retaining more sleeve belly, rolled lip and forearm volume than over-faired R05. R05 was not chosen for its lower crossing count. This is an incremental working point, not photographic completion.",
+  "canonicalCurrentAndInputHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "canonicalModifiedByThisLane": false,
+  "physical354Modified": false,
+  "selectedNativeSourceHash": "f50c16c1fe3a630c6f352c9f87691423d5daeb060827c9240eeaefd268ae9163",
+  "selectedGeometry": {
+    "packedSha256": "b335e70e19baec976a768fc6100643b1dd2b55760e794dcfeffda7b124a8e792",
+    "rawSha256": "2a57229547bbdc08026dc73467d53f27bd5d81b34546046f8875d23b846b7722",
+    "vertices": 1631444,
+    "triangles": 3262892
+  },
+  "realChanges": {
+    "positionVertices": 31885,
+    "normalVertices": 32493,
+    "existingSourceFiles": [
+      "reconstructions/scene-06/src/reference6-main.js",
+      "reconstructions/scene-06/src/sculptural-cast-assets.js"
+    ],
+    "method": "Visual compromise after exact-pixel R06-parent/R02/R05 comparison. A 900-step intrinsic fairing radius keeps more actual original cuff/forearm volume and cloth curvature than R05 while softening the hard R06-parent fold. Same original hand cup and lip transition as R02, no broad unroll or triangle repulsion. Every original indexed triangle/vertex/UV remains.",
+    "notAddedOrDeleted": "No separate hand, cap/cover, overlay, hidden-face deletion, remesh or head/other-hand/leg/bearing edit."
+  },
+  "license": {
+    "asset": "CC-BY-NC-SA-4.0",
+    "donorHead": "CC-BY-4.0",
+    "personalNoncommercialUserAuthorization": {
+      "date": "2026-10-23",
+      "text": "仅个人欣赏，允许使用非商用雕像素材",
+      "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+    },
+    "sourceLicenses": [
+      {
+        "source": "Scan-the-World Sainsbury Amida",
+        "license": "CC-BY-NC-SA-4.0"
+      },
+      {
+        "source": "Buddha head by peel-3d.com",
+        "license": "CC-BY-4.0",
+        "culture": "Unspecified by creator; not a verified Japanese artifact"
+      }
+    ],
+    "imagery": "CC-BY-NC-SA-4.0"
+  },
+  "nativeImages": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/candidate-r06/qa/ten-reference/06/iteration-sculpture358-r06-full-crop/reference.png",
+      "sha256": "bf36d15ce2ceed2fa3072bac45f9c60b98a805caec86fe50e07c64f6f62f2b94",
+      "nativeSourceHash": "f50c16c1fe3a630c6f352c9f87691423d5daeb060827c9240eeaefd268ae9163",
+      "width": 1254,
+      "height": 1254,
+      "officialGpuFifo": true,
+      "personallyViewed": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/candidate-r06/qa/ten-reference/06/iteration-sculpture358-r06-full-crop/detail-native.png",
+      "sha256": "bec13c7acd2a3c129a0b1adf44ed61d2b063c3da02178bfc0030778c175d9a9d",
+      "nativeSourceHash": "f50c16c1fe3a630c6f352c9f87691423d5daeb060827c9240eeaefd268ae9163",
+      "width": 1254,
+      "height": 1254,
+      "officialGpuFifo": true,
+      "personallyViewed": true
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/candidate-r06/qa/ten-reference/06/iteration-sculpture358-r06-low-wrist/inspection-view.png",
+      "sha256": "60f6e22f69d8ba7b4783bda5909d98c6d5c808c8ceb18cf2f8cea020e3cd6708",
+      "nativeSourceHash": "f50c16c1fe3a630c6f352c9f87691423d5daeb060827c9240eeaefd268ae9163",
+      "width": 1254,
+      "height": 1254,
+      "officialGpuFifo": true,
+      "personallyViewed": true
+    }
+  ],
+  "sameLightExactNativePixelComparisons": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/comparison-r06-r02-r05-native-wrist358.png",
+      "sha256": "decdb826b580e295c827436161e3a6e16ac7e33c668f6718c46c841a0bffcb25",
+      "personallyViewed": true,
+      "scope": "Unscaled, ungraded actual native pixel crops concatenated for comparison only; not a new 3D render."
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/comparison-r06-r02-r05-native-low358.png",
+      "sha256": "0e6d18ea8f14fe1f8af9562c3d498c632bbd70f593c4c670ed08be5df6e059fc",
+      "personallyViewed": true,
+      "scope": "Unscaled, ungraded actual native pixel crops concatenated for comparison only; not a new 3D render."
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/comparison-r06-r02-r06-native-wrist358.png",
+      "sha256": "3cf529fa6d0dc2b58a335de086a7738d19602ac2759d422fdf043eee0a0e59d6",
+      "personallyViewed": true,
+      "scope": "Unscaled, ungraded actual native pixel crops concatenated for comparison only; not a new 3D render."
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/comparison-r06-r02-r06-native-low358.png",
+      "sha256": "1ad815977d6b324b2ed0c35b07104e16027f3ca80d719ec15da7d7a83564fc6c",
+      "personallyViewed": true,
+      "scope": "Unscaled, ungraded actual native pixel crops concatenated for comparison only; not a new 3D render."
+    }
+  ],
+  "physicalDiagnostics": {
+    "newStrictPairs": 101,
+    "inheritedStrictPairs": 25,
+    "categories": {
+      "posed-arm-self": 101
+    },
+    "probeScope": "Strict noncoplanar crossings in changed-arm bounds against all adjacent source surfaces, same POSE295 thresholds. Shared vertices, coplanar/tangential contacts and remote unchanged source areas omitted; not a global intersection-free proof.",
+    "handMinimumVerticalLegGapWorldMm": 5.879327688516364,
+    "cuffMinimumVerticalLegGapWorldMm": 23.53888344078577,
+    "handAndCuffSamplesBelowLegRoofByMoreThan001": 0,
+    "changedClothTriangleAreaRatioVsR06": {
+      "min": 0.01454952019416938,
+      "p001": 0.04847068668429306,
+      "p01": 0.1801105935315424,
+      "median": 0.8139915507710817,
+      "p99": 2.7326218376755746,
+      "max": 21.77596159938513
+    },
+    "opposedFaceNormalsVsR06": 482,
+    "globalIntersectionFreedomProven": false
+  },
+  "preservation": {
+    "headOriginalYAtLeast210": {
+      "vertices": 1351474,
+      "positionOrNormalChanges": 0
+    },
+    "figureRightOriginalXAtMost0": {
+      "vertices": 795469,
+      "positionOrNormalChanges": 0
+    },
+    "legsOriginalYAtMost070": {
+      "vertices": 102948,
+      "positionOrNormalChanges": 0
+    },
+    "bearingOriginalYAtMost007": {
+      "vertices": 19366,
+      "positionOrNormalChanges": 0
+    }
+  },
+  "allUvAndIndexBytesExact": true,
+  "allCM07BytesExact": true,
+  "remainingVisibleAndPhysicalLimits": [
+    "101 new strict local sleeve-self pairs and25 source-inherited pairs remain; coplanar/tangential contacts/global injectivity are not proven.",
+    "Actual lower cuff still has a pointed crest and long upturned lip; hand retains source mudra and still differs from HD finger/gesture anatomy.",
+    "R06 is a visual compromise; no additional blanket fairing should be used merely to lower the count. A future independent original-boundary local cloth retopology/rebuild is authorized if thickness still reads wrong.",
+    "Body/garment proportions and complete scene still differ from HD."
+  ],
+  "allCandidatesRetained": [
+    "r00-baseline",
+    "r01-197-new-including9-hand",
+    "r02-136-new-native-fallback",
+    "r03-431-new-failed-unroll-not-rendered",
+    "r04-440-new-failed-unroll-not-rendered",
+    "r05-2-new-over-faired-not-selected",
+    "r06-101-new-selected-working-point"
+  ],
+  "smallPacket": {
+    "directory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/handoff-r06",
+    "delta": {
+      "file": "original-vertex-sleeve358-r06-delta-SP58-gzip.bin",
+      "sha256": "58352bd674edf82fc214f60c6883b68205246cf400eefac1dd4cd27e3b21a12a",
+      "bytes": 828705,
+      "records": 32493,
+      "format": "SP58 24-byte header; ordered uint32 original vertex ID + 3 position float32 + 3 normal float32, 28 bytes/record. Header n/records/recordBytes28/version1."
+    },
+    "loaderRolePatch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/handoff-r06/scene06-sculpture358-r06-loader-role.patch",
+    "loaderRolePatchBytes": 2888,
+    "loaderRolePatchCheckedAgainstCanonical": true,
+    "byteExactInMemoryAndActualIndependentReplay": true,
+    "actualReplayDirectory": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/replayed-r06",
+    "runtimeAssetDestination": "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0",
+    "rootIntegrationOnly": true,
+    "historicalMetadataPathScope": "historicalPose295BaseState paths/constraints belong to baseAssetDirectory and lookdev/scene06-centralpose295/authoring. They describe the R06 parent only. Current authoring/diagnostic fields live in sculpture358."
+  },
+  "visualAccepted": false,
+  "photographicFidelityAccepted": false,
+  "productionIntegrationApproved": false
+}

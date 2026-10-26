@@ -1,0 +1,39 @@
+{
+  "revision": "r06",
+  "license": "CC-BY-NC-SA-4.0",
+  "personalNoncommercialUseOnly": true,
+  "baseAssetDirectory": "reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0",
+  "basePackedSha256": "53013207a565af90e0a72e88116bdc9138c108b8c0746c90267cc85cc7b0707f",
+  "baseRawSha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+  "targetFile": "central-original-sleeve-sculpt358-r06-gzip.bin",
+  "targetPackedSha256": "b335e70e19baec976a768fc6100643b1dd2b55760e794dcfeffda7b124a8e792",
+  "targetRawSha256": "2a57229547bbdc08026dc73467d53f27bd5d81b34546046f8875d23b846b7722",
+  "delta": {
+    "file": "original-vertex-sleeve358-r06-delta-SP58-gzip.bin",
+    "sha256": "58352bd674edf82fc214f60c6883b68205246cf400eefac1dd4cd27e3b21a12a",
+    "bytes": 828705,
+    "records": 32493,
+    "format": "SP58 24-byte header; ordered uint32 original vertex ID + 3 position float32 + 3 normal float32, 28 bytes/record. Header n/records/recordBytes28/version1."
+  },
+  "packetCopies": [
+    "manifest.json",
+    "sculpture358-provenance.json",
+    "LICENSE-DONOR173-CC-BY-4.0-ATTRIBUTION.txt",
+    "LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt"
+  ],
+  "existingCopies": [
+    {
+      "file": "actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "source": "reconstructions/scene-06/assets/centralpose295-r06-CC-BY-NC-SA-4.0/actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "sha256": "6131443d8f997b39c7d13c338164ae63eab3e21ae1836ed2c6e412212bddb10f"
+    }
+  ],
+  "replayVerification": {
+    "byteExactRaw": true,
+    "byteExactLevel9Gzip": true,
+    "allOriginalUvAndIndicesExact": true
+  },
+  "historicalMetadataPathScope": "historicalPose295BaseState paths/constraints belong to baseAssetDirectory and lookdev/scene06-centralpose295/authoring. They describe the R06 parent only. Current authoring/diagnostic fields live in sculpture358.",
+  "canonicalModified": false,
+  "visualAccepted": false
+}

@@ -1,0 +1,10 @@
+{
+  "revision": "r04",
+  "frozenSceneHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "sleeveFold": {"steps": 500, "lambda": 0.42, "x": [0.36, 0.44, 0.76, 0.90], "y": [0.88, 1.04, 1.28, 1.43], "z": [-0.58, -0.43, 0.10, 0.28]},
+  "sleeveUnroll": {"strength": 0.65, "sourceCenterX": 0.57, "direction": [-0.4356071536402406, 0.4021658604474506, -0.8053005826323556], "x": [0.41, 0.48, 0.68, 0.77], "y": [0.96, 1.08, 1.28, 1.40], "z": [-0.48, -0.37, -0.14, 0.01]},
+  "sleeveLip": {"steps": 120, "lambda": 0.38, "strength": 0.65, "x": [0.36, 0.44, 0.77, 0.90], "y": [1.18, 1.27, 1.39, 1.48], "z": [-0.50, -0.35, 0.30, 0.44]},
+  "hand": {"lateralContraction": 0.10, "lateralCenterSourceX": 0.568, "cupLift": 0.015, "distalStartSourceY": 1.59, "distalEndSourceY": 1.86, "smoothingSteps": 0, "smoothingStrength": 0},
+  "maxAdditionalPositionDisplacement": 0.14,
+  "method": "Actual continuous source sleeve fold fairing, then broad original-X cloth-order unroll along the frozen original forearm pose frame (Qforearm*X), with smooth original sleeve-lip transition. The original cloth stations regain separation in the physical posed forearm direction. R03 world-X unroll is a retained failed candidate; this is not an active triangle repulsion. Original topology and physical original hand kept."
+}

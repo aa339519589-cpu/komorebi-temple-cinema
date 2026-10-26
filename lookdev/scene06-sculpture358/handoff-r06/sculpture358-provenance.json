@@ -1,0 +1,81 @@
+{
+  "revision": "r06",
+  "license": "CC-BY-NC-SA-4.0",
+  "sourceLicenses": [
+    {
+      "source": "Scan-the-World Sainsbury Amida",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "source": "Buddha head by peel-3d.com",
+      "license": "CC-BY-4.0",
+      "culture": "Unspecified by creator; not a verified Japanese artifact"
+    }
+  ],
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "仅个人欣赏，允许使用非商用雕像素材",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "method": "Visual compromise after exact-pixel R06-parent/R02/R05 comparison. A 900-step intrinsic fairing radius keeps more actual original cuff/forearm volume and cloth curvature than R05 while softening the hard R06-parent fold. Same original hand cup and lip transition as R02, no broad unroll or triangle repulsion. Every original indexed triangle/vertex/UV remains.",
+  "sourcePose": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+  "sourceOriginal": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+  "scriptHashes": {
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/sculpt-r06.json": "7ff67cdc0290eeefda069348bb5c4046657a70925eeb37e50a7a7b5b2ee306dd",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/build-sculpt358.mjs": "c70c893c84e82a9313c35c0d36e9d35cfd165901f2415dfef6333dc302175c15",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/mesh358.mjs": "3e5e808d0f7e6ce0aba7febfda01610303d3cf649e4579ca8c78d5c52b5c5ba0"
+  },
+  "sculpture358Audit": {
+    "stages": [
+      {
+        "name": "sleeveFold",
+        "vertices": 21677,
+        "steps": 900,
+        "maximumAdditionalDisplacement": 0.08334700796973152
+      },
+      {
+        "name": "sleeveLip",
+        "vertices": 14089,
+        "steps": 120,
+        "maximumAdditionalDisplacement": 0.022571759958367466
+      },
+      {
+        "name": "original-hand-continuous-cup",
+        "vertices": 7840,
+        "originalFrameQuaternionWXYZ": [
+          0.465187630346821,
+          -0.4358069438751233,
+          0.39511268819857864,
+          0.6614822294415984
+        ]
+      }
+    ],
+    "changedPositions": 31885,
+    "changedNormals": 32493,
+    "maxAdditionalDisplacement": 0.08470928349443975,
+    "changedOriginalSourceBounds": {
+      "min": [
+        0.3602777123451233,
+        0.8804602026939392,
+        -0.5794631838798523
+      ],
+      "max": [
+        0.8358356952667236,
+        1.866576075553894,
+        0.45937058329582214
+      ]
+    },
+    "protectedPositionChanges": 0,
+    "protectedNormalChanges": 0,
+    "degenerateTrianglesTouched": 0,
+    "minimumTwiceAreaTouched": 2.69309354593423e-12,
+    "trianglesTouched": 65677,
+    "vertices": 1631444,
+    "triangles": 3262892,
+    "allOriginalIndicesAndUvBytesExact": true,
+    "allCM07BytesExact": true,
+    "originalTriangleOrVertexDeletion": false,
+    "visualAccepted": false
+  },
+  "visualAccepted": false
+}

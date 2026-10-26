@@ -1,0 +1,9 @@
+{
+  "revision": "r02",
+  "frozenSceneHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "sleeveFold": {"steps": 500, "lambda": 0.42, "x": [0.36, 0.44, 0.76, 0.90], "y": [0.88, 1.04, 1.28, 1.43], "z": [-0.58, -0.43, 0.10, 0.28]},
+  "sleeveLip": {"steps": 120, "lambda": 0.38, "strength": 0.65, "x": [0.36, 0.44, 0.77, 0.90], "y": [1.18, 1.27, 1.39, 1.48], "z": [-0.50, -0.35, 0.30, 0.44]},
+  "hand": {"lateralContraction": 0.10, "lateralCenterSourceX": 0.568, "cupLift": 0.015, "distalStartSourceY": 1.59, "distalEndSourceY": 1.86, "smoothingSteps": 0, "smoothingStrength": 0},
+  "maxAdditionalPositionDisplacement": 0.12,
+  "method": "Wider physical curvature fairing of the same actual original sleeve fold/lip; actual hand receives only a continuous invertible source-frame regroup/cup, with no mesh fairing on hand. All original vertices, triangles, UVs and protected head/other hand/leg/contact identities retained. No repulsion or added geometry."
+}

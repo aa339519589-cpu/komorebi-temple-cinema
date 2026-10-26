@@ -1,0 +1,912 @@
+{
+  "license": "CC-BY-NC-SA-4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "isolatedNoncommercialOnly": false,
+  "productionIntegrated": false,
+  "visualAccepted": false,
+  "sourceAndProductionLicenseDecisionPending": false,
+  "attribution": "Scan-the-World Sainsbury Amida, https://doi.org/10.5281/zenodo.21353739, CC BY-NC-SA4.0; preserved R08a head/ear/scalp derivative additionally incorporates source-supported Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79, CC BY4.0, culture/period unspecified. POSE295 R06 is an explicitly declared local differential-coordinate left-arm/garment pose adaptation. Original source hand/finger vertices are rigid anchor targets retained from the R03 hand-only pose; the rejected R03 body is not adopted. R06 adds actual fixed-leg roof support constraints on three complete original cuff profiles; every profile translates rigidly upward and elbowward from its real R04 shape without radial squeezing, and restores the broad neighboring folded cloth to the free differential domain. Bounded actual wrist/sleeve-root strict triangle contacts add small source-order-preserving physical layer-separation controls, with local neighbor propagation and original rest rebinds; inherited source pairs, microscopic residuals and hard-control conflicts are separately reported. This does not claim global intersection freedom. Source chest/rear/large upper sleeve/boundary controls stay fixed while the broad actual neighboring cloth/skin patch is solved in CPU Blender Laplacian Deform. Head/ears/scalp Y>=2.10, figure-right X<=0, legs Y<=.70, bearing/contact band, all original vertex/triangle/UV identities and CM07 mask remain exact from R08a. Actual body and left-arm/palm positions/normals are declared modified. No photograph, depth map, image plane, synthetic hand primitive, scene export or raster sampling is used. Original inputs, source ancestry, licenses and all failed candidates remain retained. Personal noncommercial CC BY-NC-SA4.0 adaptation only; no endorsement implied. SCULPT358 r06 declares additional original-source wrist/sleeve fairing and restrained original-palm/finger cupping on the same continuous indexed mesh. All original triangles, vertex identities, UVs, head/ears/scalp, figure-right hand, legs and bearing/contact band remain. No global intersection-free or photographic-match claim.",
+  "revision": "scene06-sculpture358-r06-continuous-original-wrist-sleeve",
+  "variants": {
+    "central": [
+      {
+        "material": "central",
+        "file": "central-original-sleeve-sculpt358-r06-gzip.bin",
+        "sha256": "b335e70e19baec976a768fc6100643b1dd2b55760e794dcfeffda7b124a8e792",
+        "compression": "gzip",
+        "uncompressedSha256": "2a57229547bbdc08026dc73467d53f27bd5d81b34546046f8875d23b846b7722",
+        "effectiveGeometrySha256": "2a57229547bbdc08026dc73467d53f27bd5d81b34546046f8875d23b846b7722",
+        "vertices": 1631444,
+        "triangles": 3262892,
+        "bytes": 51715598,
+        "uncompressedBytes": 91360932,
+        "topology": {
+          "vertices": 1631444,
+          "triangles": 3262892,
+          "edges": 4894338,
+          "openEdges": 0,
+          "nonmanifoldEdges": 0,
+          "degenerate": 0,
+          "minArea": 2.985125254554078e-12,
+          "euler": -2,
+          "unCutSourceFace": true,
+          "conformingRefinement": true,
+          "insertedDonorFacePatch": false,
+          "poseDerivative": true,
+          "sourceIndexOrderExact": true
+        }
+      }
+    ]
+  },
+  "materials": {
+    "central": {
+      "baseColorLinear": [
+        0.5647115111351013,
+        0.3613067865371704,
+        0.08865558356046677,
+        1
+      ],
+      "metalness": 0.88,
+      "roughness": 0.47
+    }
+  },
+  "canonicalPackageScope": "Actual source body SC07, original source and curated R09 GLB. These files and adaptations remain CC BY-NC-SA 4.0. Independently authored room/altar and separately licensed attendant assets keep their individual terms. The repository permissive license does not relicense this NC asset. Derived scene06 still/video imagery is marked CC BY-NC-SA 4.0.",
+  "nativeMaterialStudyChange": "Original source PBR, UV textures and CM07 color mask unchanged. Additional actual original wrist/sleeve/palm positions and physical normals are declared modified.",
+  "personalNoncommercialUseOnly": true,
+  "userAuthorization": {
+    "date": "2026-10-23",
+    "text": "仅个人欣赏，允许使用非商用雕像素材",
+    "scope": "User personal noncommercial final video and source integration with explicit asset-specific CC BY-NC-SA 4.0 terms. No commercial permission or permissive relicensing."
+  },
+  "recommendedCentralHaloCenterModelY": 2.72,
+  "recommendedCentralMandorlaZ": -0.79,
+  "recommendedMainLotusDepthAspect": 0.72,
+  "recommendedUniformWorldHeight": 2.5,
+  "sourceContactBearing": {
+    "license": "CC-BY-NC-SA-4.0",
+    "source": "central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+    "sourceSha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba",
+    "method": "Convex hull of actual source positions at normalized y <= .07. Used only for an independently authored thin physical seat bearing below the contact-band-preserved posed body.",
+    "coordinates": "source normalized x,z; positive uniform world scale remains 2.50/3.26",
+    "sourceYThreshold": 0.07,
+    "sourceBodyChanged": true,
+    "outlineXZ": [
+      [
+        -1.2409568,
+        0.2032168
+      ],
+      [
+        -1.240738,
+        0.1949044
+      ],
+      [
+        -1.239863,
+        0.1828732
+      ],
+      [
+        -1.2392068,
+        0.174342
+      ],
+      [
+        -1.2383319,
+        0.1686546
+      ],
+      [
+        -1.2365818,
+        0.1607797
+      ],
+      [
+        -1.2343943,
+        0.1531235
+      ],
+      [
+        -1.0381775,
+        -0.4735892
+      ],
+      [
+        -1.0235213,
+        -0.5151513
+      ],
+      [
+        -1.0167401,
+        -0.5333074
+      ],
+      [
+        -1.0051465,
+        -0.5597759
+      ],
+      [
+        -1.0007716,
+        -0.5680882
+      ],
+      [
+        -0.990053,
+        -0.5860255
+      ],
+      [
+        -0.9852405,
+        -0.5939005
+      ],
+      [
+        -0.9406159,
+        -0.6658686
+      ],
+      [
+        -0.936241,
+        -0.6698061
+      ],
+      [
+        -0.8559605,
+        -0.738493
+      ],
+      [
+        -0.8518043,
+        -0.7415555
+      ],
+      [
+        -0.8472105,
+        -0.7439616
+      ],
+      [
+        -0.7118056,
+        -0.7618989
+      ],
+      [
+        -0.6951808,
+        -0.7623366
+      ],
+      [
+        0.6951808,
+        -0.7623366
+      ],
+      [
+        0.7118056,
+        -0.7618989
+      ],
+      [
+        0.8472105,
+        -0.7439616
+      ],
+      [
+        0.8518043,
+        -0.7415555
+      ],
+      [
+        0.8559605,
+        -0.738493
+      ],
+      [
+        0.936241,
+        -0.6698061
+      ],
+      [
+        0.9406159,
+        -0.6658686
+      ],
+      [
+        0.9852405,
+        -0.5939005
+      ],
+      [
+        0.990053,
+        -0.5860255
+      ],
+      [
+        1.0007716,
+        -0.5680882
+      ],
+      [
+        1.0051465,
+        -0.5597759
+      ],
+      [
+        1.0167401,
+        -0.5333074
+      ],
+      [
+        1.0235213,
+        -0.5151513
+      ],
+      [
+        1.0381775,
+        -0.4735892
+      ],
+      [
+        1.2343943,
+        0.1531235
+      ],
+      [
+        1.2365818,
+        0.1607797
+      ],
+      [
+        1.2383319,
+        0.1686546
+      ],
+      [
+        1.2392068,
+        0.174342
+      ],
+      [
+        1.239863,
+        0.1828732
+      ],
+      [
+        1.240738,
+        0.1949044
+      ],
+      [
+        1.2409568,
+        0.2032168
+      ],
+      [
+        1.2405194,
+        0.2121854
+      ],
+      [
+        1.2400818,
+        0.2185292
+      ],
+      [
+        1.2392068,
+        0.224654
+      ],
+      [
+        1.2365818,
+        0.2369039
+      ],
+      [
+        1.1729262,
+        0.5217137
+      ],
+      [
+        1.1676762,
+        0.5361511
+      ],
+      [
+        1.1630825,
+        0.5457759
+      ],
+      [
+        1.1315829,
+        0.5617446
+      ],
+      [
+        0.6879621,
+        0.7715238
+      ],
+      [
+        0.6431188,
+        0.7863986
+      ],
+      [
+        0.6308689,
+        0.7896799
+      ],
+      [
+        0.6089941,
+        0.7940548
+      ],
+      [
+        0.5713695,
+        0.8014922
+      ],
+      [
+        0.4619956,
+        0.8209609
+      ],
+      [
+        0.3482465,
+        0.8316795
+      ],
+      [
+        0.3259344,
+        0.8325545
+      ],
+      [
+        0.1154989,
+        0.8391169
+      ],
+      [
+        0.085093,
+        0.8399919
+      ],
+      [
+        -0.102374,
+        0.8428357
+      ],
+      [
+        -0.3482465,
+        0.8316795
+      ],
+      [
+        -0.4619956,
+        0.8209609
+      ],
+      [
+        -0.5713695,
+        0.8014922
+      ],
+      [
+        -0.6089941,
+        0.7940548
+      ],
+      [
+        -0.6308689,
+        0.7896799
+      ],
+      [
+        -0.6431188,
+        0.7863986
+      ],
+      [
+        -0.6879621,
+        0.7715238
+      ],
+      [
+        -1.1315829,
+        0.5617446
+      ],
+      [
+        -1.1630825,
+        0.5457759
+      ],
+      [
+        -1.1676762,
+        0.5361511
+      ],
+      [
+        -1.1729262,
+        0.5217137
+      ],
+      [
+        -1.2365818,
+        0.2369039
+      ],
+      [
+        -1.2392068,
+        0.224654
+      ],
+      [
+        -1.2400818,
+        0.2185292
+      ],
+      [
+        -1.2405194,
+        0.2121854
+      ]
+    ],
+    "originalContactBandPreserved": true,
+    "contactBandPositionsUnchanged": true,
+    "bodyUnchangedFrom199R05": false,
+    "bodyUnchangedFromR08a": false
+  },
+  "derivativeOf": {
+    "j": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06j/ear-root-blend-sculpt199-r06j-849e3edbb348fa10.bin",
+      "sha256": "849e3edbb348fa104cccadf94caa00cd19d156e1033ce473a6bc37140178e3dc"
+    },
+    "h": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06h/carved-curls-sculpt199-r06h-d49d00de7d4c0025.bin",
+      "sha256": "d49d00de7d4c0025fdd1d70d610acdf3541706627843ffb550c9fb894a1116e5"
+    },
+    "g": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture199/authored-r06g/faired-transition-sculpt199-r06g-2a893e0c9d5397ab.bin",
+      "sha256": "2a893e0c9d5397ab761d9ec675947f8f88900cfa42d4f257da27fa9ffdfdf42d"
+    },
+    "donor": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/calm-buddha-head173/component-r01/actual-face-ears-neck-sc07.bin",
+      "sha256": "ac34f7640878f9faf3df627eb224ac762a9a5e75ce52ea25f4e70344d636eee8"
+    },
+    "originalNc": {
+      "file": "/Users/mima1234/temple-cinema-live-sync/reconstructions/scene-06/assets/nc-sainsbury-amida179-CC-BY-NC-SA-4.0/central-sainsbury-r09-CC-BY-NC-SA-4.0-3e33b700a894f466.bin",
+      "sha256": "3e33b700a894f46600ed4ca1a036fcd4f94a3f4773c67b49826eb5d6700190ba"
+    }
+  },
+  "sourceLicenses": [
+    {
+      "source": "Scan-the-World Sainsbury Amida",
+      "license": "CC-BY-NC-SA-4.0"
+    },
+    {
+      "source": "Buddha head by peel-3d.com",
+      "license": "CC-BY-4.0",
+      "culture": "Unspecified by creator; not a verified Japanese artifact"
+    }
+  ],
+  "scalpMaterial": {
+    "baseColorLinear": [
+      0.18,
+      0.103,
+      0.031,
+      1
+    ],
+    "metalness": 0.88,
+    "roughness": 0.47,
+    "coverage": {
+      "file": "actual-root-coverage199-r08a-6131443d8f997b39.bin",
+      "sha256": "6131443d8f997b39c7d13c338164ae63eab3e21ae1836ed2c6e412212bddb10f",
+      "vertices": 1631444,
+      "format": "CM07 uint16 normalized actual 3D root footprint coverage."
+    },
+    "implementation": "Standard vertexColors, original metalness/roughness/roughnessMap unchanged; current native exporter and physical importer support sourceColor."
+  },
+  "replaySeed": {
+    "file": "exact-old-curl-removal-seed-r08a-gzip.bin",
+    "sha256": "968338fb58563d81b65b8e69381ab1dc95c00a9a1193132c0e9416d23490adba",
+    "compression": "gzip",
+    "format": "20-byte CD08 header originalJCount,recordCount,recordBytes28,version1; records uint32 Jvertex,float64 XYZ(H-G). Subtract from J positions before conforming refinement. Exact float64 differences, no image input.",
+    "records": 199593
+  },
+  "sourceAncestors": {
+    "jAsset": "../sculpture199-r06j-ear-root-blend-mixed-licenses/",
+    "donorComponent": "../sculpture199-r06j-ear-root-blend-mixed-licenses/donor173-source-component/",
+    "originalNc": "../nc-sainsbury-amida179-CC-BY-NC-SA-4.0/",
+    "r05Subdivision": "../sculpture199-r05-CC-BY-NC-SA-4.0/"
+  },
+  "photographicFidelityAccepted": false,
+  "historicalPose295BaseState": {
+    "scope": "Historical unmodified R06 parent only; these audit counts and exact hand-anchor statements describe the R06 parent, not the new SCULPT358 output.",
+    "sourceRevision": "scene06-sculpture199-r08a-continuous-source-fit",
+    "sourceGeometrySha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "sourceManifest": "../sculpture199-r08a-continuous-source-fit-mixed-licenses/manifest.json",
+    "sourceBodyAndLeftPalmChanged": true,
+    "sourceIndexMapping": "identity",
+    "config": {
+      "revision": "r06",
+      "recipe": "scene06-centralpose295-r06",
+      "sourceAsset": "sculpture199-r08a-continuous-source-fit-mixed-licenses",
+      "sourceManifestSha256": "495e04c16b0061ee62c76377b52a36fc1cc0d17e1d9f3da10fec6eb72a64544e",
+      "sourceRawSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+      "handControlAsset": "authored-r03",
+      "handControlPackedSha256": "a8ee518f43e6d612a29d63190f367755a98b8a02561b0d4347b2171cd752088f",
+      "handControlRawSha256": "0f755281d7ba885b77a40fa0b87099d44228d773343abf91e68f22d548828c0f",
+      "handControlScope": "Only original source hand vertices X>.36,Y>1.48,Z>.10 use the R03 rigid original-hand targets. All R03 cuff/body coordinates are rejected and never copied.",
+      "elbowSource": [
+        0.6367751359939575,
+        1.0051466226577759,
+        -0.2058418095111847
+      ],
+      "elbowTarget": [
+        0.9,
+        0.835,
+        -0.04
+      ],
+      "wristSource": [
+        0.56286480292494,
+        1.3800000000000008,
+        0.2709803826966819
+      ],
+      "wristTarget": [
+        0.41146073329445115,
+        0.5296629583090319,
+        0.16355802779397896
+      ],
+      "handQuaternionWXYZ": [
+        0.465187630346821,
+        -0.4358069438751233,
+        0.39511268819857864,
+        0.6614822294415984
+      ],
+      "forearmQuaternionWXYZ": [
+        0.21278634041663308,
+        -0.48674263888833197,
+        -0.04322221379772373,
+        0.8461296691728426
+      ],
+      "patch": {
+        "minX": 0.2,
+        "minY": 0.68,
+        "maxY": 2.1
+      },
+      "bodyPins": {
+        "chestMaxX": 0.34,
+        "chestMaxZ": 0.1,
+        "rearMaxZ": -0.67,
+        "upperMinY": 1.9,
+        "upperMaxZ": 0.13,
+        "lowMaxY": 0.72,
+        "boundaryRings": 2
+      },
+      "handAnchors": {
+        "minX": 0.36,
+        "minY": 1.48,
+        "minZ": 0.1
+      },
+      "elbowAnchorRadius": 0.04,
+      "shoulderAnchor": {
+        "point": [
+          0.7452741265296936,
+          1.9490439891815186,
+          -0.4849640727043152
+        ],
+        "radius": 0.1
+      },
+      "solver": {
+        "iterations": 25,
+        "continuationSteps": 12,
+        "handPathFrontArc": 0.35,
+        "handPathOuterArc": 0.12,
+        "elbowPathFrontArc": 0.1,
+        "supportPathFrontArc": 0.2,
+        "supportPathOuterArc": 0.08
+      },
+      "protected": {
+        "headAtOrAboveY": 2.1,
+        "rightAtOrBelowX": 0,
+        "legsAtOrBelowY": 0.7
+      },
+      "method": "Broad source-patch CPU differential-coordinate solve, real whole cuff supports over the fixed leg, plus at most four bounded active triangle layer-separation passes at the actual wrist/sleeve root. Original-source inherited pairs excluded; microscopic residuals and hard-control conflicts reported. No rest-world folded-panel pin, no radial wrist squeezing, no global collision-free claim.",
+      "limitations": [
+        "Laplacian Deform is not a collision solver. Same actual source-control crossing probe and native full/detail/front/3q required.",
+        "Hand-only lap contact does not establish cuff/forearm clearance."
+      ],
+      "officialApi": "https://docs.blender.org/api/main/bpy.types.LaplacianDeformModifier.html",
+      "officialManual": "https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/laplacian_deform.html",
+      "elbowSourceVertex": 174886,
+      "shoulderSourceVertex": 165913,
+      "handControlManifestSha256": "46dd54e4bd548caefcbd7aa2014de8b100e28839ed990e7c117a528714e01168",
+      "supportConstraints": {
+        "file": "support-constraints-r05.json",
+        "sha256": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+        "generator": "build-support-constraints295-r05.mjs",
+        "generatorSha256": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450",
+        "actualR04RawSha256": "a3072b2fdbd129bd884c8b87983634094f2e33deba3f2fbd2df385d7f7678503"
+      },
+      "sourceFoldPins": null,
+      "contactSolver": {
+        "helper": "active-contact-helper295-r06.mjs",
+        "sha256": "3fed2051d9b06d229e59e2a2bd7a4b3156d103ac4ddad2e0add2eef655091b05",
+        "maximumIterations": 4,
+        "rebindContinuationSteps": 4,
+        "activePathFrontArc": 0.1,
+        "activePathOuterArc": 0.04,
+        "settings": {
+          "clearance": 0.002,
+          "maxStep": 0.012,
+          "minimumActionDepth": 0.00025,
+          "neighborBlend": 0.25,
+          "sourceROI": {
+            "min": [
+              0.38,
+              0.78,
+              -0.45
+            ],
+            "max": [
+              0.86,
+              1.55,
+              0.5
+            ]
+          }
+        }
+      }
+    },
+    "solver": "CPU Blender Laplacian Deform over a broad actual source patch, fixed body/shoulder/boundary and original hand/elbow controls plus actual fixed-leg contact constraints on three whole original cuff profiles.",
+    "actualCuffSupportConstraints": {
+      "file": "support-constraints-r05.json",
+      "sha256": "b48f98f5470340592eca0ad86b21a045e1d424651e1c57a0978fba2c0201913f",
+      "generator": "build-support-constraints295-r05.mjs",
+      "generatorSha256": "55fcb60082d461633704f40caed1e70e2d59e455a363ee0e67778b947b984450",
+      "actualR04RawSha256": "a3072b2fdbd129bd884c8b87983634094f2e33deba3f2fbd2df385d7f7678503",
+      "sourceFoldPins": null
+    },
+    "activePhysicalContacts": {
+      "helper": "active-contact-helper295-r06.mjs",
+      "sha256": "3fed2051d9b06d229e59e2a2bd7a4b3156d103ac4ddad2e0add2eef655091b05",
+      "maximumIterations": 4,
+      "rebindContinuationSteps": 4,
+      "activePathFrontArc": 0.1,
+      "activePathOuterArc": 0.04,
+      "settings": {
+        "clearance": 0.002,
+        "maxStep": 0.012,
+        "minimumActionDepth": 0.00025,
+        "neighborBlend": 0.25,
+        "sourceROI": {
+          "min": [
+            0.38,
+            0.78,
+            -0.45
+          ],
+          "max": [
+            0.86,
+            1.55,
+            0.5
+          ]
+        }
+      }
+    },
+    "inputHistoricalAttribution": "NC source/R05 body and retained skull/ears/neck: Scan-the-World Sainsbury Amida, Zenodo21353739, https://doi.org/10.5281/zenodo.21353739 , CC BY-NC-SA4.0. Actual facial surface target: Buddha head by peel-3d.com, https://sketchfab.com/3d-models/buddha-head-fb17c123ad9c4c0fb6baf723b3fffd79 , CC BY4.0, https://creativecommons.org/licenses/by/4.0/ . Donor culture/period unspecified; not claimed Japanese. Modifications: real3D BVH ray-triangle surface retarget onto NC connected topology, 99% core donor hit plus1% source regularization, broad smooth neck/temple/scalp transition; knownR05 curl relief removed and bounded source cap cage. Originals retained unchanged. No endorsement implied. Combined adaptation/imagery retains NC-SA4.0; original donor remains CC BY4.0. R06f additionally fairs a measured 3D source scalp radial field, with compact anisotropic deformation of existing scalp and restrained Taubin fairing of actual head triangles; no synthetic head replacement. R06g fairs the actual inherited scalp ridge with 300 pinned-boundary Laplacian steps and reduces lower-cheek scan chatter with 60 Taubin pairs. R06h carves fine shallow spiral curl relief directly into the same continuous scalp; sampled original scalp vertex roots and tangent frames retained. R06j, after rejecting I for excessive ear/jaw smoothing, repositions the anterior ear attachment posteriorly and inward, preserves the ear bowl/rim through smooth anchors, and blends side-cheek/jaw curvature with gentler connected-mesh fairing. Actual donor eyelid/nose/lip cores and all body positions below Y2.15 remain exact. Ear attachment is a declared reshaped derivative. R08a rejects the R07 donor-cheek transplant and retains the entire uncut continuous J/NC face. Conforming refinement adds source-supported feature detail; actual saved donor triangle/barycentric targets and exact closest points on neighboring source triangles guide bounded eye/brow/nose/lip geometry, without transplanting the donors worn cheeks. Existing source ears turn coherently, with direct original-NC triangle/barycentric ancestry. Actual irregular coil roots and raised curls are sculpted on the connected scalp; standard aged-gold vertex color keeps the original metalness/roughness/roughnessMap. Original inputs and all rejected candidates remain.",
+    "handOnlyControl": {
+      "sourceRevision": "scene06-centralpose295-r03-left-arm-lap-pose",
+      "packedSha256": "a8ee518f43e6d612a29d63190f367755a98b8a02561b0d4347b2171cd752088f",
+      "rawSha256": "0f755281d7ba885b77a40fa0b87099d44228d773343abf91e68f22d548828c0f",
+      "vertices": 7840,
+      "scope": "Only original source hand vertices X>.36,Y>1.48,Z>.10 use the R03 rigid original-hand targets. All R03 cuff/body coordinates are rejected and never copied."
+    },
+    "sourceAnchors": {
+      "file": "actual-source-local-vertex-anchor-identities295-r06.bin",
+      "sha256": "f906150060854f7faa09dbbf099f0b4acc2642b30534ae8d9ca7a9aabd7fef30",
+      "format": "LA04 header sourceVertices/localRecords/recordBytes8/version1; uint32 original vertex ID and kind0free1body2hand3elbow4wholeCuffSupport5activePhysicalContact."
+    },
+    "audit": {
+      "sourceVertices": 1631444,
+      "sourceTriangles": 3262892,
+      "authoredVertices": 1631444,
+      "authoredTriangles": 3262892,
+      "localVertices": 72178,
+      "localTriangles": 143408,
+      "freeClothAndSkinVertices": 37999,
+      "initialFreeClothAndSkinVertices": 37999,
+      "activePhysicalContactAnchors": 0,
+      "activeContactTargetMaxError": 0,
+      "boundedContactHistory": [
+        {
+          "newStrictCrossingPairs": 304,
+          "inheritedStrictCrossingPairs": 7,
+          "categories": {
+            "arm-self": 304
+          },
+          "actionablePairs": 255,
+          "microscopicPairsBelowActionDepth": 49,
+          "blockedHardConstraintPairs": 0,
+          "maximumProposedVertexStep": 0.006533814839513227,
+          "iteration": 0,
+          "positions": "contact-00-local-positions.bin",
+          "report": "contact-00-layer-proposals.json"
+        },
+        {
+          "newStrictCrossingPairs": 379,
+          "inheritedStrictCrossingPairs": 5,
+          "categories": {
+            "arm-self": 379
+          },
+          "actionablePairs": 330,
+          "microscopicPairsBelowActionDepth": 49,
+          "blockedHardConstraintPairs": 0,
+          "maximumProposedVertexStep": 0.004622409907506786,
+          "iteration": 1,
+          "positions": "contact-01-local-positions.bin",
+          "report": "contact-01-layer-proposals.json"
+        },
+        {
+          "newStrictCrossingPairs": 487,
+          "inheritedStrictCrossingPairs": 8,
+          "categories": {
+            "arm-self": 487
+          },
+          "actionablePairs": 422,
+          "microscopicPairsBelowActionDepth": 65,
+          "blockedHardConstraintPairs": 0,
+          "maximumProposedVertexStep": 0.010598322887590321,
+          "iteration": 2,
+          "positions": "contact-02-local-positions.bin",
+          "report": "contact-02-layer-proposals.json"
+        },
+        {
+          "newStrictCrossingPairs": 744,
+          "inheritedStrictCrossingPairs": 2,
+          "categories": {
+            "arm-self": 744
+          },
+          "actionablePairs": 668,
+          "microscopicPairsBelowActionDepth": 76,
+          "blockedHardConstraintPairs": 0,
+          "maximumProposedVertexStep": 0.007590493726646323,
+          "iteration": 3,
+          "positions": "contact-03-local-positions.bin",
+          "report": "contact-03-layer-proposals.json"
+        },
+        {
+          "newStrictCrossingPairs": 1078,
+          "inheritedStrictCrossingPairs": 2,
+          "categories": {
+            "arm-self": 1078
+          },
+          "actionablePairs": 957,
+          "microscopicPairsBelowActionDepth": 121,
+          "blockedHardConstraintPairs": 0,
+          "maximumProposedVertexStep": 0.006950488801879155,
+          "iteration": 4,
+          "positions": "contact-04-local-positions.bin",
+          "report": "contact-04-layer-proposals.json"
+        }
+      ],
+      "selectedBoundedContactIteration": 0,
+      "contactCorrectionPassMaximum": 4,
+      "boundedContactScope": "Only actual changed local original-source wrist/sleeve-root ROI triangles, including controlled ones for hard-conflict reporting, and related fixed neighbor triangles. Strict noncoplanar crossing; inherited original-source pairs excluded. Coplanar/tangential contact omitted. Bounded physical layer separation proposals, not a global no-intersection claim.",
+      "finalBoundedActionableCrossings": 255,
+      "finalBoundedRawStrictCrossings": 304,
+      "finalBoundedMicroscopicCrossings": 49,
+      "finalBlockedHardConstraintPairs": 0,
+      "fixedBodyAndBoundaryAnchors": 24893,
+      "realOriginalHandAnchors": 7840,
+      "originalElbowAnchors": 189,
+      "wholeCuffProfileSupportAnchors": 1257,
+      "fixedOriginalFoldPanelVertices": 0,
+      "wholeCuffTargetMaxError": 3.22164077577974e-8,
+      "wholeProfileTranslations": [
+        [
+          0.025,
+          0.06846154617095067,
+          -0.01
+        ],
+        [
+          0.025,
+          0.06711225617313508,
+          -0.01
+        ],
+        [
+          0.025,
+          0.020086141300979563,
+          -0.01
+        ]
+      ],
+      "boundaryPinnedRings": 2,
+      "sourceElbowVertex": 174886,
+      "actualPosedElbowAnchor": [
+        0.8999999761581421,
+        0.8349999785423279,
+        -0.03999999910593033
+      ],
+      "elbowTarget": [
+        0.9,
+        0.835,
+        -0.04
+      ],
+      "sourceShoulderPositionOrNormalChanges": 0,
+      "changedPositions": 47278,
+      "changedNormals": 48287,
+      "protectedPositionOrNormalChanges": 0,
+      "sourceHandTargetMaxError": 0,
+      "indicesAndTriangleOrderByteExact": true,
+      "uvByteExact": true,
+      "scalpCoverageByteExact": true,
+      "vertexAndTriangleIdentityMapping": "Output vertex v and triangle t retain R08a identity v/t, with no appended/reordered vertices or triangles.",
+      "localMinimumTwiceArea": 3.0351448181398013e-12,
+      "localDegenerateTriangles": 0,
+      "localAreaRatioPercentiles": {
+        "minimum": 0.017656381966358502,
+        "p01": 0.5184449587740467,
+        "median": 1.0157520338703125,
+        "p99": 1.6135610674459568,
+        "maximum": 3.2290997963706936
+      },
+      "triangleNormalsOpposedToLocalNeighborRotationField": 10,
+      "normalOrientationDiagnosticScope": "Source local one-ring closest proper rotations. Not a complete collision or injectivity proof.",
+      "selfIntersectionsChecked": false,
+      "solver": {
+        "iterations": 25,
+        "continuationSteps": 12,
+        "handPathFrontArc": 0.35,
+        "handPathOuterArc": 0.12,
+        "elbowPathFrontArc": 0.1,
+        "supportPathFrontArc": 0.2,
+        "supportPathOuterArc": 0.08
+      },
+      "visualAccepted": false
+    },
+    "selectedStateSummary": "R06 selected state0 uses real hand and whole cuff-profile leg-support constraints; four active contact separation experiments worsened crossings and are retained but not selected. It is not an intersection-free or photographic match."
+  },
+  "sculpture358": {
+    "config": {
+      "revision": "r06",
+      "frozenSceneHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+      "sleeveFold": {
+        "steps": 900,
+        "lambda": 0.42,
+        "x": [
+          0.36,
+          0.44,
+          0.76,
+          0.9
+        ],
+        "y": [
+          0.88,
+          1.04,
+          1.28,
+          1.43
+        ],
+        "z": [
+          -0.58,
+          -0.43,
+          0.1,
+          0.28
+        ]
+      },
+      "sleeveLip": {
+        "steps": 120,
+        "lambda": 0.38,
+        "strength": 0.65,
+        "x": [
+          0.36,
+          0.44,
+          0.77,
+          0.9
+        ],
+        "y": [
+          1.18,
+          1.27,
+          1.39,
+          1.48
+        ],
+        "z": [
+          -0.5,
+          -0.35,
+          0.3,
+          0.44
+        ]
+      },
+      "hand": {
+        "lateralContraction": 0.1,
+        "lateralCenterSourceX": 0.568,
+        "cupLift": 0.015,
+        "distalStartSourceY": 1.59,
+        "distalEndSourceY": 1.86,
+        "smoothingSteps": 0,
+        "smoothingStrength": 0
+      },
+      "maxAdditionalPositionDisplacement": 0.14,
+      "method": "Visual compromise after exact-pixel R06-parent/R02/R05 comparison. A 900-step intrinsic fairing radius keeps more actual original cuff/forearm volume and cloth curvature than R05 while softening the hard R06-parent fold. Same original hand cup and lip transition as R02, no broad unroll or triangle repulsion. Every original indexed triangle/vertex/UV remains."
+    },
+    "sourcePoseRawSha256": "5eb011e234c0ad0e08ca6eb121f39019c9467ab8b994943692cde293b6250154",
+    "sourceOriginalRawSha256": "630fb859eba6d9d7f8adfa671ad458fe2d8e4a08585ec58e91d9acc461485c47",
+    "sourceScripts": {
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/sculpt-r06.json": "7ff67cdc0290eeefda069348bb5c4046657a70925eeb37e50a7a7b5b2ee306dd",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/build-sculpt358.mjs": "c70c893c84e82a9313c35c0d36e9d35cfd165901f2415dfef6333dc302175c15",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-sculpture358/authoring/mesh358.mjs": "3e5e808d0f7e6ce0aba7febfda01610303d3cf649e4579ca8c78d5c52b5c5ba0"
+    },
+    "audit": {
+      "stages": [
+        {
+          "name": "sleeveFold",
+          "vertices": 21677,
+          "steps": 900,
+          "maximumAdditionalDisplacement": 0.08334700796973152
+        },
+        {
+          "name": "sleeveLip",
+          "vertices": 14089,
+          "steps": 120,
+          "maximumAdditionalDisplacement": 0.022571759958367466
+        },
+        {
+          "name": "original-hand-continuous-cup",
+          "vertices": 7840,
+          "originalFrameQuaternionWXYZ": [
+            0.465187630346821,
+            -0.4358069438751233,
+            0.39511268819857864,
+            0.6614822294415984
+          ]
+        }
+      ],
+      "changedPositions": 31885,
+      "changedNormals": 32493,
+      "maxAdditionalDisplacement": 0.08470928349443975,
+      "changedOriginalSourceBounds": {
+        "min": [
+          0.3602777123451233,
+          0.8804602026939392,
+          -0.5794631838798523
+        ],
+        "max": [
+          0.8358356952667236,
+          1.866576075553894,
+          0.45937058329582214
+        ]
+      },
+      "protectedPositionChanges": 0,
+      "protectedNormalChanges": 0,
+      "degenerateTrianglesTouched": 0,
+      "minimumTwiceAreaTouched": 2.69309354593423e-12,
+      "trianglesTouched": 65677,
+      "vertices": 1631444,
+      "triangles": 3262892,
+      "allOriginalIndicesAndUvBytesExact": true,
+      "allCM07BytesExact": true,
+      "originalTriangleOrVertexDeletion": false,
+      "visualAccepted": false
+    }
+  }
+}

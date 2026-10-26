@@ -1,0 +1,60 @@
+{
+  "revision": "r06",
+  "frozenSceneHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+  "sleeveFold": {
+    "steps": 900,
+    "lambda": 0.42,
+    "x": [
+      0.36,
+      0.44,
+      0.76,
+      0.9
+    ],
+    "y": [
+      0.88,
+      1.04,
+      1.28,
+      1.43
+    ],
+    "z": [
+      -0.58,
+      -0.43,
+      0.1,
+      0.28
+    ]
+  },
+  "sleeveLip": {
+    "steps": 120,
+    "lambda": 0.38,
+    "strength": 0.65,
+    "x": [
+      0.36,
+      0.44,
+      0.77,
+      0.9
+    ],
+    "y": [
+      1.18,
+      1.27,
+      1.39,
+      1.48
+    ],
+    "z": [
+      -0.5,
+      -0.35,
+      0.3,
+      0.44
+    ]
+  },
+  "hand": {
+    "lateralContraction": 0.1,
+    "lateralCenterSourceX": 0.568,
+    "cupLift": 0.015,
+    "distalStartSourceY": 1.59,
+    "distalEndSourceY": 1.86,
+    "smoothingSteps": 0,
+    "smoothingStrength": 0
+  },
+  "maxAdditionalPositionDisplacement": 0.14,
+  "method": "Visual compromise after exact-pixel R06-parent/R02/R05 comparison. A 900-step intrinsic fairing radius keeps more actual original cuff/forearm volume and cloth curvature than R05 while softening the hard R06-parent fold. Same original hand cup and lip transition as R02, no broad unroll or triangle repulsion. Every original indexed triangle/vertex/UV remains."
+}

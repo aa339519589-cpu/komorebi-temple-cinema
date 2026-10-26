@@ -1,0 +1,68 @@
+{
+  "createdAt": "2026-10-26T16:32:48.482275+00:00",
+  "status": "integrated working modeling revision; not photographic acceptance",
+  "baseCommit": "0417ab81391f5e3271ebfc12bac79143d7eaaf68",
+  "scenes": {
+    "01": {
+      "before": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "after": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+      "rootViewed": [
+        "full",
+        "wood detail",
+        "hall detail",
+        "low"
+      ],
+      "remaining": [
+        "bridge/stair bearing and reference mass differences",
+        "dark brown uniformity",
+        "garden/water artificial appearance"
+      ],
+      "sourceReceipt": "lookdev/scene01-surface353/handoff353.json"
+    },
+    "06": {
+      "before": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+      "after": "f50c16c1fe3a630c6f352c9f87691423d5daeb060827c9240eeaefd268ae9163",
+      "rootViewed": [
+        "full",
+        "detail",
+        "exact wrist triptych",
+        "exact low triptych"
+      ],
+      "remaining": [
+        "101 new strict local sleeve self-crossings plus25 inherited",
+        "long upturned cuff lip",
+        "source hand gesture differs from reference",
+        "lotus pedestal bulbous shape being rebuilt359"
+      ],
+      "sourceReceipt": "lookdev/scene06-sculpture358/handoff358-r06-working-point.json"
+    }
+  },
+  "runtimeFiles": {
+    "reconstructions/scene-01/asset-dependencies.json": "324a2cd0be225bf9ce6db7288f6f48fca3296372a43c9e39b41457d487e5458d",
+    "reconstructions/scene-01/src/authored-sky353.js": "504e8f1df4a39e0e5d910a29df5c13e70f90d6e82ca9a2951169e800ba233ab3",
+    "reconstructions/scene-01/src/court-return353.js": "47a029c071049ba0629e83872bfd65736c75f6e11a3beb5c7c2aeab86fb51f5a",
+    "reconstructions/scene-01/src/hall-facade161.js": "3be35e5f00cc91f07a572ddad4c8dfcef9114639dc532f3013e44743ca2f02c8",
+    "reconstructions/scene-01/src/indirect-visibility353.js": "c21f93c95b762e6de84ec0d25031b8bdcb439c2ac8b319bd4028218f973f420b",
+    "reconstructions/scene-01/src/kernel.js": "010b294647aea5366740ad56e36dd9cb58615f6bcee827108477d54c45b37b80",
+    "reconstructions/scene-01/src/local-radiance353.js": "4e7052c13ede1336dea8fb223202bc9346047cd2f2379e0864367d03be51fbb8",
+    "reconstructions/scene-01/src/main.js": "0133ca6c5f4156d3c3246ef075756f5c72a4e84eb1be60e3dfbc2b3fe4658744",
+    "reconstructions/scene-01/src/optics.js": "95f3f6b294fb10501427c9f0a4a1cd19d3bdb3c22ec84af0bbf99fb5fe927970",
+    "reconstructions/scene-01/src/scanned-garden-stones.js": "a77d18e62fa1ddfa8c13c6b9aa6ea99c11faea47d1c7ac72f175b045f2a6afc7",
+    "reconstructions/scene-01/src/scanned-timber.js": "54c26a0a01451596906a8a878f0851fed26b93b95dea0e840042235fb37dcae2",
+    "reconstructions/scene-01/src/scene.js": "edd2366ee209fc934528fb540a8a151e362d3508569d66f805f644da77f85020",
+    "reconstructions/scene-01/src/surface-response353.js": "8f8503bdf6768d933324580a80c4012f8b06fd4968f9b6d06b1ce74fd00db8c5",
+    "reconstructions/scene-06/src/reference6-main.js": "229a25b85173c3b2156a2dd7ca62a2db8adb2cdee18caf38451deb60407aa87c",
+    "reconstructions/scene-06/src/sculptural-cast-assets.js": "4244528dc0683e1090e97da9f703664c438e307c689b69111c89d6048eddeb5b",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/central-original-sleeve-sculpt358-r06-gzip.bin": "b335e70e19baec976a768fc6100643b1dd2b55760e794dcfeffda7b124a8e792",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/sculpture358-provenance.json": "080e25057dc9909ad0f3748121cab902e1484da348bc9418ba899810b4933339",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/LICENSE-NC-SOURCE-CC-BY-NC-SA-4.0.txt": "67a71a7d10db274cc4e07ae4ffe4381e739de67b0643c766fa34d3da25ddaf57",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/actual-root-coverage199-r08a-6131443d8f997b39.bin": "6131443d8f997b39c7d13c338164ae63eab3e21ae1836ed2c6e412212bddb10f",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/manifest.json": "dc462f91f4ae4546c2ad482342a74fb57cf8dad8645679510c52b4ef657bf2df",
+    "reconstructions/scene-06/assets/sculpture358-r06-CC-BY-NC-SA-4.0/LICENSE-DONOR173-CC-BY-4.0-ATTRIBUTION.txt": "a158e56f903c45f23f12daab882950284a3863dbde70d9bd2b49a027521ada85"
+  },
+  "verification": "Canonical source identities independently recomputed and exactly match actual rendered frozen candidates. Existing completed renders retained; no duplicate image jobs.",
+  "physical354": "Retains frozen10ebb geometry; not silently updated by this integration.",
+  "filmG": "Frozen at1a490023, unchanged; this model integration is not a new movie.",
+  "allTenPhotographicallyAccepted": false,
+  "copyRecovery": "Node COPYFILE_FICLONE_FORCE unsupported on this runtime; no files copied by that attempt. Native clonefile copied the six candidate assets, final source identity matches."
+}

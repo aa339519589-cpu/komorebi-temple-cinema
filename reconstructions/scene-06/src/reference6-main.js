@@ -24,7 +24,7 @@ import {auditDaylight284} from './daylight-audit284.js';
 function applyNativePBR284(room){
  const consumers=new Map();room.scene.traverse(o=>{if(o.isMesh)for(const m of(Array.isArray(o.material)?o.material:[o.material])){if(!consumers.has(m))consumers.set(m,[]);consumers.get(m).push(o);}});
  const floor=[...consumers].filter(([m])=>m.name==='reference6-varnished-red-brown-floor-body'&&m.userData.actualFloorSolidReflection===true);
- const central=[...consumers].filter(([m])=>m.name==='scene06-centralpose295-r06-differential-left-arm-lap-pose:central-ordinary-PBR');
+ const central=[...consumers].filter(([m])=>m.name==='scene06-sculpture358-r06-continuous-original-wrist-sleeve:central-ordinary-PBR');
  const floorNames=new Set(['scene06-jointed-polished-floorboard','scene06-observed-foreground-thick-wood-panel','room248-jointed-rear-floorboard']);
  if(floor.length!==243||floor.some(([,objects])=>objects.length!==1||!floorNames.has(objects[0].name))||central.length!==1||central[0][1].length!==1)throw Error('Native315 exact material/consumer role changed');
  const ancestry=[];for(let o=central[0][1][0];o;o=o.parent)if(o.name)ancestry.unshift(o.name);

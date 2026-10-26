@@ -16,9 +16,9 @@ export async function loadSculpturalCastAssets(){
  const base=new URL(`../assets/sculptural-cast-${revision}/`,import.meta.url),response=await fetch(new URL('manifest.json',base));
  if(!response.ok)throw Error('Physical cast manifest failed: '+response.status);
  const manifest=await response.json();if(manifest.revision!==`scene06-sculptural-cast-${revision}`)throw Error('Wrong cast asset revision');
- const foundationBase=new URL('../assets/centralpose295-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
+ const foundationBase=new URL('../assets/sculpture358-r06-CC-BY-NC-SA-4.0/',import.meta.url),foundationResponse=await fetch(new URL('manifest.json',foundationBase));
  if(!foundationResponse.ok)throw Error('Paired-pose foundation manifest failed');
- const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-centralpose295-r06-differential-left-arm-lap-pose")throw Error('Wrong NC actual-source revision');
+ const foundation=await foundationResponse.json();if(foundation.revision!=="scene06-sculpture358-r06-continuous-original-wrist-sleeve")throw Error('Wrong NC actual-source revision');
  const sideBase=new URL('../assets/seated-attendants257-r11/',import.meta.url),sideResponse=await fetch(new URL('manifest.json',sideBase));
  if(!sideResponse.ok)throw Error('Closed attendant head manifest failed');
  const sideManifest=await sideResponse.json();if(sideManifest.revision!=='scene06-attendants257-r11')throw Error('Wrong attendant head revision');

@@ -1,0 +1,1289 @@
+{
+  "task": "353 Scene01 actual wood/garden/light work checkpoint; not photographic completion",
+  "model": "gpt-6.1-sol / max",
+  "baseSource": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+  "source": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10",
+  "photographicAccepted": false,
+  "canonicalModified": false,
+  "pushed": false,
+  "ownGPUJobsActive": false,
+  "allEarlierCandidatesAndFailedR02ReceiptsPreserved": true,
+  "views": [
+    {
+      "kind": "full",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-full/reference.png",
+      "pngSha256": "3a6d9008b119275a8593c75eb191e52a9f24804ef253e93f6d6feb07f5906a82",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-full/report.json",
+      "reportSha256": "d8d86e1de6f743e498932cb1283de0b4a4e4166a6531f4606111b9fcc0359c5c",
+      "source": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+      "status": "rendered-review",
+      "completedAt": "2026-10-26T15:15:02.431Z",
+      "actualPersonallyViewed": true,
+      "detailCrop": null,
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "30851fc032132875be7db1856f7c9c73d86997f31ead613948195d35f3654aaf",
+          "pose": {
+            "reference": 1,
+            "frame": 1,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                0,
+                3.2,
+                17
+              ],
+              "fov": 59
+            },
+            "triangles": 414301730,
+            "calls": 36642
+          }
+        }
+      ]
+    },
+    {
+      "kind": "wood-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-wood-detail/detail-native.png",
+      "pngSha256": "cb9cf870ed9ecebf1fde9d0d661fc8ca66146f817d352ccbd360087290ec8e20",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-wood-detail/report.json",
+      "reportSha256": "26916c33432b9bfce3556e73f89b5f68a4dd6ccc516b4bcec5ffbac6843c0d69",
+      "source": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+      "status": "rendered-review",
+      "completedAt": "2026-10-26T15:19:40.864Z",
+      "actualPersonallyViewed": true,
+      "detailCrop": {
+        "pixels": [
+          0,
+          594,
+          660,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "30851fc032132875be7db1856f7c9c73d86997f31ead613948195d35f3654aaf",
+          "pose": {
+            "reference": 1,
+            "frame": 1,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                0,
+                3.2,
+                17
+              ],
+              "fov": 59
+            },
+            "triangles": 414301730,
+            "calls": 36642
+          }
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "aecc03b16f2feac31b291bf2735a705a3983db33897f582e2c33998f3423b6da",
+          "pose": {
+            "reference": 1,
+            "frame": 2,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                0,
+                3.2,
+                17
+              ],
+              "fov": 59
+            },
+            "triangles": 198341328,
+            "calls": 16130
+          }
+        }
+      ]
+    },
+    {
+      "kind": "main-detail",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-main-detail/detail-native.png",
+      "pngSha256": "979b5a61df868fb7e7c096aa6a42e88547d95923086b8c8d295554cd94be2867",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-main-detail/report.json",
+      "reportSha256": "694e2fd31325e61a17dea696fbb16ffc843e7f1924af2fa21a8d69e0ff45f8ef",
+      "source": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+      "status": "rendered-review",
+      "completedAt": "2026-10-26T15:21:15.858Z",
+      "actualPersonallyViewed": true,
+      "detailCrop": {
+        "pixels": [
+          620,
+          240,
+          630,
+          1254
+        ],
+        "scope": "A second genuine native 3D subfrustum render from the unchanged physical reference camera; not an upscaled screenshot."
+      },
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "30851fc032132875be7db1856f7c9c73d86997f31ead613948195d35f3654aaf",
+          "pose": {
+            "reference": 1,
+            "frame": 1,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                0,
+                3.2,
+                17
+              ],
+              "fov": 59
+            },
+            "triangles": 414301730,
+            "calls": 36642
+          }
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "d706f7f6bb4036c9d1d72f6969572c22c5e5f6ee7029ea06269ad1570fa33545",
+          "pose": {
+            "reference": 1,
+            "frame": 2,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                0,
+                3.2,
+                17
+              ],
+              "fov": 59
+            },
+            "triangles": 399136193,
+            "calls": 27165
+          }
+        }
+      ]
+    },
+    {
+      "kind": "low",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-low/inspection-view.png",
+      "pngSha256": "54e46020d5563f588d85a5ca6e346f0e8d58ad1945bc9eba51e7e98d126cc70f",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/candidate-r10/qa/ten-reference/01/iteration-scene01-surface353-r10-low/report.json",
+      "reportSha256": "c38bb0a5828408064c221b17081ca846d32115e9f4d6d3ee9dbaf3ef37f75fe8",
+      "source": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+      "status": "rendered-review",
+      "completedAt": "2026-10-26T15:22:11.683Z",
+      "actualPersonallyViewed": true,
+      "detailCrop": null,
+      "frames": [
+        {
+          "name": "inspection-view",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "glError": 0,
+          "contextLost": false,
+          "allProgramsLinked": true,
+          "rgbaSha256": "795193e78d3be65908c0ab9e03054fb1a2ce6db72fa6664c0aab4f2aa2ff937e",
+          "pose": {
+            "reference": 1,
+            "frame": 1,
+            "width": 1254,
+            "height": 1254,
+            "camera": {
+              "position": [
+                -2.5,
+                1,
+                6.2
+              ],
+              "fov": 60
+            },
+            "triangles": 366047903,
+            "calls": 22544
+          }
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/comparison-r10-full353.png",
+      "sidecar": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/comparison-r10-full353.png.json",
+      "sha256": "b468f9c5d36a91e7120e05ced9b72d85c7b72662816e9c1d26f2d78e88a1857b"
+    },
+    {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/comparison-r10-wood353.png",
+      "sidecar": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/comparison-r10-wood353.png.json",
+      "sha256": "649ea1fb8f1baa0bf6202cb7dd561bae66d7e49d8526129bb0b01e8b6afec733"
+    }
+  ],
+  "sourceManifest": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/source-r10-manifest353.json",
+  "fullSourcePatch": {
+    "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/source-r10-353.patch",
+    "sha256": "a632f3aa8e0c1f99f85ee78da8f06e0d4d8fa427118a98aa69924bf742461b76",
+    "bytes": 71611
+  },
+  "geometryOnlyAlternative": {
+    "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/geometry-only353.patch",
+    "sha256": "dd14a7aa524e9b9232464b7135787ea9a6c91aeebdbecb6660fcba35ccae8a12",
+    "files": 3,
+    "standaloneBaselineCombinationRendered": false,
+    "actualFactoryUsedInR08ThroughR10": true,
+    "doNotApplyBothPatchesWithoutRebase": true
+  },
+  "actualResult": {
+    "improved": [
+      "Metric real timber/stone arrises and smoother structural columns soften old razor edges",
+      "Four existing foreground rail solids now have12-31.2mm crowns; native close view shows narrower specular bands",
+      "Linear inferred pigment separated from original CC0 scan luminance, aged finish separated from modern polished-table roughness",
+      "Main hall joints/shadow depth and wet-rock sheen separate better than the original flat red/matte grey scene",
+      "One shared golden sky field drives visible sky/world IBL/water/two real local captures; R10 has cool upper gaps and warm low horizon without EV lift"
+    ],
+    "remaining": [
+      "Whole image remains far from HD; main facade and pagoda still dark brown and too uniform in color/lighting",
+      "Bridge appears oversized and sparse/straight compared with reference; source plan and camera were held",
+      "Garden foliage/water still lack dense gold rimlight, layered natural forms and lively scene reflections of HD",
+      "Dressed stairs/large stone lantern retain procedural material and sterile joint/edge appearance",
+      "Upper cloud palette improved from orange R09 but remains an authored LDR field, not calibrated measured HDR; no more cloud-color-only iteration should conceal major mass/light deficits",
+      "No R10 film rendered; moving shadow/highlight stability and DOF still require actual approved-source motion review"
+    ]
+  },
+  "geometry": {
+    "instances": 376005,
+    "triangles": 58220172,
+    "meshes": 6247,
+    "sourceBuckets": 6204,
+    "prototypeTopologyAudits": [
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/geometry-r03-353.json",
+      "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-surface353/geometry-r08-353.json"
+    ],
+    "layoutAndInstanceMatricesHeld": true,
+    "cameraAndDollySourceHeld": true,
+    "bevelsAndCrownsDeliberateGeometryChanges": true
+  },
+  "material": {
+    "historicalNotMeasured": true,
+    "oldTimberLinearGains": {
+      "red": [
+        5.7,
+        2.65,
+        1.45
+      ],
+      "redLight": [
+        6.5,
+        3.5,
+        1.9
+      ],
+      "wood": [
+        6.5,
+        4,
+        2.25
+      ],
+      "endwood": [
+        7.6,
+        5.2,
+        3.1
+      ],
+      "darkwood": [
+        2.4,
+        1.5,
+        0.92
+      ]
+    },
+    "oldGainMultipliedOriginalScannedColor": true,
+    "oldRoughnessImageRemap": "round(clamp(raw*.76+82,116,244))/255",
+    "newOriginalRoughnessPixels": true,
+    "rawRoughnessMeanApprox": 0.2475,
+    "newLinearPigments": {
+      "red": [
+        0.25,
+        0.095,
+        0.05
+      ],
+      "redLight": [
+        0.31,
+        0.133,
+        0.068
+      ],
+      "wood": [
+        0.179,
+        0.086,
+        0.046
+      ],
+      "endwood": [
+        0.31,
+        0.194,
+        0.125
+      ],
+      "darkwood": [
+        0.0614,
+        0.0372,
+        0.0258
+      ]
+    },
+    "newBridgePigments": {
+      "red": [
+        0.26,
+        0.055,
+        0.028
+      ],
+      "redLight": [
+        0.34,
+        0.08,
+        0.045
+      ]
+    },
+    "newScanUse": "linear luminance / .01505120736, exponent.40, clamp.58..1.42; original normal and roughness images; member-aligned original metric UV algorithm",
+    "hallColorChange": "Old display-RGB baked paint CanvasTexture removed; original scan plus explicit linear pigment used. Authored timber role palette now propagates into renamed hall clones; original actual hall instance colors were white due name lookup, so do not claim all original rendered instance colors are unchanged.",
+    "allHistoricalGainsAndNewPigmentsInferredNotMeasuredReflectance": true,
+    "actualMapBindingsMismatchCount": 0,
+    "actualKeyMaterials": [
+      {
+        "name": "red",
+        "linearColor": [
+          0.25,
+          0.095,
+          0.05
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "red",
+        "environmentCell": "outside",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "red",
+        "linearColor": [
+          0.25,
+          0.095,
+          0.05
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "red",
+        "environmentCell": "fore",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": true,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "red",
+        "linearColor": [
+          0.26,
+          0.055,
+          0.028
+        ],
+        "roughness": 0.9,
+        "clearcoat": 0.06,
+        "clearcoatRoughness": 0.4,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "red",
+        "environmentCell": "outside",
+        "surfaceFinish": "weathered-outdoor-bridge-wood",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "redLight",
+        "linearColor": [
+          0.31,
+          0.133,
+          0.068
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "redLight",
+        "environmentCell": "outside",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "redLight",
+        "linearColor": [
+          0.31,
+          0.133,
+          0.068
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "redLight",
+        "environmentCell": "fore",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": true,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "redLight",
+        "linearColor": [
+          0.34,
+          0.08,
+          0.045
+        ],
+        "roughness": 0.9,
+        "clearcoat": 0.06,
+        "clearcoatRoughness": 0.4,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "redLight",
+        "environmentCell": "outside",
+        "surfaceFinish": "weathered-outdoor-bridge-wood",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "hall161-aged-red",
+        "linearColor": [
+          0.25,
+          0.095,
+          0.05
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "red",
+        "environmentCell": "hall",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": true,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "hall161-aged-redLight",
+        "linearColor": [
+          0.31,
+          0.133,
+          0.068
+        ],
+        "roughness": 0.66,
+        "clearcoat": 0.18,
+        "clearcoatRoughness": 0.22,
+        "normalScale": [
+          0.08,
+          0.08
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": "redLight",
+        "environmentCell": "hall",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": true,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "slate",
+        "linearColor": [
+          0.06847816983662762,
+          0.09530746662221588,
+          0.12213877222015301
+        ],
+        "roughness": 0.62,
+        "clearcoat": 0.65,
+        "clearcoatRoughness": 0.16,
+        "normalScale": [
+          1,
+          1
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": null,
+        "environmentCell": "outside",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      },
+      {
+        "name": "tileEdge",
+        "linearColor": [
+          0.05286064701616471,
+          0.06662593863608139,
+          0.09084171117479915
+        ],
+        "roughness": 0.65,
+        "clearcoat": 0.45,
+        "clearcoatRoughness": 0.2,
+        "normalScale": [
+          1,
+          1
+        ],
+        "shaderMapMatches": true,
+        "paletteRole": null,
+        "environmentCell": "outside",
+        "surfaceFinish": "retained/interior",
+        "shaderEnvironmentIntensity": 1,
+        "ownEnvMap": false,
+        "effectiveEnvironmentIntensity": 1
+      }
+    ],
+    "wetRock": {
+      "oldColorMultiplier": 0.9,
+      "newColorMultiplier": 0.62,
+      "roughness": 0.36,
+      "clearcoat": 0.55,
+      "clearcoatRoughness": 0.16,
+      "sourceImagesUnchanged": true
+    },
+    "dryRock": {
+      "roughness": 0.9,
+      "normalScale": 0.65
+    },
+    "ceramic": {
+      "roughness": 0.62,
+      "clearcoat": 0.65,
+      "clearcoatRoughness": 0.16,
+      "nonmetal": true
+    }
+  },
+  "light": {
+    "renderer": {
+      "calls": 36642,
+      "triangles": 414301730,
+      "staticShadowMaps": [
+        {
+          "name": "DirectionalLight",
+          "type": "DirectionalLight",
+          "initialized": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-0",
+          "type": "SpotLight",
+          "initialized": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-1",
+          "type": "SpotLight",
+          "initialized": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-2",
+          "type": "SpotLight",
+          "initialized": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-3",
+          "type": "SpotLight",
+          "initialized": true
+        }
+      ],
+      "toneMapping": 4,
+      "toneMappingExposure": 1.03,
+      "outputColorSpace": "srgb"
+    },
+    "sharedSky": {
+      "provider": "OpenAI built-in imagegen, existing independent sky-only asset",
+      "asset": "generated-golden-sky-v01",
+      "generated": true,
+      "sourceAsset": "assets/generated-golden-sky-v01/sky-equirectangular.png",
+      "sourceProvenance": "assets/generated-golden-sky-v01/provenance.json",
+      "referencePhotographPixelsUsed": false,
+      "containsArchitectureOrGarden": false,
+      "width": 1774,
+      "height": 887,
+      "linearRadianceGain": 0.8,
+      "upperCloudLatitudeModel353": {
+        "solarAnchorDegrees": 3.6,
+        "easing": "easeOut power4.5 with smooth onset0.12",
+        "longitudeMap": "lambda +0.75sin(lambda-solarMeridian), monotone derivative0.25..1.75",
+        "horizonAndSolarAnchorHeld": true,
+        "allColoursUnchanged": true,
+        "resampledSharedSkyAndIBLField": true
+      },
+      "visibleAndIBLScale": 1,
+      "sharedFieldForVisibleIBLAndLocalCaptures": true,
+      "noDisplayOnlyTintOrScreenMask": true,
+      "noLuminanceDesaturationOrOldAltitudeColourRemapping": true,
+      "solarDirection": [
+        -0.3682471896995991,
+        0.20047123637403436,
+        -0.907857527734949
+      ],
+      "solarColourLinear": [
+        1,
+        0.5,
+        0.15
+      ],
+      "solarIntensity": 10.240492108764023,
+      "heldSolarLuminanceY": 5.950033129955161,
+      "solarAngularRadius": 0.00465,
+      "visibleSolarDiscRadianceCap": 50000,
+      "skyHasNoRasterSolarDisc": true,
+      "inferredNotMeasured": true,
+      "scope": "LDR sRGB decoded once and clouds reprojected with one smooth spherical map into one shared linear authored radiance field; same spherical boundary drives display, IBL, water and two actual local captures. Sky gain and analytic solar spectrum are inferred golden-hour art direction, not in-situ or absolute photometric measurement."
+    },
+    "solar": {
+      "intensity": 10.240492108764023,
+      "colorLinear": [
+        1,
+        0.5,
+        0.15
+      ],
+      "irradianceRGB": [
+        10.240492108764023,
+        5.120246054382012,
+        1.5360738163146035
+      ],
+      "inferredNotMeasured": true
+    },
+    "newCourtReturn": {
+      "source": "Unseen distant sunlit courtyard/sky return, native finite-source quadrature; original directional fill retired. Source extent/power/spectrum inferred by reference/native review.",
+      "samples": [
+        {
+          "name": "353-finite-warm-courtyard-return-0",
+          "position": [
+            -36,
+            8,
+            64
+          ],
+          "target": [
+            9.4,
+            9,
+            -11
+          ],
+          "intensity": 3200,
+          "colorLinear": [
+            1,
+            0.74,
+            0.4
+          ],
+          "decay": 2,
+          "halfCone": 0.3490658503988659,
+          "penumbra": 0.8,
+          "shadowSize": 2048,
+          "allOriginalCastersAndReceivers": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-1",
+          "position": [
+            -36,
+            18,
+            64
+          ],
+          "target": [
+            9.4,
+            9,
+            -11
+          ],
+          "intensity": 3200,
+          "colorLinear": [
+            1,
+            0.74,
+            0.4
+          ],
+          "decay": 2,
+          "halfCone": 0.3490658503988659,
+          "penumbra": 0.8,
+          "shadowSize": 2048,
+          "allOriginalCastersAndReceivers": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-2",
+          "position": [
+            -30,
+            8,
+            64
+          ],
+          "target": [
+            9.4,
+            9,
+            -11
+          ],
+          "intensity": 3200,
+          "colorLinear": [
+            1,
+            0.74,
+            0.4
+          ],
+          "decay": 2,
+          "halfCone": 0.3490658503988659,
+          "penumbra": 0.8,
+          "shadowSize": 2048,
+          "allOriginalCastersAndReceivers": true
+        },
+        {
+          "name": "353-finite-warm-courtyard-return-3",
+          "position": [
+            -30,
+            18,
+            64
+          ],
+          "target": [
+            9.4,
+            9,
+            -11
+          ],
+          "intensity": 3200,
+          "colorLinear": [
+            1,
+            0.74,
+            0.4
+          ],
+          "decay": 2,
+          "halfCone": 0.3490658503988659,
+          "penumbra": 0.8,
+          "shadowSize": 2048,
+          "allOriginalCastersAndReceivers": true
+        }
+      ],
+      "worldFixed": true,
+      "newUnshadowedFillLights": 0,
+      "objectOrCameraLightMasks": 0,
+      "beamCards": 0,
+      "fullGI": false,
+      "photographicAccepted": false
+    },
+    "localCaptures": {
+      "revision": "353-r02-two-world-space-captures",
+      "inferredNotMeasured": true,
+      "fullGI": false,
+      "linearHDR": true,
+      "skySolarCoreExcludedFromProbeToAvoidDirectDoubleCount": true,
+      "synchronousReadPreviousField": true,
+      "positions": {
+        "fore": [
+          -1.2,
+          4.2,
+          13
+        ],
+        "hall": [
+          1,
+          5.5,
+          3
+        ]
+      },
+      "planarWaterUpdates": 12,
+      "materialBindings": [
+        {
+          "name": "stone",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "stoneLight",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "goldDark",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "goldDark",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "gold",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "gold",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "goldLight",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-aged-red",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall149Gilt",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "wood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "wood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "wood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall149OldGilt",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-aged-wood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-aged-darkwood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-rough-exposed-endgrain",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-deep-vent-shadow",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-recessed-aged-lime",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "black",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "wood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "paper",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-aged-redLight",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall185ThresholdStone",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall185CourtStone",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall185-declared-aged-gilt-on-actual-carving",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall185-declared-worn-gilt-on-actual-peony",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall219-aged-gilt-on-actual-door-floral-relief",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "flowerCream",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-black-brown-lacquer",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-lantern-warm-paper",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-candle-wax",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-flame",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-offering-flower-stems",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-vermillion-lacquer",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-black-brocade",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-brocade-woven-gold",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "restoration-offering-foliage",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hall161-aged-endwood",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "bronze",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "wood",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "stone",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "red",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "darkwood",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "redLight",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hardware131-worn-gilt-brass",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hardware131-embossed-vegetal-brass",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "craft298-oxidized-cast-bronze-recesses",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "craft298-chased-partly-oxidized-gilt-brass",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "hardware131-dark-cast-bronze",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-2-wet",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "moss",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "moss",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-2",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-1",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-1-wet",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-4",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-0",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-3-wet",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-5-wet",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "scanned-weathered-moss-stone-0-wet",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "leaf",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "leaf",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "leafDark",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "pinkLight",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "pollen",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "pineLeaf",
+          "cell": "hall",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "vineLeaf",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        },
+        {
+          "name": "flowerCream",
+          "cell": "fore",
+          "ownEnvMapActuallyBound": true,
+          "intensity": 1
+        }
+      ],
+      "scope": "One finite synchronous captured-return update, not full diffuse GI or receiver-local visibility away from each probe. Planar water re-renders actual3D source with face/mip/viewport/scissor/depth restored. No image cards or light masks."
+    },
+    "retainedLegacyUnshadowedSources": {
+      "hemisphereIntensity": 0.08,
+      "court185RectAreaIntensity": 1.4,
+      "description": "Existing finite area approximation and fixture PointLights remain. Three native RectAreaLight has no mesh shadow test; do not claim every illumination path is shadow traced. Four newly authored court samples and Sun do have real full-scene shadow maps."
+    },
+    "indirectAO": {
+      "revision": "353-indirect-only-AO-real-opaque-normal-depth",
+      "contactRadiusMetres": 0.24,
+      "contactThicknessMetres": 0.18,
+      "indirect": {
+        "source": "Reviewed245 indirect-component insertion adapted without LTC packing",
+        "materialCount": 154,
+        "strength": 0.58,
+        "directAndEmissiveUntouched": true,
+        "reflectionCamerasBypassMainViewAO": true,
+        "fullGI": false
+      },
+      "opaqueDepthExclusions": 3,
+      "allBeautyGeometryRetained": true,
+      "fullGI": false
+    },
+    "fullGI": false
+  },
+  "verification": {
+    "actualAllViewsSameSource": true,
+    "allChangedJSNodeSyntaxPassed": true,
+    "gitApplyCheckAgainstCurrentCanonicalPassed": true,
+    "rendererToneMapping": 4,
+    "rendererExposure": 1.03,
+    "rendererOutput": "srgb",
+    "noNewWholeSceneExportBlendOrAssetDuplicate": true,
+    "geometryOnlyNotStandaloneRendered": true,
+    "stillChecksNotFilmAcceptance": true
+  },
+  "nextWork": [
+    "Parent review/adoption is separate; no lighting merge requested merely for loading success",
+    "Continue actual front/back light allocation, realistic garden/stone response and primary projection/layout deficits before more tiny cloud hue edits",
+    "Use retained frozen R10 or base b755 as explicit next-round parent; no existing job needs recovery or duplication"
+  ]
+}

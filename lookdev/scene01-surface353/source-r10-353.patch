@@ -1,0 +1,472 @@
+diff --git a/reconstructions/scene-01/asset-dependencies.json b/reconstructions/scene-01/asset-dependencies.json
+--- a/reconstructions/scene-01/asset-dependencies.json
++++ b/reconstructions/scene-01/asset-dependencies.json
+@@ -21,7 +21,8 @@
+     "assets/generated-golden-sky-v01/sky-equirectangular.png",
+     "assets/generated-golden-sky-v01/provenance.json",
+     "lookdev/temple-carved-bearing176/sources/1336fa1889cf4eba829594fa30edd6ff/creator-primary-metadata.json",
+-    "lookdev/architectural-scan-library157/sources/ccby-diana-liu-floral-panel/creator-primary-metadata.json"
++    "lookdev/architectural-scan-library157/sources/ccby-diana-liu-floral-panel/creator-primary-metadata.json",
++    "vendor/examples/jsm/geometries/RoundedBoxGeometry.js"
+   ],
+   "architecture148": {
+     "source": [
+diff --git a/reconstructions/scene-01/src/authored-sky353.js b/reconstructions/scene-01/src/authored-sky353.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-01/src/authored-sky353.js
+@@ -0,0 +1,36 @@
++import * as T from 'three';
++// Existing independently generated sky-only asset. Linear authored radiance,
++// not measured HDR and never a temple/garden/reference-frame projection.
++export async function loadGoldenBoundary353(wantedDirection){
++ const source=await new T.TextureLoader().loadAsync('/assets/generated-golden-sky-v01/sky-equirectangular.png'),w=source.image.width,h=source.image.height,canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(source.image,0,0);const rgba=ctx.getImageData(0,0,w,h).data,data=new Float32Array(w*h*4),gain=.8,linear=c=>c<=.04045?c/12.92:Math.pow((c+.055)/1.055,2.4);
++ // Reproject the authored upper cloud layer in spherical latitude, before
++ // either display or PMREM. Horizon/solar anchor and all input colours stay.
++ const anchor353=3.6*Math.PI/180;
++ for(let y=0;y<h;y++){
++  const lat=((y+.5)/h-.5)*Math.PI;let sourceLat=lat;
++  if(lat>anchor353){const u=(lat-anchor353)/(Math.PI/2-anchor353),eased=1-Math.pow(1-u,4.5),blend=T.MathUtils.smoothstep(u,0,.12);sourceLat=anchor353+(u+(eased-u)*blend)*(Math.PI/2-anchor353);}
++  const sy=T.MathUtils.clamp((.5-sourceLat/Math.PI)*h-.5,0,h-1),y0=Math.floor(sy),y1=Math.min(h-1,y0+1),fy=sy-y0;
++  for(let x=0;x<w;x++){
++   const lon=((x+.5)/w-.5)*Math.PI*2,anchorLon=-Math.PI/2,delta=lon-anchorLon;
++   // A monotone periodic longitude map: no tiled clouds or antipodal seam.
++   // It places smaller cloudlets around the same fixed solar meridian.
++   const sourceLon=lon+.75*Math.sin(delta),sx=((sourceLon/(Math.PI*2)+.5)*w-.5+w*2)%w,x0=Math.floor(sx),x1=(x0+1)%w,fx=sx-x0,b=(y*w+x)*4;
++   for(let c=0;c<3;c++){
++    const p00=linear(rgba[(y0*w+x0)*4+c]/255),p10=linear(rgba[(y0*w+x1)*4+c]/255),p01=linear(rgba[(y1*w+x0)*4+c]/255),p11=linear(rgba[(y1*w+x1)*4+c]/255);
++    data[b+c]=((p00*(1-fx)+p10*fx)*(1-fy)+(p01*(1-fx)+p11*fx)*fy)*gain;
++   }
++   data[b+3]=1;
++  }
++ }
++ source.dispose();
++ const sourceLon=-Math.PI/2,sourceLat=3.6*Math.PI/180,wLon=Math.atan2(wantedDirection.z,wantedDirection.x),wLat=Math.asin(wantedDirection.y),orientation=new T.Quaternion().setFromAxisAngle(new T.Vector3(-Math.sin(wLon),0,Math.cos(wLon)),wLat-sourceLat).multiply(new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),sourceLon-wLon)),inverse=new T.Matrix3().setFromMatrix4(new T.Matrix4().makeRotationFromQuaternion(orientation).invert());
++ const color=[1,.50,.15],heldSolarY=.2126*12.899227673342414+.7152*4.451224858658505+.0722*.3343671425207852,intensity=heldSolarY/(.2126*color[0]+.7152*color[1]+.0722*color[2]);
++ const texture=new T.DataTexture(data,w,h,T.RGBAFormat,T.FloatType);texture.colorSpace=T.LinearSRGBColorSpace;texture.mapping=T.EquirectangularReflectionMapping;texture.wrapS=T.RepeatWrapping;texture.minFilter=texture.magFilter=T.LinearFilter;texture.needsUpdate=true;
++ const material=new T.ShaderMaterial({name:'353-common-golden-cloud-boundary',side:T.BackSide,depthWrite:false,uniforms:{radiance:{value:texture},worldToSky:{value:inverse},sunDirection:{value:wantedDirection},sunColor:{value:new T.Color().setRGB(...color)},skyIntensity:{value:1},solarDisplayEnabled353:{value:1}},vertexShader:'varying vec3 vRay;void main(){vec4 w=modelMatrix*vec4(position,1.);vRay=w.xyz-cameraPosition;gl_Position=projectionMatrix*viewMatrix*w;}',fragmentShader:`varying vec3 vRay;uniform sampler2D radiance;uniform mat3 worldToSky;uniform vec3 sunDirection,sunColor;uniform float skyIntensity,solarDisplayEnabled353;
++ void main(){vec3 ray=normalize(vRay),d=normalize(worldToSky*ray);vec2 uv=vec2(atan(d.z,d.x)/6.28318530718+.5,asin(clamp(d.y,-1.,1.))/3.14159265359+.5);vec3 rgb=texture2D(radiance,uv).rgb*skyIntensity;float a=acos(clamp(dot(ray,sunDirection),-1.,1.));rgb+=sunColor*50000.0*solarDisplayEnabled353*(1.-smoothstep(.00440,.00485,a));gl_FragColor=vec4(rgb,1.);
++ #include <tonemapping_fragment>
++ #include <colorspace_fragment>
++ }`});
++ const mesh=new T.Mesh(new T.SphereGeometry(180,48,28),material);mesh.name='353-common-independent-golden-sky-boundary';mesh.renderOrder=-100;
++ return{mesh,texture,rotation:new T.Euler().setFromQuaternion(orientation),solar:{intensity,colorLinear:color,irradianceRGB:color.map(v=>v*intensity),inferredNotMeasured:true},info:{provider:'OpenAI built-in imagegen, existing independent sky-only asset',asset:'generated-golden-sky-v01',generated:true,sourceAsset:'assets/generated-golden-sky-v01/sky-equirectangular.png',sourceProvenance:'assets/generated-golden-sky-v01/provenance.json',referencePhotographPixelsUsed:false,containsArchitectureOrGarden:false,width:w,height:h,linearRadianceGain:gain,upperCloudLatitudeModel353:{solarAnchorDegrees:3.6,easing:'easeOut power4.5 with smooth onset0.12',longitudeMap:'lambda +0.75sin(lambda-solarMeridian), monotone derivative0.25..1.75',horizonAndSolarAnchorHeld:true,allColoursUnchanged:true,resampledSharedSkyAndIBLField:true},visibleAndIBLScale:1,sharedFieldForVisibleIBLAndLocalCaptures:true,noDisplayOnlyTintOrScreenMask:true,noLuminanceDesaturationOrOldAltitudeColourRemapping:true,solarDirection:wantedDirection.toArray(),solarColourLinear:color,solarIntensity:intensity,heldSolarLuminanceY:heldSolarY,solarAngularRadius:.00465,visibleSolarDiscRadianceCap:50000,skyHasNoRasterSolarDisc:true,inferredNotMeasured:true,scope:'LDR sRGB decoded once and clouds reprojected with one smooth spherical map into one shared linear authored radiance field; same spherical boundary drives display, IBL, water and two actual local captures. Sky gain and analytic solar spectrum are inferred golden-hour art direction, not in-situ or absolute photometric measurement.'},dispose(){texture.dispose();material.dispose();mesh.geometry.dispose();}};
++}
+diff --git a/reconstructions/scene-01/src/court-return353.js b/reconstructions/scene-01/src/court-return353.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-01/src/court-return353.js
+@@ -0,0 +1,7 @@
++import * as T from 'three';
++// Inferred distant courtyard/sky return boundary, not an in-situ measurement.
++// The samples light every receiver through the original scene's real shadows.
++export function installCourtReturn353(scene){
++ const samples=[],color=[1,.74,.40];for(const x of[-36,-30])for(const y of[8,18]){const light=new T.SpotLight(new T.Color().setRGB(...color),3200,0,Math.PI/9,.8,2);light.name='353-finite-warm-courtyard-return-'+samples.length;light.position.set(x,y,64);light.target.position.set(9.4,9,-11);light.castShadow=true;light.shadow.mapSize.set(2048,2048);Object.assign(light.shadow.camera,{near:.25,far:180});light.shadow.camera.updateProjectionMatrix();light.shadow.bias=-.000007;light.shadow.normalBias=.004;light.shadow.radius=3;scene.add(light,light.target);samples.push({name:light.name,position:light.position.toArray(),target:light.target.position.toArray(),intensity:light.intensity,colorLinear:color,decay:2,halfCone:light.angle,penumbra:light.penumbra,shadowSize:2048,allOriginalCastersAndReceivers:true});}
++ return{source:'Unseen distant sunlit courtyard/sky return, native finite-source quadrature; original directional fill retired. Source extent/power/spectrum inferred by reference/native review.',samples,worldFixed:true,newUnshadowedFillLights:0,objectOrCameraLightMasks:0,beamCards:0,fullGI:false,photographicAccepted:false};
++}
+diff --git a/reconstructions/scene-01/src/hall-facade161.js b/reconstructions/scene-01/src/hall-facade161.js
+--- a/reconstructions/scene-01/src/hall-facade161.js
++++ b/reconstructions/scene-01/src/hall-facade161.js
+@@ -5,24 +5,15 @@
+ // comparison only. All windows, plaster cells and timber joints are solids.
+ export function installHallFinish161(B){
+  const saved={};
+- const image=B.m.red.map.image,N=1024,canvas=document.createElement('canvas');canvas.width=canvas.height=N;
+- const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(image,0,0,N,N);
+- const pixels=ctx.getImageData(0,0,N,N);
+- for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+-  const i=(y*N+x)*4,grain=(pixels.data[i]*.50+pixels.data[i+1]*.34+pixels.data[i+2]*.16)/255;
+-  const broad=noise(x*.0018,y*.024,161),fine=noise(x*.005,y*.08,167),wear=.43+.10*(broad-.5);
+-  const value=.98+.035*(fine-.5),wood=[pixels.data[i]*1.68,pixels.data[i+1]*1.42,pixels.data[i+2]*1.26];
+-  for(let c=0;c<3;c++)pixels.data[i+c]=Math.round(([145,78,43][c]*(1-wear)+wood[c]*wear)*value);
+- }
+- ctx.putImageData(pixels,0,0);
+- const paint=new T.CanvasTexture(canvas);paint.name='hall161-vermilion-paint-over-existing-CC0-timber';paint.colorSpace=T.SRGBColorSpace;paint.wrapS=paint.wrapT=T.RepeatWrapping;paint.anisotropy=8;
++ // Actual hall paint now uses the same original scan-luminance grain and
++ // declared linear pigment as the rest of the timber; no baked display-RGB paint.
+  for(const key of['red','redLight','wood','darkwood','endwood']){
+   const original=B.m[key],mat=original.clone();saved[key]=original;mat.name='hall161-aged-'+key;
+   mat.onBeforeCompile=shader=>{original.onBeforeCompile(shader);shader.fragmentShader=shader.fragmentShader.replace('diffuseColor.rgb*=.73+.40*age;','diffuseColor.rgb*=.90+.16*age;').replace('smoothstep(.72,.83,chip)*.16','smoothstep(.72,.83,chip)*.08');};
+   mat.customProgramCacheKey=()=>original.customProgramCacheKey()+'-hall219-warm-painted-cypress';
+-  if(key==='red'||key==='redLight'){mat.map=paint;mat.color.setRGB(...(key==='red'?[1,1,1]:[1.05,1.015,.96]));}
+-  else mat.color.setRGB(...({wood:[4.0,2.65,1.65],darkwood:[1.60,.98,.49],endwood:[4.6,3.25,1.95]}[key]));
+-  mat.roughness=key==='darkwood'?.87:.72;mat.clearcoat=.045;mat.clearcoatRoughness=.58;mat.specularIntensity=.38;mat.normalScale.set(.15,.15);
++  mat.map=original.map;mat.color.copy(original.color);
++  mat.roughness=key==='endwood'?.90:key==='darkwood'||key==='wood'?.78:.66;mat.clearcoat=key==='endwood'?.025:key==='darkwood'?.08:key==='wood'?.12:.18;mat.clearcoatRoughness=key==='endwood'?.50:key==='darkwood'?.34:key==='wood'?.28:.22;mat.specularIntensity=.55;mat.normalScale.set(.08,.08);
++
+   B.m[key]=mat;B.m['hall161-'+key]=mat;
+  }
+  const plaster=new T.MeshStandardMaterial({name:'hall161-recessed-aged-lime',color:0xada08a,roughness:.96});B.m.hall161Plaster=plaster;
+diff --git a/reconstructions/scene-01/src/indirect-visibility353.js b/reconstructions/scene-01/src/indirect-visibility353.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-01/src/indirect-visibility353.js
+@@ -0,0 +1,21 @@
++import * as T from 'three';
++// Adapted from the repository's reviewed245 insertion. This scene has ample
++// sampler budget; preserve its existing LTC tables and add one visibility map.
++export function installIndirectVisibility353({scene,aoPass,width,height,reflectors=[],strength=.58}){
++ const uniforms={map:{value:aoPass.gtaoMap},size:{value:new T.Vector2(width,height)},on:{value:0},strength:{value:strength}},restore=[],materials=new Set();scene.traverse(o=>{if(o.isMesh)for(const m of(Array.isArray(o.material)?o.material:[o.material]))if(m?.isMeshStandardMaterial&&!m.transparent&&!(m.transmission>0))materials.add(m);});
++ for(const m of materials){const hook=m.onBeforeCompile,key=m.customProgramCacheKey(),keyFn=m.customProgramCacheKey;m.onBeforeCompile=function(s,r){hook.call(this,s,r);if(s.fragmentShader.includes('uniform sampler2D tVisibility353;'))return;const anchor='#include <aomap_fragment>';if(s.fragmentShader.split(anchor).length!==2)throw Error('353 expected one standard indirect AO anchor');Object.assign(s.uniforms,{tVisibility353:uniforms.map,visibilitySize353:uniforms.size,visibilityOn353:uniforms.on,visibilityStrength353:uniforms.strength});s.fragmentShader='uniform sampler2D tVisibility353;uniform vec2 visibilitySize353;uniform float visibilityOn353,visibilityStrength353;\n'+s.fragmentShader;s.fragmentShader=s.fragmentShader.replace(anchor,anchor+`
++ float visibility353=1.0;if(visibilityOn353>.5)visibility353=mix(1.0,clamp(texture2D(tVisibility353,gl_FragCoord.xy/visibilitySize353).r,0.0,1.0),visibilityStrength353);
++ reflectedLight.indirectDiffuse*=visibility353;
++ #ifdef USE_CLEARCOAT
++ clearcoatSpecularIndirect*=visibility353;
++ #endif
++ #ifdef USE_SHEEN
++ sheenSpecularIndirect*=visibility353;
++ #endif
++ #if defined(USE_ENVMAP)&&defined(STANDARD)
++ reflectedLight.indirectSpecular*=computeSpecularOcclusion(saturate(dot(geometryNormal,geometryViewDir)),visibility353,material.roughness);
++ #endif
++ `);};m.customProgramCacheKey=()=>key+':353-indirect-visibility-only';m.needsUpdate=true;restore.push(()=>{m.onBeforeCompile=hook;m.customProgramCacheKey=keyFn;m.needsUpdate=true;});}
++ for(const o of reflectors){const hook=o.onBeforeRender;o.onBeforeRender=function(...args){const previous=uniforms.on.value;uniforms.on.value=0;try{return hook.apply(this,args);}finally{uniforms.on.value=previous;}};restore.push(()=>o.onBeforeRender=hook);}
++ return{begin(){uniforms.on.value=1;},end(){uniforms.on.value=0;},info:{source:'Reviewed245 indirect-component insertion adapted without LTC packing',materialCount:materials.size,strength,directAndEmissiveUntouched:true,reflectionCamerasBypassMainViewAO:true,fullGI:false},dispose(){for(const undo of restore.reverse())undo();}};
++}
+diff --git a/reconstructions/scene-01/src/kernel.js b/reconstructions/scene-01/src/kernel.js
+--- a/reconstructions/scene-01/src/kernel.js
++++ b/reconstructions/scene-01/src/kernel.js
+@@ -1,5 +1,6 @@
+ import * as T from 'three';
+ import {assignMetricTimberUV} from './scanned-timber.js';
++import {metricEdge353} from './surface-response353.js';
+ export const TAU=Math.PI*2;
+ export const V=a=>new T.Vector3(...a);
+ export const rng=s=>()=>((s=(Math.imul(s,1664525)+1013904223)>>>0)/4294967296);
+@@ -31,8 +32,9 @@
+ // Per-material instance tints carry the palette calibration through that scan.
+ const timberPalette={red:[.78,.58,.43],redLight:[.84,.64,.47],wood:[.84,.70,.52],endwood:[.84,.72,.52],darkwood:[.57,.43,.31]};
+ export class Builder{
+-constructor(materials){this.m=materials;this.metricTimberGeometries=new Map();this.group=new T.Group();this.stack=[new T.Matrix4()];this.buckets=new Map();this.roles={};this.role='scene';this.boxG=new T.BoxGeometry(1,1,1);this.cylG=new T.CylinderGeometry(1,1,1,16);this.sphereG=new T.SphereGeometry(1,12,8);this.coneG=new T.ConeGeometry(1,1,12);this.resources=new Set([this.boxG,this.cylG,this.sphereG,this.coneG]);}
++constructor(materials){this.m=materials;this.metricTimberGeometries=new Map();this.metricEdgeGeometries353=new Map();this.envMaterialCells353=new Map();this.bridgeFinishMaterials353=new Map();this.smoothColumn353=new T.CylinderGeometry(1,1,1,64);this.group=new T.Group();this.stack=[new T.Matrix4()];this.buckets=new Map();this.roles={};this.role='scene';this.boxG=new T.BoxGeometry(1,1,1);this.cylG=new T.CylinderGeometry(1,1,1,16);this.sphereG=new T.SphereGeometry(1,12,8);this.coneG=new T.ConeGeometry(1,1,12);this.resources=new Set([this.boxG,this.cylG,this.sphereG,this.coneG]);}
+ put(g,mat,matrix,tint=1){if(!matrix.elements.every(Number.isFinite))throw Error('Nonfinite '+this.role);const ma=typeof mat==='string'?this.m[mat]:mat;
++if(g===this.boxG)g=metricEdge353(g,matrix.clone().premultiply(this.stack.at(-1)),ma,this.metricEdgeGeometries353,this.role);
+ if(ma.userData.metricTimberGrain){
+  const world=matrix.clone().premultiply(this.stack.at(-1)),scale=new T.Vector3().setFromMatrixScale(world);
+  const uvKey=g.uuid+'|'+scale.toArray().map(v=>v.toFixed(3)).join(',');
+@@ -43,13 +45,17 @@
+ const key=g.uuid+ma.uuid;let b=this.buckets.get(key);if(!b){b={g,m:ma,items:[],roles:new Set()};this.buckets.set(key,b);}b.items.push({m:matrix.clone().premultiply(this.stack.at(-1)),tint,role:this.role});b.roles.add(this.role);this.roles[this.role]=(this.roles[this.role]||0)+1;this.resources.add(g);}
+ emit(g,mat,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0,tint=1){const e=Array.isArray(rot)?new T.Euler(...rot):new T.Euler(0,rot,0);this.put(g,mat,new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromEuler(e),V([sx,sy,sz])),tint);}
+ box(x,y,z,w,h,d,ma='wood',rot=0,tint=1){this.emit(this.boxG,ma,x,y,z,w,h,d,rot,tint);}
+-cyl(x,y,z,r,h,ma='red',r2=r){if(r===r2)this.emit(this.cylG,ma,x,y,z,r,h,r);else this.emit(new T.CylinderGeometry(r2,r,h,16),ma,x,y,z);}
++cyl(x,y,z,r,h,ma='red',r2=r){if(r===r2)this.emit(['red','redLight','wood','darkwood'].includes(ma)&&r>.14&&h>1.4?this.smoothColumn353:this.cylG,ma,x,y,z,r,h,r);else this.emit(new T.CylinderGeometry(r2,r,h,16),ma,x,y,z);}
+ sphere(x,y,z,sx,sy=sx,sz=sx,ma='gold',rot=0,tint=1){this.emit(this.sphereG,ma,x,y,z,sx,sy,sz,rot,tint);}
+ between(a,b,w,d=w,ma='wood',round=false,tint=1){a=V(a);b=V(b);const v=b.clone().sub(a),len=v.length();if(len<1e-7)return;this.put(round?this.cylG:this.boxG,ma,new T.Matrix4().compose(a.add(b).multiplyScalar(.5),new T.Quaternion().setFromUnitVectors(V([0,1,0]),v.normalize()),V([w,len,d])),tint);}
+ tube(points,r,ma='gold',segments=20,radial=6){const g=new T.TubeGeometry(new T.CatmullRomCurve3(points.map(V)),segments,r,radial,false);this.emit(g,ma);return g;}
+ with(x,y,z,yaw,fn,scale=1){const mat=new T.Matrix4().compose(V([x,y,z]),new T.Quaternion().setFromAxisAngle(V([0,1,0]),yaw),(Array.isArray(scale)?V(scale):V([scale,scale,scale])));this.stack.push(this.stack.at(-1).clone().multiply(mat));fn();this.stack.pop();}
+ label(name,fn){const old=this.role;this.role=name;fn();this.role=old;}
+-finish(){let triangles=0,instances=0;for(const b of this.buckets.values()){const mesh=new T.InstancedMesh(b.g,b.m,b.items.length),c=new T.Color(),tone=timberPalette[b.m.name]??[1,1,1];b.items.forEach((v,i)=>{mesh.setMatrixAt(i,v.m);mesh.setColorAt(i,c.setRGB(v.tint*tone[0],v.tint*tone[1],v.tint*tone[2]));});mesh.userData.instanceRoles=b.items.map(v=>v.role);mesh.instanceMatrix.needsUpdate=true;mesh.castShadow=mesh.receiveShadow=true;mesh.name=[...b.roles].join(' / ');mesh.computeBoundingSphere();this.group.add(mesh);triangles+=(b.g.index?.count??b.g.attributes.position.count)/3*b.items.length;instances+=b.items.length;}this.stats={meshes:this.buckets.size,instances,triangles,roles:this.roles};return this.group;}
++finish(){let triangles=0,instances=0,meshCount=0;for(const b of this.buckets.values()){
++ const groups=new Map();for(const item of b.items){const exteriorCeramic353=['slate','tileEdge','hall161-concave-pan-ceramic'].includes(b.m.name),cell=exteriorCeramic353?'outside':item.role==='structure208-half-lapped-arched-garden-bridge'&&b.m.userData.metricTimberGrain?'bridge':/^(foreground|craft298)/.test(item.role)?'fore':/^(hall|great-hall|sanctuary)/.test(item.role)?'hall':'outside';let list=groups.get(cell);if(!list){list=[];groups.set(cell,list);}list.push(item);}
++ for(const[cell,items]of groups){let m=b.m;if(cell==='bridge'){const key=m.uuid;if(!this.bridgeFinishMaterials353.has(key)){const clone=m.clone();clone.onBeforeCompile=m.onBeforeCompile;clone.customProgramCacheKey=m.customProgramCacheKey;clone.userData.environmentCell353='outside';clone.userData.surfaceFinish353='weathered-outdoor-bridge-wood';if(clone.userData.timberPaletteRole353==='redLight')clone.color.setRGB(.34,.080,.045);if(clone.userData.timberPaletteRole353==='red')clone.color.setRGB(.26,.055,.028);clone.userData.surface353={...clone.userData.surface353,pigmentLinear:clone.color.toArray(),role:'inferred-outdoor-vermilion-bridge',notMeasuredReflectance:true};clone.roughness=.90;clone.clearcoat=.06;clone.clearcoatRoughness=.40;clone.specularIntensity=.45;this.bridgeFinishMaterials353.set(key,clone);}m=this.bridgeFinishMaterials353.get(key);}else if(cell!=='outside'&&m.isMeshStandardMaterial&&!m.transparent&&!(m.transmission>0)){const key=m.uuid+'|'+cell;if(!this.envMaterialCells353.has(key)){const clone=m.clone();clone.onBeforeCompile=m.onBeforeCompile;clone.customProgramCacheKey=m.customProgramCacheKey;clone.userData.environmentCell353=cell;this.envMaterialCells353.set(key,{material:clone,cell});}m=this.envMaterialCells353.get(key).material;}
++ const mesh=new T.InstancedMesh(b.g,m,items.length),c=new T.Color(),tone=timberPalette[m.userData.timberPaletteRole353??m.name]??[1,1,1];items.forEach((v,i)=>{mesh.setMatrixAt(i,v.m);mesh.setColorAt(i,c.setRGB(v.tint*tone[0],v.tint*tone[1],v.tint*tone[2]));});mesh.userData.instanceRoles=items.map(v=>v.role);mesh.instanceMatrix.needsUpdate=true;mesh.castShadow=mesh.receiveShadow=true;mesh.name=[...new Set(items.map(v=>v.role))].join(' / ');mesh.computeBoundingSphere();this.group.add(mesh);meshCount++;triangles+=(b.g.index?.count??b.g.attributes.position.count)/3*items.length;instances+=items.length;}}
++ this.stats={meshes:meshCount,sourceBuckets:this.buckets.size,instances,triangles,roles:this.roles};return this.group;}
+ }
+ export function surface(grid,depth=.08){const p=[],uv=[],ind=[];const nz=grid.length,nx=grid[0].length;for(const dy of[0,-depth])for(let j=0;j<nz;j++)for(let i=0;i<nx;i++){const q=grid[j][i];p.push(q[0],q[1]+dy,q[2]);uv.push(q[0],q[2]);}const len=nx*nz;for(let j=0;j<nz-1;j++)for(let i=0;i<nx-1;i++){const a=j*nx+i,b=a+1,c=a+nx,d=c+1;ind.push(a,c,b,b,c,d,len+a,len+b,len+c,len+b,len+d,len+c);}const edge=[...Array.from({length:nx},(_,i)=>i),...Array.from({length:nz-1},(_,j)=>(j+1)*nx+nx-1),...Array.from({length:nx-1},(_,i)=>len-2-i),...Array.from({length:nz-2},(_,j)=>(nz-2-j)*nx)];for(let k=0;k<edge.length;k++){const a=edge[k],b=edge[(k+1)%edge.length];ind.push(a,b,a+len,b,b+len,a+len);}const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ind);let volume=0;for(let i=0;i<ind.length;i+=3){const a=V(p.slice(ind[i]*3,ind[i]*3+3)),b=V(p.slice(ind[i+1]*3,ind[i+1]*3+3)),c=V(p.slice(ind[i+2]*3,ind[i+2]*3+3));volume+=a.dot(b.cross(c))/6;}if(volume<0){for(let i=0;i<ind.length;i+=3)[ind[i+1],ind[i+2]]=[ind[i+2],ind[i+1]];g.setIndex(ind);}g.computeVertexNormals();return g;}
+ export const lin=(a,b,n)=>Array.from({length:n+1},(_,i)=>a+(b-a)*i/n);
+diff --git a/reconstructions/scene-01/src/local-radiance353.js b/reconstructions/scene-01/src/local-radiance353.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-01/src/local-radiance353.js
+@@ -0,0 +1,14 @@
++import * as T from 'three';
++// Two synchronous scene captures. Original meshes/instances/BRDF/maps remain;
++// cell materials only select real captured indirect radiance in world space.
++export function initializeLocalRadiance353({scene,renderer,sky,water,cells}){
++ const pmrem=new T.PMREMGenerator(renderer),old={tone:renderer.toneMapping,exposure:renderer.toneMappingExposure,water:water.visible,auto:renderer.shadowMap.autoUpdate,needs:renderer.shadowMap.needsUpdate,solarDisplay:sky.mesh.material.uniforms.solarDisplayEnabled353.value},skyTarget=pmrem.fromEquirectangular(sky.texture),oldHook=water.onBeforeRender,forward=new T.Vector3(),info={revision:'353-r02-two-world-space-captures',inferredNotMeasured:true,fullGI:false,linearHDR:true,skySolarCoreExcludedFromProbeToAvoidDirectDoubleCount:true,synchronousReadPreviousField:true,positions:{fore:[-1.2,4.2,13],hall:[1,5.5,3]},planarWaterUpdates:0,materialBindings:[]};let targets;
++ sky.mesh.material.uniforms.solarDisplayEnabled353.value=0;scene.environment=skyTarget.texture;scene.environmentRotation.copy(sky.rotation);scene.environmentIntensity=1;
++ water.onBeforeRender=function(r,s,c,...args){if(c.getWorldDirection(forward).y>.7)return;const gl=r.getContext(),v={target:r.getRenderTarget(),face:r.getActiveCubeFace(),mip:r.getActiveMipmapLevel(),baseViewport:r.getViewport(new T.Vector4()),baseScissor:r.getScissor(new T.Vector4()),baseScissorTest:r.getScissorTest(),viewport:new T.Vector4().fromArray(gl.getParameter(gl.VIEWPORT)),scissor:new T.Vector4().fromArray(gl.getParameter(gl.SCISSOR_BOX)),scissorTest:gl.isEnabled(gl.SCISSOR_TEST),depthTest:gl.isEnabled(gl.DEPTH_TEST),depthMask:gl.getParameter(gl.DEPTH_WRITEMASK),depthFunc:gl.getParameter(gl.DEPTH_FUNC),depthRange:gl.getParameter(gl.DEPTH_RANGE),depthClear:gl.getParameter(gl.DEPTH_CLEAR_VALUE)};try{oldHook.call(this,r,s,c,...args);info.planarWaterUpdates++;}finally{r.setViewport(v.baseViewport);r.setScissor(v.baseScissor);r.setScissorTest(v.baseScissorTest);r.setRenderTarget(v.target,v.face,v.mip);r.state.viewport(v.viewport);r.state.scissor(v.scissor);r.state.setScissorTest(v.scissorTest);const d=r.state.buffers.depth,fs=new Map([[gl.NEVER,T.NeverDepth],[gl.ALWAYS,T.AlwaysDepth],[gl.LESS,T.LessDepth],[gl.LEQUAL,T.LessEqualDepth],[gl.EQUAL,T.EqualDepth],[gl.GEQUAL,T.GreaterEqualDepth],[gl.GREATER,T.GreaterDepth],[gl.NOTEQUAL,T.NotEqualDepth]]);d.setTest(v.depthTest);d.setMask(v.depthMask);d.setFunc(fs.get(v.depthFunc));d.setClear(v.depthClear);gl.depthRange(v.depthRange[0],v.depthRange[1]);if(r.getRenderTarget()!==v.target||r.getActiveCubeFace()!==v.face||r.getActiveMipmapLevel()!==v.mip||!r.getCurrentViewport(new T.Vector4()).equals(v.viewport))throw Error('353 reflector cube state not restored');}};
++ function capture(position){const rt=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType});try{const c=new T.CubeCamera(.12,220,rt);c.position.fromArray(position);c.update(renderer,scene);return pmrem.fromCubemap(rt.texture);}finally{rt.dispose();}}
++ try{renderer.toneMapping=T.NoToneMapping;renderer.toneMappingExposure=1;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;water.visible=true;targets={fore:capture(info.positions.fore),hall:capture(info.positions.hall)};for(const {material:m,cell}of cells.values()){m.envMap=targets[cell].texture;m.envMapRotation.set(0,0,0);m.envMapIntensity=1;m.needsUpdate=true;info.materialBindings.push({name:m.name,cell,ownEnvMapActuallyBound:true,intensity:1});}}
++ catch(e){targets?.fore.dispose();targets?.hall.dispose();skyTarget.dispose();throw e;}
++ finally{sky.mesh.material.uniforms.solarDisplayEnabled353.value=old.solarDisplay;water.onBeforeRender=oldHook;water.visible=old.water;renderer.toneMapping=old.tone;renderer.toneMappingExposure=old.exposure;renderer.shadowMap.autoUpdate=old.auto;renderer.shadowMap.needsUpdate=old.needs;pmrem.dispose();}
++ info.scope='One finite synchronous captured-return update, not full diffuse GI or receiver-local visibility away from each probe. Planar water re-renders actual3D source with face/mip/viewport/scissor/depth restored. No image cards or light masks.';
++ return{info,dispose(){targets.fore.dispose();targets.hall.dispose();skyTarget.dispose();}};
++}
+diff --git a/reconstructions/scene-01/src/main.js b/reconstructions/scene-01/src/main.js
+--- a/reconstructions/scene-01/src/main.js
++++ b/reconstructions/scene-01/src/main.js
+@@ -11,13 +11,13 @@
+ // environment capture. Geometry and lights stay static; camera, reflection,
+ // ripple shading and every native color frame continue to render normally.
+ const staticShadowMaps=[];world.scene.traverse(o=>{if(o.isLight&&o.castShadow){if(!o.shadow?.map)throw new Error('Static shadow map was not initialized: '+o.type);staticShadowMaps.push({name:o.name||o.type,type:o.type,initialized:true});}});
+-if(staticShadowMaps.length!==2)throw new Error('Expected the fixed sun and courtyard shadow maps');
++if(staticShadowMaps.length!==5)throw new Error('Expected the fixed solar map and four finite courtyard shadow maps');
+ renderer.shadowMap.autoUpdate=false;
+-const optics=createOptics(renderer,width,height,camera);renderer.info.autoReset=false;let frames=0,disposed=false;
++const optics=createOptics(renderer,width,height,camera,{worldScene:world.scene,reflectors:[world.water]});renderer.info.autoReset=false;let frames=0,disposed=false;
+ function setCamera(position,target,fov){camera.position.fromArray(position);camera.userData.focusDistance=new T.Vector3(...position).distanceTo(new T.Vector3(...target));camera.fov=fov;camera.aspect=width/height;camera.lookAt(...target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);}
+ function render(time=0){if(disposed)throw Error('Scene is disposed');world.setTime(time);world.scene.updateMatrixWorld(true);renderer.info.reset();optics.render(world.scene,camera);frames++;return{reference:1,frame:frames,width,height,camera:{position:camera.position.toArray(),fov:camera.fov},triangles:renderer.info.render.triangles,calls:renderer.info.render.calls};}
+ function renderReference(n=1){if(n!==1)throw new RangeError('Independent reconstruction supports reference 01 only');setCamera(CAMERA.position,CAMERA.target,CAMERA.fov);return render(0);}
+ function renderView(position,target,time=0,fov=CAMERA.fov){if(!Array.isArray(position)||!Array.isArray(target)||position.length!==3||target.length!==3||![...position,...target,time,fov].every(Number.isFinite))throw new TypeError('Finite camera and target arrays are required');setCamera(position,target,fov);return render(time);}
+ const dolly=createDollyPath({points:[[-.8,2.65,16.25],[-.9,2.70,16.8],[-.1,3.05,17.0],CAMERA.position],nearTarget:[-.11444479342937874,2.82,15.286643668267336],farTarget:CAMERA.target,fov:CAMERA.fov});
+ function renderShot(localTime=0){if(localTime===-209)return renderStructure208(world.scene,renderView,'plan');if(localTime===-208)return renderStructure208(world.scene,renderView,'side');if(localTime===-125)return renderReference(1);if(localTime===-124)return renderStairContact124(world.scene,renderView);if(localTime===-131)return{...renderView([-2.55,7.12,10.9],[-3.53,7.1,8.35],0,50),inspection:{kind:'hardware131-actual-camera-close-view',scope:'Physical close camera on the existing hexagonal lantern; full scene and actual geometry/materials retained.',visualAccepted:false}};const p=dolly(localTime);setCamera(p.position,p.target,p.fov);return render(localTime);}
+-window.temple={ready:true,renderer,scene:world.scene,camera,renderReference,renderView,renderShot,info:()=>({...world.info(),frames,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,staticShadowMaps}}),dispose(){if(disposed)return;disposed=true;optics.dispose();world.dispose();renderer.dispose();renderer.domElement.remove();}};setCamera(CAMERA.position,CAMERA.target,CAMERA.fov);document.getElementById('loading')?.remove();if(!query.has('defer'))renderReference(1);
++window.temple={ready:true,renderer,scene:world.scene,camera,renderReference,renderView,renderShot,info:()=>({...world.info(),frames,optics353:optics.info,renderer:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,staticShadowMaps,toneMapping:renderer.toneMapping,toneMappingExposure:renderer.toneMappingExposure,outputColorSpace:renderer.outputColorSpace}}),dispose(){if(disposed)return;disposed=true;optics.dispose();world.dispose();renderer.dispose();renderer.domElement.remove();}};setCamera(CAMERA.position,CAMERA.target,CAMERA.fov);document.getElementById('loading')?.remove();if(!query.has('defer'))renderReference(1);
+diff --git a/reconstructions/scene-01/src/optics.js b/reconstructions/scene-01/src/optics.js
+--- a/reconstructions/scene-01/src/optics.js
++++ b/reconstructions/scene-01/src/optics.js
+@@ -1,19 +1,26 @@
+ import * as T from 'three';
+ import {GTAOPass} from 'three/addons/postprocessing/GTAOPass.js';
++import {installIndirectVisibility353} from './indirect-visibility353.js';
+ // Depth comes from the real scene render. Only objects within the near veranda
+ // receive appreciable defocus; the bridge, tower and main hall stay in focus.
+-export function createOptics(renderer,width,height,camera,{fstop=1.4}={}){
++export function createOptics(renderer,width,height,camera,{fstop=1.4,worldScene,reflectors=[]}={}){
+  const target=new T.WebGLRenderTarget(width,height,{type:T.HalfFloatType,format:T.RGBAFormat,depthBuffer:true,stencilBuffer:false,samples:4});target.texture.name='scene01-linear-hdr';target.depthTexture=new T.DepthTexture(width,height,T.UnsignedIntType);
+- const ao=new GTAOPass(null,camera,width,height);ao.setGBuffer(target.depthTexture);ao.output=GTAOPass.OUTPUT.Off;ao.updateGtaoMaterial({radius:.42,thickness:.35,distanceExponent:1.25,distanceFallOff:.70,scale:1,samples:16});ao.updatePdMaterial({radius:3,depthPhi:4,normalPhi:4,samples:16});const noise=new Uint8Array(64*64*4);let seed=81937;for(let i=0;i<noise.length;i++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;noise[i]=seed>>>24;}ao.pdNoiseTexture.dispose();ao.pdNoiseTexture=new T.DataTexture(noise,64,64);ao.pdNoiseTexture.wrapS=ao.pdNoiseTexture.wrapT=T.RepeatWrapping;ao.pdNoiseTexture.needsUpdate=true;ao.pdMaterial.uniforms.tNoise.value=ao.pdNoiseTexture;
++ const normalTarget=new T.WebGLRenderTarget(width,height,{type:T.HalfFloatType,depthBuffer:true});normalTarget.depthTexture=new T.DepthTexture(width,height,T.UnsignedIntType);const normalMaterial=new T.MeshNormalMaterial({side:T.DoubleSide});const ao=new GTAOPass(worldScene,camera,width,height);ao.setGBuffer(normalTarget.depthTexture,normalTarget.texture);ao.output=GTAOPass.OUTPUT.Off;ao.updateGtaoMaterial({radius:.24,thickness:.18,distanceExponent:1.25,distanceFallOff:.70,scale:1,samples:16});ao.updatePdMaterial({radius:3,depthPhi:4,normalPhi:4,samples:16});const noise=new Uint8Array(64*64*4);let seed=81937;for(let i=0;i<noise.length;i++){seed=(Math.imul(seed,1664525)+1013904223)>>>0;noise[i]=seed>>>24;}ao.pdNoiseTexture.dispose();ao.pdNoiseTexture=new T.DataTexture(noise,64,64);ao.pdNoiseTexture.wrapS=ao.pdNoiseTexture.wrapT=T.RepeatWrapping;ao.pdNoiseTexture.needsUpdate=true;ao.pdMaterial.uniforms.tNoise.value=ao.pdNoiseTexture;
++ const indirect=installIndirectVisibility353({scene:worldScene,aoPass:ao,width,height,reflectors,strength:.58});
++ const depthExclusions=[];worldScene.traverse(o=>{if(o.isMesh){const ms=Array.isArray(o.material)?o.material:[o.material];if(o.isReflector||ms.some(m=>m.transparent||m.depthWrite===false||m.isShaderMaterial))depthExclusions.push(o);}});
+  const material=new T.ShaderMaterial({name:'scene01-physical-depth-softness',depthTest:false,depthWrite:false,uniforms:{tColor:{value:target.texture},tDepth:{value:target.depthTexture},tAO:{value:ao.gtaoMap},resolution:{value:new T.Vector2(width,height)},cameraNear:{value:camera.near},cameraFar:{value:camera.far},focusMetres:{value:30},focalMillimetres:{value:18/Math.tan(camera.fov*Math.PI/360)},fstop:{value:fstop}},vertexShader:'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',fragmentShader:`
+  varying vec2 vUv;uniform sampler2D tColor;uniform sampler2D tDepth;uniform sampler2D tAO;uniform vec2 resolution;uniform float cameraNear;uniform float cameraFar;uniform float focusMetres;uniform float focalMillimetres;uniform float fstop;
+  #include <packing>
+  void main(){float d=texture2D(tDepth,vUv).x;float distance=max(cameraNear,-perspectiveDepthToViewZ(d,cameraNear,cameraFar));float focusMM=max(100.,focusMetres*1000.),distanceMM=distance*1000.;float coc=abs(focalMillimetres*focalMillimetres*(distanceMM-focusMM)/(fstop*(focusMM-focalMillimetres)*distanceMM));float radius=clamp(coc*resolution.x/72.,.12,9.);vec3 color=texture2D(tColor,vUv).rgb*.20;float weight=.20;
+  for(int k=0;k<16;k++){float a=float(k)*2.3999632;float r=sqrt((float(k)+.5)/16.);vec2 offset=vec2(cos(a),sin(a))*r*radius/resolution;float w=.05;color+=texture2D(tColor,vUv+offset).rgb*w;weight+=w;}
+- color/=weight;float contact=texture2D(tAO,vUv).r;color*=mix(1.,contact,.58);gl_FragColor=vec4(color,1.);
++ color/=weight;gl_FragColor=vec4(color,1.);
+  #include <tonemapping_fragment>
+  #include <colorspace_fragment>
+  }`});
+  const quad=new T.Mesh(new T.PlaneGeometry(2,2),material),scene=new T.Scene(),screenCamera=new T.Camera();scene.add(quad);
+- return{render(scene,camera){material.uniforms.focusMetres.value=camera.userData.focusDistance??30;material.uniforms.focalMillimetres.value=18/Math.tan(camera.fov*Math.PI/360);renderer.setRenderTarget(target);renderer.clear();renderer.render(scene,camera);ao.render(renderer,null,target);renderer.setRenderTarget(null);renderer.clear();renderer.render(quad.parent,screenCamera);},dispose(){ao.gtaoMaterial.dispose();ao.blendMaterial.dispose();ao.dispose();target.dispose();target.depthTexture.dispose();quad.geometry.dispose();material.dispose();}};
++ return{info:{revision:'353-indirect-only-AO-real-opaque-normal-depth',contactRadiusMetres:.24,contactThicknessMetres:.18,indirect:indirect.info,opaqueDepthExclusions:depthExclusions.length,allBeautyGeometryRetained:true,fullGI:false},render(scene,camera){
++  material.uniforms.focusMetres.value=camera.userData.focusDistance??30;material.uniforms.focalMillimetres.value=18/Math.tan(camera.fov*Math.PI/360);
++  const prior={override:scene.overrideMaterial,background:scene.background},visible=depthExclusions.map(o=>o.visible);indirect.end();try{depthExclusions.forEach(o=>o.visible=false);scene.overrideMaterial=normalMaterial;scene.background=null;renderer.setRenderTarget(normalTarget);renderer.clear();renderer.render(scene,camera);}finally{scene.overrideMaterial=prior.override;scene.background=prior.background;depthExclusions.forEach((o,i)=>o.visible=visible[i]);}
++  ao.render(renderer,null,target);renderer.setRenderTarget(target);renderer.clear();indirect.begin();try{renderer.render(scene,camera);}finally{indirect.end();}renderer.setRenderTarget(null);renderer.clear();renderer.render(quad.parent,screenCamera);
++ },dispose(){indirect.dispose();ao.dispose();target.dispose();target.depthTexture.dispose();normalTarget.dispose();normalTarget.depthTexture.dispose();normalMaterial.dispose();quad.geometry.dispose();material.dispose();}};
+ }
+diff --git a/reconstructions/scene-01/src/scanned-garden-stones.js b/reconstructions/scene-01/src/scanned-garden-stones.js
+--- a/reconstructions/scene-01/src/scanned-garden-stones.js
++++ b/reconstructions/scene-01/src/scanned-garden-stones.js
+@@ -55,7 +55,7 @@
+     float flecks=smoothstep(0.72,0.91,stoneValueNoise(vStoneFieldPosition*31.0+vec3(4.0,8.0,2.0)));
+     float up=clamp(vStoneFieldNormal.y,0.,1.);float proceduralMoss=smoothstep(.65,.83,broad)*smoothstep(.30,.83,up);
+     float mossMask=clamp(scanMoss*.48+proceduralMoss*.28,0.,.58);
+-    vec3 charcoal=mix(vec3(stoneLuma*.95,stoneLuma*.98,stoneLuma*1.02),scannedStone,.22);
++    vec3 charcoal=mix(vec3(stoneLuma),scannedStone,.40);
+     vec3 oliveMoss=mix(vec3(.026,.045,.006),vec3(.10,.14,.020),strata);
+     float facetValue=0.82+broad*0.22+(strata-0.5)*0.08;
+     diffuseColor.rgb=mix(charcoal,oliveMoss,mossMask)*facetValue;
+@@ -81,16 +81,16 @@
+   // Keep the scan's squat geological proportions. Stretching every axis to
+   // the old unit sphere would turn flat weathered stones into tall pinnacles.
+   const scale=2/Math.max(size.x,size.z);geometry.scale(scale,scale,scale);
+-  const dry=o.material.clone();dry.name='scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.96;dry.color.setRGB(.76,.77,.77);
+-  if(dry.normalScale)dry.normalScale.set(.85,.85);
++  const dry=o.material.clone();dry.name='scanned-weathered-moss-stone-'+variants.length;dry.metalness=0;dry.roughness=.90;dry.color.setRGB(.76,.77,.77);
++  if(dry.normalScale)dry.normalScale.set(.65,.65);
+   addStoneSurfaceBreakup(dry);
+   const wet=new T.MeshPhysicalMaterial({
+    name:dry.name+'-wet',color:dry.color,map:dry.map,normalMap:dry.normalMap,
+    normalScale:dry.normalScale,roughnessMap:dry.roughnessMap,aoMap:dry.aoMap,
+-   aoMapIntensity:dry.aoMapIntensity,roughness:.62,
+-   metalness:0,clearcoat:.20,clearcoatRoughness:.35
++   aoMapIntensity:dry.aoMapIntensity,roughness:.36,
++   metalness:0,clearcoat:.55,clearcoatRoughness:.16
+   });
+-  wet.color.multiplyScalar(.90);
++  wet.color.multiplyScalar(.62);
+   addStoneSurfaceBreakup(wet);
+   for(const key of ['map','normalMap','roughnessMap','aoMap'])if(dry[key])textures.add(dry[key]);
+   variants.push({geometry,dry,wet,mossGeometry:mossSkin132(geometry)});
+diff --git a/reconstructions/scene-01/src/scanned-timber.js b/reconstructions/scene-01/src/scanned-timber.js
+--- a/reconstructions/scene-01/src/scanned-timber.js
++++ b/reconstructions/scene-01/src/scanned-timber.js
+@@ -1,4 +1,5 @@
+ import * as T from 'three';
++import {PIGMENT353} from './surface-response353.js';
+ 
+ const directory='/assets/polyhaven/lacquered-cherry-wood/';
+ export async function installScannedTimber(mats){
+@@ -6,15 +7,9 @@
+  const [albedo,normal,rawRoughness]=await Promise.all([
+   loader.loadAsync(directory+'diffuse-2k.jpg'),loader.loadAsync(directory+'normal-gl-2k.png'),loader.loadAsync(directory+'roughness-2k.jpg')
+  ]);
+- const canvas=document.createElement('canvas');canvas.width=rawRoughness.image.width;canvas.height=rawRoughness.image.height;
+- const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.drawImage(rawRoughness.image,0,0);
+- const values=ctx.getImageData(0,0,canvas.width,canvas.height);
+- // Warm-pixel probes on ref01 show chestnut timber at median RGB [106,50,21]
+- // on the bridge and [89,39,15] on the members; the current frame reads cooler
+- // at [106,57,37] and [135,81,54]. Keep the mapped grain and lower its
+- // midrange roughness so the grain catches a restrained, readable highlight.
+- for(let i=0;i<values.data.length;i+=4){const q=Math.round(Math.max(116,Math.min(244,values.data[i]*.76+82)));values.data[i]=values.data[i+1]=values.data[i+2]=q;}
+- ctx.putImageData(values,0,0);const roughness=new T.CanvasTexture(canvas);rawRoughness.dispose();
++ // Original CC0 roughness pixels remain unremapped; pigment is separated
++ // from the dark furniture scan's chroma by linear luminance grain below.
++ const roughness=rawRoughness;
+  albedo.colorSpace=T.SRGBColorSpace;
+  for(const tex of [normal,roughness])tex.colorSpace=T.NoColorSpace;
+  for(const tex of [albedo,normal,roughness]){
+@@ -22,21 +17,25 @@
+   tex.magFilter=T.LinearFilter;tex.generateMipmaps=true;tex.anisotropy=8;tex.needsUpdate=true;
+  }
+  const keys=['red','redLight','wood','endwood','darkwood'];
+- // Linear gains shift the furniture scan toward the reference's red-brown
+- // chroma. The sampled albedo peaks are .0666/.0452/.0222; these gains keep
+- // all channels below .52 linear while cutting the excess green-blue cast.
+- const colors={red:[5.7,2.65,1.45],redLight:[6.5,3.5,1.9],wood:[6.5,4.0,2.25],endwood:[7.6,5.2,3.1],darkwood:[2.4,1.5,.92]};
++ // Separate inferred paint reflectance from original linear scan luminance.
++ // The modern polished-table roughness mean is about.2475; the shader gives
++ // aged architectural paint its own roughness range while keeping variation.
++ const colors=PIGMENT353;
+  for(const key of keys){
+   const mat=mats[key];if(!mat)continue;
+   const kind=key.includes('darkwood')?'darkwood':key.includes('endwood')?'endwood':key.includes('cedar')?'cedar':'red';
+-  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.24,.24);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=1;
++  mat.map=albedo;mat.normalMap=normal;mat.normalScale.set(.08,.08);mat.bumpMap=null;mat.roughnessMap=roughness;mat.roughness=key==='endwood'?.90:key==='wood'||key==='darkwood'?.78:.66;
+   mat.color.setRGB(...colors[key]);mat.metalness=0;
+-  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.045:.025;mat.clearcoatRoughness=.48;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.25,.25);mat.specularIntensity=.48;}
++  if(mat.isMeshPhysicalMaterial){mat.clearcoat=['red','redLight'].includes(key)?.18:key==='endwood'?.025:key==='darkwood'?.08:.12;mat.clearcoatRoughness=key==='endwood'?.50:key==='darkwood'?.34:['red','redLight'].includes(key)?.22:.28;mat.clearcoatNormalMap=normal;mat.clearcoatNormalScale.set(.06,.06);mat.specularIntensity=.55;}
+   // Keep the world-space weathering installed by scene.js. Replacing the
+   // image maps must not silently erase the physical member's ageing hook.
+-  mat.userData.metricTimberGrain=true;mat.envMapIntensity=.7;mat.needsUpdate=true;
++  const previous=mat.onBeforeCompile,cacheKey=mat.customProgramCacheKey.bind(mat);mat.onBeforeCompile=shader=>{previous.call(mat,shader);shader.fragmentShader=shader.fragmentShader.replace('#include <map_fragment>',`#ifdef USE_MAP
++ vec4 timber353=texture2D(map,vMapUv);float woodLuma353=dot(timber353.rgb,vec3(.2126,.7152,.0722));
++ diffuseColor.rgb*=clamp(pow(max(woodLuma353,.00005)/.01505120736,.40),.58,1.42);
++ #endif`);shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>\nroughnessFactor=${key==='endwood'?'clamp(.62+.35*roughnessFactor,.64,.94)':'clamp(.33+.56*roughnessFactor,.38,.86)'};`);};mat.customProgramCacheKey=()=>cacheKey()+':353-linear-pigment-with-original-scan-luminance';
++  mat.userData.metricTimberGrain=true;mat.userData.timberPaletteRole353=key;mat.userData.surface353={pigmentLinear:colors[key],rawRoughnessPixelsHeld:true,sourceLinearMeanY:.01505120736,inferredNotMeasured:true};mat.envMapIntensity=.7;mat.needsUpdate=true;
+  }
+- return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV; filtered normal and roughness maps'},
++ return {info:{provider:'Poly Haven',asset:'lacquered_cherry_wood',license:'CC0-1.0',physicalTileMetres:1,grain:'Member-aligned metric UV, original scan luminance/normal/roughness pixels; inferred linear paint pigment and varnish, not measured temple albedo'},
+   dispose(){for(const tex of[albedo,normal,roughness])tex.dispose();}};
+ }
+ 
+diff --git a/reconstructions/scene-01/src/scene.js b/reconstructions/scene-01/src/scene.js
+--- a/reconstructions/scene-01/src/scene.js
++++ b/reconstructions/scene-01/src/scene.js
+@@ -1,4 +1,5 @@
+ import * as T from 'three';
++import {configureBaseSurfaces353,finishRuntimeSurfaces353,snapshotSurface353} from './surface-response353.js';
+ import {installShoreMaterials298} from './shoreline-craft298.js';
+ import {installCraftMaterials298} from './foreground-craft298.js';
+ import {installScannedTimber} from './scanned-timber.js';
+@@ -8,7 +9,9 @@
+ import {Builder,materialSet,V,noise,rng,TAU} from './kernel.js';
+ import {architecture} from './architecture.js';
+ import {garden} from './garden.js';
+-import {loadMeasuredSky} from './measured-sky.js';
++import {loadGoldenBoundary353 as loadMeasuredSky} from './authored-sky353.js';
++import {initializeLocalRadiance353} from './local-radiance353.js';
++import {installCourtReturn353} from './court-return353.js';
+ import {createDistantLandscape} from './distant-landscape.js';
+ import {layout124 as L} from './layout124.js';
+ import {installHardwareMaterials131} from './foreground-hardware131.js';
+@@ -18,7 +21,7 @@
+ // One fixed angular direction drives the sun, sky and leaf transmission.
+ const sunCamera=new T.PerspectiveCamera(CAMERA.fov,1,CAMERA.near,CAMERA.far);sunCamera.position.fromArray(CAMERA.position);sunCamera.lookAt(...CAMERA.target);sunCamera.updateMatrixWorld(true);
+ export const SUN_DIRECTION=new T.Vector3(185/1254*2-1,1-496/1254*2,.5).unproject(sunCamera).sub(sunCamera.position).normalize();
+-const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0}},vertexShader:`uniform mat4 textureMatrix;
++const waterShader={name:'garden-ripple-planar-reflection',uniforms:{color:{value:new T.Color(0x324634)},tDiffuse:{value:null},textureMatrix:{value:null},time:{value:0},sunDirection353:{value:SUN_DIRECTION.clone()},sunIntensity353:{value:12/8.2},sunColor353:{value:new T.Color().setRGB(1,.58,.25)}},vertexShader:`uniform mat4 textureMatrix;
+ varying vec4 vUv;
+ varying vec3 vWorld;
+ void main(){
+@@ -27,7 +30,7 @@
+   gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);
+ }`,fragmentShader:`uniform sampler2D tDiffuse;
+ uniform vec3 color;
+-uniform float time;
++uniform float time;uniform vec3 sunDirection353,sunColor353;uniform float sunIntensity353;
+ varying vec4 vUv;
+ varying vec3 vWorld;
+ 
+@@ -97,7 +100,7 @@
+   // painted sun path or emissive grid; only the ripple-normal GGX term below
+   // contributes direct sun highlights.
+   // Energy-limited GGX sun glints stay tied to the moving ripple normal.
+-  vec3 sunDirection=normalize(vec3(-.373972,.114733,-.920316));
++  vec3 sunDirection=normalize(sunDirection353);
+   vec3 halfVector=normalize(viewDirection+sunDirection);
+   float nDotL=max(dot(rippleNormal,sunDirection),0.);
+   float nDotH=max(dot(rippleNormal,halfVector),0.);
+@@ -112,14 +115,14 @@
+   float directFresnel=.020+.98*pow(1.-vDotH,5.);
+   float sunGlint=distribution*geometryV*geometryL*directFresnel
+                 /max(4.*nDotV*nDotL,.06);
+-  outc+=vec3(1.0,.58,.25)*min(sunGlint*.038,.28);
++  outc+=sunColor353*min(sunGlint*.038*sunIntensity353,.28);
+ 
+   gl_FragColor=vec4(outc,1.);
+ #include <tonemapping_fragment>
+ #include <colorspace_fragment>
+ }`};
+ 
+-export async function buildScene({width=768,height=768}={}){const scene=new T.Scene();scene.name='Reference 01: sunset temple pond from low veranda';scene.fog=new T.FogExp2(0xc6a27a,.0048);const mats=materialSet();
++export async function buildScene({width=768,height=768}={}){const scene=new T.Scene();scene.name='Reference 01: sunset temple pond from low veranda';scene.fog=new T.FogExp2(0xc6a27a,.0048);const mats=materialSet();configureBaseSurfaces353(mats);
+ // Continuous 3D weathering breaks the old flat-colored stone and painted wood.
+ const weatherNoise=`float wh(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}float wn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(wh(i),wh(i+vec3(1,0,0)),f.x),mix(wh(i+vec3(0,1,0)),wh(i+vec3(1,1,0)),f.x),f.y),mix(mix(wh(i+vec3(0,0,1)),wh(i+vec3(1,0,1)),f.x),mix(wh(i+vec3(0,1,1)),wh(i+vec3(1,1,1)),f.x),f.y),f.z);}float wf(vec3 p){return .57*wn(p)+.28*wn(p*2.07+4.1)+.15*wn(p*4.17+7.2);}`;
+ for(const key of['rock','rockWet','stone','stoneLight']){mats[key].onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vRockPosition;varying vec3 vRockNormal;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvRockPosition=position;vRockNormal=normal;');shader.fragmentShader='varying vec3 vRockPosition;varying vec3 vRockNormal;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+@@ -131,8 +134,16 @@
+ #endif
+ vAgedPosition=(modelMatrix*ageWorld).xyz;`);shader.fragmentShader='varying vec3 vAgedPosition;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+ float age=wf(vAgedPosition*vec3(3.1,.32,3.1));float chip=wf(vAgedPosition*38.);diffuseColor.rgb*=.73+.40*age;diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.084,.031),smoothstep(.72,.83,chip)*.16);`);};mats[key].customProgramCacheKey=()=>key+'-old-painted-wood-v3';}
+-for(const key of['leaf','leafLight','leafDark','lotusLeaf','mapleLeaf','mapleLight','mapleDark','pineLeaf','vineLeaf']){mats[key].onBeforeCompile=shader=>{shader.fragmentShader=shader.fragmentShader.replace('#include <shadowmap_pars_fragment>','#include <shadowmap_pars_fragment>\n#include <shadowmask_pars_fragment>');shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+-vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*vec3(1.5,.93,.18)*transmitted*getShadowMask()*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-shadow-energy298-v8';}
++for(const key of['leaf','leafLight','leafDark','lotusLeaf','mapleLeaf','mapleLight','mapleDark','pineLeaf','vineLeaf']){mats[key].onBeforeCompile=shader=>{shader.uniforms.leafSolar353={value:sun.color.clone().multiplyScalar(1.5*sun.intensity/8.2)};shader.fragmentShader='uniform vec3 leafSolar353;\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <shadowmap_pars_fragment>',`#include <shadowmap_pars_fragment>
++#include <shadowmask_pars_fragment>
++float getSolarVisibility353(){
++ #if defined(USE_SHADOWMAP)&&(NUM_DIR_LIGHT_SHADOWS>0)
++ DirectionalLightShadow d=directionalLightShadows[0];return receiveShadow?getShadow(directionalShadowMap[0],d.shadowMapSize,d.shadowIntensity,d.shadowBias,d.shadowRadius,vDirectionalShadowCoord[0]):1.0;
++ #else
++ return 1.0;
++ #endif
++}`);shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
++vec3 leafSunView=normalize((viewMatrix*vec4(${SUN_DIRECTION.x.toFixed(7)},${SUN_DIRECTION.y.toFixed(7)},${SUN_DIRECTION.z.toFixed(7)},0.)).xyz);float transmitted=pow(max(0.,-dot(normal,leafSunView)),.75);totalEmissiveRadiance+=diffuseColor.rgb*leafSolar353*transmitted*getSolarVisibility353()*${key==='lotusLeaf'?'.14':key.startsWith('maple')?'1.05':'.43'};`);};mats[key].customProgramCacheKey=()=>key+'-thin-leaf-transmission-shadow-energy298-v8';}
+ mats.bark.onBeforeCompile=shader=>{shader.vertexShader='varying vec3 vBarkField;\n'+shader.vertexShader;shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvBarkField=position;');shader.fragmentShader='varying vec3 vBarkField;'+weatherNoise+'\n'+shader.fragmentShader;shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+ float lichen=wf(vBarkField*vec3(9.,12.,9.));float islands=smoothstep(.62,.78,lichen);diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.17,.165,.115),islands*.85);`);};mats.bark.customProgramCacheKey=()=> 'scene01-132-bark-lichen-field';
+ const timber=await installScannedTimber(mats);
+@@ -140,7 +151,7 @@
+ const joineryKit=await loadBlenderJoinery();
+ const scannedStones=await loadScannedGardenStones();
+ const carvedSources185=await loadCarvedSources185();
+-const B=new Builder(mats);B.joineryKit=joineryKit;B.scannedStones=scannedStones;B.carvedSources185=carvedSources185;const A=architecture(B),G=garden(B,A);scene.add(B.finish());
++const B=new Builder(mats);B.joineryKit=joineryKit;B.scannedStones=scannedStones;B.carvedSources185=carvedSources185;const A=architecture(B),G=garden(B,A);scene.add(B.finish());const runtimeSurfaces353=finishRuntimeSurfaces353(scene);let renderer353=null;
+ const measuredSky=await loadMeasuredSky(SUN_DIRECTION),sky=measuredSky.mesh;scene.add(sky);
+ const rand=rng(12191),landscape=createDistantLandscape();scene.add(landscape.group);
+ const water=new Reflector(new T.PlaneGeometry(34,31),{clipBias:.003,textureWidth:Math.min(1024,width),textureHeight:Math.min(1024,height),multisample:0,shader:waterShader});water.rotation.x=-Math.PI/2;water.position.set(0,.13,5.2);water.name='real-reflected-garden-pond-ripple-surface';scene.add(water);
+@@ -169,9 +180,9 @@
+  diffuseColor.a*=edge*(.035+.18*foam);`);
+ };fallMat.customProgramCacheKey=()=> 'scene01-deterministic-flowing-clear-water-v1';const falls=new T.Mesh(fgeom,fallMat);falls.name='individual-falling-water-ribbons';scene.add(falls);
+ const foam=new Builder(mats);for(let k=0;k<130;k++){const s=.013+rand()*.035;foam.sphere(L.waterfall.x+(rand()-.5)*1.4,.15+rand()*.06,L.waterfall.z[1]+.57+(rand()-.5)*.35,s,s*.3,s*1.3,'stoneLight',0,.8+rand()*.3);}scene.add(foam.finish());
+-const sun=new T.DirectionalLight(0xffbd70,8.2);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);const hemi=new T.HemisphereLight(0xaec9ed,0xbf9159,.68);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,1.92);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,6.3,12);fill.target.position.set(1,6.4,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;scene.add(fill,fill.target);
+-const porchLight=new T.PointLight(0xffa83e,5,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
+-for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,1.5,2.6,2);lamp.position.copy(local);scene.add(lamp);}
+- RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,2.0,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
+- let env=null,localEnv=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){const pmrem=new T.PMREMGenerator(renderer);pmrem.compileEquirectangularShader();env=pmrem.fromEquirectangular(measuredSky.texture);scene.environment=env.texture;scene.environmentRotation.copy(measuredSky.rotation);scene.environmentIntensity=.66;const captureTarget=new T.WebGLCubeRenderTarget(128,{type:T.HalfFloatType,generateMipmaps:true,minFilter:T.LinearMipmapLinearFilter}),capture=new T.CubeCamera(.2,200,captureTarget);capture.position.set(1,5.5,3);water.visible=false;capture.update(renderer,scene);water.visible=true;localEnv=pmrem.fromCubemap(captureTarget.texture);for(const key of['gold','goldDark','goldLight','bronze','giltBronze','hardwareGold131','hardwareBronze131','hardwarePatina131','hardwareRelief131','hardwareFinial131','hall149Gilt','hall149OldGilt','hall185ActualGilt','hall185ActualFloralGilt','hall219DoorFloralGilt','craft298Brass','craft298Recess']){mats[key].envMap=localEnv.texture;mats[key].envMapRotation.set(0,0,0);mats[key].envMapIntensity=.85;mats[key].needsUpdate=true;}captureTarget.dispose();pmrem.dispose();},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-craft298-closed-cast-fittings-and-terraced-water-edge-scanned-rock-banks-and-buried-piers-r15',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:2.0,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:'#ffbd70',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Low sunlit courtyard horizon bounce approximation with actual shadowing; main sun and sky held',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();env?.dispose();localEnv?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
++const sun=new T.DirectionalLight(new T.Color().setRGB(...measuredSky.solar.colorLinear),measuredSky.solar.intensity);sun.target.position.set(0,4,-5);sun.position.copy(sun.target.position).addScaledVector(SUN_DIRECTION,64);sun.castShadow=true;sun.shadow.mapSize.set(4096,4096);sun.shadow.camera.left=-24;sun.shadow.camera.right=25;sun.shadow.camera.top=29;sun.shadow.camera.bottom=-22;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.bias=-.000035;sun.shadow.normalBias=.005;sun.shadow.radius=2.0;scene.add(sun,sun.target);water.material.uniforms.sunColor353.value.copy(sun.color);water.material.uniforms.sunIntensity353.value=sun.intensity/8.2;const hemi=new T.HemisphereLight(0xaec9ed,0xbf9159,.08);scene.add(hemi);const fill=new T.DirectionalLight(0xffd8ad,.85);fill.name='warm-courtyard-reflected-daylight';fill.position.set(-22,6.3,12);fill.target.position.set(1,6.4,-10);fill.castShadow=true;fill.shadow.mapSize.set(4096,4096);Object.assign(fill.shadow.camera,{left:-23,right:25,top:24,bottom:-22,near:1,far:85});fill.shadow.bias=-.000025;fill.shadow.normalBias=.004;fill.shadow.radius=3;fill.intensity=0;fill.castShadow=false;scene.add(fill,fill.target);const courtReturn353=installCourtReturn353(scene);
++const porchLight=new T.PointLight(0xffa83e,2,7,2);porchLight.position.set(-3.53,6.94,8.35);scene.add(porchLight);const sanctuary=new T.PointLight(0xffca83,11,9,2);sanctuary.position.set(8.4,4.8,-12.5);scene.add(sanctuary);const lanternLight=new T.PointLight(0xffbd62,10,5,2);lanternLight.position.set(5.44,3.0,6.16);scene.add(lanternLight);
++for(const x of[-8,-4,1,5,8]){const local=new T.Vector3(x,3.7,5.9).applyAxisAngle(new T.Vector3(0,1,0),-.67).add(new T.Vector3(...L.hall.position)),lamp=new T.PointLight(0xffc686,.30,2.6,2);lamp.position.copy(local);scene.add(lamp);}
++ RectAreaLightUniformsLib.init();const court185=new T.RectAreaLight(0xffd5a0,1.4,6.0,3.8);court185.name='scene01-finite-warm-stone-court-radiance185';court185.position.set(4.0,3.1,-3.7);court185.lookAt(9.2,9.4,-11.3);scene.add(court185);
++ let field353=null;return{scene,water,sky,stats:B.stats,initializeEnvironment(renderer){renderer353=renderer;field353=initializeLocalRadiance353({scene,renderer,sky:measuredSky,water,cells:B.envMaterialCells353});},setTime(t){water.material.uniforms.time.value=t;fallTime.value=t;},info(){return{revision:'scene01-surface353-r10-shared-spherical-cloudlet-boundary',camera:CAMERA,sunDirection:SUN_DIRECTION.toArray(),surface353:{courtReturn:courtReturn353,inferredNotMeasured:true,photographicAccepted:false,exposureHeld:1.03,skyDisplayScale:measuredSky.mesh.material.uniforms.skyIntensity.value,skyIBLNormalization:1,allOriginalInstanceMatricesAndColorsHeldInCellSplit:true,localRadiance:field353?.info,solarBoundary:measuredSky.solar,singleSourceLeafTransmission:true,effectiveIBL:scene.environmentIntensity,metricBeveledPrototypeCount:B.metricEdgeGeometries353.size,rawRoughnessAndNormalPixelsHeld:true,hallNoLongerBakesDisplayRGBPaint:true,waterGGXDirectionSharesActualSun:true,runtimeSurfaces:runtimeSurfaces353,actualMaterials:snapshotSurface353(scene,renderer353),fullGI:false},spatial185:{construction:B.hallStructure185.info,seats:B.hallStructure185.seats,carving:B.carvedSources185Info,lanternSupports:B.hallStructure185.lanterns,portalForwardShiftMetres:.72,retainedReferenceCamera:true,bridgeSiteRevision:208},lighting:{court185:{position:court185.position.toArray(),width:6.0,height:3.8,radiance:court185.intensity,solvedDiffuseGI:false},sunIntensity:sun.intensity,sunColor:sun.color.toArray(),sunColorEncoding:'linear-sRGB inferred golden-hour solar boundary',hemisphere:hemi.intensity,hemisphereGround:'#bf9159',courtyardFill:fill.intensity,courtyardFillPosition:fill.position.toArray(),courtyardFillTarget:fill.target.position.toArray(),courtyardFillInterpretation:'Original parallel fill is inactive; four distant finite court-return samples use actual geometry shadows; Sun/sky/EV held fromR04',leafTransmissionShadowFloor:0,environmentIntensity:scene.environmentIntensity},layout:B.layout124,architecture:B.stats,garden:G.stats,sanctuary219:B.sanctuary219,proceduralOnly:false,measuredSky:measuredSky.info,scannedTimber:timber.info,hardware131:hardware,scannedStones:scannedStones.info,joinery:joineryKit.info,planarReflection:true};},dispose(){carvedSources185.dispose();scannedStones.dispose();joineryKit.dispose();timber.dispose();for(const g of B.resources)g.dispose();for(const ma of new Set([...Object.values(mats),...[...B.envMaterialCells353.values()].map(v=>v.material),...B.bridgeFinishMaterials353.values(),...[...B.buckets.values()].map(b=>b.m)])){for(const key of['map','bumpMap','roughnessMap'])ma[key]?.dispose();ma.dispose();}water.dispose();field353?.dispose();measuredSky.dispose();landscape.dispose();scene.traverse(o=>{if(o.isMesh&&!o.isInstancedMesh){o.geometry?.dispose();if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material?.dispose();}});scene.clear();}};
+ }
+diff --git a/reconstructions/scene-01/src/surface-response353.js b/reconstructions/scene-01/src/surface-response353.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-01/src/surface-response353.js
+@@ -0,0 +1,25 @@
++import * as T from 'three';
++import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
++// Inferred surface response, not measured temple reflectance. The old scan,
++// UVs, roughness/normal pixels and source instance palette remain available.
++export const PIGMENT353={red:[.25,.095,.05],redLight:[.31,.133,.068],wood:[.179,.086,.046],endwood:[.31,.194,.125],darkwood:[.0614,.0372,.0258]};
++const stoneNames=new Set(['stone','stoneLight','hall185CourtStone','hall185ThresholdStone','shore298-fractured-pier-bearing-granite']);
++export function metricEdge353(boxGeometry,world,material,cache,role=''){
++ const timber=Boolean(material.userData.metricTimberGrain),stone=stoneNames.has(material.name);if(!timber&&!stone)return boxGeometry;
++ const size=new T.Vector3().setFromMatrixScale(world),lo=Math.min(size.x,size.y,size.z),hi=Math.max(size.x,size.y,size.z);if(lo<.045||stone&&hi>3.6)return boxGeometry;
++ const crowned=timber&&role==='foreground124-joined-panel-balustrade'&&world.elements[13]>1.80&&world.elements[13]<2.60&&size.y>1&&size.x<.25&&size.z<.20&&world.elements[9]<-.9*size.z;const crownDrop353=crowned?Math.min(.032,size.z*.24,size.x*.25):0,radius=Math.min(timber?.0025:.0075,lo*.08),key=[timber?'timber':'stone',crowned?'crown':'flat',...size.toArray().map(v=>v.toFixed(5)),radius.toFixed(6)].join('|');if(cache.has(key))return cache.get(key);
++ let g;
++ if(crowned){const b=.0015,w=size.x/2-b,h=size.z/2-b,r=.003,drop=crownDrop353,shape=new T.Shape();shape.moveTo(-w+r,-h);shape.lineTo(w-r,-h);shape.quadraticCurveTo(w,-h,w,-h+r);shape.lineTo(w,h-drop-r);shape.quadraticCurveTo(w,h-drop,w-r,h-drop);for(let i=0;i<=64;i++){const x=(w-r)*(1-2*i/64);shape.lineTo(x,h-drop*Math.pow(x/(w-r),2));}shape.quadraticCurveTo(-w,h-drop,-w,h-drop-r);shape.lineTo(-w,-h+r);shape.quadraticCurveTo(-w,-h,-w+r,-h);shape.closePath();const depth=size.y-2*b;g=new T.ExtrudeGeometry(shape,{depth,bevelEnabled:true,bevelSize:b,bevelThickness:b,bevelSegments:2,curveSegments:8,steps:1});g.translate(0,0,-depth/2);g.rotateX(-Math.PI/2);g.name='353-real-closed-soft-crowned-horizontal-handrail';}
++ else g=new RoundedBoxGeometry(size.x,size.y,size.z,1,radius);g.scale(1/size.x,1/size.y,1/size.z);if(!crowned)g.name=timber?'scene01-metric-softened-timber-arrises353':'scene01-metric-dressed-stone-arrises353';if(crowned){const p=g.attributes.position,n=g.attributes.normal,groups=new Map();for(let i=0;i<p.count;i++){const id=[p.getX(i),p.getY(i),p.getZ(i)].map(v=>Math.round(v*1e7)).join(',');let a=groups.get(id);if(!a){a=[];groups.set(id,a);}a.push(i);}const out=new Float32Array(n.array);for(const a of groups.values())for(const i of a){const ni=new T.Vector3().fromBufferAttribute(n,i),sum=new T.Vector3();for(const j of a){const nj=new T.Vector3().fromBufferAttribute(n,j);if(ni.dot(nj)>.70710678)sum.add(nj);}sum.normalize();out[i*3]=sum.x;out[i*3+1]=sum.y;out[i*3+2]=sum.z;}g.setAttribute('normal',new T.BufferAttribute(out,3));}
++ g.userData.surface353={radiusMetres:crowned?.0015:radius,crownedTopDropMetres:crownDrop353,originalPeakEnvelopeAndInstanceTransformHeld:true,closedPrototype:true};cache.set(key,g);return g;
++}
++export function configureBaseSurfaces353(mats){
++ for(const key of['stone','stoneLight']){mats[key].roughness=.82;mats[key].bumpScale=.006;}
++ for(const[key,color]of[['slate',[.035,.055,.080]],['tileEdge',[.035,.045,.060]]]){const m=mats[key];m.color.setHex(key==='slate'?0x4a5762:0x414955);m.metalness=0;m.roughness=key==='slate'?.62:.65;m.clearcoat=key==='slate'?.65:.45;m.clearcoatRoughness=key==='slate'?.16:.20;m.needsUpdate=true;}
++}
++export function finishRuntimeSurfaces353(scene){
++ const seen=new Set(),changes=[];scene.traverse(o=>{for(const m of(Array.isArray(o.material)?o.material:[o.material]).filter(Boolean)){if(seen.has(m))continue;seen.add(m);if(m.name==='hall161-concave-pan-ceramic'){const original={roughness:m.roughness,clearcoat:m.clearcoat,clearcoatRoughness:m.clearcoatRoughness};m.roughness=.62;m.clearcoat=.65;m.clearcoatRoughness=.16;m.needsUpdate=true;changes.push({name:m.name,original,candidate:{roughness:m.roughness,clearcoat:m.clearcoat,clearcoatRoughness:m.clearcoatRoughness},originalMapsAndVertexColorsHeld:true});}}});return changes;
++}
++export function snapshotSurface353(scene,renderer){
++ const seen=new Set(),records=[];scene.traverse(o=>{for(const m of(Array.isArray(o.material)?o.material:[o.material]).filter(Boolean)){if(seen.has(m))continue;seen.add(m);if(!m.userData.metricTimberGrain&&!['slate','tileEdge','hall161-concave-pan-ceramic'].includes(m.name)&&!m.name.startsWith('scanned-weathered-moss-stone-'))continue;const u=renderer?.properties.get(m).uniforms;records.push({name:m.name,linearColor:m.color.toArray(),roughness:m.roughness,clearcoat:m.clearcoat??null,clearcoatRoughness:m.clearcoatRoughness??null,normalScale:m.normalScale?.toArray?.()??null,materialMapUUID:m.map?.uuid??null,shaderMapUUID:u?.map?.value?.uuid??null,shaderMapMatches:u?u.map?.value===m.map:null,shaderDiffuse:u?.diffuse?.value?.toArray?.()??null,shaderRoughness:u?.roughness?.value??null,paletteRole:m.userData.timberPaletteRole353??null,environmentCell:m.userData.environmentCell353??'outside',surfaceFinish:m.userData.surfaceFinish353??'retained/interior',shaderEnvironmentIntensity:u?.envMapIntensity?.value??null,shaderDirectionalColors:u?.directionalLights?.value?.map(l=>l.color.toArray())??null,ownEnvMap:Boolean(m.envMap),effectiveEnvironmentIntensity:m.envMap?m.envMapIntensity:scene.environmentIntensity});}});return records;
++}
