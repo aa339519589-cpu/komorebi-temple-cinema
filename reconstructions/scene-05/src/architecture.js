@@ -1,3 +1,4 @@
+import {createCeramicCap361} from './eave-craft361.js';
 import {createHandlaidRoof05} from './handlaid-ceramics.js';
 import {createDripPan272,flyingThickness272} from './eave-finish272.js';
 import * as T from 'three';
@@ -1563,37 +1564,18 @@ export function createRestorationArchitecture(ctx) {
       sourceCrop:[581,390,689,405],resolvedDetail:'coarse gold silhouette and one dark hole only',transcribedText:null,usesFont:false,parts};
   }
 
-  const insetCeramicCap=turnedProfile([[0,-.20],[.79,-.20],[.93,-.14],[.99,-.045],[1,.04],[.97,.11],[.91,.145],[.84,.145],[.79,.10],[.78,.02],[0,.02]],40).rotateX(Math.PI/2);
-  const insetCeramicFlower=(()=>{
-    // Sixteen pressed chrysanthemum petals have shallow convex crowns and
-    // narrow incised gaps. This is a closed ceramic relief, not flat loops.
-    const pp=[],uv=[],ids=[],N=16,R=12,W=6;
-    for(let k=0;k<N;k++){
-      const angle=k*Math.PI*2/N,ca=Math.cos(angle),sa=Math.sin(angle),base=pp.length/3;
-      for(let side=0;side<2;side++)for(let j=0;j<=R;j++)for(let q=0;q<=W;q++){
-        const t=j/R,v=q/W*2-1,f=(j===0||j===R)?0:Math.sin(Math.PI*t),rad=.115+.67*t,half=.075*f**.5,
-          x=rad,y=v*half,z=side?0:.025+.055*f**.7*(1-v*v);
-        pp.push(ca*x-sa*y,sa*x+ca*y,z);uv.push(t,q/W);
-      }
-      const stride=(R+1)*(W+1);
-      for(let j=0;j<R;j++)for(let q=0;q<W;q++){
-        const a=base+j*(W+1)+q,b=a+1,c=a+W+1,d=c+1;
-        ids.push(a,b,c,b,d,c,a+stride,c+stride,b+stride,b+stride,c+stride,d+stride);
-      }
-      const edge=[...Array.from({length:W},(_,i)=>i),...Array.from({length:R},(_,i)=>i*(W+1)+W),...Array.from({length:W},(_,i)=>R*(W+1)+W-i),...Array.from({length:R},(_,i)=>(R-i)*(W+1))];
-      for(let j=0;j<edge.length;j++){const a=base+edge[j],b=base+edge[(j+1)%edge.length];ids.push(a,a+stride,b,b,a+stride,b+stride);}
-    }
-    return finishSolid190(pp,uv,ids,'scene05-closed-convex-chrysanthemum-tile-relief204');
-  })();
+  const ceramic361=createCeramicCap361();
   function tileEnd(p,angle,r=.078,detail=true,variant=0) {
     const seed=q=>{const a=Math.sin(q*127.17+17.13)*43758.5453;return a-Math.floor(a);},a=seed(variant),
       rot=new T.Quaternion().setFromAxisAngle(v([0,1,0]),angle).multiply(new T.Quaternion().setFromAxisAngle(v([0,0,1]),(seed(variant+4)-.5)*.10)),n=new T.Vector3(Math.sin(angle),0,Math.cos(angle)),rx=r*(.985+.03*seed(variant+1)),ry=r*(.985+.03*seed(variant+2));
     // Ceramic lip and recessed face are one closed profile, not a pale torus
     // projecting ahead of the tile. Shallow relief stays below the rim crest.
-    draw(insetCeramicCap,'tileEndCeramic',p.toArray(),[rx,ry,r],rot,.88+.15*a);
+    draw(ceramic361.body,'tileEndCeramic361',p.toArray(),[rx,ry,r],rot,.94+.08*a);
+    draw(ceramic361.lip,'tileEndLip361',p.toArray(),[rx,ry,r],rot,.95+.05*a);
+    draw(ceramic361.inner,'tileEndCeramic361',p.toArray(),[rx,ry,r],rot,.98);
     if(detail) {
       const mark=p.clone().addScaledVector(n,r*.028);
-      draw(insetCeramicFlower,'tileEndRelief',mark.toArray(),[rx*.94,ry*.94,r*.70],rot,.82+.20*seed(variant+3));
+      draw(ceramic361.relief,'tileEndRelief361',mark.toArray(),[rx*.94,ry*.94,r*.85],rot,.88+.12*seed(variant+3));
       const centre=p.clone().addScaledVector(n,r*.057);
       draw(g.pin,'oldgold',centre.toArray(),[r*.065,r*.065,r*.035],rot,.75);
     }

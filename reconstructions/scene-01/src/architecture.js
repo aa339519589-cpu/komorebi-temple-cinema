@@ -4,7 +4,8 @@ import {createRestoredBuddha} from './restoration-buddha.js';
 import {buildRestorationAltar} from './restoration-altar.js';
 import {createHallCurvedJoinery} from './sculpted-joinery.js';
 import {layout124 as L} from './layout124.js';
-import {buildForeground124,buildStair124,buildTowerGround124,emitHallCap124} from './layout-components124.js';
+import {buildForeground124,buildTowerGround124,emitHallCap124} from './layout-components124.js';
+import {buildStair360} from './structure360.js';
 import {buildForegroundLantern131} from './foreground-hardware131.js';
 import {buildHallCarpentry132} from './hall-carpentry132.js';
 import {installHallFinish161,emitLowerWindow161} from './hall-facade161.js';
@@ -193,5 +194,5 @@ const foreFit=(...args)=>{const saved={gold:B.m.gold,goldDark:B.m.goldDark,goldL
 buildForeground124(B,{carvedFitting:foreFit,squareGold});
 buildForegroundLantern131(B);}
 
-buildPagodaMass163(B,{roof,finialTorus});hall();buildStair124(B);veranda();buildTowerGround124(B);return{roof,rosette,squareGold,carvedFitting,column,bracket,hangingLantern};
+buildPagodaMass163(B,{roof,finialTorus});hall();buildStair360(B);veranda();buildTowerGround124(B);return{roof,rosette,squareGold,carvedFitting,column,bracket,hangingLantern};
 }

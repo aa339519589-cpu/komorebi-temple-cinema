@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {layout124 as L} from './layout124.js';
 import {noise,rng} from './kernel.js';
+import {bridgeBearingTerrain360} from './structure360.js';
 import {routeClearance208,routeHeight208,routeDistance298} from './bridge-court208.js';
 const TAU=Math.PI*2;
 export const shoreZone298=(x,z)=>x>-9.6&&x<8.4&&z>-4.8&&z<3.3;
@@ -25,7 +26,7 @@ export function shoreHeight298(x,z,original,raised){
  // A continuous receiving shoulder carries the actual court retaining
  // edge; no abrupt route-core-to-river cliff is cut into the soil mesh.
  const shoulder=1-T.MathUtils.smoothstep(routeDistance,.10,1.15);natural=T.MathUtils.lerp(natural,Math.max(natural,raised),shoulder);
- return T.MathUtils.lerp(raised,natural,transition);
+ return bridgeBearingTerrain360(x,z,T.MathUtils.lerp(raised,natural,transition));
 }
 const fieldGLSL=`float sh(vec3 p){p=fract(p*.1031);p+=dot(p,p.yzx+33.33);return fract((p.x+p.y)*p.z);}float sn(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(mix(sh(i),sh(i+vec3(1,0,0)),f.x),mix(sh(i+vec3(0,1,0)),sh(i+vec3(1,1,0)),f.x),f.y),mix(mix(sh(i+vec3(0,0,1)),sh(i+vec3(1,0,1)),f.x),mix(sh(i+vec3(0,1,1)),sh(i+vec3(1,1,1)),f.x),f.y),f.z);}`;
 export function installShoreMaterials298(m){

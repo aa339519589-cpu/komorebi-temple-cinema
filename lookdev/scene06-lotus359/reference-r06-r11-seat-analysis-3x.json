@@ -1,0 +1,26 @@
+{
+  "scope": "Analysis-only crops, not new renders. Native source PNGs remain unmodified.",
+  "cropPixels": [
+    500,
+    490,
+    754,
+    600
+  ],
+  "magnification": 3,
+  "resampling": "nearest",
+  "inputs": [
+    {
+      "label": "REFERENCE PHOTO",
+      "path": "/Users/mima1234/temple-cinema-live-sync/references/hd/4-\u7167\u7247-5.jpg"
+    },
+    {
+      "label": "R06 ACTUAL NATIVE - REJECTED ANGULAR LEAVES",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-lotus359/candidate-r06/qa/ten-reference/06/iteration-scene06-lotus359-r06-native/reference.png"
+    },
+    {
+      "label": "R11 ACTUAL NATIVE - CURRENT REVIEW CANDIDATE",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-native/reference.png"
+    }
+  ],
+  "output": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene06-lotus359/reference-r06-r11-seat-analysis-3x.png"
+}

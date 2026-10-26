@@ -135,13 +135,37 @@ export function createHallFacade214({emit:instance,box:member,group,mats,carvedP
    const width=6.78;
    for(let i=0;i<3;i++){
     const x=-width/2+(i+.5)*width/3;
-    box(x,3.19,-.07,width/3-.12,.65,.22,'hallPlaster214');
     box(x,5.73,-.07,width/3-.12,.65,.22,'hallPlaster214');
-    casements(x,4.43,0,1.62,1.81,{opening:i===1?.20:.04,opaque:i===0});
+    if(sign<0&&i===2){
+     // The raised west gallery now enters a real side doorway. Thick leaves
+     // swing inward from the retained jambs; the old closed paper casement
+     // and stone-height sill no longer block the four-riser connection.
+     const floor=2.85,h=2.59,w=1.66,cy=floor+h/2;
+     for(const side of[-1,1]){
+      box(x+side*(w/2+.045),cy,.02,.105,h+.12,.30,'red');
+      group(x+side*w/2,cy,.045,-side*1.22,1,()=>{
+       const cx=-side*w/4;
+       box(cx,0,0,w/2-.025,h-.025,.085,'dark');
+       for(const xx of[-w/4,w/4])box(cx+xx,0,.052,.055,h+.015,.065,'red');
+       for(const yy of[-h/2,0,h/2])box(cx,yy,.052,w/2,.065,.065,'red');
+       for(const yy of[-.86,.86])box(cx,yy,.090,w/2-.12,.025,.012,'hallGilt214');
+       for(const yy of[-.92,0,.92])emit(hinge,mats.hallGilt214,0,yy,.02);
+      });
+     }
+     box(x,floor-.025,.025,w+.20,.05,.40,'terraceStone');
+    }else{
+     box(x,3.19,-.07,width/3-.12,.65,.22,'hallPlaster214');
+     casements(x,4.43,0,1.62,1.81,{opening:i===1?.20:.04,opaque:i===0});
+    }
     lintel(x,5.89,.10,2.06,.25);stats.returnBays++;
    }
    for(let i=0;i<=3;i++)box(-width/2+i*width/3,4.50,.055,.16,3.32,.30,'red');
-   for(const y of[2.91,5.47,6.18,6.47])box(0,y,.045,width+.20,.14,.32,'red');
+   for(const y of[2.91,5.47,6.18,6.47]){
+    if(sign<0&&y===2.91){
+     const start=-width/2-.10,end=width/2+.10,doorCentre=width/3,left=doorCentre-.94,right=doorCentre+.94;
+     box((start+left)/2,y,.045,left-start,.14,.32,'red');box((right+end)/2,y,.045,end-right,.14,.32,'red');
+    }else box(0,y,.045,width+.20,.14,.32,'red');
+   }
   });
  }
  function upperWall(z,angle=0,width=11.78,count=6){

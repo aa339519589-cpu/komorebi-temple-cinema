@@ -2,6 +2,7 @@ import * as T from 'three';
 import {layout124 as L} from './layout124.js';
 import {prism124} from './layout-components124.js';
 import {bridgeMedallion298} from './foreground-craft298.js';
+import {buildBridge360,buildBridgeEndLanding360} from './structure360.js';
 
 // Actual bridge/court recovery208. The original reference and low cameras
 // remain. Bridge placement and connected routes are physical 3D construction.
@@ -66,62 +67,7 @@ function bronzeTie208(side=1){
  const outline=[[1.167,.24],[1.173,.24],[1.173,-.022],[1.104,-.066],[1.104,-.42],[1.098,-.42],[1.098,-.062],[1.167,-.018]],s=new T.Shape();s.moveTo(...outline[0]);for(const q of outline.slice(1))s.lineTo(...q);s.closePath();
  const g=new T.ExtrudeGeometry(s,{depth:.065,bevelEnabled:true,bevelSize:.0015,bevelThickness:.0015,bevelSegments:1,steps:1});g.rotateY(-Math.PI/2);g.translate(.0325,0,0);if(side<0){g.scale(1,1,-1);for(const attribute of Object.values(g.attributes)){for(let i=0;i<attribute.count;i+=3)for(let k=0;k<attribute.itemSize;k++){const a=(i+1)*attribute.itemSize+k,b=(i+2)*attribute.itemSize+k,v=attribute.array[a];attribute.array[a]=attribute.array[b];attribute.array[b]=v;}}g.computeVertexNormals();}return g;
 }
-export function buildBridge208(B){
- B.label('structure208-half-lapped-arched-garden-bridge',()=>B.with(...G.position,G.yaw,()=>{
-  const joists=Array.from({length:13},(_,i)=>-H+.18+(2*H-.36)*i/12);
-  for(const z of[-.96,0,.96]){
-   B.emit(archMember208({z,depth:.26,bottom:x=>D(x)-.35,notches:joists}),'darkwood');
-   B.emit(archMember208({z,depth:.26,top:x=>D(x)-.35,bottom:x=>D(x)-.53}),'red');
-  }
-  for(const side of[-1,1]){
-   B.emit(archMember208({z:side*1.105,depth:.050,top:x=>D(x)-.025,bottom:x=>D(x)-.135}),'red');
-   B.emit(archMember208({z:side*1.098,depth:.042,top:x=>D(x)-.462,bottom:x=>D(x)-.522}),'wood');
-  }
-  for(const x of joists)B.emit(curvedCrossbeam208(x-.072,x+.072,-1.105,1.105,a=>D(a)-.17,a=>D(a)-.29,'structure208-closed-cross-joist-on-matching-seats'),'wood');
-  // Closed deck boards bear directly on seated joists and the un-notched
-  // upper stringer faces. Real seams follow the transverse board direction.
-  for(let i=0;i<57;i++){const a=-H+2*H*i/57+.0012,b=-H+2*H*(i+1)/57-.0012;B.emit(curvedCrossbeam208(a,b,-1.09,1.09,D,x=>D(x)-.17,'structure208-closed-transverse-deck-plank'),'wood',0,0,0,1,1,1,0,.93+.07*Math.sin(i*.8));}
-  const ties=[bronzeTie208(-1),bronzeTie208(1)];for(const g of ties)B.resources.add(g);
-  const cap=new T.LatheGeometry([[0,0],[.103,0],[.103,.018],[.071,.028],[.068,.075],[.093,.115],[.089,.158],[.066,.195],[.031,.221],[.022,.251],[0,.270]].map(p=>new T.Vector2(...p)),40);B.resources.add(cap);
-  const headMaterial=B.m.hardwareBronze131??B.m.bronze;
-  for(const side of[-1,1]){
-   for(const [height,h,d]of[[.91,.108,.135],[.48,.095,.102],[.16,.100,.100]])B.emit(archMember208({z:side*1.085,depth:d,top:x=>D(x)+height+h/2,bottom:x=>D(x)+height-h/2}),'redLight');
-   for(let i=0;i<=8;i++){
-    const x=-H+2*H*i/8,y=D(x),z=side*1.085,major=i%2===0;
-    B.box(x,y+.475,z,major?.168:.121,.950,major?.168:.121,'red');
-    // The bent, closed strap lies against the post face and turns down onto
-    // the arch girder. It is hardware carrying the post, not a gold rosette.
-    B.emit(ties[side>0?1:0],headMaterial,x,y);
-    // Oval crown plate and the lower rectangular clasp sit on the real
-    // outer girder faces, at the deck edge seen in the supplied reference.
-    bridgeMedallion298(B,x,y-.055,side);
-    B.box(x,y-.274,side*1.102,.121,.198,.012,'goldDark');
-    for(const dx of[-.047,.047])B.box(x+dx,y-.274,side*1.111,.008,.172,.006,'gold');
-    for(const yy of[-.354,-.194])B.box(x,y+yy,side*1.111,.100,.008,.006,'gold');
-    for(const [yy,zz]of[[.13,1.179],[-.31,1.111]])B.emit(new T.CylinderGeometry(.017,.017,.009,16).rotateX(Math.PI/2),headMaterial,x,y+yy,side*zz);
-    if(major){B.box(x,y+.967,z,.204,.025,.204,headMaterial);B.emit(cap,headMaterial,x,y+.979,z);B.emit(new T.TorusGeometry(.072,.004,6,32),'goldDark',x,y+1.045,z,1,1,1,[Math.PI/2,0,0]);}
-   }
-  }
-  // A fitted transverse bent receives all three arch girders. Its curved
-  // bearing face shares the exact girder underside; no long floating blocks.
-  const bx=-.50,beamBottom=D(bx)-.735,plinthTop=.66-G.position[1],water=.13-G.position[1];
-  B.emit(curvedCrossbeam208(bx-.22,bx+.22,-1.09,1.09,x=>D(x)-.53,()=>beamBottom,'structure208-fitted-central-bent-cap'),'wood');
-  for(const side of[-1,1]){
-   const z=side*.55,r=side>0?.27:.29;
-   B.box(bx,(plinthTop+beamBottom)/2,z,r,beamBottom-plinthTop,r,side>0?'wood':'stone');
-   B.box(bx,(water-.14+plinthTop)/2,z,.51,plinthTop-water+.14,.53,'stone');
-   if(side>0){B.box(bx,plinthTop+.035,z,.285,.070,.285,'bronze');B.between([bx,beamBottom-.43,z],[bx,beamBottom+.01,side*.98],.105,.125,'wood');}
-  }
-  // The underside of each girder bears on a curved timber sleeper. The
-  // outer half of each sleeper enters an actual stone receiving pocket;
-  // masonry is emitted separately by buildCourt208 without overlapping it.
-  for(const sign of[-1,1]){
-   const end=sign*H,seat=D(end)-.53;
-   for(const z of[-.96,0,.96])B.emit(curvedCrossbeam208(end-.225,end+.225,z-.20,z+.20,x=>D(T.MathUtils.clamp(x,-H,H))-.53,()=>seat-.07,'structure208-curved-end-sleeper-in-receiving-pocket'),'wood');
-  }
- },G.scale));
- B.layout124??={};B.layout124.bridge208={revision:208,closedDeckAndThreeGirders:true,halfLappedJoists:13,bridgePlacement:G,placementRecovery:'Compared HD01 against native1254: moved bridge0.48m west and0.22m down; X scale1.10. Original camera/dolly retained.',handrailHeight:.91,centralBentTop:'matching curved girder underside',centralLegCentersLocal:[[-.50,.55],[-.50,-.55]],endBearing:'Six curved timber sleepers with receiving pockets and0.012m top clearance behind the bridge end plane',oversizedRosettesRemoved:true,actualPlan:PLAN208,visualAccepted:false};
-}
+export function buildBridge208(B){return buildBridge360(B);}
 
 function uvPoly208(poly){return poly.map(([u,v])=>{const p=W(u,v);return[p.x,p.z];});}
 function block208(B,poly,lo,hi,mat,name){if(hi>lo){
@@ -177,7 +123,7 @@ export function buildCourt208(B){
  // retain the existing world-weathering hook rather than cloning it away.
  const masonry=B.m.stone.clone();masonry.name='route219-weathered-cut-bearing-stone';masonry.roughness=.98;masonry.onBeforeCompile=B.m.stone.onBeforeCompile;masonry.customProgramCacheKey=()=>B.m.stone.customProgramCacheKey()+'-route219-cut-masonry';B.m.route219Masonry=masonry;
  B.label('structure208-bearing-bridge-landings-and-turning-stair-route',()=>{
-  endLanding208(B,1);endLanding208(B,-1);
+  buildBridgeEndLanding360(B,1);buildBridgeEndLanding360(B,-1);
   for(let i=0;i<3;i++){
    const a=-1.10-1.55*i/3,b=-1.10-1.55*(i+1)/3,y=eastY-halfDescent*(i+1)/3;
    foundation219(B,uvPoly208([[H,b],[E,b],[E,a],[H,a]]),.05,y-.055,'structure208-north-flight-bearing-course');uvBlock208(B,H,E,b,a,y-.055,y,'stoneLight','structure208-north-flight-tread');

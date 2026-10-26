@@ -1,0 +1,69 @@
+{
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08",
+  "baseSource": "4382386993b49abaa0cd2dfe3a23b3265817c1264b43286d78a6672e134359c5",
+  "candidateSource": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/r08-vs-private353R10.patch",
+  "patchSha256": "cb799d4dde8a6af8e1fc8a7119e653c7d796616f0d0cdb6c00839e0402a444a7",
+  "changedSource": [
+    "reconstructions/scene-01/src/architecture.js",
+    "reconstructions/scene-01/src/bridge-court208.js",
+    "reconstructions/scene-01/src/shoreline-craft298.js",
+    "reconstructions/scene-01/src/structure360.js"
+  ],
+  "outsideChangedSourceByteIdentical": true,
+  "missingBaseFiles": [],
+  "mutableSourceHardlinks": [],
+  "serverIsRegularCopiedFile": true,
+  "nativeReviewStatus": "best-reviewed-private-candidate-ready-for-primary-integration",
+  "visualAccepted": false,
+  "readyForPrimaryIntegration": true,
+  "captures": [
+    {
+      "view": "full",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-full/reference.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-full/report.json",
+      "width": 1254,
+      "height": 1254,
+      "pngSha256": "53a55d1c91a5d039087cae1d709b74bbad6533a78b8dbfaa7570d5f75083c2fd",
+      "allNativeFramesValid": true,
+      "source": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87"
+    },
+    {
+      "view": "bridge",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-bridge-truecrop/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-bridge-truecrop/report.json",
+      "width": 960,
+      "height": 960,
+      "pngSha256": "9fe14d6057f3801228b52ae1c10ced730e0276a0e53b73350876a80645d7e08b",
+      "allNativeFramesValid": true,
+      "source": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87"
+    },
+    {
+      "view": "stair",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-stair-truecrop/detail-native.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-stair-truecrop/report.json",
+      "width": 960,
+      "height": 960,
+      "pngSha256": "d98144bceba64049ffac25359b6dd10782bd0ddfe78d24dd2f07fc5d16c859f3",
+      "allNativeFramesValid": true,
+      "source": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87"
+    },
+    {
+      "view": "low",
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-low-side/inspection-view.png",
+      "report": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/candidate-r08/qa/ten-reference/01/iteration-scene01-structure360-r08-low-side/report.json",
+      "width": 960,
+      "height": 960,
+      "pngSha256": "c2b1f8f0e53ef698e35619217e3f7122c4c1e6e540aa8225463ae1aabd5fd184",
+      "allNativeFramesValid": true,
+      "source": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87"
+    }
+  ],
+  "review": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene01-structure360/r08-review.json",
+  "remainingGaps": [
+    "The right landing/abutment cap still has a comparatively rectilinear exposed upper edge behind the shrub; it is physically earth-backed with closed layered masonry, but the reference hides more of that edge in organic bank dressing.",
+    "Bridge fascia/ornament, lacquer ageing and bearing-rock arrangement remain inferred construction, not an exact historical or photographic match.",
+    "Stair stones now have seated noses, tiny riven wear and slight tint variation, but their aggregate/riven relief is still more regular thanHD01.",
+    "The inherited353 scene still has broader sky, foliage, architecture and overall illumination differences outside this bridge/stair lane."
+  ]
+}

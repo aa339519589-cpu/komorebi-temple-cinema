@@ -1,0 +1,132 @@
+diff --git a/reconstructions/scene-06/src/lotus-throne359.js b/reconstructions/scene-06/src/lotus-throne359.js
+new file mode 100644
+--- /dev/null
++++ b/reconstructions/scene-06/src/lotus-throne359.js
+@@ -0,0 +1,107 @@
++// Scene06 main lotus359. Authored curved cast leaves; no sampled image surface.
++// The source-contact contour below remains a CC BY-NC-SA 4.0 derivative.
++import * as T from 'three';
++import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
++import {configureLotusGilt222} from './lotus-gilt222.js';
++
++const TAU=2*Math.PI;
++const smooth=(a,b,x)=>{const t=T.MathUtils.clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
++function measuredContour(profile,depthAspect){
++ if(!profile?.outlineXYZ?.length)throw Error('Lotus359 requires the actual source bearing');
++ const points=profile.outlineXYZ.map(([x,y,z])=>[x*profile.scale[0]*.985,y*profile.scale[1]+.004,z*profile.scale[2]*.985/depthAspect]);
++ return angle=>{
++  const dx=Math.sin(angle),dz=Math.cos(angle);let hit;
++  for(let i=0;i<points.length;i++){
++   const a=points[i],c=points[(i+1)%points.length],ex=c[0]-a[0],ez=c[2]-a[2],den=dx*ez-dz*ex;
++   if(Math.abs(den)<1e-10)continue;
++   const u=(a[0]*dz-a[2]*dx)/den;if(u<-.00001||u>1.00001)continue;
++   const x=a[0]+u*ex,z=a[2]+u*ez,r=x*dx+z*dz;
++   if(r>0&&(!hit||r>hit.r))hit={r,y:a[1]+u*(c[1]-a[1])};
++  }
++  if(!hit)throw Error('Lotus359 bearing ray missed');return hit;
++ };
++}
++function geometry(p,uv,index){
++ const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(index);g.computeVertexNormals();return g;
++}
++function coreSurface(radius,height,contact){
++ return(angle,t)=>{
++  const hem=contact(angle),blend=smooth(.79,1,t),hidden=radius*(.505+.225*Math.sin(Math.PI*t*.84));
++  return{r:T.MathUtils.lerp(hidden,hem.r,blend),y:t*height+hem.y*Math.pow(t,5)};
++ };
++}
++function coreGeometry(field,height){
++ // Exactly the retained258 load-bearing loft, including its hem elevations.
++ const rows=72,cols=192,p=[],uv=[],index=[];
++ for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
++  const a=i/cols*TAU,s=field(a,j/rows);p.push(Math.sin(a)*s.r,s.y,Math.cos(a)*s.r);uv.push(i/cols,j/rows);
++  if(j<rows&&i<cols){const q=j*(cols+1)+i;index.push(q,q+1,q+cols+1,q+1,q+cols+2,q+cols+1);}
++ }
++ const bottom=p.length/3;p.push(0,0,0);uv.push(.5,.5);const top=p.length/3;p.push(0,height+.004,0);uv.push(.5,.5);
++ for(let i=0;i<cols;i++){index.push(bottom,i+1,i);const q=rows*(cols+1)+i;index.push(top,q,q+1);}
++ return geometry(p,uv,index);
++}
++const RINGS=[
++ {n:24,phase:.08,base:.018,span:.620,width:.110,root:.615,curve1:.950,curve2:.930,tip:.905,lean:.048},
++ {n:22,phase:.57,base:.258,span:.688,width:.122,root:.638,curve1:.830,curve2:.820,tip:.740,lean:-.034},
++ {n:24,phase:.16,base:.542,span:.458,width:.100,root:.648,curve1:.735,curve2:.735,tip:.725,lean:.018}
++];
++const bezier=(a,b,c,d,t)=>{const q=1-t;return q*q*q*a+3*q*q*t*b+3*q*t*t*c+t*t*t*d;};
++function petalGeometry(radius,height,contact,ring,k,row){
++ const rows=56,cols=28,p=[],uv=[],index=[],skins=[];
++ const variant=Math.sin(k*1.917+row*.791),asym=Math.cos(k*2.419+row*1.13),phase=(k+ring.phase)/ring.n*TAU+.010*variant;
++ const kind=(k+row)%3;
++ const rise=ring.span*(1+(row===0?.10:.065)*variant),width=ring.width*(1+.10*asym)*[1.06,.94,1][kind],tipShift=(row===0?.025:.018)*variant+.018*(k%2?1:-1);
++ function surface(v,u){
++  const angle=phase+(row===0?.075:.055)*variant*smooth(.15,1,v),w=Math.max(0,Math.sin(Math.PI*v));
++  // One smooth cubic carries the full convex meridian. There is no shared
++  // two-piece shoulder where every petal breaks into a folded ribbon.
++  let r=radius*bezier(ring.root,ring.curve1+.014*asym,ring.curve2+.014*variant,ring.tip-.012*(.5+.5*asym),v);
++  const outline=Math.pow(v,[.50,.65,.47][kind])*Math.pow(1-v,[.83,.95,.88][kind])*[2.42,2.96,2.40][kind];
++  const tangent=radius*(u*width*outline*(1+.080*u*asym*w)+tipShift*v*v+ring.lean*Math.sin(Math.PI*v));
++  // A rounded transverse lobe, shallow central tooling, and small returned
++  // margins. Edge taper and solid belly thickness are authored separately.
++  const convex=[.075,.055,.040][row]*Math.pow(w,.83)*Math.pow(Math.max(0,1-u*u),.55);
++  const rib=.0014*w*Math.exp(-Math.pow((u+.035*Math.sin(v*5+asym))/.17,2));
++  const roll=.0032*Math.pow(Math.abs(u),6)*Math.pow(w,.72)*(.48+.52*v);
++  const lip=.0008*w*Math.exp(-Math.pow((Math.abs(u)-.94)/.065,2));
++  const chase=-.0016*w*(Math.exp(-Math.pow((u-.72)/.065,2))+Math.exp(-Math.pow((u+.72)/.065,2)));
++  r+=radius*(convex+rib+roll+lip+chase+.007*asym*u*w);
++  let y=height*(ring.base+rise*bezier(0,.12,.74,1,v)+.008*w*u*u+.045*asym*u*w);
++  if(row===0)y-=height*(.018+.006*asym)*smooth(.87,1,v);
++  if(row===2){const hem=contact(angle+Math.atan2(tangent,r));const t=smooth(.72,1,v);r=T.MathUtils.lerp(r,Math.sqrt(Math.max(0,(hem.r-.002)**2-tangent*tangent)),t);y=T.MathUtils.lerp(y,height+hem.y,t);}
++  return new T.Vector3(Math.sin(angle)*r+Math.cos(angle)*tangent,y,Math.cos(angle)*r-Math.sin(angle)*tangent);
++ }
++ function vertex(skin,j,i){
++  const v=j/rows,u=j===0||j===rows?0:i/cols*2-1,s=surface(v,u),e=.0001;
++  const du=surface(v,Math.min(1,u+e)).sub(surface(v,Math.max(-1,u-e)));
++  const dv=surface(Math.min(1,v+e),u).sub(surface(Math.max(0,v-e),u));
++  let n=du.cross(dv);if(n.lengthSq()<1e-16)n.set(Math.sin(phase),0,Math.cos(phase));else n.normalize();
++  const outward=new T.Vector3(Math.sin(phase),0,Math.cos(phase));if(n.dot(outward)<0)n.negate();
++  const thickness=radius*(.002+.017*Math.pow(Math.max(0,Math.sin(Math.PI*v)),1.4)*Math.pow(Math.max(0,1-u*u),.4));s.addScaledVector(n,skin===0?thickness:-thickness);
++  const id=p.length/3;p.push(s.x,s.y,s.z);uv.push((u+1)/2,v);return id;
++ }
++ for(let skin=0;skin<2;skin++){
++  const lines=[];for(let j=0;j<=rows;j++)lines.push(j===0||j===rows?[vertex(skin,j,0)]:Array.from({length:cols+1},(_,i)=>vertex(skin,j,i)));
++  skins.push(lines);const tri=(a,c,d)=>skin===0?index.push(a,c,d):index.push(a,d,c);
++  for(let i=0;i<cols;i++)tri(lines[0][0],lines[1][i+1],lines[1][i]);
++  for(let j=1;j<rows-1;j++)for(let i=0;i<cols;i++){const a=lines[j],c=lines[j+1];tri(a[i],a[i+1],c[i]);tri(a[i+1],c[i+1],c[i]);}
++  for(let i=0;i<cols;i++)tri(lines[rows-1][i],lines[rows-1][i+1],lines[rows][0]);
++ }
++ const perimeter=lines=>[lines[0][0],...lines.slice(1,rows).map(r=>r[cols]),lines[rows][0],...lines.slice(1,rows).reverse().map(r=>r[0])];
++ const front=perimeter(skins[0]),back=perimeter(skins[1]);
++ for(let i=0;i<front.length;i++){const j=(i+1)%front.length;index.push(front[i],back[j],front[j],front[i],back[i],back[j]);}
++ const g=geometry(p,uv,index);g.userData.closedCarvedShell=true;g.userData.lotus359={row,k,edgeThicknessMetres:radius*.004,bellyThicknessMetres:radius*.038,taperedSolidLobe:true,normalOffsetThickness:true,pointedFans:true,returnedTip:true,carvedRibAndPairedGrooves:true};return g;
++}
++export function buildLayeredLotus359(b,{radius,height,depthAspect,sourceBearing}){
++ configureLotusGilt222(b.materials);
++ const contact=measuredContour(sourceBearing,depthAspect),field=coreSurface(radius,height,contact),tag='lotus359-r11-'+sourceBearing.sourceBufferSha256.slice(0,16);
++ b.add(b.geometry(tag+'-retained-contact-core',()=>coreGeometry(field,height)),'lotusShadow');
++ for(const [row,ring]of RINGS.entries()){
++  const parts=Array.from({length:ring.n},(_,k)=>petalGeometry(radius,height,contact,ring,k,row));
++  const g=b.geometry(tag+'-rounded-convex-layer-'+row,()=>mergeGeometries(parts,false));g.userData.lotus359={row,petals:ring.n,closedRoundedLobes:true};b.add(g,row===1?'lotusGiltSoft':'lotusGold');for(const part of parts)part.dispose();
++ }
++ b.lathe(tag+'-retained-lower-bearing-foot',[[.44,0],[.56,0],[.605,.012],[.605,.038],[.55,.058],[.45,.058],[.44,0]],0,0,0,radius,1,'lotusShadow',96);
++ b.torus(0,.034,0,radius*.545,.007,'lotusEdge',Math.PI/2);
++ b.root.userData.sourceLotus359??=[];b.root.userData.sourceLotus359.push({revision:'r11',rows:3,petals:70,radius,height,depthAspect,sourceContactSha256:sourceBearing.sourceBufferSha256,actualHemContourAndCoreRetained:true,sourceSculptureEdited:false,scope:'Main lotus only; side seats remain258',construction:'Individually closed cast lobes with smooth cubic convex meridians, rounded transverse bellies, tapered solid thickness, longer narrow rounded points and alternating oblique lean; three leaf proportions, shorter radius-contained outer leaves exposing the upper row, and inward-recessed staggered tiers, with restrained ribs and paired chisel channels. Roots enter retained lower foot or continuous load-bearing core; last tier follows actual hem. Authored inference from supplied reference, not a seat scan.',visualAccepted:false,photographicAccepted:false});
++}
+diff --git a/reconstructions/scene-06/src/restoration-altar.js b/reconstructions/scene-06/src/restoration-altar.js
+--- a/reconstructions/scene-06/src/restoration-altar.js
++++ b/reconstructions/scene-06/src/restoration-altar.js
+@@ -5,6 +5,7 @@
+ import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
+ import {buildLayeredSourceLotus179} from './lotus-throne179.js';
+ import {buildLayeredLotus222} from './lotus-throne222.js';
++import {buildLayeredLotus359} from './lotus-throne359.js';
+ import {buildLivingOfferings233} from './living-offerings233.js';
+ import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
+ import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
+@@ -984,7 +985,7 @@
+ function smooth01R10(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);}
+ function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68,sourceBearing=null) {
+   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
+-    if(radius>0){buildLayeredLotus222(b,{radius,height,depthAspect,sourceBearing});return;}
++    if(radius>0){(radius>1?buildLayeredLotus359:buildLayeredLotus222)(b,{radius,height,depthAspect,sourceBearing});return;}
+     // The photographed cast lotus has broad overlapping, convex lobes.
+     // Its belly projects out beyond the tips, which turn back toward the seat.
+     // A narrow fan of straight upward triangles reads as a thorn crown.

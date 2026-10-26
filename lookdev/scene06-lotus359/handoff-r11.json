@@ -1,0 +1,205 @@
+{
+  "id": "scene06-lotus359-r11",
+  "status": "recommended-working-point-not-photographic-match",
+  "createdAt": "2026-10-26T16:59:22.150793+00:00",
+  "source": {
+    "revision": "r11",
+    "parentSourceHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+    "sourceHash": "a9aea1ea6e954029554e3f209aed4c46f3d74d4cf777b5718b3e6bfe2525b4ed",
+    "changed": [
+      {
+        "path": "reconstructions/scene-06/src/lotus-throne359.js",
+        "sha256": "a519b47a2fad280c5311d31db02aa206492e25b6e61b9601ef5d74b8a5055c43",
+        "existedInBase": false
+      },
+      {
+        "path": "reconstructions/scene-06/src/restoration-altar.js",
+        "sha256": "ed73493326277a7445e22df98dec1b49cf192efb0b81432247dd160d70d0f337",
+        "existedInBase": true
+      }
+    ],
+    "deleted": [],
+    "freeze": "Source frozen before official FIFO capture; private candidate only",
+    "photographicAccepted": false
+  },
+  "geometryValidation": {
+    "file": "lookdev/scene06-lotus359/candidate-r11-geometry-validation.json",
+    "valid": true,
+    "contactCorePositionNormalUvIndexExact258": true,
+    "contactCoreSha256": "f81197d7ea9d4576d51eef9ba76f810677bc0b2e6978f92010479e8bb3f5006b",
+    "petals": 70,
+    "rows": 3,
+    "countedPetalAndCoreTriangles": 474912,
+    "lowerFootAndTorus": "Retained unchanged; not included in validation builder triangle total.",
+    "closedPetalLayers": true,
+    "petalNonfiniteOrDegenerateTriangles": 0,
+    "outerLayerBounds": [
+      [
+        -1.1817771196365356,
+        0.01033961120992899,
+        -1.1774275302886963
+      ],
+      [
+        1.1732099056243896,
+        0.4395151734352112,
+        1.1819435358047485
+      ]
+    ]
+  },
+  "scope": {
+    "newModule": "lookdev/scene06-lotus359/candidate-r11/reconstructions/scene-06/src/lotus-throne359.js",
+    "centralHook": "Import buildLayeredLotus359; use radius>1 ? buildLayeredLotus359 : buildLayeredLotus222 at restoration-altar.js:987.",
+    "onlyCentralSeatChanges": true,
+    "sideSeats258Unchanged": true,
+    "statueAndPoseUnchangedInThisLane": true,
+    "preservedOptions": {
+      "seatY": 3.38,
+      "radius": 1.18,
+      "height": 0.64,
+      "depthAspect": 0.72
+    },
+    "coreAndContactSurface": "Retained exact258 measured loft, normals, UVs and index; upper tips continue following actual source hem.",
+    "materials": "Existing lotus-gilt222 materials and masks unchanged.",
+    "canonical358354EditedByThisLane": false
+  },
+  "construction": "Closed convex cast lobes with smooth cubic meridians, rounded transverse bellies, tapered thickness from4.72mm margins to44.84mm central belly, narrow returned points, three outline proportions and alternating oblique lean. Shorter radius-contained outer leaves expose the upper tier. Restrained ribs and paired chisel channels avoid a hard central crease.",
+  "review": {
+    "reference": "references/hd/4-\u7167\u7247-5.jpg",
+    "result": "Substantial correction of the angular folded ribbon/palisade shape; distinct rounded lobes and visible two-tier separation at reference and low side views.",
+    "lowView": "No obvious floating contact gap, open shell edge or shoulder break in the reviewed low-side frame.",
+    "photographicAccepted": false,
+    "remainingLimits": [
+      "Petal placement remains more regular and idealized than the photographed casting.",
+      "Broad bright glints differ from the reference under the unchanged native material and lighting response.",
+      "These frames use the frozen10ebb530 base plus359 only. They do not show the independently integrated358 wrist/statue changes.",
+      "Native WebGL evidence only; no new Cycles render or combined358+359 capture was produced by this lane."
+    ]
+  },
+  "nativeEvidence": [
+    {
+      "report": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-native/report.json",
+      "reportSha256": "6c14369a6c6876e6b8a0aba4ca92daafdc77479b2b5bcdcdc2db69fa3ea68439",
+      "frame": "reference",
+      "file": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-native/reference.png",
+      "pngSha256": "e74d5f485b70f63df2462a5e94fa5e63b27bfa3dcab78d7cd3f22ba33c6d408a",
+      "rgbaSha256": "d86c83ae4e3096c2c19da32c762b8e60a96a8c53dd22a912b4d9ce32d1b4b104",
+      "width": 1254,
+      "height": 1254,
+      "sourceHash": "a9aea1ea6e954029554e3f209aed4c46f3d74d4cf777b5718b3e6bfe2525b4ed",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": null,
+      "inspectionView": null,
+      "completedAt": "2026-10-26T16:54:05.359Z",
+      "personallyVisuallyReviewed": true
+    },
+    {
+      "report": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-native/report.json",
+      "reportSha256": "6c14369a6c6876e6b8a0aba4ca92daafdc77479b2b5bcdcdc2db69fa3ea68439",
+      "frame": "detail-native",
+      "file": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-native/detail-native.png",
+      "pngSha256": "aa6952b9a2a24b5a26803c3dcdf597365d3793b4bd91e90cb85bfc5427951f9b",
+      "rgbaSha256": "6054b6b804964c965b57a25a1e9a38683a0b8299a2be961becb3d606874bbc24",
+      "width": 1254,
+      "height": 1254,
+      "sourceHash": "a9aea1ea6e954029554e3f209aed4c46f3d74d4cf777b5718b3e6bfe2525b4ed",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": [
+        475,
+        480,
+        300,
+        1254
+      ],
+      "inspectionView": null,
+      "completedAt": "2026-10-26T16:54:05.359Z",
+      "personallyVisuallyReviewed": true
+    },
+    {
+      "report": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-low-side/report.json",
+      "reportSha256": "86353a221f3dacde523d2eb995ed7ec80b880fb291ab29337c592f2842fc1ec6",
+      "frame": "inspection-view",
+      "file": "lookdev/scene06-lotus359/candidate-r11/qa/ten-reference/06/iteration-scene06-lotus359-r11-low-side/inspection-view.png",
+      "pngSha256": "19ccd4e40a03d559be915159242bc6fcb982aeb9e078a5f09482ba07e9b1d501",
+      "rgbaSha256": "c77ee1fb2f7a31929d235330d57e7d1bc9a14f59ce4133ed09d2e78100bcb3dd",
+      "width": 1100,
+      "height": 1100,
+      "sourceHash": "a9aea1ea6e954029554e3f209aed4c46f3d74d4cf777b5718b3e6bfe2525b4ed",
+      "valid": true,
+      "glError": 0,
+      "allProgramsLinked": true,
+      "backend": "metal",
+      "detailCrop": null,
+      "inspectionView": {
+        "position": [
+          2.6,
+          2.55,
+          1.6
+        ],
+        "target": [
+          0,
+          3.2,
+          -2.3
+        ],
+        "fov": 44,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "completedAt": "2026-10-26T16:57:00.160Z",
+      "personallyVisuallyReviewed": true
+    }
+  ],
+  "patch": {
+    "file": "lookdev/scene06-lotus359/lotus359-r11-source.patch",
+    "sha256": "6875ab1628f39d01a948e64d210b8fe82726af67687a431b9f62880ad95d0131",
+    "bytes": 10464,
+    "changedFiles": [
+      "reconstructions/scene-06/src/lotus-throne359.js",
+      "reconstructions/scene-06/src/restoration-altar.js"
+    ],
+    "integration": "Apply only this two-file patch. Keep358 source/asset edits, do not copy the complete frozen candidate scene. Combined source has a new identity and requires a fresh official FIFO capture.",
+    "gitApplyCheckPassedBeforeRootIntegration": true,
+    "laterDryRun": "Already applied in canonical by root; expected file-exists/context mismatch on repeated dry-run."
+  },
+  "analysisComparison": {
+    "image": "lookdev/scene06-lotus359/reference-r06-r11-seat-analysis-3x.png",
+    "provenance": "lookdev/scene06-lotus359/reference-r06-r11-seat-analysis-3x.json",
+    "scope": "Labeled source-photo and actual native crops only; not new renders."
+  },
+  "isolation": {
+    "moduleIndependentInode": true,
+    "serverRealIndependentCopy": true,
+    "moduleAndServerLinkCount": [
+      1,
+      1
+    ]
+  },
+  "priorReviewFindings": {
+    "r01-r02": "Rejected deep cups and obscured outer points.",
+    "r03-r04": "Rejected narrow, regular pointed palisade; small twist did not repair the main mismatch.",
+    "r05-r07": "Rejected clipped/folded ribbon shoulders and broad angular platter.",
+    "r08": "Smooth convex body improved form but tips were too broad/blunt.",
+    "r09": "Rounded pointed bodies improved form, but tall outer row hid the second tier.",
+    "r10": "Shorter outer row exposed upper tier, but radius extended to1.233m and left wing-like ends.",
+    "r11": "Best current reviewed working candidate; outer max near1.182m; not a completed photographic match."
+  },
+  "rootIntegrationObservedReadOnly": {
+    "checkedAt": "2026-10-26T17:01:53.124785+00:00",
+    "files": {
+      "reconstructions/scene-06/src/lotus-throne359.js": {
+        "candidateSha256": "a519b47a2fad280c5311d31db02aa206492e25b6e61b9601ef5d74b8a5055c43",
+        "canonicalSha256AtHandoff": "a519b47a2fad280c5311d31db02aa206492e25b6e61b9601ef5d74b8a5055c43",
+        "matches": true
+      },
+      "reconstructions/scene-06/src/restoration-altar.js": {
+        "candidateSha256": "ed73493326277a7445e22df98dec1b49cf192efb0b81432247dd160d70d0f337",
+        "canonicalSha256AtHandoff": "ed73493326277a7445e22df98dec1b49cf192efb0b81432247dd160d70d0f337",
+        "matches": true
+      }
+    },
+    "scope": "Read-only verification; root applied canonical integration independently."
+  }
+}

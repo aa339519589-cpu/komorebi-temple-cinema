@@ -1,0 +1,28 @@
+{
+  "revision": "scene07-layered-architectural-massing363-r04",
+  "status": "Independent architectural reconstruction candidate; actual native review required, photographic acceptance false.",
+  "comparisonReference": "references/hd/6-照片-7.jpg",
+  "referenceIsTextureOrProjection": false,
+  "newExternalAssets": [],
+  "geometry": [
+    "Five closed recessed tower chambers and open surrounding ambulatories, twelve actual continuous posts and twelve fitted deep bearing assemblies per tier; diagonal corner assemblies replace intersecting face clusters.",
+    "Full-depth lower hall load assemblies reuse the authored closed deep-bearing319 construction while retaining clear shafts and the original roof/floor axes.",
+    "Capped open main-hall terrace returns meet the retained central stair gap.",
+    "Raised western connector has a closed tiled roof, continuous founded stone platform, uniformly scaled scanned geological faces, four solid side-door treads and two inward-opening thick timber leaves."
+  ],
+  "reusedAssets": {
+    "deepBearing": "Existing authored src/deep-bearing319.js and src/curved-rafter319.js; no external mesh added.",
+    "stone": "Existing Poly Haven rock_moss_set_01 CC0 geometry and PBR channels; declared in assets/scanned-garden-stones-provenance.json and asset-dependencies.json.",
+    "materials": "Existing scene timber, granite, ceramic and metal materials; no source texture bytes changed."
+  },
+  "preserved": [
+    "Reference camera and motion camera",
+    "Main hall and tower positions, all seven principal roof envelopes, finial tip and hall floor",
+    "Main stair, bridge, foreground veranda and garden route datums",
+    "Accepted garden340-r06 source, actual scan bytes, tree roots and deterministic garden random replay",
+    "Lighting, sky, exposure and radiance-capture photometry"
+  ],
+  "inference": "Hidden dimensions, bearing load paths and gallery connection are authored spatial inferences; no survey or historical-structural certification is claimed.",
+  "visualAccepted": false,
+  "contactRepair": "West terrace return starts beyond the actual side-door approach; the connector roof is shortened only at its hall end to clear the neighboring main-hall shaft. All roof supports query that same moved roof."
+}

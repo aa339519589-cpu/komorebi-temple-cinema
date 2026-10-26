@@ -57,10 +57,10 @@ export function createSculptedJoinery(){
   for(let i=0;i<xs.length-1;i++){const yy=notch==='top'&&inSlot((xs[i]+xs[i+1])/2)?-.015:.1;i?s.lineTo(xs[i],yy):s.moveTo(xs[i],yy);s.lineTo(xs[i+1],yy);}
   for(let i=xs.length-2;i>=0;i--){const slot=notch==='bottom'&&inSlot((xs[i]+xs[i+1])/2),a=slot?-.015:bottom(xs[i+1]),b=slot?-.015:bottom(xs[i]);s.lineTo(xs[i+1],a);s.lineTo(xs[i],b);}s.closePath();
   const protectedX=Math.max(0,...notchCentres.map(Math.abs))+width/2+.025,carveDepth=.004,
-    body=arrisedProfile(s,width-carveDepth*2,.009),caps=[];
+    body=arrisedProfile(s,width-carveDepth*2,.012),caps=[];
   const setColor=(g,rgb)=>{const colors=new Float32Array(g.attributes.position.count*3);for(let k=0;k<g.attributes.position.count;k++)colors.set(rgb,k*3);g.setAttribute('color',new T.Float32BufferAttribute(colors,3));return g;};
   setColor(body,[.94,.90,.86]);
-  const skin=insetShape220(s,.009);
+  const skin=insetShape220(s,.012);
   // True shallow pockets in each wide cheek: a finite wooden face layer
   // surrounds cut channels, with a darker complete wooden core4mm behind.
   // This produces carved recesses instead of a painted or raised wire motif.
@@ -89,7 +89,7 @@ export function createSculptedJoinery(){
    const y=newBottom+ny*(.1-newBottom),cutY=ny-.5,section=1+w*(bearingWidth196(cutY)-1);
    p.setY(i,y);p.setZ(i,p.getZ(i)*neck*section);
   }
-  g.computeVertexNormals();g.userData.armProfile='220-r10-quarter-rounded-carved-ogee-with-inset-skin';g.userData.protectedSeatHalfSpan=protectedX;g.userData.carvedCheek220={depthMetres:carveDepth,construction:'Closed wood core with real9mm quarter-round arrises; closed pierced face layers share its inset outline and reveal real4mm recesses on both wide cheeks',freeUndersideScoopMetres:.070};g.userData.freeTip196={underTipLift:.050,bottomWidthRatio:.76,protectedContactsUnchanged:true,protectedVertexIndices:protectedVertices196};return g;
+  g.computeVertexNormals();g.userData.armProfile='361-retained-four-mm-recess-and-twelve-mm-carved-arrises';g.userData.protectedSeatHalfSpan=protectedX;g.userData.carvedCheek220={depthMetres:carveDepth,construction:'Closed wood core with real9mm quarter-round arrises; closed pierced face layers share its inset outline and reveal real4mm recesses on both wide cheeks',freeUndersideScoopMetres:.070};g.userData.freeTip196={underTipLift:.050,bottomWidthRatio:.76,protectedContactsUnchanged:true,protectedVertexIndices:protectedVertices196};return g;
  }
  function beam(length,depth,bottom,top,notches=[]){
   const xs=[-length/2,...notches.flatMap(n=>[n.x-n.width/2,n.x+n.width/2]),length/2].sort((a,b)=>a-b),s=new T.Shape();
@@ -99,26 +99,33 @@ export function createSculptedJoinery(){
   [...topPoints,...bottomPoints].forEach(([x,y],i)=>i?s.lineTo(x,y):s.moveTo(x,y));s.closePath();return extrude(s,depth,.008);
  }
  function cushion(radius=.28,height=.12){
-  // The old continuously bulging superellipse and shared cap normals made
-  // these bearing blocks read as cushions. Keep their actual seat datums and
-  // nominal envelope, with a short foot, a shallow concave cheek neck and a
-  // flat upper bearing band. The2mm arrises are geometry, not a broad normal roll.
-  const bevel=Math.min(.002,height*.07),foot=radius*.64,corner=Math.min(.0035,radius*.025);
-  const profile=[[foot,0],[foot+bevel,bevel],[foot+bevel,height*.12],
-   [radius*.625,height*.22],[radius*.65,height*.34],[radius*.73,height*.46],
-   [radius*.845,height*.59],[radius*.94,height*.72],[radius*.985,height*.81],[radius,height*.85],
-   [radius,height-bevel],[radius-bevel,height]];
-  const p=[],uv=[],idx=[],N=8;
-  for(const [r,y]of profile){const c=Math.min(corner,r*.05),ring=[[-r+c,-r],[r-c,-r],[r,-r+c],[r,r-c],[r-c,r],[-r+c,r],[-r,r-c],[-r,-r+c]];
-   for(const [x,z]of ring){p.push(x,y,z);uv.push(x,z);}
+  //361: keep the original lower and upper seating envelopes. The visible
+  // cove is a continuous closed timber section, with smooth vertical normals
+  // on each of eight separate faces and hard normals at the clipped corners.
+  // The former flat-shaded triangulated profile read as a stack of boards.
+  const bevel=Math.min(.002,height*.07),foot=radius*.64,corner=Math.min(.0035,radius*.025),
+   stations=[[.12,(foot+bevel)/radius],[.22,.625],[.34,.65],[.46,.73],[.59,.845],[.72,.94],[.81,.985],[.85,1]],
+   profile=[[foot,0],[foot+bevel,bevel],[foot+bevel,height*.12]];
+  const slope=stations.map((q,i)=>{if(i===0||i===stations.length-1)return 0;const a=(q[1]-stations[i-1][1])/(q[0]-stations[i-1][0]),b=(stations[i+1][1]-q[1])/(stations[i+1][0]-q[0]);return a*b<=0?0:Math.sign(a)*Math.min(Math.abs(a),Math.abs(b));});
+  for(let k=0;k<stations.length-1;k++)for(let j=1;j<=5;j++){
+   const t=j/5,t2=t*t,t3=t2*t,a=stations[k],b=stations[k+1],h=b[0]-a[0],
+    r=(2*t3-3*t2+1)*a[1]+(t3-2*t2+t)*h*slope[k]+(-2*t3+3*t2)*b[1]+(t3-t2)*h*slope[k+1];
+   profile.push([r*radius,(a[0]+h*t)*height]);
   }
-  for(let j=0;j<profile.length-1;j++)for(let i=0;i<N;i++){const a=j*N+i,b=j*N+(i+1)%N,c=(j+1)*N+i,d=(j+1)*N+(i+1)%N;idx.push(a,c,b,b,c,d);}
-  p.push(0,0,0,0,height,0);uv.push(0,0,0,0);const lo=p.length/3-2,hi=lo+1;
-  for(let i=0;i<N;i++){idx.push(lo,i,(i+1)%N);idx.push(hi,(profile.length-1)*N+(i+1)%N,(profile.length-1)*N+i);}
-  const indexed=new T.BufferGeometry();indexed.setAttribute('position',new T.Float32BufferAttribute(p,3));indexed.setAttribute('uv',new T.Float32BufferAttribute(uv,2));indexed.setIndex(idx);
-  const g=indexed.toNonIndexed();indexed.dispose();g.computeVertexNormals();
-  g.userData.bearingBlock={kind:'closed-concave-neck-clipped-square-dou',radius,height,baseHalfWidth:foot,arrisMetres:bevel,capSideNormalsSeparated:true,profile};
-  return keep(g);
+  profile.push([radius,height-bevel],[radius-bevel,height]);
+  const ring=r=>{const c=Math.min(corner,r*.05);return[[-r+c,-r],[r-c,-r],[r,-r+c],[r,r-c],[r-c,r],[-r+c,r],[-r,r-c],[-r,-r+c]];},p=[],uv=[],ix=[];
+  for(let side=0;side<8;side++){
+   const base=p.length/3;
+   for(const[r,y]of profile)for(const index of[side,(side+1)%8]){const[x,z]=ring(r)[index];p.push(x,y,z);uv.push(x,z);}
+   for(let j=0;j<profile.length-1;j++){const a=base+j*2,b=a+1,c=a+2,d=a+3;ix.push(a,c,b,b,c,d);}
+  }
+  for(const top of[false,true]){
+   const[r,y]=profile[top?profile.length-1:0],base=p.length/3;p.push(0,y,0);uv.push(0,0);
+   for(const[x,z]of ring(r)){p.push(x,y,z);uv.push(x,z);}
+   for(let k=0;k<8;k++){const a=base+1+k,b=base+1+(k+1)%8;ix.push(...(top?[base,b,a]:[base,a,b]));}
+  }
+  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.setAttribute('uv',new T.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeVertexNormals();
+  g.userData.bearingBlock={kind:'closed-smooth-coved-clipped-square-dou361',radius,height,baseHalfWidth:foot,arrisMetres:bevel,capSideNormalsSeparated:true,planCornerNormalsSeparated:true,profile};return keep(g);
  }
  function carvedCorbel(){
   const s=new T.Shape();s.moveTo(-.19,0);s.lineTo(.19,0);s.lineTo(.19,.06);

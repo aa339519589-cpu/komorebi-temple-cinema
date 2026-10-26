@@ -1,0 +1,332 @@
+--- /dev/null
++++ b/reconstructions/scene-07/massing363-provenance.json
+@@ -0,0 +1,28 @@
++{
++  "revision": "scene07-layered-architectural-massing363-r04",
++  "status": "Independent architectural reconstruction candidate; actual native review required, photographic acceptance false.",
++  "comparisonReference": "references/hd/6-照片-7.jpg",
++  "referenceIsTextureOrProjection": false,
++  "newExternalAssets": [],
++  "geometry": [
++    "Five closed recessed tower chambers and open surrounding ambulatories, twelve actual continuous posts and twelve fitted deep bearing assemblies per tier; diagonal corner assemblies replace intersecting face clusters.",
++    "Full-depth lower hall load assemblies reuse the authored closed deep-bearing319 construction while retaining clear shafts and the original roof/floor axes.",
++    "Capped open main-hall terrace returns meet the retained central stair gap.",
++    "Raised western connector has a closed tiled roof, continuous founded stone platform, uniformly scaled scanned geological faces, four solid side-door treads and two inward-opening thick timber leaves."
++  ],
++  "reusedAssets": {
++    "deepBearing": "Existing authored src/deep-bearing319.js and src/curved-rafter319.js; no external mesh added.",
++    "stone": "Existing Poly Haven rock_moss_set_01 CC0 geometry and PBR channels; declared in assets/scanned-garden-stones-provenance.json and asset-dependencies.json.",
++    "materials": "Existing scene timber, granite, ceramic and metal materials; no source texture bytes changed."
++  },
++  "preserved": [
++    "Reference camera and motion camera",
++    "Main hall and tower positions, all seven principal roof envelopes, finial tip and hall floor",
++    "Main stair, bridge, foreground veranda and garden route datums",
++    "Accepted garden340-r06 source, actual scan bytes, tree roots and deterministic garden random replay",
++    "Lighting, sky, exposure and radiance-capture photometry"
++  ],
++  "inference": "Hidden dimensions, bearing load paths and gallery connection are authored spatial inferences; no survey or historical-structural certification is claimed.",
++  "visualAccepted": false,
++  "contactRepair": "West terrace return starts beyond the actual side-door approach; the connector roof is shortened only at its hall end to clear the neighboring main-hall shaft. All roof supports query that same moved roof."
++}
+--- /dev/null
++++ b/reconstructions/scene-07/src/architectural-massing363.js
+@@ -0,0 +1,154 @@
++import * as T from 'three';
++import {createBearing174} from './deep-bearing319.js';
++
++// Inferred architecture in building metres. The existing world/site/camera
++// transforms are applied by the caller. The photograph supplies comparison
++// landmarks only; every chamber, gallery, column and bearing is a solid.
++export function createArchitecturalMassing363({emit,box,group,mats,column,lattice,rail,roofHeight,physicalRoof,masonryForms,scannedStones,groundModel}){
++ const towerTiers=[],terraceSegments=[],shafts=new Map();let galleryConnection=null,galleryFoundationStones=0;
++ const kit=createBearing174(T,{
++  emit(g,material,x=0,y=0,z=0,sx=1,sy=1,sz=1,yaw=0){
++   const key=material==='bearingGilt'?'gold':/flared-bearing-cup|roof-receiver/.test(g.name)?'wood':'red';
++   emit(g,mats[key],x,y,z,sx,sy,sz,Array.isArray(yaw)?yaw:[0,yaw,0]);
++  },
++  grouped(x,y,z,yaw,fn){group(x,y,z,yaw,1,fn);},keep:g=>g
++ });
++ function shaft(radius,height){
++  const key=radius+':'+height.toFixed(5);if(shafts.has(key))return shafts.get(key);
++  const profile=[[0,0],[radius*.99,0],[radius,.08*height],[radius*1.025,.36*height],[radius*1.015,.64*height],[radius*.97,.92*height],[radius*.95,height],[0,height]];
++  const g=new T.LatheGeometry(profile.map(p=>new T.Vector2(...p)),24),p=g.attributes.position,uv=g.attributes.uv;
++  for(let i=0;i<p.count;i++)uv.setXY(i,p.getY(i)/1.6,Math.atan2(p.getZ(i),p.getX(i))*radius/.55);
++  g.userData.architectureMember='scene07-tower363-continuous-entasis-post';shafts.set(key,g);return g;
++ }
++ function hallTerrace(){
++  const floor=2.85,front=5.07,outer=8.02,gap=2.55,height=.66;
++  const panel=(a,b)=>{
++   const dx=b[0]-a[0],dz=b[1]-a[1],length=Math.hypot(dx,dz),yaw=-Math.atan2(dz,dx),cx=(a[0]+b[0])/2,cz=(a[1]+b[1])/2;
++   group(cx,floor,cz,yaw,1,()=>{
++    // The three-step projecting stone section belongs to the capped hall
++    // plinth. Jointed top slabs carry an actual open timber balustrade.
++    box(0,-.135,0,length+.06,.17,.40,'terraceStone');
++    box(0,-.235,-.035,length+.10,.065,.34,'plinthMortar');
++    const slabCount=Math.ceil(length/.69);
++    for(let i=0;i<slabCount;i++)box(-length/2+(i+.5)*length/slabCount,-.035,.005,length/slabCount-.012,.07,.45,'terraceStone');
++    for(const y of[.19,.43,height])box(0,y,.015,length+.07,y===height?.105:.075,y===height?.15:.10,'red');
++    const count=Math.ceil(length/1.14);
++    for(let i=0;i<=count;i++){
++     const x=-length/2+i*length/count;
++     box(x,height*.51,.015,.115,height+.04,.13,'red');
++     box(x,height+.035,.015,.17,.055,.18,'wood');
++     box(x,.045,.015,.21,.09,.23,'terraceStone');
++    }
++    for(let i=0;i<count;i++)for(const t of[1/3,2/3])box(-length/2+(i+t)*length/count,.31,.015,.045,.42,.055,'red');
++   });
++   terraceSegments.push({a,b,floor,height,length});
++  };
++  panel([-outer,front],[-gap,front]);panel([gap,front],[outer,front]);
++  panel([outer,-5.42],[outer,front]);
++  // Leave the actual western gallery doorway open in the return.
++  panel([-outer,2.85],[-outer,front]);
++ }
++ function towerTier({level,y,w,floor}){
++  const b=w*.64,core=b*.74,capitalBase=y-.82,roomTop=y-.74,roomFloor=floor+.14;
++  const chamberHeight=roomTop-roomFloor;
++  box(0,(roomFloor+roomTop)/2,0,core,chamberHeight,core,'dark');
++  box(0,floor-.035,0,b+.46,.18,b+.46,'wood');
++  box(0,floor+.075,0,b+.34,.065,b+.34,'red');
++  const axes=[-b/2,-b/6,b/6,b/2];
++  for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,1,()=>{
++   for(let bay=-1;bay<=1;bay++){
++    const x=bay*core*.31,pw=core*.245,ph=Math.max(.46,chamberHeight-.40),cy=(roomFloor+roomTop)/2,z=core/2+.025;
++    if(level===0)lattice(x,cy,z,pw,ph);
++    else{
++     box(x,cy,z,pw,ph,.13,'plaster');
++     for(const xx of[-pw/2,0,pw/2])box(x+xx,cy,z+.09,.055,ph+.10,.075,'red');
++     for(const yy of[-ph/2,0,ph/2])box(x,cy+yy,z+.09,pw+.08,.055,.075,'red');
++    }
++    box(x,roomFloor+.075,z,core*.28,.15,.10,'red');
++    box(x,roomTop-.06,z,core*.28,.12,.10,'red');
++   }
++   for(const x of[-core/2,-core/6,core/6,core/2])box(x,(roomFloor+roomTop)/2,core/2+.085,.095,chamberHeight+.08,.13,'red');
++   // The open ambulatory and the bearing band are separate real spaces.
++   rail(Array.from({length:9},(_,i)=>[-b*.54+i*b*1.08/8,floor+.04,b/2+.20]),.55);
++   for(const yy of[capitalBase-.06,capitalBase+.15])box(0,yy,b/2,b+.25,.13,.22,'red');
++  });
++  const positions=new Map();
++  for(let face=0;face<4;face++)for(const x of axes){const q=new T.Vector3(x,0,b/2).applyAxisAngle(new T.Vector3(0,1,0),face*Math.PI/2);positions.set(q.x.toFixed(6)+','+q.z.toFixed(6),[q.x,q.z]);}
++  for(const [x,z]of positions.values()){
++   const bottom=floor+.12,h=capitalBase-bottom;
++   box(x,floor+.065,z,.33,.13,.33,'dark');emit(shaft(.145,h),mats.red,x,bottom,z);
++  }
++  const spec={w,d:w,e:y,rise:1.12,curl:.48,pagoda:true};
++  const stations=[];
++  for(let face=0;face<4;face++)for(const x of[-b/6,b/6]){const q=new T.Vector3(x,0,b/2).applyAxisAngle(new T.Vector3(0,1,0),face*Math.PI/2);stations.push({x:q.x,z:q.z,yaw:face*Math.PI/2,corner:false});}
++  for(const sx of[-1,1])for(const sz of[-1,1])stations.push({x:sx*b/2,z:sz*b/2,yaw:Math.atan2(sx,sz),corner:true});
++  const contacts=[];
++  for(const station of stations){
++   const {x,z,yaw,corner}=station,scale=.50,depthScale=corner?.59:.64,c=Math.cos(yaw),s=Math.sin(yaw),at=(xx,zz)=>roofHeight(spec,x+c*xx+s*zz,z-s*xx+c*zz)-.40;
++   // Fit the COMPLETE projecting assembly below both sides of each hip.
++   // One diagonal corner assembly replaces two intersecting face clusters.
++   const top=Math.min(...[-.56,0,.56].flatMap(xx=>[-.18,.48,.98].map(zz=>at(xx,zz)))),gap=top-capitalBase;
++   if(gap<.30)throw Error('Scene07 tower363 has no occupied bearing gap');
++   group(x,capitalBase,z,yaw,1,()=>{
++    kit.cluster(0,0,0,gap,scale,true,depthScale);
++    for(const xx of[-.46,0,.46]){
++     const zz=1.43*depthScale,bodyTop=gap-(.020*(1-(xx/.56)**2))*(gap/2.08),target=Math.min(...[-.07,.07].flatMap(dx=>[-.09,.09].map(dz=>at(xx+dx,zz+dz)))),h=target-capitalBase-bodyTop;
++     if(h>.004)box(xx,bodyTop+h/2,zz,.15,h+.003,.18,'wood');
++    }
++   });
++   contacts.push({...station,capitalBase,roofReceiverY:top,occupiedHeight:gap});
++  }
++  towerTiers.push({level,w,floor,chamberTop:roomTop,capitalBase,primaryPosts:positions.size,bearingAssemblies:stations.length,contacts});
++ }
++ function westGallery(){
++  const x=-7.7,z=-9,width=7.7,datum=5.70,floor=6.70,axes=Array.from({length:6},(_,i)=>-width/2+i*width/5),roofOffsetX=-.10,spec={w:width+1.05,d:4.3,e:3.20,rise:.85,curl:.25};
++  group(x,datum,z,0,1,()=>{
++   // A raised, occupied gallery meets a four-riser side doorway. The old
++   // wing floor was 2.3m below that doorway and had no traversable connection.
++   const ground=Math.min(...[-width/2,0,width/2].flatMap(xx=>[-1.60,1.60].map(zz=>groundModel(x+xx,z+zz)))),bottom=Math.max(1.5,ground-.25)-datum,h=1-bottom;
++   box(0,(bottom+1)/2,0,width,h,3.2,'plinthMortar');
++   const rows=Math.ceil(h/.245),columns=Math.ceil(width/.65);
++   for(let row=0;row<rows;row++)for(let col=0;col<columns;col++){
++    const xx=-width/2+(col+.5+(row%2)*.32)*width/columns;if(xx>width/2-.12)continue;
++    emit(masonryForms[(row+col*3)%masonryForms.length],mats.terraceStone,xx,bottom+(row+.5)*h/rows,1.65,.64,h/rows*.98,.30,[0,0,0],.88+.09*Math.sin(row*1.7+col*2.3));
++   }
++   // The raised solid core has battered geological faces, rather than a
++   // newly exposed smooth cliff. Original CC0 stones retain uniform scale,
++   // UVs and PBR channels. Their complete bounds stay below the walking cap.
++   const wallFaces=[{x:0,z:1.60,yaw:0,length:width},{x:-width/2,z:0,yaw:-Math.PI/2,length:3.2},{x:width/2,z:0,yaw:Math.PI/2,length:3.2}];
++   for(let face=0;face<wallFaces.length;face++){
++    const wall=wallFaces[face],columns=Math.ceil(wall.length/.76),courses=Math.ceil(h/.34);
++    group(wall.x,0,wall.z,wall.yaw,1,()=>{
++     for(let row=0;row<courses;row++)for(let col=0;col<columns;col++){
++      const phase=row*17+col*7+face*31,variant=scannedStones.variants[(row*3+col*5+face)%scannedStones.variants.length],scale=.49+.065*(.5+.5*Math.sin(phase*1.73)),rot=[.025*Math.sin(phase),.19*Math.sin(phase*2.1),.035*Math.cos(phase)],turn=new T.Matrix4().makeRotationFromEuler(new T.Euler(...rot)).scale(new T.Vector3(scale,scale,scale));
++      if(!variant.geometry.boundingBox)variant.geometry.computeBoundingBox();const bounds=variant.geometry.boundingBox.clone().applyMatrix4(turn),xx=-wall.length/2+(col+.5+(row%2)*.18)*wall.length/columns,yy=Math.min(bottom+(row+.5)*h/courses,.79-bounds.max.y),toe=.11+.18*(1-row/courses);
++      emit(variant.geometry,variant.dry,xx,yy,toe,scale,scale,scale,rot,.88+.10*Math.sin(phase*.71));galleryFoundationStones++;
++     }
++    });
++   }
++   box(0,.935,0,width+.16,.13,3.42,'terraceStone');
++   for(const zz of[-1.1,1.1])for(const xx of axes){
++    const top=Math.min(...[-.35,0,.35].flatMap(dx=>[-.10,.62].map(dz=>roofHeight(spec,xx+dx-roofOffsetX,zz+(zz>0?dz:-dz))-.40))),head=top-.56,bottom=1.12;
++    box(xx,1.065,zz,.30,.13,.30,'dark');emit(shaft(.115,head-bottom),mats.red,xx,bottom,zz);
++    group(xx,head,zz,zz>0?0:Math.PI,1,()=>kit.cluster(0,0,0,.56,.32,true,.34));
++   }
++   for(const xx of axes){lattice(xx,1.83,-.98,1.10,1.18);}
++   for(const yy of[1.12,2.51,2.70])box(0,yy,-1.04,width+.12,.12,.20,'red');
++   rail(Array.from({length:9},(_,i)=>[-width/2+i*width/8,1,1.35]),.58);
++   group(roofOffsetX,0,0,0,1,()=>physicalRoof({...spec,label:'west-connector-solid-gallery363',supports:[{xs:axes.map(q=>q-roofOffsetX),z:1.1,head:2.68},{xs:axes.map(q=>q-roofOffsetX),z:-1.1,head:2.68}]},[width+1.2,4.3]));
++  });
++  const door=new T.Vector3(-7,0,1.57).applyAxisAngle(new T.Vector3(0,1,0),-.25).add(new T.Vector3(4.6,0,-9)),a=new T.Vector3(x+width/2,floor,z),b=new T.Vector3(door.x,7.30,door.z),delta=b.clone().sub(a),n=new T.Vector3(-delta.z,0,delta.x).normalize(),yaw=-Math.atan2(delta.z,delta.x),count=4,run=Math.hypot(delta.x,delta.z),stairWidth=2.30;
++  for(let i=0;i<count;i++){
++   const p=a.clone().lerp(b,(i+.5)/count),top=floor+(7.30-floor)*(i+1)/count;
++   box(p.x,top-.31,p.z,run/count+.025,.62,stairWidth,'terraceStone',[0,yaw,0]);
++   box(p.x,top-.035,p.z,run/count+.035,.07,stairWidth+.04,'terraceStone',[0,yaw,0]);
++  }
++  for(const side of[-1,1]){
++   const p=a.clone().addScaledVector(n,side*(stairWidth/2+.05)),q=b.clone().addScaledVector(n,side*(stairWidth/2+.05)),length=p.distanceTo(q),angle=Math.atan2(q.y-p.y,Math.hypot(q.x-p.x,q.z-p.z));
++   for(const t of[0,.5,1]){const c=p.clone().lerp(q,t);box(c.x,c.y+.34,c.z,.12,.68,.12,'red');}
++   group((p.x+q.x)/2,(p.y+q.y)/2,(p.z+q.z)/2,yaw,1,()=>{for(const yy of[.20,.61])box(0,yy,0,length+.04,.085,.11,'red',[0,0,angle]);});
++  }
++  galleryConnection={galleryFloor:floor,hallFloor:7.30,oldGalleryFloor:5,risers:count,rise:(7.30-floor)/count,run,tread:run/count,start:a.toArray(),door:b.toArray(),solidClosedRoof:true,hallEndRoofOverhang:.425,westTerraceRailOpening:[.42,2.85],foundation:'Closed capped stone platform seated below sampled garden soil; jointed backing and three battered uniformly scaled CC0 scan faces',galleryFoundationStones,unchangedDownstreamRandomReplay:true};
++ }
++ return{hallTerrace,towerTier,westGallery,info:()=>({revision:'scene07-cleared-gallery-door-and-bearing-contacts363-r04',terraceSegments,towerTiers,galleryConnection,deepBearings:kit.instances,construction:'Closed recessed tower chambers, open surrounding galleries, twelve continuous posts per tier, eight front-facing and four diagonal corner bearing assemblies, capped open main-hall terrace, and a raised roofed west gallery with four solid side-door treads.',cameraChanged:false,routeDatumsChanged:false,externalAssetsAdded:0,photoSurfaces:false,visualAccepted:false})};
++}
+--- a/reconstructions/scene-07/src/grand-frame182.js
++++ b/reconstructions/scene-07/src/grand-frame182.js
+@@ -43,9 +43,9 @@
+  const deep319=createBearing174(T,{emit(g,ma,x=0,y=0,z=0,sx=1,sy=1,sz=1,rot=0){const key=ma==='bearingGilt'?'gold':/flared-bearing-cup|roof-receiver/.test(g.name)?'wood':/load-arm|carved-nose-arm|cantilever-tail/.test(g.name)?'red':({cedar:'wood',red:'red'}[ma]||ma);finishClasses320.set(g.name,{sourceMaterial:ma,scene07Material:key});emit(g,material320(key)||key,x,y,z,sx,sy,sz,Array.isArray(rot)?rot:[0,rot,0]);},grouped(x,y,z,yaw,fn){group(x,y,z,yaw,1,fn);},keep:g=>g});
+  function frame(x,z,bottom,roofBottom,radius,{front=1,upper=false,roofAt=null,roofContains=null,metricX=1,metricZ=1,carved=true}={}){
+   const probes319=[-.80,0,.80].flatMap(dx=>[-.20,.81,.96,1.11].map(dz=>[dx,dz]));
+-  const deepFits319=upper&&carved&&(!roofContains||probes319.every(([dx,dz])=>roofContains(x+front*dx,z+front*dz)));
++  const deepFits319=carved&&(!roofContains||probes319.every(([dx,dz])=>roofContains(x+front*dx,z+front*dz)));
+   if(deepFits319&&roofAt)roofBottom=Math.min(roofBottom,...probes319.map(([dx,dz])=>roofAt(x+front*dx,z+front*dz)));
+-  const capHeight=deepFits319?Math.min(.98,roofBottom-bottom-.50):(upper?.62:.84),head=roofBottom-capHeight,shaftBottom=bottom+.14,shaftTop=head-.075,height=shaftTop-shaftBottom;
++  const capHeight=deepFits319?Math.min(upper?.98:.88,roofBottom-bottom-.50):(upper?.62:.84),head=roofBottom-capHeight,shaftBottom=bottom+.14,shaftTop=head-.075,height=shaftTop-shaftBottom;
+   if(height<.25)throw Error('182 frame has no occupied shaft interval');
+   emit(shaft(radius,height),mats.red,x,shaftBottom,z,metricX,1,metricZ);
+   emit(shoe,mats.terraceStone,x,bottom+.07,z,radius/.31*metricX,1,radius/.31*metricZ);
+@@ -55,7 +55,7 @@
+   const scaleY=capHeight/.92;
+   group(x,head,z,front<0?Math.PI:0,1,()=>{
+    if(deepFits319){
+-    const sampleZ=z+front*1.32,roofAtSample=roofAt?roofAt(x,sampleZ):roofBottom,sampleY=Math.min(head+capHeight*.55,roofAtSample-.14),key='upper-bearing320-'+(front>0?'front':'rear')+'-'+x.toFixed(2),localPoint=[x,sampleY,sampleZ],worldPoint=sitePoint214(hallLocalPoint214(localPoint,{upper:true})),normalPoint=sitePoint214(hallLocalPoint214([x,sampleY,sampleZ+front],{upper:true})),normalWorld=new T.Vector3(...normalPoint).sub(new T.Vector3(...worldPoint)).normalize().toArray(),record={key,upper:true,axis:[x,z],head,roofBottom,capHeight,front,localPoint,worldPoint,normalWorld,roofAtSample,roofClearance:roofAtSample-sampleY,cubeNear:.08,noseFrontOffset:1.135,probeForwardOffset:1.32,probeBeyondGalleryEdge:Math.abs(sampleZ)-3.95};stations320.push(record);const previousStation=activeStation320;activeStation320=record;
++    const sampleZ=z+front*1.32,roofAtSample=roofAt?roofAt(x,sampleZ):roofBottom,sampleY=Math.min(head+capHeight*.55,roofAtSample-.14),key=(upper?'upper':'lower')+'-bearing320-'+(front>0?'front':'rear')+'-'+x.toFixed(2),localPoint=[x,sampleY,sampleZ],worldPoint=sitePoint214(hallLocalPoint214(localPoint,{upper})),normalPoint=sitePoint214(hallLocalPoint214([x,sampleY,sampleZ+front],{upper})),normalWorld=new T.Vector3(...normalPoint).sub(new T.Vector3(...worldPoint)).normalize().toArray(),record={key,upper,axis:[x,z],head,roofBottom,capHeight,front,localPoint,worldPoint,normalWorld,roofAtSample,roofClearance:roofAtSample-sampleY,cubeNear:.08,noseFrontOffset:1.135,probeForwardOffset:1.32,probeBeyondGalleryEdge:Math.abs(sampleZ)-3.95};if(upper)stations320.push(record);const previousStation=activeStation320;activeStation320=upper?record:null;
+     try{deep319.cluster(0,0,0,capHeight,.70,true,.67);
+     for(const xx of[-.66,0,.66]){
+      const zz=1.43*.67,bodyTop=capHeight-(.020*(1-(xx/.784)**2))*(capHeight/2.08),target=roofAt?Math.min(...[-.10,0,.10].flatMap(dx=>[-.12,0,.12].map(dz=>roofAt(x+front*(xx+dx),z+front*(zz+dz))))):roofBottom,h=target-head-bodyTop;
+@@ -97,5 +97,5 @@
+   });
+   contacts.push({axis:[x,z],floor:bottom,shaftBottom,shaftTop,clearShaftHeight:height,head,roofBottom,capHeight,upper,bearingKind319:deepFits319?'reviewed03-four-rank-closed-carved-kit':'retained182-clipped-three-rank'});
+  }
+- return{frame,info:()=>({revision:'scene07-319-thick-correct-bearings-and-outside-station-captures320-r04',contacts,stationRadiance320:{stations:stations320,finishClasses:[...finishClasses320.entries()].map(([geometry,finish])=>({geometry,...finish})),materialCopies:stationMaterials320.size,outerSurfaceApproximation:true,cameraFollowing:false},deep319:{instances:deep319.instances,seats:deep319.seats,construction:deep319.construction},fittedGilt238:fittedGilt238.info(),construction:'Entasis shafts on mineral shoes; three crossed closed curved arm tiers, interleaved splayed blocks, actual fitted neck collars, pierced cast arm inserts and queried roof seats. Existing CC BY carved cheeks retained on front and outer axes. Inferred construction, not measured historical joinery.',visualAccepted:false})};
++ return{frame,info:()=>({revision:'scene07-full-depth-lower-and-upper-bearing363-r01',contacts,stationRadiance320:{stations:stations320,finishClasses:[...finishClasses320.entries()].map(([geometry,finish])=>({geometry,...finish})),materialCopies:stationMaterials320.size,outerSurfaceApproximation:true,cameraFollowing:false},deep319:{instances:deep319.instances,seats:deep319.seats,construction:deep319.construction},fittedGilt238:fittedGilt238.info(),construction:'Entasis shafts on mineral shoes; three crossed closed curved arm tiers, interleaved splayed blocks, actual fitted neck collars, pierced cast arm inserts and queried roof seats. Existing CC BY carved cheeks retained on front and outer axes. Inferred construction, not measured historical joinery.',visualAccepted:false})};
+ }
+--- a/reconstructions/scene-07/src/hall-facade214.js
++++ b/reconstructions/scene-07/src/hall-facade214.js
+@@ -135,13 +135,37 @@
+    const width=6.78;
+    for(let i=0;i<3;i++){
+     const x=-width/2+(i+.5)*width/3;
+-    box(x,3.19,-.07,width/3-.12,.65,.22,'hallPlaster214');
+     box(x,5.73,-.07,width/3-.12,.65,.22,'hallPlaster214');
+-    casements(x,4.43,0,1.62,1.81,{opening:i===1?.20:.04,opaque:i===0});
++    if(sign<0&&i===2){
++     // The raised west gallery now enters a real side doorway. Thick leaves
++     // swing inward from the retained jambs; the old closed paper casement
++     // and stone-height sill no longer block the four-riser connection.
++     const floor=2.85,h=2.59,w=1.66,cy=floor+h/2;
++     for(const side of[-1,1]){
++      box(x+side*(w/2+.045),cy,.02,.105,h+.12,.30,'red');
++      group(x+side*w/2,cy,.045,-side*1.22,1,()=>{
++       const cx=-side*w/4;
++       box(cx,0,0,w/2-.025,h-.025,.085,'dark');
++       for(const xx of[-w/4,w/4])box(cx+xx,0,.052,.055,h+.015,.065,'red');
++       for(const yy of[-h/2,0,h/2])box(cx,yy,.052,w/2,.065,.065,'red');
++       for(const yy of[-.86,.86])box(cx,yy,.090,w/2-.12,.025,.012,'hallGilt214');
++       for(const yy of[-.92,0,.92])emit(hinge,mats.hallGilt214,0,yy,.02);
++      });
++     }
++     box(x,floor-.025,.025,w+.20,.05,.40,'terraceStone');
++    }else{
++     box(x,3.19,-.07,width/3-.12,.65,.22,'hallPlaster214');
++     casements(x,4.43,0,1.62,1.81,{opening:i===1?.20:.04,opaque:i===0});
++    }
+     lintel(x,5.89,.10,2.06,.25);stats.returnBays++;
+    }
+    for(let i=0;i<=3;i++)box(-width/2+i*width/3,4.50,.055,.16,3.32,.30,'red');
+-   for(const y of[2.91,5.47,6.18,6.47])box(0,y,.045,width+.20,.14,.32,'red');
++   for(const y of[2.91,5.47,6.18,6.47]){
++    if(sign<0&&y===2.91){
++     const start=-width/2-.10,end=width/2+.10,doorCentre=width/3,left=doorCentre-.94,right=doorCentre+.94;
++     box((start+left)/2,y,.045,left-start,.14,.32,'red');box((right+end)/2,y,.045,end-right,.14,.32,'red');
++    }else box(0,y,.045,width+.20,.14,.32,'red');
++   }
+   });
+  }
+  function upperWall(z,angle=0,width=11.78,count=6){
+--- a/reconstructions/scene-07/src/main.js
++++ b/reconstructions/scene-07/src/main.js
+@@ -9,6 +9,7 @@
+ import {buildOccupiedUpperHall152} from './occupied-hall152.js';
+ import {createHallCorbels153} from './hall-corbels153.js';
+ import {createGrandFrame182} from './grand-frame182.js';
++import {createArchitecturalMassing363} from './architectural-massing363.js';
+ import {loadCarvedFriezes154} from './carved-friezes154.js';
+ import {loadScannedFrieze157} from './scanned-frieze157.js';
+ 
+@@ -99,6 +100,7 @@
+ const hallCorbels153=createHallCorbels153({emit,box,group,mats});
+ const grandFrame182=await createGrandFrame182({emit,box,group,mats});
+ const hallFacade214=createHallFacade214({emit,box,group,mats,carvedPanel,doorCarving:carvedDoorPanel238});
++const architecturalMassing363=createArchitecturalMassing363({emit,box,group,mats,column,lattice,rail,roofHeight:physicalRoofHeight153,physicalRoof,masonryForms,scannedStones,groundModel:gardenHeightModel214});
+ const lowerRoof153={w:16.2,d:16,e:7.38,rise:1.37,curl:.48},upperRoof153={w:14.8,d:18.7,e:UPPER_HALL_ROOF_EAVE214,rise:UPPER_HALL_ROOF_RISE214,curl:.65,gabled:true,profile319:true,ridgeFraction:UPPER_HALL_ROOF_RIDGE_FRACTION214,ridgeSkew:UPPER_HALL_ROOF_SKEW214};
+ const lowerRoofBottom214=(x,z)=>physicalRoofHeight153(lowerRoof153,x,z+2)-.40;
+ const upperRoofContains214=(x,z)=>Math.abs(x-UPPER_HALL_ROOF_CENTRE214[0])<upperRoof153.w/2-.015&&Math.abs(z-UPPER_HALL_ROOF_CENTRE214[2])<upperRoof153.d/2-.015;
+@@ -154,6 +156,7 @@
+ // bank. Its capped wall and the shortened lower storey share one floor datum.
+ box(0,1.37,-.4,16.1,2.74,10.6,'plinthMortar');box(0,2.76,-.4,16.4,.15,10.9,'terraceStone');
+ for(let row=0;row<7;row++)for(let col=0;col<20;col++){const x=-7.65+col*.80+(row%2)*.40;if(x>7.85)continue;const v=scannedStones.variants[(row*3+col*5)%6],s=.42+rr(-.018,.018);emit(v.geometry,v.dry,x,.08+row*.37,4.95,s,s,s,[0,(col%2)*.13,rr(-.035,.035)],rr(.80,1.10));}
++architecturalMassing363.hallTerrace();
+ // Entire stone stair, landing and its rail are built as one continuous route in layout118.
+ // Deep interior wall, lacquered beams, actual side passage and thick front columns.
+ box(0,4.76,-4.65,14.4,4.05,.25,'dark');
+@@ -191,27 +194,8 @@
+ // room for the longer physical finial seen above the compact top roof.
+ const ys=[3.7,6.4,9.05,11.65,14.2],ws=[8.1,7.75,7.35,6.95,6.55],oldWs=[8.7,8.3,7.8,7.35,6.85];
+ for(let l=0;l<5;l++){
+-  const y=ys[l],w=ws[l],floor=l?ys[l-1]+.61:.6,b=w*.64,core=b*.74;
+-  box(0,(y+floor)/2,0,core,y-floor-.08,core,'dark');
+-  box(0,floor-.035,0,b+.46,.18,b+.46,'wood');
+-  box(0,floor+.075,0,b+.34,.065,b+.34,'red');
+-  // The recessed enclosure and actual lattice/boarding are built on all four
+-  // sides, including the formerly bare right face visible from the camera.
+-  for(let face=0;face<4;face++)group(0,0,0,face*Math.PI/2,1,()=>{
+-    for(let bay=-1;bay<=1;bay++){
+-      const x=bay*core*.31;
+-      if(l===0)lattice(x,(floor+y)/2-.04,core/2+.025,core*.245,(y-floor)*.56);
+-      else{const cy=(floor+y)/2-.04,pw=core*.245,ph=(y-floor)*.56,zp=core/2+.025;box(x,cy,zp,pw,ph,.13,'plaster');for(const xx of[-pw/2,0,pw/2])box(x+xx,cy,zp+.09,.055,ph+.10,.075,'red');for(const yy of[-ph/2,0,ph/2])box(x,cy+yy,zp+.09,pw+.08,.055,.075,'red');}
+-      box(x,floor+.20,core/2+.015,core*.28,.29,.10,'red');
+-      box(x,y-.38,core/2+.015,core*.28,.25,.10,'red');
+-    }
+-    for(const xx of[-core/2,-core/6,core/6,core/2])box(xx,(floor+y)/2,core/2+.085,.095,y-floor,.13,'red');
+-    rail(Array.from({length:9},(_,i)=>[-b*.54+i*b*1.08/8,floor+.04,b/2+.20]),.55);
+-    for(const yy of[y-.70,y-.38])box(0,yy,b/2,b+.36,.17,.27,'red');
+-    for(let k=0;k<9;k++)bracket(-b*.48+k*b*.96/8,y-.48,b/2,.44,{interlocked:true});
+-  });
+-  const posts=new Set();for(const z of[-b/2,b/2])for(const x of[-b/2,0,b/2])posts.add(x+','+z);for(const x of[-b/2,b/2])posts.add(x+',0');
+-  for(const p of posts){const [x,z]=p.split(',').map(Number);column(x,z,floor,y-floor-.30,.14);bracket(x,y-.32,z,.68,{interlocked:true});}
++  const y=ys[l],w=ws[l],floor=l?ys[l-1]+.61:.6,b=w*.64;
++  architecturalMassing363.towerTier({level:l,y,w,floor});
+   physicalRoof({w,d:w,e:y,rise:1.12,curl:.48,pagoda:true,label:'pagoda-tier-'+(l+1),supports:[{xs:[-b/2,0,b/2],z:b/2,head:y+.23},{xs:[-b/2,0,b/2],z:-b/2,head:y+.23}]},[oldWs[l],oldWs[l]]);
+ }
+ rod([0,15.25,0],[0,21.4,0],.065,'gold');
+@@ -225,7 +209,7 @@
+ // End the joined wing outside that wall, retaining the old downstream garden
+ // random sequence independently of the changed architectural length.
+ const gallerySeed152=seed;
+-gallery(-7.7,-9,7.7);
++architecturalMassing363.westGallery();
+ seed=gallerySeed152;
+ for(let row=0;row<14;row++)for(let col=0;col<Math.ceil(12/.66);col++)if(-6+.33+col*.66+(row%2)*.17<=5.8)R();
+ for(let side=0;side<4;side++)for(let i=0;i<=Math.ceil((side%2?4.3:13.2)/.19);i++)for(let j=0;j<18;j++)R();
+@@ -505,4 +489,4 @@
+ function renderReference(n=7){return renderView([10.7,12.8,36.0],[0.0,7.0,-2.0],0,47);}
+ const dolly=createDollyPath({points:[[8.2,8.55,29.3],[8.7,9.1,30.6],[10.1,11.7,34.7],[10.7,12.8,36]],nearTarget:[5.941572,8.13,24.153507],farTarget:[0,7,-2],fov:47});
+ function renderShot(localTime=0){const p=dolly(localTime);return renderView(p.position,p.target,localTime,p.fov);}
+-window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,materialPhase238:materialPhaseInfo238(),revision:'scene07-rock-islets-and-layered-natural-fir-woodland340-r06',garden:{...gardenAccents.info,shoreComposition340:gardenShore340.info,naturalBackgrove340:naturalBackgrove340.info,site214:MIDGROUND_SITE214,hallDatum214:{modelOffset:HALL_DATUM_OFFSET214,worldOffset:HALL_DATUM_OFFSET214*MIDGROUND_SITE214.scale,upperRoofRise:UPPER_HALL_ROOF_RISE214,upperRoofEave:UPPER_HALL_ROOF_EAVE214,upperRoofRidgeFraction:UPPER_HALL_ROOF_RIDGE_FRACTION214,upperRoofSkew:UPPER_HALL_ROOF_SKEW214,upperRoofCentre:UPPER_HALL_ROOF_CENTRE214,upperStoreyPlan:UPPER_STOREY_PLAN214},layeredGarden214:layeredGarden214.info,floweringTrees214,independentPlanting:scanPlanting,momiji151:momiji151.info,scannedForest150,mountainTransport238:mountainTransport238.info(),mountainHorizon238:mountainHorizon238.info,skyRadiance:skyRadiance.info,solarDisk214:solarSource214.info,radianceUnits214:{scale:RADIANCE_SCALE214,cameraExposure:renderer.toneMappingExposure,equivalentExposureAtR18Units:1.02,emissionAndPracticalsScaledTogether:true,postProcessing:['RenderPass','GTAO','OutputPass'],bloom:false,aerialTransportBeforeToneMapping:true},waterRadiance214:{actualSceneReflection:true,actualReflectedSolarDisk:true,extraAnalyticGlint:false,dielectricFresnelF0:.02,directSunUniforms:false,solarDirection:sun.position.clone().sub(sun.target.position).normalize().toArray(),sourceIntensity:solarSource214.info.totalIntensity,renderedSourceIntensity:solarSource214.info.renderedTotalIntensity,radianceScale:RADIANCE_SCALE214,sourceColor:sun.color.toArray(),rippleApproximation:true},bankMaterial214:{sourceAtlasWindow:[.445,.445,.570,.570],mirroredMetricTriplanar:true,sourceImagePixelsUnchanged:true},routeGroundCover214:{revision:"r06-height-aware",geometryFamilies:routeGroundCover214.size,worldRouteExclusion:true,heightAwareWalkingPlane:true,underBridgeGrowthRetained:true,randomSequencePreserved:true},courtyardBounce167:courtyardBounce167.info,hallRadiance214:hallRadiance214.info,additionalLilyPads,clearWalkingSurfaces:true},layout:rebuiltLayout.audit,roofRevision:PHYSICAL_ROOF_REVISION,foregroundRoof:foregroundRoof.audit,islandLantern:islandLantern.info,verandaBell:verandaBell.info,physicalRoofs:physicalRoofAudits,occupiedHall152,hallFacade214:hallFacade214.info(),grandFrame182:grandFrame182.info(),hallCorbels153:hallCorbels153.info(),carvedFriezes154:carvedFriezes154.info(),scannedFrieze157:scannedFrieze157.info(),instances:instanceCount,triangles,programResources214:programResourceBudget214(),referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",roofProvenance:"reconstructions/scene-07/assets/physical-roof-provenance.json",pineFoliage:{heroPines148,construction:'Connected aged wood and branch fans carry closed retained-fascicle interiors and finer outer paired needles; r05 cloud-pad overlap, no hulls or scene cards',legacySprayGeometryNotUsedForHero:true,sprayTriangles:pineNeedleG.attributes.position.count/3,needleGroups:9,roughness:{dry:mats.pineNeedleDry.roughness,sunlit:mats.pineNeedleSunlit.roughness},lightGapSampling:true}}),dispose(){solarSource214.dispose();scannedFrieze157.dispose();carvedFriezes154.dispose();momiji151.dispose();forestLibrary150.dispose();skyRadiance.dispose();hallRadiance214.dispose();courtyardBounce167.dispose();plantLibrary.dispose();verandaBell.dispose();for(const lamp of gardenLanterns)lamp.dispose();gardenAccents.dispose();layeredGarden214.dispose();naturalBackgrove340.dispose();rebuiltLayout.dispose();islandLantern.dispose();foregroundRoof.dispose();scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());
++window.temple={ready:true,renderer,scene,camera,renderReference,renderView,renderShot,info:()=>({scene:7,materialPhase238:materialPhaseInfo238(),revision:'scene07-layered-architectural-massing363-r04',architecturalMassing363:architecturalMassing363.info(),garden:{...gardenAccents.info,shoreComposition340:gardenShore340.info,naturalBackgrove340:naturalBackgrove340.info,site214:MIDGROUND_SITE214,hallDatum214:{modelOffset:HALL_DATUM_OFFSET214,worldOffset:HALL_DATUM_OFFSET214*MIDGROUND_SITE214.scale,upperRoofRise:UPPER_HALL_ROOF_RISE214,upperRoofEave:UPPER_HALL_ROOF_EAVE214,upperRoofRidgeFraction:UPPER_HALL_ROOF_RIDGE_FRACTION214,upperRoofSkew:UPPER_HALL_ROOF_SKEW214,upperRoofCentre:UPPER_HALL_ROOF_CENTRE214,upperStoreyPlan:UPPER_STOREY_PLAN214},layeredGarden214:layeredGarden214.info,floweringTrees214,independentPlanting:scanPlanting,momiji151:momiji151.info,scannedForest150,mountainTransport238:mountainTransport238.info(),mountainHorizon238:mountainHorizon238.info,skyRadiance:skyRadiance.info,solarDisk214:solarSource214.info,radianceUnits214:{scale:RADIANCE_SCALE214,cameraExposure:renderer.toneMappingExposure,equivalentExposureAtR18Units:1.02,emissionAndPracticalsScaledTogether:true,postProcessing:['RenderPass','GTAO','OutputPass'],bloom:false,aerialTransportBeforeToneMapping:true},waterRadiance214:{actualSceneReflection:true,actualReflectedSolarDisk:true,extraAnalyticGlint:false,dielectricFresnelF0:.02,directSunUniforms:false,solarDirection:sun.position.clone().sub(sun.target.position).normalize().toArray(),sourceIntensity:solarSource214.info.totalIntensity,renderedSourceIntensity:solarSource214.info.renderedTotalIntensity,radianceScale:RADIANCE_SCALE214,sourceColor:sun.color.toArray(),rippleApproximation:true},bankMaterial214:{sourceAtlasWindow:[.445,.445,.570,.570],mirroredMetricTriplanar:true,sourceImagePixelsUnchanged:true},routeGroundCover214:{revision:"r06-height-aware",geometryFamilies:routeGroundCover214.size,worldRouteExclusion:true,heightAwareWalkingPlane:true,underBridgeGrowthRetained:true,randomSequencePreserved:true},courtyardBounce167:courtyardBounce167.info,hallRadiance214:hallRadiance214.info,additionalLilyPads,clearWalkingSurfaces:true},layout:rebuiltLayout.audit,roofRevision:PHYSICAL_ROOF_REVISION,foregroundRoof:foregroundRoof.audit,islandLantern:islandLantern.info,verandaBell:verandaBell.info,physicalRoofs:physicalRoofAudits,occupiedHall152,hallFacade214:hallFacade214.info(),grandFrame182:grandFrame182.info(),hallCorbels153:hallCorbels153.info(),carvedFriezes154:carvedFriezes154.info(),scannedFrieze157:scannedFrieze157.info(),instances:instanceCount,triangles,programResources214:programResourceBudget214(),referenceCamera:[10.7,12.8,36],externalAssets:true,assetProvenance: "reconstructions/scene-07/assets/scanned-timber-provenance.json",stoneAssetProvenance:"reconstructions/scene-07/assets/scanned-garden-stones-provenance.json",roofProvenance:"reconstructions/scene-07/assets/physical-roof-provenance.json",pineFoliage:{heroPines148,construction:'Connected aged wood and branch fans carry closed retained-fascicle interiors and finer outer paired needles; r05 cloud-pad overlap, no hulls or scene cards',legacySprayGeometryNotUsedForHero:true,sprayTriangles:pineNeedleG.attributes.position.count/3,needleGroups:9,roughness:{dry:mats.pineNeedleDry.roughness,sunlit:mats.pineNeedleSunlit.roughness},lightGapSampling:true}}),dispose(){solarSource214.dispose();scannedFrieze157.dispose();carvedFriezes154.dispose();momiji151.dispose();forestLibrary150.dispose();skyRadiance.dispose();hallRadiance214.dispose();courtyardBounce167.dispose();plantLibrary.dispose();verandaBell.dispose();for(const lamp of gardenLanterns)lamp.dispose();gardenAccents.dispose();layeredGarden214.dispose();naturalBackgrove340.dispose();rebuiltLayout.dispose();islandLantern.dispose();foregroundRoof.dispose();scannedTimber.dispose();scannedStones.dispose();scene.traverse(o=>{if(o.geometry)o.geometry.dispose();});renderer.dispose();}};if(!qp.has('defer')){renderReference();if(!qp.has('render')){let start=performance.now();function animate(){renderShot((performance.now()-start)*.001%7);requestAnimationFrame(animate);}requestAnimationFrame(animate);}}console.log('temple07 ready',window.temple.info());

@@ -1,0 +1,183 @@
+{
+  "status": "rendered_geometry_candidate_for_parent_integration",
+  "photographicFidelityAccepted": false,
+  "canonicalUntouched": true,
+  "gitEdits": false,
+  "reference": "/Users/mima1234/temple-cinema-live-sync/references/hd/5-照片-6.jpg",
+  "baselineSource": "b45872abec4a2f3f1c75cbc4a6c4cc139dbaceaf1813b3760a4a24055c5ac28e",
+  "source": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+  "candidate": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05",
+  "runtimePatch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/runtime361-r05.patch",
+  "patchSHA256": "01b87502f954d23bf60e07c8d462d31015b36cb9757489b7ac835d218d303477",
+  "runtimeFiles": [
+    {
+      "path": "reconstructions/scene-05/src/scene.js",
+      "beforeSHA256": "96f59b6cf374385b8230d61b173a970c307dceb9e5eb821bf0718daa32d80c6f",
+      "afterSHA256": "f8d7367d9c730ba00dc58fd3b5fbc7ab218a5132e37f7100b83d1c9635237449",
+      "bytes": 50817
+    },
+    {
+      "path": "reconstructions/scene-05/src/architecture.js",
+      "beforeSHA256": "c150f974b9cdbe608d66617b618ced8c727972f17db53091749b260b104ec2c9",
+      "afterSHA256": "c9450fa17be0c10e0907f5883f03ce4a4ee25301e3b1768094d39b6a59a0a455",
+      "bytes": 277255
+    },
+    {
+      "path": "reconstructions/scene-05/src/sculpted-joinery.js",
+      "beforeSHA256": "cc9cfed2982229ab836b7b7c72a1df6080f8836a9b50f0c806a556de192f6389",
+      "afterSHA256": "6b1b86aaa16ddfab36b9a4bdd10b8c0779c82accb5bb2c5454ca0b9b72d54362",
+      "bytes": 25378
+    },
+    {
+      "path": "reconstructions/scene-05/src/courtyard-reflection220.js",
+      "beforeSHA256": "6030a9028a8c3babec1b784ff0b7cb1f06a105f16980b2e2d6ae69c22692ffc7",
+      "afterSHA256": "f9c75ae3d434ee6bb0abb6bfea91241d7a92b5dd703edf9c45582702e3d1567e",
+      "bytes": 4524
+    },
+    {
+      "path": "reconstructions/scene-05/src/eave-craft361.js",
+      "beforeSHA256": null,
+      "afterSHA256": "dc184a8b5a45c8220e61a507ec6b2bd275449e79092d3a01b24a03512a585978",
+      "bytes": 9259
+    }
+  ],
+  "frames": [
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05/qa/ten-reference/05/iteration-scene05-eave361-r05-native-detail/reference.png",
+      "kind": "reference",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualNative": true,
+      "source": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+      "rgbaSha256": "dd5e3c86c3a8d03eb897ade85f8ae77e16dccf87e5302cf3396836f34ca5cd4c"
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05/qa/ten-reference/05/iteration-scene05-eave361-r05-native-detail/detail-native.png",
+      "kind": "detail-native",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualNative": true,
+      "source": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+      "rgbaSha256": "31199e43bcd0c01e22fc6b36e6167b3769d945bc98a3931742ca58489a4b1695"
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05/qa/ten-reference/05/iteration-scene05-eave361-r05-oblique/inspection-view.png",
+      "kind": "inspection-view",
+      "pixels": [
+        1254,
+        1254
+      ],
+      "actualNative": true,
+      "source": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+      "rgbaSha256": "ae687997b8f61c37f747e79c957002132cd7c80af36b6ff925b62aff4a6e1cc2"
+    }
+  ],
+  "reports": [
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05/qa/ten-reference/05/iteration-scene05-eave361-r05-native-detail/report.json",
+    "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/candidate-r05/qa/ten-reference/05/iteration-scene05-eave361-r05-oblique/report.json"
+  ],
+  "sourceIdentity": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/r05-source-identity.json",
+  "validation": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/r05-geometry-validation.json",
+  "validationScript": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene05-eave361/validate361.mjs",
+  "geometry": {
+    "primaryBoot": {
+      "revision": "eave361-r05",
+      "type": "primary",
+      "variant": 0,
+      "construction": "Closed returned metal sleeve, finite gilded floor and dark recessed field, two rolled frames, raised chased curled fronds and folded side ornaments; actual cut-plane mount retained",
+      "normalizedReturn": 0.235,
+      "source": "HD05 observed fitting hierarchy; authored motif interpretation",
+      "photoPixelsUsed": false,
+      "solids": 61,
+      "triangles": 25412,
+      "topology": {
+        "boundaryEdges": 0,
+        "inconsistentEdges": 0,
+        "collapsedTriangles": 0
+      },
+      "finite": true,
+      "positiveVolume": true
+    },
+    "douReceiverPrototypes": 41,
+    "ceramic": {
+      "body": {
+        "triangles": 1792,
+        "finite": true,
+        "signedVolume": 1.0340951275384649,
+        "boundaryEdges": 0,
+        "inconsistentEdges": 0,
+        "collapsedTriangles": 0
+      },
+      "lip": {
+        "triangles": 864,
+        "finite": true,
+        "signedVolume": 0.008490225639638853,
+        "boundaryEdges": 0,
+        "inconsistentEdges": 0,
+        "collapsedTriangles": 0
+      },
+      "inner": {
+        "triangles": 672,
+        "finite": true,
+        "signedVolume": 0.003447037144953222,
+        "boundaryEdges": 0,
+        "inconsistentEdges": 0,
+        "collapsedTriangles": 0
+      },
+      "relief": {
+        "triangles": 5808,
+        "finite": true,
+        "signedVolume": 0.029321590807219505,
+        "boundaryEdges": 0,
+        "inconsistentEdges": 0,
+        "collapsedTriangles": 0
+      }
+    }
+  },
+  "load": {
+    "baselineSceneTriangles": 54317894,
+    "r03SceneTriangles": 82807046,
+    "finalSceneTriangles": 64750214,
+    "changeFromBaselinePercent": 19.206046537813126,
+    "finalNativeReferenceDrawTriangles": 153247197,
+    "finalNativeReferenceDrawCalls": 899,
+    "scope": "Scene inventory count includes actual instance multiplicity; native draw triangles include the existing shadow/AO passes. New prototype meshes remain shared through InstancedMesh."
+  },
+  "retained": [
+    "Fixed camera, asymmetric sensor crop and dolly",
+    "Tier scales/heights and complete site construction",
+    "Roof/hip/lantern centrelines, cut planes and mounts",
+    "Existing physical sun and measured sky and finite courtyard source positions/powers",
+    "Small secondary wood-cut/open-scroll hierarchy",
+    "Every existing external asset byte and license"
+  ],
+  "changed": [
+    "Large projecting bracket cut heads: complete closed gilded sleeves, finite floors and coffered recesses, double rims, closed raised scrolls/leaf shells and worked side returns",
+    "Tile caps: thicker eccentric fired-clay drums, actual rounded outer rim and inner fired bead, two closed convex flower whorls, subtle ceramic vertex wear",
+    "Dou receivers: continuous closed coved profile with separate smooth vertical faces and hard clipped-square corner normals; original lower/upper seats retained",
+    "Wood arm face arris grows from9mm to12mm while retaining the original4mm carving recess and actual contact planes",
+    "New surface materials assigned to the existing explicit actual courtyard radiance probe"
+  ],
+  "sourceHistory": {
+    "r00": "Exact b45872 canonical baseline, actual full+detail",
+    "r01": "Intermediate: sparse relief and overly full secondary gold plates",
+    "r02": "Intermediate: denser relief, old probe assignment repaired; secondary hierarchy still incorrect",
+    "r03": "Correct large/full versus small/open fitting hierarchy, still overly expensive tessellation",
+    "r04": "Optimized: actual full/detail/oblique valid, but read-only geometry validation found inward lip winding and Lathe pole degenerates",
+    "r05": "Repairs rim winding and removes collapsed pole triangles; final full/detail/oblique personally viewed"
+  },
+  "limits": [
+    "Still clearly CG in overall full frame; no photographic acceptance",
+    "Wide red timber faces remain too even and sheltered slots too dark relative to HD05",
+    "Authored foliate motif and timber/ceramic anatomy are visual reconstruction hypotheses, not recovered historic patterns",
+    "Remaining ceramic rows and metal weathering are more regular than the photograph",
+    "Additional geometry still costs more than baseline; source count rose by about19%, while subpixel tessellation was reduced fromR03",
+    "Existing one-probe native indirect/reflection solution remains an approximation; no new light/exposure changes were made"
+  ],
+  "newExternalAssets": false,
+  "referencePhotographRuntimeUse": false
+}

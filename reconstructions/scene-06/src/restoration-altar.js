@@ -5,6 +5,7 @@ import {buildMandorla205} from './mandorla205.js';
 import {buildOfferingJoinery198,buildKneelingSeat198,addCornice198,sourceLongDragon198,tryCompactShortOrnament198,installAltarMaterials198,chasedBaseRosette198} from './altar-joinery198.js';
 import {buildLayeredSourceLotus179} from './lotus-throne179.js';
 import {buildLayeredLotus222} from './lotus-throne222.js';
+import {buildLayeredLotus359} from './lotus-throne359.js';
 import {buildLivingOfferings233} from './living-offerings233.js';
 import {buildMonumentalMandorla,buildMonumentalAltarAccents,buildMonumentalFlowers,sculptedDragonRelief} from './monumental-altar-v3.js';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
@@ -984,7 +985,7 @@ function buildThronePedestal(b,x,z,radius,bottom,top,depthAspect){
 function smooth01R10(x){x=Math.max(0,Math.min(1,x));return x*x*(3-2*x);}
 function buildLotusThrone(b,x,seatY,z,radius,height,radialCompensation=[1,1],depthAspect=.68,sourceBearing=null) {
   b.withTransform(x,seatY-height,z,[radialCompensation[0],1,radialCompensation[1]*depthAspect],()=>{
-    if(radius>0){buildLayeredLotus222(b,{radius,height,depthAspect,sourceBearing});return;}
+    if(radius>0){(radius>1?buildLayeredLotus359:buildLayeredLotus222)(b,{radius,height,depthAspect,sourceBearing});return;}
     // The photographed cast lotus has broad overlapping, convex lobes.
     // Its belly projects out beyond the tips, which turn back toward the seat.
     // A narrow fan of straight upward triangles reads as a thorn crown.

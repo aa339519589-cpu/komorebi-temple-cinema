@@ -1,0 +1,58 @@
+{
+  "createdAt": "2026-10-26T17:08:59.365712+00:00",
+  "baseCommit": "065d54e8560b998941c7ced988dbb608d947684d",
+  "status": "actual geometry integrations; photographic fidelity not accepted",
+  "canonicalSources": {
+    "01": "c864a6771305b35a2f953ed619886b1f23696b248b6fd3deb69772d91b987e87",
+    "05": "7c40821ffc8f99b3332b5f69727cde3005ccc512880f9ce9de22305ff88bf2ec",
+    "06": "dab5da1b7b50d82872b0906fb9547cd3b2d6e3d1f5cd8e0db71e1ca3554b4ebf",
+    "07": "9fff508c2a6d71b54520fa39eb00cda649da54777eacda526b1eb5905b6ba4fa"
+  },
+  "scenes": {
+    "01": {
+      "sourceReceipt": "lookdev/scene01-structure360/best-reviewed-candidate360.json",
+      "rootActualReview": [
+        "full1254",
+        "bridge960 native subfrustum",
+        "stair960 native subfrustum",
+        "low960"
+      ],
+      "change": "continuous dark layered arch girders, mortised rails, fitted pins/heelstraps, braced bent and bank-backed masonry; separate seated stone stairs",
+      "remaining": "regular abutment outline/stone weathering; overall lighting/garden/material mismatch"
+    },
+    "05": {
+      "sourceReceipt": "lookdev/scene05-eave361/handoff361-r05.json",
+      "rootActualReview": [
+        "full1254",
+        "eave1254 native subfrustum",
+        "oblique1254"
+      ],
+      "change": "layered closed metal bearing boots, coved dou timber blocks, rounded double-rim ceramic caps with true relief",
+      "remaining": "broad orange timber and sheltered light remain CG; daylight364 in progress"
+    },
+    "06": {
+      "sourceReceipt": "lookdev/scene06-lotus359/handoff-r11.json",
+      "combinedActualCapture": "qa/ten-reference/06/iteration-scene06-sculpture-lotus365-native/report.json",
+      "change": "359R11 continuous rounded convex lotus petal bodies, three exposed staggered tiers, narrow tips/oblique lean, byte-exact bearing core; combined with existing358 original wrist source",
+      "rootActualReview": [
+        "private359 full/detail/low",
+        "combined358+359 full"
+      ],
+      "remaining": "petal regularity, bright gold response, statue pose/proportions and other room gaps; source358 known local cloth self-contacts remain"
+    },
+    "07": {
+      "sourceReceipt": "lookdev/scene07-massing363/handoff-r04.json",
+      "rootActualReview": [
+        "full1254",
+        "architecture1254 native subfrustum",
+        "low doorway1000"
+      ],
+      "change": "five recessed tower chambers and deep bearing assemblies, continuous hall terrace, raised roofed west gallery and clear side-door stair connection",
+      "remaining": "main roof/gable proportions, regular surfaces, broad daylight response and vegetation differ from reference"
+    }
+  },
+  "allTenPhotographicAccepted": false,
+  "filmGUnchanged": true,
+  "physical354FrozenAt10ebbUnchanged": true,
+  "knownExistingUserEditsUntouched": true
+}
