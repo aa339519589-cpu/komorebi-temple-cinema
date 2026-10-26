@@ -30,6 +30,18 @@
     "assets/polyhaven/shrub-02/textures/shrub_02_diff_4k.jpg",
     "assets/polyhaven/shrub-02/textures/shrub_02_nor_gl_4k.jpg",
     "reconstructions/camera-dolly.js",
+    "reconstructions/scene-02/assets/fir-sapling/fetch-original.py",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling.bin",
+    "reconstructions/scene-02/assets/fir-sapling/fir_sapling_4k.gltf",
+    "reconstructions/scene-02/assets/fir-sapling/provenance.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-files.json",
+    "reconstructions/scene-02/assets/fir-sapling/provider-info.json",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_branches_nor_gl_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_arm_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_diff_4k.jpg",
+    "reconstructions/scene-02/assets/fir-sapling/textures/fir_sapling_twigs_nor_gl_4k.jpg",
     "vendor/examples/jsm/lights/RectAreaLightTexturesLib.js",
     "vendor/examples/jsm/lights/RectAreaLightUniformsLib.js"
   ],
@@ -44,7 +56,7 @@
   "islandLantern": {
     "scope": "Only the nearest water-island stone lantern, replacing the single original lantern(4.8,14.2,5.8,.2) call. Other4lanterns, islands/garden RNG, existing camera/light/roof/rail geometry stay.",
     "anchor": "Local4.8,.2,14.2 scaled5.8/3.7, under the exact retained garden transform T(0,0,-3)*S(1,1,.6), world anchor4.8,.2,5.52.",
-    "envelope": "Old local full lamp bounds x/z±1.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
+    "envelope": "Old local full lamp bounds x/z\u00b11.06,y0..4.05 are retained. New parts are constrained inside that old envelope.",
     "geometry": "Thick closed curved/fluted kasa with a small actual rolled/upturned lip, original-height rounded-neck finial, short recessed firebag,7vertical+5horizontal fine bars per face, smaller closed warm core, closed carved-stone panels/petals, substantial shaft/base and11surface-rooted closed moss pads plus132small closed moss fibres.",
     "light": "The original mats.glow material/emissive intensity is borrowed unchanged; luminous centrelocalY2.84 retained. No point/area lights added or moved.",
     "inspectedConstruction": "scene04/src/scene04-lanterns.js reviewed for closed cap/cavity/relief/moss construction only. Scene04 proportions, scale and lights are not copied.",
@@ -154,7 +166,7 @@
     "revision": "scene07-mature-cupped-momiji151-r02",
     "source": "src/momiji-framing151.js",
     "construction": "Fixed world-space mature branch/forks, 442 closed serrated cupped 5/7-lobed leaves, petioles and actual raised veins; authored code, no raster scene assets.",
-    "comparison": "references/hd/6-照片-7.jpg",
+    "comparison": "references/hd/6-\u7167\u7247-7.jpg",
     "survey": "Manual observed framing; inferred 4.3-7.3m depth permits natural 6-12cm leaf size. Existing 30m-away flat-star leaf framing removed.",
     "cameraFollowing": false,
     "referenceUsedAsSceneTexture": false,
@@ -243,5 +255,11 @@
     "attribution": "assets/carved-bearing176/ATTRIBUTION.md",
     "license": "CC-BY-4.0",
     "visualAccepted": false
+  },
+  "garden340Fir": {
+    "source": "Existing Scene02 CC0 Poly Haven fir_sapling original asset; no download or asset byte rewrite",
+    "scope": "Actual naturally complete tree meshes rooted on Scene07 rendered soil slopes",
+    "provenance": "reconstructions/scene-02/assets/fir-sapling/provenance.json",
+    "newTextureOrMeshAssets": false
   }
 }

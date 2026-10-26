@@ -1,4 +1,5 @@
 import {T,V} from './kernel.js';
+import {placeStoneSlab342,buildStairGuardPiers342,craftStats342} from './craft-interfaces342.js';
 
 // The already declared scene02 granite scan supplies mineral structure, not a
 // painted staircase. Real metric UVs follow each individual closed stone slab.
@@ -44,14 +45,14 @@ export function buildHallStair144({b,top,bottom,width=2.85}){
    const slabs=i%3===1?4:3,phase=i%2?.07:-.035;
    for(let j=0;j<slabs;j++){
     const span=width/slabs,x=-width/2+span*(j+.5),tint=.91+.14*(.5+.5*Math.sin(i*9.1+j*4.7));
-    b.box(x,level-.043,0,span-.010,.087,depth+.035,'terraceTread',0,tint);stats.treadSlabs++;
+    placeStoneSlab342({b,center:[x,level-.046,0],size:[span-.012,.094,depth+.040],seed:i*5+j,tint});stats.treadSlabs++;
     // Each small nosing has the same bearing and carries a shallow weathered lip.
-    b.box(x,level-.051,-depth/2-.015,span-.014,.053,.055,'terraceTread',0,tint*.97);
+    // The rounded stone body is the real continuous worn nosing; no separate perfectly straight lip.
    }
    for(const sign of[-1,1]){
     const cheekX=sign*(width/2+.15),cheekTop=level+.29;
     b.box(cheekX,(cheekTop+1.40)/2,0,.255,cheekTop-1.4,depth-.012,'terraceCheek',0,.92+.08*Math.sin(i*3.7)**2);
-    b.box(cheekX,cheekTop+.051,0,.315,.102,depth+.028,'terraceTread');stats.cheekBlocks++;
+    placeStoneSlab342({b,center:[cheekX,cheekTop+.051,0],size:[.315,.102,depth+.028],seed:i*7+sign,material:'terraceTread',tint:.94+.05*Math.sin(i*1.91)**2});stats.cheekBlocks++;
     // A narrow rust-dark reveal separates consecutive blocks, never a floating cap.
     if(i%4===0)b.box(cheekX,level+.15,-depth/2+.016,.258,.20,.020,'terraceBody');
    }
@@ -61,5 +62,6 @@ export function buildHallStair144({b,top,bottom,width=2.85}){
  b.at([bottom.x,bottom.y-.055,bottom.z],yaw,()=>{
   for(let j=0;j<4;j++)b.box(-width/2+(j+.5)*width/4,0,-.35,width/4-.012,.11,.72,'terraceTread',0,.91+j*.035);
  });
- return{...stats,runMetres:run,riseMetres:top.y-bottom.y,widthMetres:width,construction:'Twenty closed bearing risers, individually jointed granite tread slabs, weathered nosings, stepped solid cheek courses and connected lower landing',sourcePixelsUsed:false};
+ buildStairGuardPiers342({b,top,bottom,width,yaw});
+ return{...stats,craft342:craftStats342(),runMetres:run,riseMetres:top.y-bottom.y,widthMetres:width,construction:'Twenty closed bearing risers, individually jointed granite tread slabs, continuous millimetre-worn rounded nosings, fitted cheek caps, two seated stone guard piers and connected lower landing',sourcePixelsUsed:false};
 }

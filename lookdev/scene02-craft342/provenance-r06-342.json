@@ -1,0 +1,154 @@
+{
+  "baseSource": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+  "candidateSource": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+  "heldOriginalSourceFiles": 86,
+  "changedOrAddedFiles": [
+    "reconstructions/scene-02/architecture.js",
+    "reconstructions/scene-02/carved-timber157.js",
+    "reconstructions/scene-02/courtyard-light342.js",
+    "reconstructions/scene-02/craft-interfaces342.js",
+    "reconstructions/scene-02/hall-roof154.js",
+    "reconstructions/scene-02/hall-terrace144.js",
+    "reconstructions/scene-02/main.js"
+  ],
+  "removedFiles": [],
+  "allDeclaredAssetBuffersAndTexturePixelsHeld": true,
+  "heldSpecificRoles": {
+    "reconstructions/scene-02/layout117.js": "a9d67acc1a77e25796bbe8b3bb9fed978cabecf1a6be855174d140e3a82e3251",
+    "reconstructions/scene-02/bridge-site210.js": "a7321d7c1cce862c9c11152f03043036b90c6e3d13545026da46e86415103488",
+    "reconstructions/scene-02/garden.js": "4b7098833e696b102207e0c866bc99182812040f249887378bbb56438a6efb21",
+    "reconstructions/scene-02/planted-shoulders147.js": "7e1f6dc30c9c5712e5af3742b35c8b0cb0587020855f7458a314bb18d2f1981f",
+    "reconstructions/scene-02/sky-wet210.js": "14e82da7dd86ce546c9a5f642d5472d83ab8334241ab2a35e76f3543de9af6d1",
+    "reconstructions/scene-02/scanned-timber.js": "1bf26d7ac8b8559b8edba12f72747f2c662491f70c34d18ee22a1749e23be28b",
+    "reconstructions/scene-02/veranda-boards.js": "b9fa9629a9256e5fd1419b0979b5b8fa198fa8e993b2c92b93e4908cce54c9fd",
+    "reconstructions/scene-02/veranda-rail117.js": "9cb6461b03e616989f949733b6dc970b9eea0b499b240d9191c4a1ff3b587065"
+  },
+  "geometryScope": {
+    "newMetricSlabs": 111,
+    "wornStairTreads": 67,
+    "copingAndGuardBaseCapSlabs": 44,
+    "stoneGuardPiers": 2,
+    "heldColumnStonePlinthsAdded": true,
+    "actualRafterCutFacePlates": 94,
+    "visibleConnectedUndersideWraps": 94,
+    "inboardContinuousPurlins": 1,
+    "purlinSeatPlates": 6,
+    "beamSeatPlates": 6,
+    "primaryBracketLateralWidthRatio": 1.0769230769230769,
+    "fixedRafterCutColumnCrossbeamAndMainRoofEnvelopeAnchorsHeld": true,
+    "concealedHousedJoineryInferredNotSubtractiveEngineeringModel": true,
+    "newPurlinMaterialRole": "Original existing fore-veranda cedar. Correctly uses exterior environment instead of remote hall-bearing probe."
+  },
+  "materialHypotheses": {
+    "carvingGold157": {
+      "oldSRGB": "#c4a064",
+      "oldMR": [
+        0.8,
+        0.4
+      ],
+      "newLinearRGB": [
+        0.78,
+        0.53,
+        0.2
+      ],
+      "newMR": [
+        0.94,
+        0.33
+      ],
+      "historicalAndCandidateAuthoredNotMeasured": true,
+      "originalBumpMapPixelsHeld": true
+    },
+    "hallBearing": {
+      "oldClearcoat": [
+        0.3,
+        0.14
+      ],
+      "newClearcoat": [
+        0.18,
+        0.32
+      ],
+      "linearRGBAndAllScanMapPointersHeld": true
+    },
+    "hallOxide": {
+      "oldClearcoat": [
+        0.68,
+        0.14
+      ],
+      "newClearcoat": [
+        0.2,
+        0.3
+      ],
+      "linearRGBAndAllScanMapPointersHeld": true
+    },
+    "newEaveGilt": {
+      "linearRGB": [
+        0.74,
+        0.5,
+        0.18
+      ],
+      "MR": [
+        0.95,
+        0.34
+      ],
+      "inferredNotMeasured": true
+    }
+  },
+  "nativeOpticsScope": {
+    "exposureBaselineAndCandidate": 0.94,
+    "sunDirectionHeld": true,
+    "sunIntensity": [
+      6.8,
+      8.2
+    ],
+    "hemisphere": [
+      0.62,
+      0.34
+    ],
+    "unshadowedFrontDirectional": [
+      0.22,
+      0.1
+    ],
+    "unshadowedPondDirectional": [
+      0.16,
+      0.06
+    ],
+    "legacyCourtArea": [
+      1.15,
+      0
+    ],
+    "legacyWestArea": [
+      1.75,
+      0.8
+    ],
+    "existingBridgeAreaHeld": 0.8,
+    "newShadowedIncomingSamples": 6,
+    "newShadowMapSize": 2048,
+    "newIncomingBoundaryAngularExtentHalfConeDegrees": 40,
+    "newUnshadowedLights": 0,
+    "objectOrScreenMasks": 0,
+    "newBeamCards": 0,
+    "actualHallProbe": [
+      2,
+      6.8,
+      -4
+    ],
+    "hallProbeLinearHDR": true,
+    "fullGI": false,
+    "energyAndUnseenBoundaryInferredNotMeasured": true
+  },
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/r06-native-craft342.patch",
+  "patchSha256": "1822f30d928c3ab26ba78ad56c33da8748b1755af9baddc222dc0afcef6cf8fa",
+  "staticPrototypes": "geometry-r05-342.json:120finitepositiveclosed/winding-consistent prototypes; does not establish full assembly intersection freedom or photographic fidelity",
+  "r05ActualImageReviewPending": false,
+  "canonicalModified": false,
+  "pushed": false,
+  "photographicAccepted": false,
+  "r06ActualImageReviewPending": false,
+  "sourceR05Retained": "b0f1ae320390aae05dcf4195a6b6fccd56ae9f33ed815b4221075c64642db85f",
+  "actualReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/r06-actual-review342.json",
+  "actualCounts": {
+    "meshes": 1745,
+    "instances": 163858,
+    "triangles": 195266945
+  }
+}

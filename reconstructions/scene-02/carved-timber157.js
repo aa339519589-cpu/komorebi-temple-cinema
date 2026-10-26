@@ -9,7 +9,7 @@ import {createCarvedRosette170} from './carved-rosette170.js';
 export function createCarvedTimber157({b,mats}){
  const stats={revision:'scene02-monumental-fitted-ensemble161',closedPrototypeKinds:0,heads:0,carvedCapitals:0,cloudNoses:0,sculptedLeafInstances:0,corniceTiers:0,piercedSpandrels:0,gableBuilt:false,construction:'Closed sculpted timber arms, moulded bearing bowls, flared carved receivers and geometric gilded leaf/scroll relief; shared R22 seats and bearing grid',photoTexture:false};
  const sx=layout.hall.scale[0],sz=layout.hall.scale[2];
- const gold=mats.gold.clone();gold.name='scene02-carved-hall-worn-gilt157';gold.color.setHex(0xc4a064);gold.roughness=.40;gold.metalness=.80;gold.envMap=null;mats.carvingGold157=gold;
+ const gold=mats.gold.clone();gold.name='scene02-carved-hall-worn-gilt157';gold.color.setRGB(.78,.53,.20);gold.roughness=.33;gold.metalness=.94;gold.envMap=null;mats.carvingGold157=gold;
  const bronze=mats.oldgold.clone();bronze.name='scene02-carved-hall-recessed-bronze157';bronze.color.setHex(0x96703e);bronze.roughness=.56;bronze.metalness=.66;bronze.envMap=null;mats.carvingBronze157=bronze;
  const dark=mats.darkwood.clone();dark.name='scene02-carved-openwork-shadow157';dark.color.setHex(0x27170f);dark.roughness=.8;mats.carvingRecess157=dark;
  const flower170=createCarvedRosette170({b});stats.carvedRosette170=flower170.stats;
@@ -79,6 +79,7 @@ export function createCarvedTimber157({b,mats}){
      cloudEnd(sign*span*.86,yy+.055,out+.19,0,.48+k*.035,sign<0);
     }
     b.box(0,yy+.30,out,.25,.30,.31,'hallOxide');
+    if(primary)facePlate(0,yy+.30,out+.160,.245,.275); // Fitted casting on the actual housed centre block.
     // Raised chased leaves follow the curved timber face, with dark edge
     // reveals. The load-bearing body remains wood through its full depth.
     for(const sign of[-1,1]){scrollAt([sign*span*.42,yy+.055,out+.184],.48+k*.025,0,sign<0?Math.PI:0,'hallBearing');leafAt([sign*span*.65,yy-.075,out+.192],.28,.40,0,-sign*.7,'carvingBronze157',.40);}
@@ -88,7 +89,7 @@ export function createCarvedTimber157({b,mats}){
    // the R22 apron, preserving the roof seat and the open inter-bay spaces.
    b.put(arm,'hallBearing',[0,top+.08,forward+.26],[.71,1,.88],[0,Math.PI/2,0]);bearing(0,top+.29,forward+.72,.40,.45,'hallBearing',true);
    if(primary)cloudEnd(0,-.22,.43,Math.PI/2,.72);
-  },[s*(primary||kind==='inner'||kind==='intermediate'?1.30:1.12),s*(kind==='tower'?1:kind==='inner'?.78:kind==='side'?.78:.74),s*(primary||kind==='inner'||kind==='intermediate'?1.18:1.12)]);stats.heads++;
+  },[s*(primary?1.40:kind==='inner'||kind==='intermediate'?1.30:1.12),s*(kind==='tower'?1:kind==='inner'?.78:kind==='side'?.78:.74),s*(primary||kind==='inner'||kind==='intermediate'?1.18:1.12)]);stats.heads++;
  }
  function spandrelAt(x,y,z,width){const scale=width/2.2;b.put(spandrel,'hallBearing',[x,y,z],[scale,1,1]);for(const sign of[-1,1]){scrollAt([x+sign*.47*scale,y+.19,z+.12],.72,0,sign<0?Math.PI:0,'carvingGold157');leafAt([x+sign*.73*scale,y+.04,z+.13],.43,.66,0,-sign*.65,'carvingBronze157',.65);leafAt([x+sign*.20*scale,y+.18,z+.14],.48,.66,0,sign*.46,'carvingGold157',.65);}leafAt([x,y+.05,z+.15],.48,.75,0,0,'carvingGold157',.6);stats.piercedSpandrels++;}
  function cornice(x,y,z,width,pitch=.48,endLift=0){

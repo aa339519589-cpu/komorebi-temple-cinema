@@ -1,0 +1,66 @@
+{
+  "status": "working-film-sampled-frame-review-complete",
+  "at": "2026-10-26T09:42:05.326951+00:00",
+  "sourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+  "personallyViewed": true,
+  "boards": [
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/source-shots-01-05-start-middle-end.jpg",
+      "sha256": "44a0bef72182f3824dd43af0d6d12da9599b86b5ae50b46ea4aacf5652ac8ab3",
+      "columns": 3,
+      "rows": 5
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/source-shots-06-10-start-middle-end.jpg",
+      "sha256": "3afe3a692de66b4502f7c59372cddf4eab9a564197de89f1fd92127d2c4f08e0",
+      "columns": 3,
+      "rows": 5
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-60-start-middle-end.jpg",
+      "sha256": "c26b6a926dbb6c13daa798f8baf15ac0d2c535a2cb660798c9da55dc5a0bc3be",
+      "columns": 3,
+      "rows": 1
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-60-transitions-01-05.jpg",
+      "sha256": "00c749883895e1d7aa5e584473707058aef60e3921e1ea51a8bb9d66b9ff1abe",
+      "columns": 3,
+      "rows": 5
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-60-transitions-06-09.jpg",
+      "sha256": "719dda506c2a3eb9999333db45d039794b8c16c950545391630fe6f9fd3eeb58",
+      "columns": 3,
+      "rows": 4
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-70-start-middle-end.jpg",
+      "sha256": "3ca7a7c84b7f63f699164eca358571de71468dba9d0f45af248314dc3be2d598",
+      "columns": 3,
+      "rows": 1
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-70-transitions-01-05.jpg",
+      "sha256": "b43fc38b0af5db498c47a4f97252505ee2ce7c3018ca8f0a5ace28618297acc8",
+      "columns": 2,
+      "rows": 5
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/review/master-70-transitions-06-09.jpg",
+      "sha256": "642cb40527a2ef9265753e8140500014472dda4bd473cb15a1e5e781a927a915",
+      "columns": 2,
+      "rows": 4
+    }
+  ],
+  "viewedScope": "All8 extracted encoded-frame boards: ten source-shot starts/middles/ends, both masters starts/middles/ends, all9 crossfade and hardcut boundaries. Also18 original native frames from first6 source shots.",
+  "findings": [
+    "No black/missing image or broken transition seen in sampled frames",
+    "Ten different true3D camera moves are present, with low starts and pullbacks",
+    "All scenes retain substantial reference mismatches in structure, materials, lighting and landscape density",
+    "G uses frozen1a490 sources and excludes later344 botany/focus and341/342/343/340 revisions"
+  ],
+  "technicalScope": "Both full masters decoded without errors; this sampled visual inspection is not every-frame photographic acceptance or no-flicker certification.",
+  "photographicAccepted": false,
+  "originalGoalComplete": false
+}

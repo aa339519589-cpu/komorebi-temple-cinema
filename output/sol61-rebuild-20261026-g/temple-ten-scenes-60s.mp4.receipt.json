@@ -1,0 +1,68 @@
+{
+  "status": "technical-edit-verified-needs-personal-frame-review",
+  "inputSignature": "48b790634a0f19011acf519b2b60ec49a8adfaa9892174b09d06dc7026d3c1ee",
+  "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/temple-ten-scenes-60s.mp4",
+  "sha256": "59d7b58fcb6d88f2449fde353556eb6f31cf72ad4c2cdf3c08e5eb5586a5a505",
+  "bytes": 124248999,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "color_space": "bt709",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "nb_read_frames": "1440"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "nb_read_frames": "2813"
+      }
+    ],
+    "format": {
+      "duration": "60.000000"
+    }
+  },
+  "fullDecode": {
+    "errors": 0
+  },
+  "sourceShotsKeptAtSevenSeconds": true,
+  "scope": "60s crossfade edit from intact 7s shots with exactly 240 overlap frames",
+  "overlapFrames": [
+    27,
+    27,
+    27,
+    27,
+    27,
+    27,
+    26,
+    26,
+    26
+  ],
+  "sourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+  "audio": {
+    "title": "Oboro",
+    "artist": "PeriTune / Sei Mutsuki",
+    "published": "2019-04-08",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "download": "https://peritune.com/music/PerituneMaterial_Oboro.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseConfirmation": "https://peritune.com/blog/2026/03/01/terms-update/",
+    "instrumentation": "Shakuhachi, koto, piano",
+    "use": "Background music for the procedural temple film; a trimmed, normalized excerpt with fades. Not a standalone music compilation.",
+    "status": "Replacement for the rejected Western score; testing against the new low-angle cinematography.",
+    "offsetSeconds": 25
+  },
+  "photographicAccepted": false
+}

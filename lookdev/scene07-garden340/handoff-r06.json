@@ -1,0 +1,304 @@
+{
+  "scene": 7,
+  "revision": "garden340-r06",
+  "status": "Concrete garden/shore increment for Root review; photographic acceptance remains false",
+  "sourceHash": "56e4448b8d47635409401309d053ecb6f4f73fcb657f8a72e892394fa24926e6",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/candidate-r06",
+  "patches": {
+    "r09": {
+      "baseSourceHash": "6c885453d2695b8ac48b16903197d44ab7711b4c6f07513dfb917cb9db73c5b3",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/scene07-garden340-r06-over-r09.patch",
+      "bytes": 47295,
+      "sha256": "7b7b64c724ef13e6a15879dfb29ac477121e53e4a49f8379a0f8d1d00ef5c073",
+      "changedFiles": [
+        {
+          "path": "reconstructions/scene-07/asset-dependencies.json",
+          "sha256": "255fbf486a850b2bc43e174ba9936793dd26c76fcf50b07de2141cca5494452f"
+        },
+        {
+          "path": "reconstructions/scene-07/garden340-provenance.json",
+          "sha256": "cb7f2d607b6bc4643ec2df9f348c016a4696428f9595a8332bd8461237b02165"
+        },
+        {
+          "path": "reconstructions/scene-07/src/fir-grove340.js",
+          "sha256": "4f06ed151a3fa7192455a00de2f69f8cbec18cc8a95e6295606a7f1ce8caa5bd"
+        },
+        {
+          "path": "reconstructions/scene-07/src/garden-botany214.js",
+          "sha256": "d2d01f51994ec9be119e81123ad4ade63c4fa7b714f8b09f476374492c61cfc2"
+        },
+        {
+          "path": "reconstructions/scene-07/src/garden-composition340.js",
+          "sha256": "e1772ea8f098e6cbabe348360cef9270d89b9e8c46867d0a0d2b539dd78034ae"
+        },
+        {
+          "path": "reconstructions/scene-07/src/garden-terrain.js",
+          "sha256": "c4441ad516b019fe5b5b10a20fc574650bc897f5f73124dcff20ef22f3f74211"
+        },
+        {
+          "path": "reconstructions/scene-07/src/hero-pines158.js",
+          "sha256": "584ec4457674234d9781e24dfb7e90c77cdf51107adf05df337927018c404688"
+        },
+        {
+          "path": "reconstructions/scene-07/src/main.js",
+          "sha256": "f6844be6dc4a4b118c4da5267becaaf2f98e84a4f1b996ca8bca18a8cae07e0b"
+        }
+      ],
+      "applyCheck": "Passed against exact named frozen baseline; canonical not mutated by child"
+    },
+    "r02": {
+      "baseSourceHash": "bcca8112e9dcac345acd87c2eb9f11e463180420f92dcb84907db37dda927725",
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/scene07-garden340-r06-over-r02.patch",
+      "bytes": 29355,
+      "sha256": "4294d8834131613f1f01ed333a343a0f38736b6189b86b47e9f785d597629a44",
+      "changedFiles": [
+        {
+          "path": "reconstructions/scene-07/asset-dependencies.json",
+          "sha256": "255fbf486a850b2bc43e174ba9936793dd26c76fcf50b07de2141cca5494452f"
+        },
+        {
+          "path": "reconstructions/scene-07/garden340-provenance.json",
+          "sha256": "cb7f2d607b6bc4643ec2df9f348c016a4696428f9595a8332bd8461237b02165"
+        },
+        {
+          "path": "reconstructions/scene-07/src/fir-grove340.js",
+          "sha256": "4f06ed151a3fa7192455a00de2f69f8cbec18cc8a95e6295606a7f1ce8caa5bd"
+        },
+        {
+          "path": "reconstructions/scene-07/src/garden-composition340.js",
+          "sha256": "e1772ea8f098e6cbabe348360cef9270d89b9e8c46867d0a0d2b539dd78034ae"
+        },
+        {
+          "path": "reconstructions/scene-07/src/garden-terrain.js",
+          "sha256": "c4441ad516b019fe5b5b10a20fc574650bc897f5f73124dcff20ef22f3f74211"
+        },
+        {
+          "path": "reconstructions/scene-07/src/hero-pines158.js",
+          "sha256": "584ec4457674234d9781e24dfb7e90c77cdf51107adf05df337927018c404688"
+        },
+        {
+          "path": "reconstructions/scene-07/src/main.js",
+          "sha256": "f6844be6dc4a4b118c4da5267becaaf2f98e84a4f1b996ca8bca18a8cae07e0b"
+        }
+      ],
+      "applyCheck": "Passed against exact named frozen baseline; canonical not mutated by child"
+    }
+  },
+  "result": {
+    "mainGeometryChange": "Continuous irregular soil benches enlarge and layer the small garden islands; connected original scan rock shoulders replace isolated stone accents at the lantern island and stair-bank toes. The centre reflected water channel remains open.",
+    "rockShoulders": {
+      "rocks": 152,
+      "allCentresEmbedded": true,
+      "minimumCentreBurial": 0.20473087295954895,
+      "walkingPlaneOverruns": 0
+    },
+    "shrubStructure": "Metre-scale woody azalea groups keep actual branching crowns with finer physical leaf/corolla calibre,24 canes and10 leaf nodes per twig; lamp-front toe stays low so the raised rock footing reads.",
+    "layeredIsletShrubs": 36,
+    "pineComposition": "Retained garden pine structure is resited into grounded island groups; the isolated far-left garden pine is removed from active placement. Its original recipe and failed source views remain stored.",
+    "naturalWoodland": {
+      "source": "Existing Scene02 Poly Haven CC0 fir_sapling original full opaque branch/twig meshes and4K maps",
+      "variants": 3,
+      "actualTrees": 78,
+      "submittedTriangles": 11265072,
+      "skippedRoofEnvelopeOverlaps": 12,
+      "rootBurialMetres": 0.035,
+      "wholeTreeUniformScaling": true,
+      "newDownloadOrAssetBytes": false,
+      "provenance": "reconstructions/scene-02/assets/fir-sapling/provenance.json"
+    },
+    "sceneTriangleTotal": 118818064,
+    "baselineR09Triangles": 105898782,
+    "coreR02Triangles": 109480773
+  },
+  "held": {
+    "sourceFiles": [
+      {
+        "name": "physical-roofs.js",
+        "held": true
+      },
+      {
+        "name": "roof-section319.js",
+        "held": true
+      },
+      {
+        "name": "roof-plan214.js",
+        "held": true
+      },
+      {
+        "name": "roof-ceramics319.js",
+        "held": true
+      },
+      {
+        "name": "grand-frame182.js",
+        "held": true
+      },
+      {
+        "name": "deep-bearing319.js",
+        "held": true
+      },
+      {
+        "name": "world-radiance214.js",
+        "held": true
+      },
+      {
+        "name": "solar-atmosphere214.js",
+        "held": true
+      },
+      {
+        "name": "site-transform214.js",
+        "held": true
+      },
+      {
+        "name": "reference-layout118.js",
+        "held": true
+      }
+    ],
+    "cameraAndShotFunctionsHeld": true,
+    "exposure": 6.12,
+    "sourcePhotometry": "Selected R09 light/sky/return-source files unchanged. Their existing hybrid upper-return approximation is inherited; this garden change makes no new global photometric calibration claim.",
+    "bridgeAndStairWalkingPlanes": "reference-layout118.js and site-transform214.js byte-identical to R09"
+  },
+  "native": {
+    "driver": "tools/render-one-reconstruction.mjs, shared official GPU FIFO",
+    "sameSourceForFullAndLow": true,
+    "actualFinalFrames": 2,
+    "jobs": [
+      {
+        "job": "full",
+        "status": "rendered-review",
+        "sourceHash": "56e4448b8d47635409401309d053ecb6f4f73fcb657f8a72e892394fa24926e6",
+        "errors": [],
+        "report": {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/candidate-r06/qa/ten-reference/07/iteration-scene07-garden340-r06-full/report.json",
+          "bytes": 5008819,
+          "sha256": "30c18d65bfa396e84a191845ede7f5385c62fbd83ed8c069cd14bcbbf4d960b1"
+        },
+        "inspectionView": null,
+        "frames": [
+          {
+            "name": "reference",
+            "width": 1254,
+            "height": 1254,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "allProgramsLinked": true,
+            "samplerMax": 16,
+            "samplerBudget": 16,
+            "allWithinBudget": true,
+            "rgbaSha256": "ea3e9b28f148b55f2ebc39d757bfbcdd5b7625e55be12fe6cb82e9c3059ba98f",
+            "png": {
+              "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/candidate-r06/qa/ten-reference/07/iteration-scene07-garden340-r06-full/reference.png",
+              "bytes": 3128291,
+              "sha256": "95e9fdfd5e9b488666723663deb15c331a652c76acd6013aa8bfdfd7454e9252"
+            }
+          }
+        ]
+      },
+      {
+        "job": "low-shore",
+        "status": "rendered-review",
+        "sourceHash": "56e4448b8d47635409401309d053ecb6f4f73fcb657f8a72e892394fa24926e6",
+        "errors": [],
+        "report": {
+          "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/candidate-r06/qa/ten-reference/07/iteration-scene07-garden340-r06-low-shore/report.json",
+          "bytes": 5008147,
+          "sha256": "c1dfd45a4b66add735751f39acce8d5934f1d579c4e5c9053420704a3a5bf2ac"
+        },
+        "inspectionView": {
+          "position": [
+            10,
+            3,
+            17
+          ],
+          "target": [
+            -1.5,
+            1.3,
+            -6
+          ],
+          "fov": 58,
+          "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+        },
+        "frames": [
+          {
+            "name": "inspection-view",
+            "width": 1000,
+            "height": 1000,
+            "valid": true,
+            "glError": 0,
+            "contextLost": false,
+            "allProgramsLinked": true,
+            "samplerMax": 16,
+            "samplerBudget": 16,
+            "allWithinBudget": true,
+            "rgbaSha256": "a5b63df20ac57d41ce84dc80a16d65885a9ef6f68bfec6902e23a61f6b976502",
+            "png": {
+              "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/candidate-r06/qa/ten-reference/07/iteration-scene07-garden340-r06-low-shore/inspection-view.png",
+              "bytes": 1919590,
+              "sha256": "bf10ba4e49f311a26277eea1004bf3984f689566f7e350fa1ee9f767c568ad5c"
+            }
+          }
+        ]
+      }
+    ],
+    "sourceRevalidation": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/source-revalidation-r06.json"
+  },
+  "boundedChecks": {
+    "originalFirGeometryAndRootAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/original-fir-audit-r06.json",
+    "independentRootRayMaximumError": 1.8207657603852567e-14,
+    "sourceAssetBytesFrozenAndUnchanged": "All12 declared original fir files match current canonical source bytes; independent read-only APFS COW asset snapshot linked into candidate. Vendor is read-only link; tools/server is actual independent copy.",
+    "islandTerrainEarlierAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/terrain-and-pavilion-tree-audit-r02.json"
+  },
+  "comparisons": {
+    "reference": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/comparison-hd-r06-full.jpg",
+      "bytes": 759321,
+      "sha256": "08b83c0718161829b16202cba71780c29674667922e54f32d6004f7f0326341b"
+    },
+    "garden": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/comparison-r09-r06-garden-crops.jpg",
+      "bytes": 530438,
+      "sha256": "61cb4b72408bb9c436825fd8c207d0aeddc50d23191eab6a48fd629071cb076d"
+    },
+    "low": {
+      "path": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/comparison-r02-r06-low.jpg",
+      "bytes": 538975,
+      "sha256": "b38d1546cf8dc397d0ab173ea508c8e72e3aea6e1f1f2a6754c2fb82a1cdc376"
+    }
+  },
+  "preservedFailures": [
+    {
+      "candidate": "r01",
+      "finding": "Oversize lamp-front leaf/flower masses concealed footing; source/full retained"
+    },
+    {
+      "candidate": "r03",
+      "finding": "Sparse branch LOD produced bare grove; source/full retained. Original CPU root audit omitted live zero-height clamp for one wet root; correction is recorded separately.",
+      "correction": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/audit-correction-r03.json"
+    },
+    {
+      "candidate": "r04",
+      "finding": "Root explicitly rejected enlarged clipped garden pines as unnatural forest. Full/source retained; low request cancelled before acquisition.",
+      "cancellationReceipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene07-garden340/r04-low-shore-cancelled.json"
+    },
+    {
+      "candidate": "r05",
+      "finding": "Original full write failed ENOSPC;2MiB PNG lacks IEND,frames0. Partial/log/report retained; successful new full-retry1 after Root restored disk space is also retained."
+    }
+  ],
+  "remainingVisualGaps": [
+    "Far grey hill masses still lack the reference dense, varied woodland read.",
+    "The native frame remains far from HD golden diffuse light, natural vegetation richness and photographic surface response.",
+    "Stair/approach still has hard regular masonry rhythm; this pass improves planted/rocky interfaces and holds the walking layout.",
+    "Native water/indirect transport remains the selected R09 approximation. No complete film or photographic approval is claimed."
+  ],
+  "preservation": {
+    "canonicalEditedByChild": false,
+    "userDirtyReportTouched": false,
+    "allSourceAndFailedOutputsRetained": true,
+    "newLargeExportOrBlend": false,
+    "originalReferenceAsTextureOrProjection": false
+  },
+  "photographicAccepted": false,
+  "filmComplete": false
+}

@@ -1,0 +1,385 @@
+{
+  "status": "technical-media-receipt-personal-frame-review-pending",
+  "sourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+  "snapshotProofSha256": "fbab600f613c53e0eee8030f0ece8b79e08a8b56664d90eea1b1198c176a4fcd",
+  "size": [
+    1080,
+    1080
+  ],
+  "fps": 24,
+  "sourceShotSeconds": 7,
+  "sourceShotCount": 10,
+  "sourceFrames": 1680,
+  "sourceDuration": 70,
+  "minuteFrames": 1440,
+  "minuteDuration": 60,
+  "masters": [
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/temple-ten-scenes-60s.mp4",
+      "bytes": 124248999,
+      "sha256": "59d7b58fcb6d88f2449fde353556eb6f31cf72ad4c2cdf3c08e5eb5586a5a505",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "color_space": "bt709",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "nb_read_frames": "1440"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "2813"
+          }
+        ],
+        "format": {
+          "duration": "60.000000"
+        }
+      },
+      "fullDecode": {
+        "errors": 0
+      },
+      "scope": "60s crossfade edit from intact 7s shots with exactly 240 overlap frames",
+      "overlapFrames": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        26,
+        26,
+        26
+      ]
+    },
+    {
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/temple-ten-scenes-70s.mp4",
+      "bytes": 158923509,
+      "sha256": "a29ed7514152fa3bed752ded3dc1b607c48181c16db3d2022bbf4404a90f507a",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1080,
+            "pix_fmt": "yuv420p",
+            "color_space": "bt709",
+            "color_transfer": "iec61966-2-1",
+            "color_primaries": "bt709",
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "nb_read_frames": "1680"
+          },
+          {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "avg_frame_rate": "0/0",
+            "nb_read_frames": "3282"
+          }
+        ],
+        "format": {
+          "duration": "70.000000"
+        }
+      },
+      "fullDecode": {
+        "errors": 0
+      },
+      "scope": "Ten intact 7s shots, hard-cut musical edit",
+      "overlapFrames": []
+    }
+  ],
+  "shots": [
+    {
+      "reference": 1,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/01/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "8c41ae512a2483b51111fe34d7f573e08e2c82cda4a05cbe92940dfeb2c537bb",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "b755a7cdb7c73fa696e9a0ee8d6b1dc04804b573281584e1e5ce7815c8b30f1d",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 2,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/02/iteration-sol61-rebuild-20261024-f/motion-review.mp4",
+      "videoSha256": "9c6a1bc9aba35d5a70def09fa3b54cb2b0194582b2c0c32ebf4f65f2aa5d08f5",
+      "originSourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+      "sourceHash": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "audited-identical-source-main-composer-msaa-semantics",
+        "references": [
+          2
+        ],
+        "sourceFile": "reconstructions/scene-02/main.js",
+        "sourceFileSha256": "0d3d54919296ada4755a8eef70650a64b66083181522ba2b7b9bb1357d4d9e17",
+        "sourceAssertions": [
+          "composer.renderTarget1.samples=4",
+          "composer.renderTarget2.samples=4",
+          "new RenderPass(scene,camera)"
+        ],
+        "vendorRuntimeFileCount": 28,
+        "legacyDriverSha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645",
+        "numericalLegacySamplesRecorded": false,
+        "evidence": "Exact archived main-composer multisample setup plus unchanged vendor/runtime implementation and 168 actual successful native WebGL2 frame receipts. This is source-contract evidence, not a newly invented historical numeric GL observation."
+      },
+      "reusedIdenticalSourceAndSampling": true
+    },
+    {
+      "reference": 3,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/03/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "3b293ac785dc958f1b94e51e243ce3e1feac8e101be993ec7c687e8f90f1bfcf",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "01aaa395e9859ccc9605470928b6a6c6f7c35318caf52ae3b62a6b48eebcbaca",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 4,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/04/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "8785c08b0c8eef202a1420a88d9fbc1f36289120f26d0fe783aa8c5cd3eafbc4",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "aa17857cca07cd6e629fd1dcc5b1a85fc689568eafb46f0249be90a93fc7961a",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 5,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/05/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "5527dc2d8fcb57672cfc8cca0aefc08e2077443f01ad8f42986b1a7a20025eb9",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "b45872abec4a2f3f1c75cbc4a6c4cc139dbaceaf1813b3760a4a24055c5ac28e",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 6,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/06/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "ad6b872878ab53ab398e2444c08bcd4ca994802106e9d71701c60113aa8bf1fd",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "10ebb530524902559749a1c9055a4712337b9c5bc095b1708eda7308b21a2efa",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 7,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/07/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "e7460c3946992dbd38e961f1c0c7adee5e0ee1c4190a39449e047b92cf8643bc",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "6c885453d2695b8ac48b16903197d44ab7711b4c6f07513dfb917cb9db73c5b3",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames"
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 8,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/08/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "4439bc308821ef8c0b9a5c3617c68b022cb02c727cf16d3364d7f1cdfb070995",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "81abebd33b1d697a4611224257a4e37f80dba7dcd0f1e2ede9c2bae7838bc994",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    },
+    {
+      "reference": 9,
+      "file": "/Users/mima1234/temple-cinema-film-f-sol61-232/qa/ten-reference/09/iteration-sol61-rebuild-20261024-f-resume1/motion-review.mp4",
+      "videoSha256": "30faddb4c0cefbcc06eff1b5aab16b149ccb04ea7e7cfb12f1de923f3490f098",
+      "originSourceCommit": "c355c5d49fae5bb3ff9e1918570d378783faea56",
+      "sourceHash": "4757862cf5799582aefaef4e6fe8d88b20945ce0cfcabc7bff38a5b3c8f2590f",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "audited-identical-source-main-composer-msaa-semantics",
+        "references": [
+          9
+        ],
+        "sourceFile": "reconstructions/scene-09/src/main.js",
+        "sourceFileSha256": "7ea2cad199ae6fd4ffede4705f1158b58917fd9dce88f6b61d74bfd0bfdcda00",
+        "sourceAssertions": [
+          "composer.renderTarget1.samples=Math.min(4,renderer.capabilities.maxSamples)",
+          "composer.renderTarget2.samples=Math.min(4,renderer.capabilities.maxSamples)",
+          "new RenderPass(scene,camera)"
+        ],
+        "vendorRuntimeFileCount": 28,
+        "legacyDriverSha256": "d05f71049c090f6763cc70cee0d5fcd003f41f238b45be0bbb5e993045926645",
+        "numericalLegacySamplesRecorded": false,
+        "evidence": "Exact archived main-composer multisample setup plus unchanged vendor/runtime implementation and 168 actual successful native WebGL2 frame receipts. This is source-contract evidence, not a newly invented historical numeric GL observation."
+      },
+      "reusedIdenticalSourceAndSampling": true
+    },
+    {
+      "reference": 10,
+      "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/qa/ten-reference/10/iteration-sol61-rebuild-20261026-g/motion-review.mp4",
+      "videoSha256": "e695ccd9872a7ad91a66099213c3a6d74c427f8b2a49d70409e12cdf9841bf38",
+      "originSourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+      "sourceHash": "e076a1c236ab07c6a38d0636b8b575de913eff9fa748fab4e9fdc985b167b22f",
+      "renderSampling": {
+        "nativeWidth": 1620,
+        "nativeHeight": 1620,
+        "outputWidth": 1080,
+        "outputHeight": 1080,
+        "scale": 1.5,
+        "downsampling": "Lanczos from genuine higher-resolution native frames",
+        "requestedNativeWidth": 1620,
+        "requestedNativeHeight": 1620
+      },
+      "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+      "msaaEvidence": {
+        "kind": "observed-main-scene-MSAA-all-frames",
+        "minimumSamples": 4
+      },
+      "reusedIdenticalSourceAndSampling": false
+    }
+  ],
+  "audio": {
+    "title": "Oboro",
+    "artist": "PeriTune / Sei Mutsuki",
+    "published": "2019-04-08",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "download": "https://peritune.com/music/PerituneMaterial_Oboro.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseConfirmation": "https://peritune.com/blog/2026/03/01/terms-update/",
+    "instrumentation": "Shakuhachi, koto, piano",
+    "use": "Background music for the procedural temple film; a trimmed, normalized excerpt with fades. Not a standalone music compilation.",
+    "status": "Replacement for the rejected Western score; testing against the new low-angle cinematography.",
+    "offsetSeconds": 25
+  },
+  "imageryRights": {
+    "personalNoncommercialUseOnly": true,
+    "scope": "Mixed per-asset scene terms. NC-SA sculpture adaptations and resulting scene imagery retain their specific CC BY-NC-SA4.0 terms; music remains separately CC BY4.0. See this exact public source commit asset attributions."
+  },
+  "frameReviewScope": "Pending actual encoded first/middle/end and edit-boundary sampled inspection. Full decode does not establish every-frame photographic fidelity or absence of every flicker.",
+  "photographicAccepted": false,
+  "originalGoalComplete": false
+}

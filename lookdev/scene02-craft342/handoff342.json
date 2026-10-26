@@ -1,0 +1,133 @@
+{
+  "status": "candidate-delivered-for-root-visual-selection",
+  "photographicAccepted": false,
+  "baseSource": "dc68c596e79e406e4a47015f901aee2f07c5a43ac66fd187c0ad559ba3b4c8a6",
+  "candidateSource": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06",
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/r06-native-craft342.patch",
+  "patchSha256": "1822f30d928c3ab26ba78ad56c33da8748b1755af9baddc222dc0afcef6cf8fa",
+  "changedFiles": [
+    {
+      "path": "reconstructions/scene-02/architecture.js",
+      "hash": "7ad3d5ade3f967b93fff5efe32b21a1a9052deb5195d1e08290c59684d1e011b",
+      "original": "9176e1b64f956cc599f4b3c0774172bc7a8a3060392b7a7e65435a5879e88c51"
+    },
+    {
+      "path": "reconstructions/scene-02/carved-timber157.js",
+      "hash": "4af73f8ae46e83e518c93c3bdb861e778a36de276b815f854ea585e4b9d81b89",
+      "original": "bccb34e68c836f67fa04fc2563113afae450ee21f44627b5fbb158fb29413762"
+    },
+    {
+      "path": "reconstructions/scene-02/courtyard-light342.js",
+      "hash": "edca049f612e3b1f4ff5536737f0a56efff0892a3fe0483107d9f0ce0e8b006f",
+      "original": null
+    },
+    {
+      "path": "reconstructions/scene-02/craft-interfaces342.js",
+      "hash": "4999ca2ab6385a56f4150c5d95401516042dda4b0a2dc531489ebeea38b0cc63",
+      "original": null
+    },
+    {
+      "path": "reconstructions/scene-02/hall-roof154.js",
+      "hash": "785d81a58a2d771c10a73f97cbd1ce81388824f293f9b8429c26636072f6725c",
+      "original": "f6393ecda67ca200e8347d2cd8b0a4e608ab8af602ca0b4a6c9a35d15ad2bd3c"
+    },
+    {
+      "path": "reconstructions/scene-02/hall-terrace144.js",
+      "hash": "db1b874bcd56278db25762734cb07d712c69ebf14a68f83b11bbb81f7cd0a8c1",
+      "original": "d2299b16edfd0a8bf61e446df306c6ab550d52e88f6295d5cbd6740fd4012ae6"
+    },
+    {
+      "path": "reconstructions/scene-02/main.js",
+      "hash": "00ff5d3f9350df5cc4375db2d7ca10283668546b63c8ad9a8ce39258719672fd",
+      "original": "0d3d54919296ada4755a8eef70650a64b66083181522ba2b7b9bb1357d4d9e17"
+    }
+  ],
+  "numstat": {
+    "architecture.js": "+4/-1",
+    "carved-timber157.js": "+3/-2",
+    "courtyard-light342.js": "+20/-0",
+    "craft-interfaces342.js": "+31/-0",
+    "hall-roof154.js": "+1/-0",
+    "hall-terrace144.js": "+6/-4",
+    "main.js": "+11/-5"
+  },
+  "sourceAndOpticalProvenance": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/provenance-r06-342.json",
+  "actualReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/r06-actual-review342.json",
+  "views": {
+    "full": {
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-full/reference.png",
+      "pngSha256": "38ba48fd864ff838fd0883711f738fe2b842377341d6bece12a49d8e56bd24a5",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-full/report.json",
+      "actualPNGPersonallyViewed": true,
+      "source": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "257548c5bccf2c1dc8209c5fe673a31e64b9db4bf5f711546165c5b55f4b785f"
+        }
+      ]
+    },
+    "hall": {
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-hall-retry/detail-native.png",
+      "pngSha256": "7aa0d3672bba130fc999fd211b56bea94e6a29fc0b4cd3344fa854646d335763",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-hall-retry/report.json",
+      "actualPNGPersonallyViewed": true,
+      "source": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "257548c5bccf2c1dc8209c5fe673a31e64b9db4bf5f711546165c5b55f4b785f"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "5c08b040a5d771056ffb932f143bf11d23932cd4ea87f91d738f79666d076a75"
+        }
+      ]
+    },
+    "overhead": {
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-overhead/detail-native.png",
+      "pngSha256": "508dc6cbc3978daefbba86b12e641f29119a16dce3821433d1e4cc8e9b74fb82",
+      "receipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene02-craft342/candidate-r06/qa/ten-reference/02/iteration-scene02-craft342-r06-overhead/report.json",
+      "actualPNGPersonallyViewed": true,
+      "source": "fe30902dc6b9951315fbccfaa67b2288d76db7fd9349040692567bf4ba2ebf58",
+      "frames": [
+        {
+          "name": "reference",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "257548c5bccf2c1dc8209c5fe673a31e64b9db4bf5f711546165c5b55f4b785f"
+        },
+        {
+          "name": "detail-native",
+          "width": 1254,
+          "height": 1254,
+          "valid": true,
+          "rgbaSha256": "e0bdd22ea8a20de793de008729d8da41a24648490901eb63d08c91a53854afe8"
+        }
+      ]
+    }
+  },
+  "allJobsTerminal": true,
+  "officialFIFOOnly": true,
+  "originalENOSPCReceiptAndFilesPreserved": true,
+  "newFullOnlyJobAfterStorageRecovery": false,
+  "canonicalModified": false,
+  "pushed": false,
+  "newExportOrBlend": false,
+  "remaining": [
+    "Root personally judge these actual3PNG before integration.",
+    "Stair/courtyard/sky/fine-ornament differences are still substantial; no photographic acceptance.",
+    "A new integrated R06 movie remains unreviewed."
+  ]
+}

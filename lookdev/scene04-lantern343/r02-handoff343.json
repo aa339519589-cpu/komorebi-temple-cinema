@@ -1,0 +1,209 @@
+{
+  "status": "frozen-3-existing-official-actuals-personally-read-local-model-delta-for-root-review",
+  "sourceHash": "ae8efebc9dfaed1695519b6cdf5f90b8e3d7cd23be1598d18e7eb3b35cd888fc",
+  "baseAa178": "aa17857cca07cd6e629fd1dcc5b1a85fc689568eafb46f0249be90a93fc7961a",
+  "candidateRoot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/candidate-r02",
+  "sourceReceipt": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-source343.json",
+  "sourceMap": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-complete-source-map343.json",
+  "sourceSnapshot": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-source",
+  "delta": [
+    "reconstructions/scene-04/src/scene04-toro212.js",
+    "reconstructions/scene-04/src/scene04-lantern-stone343.js",
+    "reconstructions/scene-04/src/scene04-lantern-granite343.js"
+  ],
+  "patch": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-lantern343.patch",
+  "nativeEvidence": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-native-evidence343.json",
+  "actualReview": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-actual-review343.json",
+  "actualViews": [
+    {
+      "kind": "full-lantern-native",
+      "view": "reference",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/candidate-r02/qa/ten-reference/04/iteration-scene04-lantern343-r02-full-lantern-native/reference.png",
+      "sourceHash": "ae8efebc9dfaed1695519b6cdf5f90b8e3d7cd23be1598d18e7eb3b35cd888fc",
+      "pngSha256": "182c1f18e75a78842220a855364e857c2f28c826d1831bdeeb895d6724a17c14",
+      "rgbaSha256": "05adc80fed53a069950112578162ab8913073407d4a2da2f4265ee59d3a45073",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": null,
+      "personallyViewed": true
+    },
+    {
+      "kind": "full-lantern-native",
+      "view": "detail-native",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/candidate-r02/qa/ten-reference/04/iteration-scene04-lantern343-r02-full-lantern-native/detail-native.png",
+      "sourceHash": "ae8efebc9dfaed1695519b6cdf5f90b8e3d7cd23be1598d18e7eb3b35cd888fc",
+      "pngSha256": "3b1f6781e51ea9f05e0efd5b2fe6f65d1f7e65ae685685a3d272548e00395629",
+      "rgbaSha256": "ffb3f2a38bc91951feaaeb7f01f97e8ddb56b3c901cf176c0d6ad708f0c9c4d4",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": [
+        90,
+        420,
+        460,
+        1254
+      ],
+      "inspectionCamera": null,
+      "personallyViewed": true
+    },
+    {
+      "kind": "low-oblique-native",
+      "view": "inspection-view",
+      "png": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/candidate-r02/qa/ten-reference/04/iteration-scene04-lantern343-r02-low-oblique-native/inspection-view.png",
+      "sourceHash": "ae8efebc9dfaed1695519b6cdf5f90b8e3d7cd23be1598d18e7eb3b35cd888fc",
+      "pngSha256": "927597e714405eb3476f36f6b0949019ee67a4b6675ea3ce29f07b835cecbdf3",
+      "rgbaSha256": "b1af581fc01fc34e5e44d82be737aad2e101fd9984bd8ddcd940ce5b09341b93",
+      "nativeDimensions": [
+        1254,
+        1254
+      ],
+      "crop": null,
+      "inspectionCamera": {
+        "position": [
+          -4.5,
+          0.85,
+          18.4
+        ],
+        "target": [
+          -2.84,
+          1.5,
+          16.35
+        ],
+        "fov": 68,
+        "scope": "Actual existing renderView API, explicit model-review camera, not the photographic reference pose."
+      },
+      "personallyViewed": true
+    }
+  ],
+  "existingMetadata": {
+    "referenceCameraHeld": true,
+    "sunAndSkyHeld": true,
+    "lightBudgetHeld": true,
+    "lampEmitterAnchorsScaleAndPaperRadianceHeld": true,
+    "allOtherSourceFilesHeld": true,
+    "globalStoneFinishPavingStairsSourceHeld": true,
+    "canonicalAndGNotModifiedBy343": true
+  },
+  "newLanternRecipe": [
+    {
+      "revision": "343-r02",
+      "capRadius": 0.98,
+      "oldCapRadius": 1.075,
+      "cornerLift": 0.01,
+      "oldCornerLift": 0.22,
+      "shaftIncisionLocalMetres": [
+        0.012,
+        0.019
+      ],
+      "chamberPierWidthsLocalMetres": [
+        0.144,
+        0.122
+      ],
+      "windowRecessExtraLocalMetres": 0.04,
+      "baseAndSeatMossTuftOnly": true,
+      "solidStoneParts": 35,
+      "allStoneFrontAndBack": true,
+      "physicalGrainsInWorldMetres": [
+        0.002,
+        0.012
+      ],
+      "referenceImagePixelsUsed": false,
+      "depthAndWeatherInferred": true
+    },
+    {
+      "revision": "343-r02",
+      "capRadius": 0.98,
+      "oldCapRadius": 1.075,
+      "cornerLift": 0.01,
+      "oldCornerLift": 0.22,
+      "shaftIncisionLocalMetres": [
+        0.012,
+        0.019
+      ],
+      "chamberPierWidthsLocalMetres": [
+        0.144,
+        0.122
+      ],
+      "windowRecessExtraLocalMetres": 0.04,
+      "baseAndSeatMossTuftOnly": true,
+      "solidStoneParts": 35,
+      "allStoneFrontAndBack": true,
+      "physicalGrainsInWorldMetres": [
+        0.002,
+        0.012
+      ],
+      "referenceImagePixelsUsed": false,
+      "depthAndWeatherInferred": true
+    },
+    {
+      "revision": "343-r02",
+      "capRadius": 0.98,
+      "oldCapRadius": 1.075,
+      "cornerLift": 0.01,
+      "oldCornerLift": 0.22,
+      "shaftIncisionLocalMetres": [
+        0.012,
+        0.019
+      ],
+      "chamberPierWidthsLocalMetres": [
+        0.144,
+        0.122
+      ],
+      "windowRecessExtraLocalMetres": 0.04,
+      "baseAndSeatMossTuftOnly": true,
+      "solidStoneParts": 35,
+      "allStoneFrontAndBack": true,
+      "physicalGrainsInWorldMetres": [
+        0.002,
+        0.012
+      ],
+      "referenceImagePixelsUsed": false,
+      "depthAndWeatherInferred": true
+    },
+    {
+      "revision": "343-r02",
+      "capRadius": 0.98,
+      "oldCapRadius": 1.075,
+      "cornerLift": 0.01,
+      "oldCornerLift": 0.22,
+      "shaftIncisionLocalMetres": [
+        0.012,
+        0.019
+      ],
+      "chamberPierWidthsLocalMetres": [
+        0.144,
+        0.122
+      ],
+      "windowRecessExtraLocalMetres": 0.04,
+      "baseAndSeatMossTuftOnly": true,
+      "solidStoneParts": 35,
+      "allStoneFrontAndBack": true,
+      "physicalGrainsInWorldMetres": [
+        0.002,
+        0.012
+      ],
+      "referenceImagePixelsUsed": false,
+      "depthAndWeatherInferred": true
+    }
+  ],
+  "cpuAudit": "/Users/mima1234/temple-cinema-live-sync/lookdev/scene04-lantern343/r02-cpu-geometry343.json",
+  "findings": [
+    "All3 already queued official1254 actuals personally viewed:physical reference full, genuine460px lantern subfrustum, and low oblique. Existing PID57187/57197 completed successfully; no extra views or additional checks were queued.",
+    "R02 retains the narrower cap but replaces its large rounded roll with a lower-lift cut-stone rim. A clear hoju tip, tapered chamber piers, profiled stone sill/lintel and40mm deeper pane/grid recess reduce the uniform manufactured reading. Total local height4.4,floor contact,central cap/hoju seat heights and positive inherited assembly scales remain held.",
+    "The shaft is independently rebuilt closed geometry with wider physically incised damaged routes and actual granular erosion. Surface-only CC0 granite scan normal/roughness maps are retained; lantern-only world-metric minerals,damp joints and darker granular clumps replace the low-contrast pale response. No global stoneFinish212,paving,stair,architecture,light,camera orG source changes.",
+    "R01's broad green base patches were rejected. R02 restricts base/upper-seat growth to real small tuft clusters around joints and fragments the cap/finial skin; the actual low view no longer shows the large painted-looking green fields.",
+    "The result is still more regular and lighter/grainier in places than the reference,with an inferred abstract relief family and largely plain underside bowl. It is a local modeling candidate,not a recovered historic lantern or photographic match. Exact dimensions,weathering,incisions and hidden joints are authored single-view inferences.",
+    "A separate unrendered calyx draft was saved whileG10 held the queue. It is NOT in frozen R02 and was not rendered or validated. R01 and all baseline source/actual evidence remain preserved."
+  ],
+  "recommendForIntegration": true,
+  "recommendationScope": "Local real stone lantern modeling/material progression; photographic fidelity unaccepted.",
+  "copyPolicy": "Only the listed3 scene04 files against frozen aa178. Do not overlay the old whole scene or change canonical/G in this lane. Existing authoring/calyx343-draft.js is unrendered/unvalidated and is NOT included in R02.",
+  "crossRendererLimitation": "Native GLSL mineral/damp response is not automatically Cycles pixel equivalence. Actual displaced geometry/normals/vertex colours remain exportable.",
+  "inference": "Stone proportions, chipped surfaces, abstract worn incision routes and hidden joints authored from one photograph; no recovered metric survey or legible historic inscription.",
+  "visualAccepted": false,
+  "photographicMatch": false
+}

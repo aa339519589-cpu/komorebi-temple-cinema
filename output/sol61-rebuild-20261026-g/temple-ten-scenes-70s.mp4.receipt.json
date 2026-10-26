@@ -1,0 +1,60 @@
+{
+  "status": "technical-edit-verified-needs-personal-frame-review",
+  "inputSignature": "48b790634a0f19011acf519b2b60ec49a8adfaa9892174b09d06dc7026d3c1ee",
+  "file": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023/output/sol61-rebuild-20261026-g/temple-ten-scenes-70s.mp4",
+  "sha256": "a29ed7514152fa3bed752ded3dc1b607c48181c16db3d2022bbf4404a90f507a",
+  "bytes": 158923509,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1080,
+        "pix_fmt": "yuv420p",
+        "color_space": "bt709",
+        "color_transfer": "iec61966-2-1",
+        "color_primaries": "bt709",
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "nb_read_frames": "1680"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "nb_read_frames": "3282"
+      }
+    ],
+    "format": {
+      "duration": "70.000000"
+    }
+  },
+  "fullDecode": {
+    "errors": 0
+  },
+  "sourceShotsKeptAtSevenSeconds": true,
+  "scope": "Ten intact 7s shots, hard-cut musical edit",
+  "overlapFrames": [],
+  "sourceCommit": "1a49002348cd4a2f78d62e278fce50d216526942",
+  "audio": {
+    "title": "Oboro",
+    "artist": "PeriTune / Sei Mutsuki",
+    "published": "2019-04-08",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "download": "https://peritune.com/music/PerituneMaterial_Oboro.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseConfirmation": "https://peritune.com/blog/2026/03/01/terms-update/",
+    "instrumentation": "Shakuhachi, koto, piano",
+    "use": "Background music for the procedural temple film; a trimmed, normalized excerpt with fades. Not a standalone music compilation.",
+    "status": "Replacement for the rejected Western score; testing against the new low-angle cinematography.",
+    "offsetSeconds": 25
+  },
+  "photographicAccepted": false
+}

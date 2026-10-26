@@ -1,12 +1,13 @@
 import {installLeafScattering214} from './world-radiance214.js';
 import {sitePoint214,MIDGROUND_SITE214} from './site-transform214.js';
+import {GARDEN_PINE340} from './garden-composition340.js';
 import * as T from 'three';
 
 // Scene07 pine158: independent reference-guided procedural geometry study.
 // Connected swept wood > bent laterals > short, opaque, closed needle pairs.
 // The original eight root positions and the legacy random replay are retained.
 // No photograph pixels, canopy hulls, cards, billboards or camera-facing branches.
-export const HERO_PINES_REVISION = 'scene07-metric-needle-calibres-and-transmitted-sky214-r14';
+export const HERO_PINES_REVISION = 'scene07-recomposed-rooted-pine-islet-groups340-r01';
 
 const TAU = Math.PI * 2;
 const UP = new T.Vector3(0, 1, 0);
@@ -91,6 +92,13 @@ export const HERO_PINE_ORIGINS = Object.freeze([
     boughs: [[.40, 3.13, .22, .03, .216, .154], [.555, .14, .235, .032, .20, .149], [.70, 3.40, .18, .026, .188, .134]],
     caps: [[.845, .15, .18, .15, 0]]}
 ]);
+
+// World-space garden composition, separated from the source tree recipes.
+// The far-left tree is seated behind the pavilion, outside its roof volume.
+export function gardenPineOrigins340(){
+ const origins=HERO_PINE_ORIGINS.filter(q=>q.id!=='far-left').map(q=>q.id==='left-middle'?{...q,x:-9.8,z:(1.35+3)/.6,spread:1.16,yaw:-.31}:q);
+ origins.push({...HERO_PINE_ORIGINS.find(q=>q.id==='left-island-small'),...GARDEN_PINE340});return origins;
+}
 
 // Traced structural relationships, rather than a radial tree generator.
 // Heights use the established nominal height; the root coordinates above
@@ -393,7 +401,7 @@ async function installMaterials158(mats,barkAssetBase) {
 export async function buildHeroPines({emit,mats,hillHeight,group,barkAssetBase}) {
   const materialKeys=await installMaterials158(mats,barkAssetBase),variants=Array.from({length:12},(_,i)=>createPineShoot158(158701+i*73));
   const stats={revision:HERO_PINES_REVISION,visualAccepted:false,treeCount:0,boughs:0,shelfFans:0,terminalShoots:0,needleTriangles:0,interiorTriangles:0,woodTriangles:0,materialKeys,trees:[],assets:[{name:'Pine Bark',author:'Dimitrios Savva',license:'CC0-1.0',source:'https://polyhaven.com/a/pine_bark',provenance:'reconstructions/scene-07/assets/hero-pines148/pine-bark/provenance.json'}],construction:'continuous aged trunk/fork > sweeping tapered bough > overlapping unequal bent-spine cushions > staggered laterals > bent short shoots > dark closed ribbed retained fascicle packets plus sparse bright closed paired needles; no crown hulls, cards or billboard surfaces'};
-  for(const origin of HERO_PINE_ORIGINS) {
+  for(const origin of gardenPineOrigins340()) {
     const tree=buildPineGeometry158(origin),resited=['right-stair','left-stair','back-right','far-left','left-island-small'].includes(origin.id),p=resited?sitePoint214([origin.x,0,origin.z*.6-3]):[origin.x,0,origin.z*.6-3],rootY=Math.max(0,hillHeight(p[0],p[2])),physicalScale=resited?MIDGROUND_SITE214.scale:1;
     group(p[0],rootY,(p[2]+3)/.6,origin.yaw,physicalScale,()=>{
       emit(tree.bark,'heroPineBark148',0,0,0);emit(tree.cuts,'heroPineCut148',0,0,0);

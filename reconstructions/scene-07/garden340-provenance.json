@@ -1,0 +1,37 @@
+{
+  "revision": "scene07-garden340-r06",
+  "baselineSourceHash": "6c885453d2695b8ac48b16903197d44ab7711b4c6f07513dfb917cb9db73c5b3",
+  "reference": "references/hd/6-\u7167\u7247-7.jpg",
+  "scope": [
+    "Continuous multi-bench world-space soil masses form11 irregular garden lobes with water-level toes.",
+    "Embedded original scan boulder groups and larger stair-shoulder geology break the empty pond/bank boundary.",
+    "Large multi-lobed woody shrub groups occupy the actual soil; existing mature left pine resited/spread, one low companion pine added from existing complete geometry recipe."
+  ],
+  "held": [
+    "R02 island/rock macro geometry and small-leaf shrubs",
+    "All core R09 roof/bearing/light source files",
+    "Reference camera/shot code and exposure",
+    "Bridge/stair walking planes"
+  ],
+  "newExternalAssets": [],
+  "referenceUsedAsTexture": false,
+  "cameraDependentGeometry": false,
+  "photographicAccepted": false,
+  "nativeReviewPending": true,
+  "actualR01Finding": "Real full frame confirmed improved island/pine mass but oversize leaves/flowers on macro shrubs and low scattered edge rocks obscured the lantern footing and weakened the soil/stone joint.",
+  "r02GeometryRepair": [
+    "Large canopies keep their metre-scale branching spread but use0.46 leaf and0.45 corolla calibre,10 leaf nodes per twig and24 unequal canes instead of globally oversized leaves.",
+    "Lantern front-toe plants are low and mostly nonflowering; back/side crowns leave an open stone footing window.",
+    "Twelve larger original scan rock shoulders interlock with the continuous benches; smaller edge stones move inward into actual raised soil.",
+    "Existing far-left pine actually rooted inside the resited left pavilion roof footprint. The complete same tree moves behind that pavilion to its real hillside soil, with a bounded source-space wood/roof separation audit."
+  ],
+  "baseForGarden": "R02 accepted island/shore improvement retained; rejected R03/R04 garden-pine forest sources and images remain in lookdev.",
+  "naturalForestRepair": [
+    "Use existing Scene02 CC0 fir_sapling original complete opaque three-dimensional branch/twig meshes and original4K maps. No download, new raster or mesh asset.",
+    "Original natural fir variants stand at3.3\u20137.5m inferred tree heights on three low continuous soil slopes, with actual terrain-triangle root seating and full canopy-vs-roof envelope exclusion.",
+    "The lone far-left garden pine is removed from active planting; all original source recipes remain retained. No enlarged clipped garden pines form the new woodland.",
+    "Private candidate reads an independent APFS COW, read-only snapshot of the existing declared source files through an immutable asset link. Public dependency paths reuse the already-existing Scene02 asset."
+  ],
+  "actualR05Finding": "Valid actual full retry confirmed natural original fir crown shapes and clear pavilion roof, but most crowns were hidden behind roof/tower mass; visible woodland coverage remained too sparse.",
+  "r06CompositionRepair": "Increase actual original-tree stand density in four irregular depth groups and raise modest natural fir heights into front4.8\u20137.2m, middle6\u20138.8m and rear6.8\u20139.5m crown tiers. Full canopy bounds still exclude roofs; the actual source meshes/materials and R02 island/shore geometry remain unchanged."
+}

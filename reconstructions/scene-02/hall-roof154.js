@@ -95,6 +95,7 @@ export function buildHallRoof154({b,mats,roof}){
   for(let i=0;i<=runs;i++){
    const u=-1+2*i/runs,p=P(1,u),out=V(P(1,u)).sub(V(P(.99,u)));out.y=0;out.normalize();const yaw=Math.atan2(out.x,out.z);p[1]+=.035;
    b.put(cap,'tileEnd',p,[1,1,1],[0,yaw,0]);b.ball(p[0]+out.x*.030,p[1],p[2]+out.z*.030,.032,.032,.026,'tileEnd');
+   b.box(p[0]+out.x*.017,p[1]-.267,p[2]+out.z*.017,.088,.104,.025,'carvingGold157',yaw); // Thin cap seated on the real rafter cut face.
    for(let j=0;j<8;j++){const a=P(j/8,u),c=P((j+1)/8,u);a[1]-=.225;c[1]-=.225;b.line(a,c,.077,'hallBearing',true,.105);}stats.rafters++;
   }
   // Under-eave purlins cross and receive the actual parallel rafter tails.

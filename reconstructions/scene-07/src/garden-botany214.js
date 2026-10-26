@@ -3,13 +3,14 @@ import {isGardenRoute,gardenWalkHeight214} from './garden-terrain.js';
 import {garden130BridgeKnots,approach214} from './layout118-data.js';
 import {sitePoint214,MIDGROUND_SITE214,BANK_RETURN214} from './site-transform214.js';
 import {installLeafScattering214} from './world-radiance214.js';
+import {GARDEN_LANDFORMS340,landformPoint340} from './garden-composition340.js';
 
 // Authored azalea / low evergreen structure. Every visible leaf and corolla
 // is a folded surface carried by a branching woody plant. No canopy hull,
 // alpha card, scene texture, photographic sample or camera input is used.
 const TAU=Math.PI*2,UP=new T.Vector3(0,1,0),V=p=>new T.Vector3(...p);
 const random=seed=>()=>((seed=Math.imul(seed,1664525)+1013904223>>>0)/4294967296);
-function plantForm(seed){
+function plantForm(seed,{leafScale340=1,flowerScale340=1,leafNodes340=6,caneCount340=18}={}){
  const R=random(seed),rr=(a,b)=>a+(b-a)*R(),wood=[],leaves=[],flowers=[],leafColors=[],flowerColors=[];
  const tri=(out,a,b,c,colors=null,color=null)=>{out.push(...a.toArray(),...b.toArray(),...c.toArray());if(colors)for(let k=0;k<3;k++)colors.push(...color);};
  function branch(a,b,r){
@@ -21,11 +22,13 @@ function plantForm(seed){
   }
  }
  function leaf(base,direction,len,tint){
+  len*=leafScale340;
   const n=direction.clone().normalize(),side=new T.Vector3(-n.z,0,n.x).normalize(),tip=base.clone().addScaledVector(n,len),centre=base.clone().lerp(tip,.48).addScaledVector(UP,len*.13),
    left=base.clone().lerp(tip,.48).addScaledVector(side,len*.23),right=base.clone().lerp(tip,.48).addScaledVector(side,-len*.23),c=[tint*.85,tint,tint*.66];
   tri(leaves,base,left,centre,leafColors,c);tri(leaves,left,tip,centre,leafColors,c);tri(leaves,centre,tip,right,leafColors,c);tri(leaves,base,centre,right,leafColors,c);
  }
  function blossom(p,normal,size){
+  size*=flowerScale340;
   const n=normal.clone().normalize(),u=new T.Vector3(1,0,0).cross(n);if(u.lengthSq()<.01)u.set(0,0,1).cross(n);u.normalize();const v=n.clone().cross(u),tint=rr(.80,1.06);
   for(let j=0;j<5;j++){
    const a=j*TAU/5+seed*.013,rad=u.clone().multiplyScalar(Math.cos(a)).addScaledVector(v,Math.sin(a)),side=n.clone().cross(rad),base=p.clone().addScaledVector(n,-size*.12),
@@ -36,14 +39,14 @@ function plantForm(seed){
  }
  // Unequal lifted lobes produce the interleaving canopy of a clipped azalea.
  // Separate lateral shoots keep visible openings between adjacent plants.
- for(let cane=0;cane<18;cane++){
+ for(let cane=0;cane<caneCount340;cane++){
   const a=cane*2.399963+rr(-.18,.18),reach=rr(.26,.63),h=rr(.24,.56),root=V([rr(-.07,.07),.015,rr(-.07,.07)]),joint=V([Math.cos(a)*reach*.42,h*.62,Math.sin(a)*reach*.42]),tip=V([Math.cos(a)*reach,h,Math.sin(a)*reach]);
   branch(root,joint,.014);branch(joint,tip,.009);
   for(let station=0;station<4;station++){
    const t=.28+station*.21,b=joint.clone().lerp(tip,t),aa=a+(station%2?1:-1)*rr(.60,1.17),len=rr(.13,.28),end=b.clone().add(V([Math.cos(aa)*len,rr(.045,.14),Math.sin(aa)*len]));
    branch(b,end,.0039);
-   for(let k=0;k<6;k++)for(const side of[-1,1]){
-    const tt=(k+.35)/6,p=b.clone().lerp(end,tt),la=aa+side*rr(.68,1.12),d=V([Math.cos(la),rr(.10,.55),Math.sin(la)]);
+   for(let k=0;k<leafNodes340;k++)for(const side of[-1,1]){
+    const tt=(k+.35)/leafNodes340,p=b.clone().lerp(end,tt),la=aa+side*rr(.68,1.12),d=V([Math.cos(la),rr(.10,.55),Math.sin(la)]);
     leaf(p,d,rr(.065,.108),rr(.67,1.12));
    }
    if((station+cane)%3!==0)for(let f=0;f<3;f++){
@@ -57,16 +60,16 @@ function plantForm(seed){
 }
 
 export function buildLayeredGarden214({emit,mats,scannedStones,height}){
- const forms=[214071,214109,214163].map(plantForm),leaf=new T.MeshStandardMaterial({name:'scene07-rooted-azalea-folded-leaves214',color:0x65783b,roughness:.94,side:T.DoubleSide,vertexColors:true}),
+ const forms=[214071,214109,214163].map(seed=>plantForm(seed)),macroForms340=[340071,340109,340163].map(seed=>plantForm(seed,{leafScale340:.46,flowerScale340:.45,leafNodes340:10,caneCount340:24})),leaf=new T.MeshStandardMaterial({name:'scene07-rooted-azalea-folded-leaves214',color:0x65783b,roughness:.94,side:T.DoubleSide,vertexColors:true}),
   pink=new T.MeshStandardMaterial({name:'scene07-rooted-azalea-coral-pink-corollas214',color:0xf1b4b1,roughness:.91,side:T.DoubleSide,vertexColors:true}),
   white=pink.clone();white.name='scene07-rooted-azalea-ivory-corollas214';white.color.setHex(0xf5e9cc);
  installLeafScattering214(leaf,{strength:.30,power:1.4});installLeafScattering214(pink,{strength:.15,power:1.1});installLeafScattering214(white,{strength:.15,power:1.1});
  let plants=0,floweringPlants=0,rocks=0,retainingBankPlants=0;const R=random(214218),rr=(a,b)=>a+(b-a)*R();
- const plant=(x,y,z,scale,index,flowering=true)=>{
+ const plant=(x,y,z,scale,index,flowering=true,macro=false)=>{
   if(isGardenRoute(x,z,.24)){
    const walk=gardenWalkHeight214(x,z,scale*.60+.18);if(!Number.isFinite(walk)||y+scale*.84>walk-.15)return;
   }
-  const f=forms[index%forms.length],yaw=rr(0,TAU),sx=scale*rr(.86,1.14),sy=scale*rr(.74,1.07),sz=scale*rr(.82,1.15),rot=[rr(-.05,.05),yaw,rr(-.04,.04)];
+  const family=macro?macroForms340:forms,f=family[index%family.length],yaw=rr(0,TAU),sx=scale*rr(.86,1.14),sy=scale*rr(.74,1.07),sz=scale*rr(.82,1.15),rot=[rr(-.05,.05),yaw,rr(-.04,.04)];
   emit(f.wood,mats.trunk,x,y,z,sx,sy,sz,rot,.92);emit(f.leaves,leaf,x,y,z,sx,sy,sz,rot,rr(.88,1.12));if(flowering){emit(f.flowers,index%4?pink:white,x,y,z,sx,sy,sz,rot,rr(.94,1.06));floweringPlants++;}plants++;
  };
  // The lantern island has a low crown and two broken rings of flowers.
@@ -133,5 +136,17 @@ export function buildLayeredGarden214({emit,mats,scannedStones,height}){
   const a=j*TAU/12+rr(-.12,.12),r=rr(2.4,3.05),x=-18+Math.cos(a)*r,z=-14.5+Math.sin(a)*r*.83,y=height(x,z);if(y<.015||isGardenRoute(x,z,.45))continue;
   const v=scannedStones.variants[(j*5+2)%6],s=rr(.42,.62);emit(v.geometry,y<.45?v.wet:v.dry,x,y-.25,z,s,s,s,[rr(-.10,.10),rr(0,TAU),rr(-.08,.08)],rr(.88,1.06));rocks++;
  }
- return{info:{revision:'scene07-earth-rooted-cherry-headland-companion-garden214-r17',plants,floweringPlants,retainingBankPlants,hallSlopePlants214,cherryHeadlandPlants214,embeddedIslandStones:rocks,forms:forms.length,photographicPixels:false,canopyHulls:false,cameraFacing:false,floweringGeometry:'Five independently folded petals, attached to woody multi-lobed shrub structure',islandRootSurface:'Same continuous height field as all island plants and the lantern footing',visualAccepted:false},dispose(){for(const f of forms)for(const g of Object.values(f))g.dispose();leaf.dispose();pink.dispose();white.dispose();}};
+ // Metre-scale unequal woody groups occupy the new soil benches. Lower
+ // companions overlap the large crown, with open wet-stone sectors between.
+ let layeredIsletPlants340=0;const isletGroups340=[];
+ for(let k=0;k<GARDEN_LANDFORMS340.length;k++){
+  const f=GARDEN_LANDFORMS340[k],before=plants;
+  for(let j=0;j<f.plants;j++){
+   const a=f.phase+j*2.399963,[x,z]=landformPoint340(f,a,rr(.18,.57)),y=height(x,z),lantern=f.id.startsWith('lantern'),scale=lantern?(f.id.includes('south')?rr(.85,1.18):f.id.includes('east')?rr(1.35,1.75):rr(1.40,1.95)):rr(1.95,2.75)*(j===0?1.12:j%3===0?.76:1),walk=gardenWalkHeight214(x,z,scale*.67+.25);
+   if(y<.095||Number.isFinite(walk)&&y+scale*.74>walk-.18)continue;
+   plant(x,y-.025,z,scale,901+k*13+j,lantern?f.id.includes('north')&&j===0:(j+k)%3===0||k===1&&j%2===0,true);
+  }
+  layeredIsletPlants340+=plants-before;isletGroups340.push({id:f.id,plants:plants-before});
+ }
+ return{info:{revision:'scene07-metre-crowns-with-physical-small-leaves340-r02',plants,floweringPlants,retainingBankPlants,hallSlopePlants214,cherryHeadlandPlants214,layeredIsletPlants340,isletGroups340,macroPlantLeafCalibre340:{geometryScale:.46,flowerScale:.45,leafNodesPerTwig:10,canesPerPlant:24,lanternFrontLowGrowth:true},embeddedIslandStones:rocks,forms:forms.length,photographicPixels:false,canopyHulls:false,cameraFacing:false,floweringGeometry:'Five independently folded petals, attached to woody multi-lobed shrub structure',islandRootSurface:'Same continuous height field as all island plants and the lantern footing',visualAccepted:false},dispose(){for(const f of [...forms,...macroForms340])for(const g of Object.values(f))g.dispose();leaf.dispose();pink.dispose();white.dispose();}};
 }

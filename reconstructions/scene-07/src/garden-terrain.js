@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {MIDGROUND_SITE214,siteY214,sitePoint214,unsitePoint214,BANK_RETURN214,bankReturnHalfWidth214,HALL_DATUM_OFFSET214} from './site-transform214.js';
 import {garden130BridgeKnots,approach214} from './layout118-data.js';
+import {gardenLandformHeight340} from './garden-composition340.js';
 
 // The terrace is cut into a planted hillside. A narrow stream passes under
 // the bridge and widens toward the veranda, instead of removing the ground
@@ -138,15 +139,26 @@ export function gardenHeight(x,z){
   hallBeds=Math.max(hallBeds,y);
  }
  if(isGardenRoute(x,z,.25))hallBeds=-.34;
- let result=Math.max(-.34,far,-.34+(near+.34)*nearWeight,leftRoot,nearRoot,leftGeology,farRoot,smallRoot,spine,eastMainland,hallBeds,lanternIslandHeight214(x,z),cherryHeadland214),walk=bankWalk214(x,z,.18);
+ let islandSoil340=gardenLandformHeight340(x,z);const route340=gardenWalkHeight214(x,z,.20);if(Number.isFinite(route340))islandSoil340=Math.min(islandSoil340,route340-.52);
+ let result=Math.max(-.34,far,-.34+(near+.34)*nearWeight,leftRoot,nearRoot,leftGeology,farRoot,smallRoot,spine,eastMainland,hallBeds,lanternIslandHeight214(x,z),cherryHeadland214,islandSoil340),walk=bankWalk214(x,z,.18);
  if(Number.isFinite(walk))result=Math.min(result,walk-.22);
  return result;
 }
 
+const TERRAIN_GRID340=Object.freeze({minX:-48,maxX:36,minZ:-64,maxZ:20,nx:192,nz:192});
+// Root queries use the actual Float32 terrain triangles, not the unsampled
+// analytic height between mesh vertices. This is the same grid/index split
+// as the rendered garden terrain below.
+export function gardenMeshHeight340(x,z){
+ const g=TERRAIN_GRID340;if(x<g.minX||x>g.maxX||z<g.minZ||z>g.maxZ)return-Infinity;
+ const dx=(g.maxX-g.minX)/g.nx,dz=(g.maxZ-g.minZ)/g.nz,xx=(x-g.minX)/dx,zz=(z-g.minZ)/dz,i=Math.min(g.nx-1,Math.max(0,Math.floor(xx))),j=Math.min(g.nz-1,Math.max(0,Math.floor(zz))),u=xx-i,v=zz-j;
+ const x0=g.minX+i*dx,z0=g.minZ+j*dz,a=Math.fround(gardenHeight(x0,z0)),b=Math.fround(gardenHeight(x0+dx,z0)),c=Math.fround(gardenHeight(x0,z0+dz)),d=Math.fround(gardenHeight(x0+dx,z0+dz));
+ return u+v<=1?a+(b-a)*u+(c-a)*v:d+(c-d)*(1-u)+(b-d)*(1-v);
+}
 export function gardenTerrainGeometry(){
- const p=[],uv=[],colour=[],ix=[],nx=192,nz=192;
+ const p=[],uv=[],colour=[],ix=[],nx=TERRAIN_GRID340.nx,nz=TERRAIN_GRID340.nz;
  for(let j=0;j<=nz;j++)for(let i=0;i<=nx;i++){
-  const x=-48+i*84/nx,z=-64+j*84/nz,y=gardenHeight(x,z);
+  const x=TERRAIN_GRID340.minX+i*(TERRAIN_GRID340.maxX-TERRAIN_GRID340.minX)/nx,z=TERRAIN_GRID340.minZ+j*(TERRAIN_GRID340.maxZ-TERRAIN_GRID340.minZ)/nz,y=gardenHeight(x,z);
   p.push(x,y,z);uv.push(x*.65,z*.65);
   const v=.72+.12*Math.sin(x*.67+z*.91)+.10*Math.sin(x*2.18-z*1.43);
   colour.push(v*.83,v,v*.78);
@@ -188,4 +200,4 @@ export function gardenShrubShoot(seed=7){
  const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(p,3));g.computeVertexNormals();return g;
 }
 
-export const GARDEN_REBUILD_REVISION='scene07-closed-roof-contact-envelope-and-rehung-ornament214-r21';
+export const GARDEN_REBUILD_REVISION='scene07-water-islets-and-natural-fir-root-slopes340-r05';

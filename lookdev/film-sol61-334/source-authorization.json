@@ -1,0 +1,57 @@
+{
+  "commit": "1a49002348cd4a2f78d62e278fce50d216526942",
+  "sourceRoot": "/Users/mima1234/temple-cinema-live-sync",
+  "snapshotRoot": "/Users/mima1234/temple-cinema-film-g-sol61-334-1a490023",
+  "iteration": "sol61-rebuild-20261026-g",
+  "publicCommit": {
+    "commit": "1a49002348cd4a2f78d62e278fce50d216526942",
+    "remote": "origin",
+    "ref": "refs/heads/work/ten-view-reconstruction-20261018",
+    "tip": "1a49002348cd4a2f78d62e278fce50d216526942",
+    "verifiedAt": "2026-10-26T08:05:50.421Z",
+    "method": "remote ref equals exact requested commit"
+  },
+  "specification": {
+    "size": 1080,
+    "nativeSize": 1620,
+    "scale": 1.5,
+    "fps": 24,
+    "shotSeconds": 7,
+    "framesPerShot": 168,
+    "shots": 10,
+    "fullSeconds": 70,
+    "fullFrames": 1680,
+    "minuteSeconds": 60,
+    "minuteFrames": 1440,
+    "overlapFrames": [
+      27,
+      27,
+      27,
+      27,
+      27,
+      27,
+      26,
+      26,
+      26
+    ]
+  },
+  "requestedAt": "2026-10-26T08:05:50.521Z",
+  "driverSha256": "b611a069c5a73b88201dc99c1f2a76d62c801f5c39fd0746dc74f351d54429f4",
+  "captureSemantics": "native-half-frame-times-v1-rgba-yflip-lanczos-h264-crf15-bt709",
+  "snapshotProofSha256": "fbab600f613c53e0eee8030f0ece8b79e08a8b56664d90eea1b1198c176a4fcd",
+  "musicSha256": "202587393bef469e0e90ed337a26368b14ee9a42ccef6e8ab8d1b292231a2cec",
+  "musicAttribution": {
+    "title": "Oboro",
+    "artist": "PeriTune / Sei Mutsuki",
+    "published": "2019-04-08",
+    "source": "https://peritune.com/blog/2019/04/08/oboro/",
+    "download": "https://peritune.com/music/PerituneMaterial_Oboro.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "licenseConfirmation": "https://peritune.com/blog/2026/03/01/terms-update/",
+    "instrumentation": "Shakuhachi, koto, piano",
+    "use": "Background music for the procedural temple film; a trimmed, normalized excerpt with fades. Not a standalone music compilation.",
+    "status": "Replacement for the rejected Western score; testing against the new low-angle cinematography."
+  },
+  "authorizedAt": "2026-10-26T08:06:50.957Z"
+}

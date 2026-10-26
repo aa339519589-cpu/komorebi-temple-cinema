@@ -12,6 +12,7 @@ import {ensureBankSoil147} from './planted-shoulders147.js';
 import {buildHallRoof154} from './hall-roof154.js';
 import {buildPagodaEnsemble160} from './pagoda-ensemble160.js';
 import {buildGalleryFooting162} from './gallery-footings162.js';
+import {buildCanopyCraft342} from './craft-interfaces342.js';
 export function buildArchitecture(mats,scanned,sculpture186=null){
  installHallTerraceMaterials144(mats);ensureBankSoil147(mats);
  mats.bridgeRed161=mats.red.clone();mats.bridgeRed161.name='scene02-bridge-weathered-vermilion161';mats.bridgeRed161.color.setHex(0x8d3823);mats.bridgeRed161.clearcoat=.22;mats.bridgeRed161.clearcoatRoughness=.32;
@@ -30,6 +31,7 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
  let columnXComp=1,columnZComp=1;const closeCylinder=new T.CylinderGeometry(1,1,1,48);
  function column(x,z,base,h,r=.24,shaftMaterial='red'){
   const cy=(yy,rr,hh,ma)=>b.put(r>.4?closeCylinder:b.cylinderGeo,ma,[x,yy,z],[rr*columnXComp,hh,rr*columnZComp]);
+  if(shaftMaterial==='hallColumnRed'){cy(base+.065,r*1.57,.13,'terraceCheek');cy(base+.132,r*1.48,.035,'terraceTread');}
   cy(base+.15,r*1.37,.30,'black');cy(base+.32,r*1.32,.07,'gold');cy(base+h/2+.3,r,h-.3,shaftMaterial);
   for(let y of[base+.4,base+h-.05]){cy(y,r*1.04,.12,'oldgold');for(let j=0;j<10;j++){let a=j*Math.PI/5;b.ball(x+Math.cos(a)*r,y,z+Math.sin(a)*r,r*.16,.09,r*.16,'gold');}}
   if(r>.4){const gildHeight=.72-verandaFrame210.deckLift,run=gildHeight-.09,ys=run/.63;cy(base+.36+gildHeight/2,r*1.015,gildHeight,'oldgold');for(let yy of[base+.36,base+.36+gildHeight])cy(yy,r*1.09,.055,'gold');for(let j=0;j<16;j++){let a=j*Math.PI/8,rad=r*1.03,pts=[];for(let k=0;k<20;k++){let t=k/19,aa=a+.10*Math.sin(t*6.28);pts.push([x+Math.cos(aa)*rad,base+.40+t*run,z+Math.sin(aa)*rad]);}b.tube(pts,.010,'gold',24);for(let k=0;k<4;k++){let aa=a+.065*Math.sin(k*2);b.put(reliefLeaf,k%2?'oldgold':'gold',[x+Math.cos(aa)*r*1.04,base+.40+(.06+k*.15)*ys,z+Math.sin(aa)*r*1.04],[.65,.65*ys,.65],[0,Math.PI/2-aa,(k%2?1:-1)*.6]);}}}
@@ -102,9 +104,10 @@ export function buildArchitecture(mats,scanned,sculpture186=null){
  // The former short horizontal fascia is replaced by one continuing canopy.
  for(let z=-2;z<41;z+=.46){const outside=edgeX(z),span=20.5-outside;b.box(outside+span/2,9.62,z,span,.28,.465,'darkwood');b.box(outside+span/2,9.30,z,span,.44,.22,'cedar');b.box(outside+.07,9.30,z,.14,.44,.26,'darkwood');}
  b.line([20.35,9.08,-2],[20.35,9.08,41],.38,'red',true,.45);
+ const canopyCraft342=buildCanopyCraft342({b,mats,canopy,edgeX});
  const foregroundRail=buildVerandaRail(T,b);
  // Faceted bronze lamps have actual perforated cast panels and warm paper
  // recessed behind them. Each link joins the fixture to the beam overhead.
  for(const lamp of layout.hangingLamps)lights.push(verandaCarvings.lantern(...lamp.position,lamp.scale,9.3));lights.push(verandaCarvings.lantern(18,7.8,7,.5,9.3));
- return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,bridgeApproaches210,hallRoof,hallCarpentry:hallCarpentry.stats,hallEntry186,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
+ return{group:b.finish(),lights,stats:{instances:b.count,buckets:b.buckets.size,sorin:sorinStats,pagodaEnsemble,galleryFootings,bridgeBearings,bridgeApproaches210,hallRoof,canopyCraft342,hallCarpentry:hallCarpentry.stats,hallEntry186,hallStair,verandaCarvings:verandaCarvings.stats,verandaBoards,foregroundRail,layoutFit:{method:'joint fixed-contact perspective and common five-bay roof/bearing-grid recovery',source:'qa/ten-reference/02/iteration-scene02-coupled-hall-fit-19-20261021/fit-common-architecture.py',visualAccepted:false}},deck};
 }
