@@ -3,6 +3,7 @@ import {loadScannedPeony171} from './scanned-peony171.js';
 import {buildForeground352} from './foreground-joinery352.js';
 import {createPorchGround352} from './porch-ground352.js';
 import {buildGrandBearing171} from './grand-bearing171.js';
+import {buildOccupiedCorridor374,buildGrandAccess374,buildLowerTransition374} from './corridor374.js';
 import {createSpatialPortals191,SPATIAL191_REVISION} from './spatial-portals191.js';
 import {installMaterialHierarchy191,captureEntryCourt191} from './material-hierarchy191.js';
 import{createNaturalJoinery197}from'./natural-joinery197.js';
@@ -23,7 +24,7 @@ import{createGardenStream213}from'./garden-depth213.js';
 import{installHallTimber213,createHallLattice213,surfaceNormal213,roofRowWidth213}from'./hall-timber213.js';
 export async function buildScene({renderer}={}){
 const scene=new T.Scene();scene.background=new T.Color('#a4c3df');scene.fog=new T.Fog('#b2c5c1',47,105);
-const botany=await loadCourtyardBotany(),relief=createCourtyardRelief(),scannedStones=await loadCourtyardStones(),peony=await loadScannedPeony171();let grandMass171=null,grandRoof191=null;
+const botany=await loadCourtyardBotany(),relief=createCourtyardRelief(),scannedStones=await loadCourtyardStones(),peony=await loadScannedPeony171();let grandMass171=null,grandRoof191=null,corridor374=null,grandAccess374=null,lowerTransition374=null;
 let seed=80247;const random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296),rr=(a,b)=>a+(b-a)*random();
 const mats={},geometries=new Set(),materials=[],textures=[],buckets=new Map(),stack=[new T.Matrix4()],roles={};let role='architecture';
 function material(name,color,roughness=.75,metalness=0){const m=new T.MeshStandardMaterial({name,color,roughness,metalness});materials.push(m);return mats[name]=m;}
@@ -293,6 +294,9 @@ function recedingWingRoof(){
 // screen wall and a reversed roof azimuth had hidden this load path before.
 // These coordinates are the physical timber frame, not a camera-space mesh.
 const grandFrame={x:-3.954,z:-8.701,yaw:-.28,w:9.30,d:8.50,floor:4.40,lintel:9.25,eave:10.30,rise:4.25};
+// The original frame remains the352 terrain/rooting and court-probe datum.
+// Only the occupied hall frame raises its floor and lowers its lintel.
+const grandStructure374={...grandFrame,floor:4.75,lintel:8.98};
 const spatial191=createSpatialPortals191({emit,box,between,group});
 function grandRoofWorld191(x,z){const dx=x-grandFrame.x,dz=z-grandFrame.z,c=Math.cos(grandFrame.yaw),s=Math.sin(grandFrame.yaw);return grandRoof191?.surfaceY(c*dx-s*dz,s*dx+c*dz)??null;}
 function inGrandHallFootprint(x,z,padding=.18){
@@ -303,7 +307,7 @@ function monumentalHall(){
  const original={red:mats.red,redlight:mats.redlight,wood:mats.wood,dark:mats.dark};
  for(const[name,finish]of Object.entries({red:'hallLacquer213',redlight:'hallArm213',wood:'hallBeam213',dark:'hallPanel213'}))mats[name]=mats[finish];
  const roof171=roof(grandFrame.w,grandFrame.d,grandFrame.eave,grandFrame.rise,.34,.20,.30);
- grandRoof191=roof171;grandMass171=buildGrandBearing171({emit,box,between,group,lantern,lattice,galleryJoinery,grandFrame,peony,roof171,spatial191});
+ grandRoof191=roof171;grandMass171=buildGrandBearing171({emit,box,between,group,lantern,lattice,galleryJoinery,grandFrame:grandStructure374,peony,roof171,spatial191});
  Object.assign(mats,original);
 }
 role='left-grand-hall';group(grandFrame.x,0,grandFrame.z,grandFrame.yaw,monumentalHall);
@@ -311,9 +315,7 @@ role='left-grand-hall';group(grandFrame.x,0,grandFrame.z,grandFrame.yaw,monument
 // ledger bears against that wall and every outer post meets a stone pier.
 const wingYaw=.65,wingScale=.90,wingW=4.2,wingHighWorldY=7.50,wingLowWorldY=6.40,wingGroupY=3.50,wingHighY=(wingHighWorldY-wingGroupY)/wingScale,wingLowY=(wingLowWorldY-wingGroupY)/wingScale,wingZMin=-3.0,wingZMax=3.0,wingPostZ=[-2.7,-1.35,0,1.35,2.7];
 const wingAnchorX=grandFrame.x+3.2*Math.cos(grandFrame.yaw)-.60*Math.sin(grandFrame.yaw),wingAnchorZ=grandFrame.z-3.2*Math.sin(grandFrame.yaw)-.60*Math.cos(grandFrame.yaw),wingNearX=wingScale*(-wingW/2*Math.cos(wingYaw)+wingZMax*Math.sin(wingYaw)),wingNearZ=wingScale*(wingW/2*Math.sin(wingYaw)+wingZMax*Math.cos(wingYaw)),wingX=wingAnchorX-wingNearX,wingZ=wingAnchorZ-wingNearZ,wingFrame={x:wingX,y:wingGroupY,z:wingZ,yaw:wingYaw,scale:wingScale,w:wingW,zMin:wingZMin,zMax:wingZMax,lowY:wingLowY,highY:wingHighY,postZ:wingPostZ};
-group(grandFrame.x,0,grandFrame.z,grandFrame.yaw,()=>{
- for(let j=0;j<6;j++){const top=grandFrame.floor-j*.075;box(1.48+j*.30,(3.70+top)/2,-.60,.34,top-3.70,1.40,'wood');}
-});
+group(grandFrame.x,0,grandFrame.z,grandFrame.yaw,()=>{grandAccess374=buildGrandAccess374({emit,box},grandStructure374.floor);});
 const lowerGalleryFrame={x:.0115,z:-9.342,yaw:.738,run:5.097,width:3.10};
 role='layered-walkways';
 group(lowerGalleryFrame.x,0,lowerGalleryFrame.z,lowerGalleryFrame.yaw,()=>{
@@ -333,43 +335,14 @@ group(lowerGalleryFrame.x,0,lowerGalleryFrame.z,lowerGalleryFrame.yaw,()=>{
  roof(run+.48,3.10,6.40,1.17,.29,.30,.20,-1/run);
  for(const x of[-1.48,1.48])lantern(x,eaveAt(x)-1.0,1.10,.28);
 });
-group(-2.20,0,-7.45,.12,()=>{for(let i=0;i<4;i++){const top=4.40-i*.105;box(-.30+i*.20,(3.88+top)/2,0,.23,top-3.88,1.16,'wood');}});
+group(-2.20,0,-7.45,.12,()=>{lowerTransition374=buildLowerTransition374({emit,box});});
 // The reference contains an intermediate upper gallery between the large
 // near hall and the lower courtyard canopy. Its real pitched roof descends
 // along the circulation route; it is not a flat extension of the main hip.
 role='upper-descending-gallery';
 {
- const a=[-2.09,-7.35],b=[2.24,-9.80],run=Math.hypot(b[0]-a[0],b[1]-a[1]),yaw=Math.atan2(-(b[1]-a[1]),b[0]-a[0]),grade=-1.30/run;
- group((a[0]+b[0])/2,0,(a[1]+b[1])/2,yaw,()=>{
-  const floorAt=x=>4.10-.60*x/run,eaveAt=x=>8.75+grade*x;
-  // Stone piers and individual deck members share the same sloping datum.
-  for(let i=0;i<28;i++){
-   const x=-run/2+(i+.5)*run/28,fy=floorAt(x);box(x,fy-.14,0,run/28-.008,.18,2.27,'wood');
-   if(i%7===0)for(const z of[-.92,.92])box(x,(fy-1.4)/2+.7,z,.38,fy-1.40,.42,'hallFoundation');
-  }
-  for(const z of[-.96,.96])emit(createContinuousTimber([[-run/2,floorAt(-run/2)-.25,z],[run/2,floorAt(run/2)-.25,z]],.19,.27,.014),'wood');
-  for(let i=0;i<5;i++){
-   const x=-run*.46+i*run*.92/4,fy=floorAt(x),ey=eaveAt(x);
-   const nearZ=.84,wx=(a[0]+b[0])/2+Math.cos(yaw)*x+Math.sin(yaw)*nearZ,wz=(a[1]+b[1])/2-Math.sin(yaw)*x+Math.cos(yaw)*nearZ;
-   spatial191.galleryReceiver({x,z:nearZ,floor:fy,weatherY:grandRoofWorld191(wx,wz),column,galleryJoinery,label:'upper-court-queried-front-'+i});
-   for(const z of[-.89,-.30]){
-    column(x,z,fy,ey-fy-.83,.18);
-    for(const q of galleryJoinery.parts)emit(q.geometry,q.material,x,ey-.75,z,.63,.80,.63);
-    box(x,ey-.30,z,.19,.22,.65,'red');
-   }
-   box(x,ey-.38,0,.18,.20,2.48,'red');
-   if(i<4){
-    const xx=x+run*.115,doorY=floorAt(xx)+1.64;
-    if(i===1||i===2)spatial191.portal({x:xx,z:-.44,lo:floorAt(xx)+.04,hi:eaveAt(xx)-1.02,width:run*.20-.13,depth:.50,jamb:.085,label:'upper-court-connected-door-'+i});
-    else{box(xx,doorY,-.57,run*.20,3.15,.15,'dark');lattice(xx,doorY,-.46,run*.16,2.64);box(xx,doorY+1.51,-.42,run*.205,.30,.19,'wall');}
-    group(xx,eaveAt(xx)-.81,-.30,0,()=>{for(const q of relief.variants[i])emit(q.geometry,q.material,0,0,0,1.17,.85,1);});
-   }
-  }
-  for(const z of[-1.04,1.04])for(const dy of[-.30,-.65])emit(createContinuousTimber([[-run*.49,eaveAt(-run*.49)+dy,z],[run*.49,eaveAt(run*.49)+dy,z]],.21,.22,.013),'red');
-  // This bearing gallery is sheltered by the actual continuous main return
-  // roof above. It has no duplicate gabled canopy or floating ridge ornament.
-  for(const x of[-run*.36,run*.36])lantern(x,eaveAt(x)-1.29,1.13,.30);
- });
+ const c=Math.cos(grandFrame.yaw),s=Math.sin(grandFrame.yaw),edgeWorld=Array.from({length:81},(_,i)=>{const p=grandRoof191.point(1,1,-1+2*i/80);return[grandFrame.x+c*p[0]+s*p[2],p[1],grandFrame.z-s*p[0]+c*p[2]];});
+ corridor374=buildOccupiedCorridor374({emit,box,between,group,lantern,lattice,spatial191,galleryJoinery},{roofWorld:grandRoofWorld191,edgeWorld});
 }
 role='layered-walkways';group(-4.0,.1,-13,.13,()=>hall(7.5,7.4,5.9),.82);group(-1.5,.0,-17,0,()=>hall(7.6,6.5,4.8),.80);
 const rightHallFrame171={x:8.4,y:3.0,z:-14.2,yaw:-.90,scale:.62,floorWorldY:4.302,roofRise:4.20};
@@ -716,5 +689,5 @@ const natural197=installSun197(scene),sun=natural197.sun;
 skyMesh.visible=false;const measuredSky=await installCourtyardRadiance({renderer,scene,sun});
 scene.environmentIntensity=.80;measuredSky.info.environmentIntensity=.80;
 let hallCourt197,entryCourt191;measuredSky.beginIndirectCapture();try{hallCourt197=captureHallCourt197({renderer,scene,materials,stream,grandFrame});entryCourt191=captureEntryCourt191({renderer,scene,mats,stream});}finally{measuredSky.endIndirectCapture();}
-return {scene,setTime(time){void time;},stats:{instances,triangles,roles,foreground352,seed:80247,rngFinalState:seed,revision:REBUILD213_REVISION,rebuild213:{toro:toro213.info,banks:bankDress213,joinery:galleryJoinery.info213,grandRoof:grandRoof191?.profile213,grandFineBearing:grandMass171?.joinery213,hallTimber:hallTimber213.info(),hallLattice:hallLattice213.info(),hallEave:grandRoof191?.timber213,originalPortalsHeld:true},natural197:{...natural197.info,hallCourt:hallCourt197.info,joinery:galleryJoinery.info197,skyEnvironmentIntensity:.80},spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){hallCourt197.dispose();entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
+return {scene,setTime(time){void time;},stats:{instances,triangles,roles,foreground352,seed:80247,rngFinalState:seed,revision:REBUILD213_REVISION,rebuild213:{toro:toro213.info,banks:bankDress213,joinery:galleryJoinery.info213,grandRoof:grandRoof191?.profile213,grandFineBearing:grandMass171?.joinery213,hallTimber:hallTimber213.info(),hallLattice:hallLattice213.info(),hallEave:grandRoof191?.timber213,originalPortalsHeld:false,leftCorridorPortalsRebuilt374:true},natural197:{...natural197.info,hallCourt:hallCourt197.info,joinery:galleryJoinery.info197,skyEnvironmentIntensity:.80},spatial191:spatial191.info(),finish191,entryCourt191:entryCourt191.info,externalAssets:true,proceduralPlaqueGeometry:true,description:'Extended occupied grand-hall return, upper sloping gallery with recessed load-bearing post line, foreground lower tiled gallery on distinct terrain-rooted piers, complete five-bay right veranda and low wing, solid central stone flight and connected bridge landing, closed ceramic pans/covers, portable pigmented scan PBR and measured partly cloudy radiance, mature branched broadleaf crowns and carved weathered stone lantern.',botany:botany.stats,grandFrame,grandMass171,corridor374:{...corridor374,grandAccess:grandAccess374,lowerTransition:lowerTransition374,occupiedGrandFrame:grandStructure374,originalRootingAndCourtProbeFrameHeld:grandFrame},scannedPeony:peony.info(),pine171:pine171Stats,rightHall171:{frame:rightHallFrame171,shrineIsHostLocal:true,frontAxes:[-4.05,-2.43,-.81,.81,2.43,4.05],bayCount:5},measuredSky:measuredSky.info,scannedStones:{...scannedStones.info,count:scannedStones.info.count()}},dispose(){hallCourt197.dispose();entryCourt191.dispose();peony.dispose();scannedStones.dispose();measuredSky.dispose();botany.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();for(const t of textures)t.dispose();stream.dispose();}};
 }
